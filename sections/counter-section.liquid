@@ -1,0 +1,178 @@
+{% schema %}
+{
+  "name": "Counter Section",
+  "settings": [
+    {
+      "type": "color_background",
+      "id": "background",
+      "label": "Background",
+      "default": "linear-gradient(90deg,#3db2ff,#0077ff)"
+    },
+    {
+      "type": "range",
+      "id": "duration",
+      "label": "Animation duration (ms)",
+      "min": 400, "max": 3000, "step": 100, "default": 1200
+    },
+    {
+      "type": "checkbox",
+      "id": "animate",
+      "label": "Enable animation",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "counter",
+      "name": "Counter item",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "20" },
+        { "type": "text", "id": "suffix", "label": "Suffix (+, %, etc.)", "default": "+" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Years of Proven Experience" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Counter Section",
+      "blocks": [
+        { "type": "counter" },
+        { "type": "counter" },
+        { "type": "counter" },
+        { "type": "counter" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section id="CounterSection-{{ section.id }}" class="counter-section" style="background: {{ section.settings.background }};">
+  <div class="page-width">
+    <div class="counter-wrapper">
+      {% for block in section.blocks %}
+        <div class="counter-box" {{ block.shopify_attributes }}>
+          <div class="counter-line">
+            <span
+              class="counter-value"
+              data-counter
+              data-target="{{ block.settings.number | strip }}"
+              data-suffix="{{ block.settings.suffix | strip }}"
+            >{{ block.settings.number | strip }}{{ block.settings.suffix | strip }}</span>
+          </div>
+          <p class="counter-label">{{ block.settings.label }}</p>
+        </div>
+        
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+#CounterSection-{{ section.id }} {
+  color:#fff; padding: 24px 0;
+  background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%) !important;
+}
+#CounterSection-{{ section.id }} .counter-wrapper{
+  display: grid;
+  gap: 16px;
+  /* Auto-responsive columns: min width 220px, else expand */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+#CounterSection-{{ section.id }} .counter-box{
+  text-align:center; 
+}
+#CounterSection-{{ section.id }} .counter-line{
+  color: #FFF;
+text-align: center;
+font-family: Prompt;
+font-size: 36px;
+font-style: normal;
+font-weight: 700;
+line-height: 27px; /* 75% */
+text-transform: uppercase;
+}
+#CounterSection-{{ section.id }} .counter-label{
+color: #FFF;
+text-align: center;
+font-family: Prompt;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 22px; /* 137.5% */
+    margin: 10px 0 0;
+}
+
+@media (max-width: 749px){
+  #CounterSection-{{ section.id }} .counter-divider{ display:none; }
+}
+</style>
+
+<script>
+(() => {
+  const sectionId = 'CounterSection-{{ section.id }}';
+
+  function initCounterSection() {
+    const root = document.getElementById(sectionId);
+    if (!root) return;
+
+    const animateOn = {{ section.settings.animate | json }};
+    const duration = {{ section.settings.duration | json }};
+
+    const counters = root.querySelectorAll('[data-counter]');
+    if (!counters.length) return;
+
+    const format = (n) => n.toString(); // keep ultra-light; add separators if you want
+
+    const animate = (el) => {
+      const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+      const suffix = el.getAttribute('data-suffix') || '';
+      if (!animateOn) { el.textContent = format(target) + suffix; return; }
+
+      if (el.dataset.done === 'true') return;
+      el.dataset.done = 'true';
+
+      let start = null;
+      const startVal = 0;
+
+      const step = (ts) => {
+        if (!start) start = ts;
+        const progress = Math.min((ts - start) / duration, 1);
+        const value = Math.floor(startVal + (target - startVal) * progress);
+        el.textContent = format(value) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    // Animate when each counter enters viewport
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          animate(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    counters.forEach((el) => io.observe(el));
+  }
+
+  // Initial load
+  document.addEventListener('DOMContentLoaded', initCounterSection);
+
+  // Theme editor (section re-render)
+  document.addEventListener('shopify:section:load', (e) => {
+    if (e.detail.sectionId === '{{ section.id }}') initCounterSection();
+  });
+
+  // Animate selected block in editor
+  document.addEventListener('shopify:block:select', (e) => {
+    if (e.detail.sectionId === '{{ section.id }}') {
+      const block = document.querySelector(`#shopify-section-{{ section.id }} [data-block-id="${e.detail.blockId}"] [data-counter]`)
+                  || document.querySelector(`#CounterSection-{{ section.id }} [data-counter]`);
+      if (block) { block.dataset.done = 'false'; block.textContent = '0' + (block.getAttribute('data-suffix') || ''); }
+      initCounterSection();
+    }
+  });
+})();
+</script>

@@ -1,0 +1,296 @@
+<!-- sections/category.liquid -->
+<div class="category-section">
+  <div class="page-width">
+    <h2 class="category-title">{{ section.settings.heading }}</h2>
+    <div class="swiper category-swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide category-slide">
+            <div class="category-icon">
+              {% if block.settings.icon %}
+                <a href="{{ block.settings.urllabel }}">
+                <img src="{{ block.settings.icon | img_url: '100x100' }}" alt="{{ block.settings.label }}">
+                </a>
+              {% endif %}
+            </div>
+            <p class="category-label">
+                <a href="{{ block.settings.urllabel }}">{{ block.settings.label }}</a>
+            </p>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Navigation Arrows -->
+    <div class="swiper-pagination"></div>
+
+      
+      </div>
+    </div>
+    <div class="swiper-button swiper-button-prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="22" viewBox="0 0 13 22" fill="none">
+        <path d="M11.1348 0.5C11.3144 0.5 11.4927 0.53542 11.6582 0.603516C11.8235 0.671603 11.9731 0.771476 12.0986 0.896484L12.1016 0.898438C12.2282 1.02248 12.3282 1.17026 12.3965 1.33203C12.4647 1.49373 12.4999 1.66701 12.5 1.8418C12.5 2.01672 12.4647 2.19072 12.3965 2.35254C12.3283 2.5142 12.2281 2.66118 12.1016 2.78516L12.1006 2.78613L4.12793 10.6436L3.7666 11L4.12793 11.3564L12.1006 19.2139L12.1016 19.2148C12.2281 19.3388 12.3283 19.4858 12.3965 19.6475C12.4647 19.8093 12.5 19.9833 12.5 20.1582C12.4999 20.333 12.4647 20.5063 12.3965 20.668C12.3283 20.8297 12.2281 20.9766 12.1016 21.1006L12.0986 21.1035C11.9731 21.2285 11.8235 21.3284 11.6582 21.3965C11.4927 21.4646 11.3144 21.5 11.1348 21.5C10.9553 21.4999 10.7776 21.4645 10.6123 21.3965C10.4469 21.3284 10.2974 21.2286 10.1719 21.1035L10.1699 21.1025L0.899414 11.9443L0.898438 11.9434L0.808594 11.8457C0.72383 11.7444 0.654687 11.6311 0.603516 11.5098C0.535325 11.348 0.5 11.1749 0.5 11C0.5 10.8251 0.535325 10.652 0.603516 10.4902C0.671765 10.3284 0.771803 10.1807 0.898438 10.0566L0.899414 10.0557L10.1699 0.897461L10.1719 0.896484C10.2974 0.771444 10.4469 0.671605 10.6123 0.603516C10.7776 0.535472 10.9553 0.500054 11.1348 0.5Z" fill="black" stroke="#E1DED6"/>
+        </svg>
+      </div>
+      <div class="swiper-button swiper-button-next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="22" viewBox="0 0 13 22" fill="none">
+  <path d="M1.86523 0.5C1.68563 0.5 1.50726 0.53542 1.3418 0.603516C1.17649 0.671603 1.02688 0.771476 0.901367 0.896484L0.898438 0.898438C0.771839 1.02248 0.671763 1.17026 0.603516 1.33203C0.535322 1.49373 0.500052 1.66701 0.5 1.8418C0.5 2.01672 0.535272 2.19072 0.603516 2.35254C0.671743 2.5142 0.771934 2.66118 0.898438 2.78516L0.899414 2.78613L8.87207 10.6436L9.2334 11L8.87207 11.3564L0.899414 19.2139L0.898438 19.2148C0.771934 19.3388 0.671743 19.4858 0.603516 19.6475C0.535272 19.8093 0.5 19.9833 0.5 20.1582C0.500051 20.333 0.535322 20.5063 0.603516 20.668C0.671726 20.8297 0.771937 20.9766 0.898438 21.1006L0.901367 21.1035C1.02688 21.2285 1.17649 21.3284 1.3418 21.3965C1.50725 21.4646 1.68563 21.5 1.86523 21.5C2.0447 21.4999 2.22236 21.4645 2.3877 21.3965C2.55306 21.3284 2.70258 21.2286 2.82812 21.1035L2.83008 21.1025L12.1006 11.9443L12.1016 11.9434L12.1914 11.8457C12.2762 11.7444 12.3453 11.6311 12.3965 11.5098C12.4647 11.348 12.5 11.1749 12.5 11C12.5 10.8251 12.4647 10.652 12.3965 10.4902C12.3282 10.3284 12.2282 10.1807 12.1016 10.0566L12.1006 10.0557L2.83008 0.897461L2.82812 0.896484C2.70258 0.771444 2.55306 0.671605 2.3877 0.603516C2.22236 0.535472 2.04469 0.500054 1.86523 0.5Z" fill="black" stroke="#E1DED6"/>
+</svg>
+  </div>
+</div>
+
+<style>
+  .category-section {
+    padding: 65px 0;
+    text-align: center;
+    background: #FFF;
+    position: relative;
+  }
+
+  .swiper.category-swiper {
+    padding: 30px 0 0;
+} 
+  .category-title {
+     color: #141132;
+text-align: center;
+font-size: 36px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: uppercase;
+margin: 0 0 0;
+  }
+  .category-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .category-icon {
+   border-radius: 50%;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    margin: 0;
+    overflow: hidden;
+    max-width: 120px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.20);
+    transition: all .4s linear;
+  }
+
+  .category-slide.active {
+    padding: 0 ;
+  }
+
+  .swiper-slide.category-slide.swiper-slide-active {
+    padding: 0;
+}
+
+  .category-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .category-label {
+    margin: 10px 0 0;
+    color: #141132;
+    text-align: center;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+  .category-label a {
+    color: #141132;
+    text-align: center;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+  }
+
+  
+
+  .swiper.category-swiper {
+    position: relative;
+}
+
+.category-section  .swiper-button:after {
+    display: none;
+}
+
+.category-section  .swiper-button {
+    top: 56%;
+    z-index: 1;
+    width: 14px;
+}
+
+.category-section .swiper-pagination {
+  display: none;
+}
+
+.category-slide:hover .category-icon {
+    box-shadow: 0 0 8px 0 #141132;
+}
+
+.category-slide:hover .category-label  {
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+@media only screen and (max-width: 767px) {  
+.category-section {
+    padding: 40px 0;
+}
+
+.category-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.category-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.category-section .page-width {
+        margin: 0 15px;
+    }
+.category-label {
+    font-size: 16px;
+}
+
+.category-section .swiper-pagination {
+  display: block;
+} 
+
+.category-section .swiper-button {
+  display: none;
+}
+
+.swiper.category-swiper {
+  padding-bottom: 50px;
+}
+
+.swiper.category-swiper .swiper-pagination-bullet-active {
+    background-color: #9A6F00;
+}
+}
+
+@media only screen and (max-width: 540px) {
+  .category-icon {
+        width: 80px;
+        height: 80px;
+    }
+   }
+</style>
+
+<script type="module">
+ document.addEventListener("DOMContentLoaded", () => {
+    const swiperEl = document.querySelector(".category-swiper");
+
+    if (swiperEl) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        if (entries[0].isIntersecting) {
+          new Swiper('.category-swiper', {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            speed: 800,
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev'
+            },
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+            breakpoints: {
+              540: {
+                slidesPerView: 3,
+                navigation: {
+                  enabled: true
+                },
+                pagination: {
+                  el: '.swiper-pagination',
+                  clickable: false,
+                }
+              },
+              1024: {
+                slidesPerView: 6,
+                navigation: {
+                  enabled: true
+                }
+              },
+              1240: {
+                slidesPerView: 9,
+                navigation: {
+                  enabled: true
+                }
+              }
+            }
+          });
+          obs.disconnect(); // init only once
+        }
+      });
+      observer.observe(swiperEl);
+    }
+  });
+</script>
+
+
+
+{% schema %}
+{
+  "name": "Category Slider",
+  "tag": "section",
+  "class": "category-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Title",
+      "default": "Categories"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Category Icon"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Category Name",
+          "default": "Category"
+        },
+        {
+          "type": "url",
+          "id": "urllabel",
+          "label": "Category Url"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 15,
+  "presets": [
+    {
+      "name": "Category Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

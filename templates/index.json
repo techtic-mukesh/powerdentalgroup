@@ -1,61 +1,159 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "banner_swiper_aXUMTh": {
+      "type": "banner-swiper",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "slide_7zX73H": {
+          "type": "slide",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "image": "shopify:\/\/shop_images\/banner-first-img.png",
+            "heading": "COMMON PROBLEMS, DISRUPTIVE SOLUTIONS",
+            "subheading": "<p>With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.<\/p>",
+            "button_label": "Who We Are",
+            "button_link": "shopify:\/\/collections"
           }
         },
-        "button": {
-          "type": "buttons",
+        "slide_LVQGqF": {
+          "type": "slide",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify:\/\/shop_images\/power-dental-banner-2.jpg",
+            "heading": "Instruments for Every Indication.",
+            "subheading": "<p>Thoughtful attention to detail. Power in every build. Make every moment count with the best instruments in class.<\/p>",
+            "button_label": "Shop",
+            "button_link": "shopify:\/\/collections"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "slide_7zX73H",
+        "slide_LVQGqF"
       ],
+      "name": "Banner Swiper",
+      "settings": {}
+    },
+    "counter_section_8GnqEy": {
+      "type": "counter-section",
+      "blocks": {
+        "counter_LJfnh8": {
+          "type": "counter",
+          "settings": {
+            "number": "20",
+            "suffix": "+",
+            "label": "Years of Proven Experience"
+          }
+        },
+        "counter_hxBbpG": {
+          "type": "counter",
+          "settings": {
+            "number": "25",
+            "suffix": "",
+            "label": "Patents Held"
+          }
+        },
+        "counter_hgbbaj": {
+          "type": "counter",
+          "settings": {
+            "number": "2300",
+            "suffix": "+",
+            "label": "Instruments Offered"
+          }
+        },
+        "counter_yBG3DR": {
+          "type": "counter",
+          "settings": {
+            "number": "5500",
+            "suffix": "+",
+            "label": "Doctors Served Worldwide"
+          }
+        }
+      },
+      "block_order": [
+        "counter_LJfnh8",
+        "counter_hxBbpG",
+        "counter_hgbbaj",
+        "counter_yBG3DR"
+      ],
+      "name": "Counter Section",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
+        "background": "linear-gradient(283deg, rgba(0, 51, 160, 1), rgba(66, 197, 239, 1) 50%, rgba(0, 119, 255, 1) 100%)",
+        "duration": 1200,
+        "animate": true
+      }
+    },
+    "slideshow_6k9qeX": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_YmP8qh": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/banner-first-img.png",
+            "image_overlay_opacity": 0,
+            "heading": "COMMON PROBLEMS, DISRUPTIVE SOLUTIONS",
+            "heading_size": "h1",
+            "subheading": "With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.",
+            "button_label": "Who We Are",
+            "link": "shopify:\/\/collections",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-right",
+            "text_alignment": "left",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-4"
+          }
+        },
+        "slide_7VjE6K": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/banner-first-img.png",
+            "image_overlay_opacity": 0,
+            "heading": "COMMON PROBLEMS, DISRUPTIVE SOLUTIONS",
+            "heading_size": "h1",
+            "subheading": "With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.",
+            "button_label": "Who We Are",
+            "link": "shopify:\/\/collections",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-right",
+            "text_alignment": "left",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-4"
+          }
+        }
+      },
+      "block_order": [
+        "slide_YmP8qh",
+        "slide_7VjE6K"
+      ],
+      "disabled": true,
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
         "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
       }
     },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
+        "collection": "all",
+        "products_to_show": 8,
         "title": "Featured products",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -63,13 +161,100 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 36
+      }
+    },
+    "our_category_dAjLQW": {
+      "type": "our-category",
+      "blocks": {
+        "category_HrVRA7": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "label": "Category"
+          }
+        },
+        "category_CCxDmL": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "label": "Category"
+          }
+        },
+        "category_FYVXaq": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "label": "Category"
+          }
+        },
+        "category_3k7xg9": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "label": "Category"
+          }
+        },
+        "category_PEJRcf": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "label": "Category"
+          }
+        },
+        "category_H6bwqD": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "label": "Category"
+          }
+        },
+        "category_9pcEjR": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "label": "Category"
+          }
+        },
+        "category_7DUUdj": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "label": "Category"
+          }
+        },
+        "category_8xQVr6": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "label": "Category"
+          }
+        }
+      },
+      "block_order": [
+        "category_HrVRA7",
+        "category_CCxDmL",
+        "category_FYVXaq",
+        "category_3k7xg9",
+        "category_PEJRcf",
+        "category_H6bwqD",
+        "category_9pcEjR",
+        "category_7DUUdj",
+        "category_8xQVr6"
+      ],
+      "name": "Category Slider",
+      "settings": {
+        "heading": "Our Products"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "banner_swiper_aXUMTh",
+    "counter_section_8GnqEy",
+    "slideshow_6k9qeX",
+    "featured_collection",
+    "our_category_dAjLQW"
   ]
 }
