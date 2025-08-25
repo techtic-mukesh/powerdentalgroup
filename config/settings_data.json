@@ -1,8 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
-    "logo": "shopify:\/\/shop_images\/power-dental-logo_2.png",
+    "logo": "shopify://shop_images/power-dental-logo_2.png",
     "logo_width": 250,
-    "favicon": "shopify:\/\/shop_images\/favicon_2.png",
+    "favicon": "shopify://shop_images/favicon_2.png",
     "type_header_font": "montserrat_n7",
     "heading_scale": 100,
     "type_body_font": "prompt_n4",
@@ -101,10 +110,10 @@
     "brand_headline": "Contact",
     "brand_description": "<p>Power Dental Group<br\/>2809 Barney Ct. McHenry, IL 60051<\/p><p>Local\u2028+1-815-363-8003<\/p>",
     "brand_image_width": 100,
-    "social_facebook_link": "\/",
-    "social_instagram_link": "\/",
-    "social_youtube_link": "\/",
-    "social_tiktok_link": "\/",
+    "social_facebook_link": "",
+    "social_instagram_link": "",
+    "social_youtube_link": "",
+    "social_tiktok_link": "",
     "social_twitter_link": "",
     "social_snapchat_link": "",
     "social_pinterest_link": "",
@@ -190,7 +199,7 @@
           "shadow": "#121212"
         }
       },
-      "scheme-740c7c25-764b-47b9-b98f-5dc4faed30ef": {
+      "scheme-c2cb00ea-c497-4faa-9d8f-68b679e10b72": {
         "settings": {
           "background": "#141132",
           "background_gradient": "",
@@ -359,7 +368,7 @@
       "sale_badge_color_scheme": "scheme-4",
       "sold_out_badge_color_scheme": "scheme-3",
       "brand_headline": "",
-      "brand_description": "<p><\/p>",
+      "brand_description": "<p></p>",
       "brand_image_width": 100,
       "social_twitter_link": "",
       "social_facebook_link": "",
