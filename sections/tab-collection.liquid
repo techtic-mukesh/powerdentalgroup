@@ -1,0 +1,206 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+
+{%- unless section.settings.quick_add == 'none' -%}
+  {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endunless -%}
+
+{%- if section.settings.quick_add == 'standard' -%}
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- if section.settings.quick_add == 'bulk' -%}
+  <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+<section class="collection-tabs page-width section-{{ section.id }}-padding">
+  <h2 class="title inline-richtext text-center">{{ section.settings.section_heading }}</h2>
+
+  <!-- Tabs -->
+  <div class="tabs-buttons flex justify-center gap-4 my-6">
+    {% for block in section.blocks %}
+      <button 
+        class="tab-btn {% if forloop.first %}active{% endif %}" 
+        data-tab="tab-{{ block.id }}">
+        {{ block.settings.tab_label }}
+      </button>
+    {% endfor %}
+  </div>
+
+  <!-- Tabs Content -->
+  <div class="tabs-content">
+    {% for block in section.blocks %}
+      {% assign collection = collections[block.settings.collection] %}
+      <div id="tab-{{ block.id }}" class="tab-panel {% if forloop.first %}active{% endif %}">
+        {% if collection != blank and collection.products.size > 0 %}
+          <ul class="grid product-grid grid--2-col tablet:grid--3-col grid--4-col-desktop">
+            {% assign lazy_load = false %}
+            {% for product in collection.products limit: section.settings.products_to_show %}
+              {% if lazy_load == false and forloop.index > 4 %}
+                {% assign lazy_load = true %}
+              {% endif %}
+              <li class="grid__item">
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: section.settings.image_ratio,
+                  image_shape: section.settings.image_shape,
+                  lazy_load: lazy_load,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  show_vendor: section.settings.show_vendor,
+                  show_rating: section.settings.show_rating,
+                  section_id: section.id,
+                  quick_add: section.settings.quick_add
+                %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>No products found for this collection</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+.collection-tabs .tab-btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  background: #f8f8f8;
+  transition: 0.3s;
+}
+.collection-tabs .tab-btn.active {
+  background: linear-gradient(90deg, #42C5EF, #0033A0);
+  color: #fff;
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const buttons = document.querySelectorAll(".collection-tabs .tab-btn");
+  const panels = document.querySelectorAll(".collection-tabs .tab-panel");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      panels.forEach(panel => panel.classList.remove("active"));
+      document.getElementById(btn.dataset.tab).classList.add("active");
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Collection Tabs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Customer Favorites"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to Show",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "adapt", "label": "Adapt to image" },
+        { "value": "square", "label": "Square" },
+        { "value": "portrait", "label": "Portrait" }
+      ],
+      "default": "adapt"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "label": "Image shape",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "arch", "label": "Arch" },
+        { "value": "blob", "label": "Blob" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "label": "Show secondary image on hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show product vendor",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show product rating",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "label": "Quick add button",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "standard", "label": "Standard" },
+        { "value": "bulk", "label": "Bulk" }
+      ],
+      "default": "standard"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_tab",
+      "name": "Collection Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "label": "Tab Label",
+          "default": "Power Picks"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Tabs",
+      "blocks": [
+        { "type": "collection_tab" },
+        { "type": "collection_tab" },
+        { "type": "collection_tab" }
+      ]
+    }
+  ]
+}
+{% endschema %}

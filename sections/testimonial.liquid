@@ -1,0 +1,298 @@
+<section class="testimonials-section">
+  <div class="page-width">
+    <h2 class="testimonials__title">TESTIMONIALS</h2>
+
+    <div class="swiper-main" style="position: relative;">
+         <div class="swiper testimonial-swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+        <div class="swiper-slide testimonial__slide">
+          <div class="testimonial__card">
+              {% if block.settings.profile_image != blank %}
+              <div class="testimonial__avatar">
+                <img src="{{ block.settings.profile_image | img_url: '120x120' }}" alt="{{ block.settings.name | escape }}">
+              </div>
+              {% endif %}
+
+                          <div class="testimonial__content">
+
+              <div class="testimonial__quote-icon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" viewBox="0 0 25 20" fill="none">
+                    <path d="M2.11379 2.865C-0.244961 5.425 -0.00746155 8.7125 3.8147e-05 8.75V18.75C3.8147e-05 19.0815 0.131735 19.3995 0.366154 19.6339C0.600574 19.8683 0.918518 20 1.25004 20H8.75004C10.1288 20 11.25 18.8788 11.25 17.5V8.75C11.25 8.41848 11.1183 8.10054 10.8839 7.86612C10.6495 7.6317 10.3316 7.5 10 7.5H6.15254C6.1795 6.88211 6.36411 6.2814 6.68879 5.755C7.32379 4.75375 8.52004 4.07 10.2463 3.725L11.25 3.525V0H10C6.52129 0 3.86754 0.963749 2.11379 2.865ZM15.8725 2.865C13.5125 5.425 13.7513 8.7125 13.7588 8.75V18.75C13.7588 19.0815 13.8905 19.3995 14.1249 19.6339C14.3593 19.8683 14.6773 20 15.0088 20H22.5088C23.8875 20 25.0088 18.8788 25.0088 17.5V8.75C25.0088 8.41848 24.8771 8.10054 24.6427 7.86612C24.4083 7.6317 24.0903 7.5 23.7588 7.5H19.9113C19.9383 6.88211 20.1229 6.2814 20.4475 5.755C21.0825 4.75375 22.2788 4.07 24.005 3.725L25.0088 3.525V0H23.7588C20.28 0 17.6263 0.963749 15.8725 2.865Z" fill="#141132"/>
+                    <path d="M2.11379 2.865C-0.244961 5.425 -0.00746155 8.7125 3.8147e-05 8.75V18.75C3.8147e-05 19.0815 0.131735 19.3995 0.366154 19.6339C0.600574 19.8683 0.918518 20 1.25004 20H8.75004C10.1288 20 11.25 18.8788 11.25 17.5V8.75C11.25 8.41848 11.1183 8.10054 10.8839 7.86612C10.6495 7.6317 10.3316 7.5 10 7.5H6.15254C6.1795 6.88211 6.36411 6.2814 6.68879 5.755C7.32379 4.75375 8.52004 4.07 10.2463 3.725L11.25 3.525V0H10C6.52129 0 3.86754 0.963749 2.11379 2.865ZM15.8725 2.865C13.5125 5.425 13.7513 8.7125 13.7588 8.75V18.75C13.7588 19.0815 13.8905 19.3995 14.1249 19.6339C14.3593 19.8683 14.6773 20 15.0088 20H22.5088C23.8875 20 25.0088 18.8788 25.0088 17.5V8.75C25.0088 8.41848 24.8771 8.10054 24.6427 7.86612C24.4083 7.6317 24.0903 7.5 23.7588 7.5H19.9113C19.9383 6.88211 20.1229 6.2814 20.4475 5.755C21.0825 4.75375 22.2788 4.07 24.005 3.725L25.0088 3.525V0H23.7588C20.28 0 17.6263 0.963749 15.8725 2.865Z" fill="url(#paint0_linear_1766_4316)"/>
+                    <defs>
+                        <linearGradient id="paint0_linear_1766_4316" x1="25.0088" y1="10" x2="-0.0098877" y2="10" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#42C5EF"/>
+                        <stop offset="1" stop-color="#0033A0"/>
+                        </linearGradient>
+                    </defs>
+                    </svg>
+              </div>
+            
+            {% if block.settings.testimonial_title != blank %}
+            <h3 class="testimonial__title">{{ block.settings.testimonial_title }}</h3>
+            {% endif %}
+            
+            {% if block.settings.testimonial_text != blank %}
+            <div class="testimonial__content">
+              {{ block.settings.testimonial_text }}
+            </div>
+            {% endif %}
+            
+            <div class="testimonial__footer">
+              {% if block.settings.name != blank %}
+              <div class="testimonial__author">
+                <strong>{{ block.settings.name }}</strong>
+                {% if block.settings.credentials != blank %}
+                <span class="testimonial__credentials">{{ block.settings.credentials }}</span>
+                {% endif %}
+              </div>
+              {% endif %}
+              
+              {% if block.settings.date != blank %}
+              <div class="testimonial__date">
+                Posted on {{ block.settings.date }}
+              </div>
+              {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Swiper navigation -->
+    <div class="swiper-button-prev testimonial-prev">
+      <svg xmlns="http://www.w3.org/2000/svg" width="23" height="43" viewBox="0 0 23 43" fill="none">
+        <path d="M21.5 41.5L1.5 21.5L21.5 1.5" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <div class="swiper-button-next testimonial-next">
+     <svg xmlns="http://www.w3.org/2000/svg" width="23" height="43" viewBox="0 0 23 43" fill="none">
+        <path d="M1.5 41.5L21.5 21.5L1.5 1.5" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+    </div>
+    
+   
+  </div>
+</section>
+
+<style>
+.testimonials-section {
+  padding: 60px 0;
+  background: #fff;
+}
+
+.testimonials-section h2.testimonials__title {
+    text-align: center;
+    margin: 0 0 30px;
+}
+
+/* Equal height for swiper slides */
+.testimonial-swiper .swiper-wrapper {
+    align-items: stretch;
+}
+
+.testimonial-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+}
+
+.testimonial__card {
+    padding: 30px;
+    border: 1px solid #DCDCDC;
+    background: #FFF;
+    border-radius: 30px;
+    display: flex;
+    gap: 30px;
+    flex: 1; /* This ensures the card takes full height of the slide */
+}
+
+/* Make the right content area flexible */
+.testimonial__card > .testimonial__content {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+h3.testimonial__title {
+    color: #141132;
+    font-family: Prompt;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px; /* 110% */
+    margin: 10px 0 20px;
+}
+
+/* Testimonial text content */
+.testimonial__content .testimonial__content {
+    color: #141132;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 22px;
+    margin: 0 0 20px;
+}
+
+.testimonial__content .testimonial__content p {
+    color: #141132;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 22px;
+    margin: 0;
+}
+
+.testimonials-section .swiper-button-next:after, .testimonials-section .swiper-button-prev:after {
+    display: none;
+}
+
+.testimonials-section .swiper-button-next svg, .testimonials-section .swiper-button-prev svg {
+    width: 40px;
+    height: 20px;
+}
+
+.testimonials-section .swiper-button-prev {
+    left: -22px;
+}
+
+.testimonials-section .swiper-button-next {
+    right: -22px;
+}
+
+.swiper-main {
+    padding: 0 10px;
+}
+
+.testimonial__author * {
+    color: #0033A0;
+    font-family: Prompt;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 133.333% */
+}
+
+.testimonial__author {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial__date {
+    color: #141132;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Testimonials Swiper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "TESTIMONIALS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "profile_image",
+          "label": "Profile Image"
+        },
+        {
+          "type": "text",
+          "id": "testimonial_title",
+          "label": "Testimonial Title",
+          "info": "e.g., Saves Me Valuable Chair Time and Hundreds of Dollars in Bills"
+        },
+        {
+          "type": "richtext",
+          "id": "testimonial_text",
+          "label": "Testimonial Text",
+          "info": "Enter the testimonial content here..."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer Name",
+          "info": "e.g., Dr. Santiago, DDS"
+        },
+        {
+          "type": "text",
+          "id": "credentials",
+          "label": "Credentials/Company",
+          "info": "e.g., Comfort Smiles Atlanta"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date",
+          "info": "e.g., February 20, 2024"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials Swiper"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const swiperEl = document.querySelector(".testimonial-swiper");
+
+  if (swiperEl) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting) {
+        new Swiper(".testimonial-swiper", {
+          loop: true,
+          slidesPerView: 1,
+          spaceBetween: 30,
+        //   speed: 600,
+        //   autoplay: {
+        //     delay: 5000,
+        //     disableOnInteraction: false
+        //   },
+          navigation: {
+            nextEl: ".testimonial-next",
+            prevEl: ".testimonial-prev"
+          },
+          breakpoints: {
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            }
+          }
+        });
+        obs.disconnect();
+      }
+    });
+    observer.observe(swiperEl);
+  }
+});
+</script>

@@ -1,0 +1,243 @@
+
+<section class="our-services" style="background-color: {{ section.settings.background_color }};">
+    <div class="page-width">
+        <div class="title-wrap">
+            <p class="subheading">{{ section.settings.subheading }}</p>
+            <h2>{{ section.settings.heading }}</h2>
+            {% if section.settings.content %}
+            <div class="content">
+                {{ section.settings.content }}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="service-wrap">
+         {% for block in section.blocks %}
+            <a href="{{ block.settings.srvurl }}" class="service-item index-{{ forloop.index }}" style="--bg:url('{{ block.settings.image | img_url: '' }}')"  >
+                <div class="service-label">
+                    {{ block.settings.label }}
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        {% if  section.settings.btnurl %}
+        <div class="bottom-btn">
+            <a href="{{ section.settings.btnurl }}" class="button button--secondary">
+                <span>{{ section.settings.btntext }}</span>
+                {%  render 'button-arrow-primary' %}
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<style>
+    section.our-services {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    padding: 59.85px 0 66.28px;
+}
+
+section.our-services .title-wrap {
+    text-align: center;
+    margin: 0 0 30px;
+}
+
+section.our-services .title-wrap p.subheading {
+    margin: 0 0 15px;
+    width: 100%;
+    position: relative;
+    font-size: 18px;
+    letter-spacing: 0.15em;
+    line-height: 27px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: Prompt;
+    background: linear-gradient(90deg, #42c5ef, #0033a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    display: inline-block;
+}
+
+section.our-services .title-wrap .content p {
+    margin: 0;
+    width: 100%;
+    position: relative;
+    font-size: 18px;
+    line-height: 26px;
+    font-family: Prompt;
+    color: #141132;
+    text-align: center;
+    display: inline-block;
+}
+
+.service-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+     grid-template-rows: auto auto; /* 2 rows */
+    column-gap: 30px;
+    row-gap: 20px;
+     
+}
+
+.service-wrap a.service-item {
+    display: inline-flex;
+    width: 100%;
+    align-items: end;
+    padding: 30px;
+       background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-decoration: none;
+        border-radius: 10px;
+    overflow: hidden;
+position: relative;
+background-color: #000000;
+}
+
+.service-wrap a.service-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.5s ease-in-out;
+  z-index: 0;
+}
+
+/* zoom effect */
+.service-wrap a.service-item:hover::before {
+  transform: scale(1.03); /* smooth zoom */
+}
+
+
+.service-wrap a.service-item::before {
+  background-image: var(--bg);
+}
+
+.service-wrap a.service-item.index-1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.service-wrap a.service-item.index-2 {
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: end;
+}
+
+.service-wrap a.service-item.index-3 {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    min-height: 420px;
+    align-items: flex-start;
+}
+
+.service-wrap a.service-item .service-label {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.11);
+    box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(8px);
+    width: auto;
+}
+
+.service-wrap a.service-item .service-label p {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; /* 125% */
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.service-wrap a.service-item:hover {
+    background-size: 103%;
+}
+
+section.our-services .bottom-btn {
+    text-align: center;
+    margin-top: 33.87px;
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Our Service",
+  "tag": "section",
+  "settings": [
+    {
+    "type": "color",
+    "id": "background_color",
+    "label": "Background Color",
+    "default": "#ffffff"
+    },
+     {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Title"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+     {
+      "type": "url",
+      "id": "btnurl",
+      "label": "Button Url"
+    },
+     {
+      "type": "text",
+      "id": "btntext",
+      "label": "Button text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "label",
+          "label": "Service Name"
+        },
+        {
+          "type": "url",
+          "id": "srvurl",
+          "label": "Service Url"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 15,
+  "presets": [
+    {
+      "name": "Our Service",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
