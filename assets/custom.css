@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Globle CSS */
+
+h1 {
+    font-size: 44px;
+    line-height: 60px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h2 {
+    font-size: 36px;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin: 0 0 20px;
+}
+
+a.button.button--secondary {
+    padding: 0 20px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%), linear-gradient(0deg, #FFF 0%, #FFF 100%), linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+    line-height: 50px;
+    align-items: center;
+    gap: 10px;
+    background-size: 100% auto;
+    background-position: left center;
+    transition: background-position 0.5s ease-in-out;
+}
+
+a.button.button--secondary:hover {
+    background-position: right center;
+    /* hover pe gradient slide hoga left→right */
+    background-size: 200% auto;
+}
+
+a.button.button--secondary span {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+a.button.button--secondary svg path {
+    stroke: #fff;
+}
+
+a.button.button--secondary:after {
+    display: none;
+}
+
+/* End Globle CSS */
+
+/* Footer CSS */
+
+.footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.grid--3-col-tablet {
+    display: grid !important;
+    grid-template-columns: 350px auto auto auto auto auto;
+    gap: 40px;
+}
+
+.grid--3-col-tablet .grid__item {
+        width: 100% !important;
+}
+
+.footer-block__heading {
+    font-family: Prompt;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 27px; /* 150% */
+    letter-spacing: 2.7px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-block__brand-info p {
+    color: #FFF;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 137.5% */
+    position: relative;
+        padding-left: 24px;
+}
+
+.footer-block__brand-info p:before {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='25' viewBox='0 0 20 25' fill='none'%3E%3Cpath d='M10 4.6675C8.4529 4.6675 6.96917 5.28208 5.87521 6.37604C4.78125 7.47001 4.16667 8.95374 4.16667 10.5008C4.16667 12.8858 5.65167 15.1867 7.28167 16.9692C8.11512 17.8772 9.02453 18.7124 10 19.4658C10.1456 19.3542 10.3164 19.2181 10.5125 19.0575C11.2957 18.4144 12.0328 17.7171 12.7183 16.9708C14.3483 15.1867 15.8333 12.8867 15.8333 10.5008C15.8333 8.95374 15.2188 7.47001 14.1248 6.37604C13.0308 5.28208 11.5471 4.6675 10 4.6675ZM10 21.5125L9.5275 21.1875L9.525 21.1858L9.52 21.1817L9.50333 21.17L9.44083 21.1258L9.21583 20.9617C8.07572 20.1048 7.01656 19.1453 6.05167 18.095C4.34833 16.23 2.5 13.5308 2.5 10.5C2.5 8.51088 3.29018 6.60322 4.6967 5.1967C6.10322 3.79018 8.01088 3 10 3C11.9891 3 13.8968 3.79018 15.3033 5.1967C16.7098 6.60322 17.5 8.51088 17.5 10.5C17.5 13.5308 15.6517 16.2308 13.9483 18.0933C12.9837 19.1435 11.9248 20.1031 10.785 20.96C10.69 21.0309 10.5942 21.1007 10.4975 21.1692L10.48 21.1808L10.475 21.185L10.4733 21.1858L10 21.5125ZM10 8.83417C9.55797 8.83417 9.13405 9.00976 8.82149 9.32232C8.50893 9.63488 8.33333 10.0588 8.33333 10.5008C8.33333 10.9429 8.50893 11.3668 8.82149 11.6793C9.13405 11.9919 9.55797 12.1675 10 12.1675C10.442 12.1675 10.866 11.9919 11.1785 11.6793C11.4911 11.3668 11.6667 10.9429 11.6667 10.5008C11.6667 10.0588 11.4911 9.63488 11.1785 9.32232C10.866 9.00976 10.442 8.83417 10 8.83417ZM6.66667 10.5008C6.66667 9.61678 7.01786 8.76893 7.64298 8.14381C8.2681 7.51869 9.11594 7.1675 10 7.1675C10.8841 7.1675 11.7319 7.51869 12.357 8.14381C12.9821 8.76893 13.3333 9.61678 13.3333 10.5008C13.3333 11.3849 12.9821 12.2327 12.357 12.8579C11.7319 13.483 10.8841 13.8342 10 13.8342C9.11594 13.8342 8.2681 13.483 7.64298 12.8579C7.01786 12.2327 6.66667 11.3849 6.66667 10.5008Z' fill='white'/%3E%3C/svg%3E");
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    min-width: 20px;
+}
+
+.footer-block__brand-info .rte p:last-of-type:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='23' viewBox='0 0 20 23' fill='none'%3E%3Cpath d='M12.8163 15.5337L13.1963 15.1562L12.3138 14.2696L11.9355 14.6471L12.8163 15.5337ZM14.4705 14.9979L16.063 15.8637L16.6588 14.7654L15.0671 13.9004L14.4705 14.9979ZM16.3688 17.5837L15.1855 18.7612L16.0663 19.6471L17.2496 18.4704L16.3688 17.5837ZM14.4638 19.1396C13.2555 19.2529 10.1305 19.1521 6.74547 15.7871L5.8638 16.6729C9.55714 20.3454 13.073 20.5254 14.5805 20.3846L14.4638 19.1396ZM6.74547 15.7871C3.51964 12.5787 2.98464 9.88123 2.91797 8.71039L1.66964 8.78123C1.75297 10.2546 2.41547 13.2446 5.8638 16.6729L6.74547 15.7871ZM7.8913 10.6371L8.13047 10.3987L7.25047 9.51289L7.0113 9.75039L7.8913 10.6371ZM8.32047 7.36956L7.27047 5.96623L6.26964 6.71623L7.31964 8.11873L8.32047 7.36956ZM3.7363 5.66039L2.42797 6.96039L3.30964 7.84706L4.61714 6.54706L3.7363 5.66039ZM7.4513 10.1937C7.00964 9.75039 7.00964 9.75039 7.00964 9.75206H7.00797L7.00547 9.75539C6.96587 9.79532 6.93041 9.83916 6.89964 9.88623C6.85464 9.95289 6.80547 10.0404 6.7638 10.1512C6.66237 10.4373 6.63709 10.7449 6.69047 11.0437C6.80214 11.7646 7.2988 12.7171 8.57047 13.9821L9.45214 13.0954C8.2613 11.9121 7.97797 11.1921 7.92547 10.8521C7.90047 10.6904 7.9263 10.6104 7.9338 10.5921C7.9388 10.5809 7.9388 10.5793 7.9338 10.5871C7.92637 10.5986 7.91801 10.6094 7.9088 10.6196L7.90047 10.6279L7.89214 10.6354L7.4513 10.1937ZM8.57047 13.9821C9.84297 15.2471 10.8005 15.7404 11.5221 15.8504C11.8913 15.9071 12.1888 15.8621 12.4146 15.7779C12.5411 15.7316 12.6593 15.6652 12.7646 15.5812L12.8063 15.5437L12.8121 15.5387L12.8146 15.5362L12.8155 15.5346C12.8155 15.5346 12.8163 15.5337 12.3755 15.0904C11.9338 14.6471 11.9363 14.6462 11.9363 14.6462L11.938 14.6446L11.9396 14.6429L11.9446 14.6387L11.953 14.6304L11.9846 14.6054C11.9924 14.6004 11.9905 14.6009 11.9788 14.6071C11.958 14.6146 11.8763 14.6404 11.7121 14.6154C11.3671 14.5621 10.6421 14.2787 9.45214 13.0954L8.57047 13.9821ZM7.27047 5.96539C6.42047 4.83206 4.75047 4.65206 3.7363 5.66039L4.61714 6.54706C5.06047 6.10623 5.84714 6.15206 6.26964 6.71623L7.27047 5.96539ZM2.9188 8.71123C2.90214 8.42289 3.03464 8.12123 3.30964 7.84789L2.42714 6.96123C1.97964 7.40623 1.62714 8.03623 1.66964 8.78123L2.9188 8.71123ZM15.1855 18.7612C14.9571 18.9896 14.7105 19.1179 14.4646 19.1404L14.5805 20.3846C15.193 20.3271 15.6938 20.0187 16.0671 19.6479L15.1855 18.7612ZM8.13047 10.3987C8.9513 9.58289 9.01214 8.29373 8.3213 7.37039L7.32047 8.11956C7.6563 8.56873 7.6063 9.15789 7.24964 9.51373L8.13047 10.3987ZM16.0638 15.8646C16.7446 16.2346 16.8505 17.1062 16.3696 17.5846L17.2513 18.4704C18.368 17.3596 18.0238 15.5071 16.6596 14.7662L16.0638 15.8646ZM13.1963 15.1571C13.5163 14.8387 14.0313 14.7604 14.4713 14.9987L15.068 13.9012C14.1646 13.4096 13.0446 13.5454 12.3146 14.2704L13.1963 15.1571Z' fill='white'/%3E%3C/svg%3E");
+    top: 0;
+}
+
+
+.footer-block__details-content .list-menu__item--link {
+    color: #FFF;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 175% */
+    text-decoration: none;
+    padding: 0;
+}
+
+.footer-block__brand-info ul.list-unstyled.list-social.footer__list-social {
+    margin: 30px 0 0;
+        margin-left: -12px;
+}
+
+.footer__content-bottom {
+    padding: 10px !important;
+    background: #FFF;
+}
+
+.footer__copyright {
+    margin: 0 !important;
+}
+
+.copyright__content {
+    color: #141132;
+    text-align: center;
+    font-family: Prompt;
+    font-size: 14px !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 128.571% */
+}

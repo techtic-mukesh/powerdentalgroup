@@ -18,9 +18,9 @@
     "body_scale": 100,
     "page_width": 1420,
     "spacing_sections": 0,
-    "spacing_grid_horizontal": 8,
+    "spacing_grid_horizontal": 28,
     "spacing_grid_vertical": 8,
-    "animations_reveal_on_scroll": true,
+    "animations_reveal_on_scroll": false,
     "animations_hover_elements": "none",
     "buttons_border_thickness": 1,
     "buttons_border_opacity": 100,
@@ -107,8 +107,8 @@
     "badge_corner_radius": 40,
     "sale_badge_color_scheme": "scheme-4",
     "sold_out_badge_color_scheme": "scheme-3",
-    "brand_headline": "",
-    "brand_description": "<p></p>",
+    "brand_headline": "Contact",
+    "brand_description": "<p>Power Dental Group<br\/>2809 Barney Ct. McHenry, IL 60051<\/p><p>Local\u2028+1-815-363-8003<\/p>",
     "brand_image_width": 100,
     "social_facebook_link": "",
     "social_instagram_link": "",
@@ -148,20 +148,20 @@
         "settings": {
           "background": "#ffffff",
           "background_gradient": "",
-          "text": "#121212",
-          "button": "#121212",
+          "text": "#141132",
+          "button": "#141132",
           "button_label": "#ffffff",
-          "secondary_button_label": "#121212",
-          "shadow": "#121212"
+          "secondary_button_label": "#141132",
+          "shadow": "#141132"
         }
       },
       "scheme-2": {
         "settings": {
-          "background": "#f3f3f3",
+          "background": "#f8f6f4",
           "background_gradient": "",
           "text": "#121212",
           "button": "#121212",
-          "button_label": "#f3f3f3",
+          "button_label": "#ffffff",
           "secondary_button_label": "#121212",
           "shadow": "#121212"
         }
