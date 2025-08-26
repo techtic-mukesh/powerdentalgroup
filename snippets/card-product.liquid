@@ -145,22 +145,7 @@
       </div>
       <div class="card__content">
         <div class="card__information">
-          <h3
-            class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
-            {% if card_product.featured_media or settings.card_style == 'card' %}
-              id="title-{{ section_id }}-{{ card_product.id }}"
-            {% endif %}
-          >
-            <a
-              href="{{ card_product.url }}"
-              id="CardLink-{{ section_id }}-{{ card_product.id }}"
-              class="full-unstyled-link"
-              aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
-            >
-              {{ card_product.title | escape }}
-            </a>
-          </h3>
-          <div class="card-information">
+           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>
@@ -287,7 +272,43 @@
               {% endif %}
             {%- endif -%}
           </div>
+          <h3
+            class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
+            {% if card_product.featured_media or settings.card_style == 'card' %}
+              id="title-{{ section_id }}-{{ card_product.id }}"
+            {% endif %}
+          >
+            <a
+              href="{{ card_product.url }}"
+              id="CardLink-{{ section_id }}-{{ card_product.id }}"
+              class="full-unstyled-link"
+              aria-labelledby="CardLink-{{ section_id }}-{{ card_product.id }} Badge-{{ section_id }}-{{ card_product.id }}"
+            >
+              {{ card_product.title | escape }}
+            </a>
+          </h3>
+
+           <div class="product-sku-stock">
+          {% if card_product.selected_or_first_available_variant.sku != blank %}
+            <span class="product-sku">
+              SKU: <strong>{{ card_product.selected_or_first_available_variant.sku }}</strong>
+            </span>
+          {% endif %}
+
+          {% if card_product.selected_or_first_available_variant.available %}
+            <span class="product-stock in-stock">
+              <span class="stock-dot"></span> In Stock
+            </span>
+          {% else %}
+            <span class="product-stock out-of-stock">
+              <span class="stock-dot"></span> Out of Stock
+            </span>
+          {% endif %}
         </div>
+         
+        </div>
+
+       
         {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
         {% if quick_add == 'standard' %}
           <div class="quick-add no-js-hidden">

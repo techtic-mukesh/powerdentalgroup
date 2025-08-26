@@ -25,6 +25,16 @@
 
 .price__regular .price-item--regular {
   margin-right: 0;
+      font-variant-numeric: ordinal;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .price:not(.price--show-badge) .price-item--last:last-of-type {

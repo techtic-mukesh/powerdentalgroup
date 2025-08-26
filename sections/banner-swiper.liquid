@@ -33,8 +33,7 @@
 
     <!-- Swiper navigation + pagination -->
     <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+
 </div>
 
 {% schema %}
@@ -81,14 +80,11 @@
                          speed: 800,
                         fadeEffect: { crossFade: true },
                         pagination: { el: ".swiper-pagination", clickable: true },
-                        // autoplay: {
-                        //     delay: 5000,
-                        //     disableOnInteraction: false
-                        // },
-                        navigation: {
-                            nextEl: ".swiper-button-next",
-                            prevEl: ".swiper-button-prev"
+                        autoplay: {
+                            delay: 5000,
+                            disableOnInteraction: false
                         },
+                        navigation: false,
                     });
                     obs.disconnect(); // init only once
                 }
@@ -102,7 +98,7 @@
 
 <style>
     .slideshow__slide {
-        display: grid;
+        display: grid !important;
         grid-template-rows: [background-start] minmax(1.25rem, auto) [content-start] 1fr [content-end] minmax(1.25rem, auto) [background-end];
         grid-template-columns: 1fr;
         align-items: center;

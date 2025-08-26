@@ -3,6 +3,10 @@
 
 /* Globle CSS */
 
+/* body {
+    overflow-x: clip;
+} */
+
 h1 {
     font-size: 44px;
     line-height: 60px;
@@ -54,6 +58,20 @@ a.button.button--secondary:after {
 }
 
 /* End Globle CSS */
+
+/* Mega Header */
+.top-inline-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+
+
+
+/* End Mega Header */
+
 
 /* Footer CSS */
 

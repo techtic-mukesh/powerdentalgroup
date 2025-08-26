@@ -3,6 +3,8 @@
   height: 100%;
   position: relative;
   text-decoration: none;
+  border: 1px solid #DCDCDC;
+    background: #FFF;
 }
 
 .card {
@@ -190,6 +192,53 @@
   text-align: left;
 }
 
+.card__information .product-sku-stock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15.5px;
+}
+
+.card__information .product-sku-stock span.product-sku {
+    color: #7A7A7A;
+    font-family: Prompt;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135.3%; /* 18.942px */
+    display: flex;
+    gap: 3px;
+}
+
+.card__information .product-sku-stock span.product-sku strong {
+    color: #141132;
+    font-family: Prompt;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135.3%;
+}
+
+.card__information .product-sku-stock span.product-stock.in-stock {
+    display: flex;
+    gap: 10px;
+    color: #141132;
+    font-family: Prompt;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    align-items: center;
+}
+
+.card__information .product-sku-stock span.product-stock.in-stock span.stock-dot {
+    width: 14px;
+    height: 14px;
+    aspect-ratio: 1/1;
+    background-color: #28A745;
+    border-radius: 50%;
+}
+
 @media screen and (min-width: 990px) {
   .grid--6-col-desktop .card__content quick-add-bulk .quantity {
     width: auto;
@@ -265,8 +314,8 @@
 
 @media screen and (min-width: 750px) {
   .card__information {
-    padding-bottom: 1.7rem;
-    padding-top: 1.7rem;
+    padding-bottom: 15.5px;
+    padding-top: 0;
   }
 }
 
@@ -402,7 +451,7 @@
   }
 
   .underline-links-hover:hover a {
-    text-decoration: underline;
+    text-decoration: unset;
     text-underline-offset: 0.3rem;
   }
 }
@@ -424,8 +473,8 @@
 }
 
 .card--standard > .card__content .card__information {
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .card--card.card--media .card__inner .card__information,
@@ -476,6 +525,16 @@
 
 .card-information > .price {
   color: rgb(var(--color-foreground));
+  margin: 0 0 13px !important;
+}
+
+.card__heading .full-unstyled-link {
+    color: #141132;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
 }
 
 .card--horizontal .card-information > .price {
