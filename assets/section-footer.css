@@ -11,6 +11,10 @@
   display: block;
 }
 
+.footer-block__brand-info li.list-social__item svg path {
+    fill: #fff;
+}
+
 @media screen and (max-width: 749px) {
   .footer .grid {
     display: block;

@@ -1,8 +1,5 @@
 {%- comment -%}
-  Renders the language picker for the localization form
-
-  Accepts:
-    - localPosition: pass in the position in which the form is coming up to create specific IDs
+  Renders the language picker for the localization form with flags only
 {%- endcomment -%}
 
 <div class="disclosure">
@@ -13,9 +10,44 @@
     aria-controls="{{ localPosition }}List"
     aria-describedby="{{ localPosition }}Label"
   >
-    <span>{{ localization.language.endonym_name | capitalize }}</span>
+    <span>
+      {% case localization.language.iso_code %}
+        {% when 'en' %}
+          <!-- English Flag -->
+         <svg xmlns="http://www.w3.org/2000/svg" width="27" height="20" viewBox="0 0 27 20" fill="none">
+            <g clip-path="url(#clip0_2320_5136)">
+              <path d="M0 0H26.6667V20H0" fill="#BD3D44"/>
+              <path d="M0 2.3042H26.6667H0ZM0 5.37503H26.6667H0ZM0 8.45837H26.6667H0ZM0 11.5417H26.6667H0ZM0 14.625H26.6667H0ZM0 17.7084H26.6667H0Z" fill="black"/>
+              <path d="M0 2.3042H26.6667M0 5.37503H26.6667M0 8.45837H26.6667M0 11.5417H26.6667M0 14.625H26.6667M0 17.7084H26.6667" stroke="white" stroke-width="1.54167"/>
+              <path d="M0 0H15.2V10.7708H0" fill="#192F5D"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_2320_5136">
+                <rect width="26.6667" height="20" fill="white"/>
+              </clipPath>
+            </defs>
+          </svg>
+        {% when 'fr' %}
+          <!-- French Flag -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16" fill="none">
+            <g clip-path="url(#clip0_fr)">
+              <rect width="8" height="16" fill="#2A66B7"/>
+              <rect x="8" width="8" height="16" fill="#FFFFFF"/>
+              <rect x="16" width="8" height="16" fill="#DB3A49"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_fr">
+                <rect width="24" height="16" rx="1" fill="white"/>
+              </clipPath>
+            </defs>
+          </svg>
+      {% endcase %}
+    </span>
     {{ 'icon-caret.svg' | inline_asset_content }}
+
+    
   </button>
+
   <div class="disclosure__list-wrapper language-selector" hidden>
     <ul id="{{ localPosition }}List" role="list" class="disclosure__list list-unstyled">
       {%- for language in localization.available_languages -%}
@@ -25,20 +57,45 @@
             href="#"
             hreflang="{{ language.iso_code }}"
             lang="{{ language.iso_code }}"
-            {% if language.iso_code == localization.language.iso_code %}
-              aria-current="true"
-            {% endif %}
+            {% if language.iso_code == localization.language.iso_code %} aria-current="true" {% endif %}
             data-value="{{ language.iso_code }}"
           >
-            <span
-              {% if language.iso_code != localization.language.iso_code %}
-                class="visibility-hidden"
-              {% endif %}
-            >
-              {{- 'icon-checkmark.svg' | inline_asset_content -}}
-            </span>
             <span>
-              {{ language.endonym_name | capitalize }}
+              {% case language.iso_code %}
+                {% when 'en' %}
+                  <!-- English Flag -->
+                 <svg xmlns="http://www.w3.org/2000/svg" width="27" height="20" viewBox="0 0 27 20" fill="none">
+                  <g clip-path="url(#clip0_2320_5136)">
+                    <path d="M0 0H26.6667V20H0" fill="#BD3D44"/>
+                    <path d="M0 2.3042H26.6667H0ZM0 5.37503H26.6667H0ZM0 8.45837H26.6667H0ZM0 11.5417H26.6667H0ZM0 14.625H26.6667H0ZM0 17.7084H26.6667H0Z" fill="black"/>
+                    <path d="M0 2.3042H26.6667M0 5.37503H26.6667M0 8.45837H26.6667M0 11.5417H26.6667M0 14.625H26.6667M0 17.7084H26.6667" stroke="white" stroke-width="1.54167"/>
+                    <path d="M0 0H15.2V10.7708H0" fill="#192F5D"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_2320_5136">
+                      <rect width="26.6667" height="20" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+                {% when 'fr' %}
+                  <!-- French Flag -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16" fill="none">
+                    <g clip-path="url(#clip0_fr)">
+                      <rect width="8" height="16" fill="#2A66B7"/>
+                      <rect x="8" width="8" height="16" fill="#FFFFFF"/>
+                      <rect x="16" width="8" height="16" fill="#DB3A49"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_fr">
+                        <rect width="24" height="16" rx="1" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+              {% endcase %}
+            </span>
+
+            <span class="language-code">
+              {{ language.iso_code | upcase }}
             </span>
           </a>
         </li>
@@ -46,4 +103,5 @@
     </ul>
   </div>
 </div>
+
 <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">

@@ -87,6 +87,7 @@
       class="disclosure__list country-selector__list{% if show_currencies %} country-selector__list--with-multiple-currencies{% endif %}"
       id="{{ localPosition }}-country-results"
     >
+    
       {% if show_popular_countries %}
         <ul
           role="list"
@@ -133,6 +134,7 @@
               data-value="{{ country.iso_code }}"
               id="{{ country.name }}"
             >
+            
               <span
                 {% if country.iso_code != localization.country.iso_code %}
                   class="visibility-hidden"

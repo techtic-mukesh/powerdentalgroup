@@ -1,0 +1,542 @@
+<section class="signup-mail" style="background-color: {{ section.settings.background_color }};">
+  <div class="page-width">
+
+    <div class="signup-wrap">
+      <div class="left-title">
+        <span class="bg-image">
+          <img src="{{ section.settings.image |  img_url: '' }}" alt="">
+        </span>
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+      <div class="right-form">
+        {{ section.settings.form }}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+
+    section.signup-mail {
+    padding: 60px 0;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+
+section.signup-mail .signup-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+section.signup-mail .signup-wrap span.bg-image {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    display: flex;
+}
+
+section.signup-mail .signup-wrap span.bg-image img {
+    max-width: 440px;
+}
+
+section.signup-mail .signup-wrap .left-title h2 {
+    color: #fff;
+    max-width: 430px;
+}
+
+.right-form * {
+    color: #fff;
+}   
+
+.right-form .hs_get_access_to_ ul.inputs-list.multi-container .hs-form-radio {
+    position: relative
+}
+
+.right-form .hs_get_access_to_ ul.inputs-list.multi-container .hs-form-radio input[type=radio] {
+    display: none
+}
+
+.right-form .hs_get_access_to_ ul.inputs-list.multi-container .hs-form-radio label {
+    display: inline-block;
+    cursor: pointer
+}
+
+.right-form .hs_get_access_to_ ul.inputs-list.multi-container .hs-form-radio label span {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: Prompt;
+    line-height: 16px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(90deg, #42c5ef 0%, #0033a0 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Gradient border fix */
+.right-form .hs_get_access_to_ ul.inputs-list.multi-container .hs-form-radio label span::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    padding: 1px; /* border thickness */
+    background: linear-gradient(90deg, #42c5ef 0%, #0033a0 100%);
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.right-form .hs_get_access_to_ ul.inputs-list.multi-container .hs-form-radio label input[type=radio]:checked+span,.right-form .hs_get_access_to_ ul.inputs-list.multi-container .hs-form-radio label input[type=radio]:checked~span {
+    background-image: linear-gradient(90deg,#42c5ef 0%,#0033a0 100%);
+    color: #fff;
+    background-clip: border-box;
+    -webkit-background-clip: border-box
+}
+
+.right-form .hs_get_access_to_>label>span {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'Montserrat';
+    margin-bottom: 20px;
+    display: block
+}
+
+.right-form .hs_firstname {
+    display: inline-block !important;
+    width: 47.5%;
+    vertical-align: top
+}
+
+.right-form .hs_firstname label span {
+    margin-bottom: 10px;
+    display: inline-block
+}
+
+.right-form .hs_firstname .input input,  {
+    border-radius: 10px !important;
+    background: #262626 !important;
+    color: #7b7b7b !important;
+    font-weight: 500 !important;
+    font-family: 'Montserrat';
+    padding: 0 20px !important
+    border-radius: 10px !important;
+    background: #262626 !important;
+    color: #7b7b7b !important;
+    font-weight: 500 !important;
+    font-family: 'Montserrat';
+    padding: 0 20px !important;
+    min-height: 50px;
+    width: 100%;
+    color: #7B7B7B;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.right-form .hs_firstname input[name="firstname"] {
+    border-radius: 10px !important;
+    background: #262626 !important;
+    color: #7b7b7b !important;
+    font-weight: 500 !important;
+    font-family: 'Montserrat';
+    padding: 0 20px !important
+    border-radius: 10px !important;
+    background: #262626 !important;
+    color: #7b7b7b !important;
+    font-weight: 500 !important;
+    font-family: 'Montserrat';
+    padding: 0 20px !important;
+    min-height: 50px;
+    width: 100%;
+    color: #7B7B7B;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+        border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    background: #0D0B23 !important;
+}
+
+.right-form .hs_firstname .input input::placeholder {
+    color: #7b7b7b !important
+}
+
+.right-form  ul {
+    list-style: none;
+    padding: 0;
+}
+
+.right-form .hs_firstname .input input::-webkit-input-placeholder {
+    color: #7b7b7b !important
+}
+
+.right-form .hs_firstname .input input::-moz-placeholder {
+    color: #7b7b7b !important
+}
+
+.right-form .hs_lastname {
+    display: inline-block !important;
+    width: 47.5%;
+    vertical-align: top;
+    margin-left: 30px
+}
+
+.right-form .hs_lastname .input input {
+    border-radius: 10px !important;
+    background: #262626 !important;
+    color: #7b7b7b !important;
+    font-weight: 500 !important;
+    font-family: 'Montserrat';
+    padding: 0 20px !important
+    border-radius: 10px !important;
+    background: #262626 !important;
+    color: #7b7b7b !important;
+    font-weight: 500 !important;
+    font-family: 'Montserrat';
+    padding: 0 20px !important;
+    min-height: 50px;
+    width: 100%;
+    color: #7B7B7B;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+        border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    background: #0D0B23 !important;
+}
+
+.right-form .hs_lastname label span {
+    margin-bottom: 10px;
+    display: inline-block
+}
+
+.right-form .hs-dependent-field {
+    margin-top: 20px;
+    position: relative
+}
+
+.right-form .hs-dependent-field label {
+    display: block;
+    margin-bottom: 20px
+}
+
+.right-form .hs-dependent-field label:first-child span {
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 16px
+}
+
+.right-form .hs-dependent-field ul.inputs-list.multi-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 20px
+}
+
+.right-form .hs-dependent-field ul.inputs-list.multi-container .hs-form-radio {
+    position: relative;
+    margin-bottom: 13px
+}
+
+.right-form .hs-dependent-field ul.inputs-list.multi-container .hs-form-radio:last-child {
+    margin-bottom: 0
+}
+
+.right-form .hs-dependent-field ul.inputs-list.multi-container .hs-form-radio input[type=radio] {
+    display: none
+}
+
+.right-form .hs-dependent-field ul.inputs-list.multi-container .hs-form-radio label {
+    display: flex;
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+    margin-bottom: 0
+}
+
+.right-form .hs-dependent-field ul.inputs-list.multi-container .hs-form-radio label:before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid #42c5ef;
+    background-color: transparent;
+    transition: all .3s ease;
+    flex-shrink: 0
+}
+
+.right-form .hs-dependent-field ul.inputs-list.multi-container .hs-form-radio label span {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500
+}
+
+.right-form .hs-dependent-field ul.inputs-list.multi-container .hs-form-radio label input[type=radio]:checked+span:before {
+    content: '';
+    background-color: #42c5ef;
+    border-color: #42c5ef;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    left: 0;
+    border-radius: 50%;
+    box-shadow: none;
+    left: 4px;
+    top: 4px
+}
+
+.right-form .hs-dependent-field .hs_specify_your_nbsp__role label {
+    display: none !important
+}
+
+.right-form .hs-dependent-field .hs_specify_your_nbsp__role .input input {
+    border: none !important;
+    border-bottom: 1px solid rgba(255,255,255,.3) !important;
+    position: absolute;
+    right: 150px;
+    width: 100%;
+    bottom: 0;
+    max-width: 288px;
+    height: auto;
+    padding: 0
+}
+
+.right-form .hs-dependent-field .hs_specify_your_nbsp__role .input input:focus {
+    outline: none;
+    box-shadow: none
+}
+
+.right-form ul.inputs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.right-form .input ul.inputs-list.multi-container {
+    flex-direction: row;
+    padding: 0;
+    list-style: none;
+    gap: 16px;
+}
+
+.right-form ul.inputs-list .hs-form-booleancheckbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px
+}
+
+.right-form ul.inputs-list .hs-form-booleancheckbox input[type=checkbox] {
+    display: none
+}
+
+.right-form ul.inputs-list .hs-form-booleancheckbox label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative
+}
+
+.right-form ul.inputs-list .hs-form-booleancheckbox label span:before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    transition: all .2s ease-in-out;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 2px
+}
+
+.right-form ul.inputs-list .hs-form-booleancheckbox label input[type=checkbox]:checked+span:before {
+    content: '';
+    background-image: url('data:image/svg+xml,<svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.33337 4.45833L3.62504 6.75L8.66671 1.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10px;
+    padding: 2px
+}
+
+.right-form ul.inputs-list .hs-form-booleancheckbox label span {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+    font-family: 'Montserrat'
+}
+
+.right-form .field  {
+    display: block;
+
+}
+
+.hs_tell_us_your_role_.hs-tell_us_your_role_.hs-fieldtype-radio.field.hs-form-field {
+    margin: 20px 0;
+}
+
+.hs_tell_us_your_role_.hs-tell_us_your_role_.hs-fieldtype-radio.field.hs-form-field > label {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px; /* 88.889% */
+}
+
+.hs_tell_us_your_role_.hs-tell_us_your_role_.hs-fieldtype-radio.field.hs-form-field  ul.inputs-list.multi-container {
+    flex-direction: column;
+    gap: 13px;
+}
+
+.hs_tell_us_your_role_.hs-tell_us_your_role_.hs-fieldtype-radio.field.hs-form-field ul.inputs-list.multi-container label.hs-form-radio-display {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hs_specify_your_nbsp__role.hs-specify_your_nbsp__role.hs-fieldtype-text.field.hs-form-field {
+    display: none;
+}
+
+.hs_email.hs-email.hs-fieldtype-text.field.hs-form-field input {
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    background: #0D0B23;
+    padding: 0 20px;
+    width: 100%;
+    margin: 10px 0 0;
+    color: #7B7B7B;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 50px;
+}
+
+.hs_tell_us_your_role_.hs-tell_us_your_role_.hs-fieldtype-radio.field.hs-form-field ul.inputs-list.multi-container label.hs-form-radio-display span {
+    color: #D9D9D9;
+    font-family: Prompt;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.hs-form-radio-display input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #00c8ff;  /* blue outline */
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  margin-right: 3px;
+  cursor: pointer;
+  background: transparent;
+  min-width: 16px;
+}
+
+.hs-form-radio-display input[type="radio"]:checked {
+  border-color: #00c8ff;
+}
+
+.hs-form-radio-display input[type="radio"]:checked::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: #00c8ff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hs_submit.hs-submit input.hs-button.primary.large {
+    display: flex;
+    width: 196px;
+    height: 50px;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+    border: unset;
+    cursor: pointer;
+}
+
+.right-form ul.inputs-list .hs-form-booleancheckbox {
+    margin: 0 !important;
+}
+
+</style>
+
+
+{% schema %}
+  {
+    "name": "Sign Up Form",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#ffffff"
+      }, {
+        "type": "text",
+        "id": "heading",
+        "label": "Title"
+      }, {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Background Image"
+      }, {
+        "type": "textarea",
+        "id": "form",
+        "label": "Form Script"
+      }
+
+    ],
+    "presets": [
+      {
+        "name": "Sign Up Form",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

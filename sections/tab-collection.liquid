@@ -19,7 +19,10 @@
   <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
-<section class="collection-tabs page-width section-{{ section.id }}-padding">
+<section class="collection-tabs  section-{{ section.id }}-padding">
+
+<div class="page-width">
+
   <h2 class="title inline-richtext text-center">{{ section.settings.section_heading }}</h2>
 
   <!-- Tabs -->
@@ -39,18 +42,51 @@
       {% assign collection = collections[block.settings.collection] %}
       <div id="tab-{{ block.id }}" class="tab-panel {% if forloop.first %}active{% endif %}">
         {% if collection != blank and collection.products.size > 0 %}
+
+          {% if section.settings.enable_swiper %}
+          <!-- Swiper Slider -->
+           <div class="swiper-main__wrap">
+              <div class="swiper collection-swiper">
+            <div class="swiper-wrapper">
+              {% for product in collection.products limit: section.settings.products_to_show %}
+                <div class="swiper-slide">
+                  {% render 'card-product',
+                    card_product: product,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    image_shape: section.settings.image_shape,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating,
+                    section_id: section.id,
+                    quick_add: section.settings.quick_add
+                  %}
+                </div>
+              {% endfor %}
+            </div>
+            <!-- Arrows -->
+            
+          </div>
+            <div class="swiper-button-prev" style="display: none;">  
+              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="43" viewBox="0 0 23 43" fill="none">
+                <path d="M21.5 41.6257L1.5 21.6257L21.5 1.62573" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="swiper-button-next" style="display: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="43" viewBox="0 0 23 43" fill="none">
+              <path d="M1.5 41.6257L21.5 21.6257L1.5 1.62573" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            </div>
+           </div>
+        
+          {% else %}
+          <!-- Normal Grid -->
           <ul class="grid product-grid grid--2-col tablet:grid--3-col grid--4-col-desktop">
-            {% assign lazy_load = false %}
             {% for product in collection.products limit: section.settings.products_to_show %}
-              {% if lazy_load == false and forloop.index > 4 %}
-                {% assign lazy_load = true %}
-              {% endif %}
               <li class="grid__item">
                 {% render 'card-product',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,
                   image_shape: section.settings.image_shape,
-                  lazy_load: lazy_load,
                   show_secondary_image: section.settings.show_secondary_image,
                   show_vendor: section.settings.show_vendor,
                   show_rating: section.settings.show_rating,
@@ -60,29 +96,96 @@
               </li>
             {% endfor %}
           </ul>
+          {% endif %}
+
         {% else %}
           <p>No products found for this collection</p>
         {% endif %}
       </div>
     {% endfor %}
   </div>
+</div>
+
 </section>
 
 <style>
+
+section.collection-tabs {
+    background: #F8F6F4;
+    padding: 60px 0;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    position: relative;
+}
+
+section.collection-tabs h2.title {
+    text-align: center;
+    margin: 0 0 30px;
+}
+
+section.collection-tabs .tabs-buttons {
+    margin: 0 0 30px;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
 .collection-tabs .tab-btn {
-  padding: 10px 20px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  cursor: pointer;
-  background: #f8f8f8;
-  transition: 0.3s;
+    cursor: pointer;
+    transition: 0.3s;
+    line-height: 50px;
+    padding: 0 32px;
+    border-radius: 10px;
+    border: 1px solid #DCDCDC;
+    background: #FFF;
+    color: #141132;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all .4s ease;
 }
 .collection-tabs .tab-btn.active {
-  background: linear-gradient(90deg, #42C5EF, #0033A0);
-  color: #fff;
+background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+color: #fff;
 }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
+
+/* Swiper arrows */
+.collection-swiper .swiper-button-next,
+.collection-swiper .swiper-button-prev {
+  color: #0033A0;
+}
+
+.swiper-main__wrap {
+    position: relative;
+        padding: 0 10px 10px;
+}
+
+.swiper-main__wrap .swiper-button-next:after,  .swiper-main__wrap .swiper-button-prev:after {
+    display: none;
+}
+
+.swiper-main__wrap .swiper-button-next {
+    right: -34px;
+}
+
+.swiper-main__wrap .swiper-button-next svg, .swiper-main__wrap .swiper-button-prev svg {
+    width: 40px;
+    height: 32px;
+}
+
+.swiper-main__wrap .swiper-button-prev {
+    left: -34px;
+}
+
+.swiper-main__wrap .swiper-button-next, .swiper-main__wrap .swiper-button-prev {
+  display: none; /* hide before init */
+}
+
+
 </style>
 
 <script>
@@ -90,16 +193,55 @@ document.addEventListener("DOMContentLoaded", function() {
   const buttons = document.querySelectorAll(".collection-tabs .tab-btn");
   const panels = document.querySelectorAll(".collection-tabs .tab-panel");
 
+  // Store initialized Swipers
+  const swipers = {};
+
+  function initSwiper(panel) {
+  const swiperEl = panel.querySelector(".collection-swiper");
+  if (swiperEl && !swipers[panel.id]) {
+    swipers[panel.id] = new Swiper(swiperEl, {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: panel.querySelector(".swiper-main__wrap .swiper-button-next"),
+        prevEl: panel.querySelector(".swiper-main__wrap .swiper-button-prev"),
+      },
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 4 }
+      },
+      on: {
+        init: function () {
+          // show arrows after init
+          const wrap = panel.querySelector(".swiper-main__wrap");
+          wrap.querySelector(".swiper-button-next").style.display = "flex";
+          wrap.querySelector(".swiper-button-prev").style.display = "flex";
+        }
+      }
+    });
+  }
+}
+
+
+  // Init Swiper for ALL tabs (hidden or visible)
+  panels.forEach(panel => initSwiper(panel));
+
+  // Tab switching logic
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
       buttons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
       panels.forEach(panel => panel.classList.remove("active"));
-      document.getElementById(btn.dataset.tab).classList.add("active");
+      const activePanel = document.getElementById(btn.dataset.tab);
+      activePanel.classList.add("active");
+
+      // Re-init if needed (safety)
+      initSwiper(activePanel);
     });
   });
 });
+
 </script>
 
 {% schema %}
@@ -120,6 +262,12 @@ document.addEventListener("DOMContentLoaded", function() {
       "max": 20,
       "step": 1,
       "default": 8
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_swiper",
+      "label": "Enable Swiper Slider",
+      "default": true
     },
     {
       "type": "select",
@@ -203,4 +351,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   ]
 }
-{% endschema %}
+{% endschema %} 

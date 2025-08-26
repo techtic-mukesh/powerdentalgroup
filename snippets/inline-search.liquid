@@ -1,0 +1,253 @@
+<div class="header__search-inline">
+  <form action="{{ routes.search_url }}" method="get" role="search" class="search-form" autocomplete="off">
+    <input
+      type="search"
+      name="q"
+      id="Search-Inline"
+      placeholder="Find products by name or SKU"
+      class="search-input"
+      value="{{ search.terms | escape }}"
+      role="combobox"
+      aria-expanded="false"
+      aria-owns="PredictiveResults"
+      aria-controls="PredictiveResults"
+      aria-autocomplete="list"
+      aria-haspopup="listbox"
+    >
+    <button type="submit" class="search-btn search-icon" aria-label="Search">
+      {% render 'icon-search' %}
+    </button>
+    <button type="button" class="search-btn close-icon" aria-label="Clear Search">
+      <!-- Close SVG -->
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 21L12 12M12 12L3 3M12 12L21.0001 3M12 12L3 21.0001" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </form>
+</div>
+
+<div id="PredictiveResults" class="predictive-search-results"></div>
+
+
+<style>
+.header__search-inline {
+    flex-grow: 1;
+    position: relative;
+}
+
+.header__search-inline input#Search-Inline {
+    width: 100%;
+    height: 42px;
+    border-radius: 3000px;
+    border: 1px solid #DCDCDC;
+    background: #FFF;
+    padding: 0 20px;
+    color: #131313;
+    font-family: Prompt;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 14px; /* 100% */
+}
+
+
+.header__search-inline  button.search-btn {
+    background: unset;
+    border: unset;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.header__search-inline input#Search-Inline::placeholder {
+     color: #131313;
+    font-family: Prompt;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 14px; /* 100% */
+}
+
+div#PredictiveResults {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+}
+
+div#PredictiveResults {
+position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    max-width: 900px;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+div#PredictiveResults ul.predictive-list {
+    margin: 0;
+    height: 400px;
+    overflow-y: auto;
+    padding: 14px;
+    background-color: #fff;
+}
+
+div#PredictiveResults ul.predictive-list li {
+    list-style: none;
+}
+
+
+
+
+/* div#PredictiveResults:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: -1;
+    background: rgba(20, 17, 50, 0.70);
+    backdrop-filter: blur(1.5px);
+} */
+
+div#PredictiveResults ul.predictive-list a.predictive-item {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+div#PredictiveResults ul.predictive-list a.predictive-item img {
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+}
+
+div#PredictiveResults ul.predictive-list a.predictive-item span {
+    color: #141132;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+}
+
+.predictive-info p {
+    font-variant-numeric: ordinal;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 5px 0 0;
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header__search-inline button.search-btn.close-icon svg {
+    width: 15px;
+    height: 17px;
+}
+
+.header__search-inline input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+/* Hide close icon by default */
+.header__search-inline button.search-btn.close-icon {
+  display: none;
+  cursor: pointer;
+}
+</style>
+
+<script>
+  class PredictiveSearch {
+  constructor() {
+    this.input = document.querySelector('#Search-Inline');
+    this.results = document.querySelector('#PredictiveResults');
+    this.input.addEventListener('input', this.onChange.bind(this));
+  }
+
+  onChange() {
+    const query = this.input.value.trim();
+    if (query.length < 2) {
+      this.results.innerHTML = '';
+      return;
+    }
+
+    fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=5&section_id=predictive-search`)
+      .then(response => response.json())
+      .then(suggestions => {
+        this.renderResults(suggestions.resources.results.products);
+      });
+  }
+
+  renderResults(products) {
+    if (!products.length) {
+      this.results.innerHTML = '<p class="no-results">No results found</p>';
+      return;
+    }
+
+    this.results.innerHTML = `
+      <ul class="predictive-list">
+        ${products
+          .map(
+            product => `
+              <li>
+                <a href="${product.url}" class="predictive-item">
+                  <img src="${product.featured_image.url}" alt="${product.featured_image.alt}" />
+                  <div class="predictive-info">
+                  <span>${product.title}</span>
+                  <p>$ ${product.price}</p>
+                  </div>
+                </a>
+              </li>
+            `
+          )
+          .join('')}
+      </ul>
+    `;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  new PredictiveSearch();
+
+   const input = document.querySelector('#Search-Inline');
+  const searchIcon = document.querySelector('.search-icon');
+  const closeIcon = document.querySelector('.close-icon');
+
+  input.addEventListener('input', () => {
+    if (input.value.trim() !== '') {
+      searchIcon.style.display = 'none';
+      closeIcon.style.display = 'flex';
+    } else {
+      searchIcon.style.display = 'flex';
+      closeIcon.style.display = 'none';
+    }
+  });
+
+  closeIcon.addEventListener('click', () => {
+    input.value = '';
+    input.focus();
+    searchIcon.style.display = 'flex';
+    closeIcon.style.display = 'none';
+    document.querySelector('#PredictiveResults').innerHTML = ''; // clear results too
+  });
+});
+
+</script>

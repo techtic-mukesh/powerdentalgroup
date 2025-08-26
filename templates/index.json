@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "banner_swiper_aXUMTh": {
@@ -357,64 +348,47 @@
         "image": "shopify:\/\/shop_images\/image_31.png"
       }
     },
-    "multicolumn_NUkNgM": {
-      "type": "multicolumn",
+    "tab_collection_PXdCW4": {
+      "type": "tab-collection",
       "blocks": {
-        "column_nGiUXp": {
-          "type": "column",
+        "collection_tab_zbjGAt": {
+          "type": "collection_tab",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_30.png",
-            "title": "THE FUTURE OF DENTISTRY: MISCH INSTITUTE PARTNERSHIP",
-            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.<\/p>",
-            "link_label": "",
-            "link": ""
+            "tab_label": "Power Picks",
+            "collection": "frontpage"
           }
         },
-        "column_bXnpkN": {
-          "type": "column",
+        "collection_tab_FeBLeE": {
+          "type": "collection_tab",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_30_1.png",
-            "title": "GOING GOVERNMENT - LOVELL GOVERNMENT SERVICES",
-            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.<\/p>",
-            "link_label": "",
-            "link": ""
+            "tab_label": "Trending Now",
+            "collection": "new"
           }
         },
-        "column_hmpVir": {
-          "type": "column",
+        "collection_tab_DXXxqT": {
+          "type": "collection_tab",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_30_2.png",
-            "title": "BEAUTY MEETS FUNCTION - STOGGLES PARTNERSHIP",
-            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.<\/p>",
-            "link_label": "",
-            "link": ""
+            "tab_label": "Best Seller",
+            "collection": "frontpage"
           }
         }
       },
       "block_order": [
-        "column_nGiUXp",
-        "column_bXnpkN",
-        "column_hmpVir"
+        "collection_tab_zbjGAt",
+        "collection_tab_FeBLeE",
+        "collection_tab_DXXxqT"
       ],
-      "custom_css": [
-        ".multicolumn .title-wrapper-with-link {justify-content: center;}"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
+      "name": "Collection Tabs",
       "settings": {
-        "title": "The Latest",
-        "heading_size": "h1",
-        "image_width": "half",
+        "section_heading": "Customer Favorites",
+        "products_to_show": 8,
+        "enable_swiper": true,
         "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "scheme-2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 60,
-        "padding_bottom": 60
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard"
       }
     },
     "testimonial_f8fUmj": {
@@ -510,6 +484,76 @@
         "btntext": "View Upcoming Events"
       }
     },
+    "multicolumn_NUkNgM": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_nGiUXp": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_30.png",
+            "title": "THE FUTURE OF DENTISTRY: MISCH INSTITUTE PARTNERSHIP",
+            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_bXnpkN": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_30_1.png",
+            "title": "GOING GOVERNMENT - LOVELL GOVERNMENT SERVICES",
+            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_hmpVir": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_30_2.png",
+            "title": "BEAUTY MEETS FUNCTION - STOGGLES PARTNERSHIP",
+            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_nGiUXp",
+        "column_bXnpkN",
+        "column_hmpVir"
+      ],
+      "custom_css": [
+        ".multicolumn .title-wrapper-with-link {justify-content: center;}"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "The Latest",
+        "heading_size": "h1",
+        "image_width": "half",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "signup_email_WMCkrN": {
+      "type": "signup-email",
+      "name": "Sign Up Form",
+      "settings": {
+        "background_color": "#141132",
+        "heading": "Sign Up for Email Updates",
+        "image": "shopify:\/\/shop_images\/image_31.png",
+        "form": "<script charset=\"utf-8\" type=\"text\/javascript\" src=\"\/\/js.hsforms.net\/forms\/embed\/v2.js\"><\/script>\n<script>\n  hbspt.forms.create({\n    portalId: \"39754023\",\n    formId: \"df0ba392-d720-4cb4-8d9f-6e7fc47edfb9\",\n    region: \"na1\"\n  });\n<\/script>"
+      }
+    },
     "meadia_logos_wtKeWD": {
       "type": "meadia-logos",
       "blocks": {
@@ -560,42 +604,6 @@
       "settings": {
         "background_color": "#ffffff"
       }
-    },
-    "tab_collection_tydL4Q": {
-      "type": "tab-collection",
-      "blocks": {
-        "collection_tab_z4hwK4": {
-          "type": "collection_tab",
-          "settings": {
-            "tab_label": "Power Picks",
-            "collection": "frontpage"
-          }
-        },
-        "collection_tab_bdVURr": {
-          "type": "collection_tab",
-          "settings": {
-            "tab_label": "Power Picks",
-            "collection": "new"
-          }
-        },
-        "collection_tab_hygArg": {
-          "type": "collection_tab",
-          "settings": {
-            "tab_label": "Power Picks",
-            "collection": "frontpage"
-          }
-        }
-      },
-      "block_order": [
-        "collection_tab_z4hwK4",
-        "collection_tab_bdVURr",
-        "collection_tab_hygArg"
-      ],
-      "disabled": true,
-      "name": "Collection Tabs",
-      "settings": {
-        "section_heading": "Customer Favorites"
-      }
     }
   },
   "order": [
@@ -606,10 +614,11 @@
     "our_category_dAjLQW",
     "our_services_HFXeCY",
     "why_choose_RhP4cE",
-    "multicolumn_NUkNgM",
+    "tab_collection_PXdCW4",
     "testimonial_f8fUmj",
     "explore_events_yqkRm7",
-    "meadia_logos_wtKeWD",
-    "tab_collection_tydL4Q"
+    "multicolumn_NUkNgM",
+    "signup_email_WMCkrN",
+    "meadia_logos_wtKeWD"
   ]
 }
