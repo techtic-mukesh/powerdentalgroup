@@ -77,6 +77,9 @@
             </svg>
             </div>
            </div>
+
+
+           <div class="swiper-pagination"></div>
         
           {% else %}
           <!-- Normal Grid -->
@@ -185,6 +188,40 @@ color: #fff;
   display: none; /* hide before init */
 }
 
+section.collection-tabs  .swiper-pagination {
+   display: none;
+}
+
+  @media only screen and (max-width: 767px) {
+    section.collection-tabs {
+    padding: 30px 0 60px;
+}
+
+section.collection-tabs  .swiper-pagination {
+    bottom: 20px !important;
+    display: block;
+}
+
+
+
+.swiper-main__wrap .swiper-button-next, .swiper-main__wrap .swiper-button-prev {
+  display: none !important;
+}
+
+section.collection-tabs .tabs-buttons {
+            gap: 19px;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+}
+
+.collection-tabs .tab-btn {
+    padding: 0 20px;
+    line-height: 40px;
+            white-space: nowrap;
+}
+   }
+
 
 </style>
 
@@ -197,33 +234,49 @@ document.addEventListener("DOMContentLoaded", function() {
   const swipers = {};
 
   function initSwiper(panel) {
-  const swiperEl = panel.querySelector(".collection-swiper");
-  if (swiperEl && !swipers[panel.id]) {
-    swipers[panel.id] = new Swiper(swiperEl, {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      navigation: {
-        nextEl: panel.querySelector(".swiper-main__wrap .swiper-button-next"),
-        prevEl: panel.querySelector(".swiper-main__wrap .swiper-button-prev"),
-      },
-      breakpoints: {
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 4 }
-      },
-      on: {
-        init: function () {
-          // show arrows after init
-          const wrap = panel.querySelector(".swiper-main__wrap");
-          wrap.querySelector(".swiper-button-next").style.display = "flex";
-          wrap.querySelector(".swiper-button-prev").style.display = "flex";
+    const swiperEl = panel.querySelector(".collection-swiper");
+    if (swiperEl && !swipers[panel.id]) {
+      swipers[panel.id] = new Swiper(swiperEl, {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: panel.querySelector(".swiper-main__wrap .swiper-button-next"),
+          prevEl: panel.querySelector(".swiper-main__wrap .swiper-button-prev"),
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1,
+            pagination: {
+              el: panel.querySelector(".swiper-pagination"),
+              clickable: true,
+            },
+            navigation: false, // hide arrows on mobile
+          },
+          768: {
+            slidesPerView: 2,
+            pagination: false, // remove pagination
+            navigation: true,  // enable arrows
+          },
+          1024: {
+            slidesPerView: 4,
+            pagination: false, 
+            navigation: true,
+          }
+        },
+        on: {
+          init: function () {
+            const wrap = panel.querySelector(".swiper-main__wrap");
+            if (window.innerWidth > 767) {
+              wrap.querySelector(".swiper-button-next").style.display = "flex";
+              wrap.querySelector(".swiper-button-prev").style.display = "flex";
+            }
+          }
         }
-      }
-    });
+      });
+    }
   }
-}
 
-
-  // Init Swiper for ALL tabs (hidden or visible)
+  // Init Swiper for ALL tabs
   panels.forEach(panel => initSwiper(panel));
 
   // Tab switching logic
@@ -241,6 +294,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
 
 </script>
 

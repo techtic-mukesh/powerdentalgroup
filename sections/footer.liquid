@@ -543,3 +543,52 @@
   }
 }
 {% endschema %}
+
+
+
+<script>
+  $(document).ready(function () {
+  var $footerHeading = $('.footer-block__heading');
+  var clickHandler = null;
+
+  function initFooterToggle() {
+    // Remove existing click handler if it exists
+    if (clickHandler) {
+      $footerHeading.off('click', clickHandler);
+    }
+
+    if ($(window).width() <= 991) {
+      clickHandler = function (e) {
+        e.preventDefault();
+
+        if ($(this).hasClass('active')) {
+          $(this).removeClass('active');
+          $(this).next('.footer-block__details-content').stop().slideUp(400);
+        } else {
+          $(this).addClass('active');
+          $(this).next('.footer-block__details-content').stop().slideDown(400);
+
+          // close other sections
+          $(this).parent().siblings().find('.footer-block__heading').removeClass('active');
+          $(this).parent().siblings().find('.footer-block__details-content').slideUp(400);
+        }
+      };
+
+      $footerHeading.on('click', clickHandler);
+    } else {
+      // Reset footer state for larger screens
+      $footerHeading.removeClass('active');
+      $('.footer-block__details-content').show().css('display', '');
+    }
+  }
+
+  // Initialize on document ready
+  initFooterToggle();
+
+  // Re-initialize on window resize
+  $(window).on('resize', function() {
+    initFooterToggle();
+  });
+});
+
+</script>

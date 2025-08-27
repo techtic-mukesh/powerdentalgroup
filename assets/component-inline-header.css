@@ -91,7 +91,141 @@ summary .icon-caret {
 
 .right-header-block ul.list-unstyled.list-social {
     gap: 20px;
-    margin-top: 16px;
+    margin-top: 0;
 }
 
 
+.top-inline-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.header {
+    align-items: flex-start;
+}
+
+.right-header-block {
+    display: flex
+;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    padding-bottom: 25px;
+}
+
+.cart-count-bubble {
+    bottom: auto;
+    top: 0;
+    border-radius: 3000px;
+    background: #0033A0;
+}
+
+.cart-count-bubble span {
+    color: #FFF !important;
+    font-family: Prompt;
+    font-size: 11px !important;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 14px;
+    text-transform: capitalize;
+}
+
+
+@media only screen and (max-width: 1240px) {
+  .middle-header-scope {
+    padding: 0 20px;
+}
+
+.header__heading-logo {
+    max-width: 200px;
+}
+}
+
+
+@media (max-width: 1100px) and (min-width: 990px) {
+  .header--middle-left .header__inline-menu {
+    margin-left: -200px;
+}
+}
+
+@media only screen and (max-width: 990px) { 
+    .right-header-block ul.list-unstyled.list-social {
+    display: none;
+}
+
+.right-header-block {
+    grid-area: icons;
+    padding: 0;
+}
+
+.middle-header-scope {
+    padding: 0;
+    grid-column: span 3;
+}
+
+.top-inline-bar {
+    margin: 10px 0;
+}
+
+.header {
+    align-items: center;
+}
+
+header-drawer {
+    margin-left: 0;
+}
+.header__icon--menu .icon {
+    left: 32px;
+}
+
+.header--has-social .menu-drawer__utility-links {
+        display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-localization .disclosure .localization-form__select {
+    min-width: 100px;
+    padding-left: 20px;
+    padding-top: 16px;
+}
+
+.desktop-localization-wrapper {
+    display: none;
+}
+
+.right-header-block details-modal.header__search {
+    display: none;
+}
+
+.header__icons.header__icons--localization.header-localization {
+    gap: 20px;
+    justify-content: end;
+}
+}
+
+
+@media only screen and (max-width: 567px) {
+    .header {
+    padding: 10px 1.5rem 0px 1.5rem !important;
+        grid-template-columns: auto 1fr auto;
+}
+
+.header__heading-logo {
+    max-width: 170px;
+}
+
+.header__icon--menu .icon {
+    left: 15px;
+}
+
+.header__icons.header__icons--localization.header-localization {
+    padding-right: 20px;
+}
+
+.top-inline-bar button.mega-dropdown {
+    display: none;
+}
+  }
