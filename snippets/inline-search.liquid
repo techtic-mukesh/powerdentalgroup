@@ -18,16 +18,14 @@
       {% render 'icon-search' %}
     </button>
     <button type="button" class="search-btn close-icon" aria-label="Clear Search">
-      <!-- Close SVG -->
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M21 21L12 12M12 12L3 3M12 12L21.0001 3M12 12L3 21.0001" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
   </form>
 </div>
-
+<div id="PredictiveResultsoverlay" bis_skin_checked="1"></div>
 <div id="PredictiveResults" class="predictive-search-results"></div>
-
 
 <style>
 .header__search-inline {
@@ -41,17 +39,17 @@
     border-radius: 3000px;
     border: 1px solid #DCDCDC;
     background: #FFF;
-    padding: 0 20px;
+    padding: 0 50px 0 20px;
     color: #131313;
     font-family: Prompt;
     font-size: 14px;
     font-style: normal;
     font-weight: 300;
-    line-height: 14px; /* 100% */
+    line-height: 14px;
+    box-sizing: border-box;
 }
 
-
-.header__search-inline  button.search-btn {
+.header__search-inline button.search-btn {
     background: unset;
     border: unset;
     position: absolute;
@@ -62,15 +60,16 @@
     align-items: center;
     justify-content: center;
     padding: 0;
+    cursor: pointer;
 }
 
 .header__search-inline input#Search-Inline::placeholder {
-     color: #131313;
+    color: #131313;
     font-family: Prompt;
     font-size: 14px;
     font-style: normal;
     font-weight: 300;
-    line-height: 14px; /* 100% */
+    line-height: 14px;
 }
 
 div#PredictiveResults {
@@ -79,175 +78,442 @@ div#PredictiveResults {
     left: 0;
     width: 100%;
     background-color: #fff;
-}
-
-div#PredictiveResults {
-position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
     max-width: 900px;
     margin: 0 auto;
     left: 50%;
     transform: translateX(-50%);
+    border-radius: unset;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: none;
 }
 
+div#PredictiveResults.show {
+    display: block;
+}
 
+/* Two Column Layout */
+.search-results-container {
+    display: flex;
+    min-height: 400px;
+}
+
+.products-section {
+    flex: 1;
+    border-right: 1px solid #e5e5e5;
+}
+
+.suggestions-section {
+    width: 200px;
+    background-color: #fafafa;
+    padding: 20px;
+}
+
+#PredictiveResults .section-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e5e5e5;
+    font-weight: 600;
+    color: #141132;
+    font-size: 19px;
+    line-height: 24px;
+}
+
+.suggestions-section h3 {
+      margin: 0 0 10px 0;
+    font-weight: 600;
+    color: #141132;
+    font-size: 14px;
+    line-height: 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #66666647;
+}
+
+/* Products List */
 div#PredictiveResults ul.predictive-list {
     margin: 0;
-    height: 400px;
+    height: 350px;
     overflow-y: auto;
-    padding: 14px;
+    padding: 0;
     background-color: #fff;
 }
 
 div#PredictiveResults ul.predictive-list li {
     list-style: none;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-
-
-
-/* div#PredictiveResults:after {
-    content: '';
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    z-index: -1;
-    background: rgba(20, 17, 50, 0.70);
-    backdrop-filter: blur(1.5px);
-} */
+div#PredictiveResults ul.predictive-list li:last-child {
+    border-bottom: none;
+}
 
 div#PredictiveResults ul.predictive-list a.predictive-item {
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
+    padding: 15px 20px;
+    transition: background-color 0.2s ease;
+}
+
+div#PredictiveResults ul.predictive-list a.predictive-item:hover {
+    background-color: #f8f9fa;
 }
 
 div#PredictiveResults ul.predictive-list a.predictive-item img {
-    width: 120px;
-    height: 120px;
-    min-width: 120px;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #f5f5f5;
 }
 
-div#PredictiveResults ul.predictive-list a.predictive-item span {
+div#PredictiveResults ul.predictive-list a.predictive-item span.product-title {
     color: #141132;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0 0 5px 0;
+    display: block;
+}
+
+.predictive-info p.product-price {
+    font-variant-numeric: ordinal;
     font-family: Montserrat;
     font-size: 16px;
     font-style: normal;
-    font-weight: 600;
-    line-height: 24px; /* 150% */
-}
-
-.predictive-info p {
-    font-variant-numeric: ordinal;
-    font-family: Montserrat;
-    font-size: 24px;
-    font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin: 5px 0 0;
+    margin: 0;
     background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+.product-meta {
+    font-size: 12px;
+    color: #666;
+    margin-top: 2px;
+    font-family: Montserrat;
+}
+
+/* Suggestions List */
+.suggestions-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.suggestions-list li {
+    margin-bottom: 12px;
+}
+
+.suggestions-list a {
+    text-decoration: none;
+  transition: color 0.2s ease;
+    color: #141132;
+    font-family: Prompt;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.suggestions-list a:hover {
+    color: #0033A0;
+}
+
+/* Close Icon */
 .header__search-inline button.search-btn.close-icon svg {
     width: 15px;
     height: 17px;
 }
 
 .header__search-inline input[type="search"]::-webkit-search-cancel-button {
-  display: none;
+    display: none;
 }
 
-/* Hide close icon by default */
 .header__search-inline button.search-btn.close-icon {
-  display: none;
-  cursor: pointer;
+    display: none;
+    cursor: pointer;
+}
+
+/* No Results */
+.no-results {
+    padding: 40px 20px;
+    text-align: center;
+    color: #141132;
+    font-style: italic;
+}
+
+/* Loading State */
+.loading-state {
+    padding: 40px 20px;
+    text-align: center;
+    color: #141132;
+}
+
+div#PredictiveResultsoverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: rgba(20, 17, 50, 0.70);
+    backdrop-filter: blur(1.5px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .search-results-container {
+        flex-direction: column;
+    }
+    
+    .suggestions-section {
+        width: 100%;
+        border-right: none;
+        border-top: 1px solid #e5e5e5;
+    }
+    
+    div#PredictiveResults {
+        max-width: 100%;
+        left: 0;
+        transform: none;
+        margin: 0;
+    }
 }
 </style>
 
 <script>
-  class PredictiveSearch {
-  constructor() {
-    this.input = document.querySelector('#Search-Inline');
-    this.results = document.querySelector('#PredictiveResults');
-    this.input.addEventListener('input', this.onChange.bind(this));
-  }
-
-  onChange() {
-    const query = this.input.value.trim();
-    if (query.length < 2) {
-      this.results.innerHTML = '';
-      return;
+class PredictiveSearch {
+    constructor() {
+        this.input = document.querySelector('#Search-Inline');
+        this.results = document.querySelector('#PredictiveResults');
+        this.overlay = document.querySelector('#PredictiveResultsoverlay');
+        this.searchIcon = document.querySelector('.search-icon');
+        this.closeIcon = document.querySelector('.close-icon');
+        
+        // Debounce timer
+        this.debounceTimer = null;
+        
+        this.input.addEventListener('input', this.onChange.bind(this));
+        this.closeIcon.addEventListener('click', this.clearSearch.bind(this));
+        
+        // Hide results when clicking outside or on overlay
+        document.addEventListener('click', this.handleOutsideClick.bind(this));
+        if (this.overlay) {
+            this.overlay.addEventListener('click', this.hideResults.bind(this));
+        }
     }
 
-    fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=5&section_id=predictive-search`)
-      .then(response => response.json())
-      .then(suggestions => {
-        this.renderResults(suggestions.resources.results.products);
-      });
-  }
+    onChange() {
+        const query = this.input.value.trim();
+        
+        // Toggle icons
+        if (query !== '') {
+            this.searchIcon.style.display = 'none';
+            this.closeIcon.style.display = 'flex';
+        } else {
+            this.searchIcon.style.display = 'flex';
+            this.closeIcon.style.display = 'none';
+        }
 
-  renderResults(products) {
-    if (!products.length) {
-      this.results.innerHTML = '<p class="no-results">No results found</p>';
-      return;
+        // Clear previous timer
+        if (this.debounceTimer) {
+            clearTimeout(this.debounceTimer);
+        }
+
+        if (query.length < 2) {
+            this.hideResults();
+            return;
+        }
+
+        // Show loading state
+        this.showLoading();
+
+        // Debounce the API call
+        this.debounceTimer = setTimeout(() => {
+            this.fetchResults(query);
+        }, 300);
     }
 
-    this.results.innerHTML = `
-      <ul class="predictive-list">
-        ${products
-          .map(
-            product => `
-              <li>
-                <a href="${product.url}" class="predictive-item">
-                  <img src="${product.featured_image.url}" alt="${product.featured_image.alt}" />
-                  <div class="predictive-info">
-                  <span>${product.title}</span>
-                  <p>$ ${product.price}</p>
-                  </div>
-                </a>
-              </li>
-            `
-          )
-          .join('')}
-      </ul>
-    `;
-  }
+    fetchResults(query) {
+        // Fetch products
+        const productPromise = fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=6&section_id=predictive-search`)
+            .then(response => response.json())
+            .then(data => data.resources.results.products || []);
+
+        // Fetch collections for suggestions
+        const collectionPromise = fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=collection&resources[limit]=4&section_id=predictive-search`)
+            .then(response => response.json())
+            .then(data => data.resources.results.collections || []);
+
+        // Fetch queries/suggestions
+        const queryPromise = fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=query&resources[limit]=4&section_id=predictive-search`)
+            .then(response => response.json())
+            .then(data => data.resources.results.queries || []);
+
+        Promise.all([productPromise, collectionPromise, queryPromise])
+            .then(([products, collections, queries]) => {
+                this.renderResults(products, collections, queries, query);
+            })
+            .catch(error => {
+                console.error('Search error:', error);
+                this.showNoResults();
+            });
+    }
+
+    renderResults(products, collections, queries, originalQuery) {
+        if (!products.length && !collections.length && !queries.length) {
+            this.showNoResults();
+            return;
+        }
+
+        // Build products HTML
+        const productsHtml = products.length ? 
+            products.map(product => {
+                const price = product.price;
+                const comparePrice = product.compare_at_price ? (product.compare_at_price / 100).toFixed(2) : null;
+                const imageUrl = product.featured_image?.url ? product.featured_image.url : '/assets/product-placeholder.svg';
+                
+                return `
+                    <li>
+                        <a href="${product.url}" class="predictive-item">
+                            <img src="${imageUrl}" alt="${product.featured_image?.alt || product.title}" loading="lazy" />
+                            <div class="predictive-info">
+                                <span class="product-title">${product.title}</span>
+                                <p class="product-price">
+                                    $${price}
+                                    ${comparePrice && comparePrice !== price ? `<span class="compare-price" style="text-decoration: line-through; color: #999; margin-left: 8px;">$${comparePrice}</span>` : ''}
+                                </p>
+                                ${product.vendor ? `<div class="product-meta">by ${product.vendor}</div>` : ''}
+                            </div>
+                        </a>
+                    </li>
+                `;
+            }).join('') : '<li class="no-results" style="padding: 20px;">No products found</li>';
+
+        // Build suggestions HTML
+        const suggestions = [];
+        
+        // Add collections as suggestions
+        if (collections.length) {
+            collections.forEach(collection => {
+                suggestions.push({
+                    title: collection.title,
+                    url: collection.url,
+                    type: 'collection'
+                });
+            });
+        }
+
+        // Add query suggestions
+        if (queries.length) {
+            queries.forEach(query => {
+                suggestions.push({
+                    title: query.styled_text || query.text,
+                    url: `/search?q=${encodeURIComponent(query.text)}`,
+                    type: 'query'
+                });
+            });
+        }
+
+        // Add popular searches if no other suggestions
+        if (!suggestions.length) {
+            const popularSearches = ['new arrivals', 'sale', 'accessories', 'featured'];
+            popularSearches.forEach(term => {
+                if (term.toLowerCase().includes(originalQuery.toLowerCase())) {
+                    suggestions.push({
+                        title: term,
+                        url: `/search?q=${encodeURIComponent(term)}`,
+                        type: 'popular'
+                    });
+                }
+            });
+        }
+
+        const suggestionsHtml = suggestions.length ?
+            suggestions.slice(0, 6).map(suggestion => `
+                <li><a href="${suggestion.url}">${suggestion.title}</a></li>
+            `).join('') : '<li style="color: #999; font-style: italic;">No suggestions</li>';
+
+        this.results.innerHTML = `
+            <div class="search-results-container">
+                <div class="products-section">
+                    <div class="section-header">Products</div>
+                    <ul class="predictive-list">
+                        ${productsHtml}
+                    </ul>
+                </div>
+                <div class="suggestions-section">
+                    <h3>Suggestions</h3>
+                    <ul class="suggestions-list">
+                        ${suggestionsHtml}
+                    </ul>
+                </div>
+            </div>
+        `;
+        
+        this.showResults();
+    }
+
+    showLoading() {
+        this.results.innerHTML = `
+            <div class="loading-state">
+                <p>Searching...</p>
+            </div>
+        `;
+        this.showResults();
+    }
+
+    showNoResults() {
+        this.results.innerHTML = '<p class="no-results">No results found</p>';
+        this.showResults();
+    }
+
+    showResults() {
+        this.results.classList.add('show');
+        if (this.overlay) {
+            this.overlay.style.display = 'inline-block';
+        }
+    }
+
+    hideResults() {
+        this.results.classList.remove('show');
+        if (this.overlay) {
+            this.overlay.style.display = 'none';
+        }
+    }
+
+    clearSearch() {
+        this.input.value = '';
+        this.input.focus();
+        this.searchIcon.style.display = 'flex';
+        this.closeIcon.style.display = 'none';
+        this.hideResults();
+        
+        // Clear debounce timer
+        if (this.debounceTimer) {
+            clearTimeout(this.debounceTimer);
+        }
+    }
+
+    handleOutsideClick(e) {
+        const searchContainer = document.querySelector('.header__search-inline');
+        const results = document.querySelector('#PredictiveResults');
+        
+        if (!searchContainer.contains(e.target) && !results.contains(e.target)) {
+            this.hideResults();
+        }
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  new PredictiveSearch();
-
-   const input = document.querySelector('#Search-Inline');
-  const searchIcon = document.querySelector('.search-icon');
-  const closeIcon = document.querySelector('.close-icon');
-
-  input.addEventListener('input', () => {
-    if (input.value.trim() !== '') {
-      searchIcon.style.display = 'none';
-      closeIcon.style.display = 'flex';
-    } else {
-      searchIcon.style.display = 'flex';
-      closeIcon.style.display = 'none';
-    }
-  });
-
-  closeIcon.addEventListener('click', () => {
-    input.value = '';
-    input.focus();
-    searchIcon.style.display = 'flex';
-    closeIcon.style.display = 'none';
-    document.querySelector('#PredictiveResults').innerHTML = ''; // clear results too
-  });
+    new PredictiveSearch();
 });
-
 </script>
