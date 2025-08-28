@@ -541,7 +541,7 @@
         "background_style": "primary",
         "color_scheme": "scheme-2",
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "padding_top": 60,
         "padding_bottom": 60
       }

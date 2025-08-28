@@ -1,6 +1,4 @@
-
-
-<div class="media-logos-section" style="background-color: {{ section.settings.background_color }}; padding: 30px 0;">
+<div class="media-logos-section" style="background-color: {{ section.settings.background_color }}; padding: 30px 0; display:none;" >
   <div class="page-width">
     <div class="media-logos">
       {% for block in section.blocks %}
@@ -13,6 +11,88 @@
     </div>
   </div>
 </div>
+
+<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+
+<section class="mx-auto py-20" style="overflow-x: clip; background-color: {{ section.settings.background_color }}; padding: 30px 0;">
+  <div class="marquee flex" style="display: flex;">
+    <div class="marquee-content flex gap-2">
+      {% for block in section.blocks %}
+        {% if block.settings.logo_image %}
+          <a href="{{ block.settings.logo_link | default: '#' }}" target="_blank" rel="noopener">
+            <img src="{{ block.settings.logo_image | img_url: '' }}" alt="Media Logo" >
+          </a>
+        {% endif %}
+      {% endfor %}
+      {% for block in section.blocks %}
+        {% if block.settings.logo_image %}
+          <a href="{{ block.settings.logo_link | default: '#' }}" target="_blank" rel="noopener">
+            <img src="{{ block.settings.logo_image | img_url: '' }}" alt="Media Logo" >
+          </a>
+        {% endif %}
+      {% endfor %}
+      {% for block in section.blocks %}
+        {% if block.settings.logo_image %}
+          <a href="{{ block.settings.logo_link | default: '#' }}" target="_blank" rel="noopener">
+            <img src="{{ block.settings.logo_image | img_url: '' }}" alt="Media Logo" >
+          </a>
+        {% endif %}
+      {% endfor %}
+      {% for block in section.blocks %}
+        {% if block.settings.logo_image %}
+          <a href="{{ block.settings.logo_link | default: '#' }}" target="_blank" rel="noopener">
+            <img src="{{ block.settings.logo_image | img_url: '' }}" alt="Media Logo" >
+          </a>
+        {% endif %}
+      {% endfor %}
+      {% for block in section.blocks %}
+        {% if block.settings.logo_image %}
+          <a href="{{ block.settings.logo_link | default: '#' }}" target="_blank" rel="noopener">
+            <img src="{{ block.settings.logo_image | img_url: '' }}" alt="Media Logo" >
+          </a>
+        {% endif %}
+      {% endfor %}
+      
+    </div>
+  </div>
+</section>
+
+
+
+<script>
+  const init = () => {
+  const marquee = document.querySelector('.marquee');
+  if(!marquee) {
+    return;
+  }
+  const marqueeContent = document.querySelector('.marquee-content');
+  if(!marqueeContent) {
+    return;
+  }
+  
+  const marqueeContentClone = marqueeContent.cloneNode(true);
+  marquee.append(marqueeContentClone);
+  
+  const width = parseInt(getComputedStyle(marqueeContent).getPropertyValue('width'), 10);
+  
+  const gap = parseInt(getComputedStyle(marqueeContent).getPropertyValue('column-gap'), 10);
+  
+  const distanceToTranslate = -1 * (gap + width);
+  
+  gsap.fromTo(
+    marquee.children,
+    {x: 0},
+    {x: distanceToTranslate,
+    duration: 70,
+     ease: "none",
+     repeat: -1
+    }
+  )
+ 
+}
+
+document.addEventListener('DOMContentLoaded', init)
+</script> 
 
 <style>
 
@@ -46,9 +126,35 @@
 .media-logos-section .media-logos a:hover img {
       filter: opacity(.5);
 }
+
+.marquee-content.flex.gap-2 {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.marquee-content.flex.gap-2 a {
+    min-width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marquee-content.flex.gap-2 a img {
+    height: 40px;
+    object-fit: scale-down;
+}
  @media screen and (max-width: 540px) {
     .media-logos-section .media-logos {
     gap: 20px;
+}
+
+.marquee-content.flex.gap-2 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
 }
    
   }

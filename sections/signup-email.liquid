@@ -52,7 +52,8 @@ section.signup-mail .signup-wrap .left-title h2 {
 }   
 
 .right-form .hs_get_access_to_ ul.inputs-list.multi-container .hs-form-radio {
-    position: relative
+    position: relative;
+    line-height: normal;
 }
 
 .right-form .hs_get_access_to_ ul.inputs-list.multi-container .hs-form-radio input[type=radio] {
@@ -339,6 +340,7 @@ section.signup-mail .signup-wrap .left-title h2 {
     padding: 0;
     list-style: none;
     gap: 16px;
+    flex-flow: row wrap;
 }
 
 .right-form ul.inputs-list .hs-form-booleancheckbox {
@@ -498,13 +500,116 @@ section.signup-mail .signup-wrap .left-title h2 {
     line-height: 24px; /* 150% */
     border: unset;
     cursor: pointer;
+        background-size: 100% auto;
+    background-position: left center;
+    transition: background-position .5s ease-in-out;
+}
+
+.hs_submit.hs-submit input.hs-button.primary.large:hover {
+    background-position: right center;
+    background-size: 200% auto;
 }
 
 .right-form ul.inputs-list .hs-form-booleancheckbox {
     margin: 0 !important;
 }
 
+.right-form .customer-names {
+    display: flex;
+    align-items: center;
+}
+
+span.hs-form-required {
+    color: #F00;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+label.hs-error-msg.hs-main-font-element {
+    color: #F00;
+        font-family: Prompt;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    position: absolute;
+    margin-top: -10px;
+}
+
+
+.right-form .field:after,.right-form .select:after, .right-form .customer .field:after,.right-form .customer select:after,.right-form .localization-form__select:after {
+    display: none;
+}
+
+@media only screen and (max-width: 990px) { 
+section.signup-mail .signup-wrap {
+    grid-template-columns: 1fr;
+}
+
+.right-form {
+    position: relative;
+    z-index: 1;
+}
+
+section.signup-mail .signup-wrap span.bg-image {
+    opacity: .2;
+}
+}
+
+@media only screen and (max-width: 440px) {
+    section.signup-mail .signup-wrap span.bg-image img {
+    max-width: 100%;
+}
+.hs_submit.hs-submit input.hs-button.primary.large {
+    padding: 0 10px;
+    width: 100%;
+    height: 45px;
+    font-weight: 500;
+}
+
+section.signup-mail {
+    padding: 35px 0;
+}
+  }
+
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const formContainer = document.querySelector(".right-form");
+
+  if (!formContainer) return;
+
+  // Create observer
+  const observer = new MutationObserver((mutations, obs) => {
+    const firstName = formContainer.querySelector(".hs_firstname");
+    const lastName = formContainer.querySelector(".hs_lastname");
+
+    if (firstName && lastName && !formContainer.querySelector(".customer-names")) {
+      // Create wrapper
+      const wrapper = document.createElement("div");
+      wrapper.className = "customer-names";
+
+      // Insert wrapper before firstName
+      firstName.parentNode.insertBefore(wrapper, firstName);
+
+      // Move both inputs inside wrapper
+      wrapper.appendChild(firstName);
+      wrapper.appendChild(lastName);
+
+      // Stop observing once done
+      obs.disconnect();
+    }
+  });
+
+  // Start observing for child nodes added in the form
+  observer.observe(formContainer, { childList: true, subtree: true });
+});
+
+</script>
 
 
 {% schema %}
