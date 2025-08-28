@@ -236,61 +236,124 @@ document.addEventListener("DOMContentLoaded", function() {
   function initSwiper(panel) {
     const swiperEl = panel.querySelector(".collection-swiper");
     if (swiperEl && !swipers[panel.id]) {
+      // Get navigation elements with more specific selectors
+      const nextBtn = panel.querySelector(".swiper-button-next");
+      const prevBtn = panel.querySelector(".swiper-button-prev");
+      const pagination = panel.querySelector(".swiper-pagination");
+
       swipers[panel.id] = new Swiper(swiperEl, {
         slidesPerView: 1,
         spaceBetween: 30,
         navigation: {
-          nextEl: panel.querySelector(".swiper-main__wrap .swiper-button-next"),
-          prevEl: panel.querySelector(".swiper-main__wrap .swiper-button-prev"),
+          nextEl: nextBtn,
+          prevEl: prevBtn,
+        },
+        pagination: {
+          el: pagination,
+          clickable: true,
         },
         breakpoints: {
           0: {
             slidesPerView: 1,
-            pagination: {
-              el: panel.querySelector(".swiper-pagination"),
-              clickable: true,
+            navigation: {
+              nextEl: nextBtn,
+              prevEl: prevBtn,
             },
-            navigation: false, // hide arrows on mobile
+            pagination: {
+              el: pagination,
+              clickable: true,
+            }
           },
           768: {
             slidesPerView: 2,
-            pagination: false, // remove pagination
-            navigation: true,  // enable arrows
+            navigation: {
+              nextEl: nextBtn,
+              prevEl: prevBtn,
+            },
+            pagination: false
           },
           1024: {
             slidesPerView: 4,
-            pagination: false, 
-            navigation: true,
+            navigation: {
+              nextEl: nextBtn,
+              prevEl: prevBtn,
+            },
+            pagination: false
           }
         },
         on: {
-          init: function () {
-            const wrap = panel.querySelector(".swiper-main__wrap");
-            if (window.innerWidth > 767) {
-              wrap.querySelector(".swiper-button-next").style.display = "flex";
-              wrap.querySelector(".swiper-button-prev").style.display = "flex";
-            }
+          init: function() {
+            // Show/hide navigation based on screen size
+            updateNavigationVisibility(panel);
+          },
+          breakpoint: function() {
+            // Update navigation visibility when breakpoint changes
+            updateNavigationVisibility(panel);
           }
         }
       });
     }
   }
 
-  // Init Swiper for ALL tabs
-  panels.forEach(panel => initSwiper(panel));
+  function updateNavigationVisibility(panel) {
+    const wrap = panel.querySelector(".swiper-main__wrap");
+    const nextBtn = wrap?.querySelector(".swiper-button-next");
+    const prevBtn = wrap?.querySelector(".swiper-button-prev");
+    const pagination = panel.querySelector(".swiper-pagination");
+
+    if (window.innerWidth > 767) {
+      // Desktop: show arrows, hide pagination
+      if (nextBtn) nextBtn.style.display = "flex";
+      if (prevBtn) prevBtn.style.display = "flex";
+      if (pagination) pagination.style.display = "none";
+    } else {
+      // Mobile: hide arrows, show pagination
+      if (nextBtn) nextBtn.style.display = "none";
+      if (prevBtn) prevBtn.style.display = "none";
+      if (pagination) pagination.style.display = "block";
+    }
+  }
+
+  // Initialize Swiper for all panels
+  panels.forEach(panel => {
+    if (panel.id) { // Make sure panel has an ID
+      initSwiper(panel);
+    }
+  });
 
   // Tab switching logic
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
+      // Remove active class from all buttons and panels
       buttons.forEach(b => b.classList.remove("active"));
+      panels.forEach(panel => panel.classList.remove("active"));
+
+      // Add active class to clicked button
       btn.classList.add("active");
 
-      panels.forEach(panel => panel.classList.remove("active"));
+      // Show corresponding panel
       const activePanel = document.getElementById(btn.dataset.tab);
-      activePanel.classList.add("active");
+      if (activePanel) {
+        activePanel.classList.add("active");
 
-      // Re-init if needed (safety)
-      initSwiper(activePanel);
+        // Update swiper if it exists
+        if (swipers[activePanel.id]) {
+          // Small delay to ensure panel is visible before updating
+          setTimeout(() => {
+            swipers[activePanel.id].update();
+            updateNavigationVisibility(activePanel);
+          }, 10);
+        }
+      }
+    });
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    panels.forEach(panel => {
+      if (panel.classList.contains('active')) {
+        updateNavigationVisibility(panel);
+      }
     });
   });
 });

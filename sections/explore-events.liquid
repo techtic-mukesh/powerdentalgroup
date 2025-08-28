@@ -83,6 +83,7 @@ section.our-events .title-wrap p.subheading:before, section.our-events .title-wr
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .event-wrap .event-item {
@@ -162,6 +163,43 @@ section.our-events .bottom-btn {
     border: unset;
 }
 
+
+  @media only screen and (max-width: 767px) {
+    section.our-events {
+    padding: 35px 0;
+}
+
+section.our-events .title-wrap p.subheading {
+    line-height: 1.4;
+    font-size: 15px;
+}
+
+section.our-events .title-wrap p {
+    font-size: 14px;
+}
+
+section.our-events .title-wrap {
+    margin: 0 0 20px;
+}
+
+.event-wrap .event-item .event-info {
+    padding: 15px;
+}
+
+.event-wrap .event-item .event-info h3 {
+    font-size: 18px;
+}
+
+.event-wrap .event-item .event-info p {
+    font-size: 14px;
+}
+
+.event-wrap .event-item .event-info a.button.button-secondary.transparent {
+    line-height: 40px;
+    font-size: 14px;
+    padding: 0 20px;
+}
+   }
 </style>
 
 

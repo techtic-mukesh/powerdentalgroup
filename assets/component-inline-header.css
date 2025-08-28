@@ -173,11 +173,35 @@ summary .icon-caret {
     align-items: center;
 }
 
+.header__submenu .header__menu-item {
+    color: #141132;
+    font-family: Prompt;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+}
+
 header-drawer {
     margin-left: 0;
 }
 .header__icon--menu .icon {
     left: 32px;
+}
+
+.list-menu__item {
+    padding: 10px 10px 10px 18px;
+        color: #141132;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.menu-drawer__navigation {
+    padding: 10px 0;
+    border-top: 1px solid #80808057;
 }
 
 .header--has-social .menu-drawer__utility-links {

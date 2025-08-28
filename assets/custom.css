@@ -158,7 +158,19 @@ a.button.button--secondary:after {
     line-height: 18px; /* 128.571% */
 }
 
+@keyframes rainbow {
+    0% {
+        background-position: left
+    }
 
+    50% {
+        background-position: right
+    }
+
+    100% {
+        background-position: left
+    }
+}
 
 /* Globle Responsive */
 
