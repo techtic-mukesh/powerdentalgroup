@@ -22,21 +22,21 @@
           "type": "link_list",
           "settings": {
             "heading": "Services",
-            "menu": "footer"
+            "menu": "services"
           }
         },
         "link_list_4eTJfQ": {
           "type": "link_list",
           "settings": {
             "heading": "Resources",
-            "menu": "products"
+            "menu": "resources"
           }
         },
         "link_list_Y637CG": {
           "type": "link_list",
           "settings": {
             "heading": "Our Company",
-            "menu": "footer"
+            "menu": "our-company"
           }
         }
       },

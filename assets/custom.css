@@ -158,6 +158,18 @@ a.button.button--secondary:after {
     line-height: 18px; /* 128.571% */
 }
 
+.footer-block__brand-info p a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-block__brand-info p a:hover {
+        background: linear-gradient(90deg, #42c5ef, #0033a0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 @keyframes rainbow {
     0% {
         background-position: left
