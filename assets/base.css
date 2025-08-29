@@ -2834,6 +2834,11 @@ details[open] > .header__submenu {
 .header__menu-item:hover span {
   /* text-decoration: underline; */
   text-underline-offset: 0.3rem;
+  color: #0033A0;
+}
+
+.header__menu-item:hover svg.icon.icon-caret path {
+    fill: #0033A0;
 }
 
 details[open] > .header__menu-item {
@@ -2850,10 +2855,14 @@ details[open] > .header__menu-item .icon-caret {
 
 .header__active-menu-item {
   transition: text-decoration-thickness var(--duration-short) ease;
-  color: rgb(var(--color-foreground));
-  text-decoration: underline;
+  color: #0033A0;
+  /* text-decoration: underline; */
   text-underline-offset: 0.3rem;
 }
+
+.header__active-menu-item svg path {
+  fill: #0033A0;
+} 
 
 .header__menu-item:hover .header__active-menu-item {
   text-decoration-thickness: 0.2rem;
