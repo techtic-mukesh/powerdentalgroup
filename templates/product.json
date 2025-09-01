@@ -15,6 +15,13 @@
           "type": "title",
           "settings": {}
         },
+        "text_bbpjaW": {
+          "type": "text",
+          "settings": {
+            "text": "Designed for safe and effective crown removal, this kit features left and right removers with ergonomic handles and two packs of high-speed diamond burs.",
+            "text_style": "body"
+          }
+        },
         "sku_Gamq4J": {
           "type": "sku",
           "settings": {
@@ -34,6 +41,7 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
+          "disabled": true,
           "settings": {}
         },
         "buy_buttons": {
@@ -45,25 +53,36 @@
         },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {}
         },
         "share": {
           "type": "share",
+          "disabled": true,
           "settings": {
             "share_label": "Share"
+          }
+        },
+        "info_secured_aRwqzg": {
+          "type": "info_secured",
+          "settings": {
+            "title": "Secured payment with",
+            "show_payment_icon": true
           }
         }
       },
       "block_order": [
         "vendor",
         "title",
+        "text_bbpjaW",
         "sku_Gamq4J",
         "price",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share"
+        "share",
+        "info_secured_aRwqzg"
       ],
       "settings": {
         "enable_sticky_info": true,

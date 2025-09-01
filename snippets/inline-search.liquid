@@ -116,6 +116,7 @@ div#PredictiveResults.show {
     color: #141132;
     font-size: 19px;
     line-height: 24px;
+    box-shadow: unset;
 }
 
 .suggestions-section h3 {
@@ -267,6 +268,31 @@ div#PredictiveResultsoverlay {
     background: rgba(20, 17, 50, 0.70);
     backdrop-filter: blur(1.5px);
 }
+
+.sp-circle {
+    border: 3.6px rgba(0, 0, 0, 0.25) solid;
+    border-top: 3.6px #0033A0  solid;
+    border-radius: 50%;
+    -webkit-animation: spCircRot 0.6s infinite linear;
+    animation: spCircRot 1s infinite linear;
+    width: 32px;
+    height: 32px;
+    clear: both;
+    margin: 20px auto;
+    display: flex !important;
+}
+
+@keyframes spCircRot {
+    0% {
+    transform: rotate(0deg);
+}
+
+100% {
+    transform: rotate(359deg);
+}
+}
+
+
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
@@ -465,7 +491,7 @@ class PredictiveSearch {
     showLoading() {
         this.results.innerHTML = `
             <div class="loading-state">
-                <p>Searching...</p>
+               <div class="sp sp-circle"></div>
             </div>
         `;
         this.showResults();

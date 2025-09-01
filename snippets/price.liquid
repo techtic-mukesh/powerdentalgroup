@@ -23,13 +23,23 @@
 
   assign compare_at_price = target.compare_at_price
   assign price = target.price | default: 1999
+  assign price_min = product.price_min
+  assign price_max = product.price_max
   assign available = target.available | default: false
   assign money_price = price | money
   assign compare_money_price = compare_at_price | money
+  assign money_price_min = price_min | money
+  assign money_price_max = price_max | money
 
   if settings.currency_code_enabled
     assign money_price = price | money_with_currency
     assign compare_money_price = compare_at_price | money_with_currency
+    assign money_price_min = price_min | money_with_currency
+    assign money_price_max = price_max | money_with_currency
+  endif
+
+  if target == product and product.price_varies
+    assign money_price = 'products.product.price.from_price_html' | t: price: money_price
   endif
 
   assign discount_percentage = 0
@@ -40,25 +50,58 @@
 -%}
 
 {%- unless target == null and placeholder == null -%}
-  <div class="custom-price-display">
-    {%- if discount_percentage > 0 -%}
-      <span class="discount-percent">
-        -{{ discount_percentage }}%
+
+  {%- if template contains 'product' -%}
+    <!-- Custom price display only for product page -->
+    <div class="custom-price-display">
+      {%- if discount_percentage > 0 -%}
+        <span class="discount-percent">
+          -{{ discount_percentage }}%
+        </span>
+      {%- endif -%}
+
+      <span class="sale-price">
+        {{ money_price }}
       </span>
-    {%- endif -%}
 
-    <span class="sale-price">
-      {{ money_price }}
-    </span>
-
-    {%- if compare_at_price > price -%}
-      <div class="compare-price">
-        List Price: 
-        <s>
-          {{ compare_money_price }}
-        </s>
+      {%- if compare_at_price > price -%}
+        <div class="compare-price">
+          List Price:
+          <s>{{ compare_money_price }}</s>
+        </div>
+      {%- endif -%}
+    </div>
+  
+  {%- else -%}
+    <!-- Default Shopify price for cart/collection/other pages -->
+    <div
+      class="price
+        {%- if price_class %} {{ price_class }}{% endif -%}
+        {%- if available == false %} price--sold-out{% endif -%}
+        {%- if compare_at_price > price and product.quantity_price_breaks_configured? != true %} price--on-sale{% endif -%}
+        {%- if compare_at_price > price and product.quantity_price_breaks_configured? %} volume-pricing--sale-badge{% endif -%}
+        {%- if product.price_varies == false and product.compare_at_price_varies %} price--no-compare{% endif -%}
+        {%- if show_badges %} price--show-badge{% endif -%}
+      "
+    >
+      <div class="price__container">
+        <div class="price__regular">
+          <span class="price-item price-item--regular">
+            {{ money_price }}
+          </span>
+        </div>
+        <div class="price__sale">
+          {%- if compare_at_price > price -%}
+            <span>
+              <s class="price-item price-item--regular">{{ compare_money_price }}</s>
+            </span>
+          {%- endif -%}
+          <span class="price-item price-item--sale price-item--last">
+            {{ money_price }}
+          </span>
+        </div>
       </div>
-    {%- endif -%}
-  </div>
-{%- endunless -%}
+    </div>
+  {%- endif -%}
 
+{%- endunless -%}
