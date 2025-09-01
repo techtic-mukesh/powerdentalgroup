@@ -15,6 +15,12 @@
           "type": "title",
           "settings": {}
         },
+        "sku_Gamq4J": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -33,8 +39,8 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
           }
         },
         "description": {
@@ -51,6 +57,7 @@
       "block_order": [
         "vendor",
         "title",
+        "sku_Gamq4J",
         "price",
         "variant_picker",
         "quantity_selector",

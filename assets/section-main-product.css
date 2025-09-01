@@ -19,6 +19,100 @@ product-info {
   padding-left: 0;
 }
 
+.product__info-wrapper .sku-wrap {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    position: relative;
+}
+
+.product__info-wrapper .sku-wrap p {
+    margin: 0;
+    color: #333;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135.3%;
+    position: relative;
+}
+
+.product__info-wrapper .sku-wrap p span {
+    color: #7A7A7A;
+    margin-right: 6px;
+}
+
+.product__info-wrapper .sku-wrap p:after {
+    content: '';
+    width: 2px;
+    height: 17px;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.30);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -16px;
+}
+
+.product__info-wrapper span.product-stock {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #000;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 125% */
+    text-transform: uppercase;
+}
+
+.product__info-wrapper span.product-stock span.stock-dot {
+    display: flex;
+}
+
+
+.custom-price-display span.discount-percent {
+    color: #F00;
+    font-variant-numeric: ordinal;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.custom-price-display span.sale-price {
+    font-variant-numeric: ordinal;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.custom-price-display .compare-price {
+    color: #666;
+    font-variant-numeric: ordinal;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 5px;
+}
+
+.custom-price-display .compare-price  s{
+    color: #333;
+   
+}
+
 @media screen and (min-width: 750px) {
   .product__column-sticky {
     display: block;
