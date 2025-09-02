@@ -446,7 +446,6 @@
       ],
       "name": "Testimonials Swiper",
       "settings": {
-        "background_color": "#ffffff",
         "section_title": "TESTIMONIALS"
       }
     },
