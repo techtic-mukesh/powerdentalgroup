@@ -48,9 +48,9 @@
         "counter_LJfnh8": {
           "type": "counter",
           "settings": {
-            "number": "",
-            "suffix": "",
-            "label": ""
+            "number": "20",
+            "suffix": "+",
+            "label": "Years of Proven Experience"
           }
         },
         "counter_hxBbpG": {
@@ -557,7 +557,6 @@
     },
     "signup_email_WMCkrN": {
       "type": "signup-email",
-      "disabled": true,
       "name": "Sign Up Form",
       "settings": {
         "background_color": "#141132",
@@ -612,7 +611,6 @@
         "logo_j3QXEG",
         "logo_D3fWai"
       ],
-      "disabled": true,
       "name": "Media Logos",
       "settings": {
         "background_color": "#ffffff"
