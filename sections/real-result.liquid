@@ -1,0 +1,527 @@
+<section class="real-results-section" id="videoSection-{{ section.id }}">
+  <div class="page-width">
+
+  <div class="title-wrap">
+    {% if section.settings.content %}
+      {{ section.settings.content }}
+    {% endif %}
+     <h2>{{ section.settings.heading }}</h2>
+  </div>
+   
+    <div class="results-wrap">
+   
+      
+      <div class="videos-grid grid-{{ section.settings.grid_columns | default: 2 }}">
+        {% for block in section.blocks %}
+          <div class="grid-item">
+            <div class="real-results-slide">
+              <div class="video-container">
+                {% if block.settings.video != blank %}
+                    <!-- Thumbnail overlay for Safari/iOS -->
+                    {% if block.settings.thumbnail != blank %}
+                      <img class="video-thumbnail" src="{{ block.settings.thumbnail | img_url: '400x451' }}" alt="Video Thumbnail">
+                    {% endif %}
+                    
+                    {{ block.settings.video | video_tag:
+                    controls: false,
+                    autoplay: false,
+                    muted: false,
+                    loop: false,
+                    preload: 'metadata',
+                    playsinline: true,
+                    webkit-playsinline: 'true',
+                    poster: block.settings.thumbnail
+                    }}
+                    <div class="custom-play-button">
+                
+
+                      <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <g clip-path="url(#clip0_2253_15301)">
+    <rect x="0.5" y="0.5" width="63" height="63" rx="31.5" fill="black" fill-opacity="0.2"/>
+    <rect x="0.5" y="0.5" width="63" height="63" rx="31.5" fill="url(#paint0_linear_2253_15301)" fill-opacity="0.6"/>
+    <rect x="0.5" y="0.5" width="63" height="63" rx="31.5" stroke="white"/>
+    <path d="M24 43L44 31.5L24 20V43Z" fill="white"/>
+  </g>
+  <defs>
+    <linearGradient id="paint0_linear_2253_15301" x1="0" y1="32" x2="64" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#42C5EF"/>
+      <stop offset="1" stop-color="#0033A0"/>
+    </linearGradient>
+    <clipPath id="clip0_2253_15301">
+      <rect width="64" height="64" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+                      <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" style="display: none;">
+                        <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.9)" stroke="rgba(0,0,0,0.2)" stroke-width="1"/>
+                        <rect x="9" y="8" width="2" height="8" fill="#121212"/>
+                        <rect x="13" y="8" width="2" height="8" fill="#121212"/>
+                      </svg>
+                    </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.real-results-section {
+  text-align: center;
+    padding: 40px 0;
+    position: relative;
+    background: #fff;
+}
+
+.real-results-section .title-wrap {
+    text-align: center;
+    margin:  0 0 30px;
+}
+
+.real-results-section .title-wrap h2 {
+    margin: 0;
+}
+
+.real-results-section .title-wrap p {
+    margin: 0 0 15px;
+    text-align: center;
+    font-family: Prompt;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600; 
+    line-height: 27px; /* 150% */
+    letter-spacing: 2.7px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%); 
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.real-results-slide {
+  position: relative;
+}
+
+.real-results-section .video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 581px;
+  height: 581px;
+  border-radius: 20px;
+}
+
+/* Grid Layout */
+.videos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.videos-grid.grid-2 .grid-item {
+ width: 100%;
+    flex-shrink: 0;
+    max-width: 420px;
+}
+
+/* 3 Column Layout */
+.videos-grid.grid-3 .grid-item {
+  width: calc(33.333% - 20px);
+  min-width: 300px;
+  max-width: 380px;
+  flex-shrink: 0;
+}
+
+/* 4 Column Layout */
+.videos-grid.grid-4 .grid-item {
+  width: calc(25% - 22.5px);
+  min-width: 280px;
+  max-width: 320px;
+  flex-shrink: 0;
+}
+
+.grid-item {
+  flex-shrink: 0;
+}
+
+
+/* Thumbnail overlay - SAFARI/iOS FIX */
+.video-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  background: #000;
+  transition: opacity 0.3s ease;
+}
+
+.video-container.playing .video-thumbnail {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.real-results-section .custom-play-button svg {
+  width: 64px;
+  height: 64px;
+  transition: all 0.3s ease;
+}
+
+.real-results-section .custom-play-button {
+position: absolute;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+    opacity: 1;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.real-results-section .custom-play-button:hover svg {
+  transform: scale(1.1);
+}
+
+.real-results-section .video-container.playing .custom-play-button {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.real-results-section .video-container:hover.playing .custom-play-button {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Loading state */
+.video-container.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 5;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.results-wrap {
+     display: flex;
+    gap: 0;
+    padding-left: 0;
+    justify-content: center;
+}
+
+.results-wrap .left-content {
+  max-width: 450px;
+  display: inline-block;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.results-wrap .left-content h2 {
+  color: #1F1F1F;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+  margin: 0 0 20px;
+}
+
+.results-wrap .left-content .hp-customer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 58px;
+}
+
+.results-wrap .left-content .hp-customer img {
+  max-width: 110px;
+  min-width: 110px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.results-wrap .left-content .hp-customer p {
+  margin: 0 0 5px;
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.shopify-section {
+  background-color: #fff;
+}
+
+.real-results-section .video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: #000;
+  position: relative;
+  z-index: 1;
+}
+
+@media only screen and (max-width: 1300px) { 
+  .results-wrap {
+    gap: 65px;
+    padding-left: 15px;
+  }
+
+  .results-wrap .left-content {
+    max-width: 360px;
+  }
+
+  .results-wrap .left-content .hp-customer p {
+    white-space: break-spaces;
+  }
+  
+  .videos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+}
+
+@media only screen and (max-width: 1060px) {
+  .results-wrap {
+    flex-flow: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .results-wrap .left-content .hp-customer {
+    justify-content: center;
+  }
+
+  .results-wrap .left-content {
+    max-width: 100%;
+    text-align: center;
+    width: 100%;
+    padding-right: 15px;
+  }
+  
+  .videos-grid {
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .results-wrap .left-content h2 {
+    font-size: 24px;
+  }
+
+  .real-results-section {
+    padding: 40px 0;
+  }
+
+  .results-wrap .left-content .hp-customer {
+    margin-top: 30px;
+    flex-direction: column;
+  }
+
+  .real-results-section .custom-play-button svg {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .videos-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .real-results-section .video-container {
+    min-height: 300px;
+    height: 300px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const section = document.querySelector('#videoSection-{{ section.id }}');
+  if (!section) return;
+
+  const videos = section.querySelectorAll('.videos-grid video');
+  const buttons = section.querySelectorAll('.custom-play-button');
+  const containers = section.querySelectorAll('.video-container');
+
+  // Pause all videos in this section
+  function pauseAllVideos() {
+    videos.forEach(video => {
+      video.pause();
+      const container = video.closest('.video-container');
+      const playIcon = container.querySelector('.play-icon');
+      const pauseIcon = container.querySelector('.pause-icon');
+      const thumbnail = container.querySelector('.video-thumbnail');
+
+      container.classList.remove('playing', 'loading');
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+      if (thumbnail) thumbnail.style.opacity = '1';
+    });
+  }
+
+  // Setup each video
+  videos.forEach(video => {
+    const container = video.closest('.video-container');
+
+    video.load();
+
+    video.addEventListener('loadstart', () => container.classList.add('loading'));
+    video.addEventListener('loadeddata', () => container.classList.remove('loading'));
+    video.addEventListener('canplaythrough', () => container.classList.remove('loading'));
+
+    video.addEventListener('ended', () => {
+      const playIcon = container.querySelector('.play-icon');
+      const pauseIcon = container.querySelector('.pause-icon');
+      const thumbnail = container.querySelector('.video-thumbnail');
+      container.classList.remove('playing');
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+      if (thumbnail) thumbnail.style.opacity = '1';
+      video.currentTime = 0;
+    });
+  });
+
+  // Play button logic
+  buttons.forEach(button => {
+    button.addEventListener('click', function (e) {
+      e.preventDefault();
+      const container = this.closest('.video-container');
+      const video = container.querySelector('video');
+      const playIcon = this.querySelector('.play-icon');
+      const pauseIcon = this.querySelector('.pause-icon');
+      const thumbnail = container.querySelector('.video-thumbnail');
+
+      if (!video) return;
+
+      if (video.paused) {
+        pauseAllVideos();
+        container.classList.add('loading');
+        video.play().then(() => {
+          container.classList.remove('loading');
+          container.classList.add('playing');
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'block';
+          if (thumbnail) thumbnail.style.opacity = '0';
+        }).catch(() => {});
+      } else {
+        video.pause();
+        container.classList.remove('playing', 'loading');
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+        if (thumbnail) thumbnail.style.opacity = '1';
+      }
+    });
+  });
+
+  // Intersection Observer (pause if out of view)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        const video = entry.target.querySelector('video');
+        if (video && !video.paused) {
+          video.pause();
+          pauseAllVideos();
+        }
+      }
+    });
+  }, { threshold: 0.3 });
+
+  containers.forEach(container => observer.observe(container));
+
+  // Pause when tab hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) pauseAllVideos();
+  });
+});
+
+</script>
+
+{% schema %}
+{
+  "name": "Real Results",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+     {
+      "type": "select",
+      "id": "grid_columns",
+      "label": "Grid Layout",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 Columns"
+        },
+        {
+          "value": "3",
+          "label": "3 Columns"
+        },
+        {
+          "value": "4",
+          "label": "4 Columns"
+        }
+      ],
+      "default": "2",
+      "info": "Choose number of columns for video grid layout"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video_block",
+      "name": "Testimonial Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video File"
+        },
+        {
+          "type": "image_picker",
+          "id": "thumbnail",
+          "label": "Overlay Image (optional)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Real Results Section",
+      "category": "Testimonials",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
