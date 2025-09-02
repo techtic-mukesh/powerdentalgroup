@@ -1,4 +1,4 @@
-<section class="testimonials-section">
+<section class="testimonials-section" style="background-color: {{ section.settings.background_color }};">
   <div class="page-width">
     <h2 class="testimonials__title">TESTIMONIALS</h2>
 
@@ -254,6 +254,12 @@ h3.testimonial__title {
 {
   "name": "Testimonials Swiper",
   "settings": [
+     {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#ffffff"
+      },
     {
       "type": "text",
       "id": "section_title",

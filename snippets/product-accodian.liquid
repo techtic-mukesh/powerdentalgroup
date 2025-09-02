@@ -1,0 +1,137 @@
+
+	<div class="container">
+		<div class="Accordions">
+			<div class="Accordion_item">
+				<div class="title_tab">
+					<h3 class="title">
+                         Product Description
+                    <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="15" viewBox="0 0 8 15" fill="none">
+                        <path d="M1 13.7275L7 7.72754L0.999999 1.72754" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </h3>
+				</div>
+				<div class="inner_content">
+    				{{ product.description }}
+				</div>
+			</div>
+
+
+            <div class="Accordion_item">
+				<div class="title_tab">
+					<h3 class="title">
+                         WHAT'S INCLUDED
+                    <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="15" viewBox="0 0 8 15" fill="none">
+                        <path d="M1 13.7275L7 7.72754L0.999999 1.72754" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </h3>
+				</div>
+				<div class="inner_content">
+    				{{ product.description }}
+				</div>
+			</div>
+
+            <div class="Accordion_item">
+				<div class="title_tab">
+					<h3 class="title">
+                        Specifications
+                    <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="15" viewBox="0 0 8 15" fill="none">
+                        <path d="M1 13.7275L7 7.72754L0.999999 1.72754" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </h3>
+				</div>
+				<div class="inner_content">
+    				{{ product.description }}
+				</div>
+			</div>
+
+            
+        
+
+
+           
+
+		</div>
+	</div>
+
+
+ <script>
+   	var $titleTab = $('.title_tab');
+	
+	$titleTab.on('click', function(e) {
+	e.preventDefault();
+		if ( $(this).hasClass('active') ) {
+			$(this).removeClass('active');
+			$(this).next().stop().slideUp(400);
+			$(this).next().find('p').removeClass('show');
+		} else {
+			$(this).addClass('active');
+			$(this).next().stop().slideDown(400);
+			$(this).parent().siblings().children('.title_tab').removeClass('active');
+			$(this).parent().siblings().children('.inner_content').slideUp(400);
+			$(this).parent().siblings().children('.inner_content').find('p').removeClass('show');
+			$(this).next().find('p').addClass('show');
+		}
+	});
+ </script>
+
+
+ <style>
+
+.product__media-wrapper .Accordions {
+    margin: 30px 0 0;
+}
+
+.Accordion_item .title_tab h3 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    margin: 0;
+    color: var(--Black-900, #121212);
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px; /* 200% */
+    text-transform: uppercase;
+    padding: 18px 20px 18px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.30);
+    cursor: pointer;
+}
+
+.product__media-wrapper .Accordions .inner_content * {
+    color: #01000A;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+
+.product__media-wrapper .Accordions .title_tab.active h3.title {
+    border: unset;
+}
+
+.product__media-wrapper .Accordions .title_tab.active h3.title  span.icon {
+    transition: all .3s linear;
+}
+
+.product__media-wrapper .Accordions .Accordion_item:last-of-type h3.title {
+    border: unset;
+}
+
+.product__media-wrapper .Accordions .title_tab.active h3.title span.icon {
+    transform: rotate(90deg);
+}
+
+
+.product__media-wrapper .Accordions .inner_content {
+    display: none;
+}
+ </style>

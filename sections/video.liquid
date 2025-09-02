@@ -52,11 +52,16 @@
       {%- endunless -%}
     </div>
     <deferred-media
-      class="video-section__media deferred-media gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      class="video-section__media {% if  section.settings.enable_custom_height %} custom-vh {% endif %} deferred-media gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
       data-media-id="{{ video_id }}"
-      {% if poster != null %}
-        style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
-      {% endif %}
+
+     {% if section.settings.enable_custom_height %}
+        
+  {% else %}
+    {% if poster != null %}
+      style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
+    {% endif %}
+  {% endif %}
     >
       <button
         id="Deferred-Poster-Modal-{{ video_id }}"
@@ -75,7 +80,23 @@
         {%- endif -%}
         <span class="deferred-media__poster-button motion-reduce">
           <span class="svg-wrapper">
-            {{- 'icon-play.svg' | inline_asset_content -}}
+           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  <g clip-path="url(#clip0_2253_15316)">
+    <rect x="0.5" y="0.5" width="63" height="63" rx="31.5" fill="black" fill-opacity="0.2"/>
+    <rect x="0.5" y="0.5" width="63" height="63" rx="31.5" fill="url(#paint0_linear_2253_15316)" fill-opacity="0.6"/>
+    <rect x="0.5" y="0.5" width="63" height="63" rx="31.5" stroke="white"/>
+    <path d="M24 43L44 31.5L24 20V43Z" fill="white"/>
+  </g>
+  <defs>
+    <linearGradient id="paint0_linear_2253_15316" x1="0" y1="32" x2="64" y2="32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#42C5EF"/>
+      <stop offset="1" stop-color="#0033A0"/>
+    </linearGradient>
+    <clipPath id="clip0_2253_15316">
+      <rect width="64" height="64" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
           </span>
         </span>
       </button>
@@ -162,6 +183,12 @@
       ],
       "default": "h1",
       "label": "t:sections.all.heading_size.label"
+    },
+     {
+      "type": "checkbox",
+      "id": "enable_custom_height",
+      "label": "Enable custom height",
+      "default": false
     },
     {
       "type": "checkbox",

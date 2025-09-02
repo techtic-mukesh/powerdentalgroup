@@ -437,6 +437,7 @@
       ],
       "name": "Testimonials Swiper",
       "settings": {
+        "background_color": "#ffffff",
         "section_title": "TESTIMONIALS"
       }
     },
@@ -548,6 +549,7 @@
     },
     "signup_email_WMCkrN": {
       "type": "signup-email",
+      "disabled": true,
       "name": "Sign Up Form",
       "settings": {
         "background_color": "#141132",
@@ -602,6 +604,7 @@
         "logo_j3QXEG",
         "logo_D3fWai"
       ],
+      "disabled": true,
       "name": "Media Logos",
       "settings": {
         "background_color": "#ffffff"
