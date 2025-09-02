@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner_swiper_aXUMTh": {
@@ -6,23 +15,23 @@
         "slide_7zX73H": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/banner-first-img.png",
-            "mobile-image": "shopify:\/\/shop_images\/Main_Homepage_Banner_Mobile_7.jpg",
+            "image": "shopify://shop_images/banner-first-img.png",
+            "mobile-image": "shopify://shop_images/Main_Homepage_Banner_Mobile_7.jpg",
             "heading": "COMMON PROBLEMS, DISRUPTIVE SOLUTIONS",
-            "subheading": "<p>With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.<\/p>",
+            "subheading": "<p>With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.</p>",
             "button_label": "Who We Are",
-            "button_link": "shopify:\/\/collections"
+            "button_link": "shopify://collections"
           }
         },
         "slide_LVQGqF": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/power-dental-banner-2.jpg",
-            "mobile-image": "shopify:\/\/shop_images\/Shop_Banner_Mobile.jpg",
+            "image": "shopify://shop_images/power-dental-banner-2.jpg",
+            "mobile-image": "shopify://shop_images/Shop_Banner_Mobile.jpg",
             "heading": "Instruments for Every Indication.",
-            "subheading": "<p>Thoughtful attention to detail. Power in every build. Make every moment count with the best instruments in class.<\/p>",
+            "subheading": "<p>Thoughtful attention to detail. Power in every build. Make every moment count with the best instruments in class.</p>",
             "button_label": "Shop",
-            "button_link": "shopify:\/\/collections"
+            "button_link": "shopify://collections"
           }
         }
       },
@@ -39,9 +48,9 @@
         "counter_LJfnh8": {
           "type": "counter",
           "settings": {
-            "number": "20",
-            "suffix": "+",
-            "label": "Years of Proven Experience"
+            "number": "",
+            "suffix": "",
+            "label": ""
           }
         },
         "counter_hxBbpG": {
@@ -88,13 +97,13 @@
         "slide_YmP8qh": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/banner-first-img.png",
+            "image": "shopify://shop_images/banner-first-img.png",
             "image_overlay_opacity": 0,
             "heading": "COMMON PROBLEMS, DISRUPTIVE SOLUTIONS",
             "heading_size": "h1",
             "subheading": "With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.",
             "button_label": "Who We Are",
-            "link": "shopify:\/\/collections",
+            "link": "shopify://collections",
             "button_style_secondary": false,
             "show_text_box": false,
             "box_align": "middle-right",
@@ -106,13 +115,13 @@
         "slide_7VjE6K": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/banner-first-img.png",
+            "image": "shopify://shop_images/banner-first-img.png",
             "image_overlay_opacity": 0,
             "heading": "COMMON PROBLEMS, DISRUPTIVE SOLUTIONS",
             "heading_size": "h1",
             "subheading": "With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.",
             "button_label": "Who We Are",
-            "link": "shopify:\/\/collections",
+            "link": "shopify://collections",
             "button_style_secondary": false,
             "show_text_box": false,
             "box_align": "middle-right",
@@ -174,7 +183,7 @@
         "category_HrVRA7": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "icon": "shopify://shop_images/Power-Line_1_1.jpg",
             "label": "Category",
             "urllabel": ""
           }
@@ -182,7 +191,7 @@
         "category_CCxDmL": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "icon": "shopify://shop_images/Power-Line_1_1.jpg",
             "label": "Category",
             "urllabel": ""
           }
@@ -190,7 +199,7 @@
         "category_FYVXaq": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "icon": "shopify://shop_images/Power-Line_1_1.jpg",
             "label": "Category",
             "urllabel": ""
           }
@@ -198,7 +207,7 @@
         "category_3k7xg9": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "icon": "shopify://shop_images/Power-Line_1_1.jpg",
             "label": "Category",
             "urllabel": ""
           }
@@ -206,7 +215,7 @@
         "category_PEJRcf": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "icon": "shopify://shop_images/Power-Line_1_1.jpg",
             "label": "Category",
             "urllabel": ""
           }
@@ -214,7 +223,7 @@
         "category_H6bwqD": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "icon": "shopify://shop_images/Power-Line_1_1.jpg",
             "label": "Category",
             "urllabel": ""
           }
@@ -222,7 +231,7 @@
         "category_9pcEjR": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "icon": "shopify://shop_images/Power-Line_1_1.jpg",
             "label": "Category",
             "urllabel": ""
           }
@@ -230,7 +239,7 @@
         "category_7DUUdj": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "icon": "shopify://shop_images/Power-Line_1_1.jpg",
             "label": "Category",
             "urllabel": ""
           }
@@ -238,7 +247,7 @@
         "category_8xQVr6": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
+            "icon": "shopify://shop_images/Power-Line_1_1.jpg",
             "label": "Category11",
             "urllabel": ""
           }
@@ -266,24 +275,24 @@
         "service_Ybdqth": {
           "type": "service",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26115.png",
-            "label": "<p>Trade-In<br\/>Program<\/p>",
+            "image": "shopify://shop_images/Rectangle_26115.png",
+            "label": "<p>Trade-In<br/>Program</p>",
             "srvurl": ""
           }
         },
         "service_jh77jG": {
           "type": "service",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26115_1.png",
-            "label": "<p>Sharpen,<br\/>Retip & Repair<\/p>",
+            "image": "shopify://shop_images/Rectangle_26115_1.png",
+            "label": "<p>Sharpen,<br/>Retip & Repair</p>",
             "srvurl": ""
           }
         },
         "service_JkbdUB": {
           "type": "service",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26115_2.png",
-            "label": "<p>Custom Kitting<\/p>",
+            "image": "shopify://shop_images/Rectangle_26115_2.png",
+            "label": "<p>Custom Kitting</p>",
             "srvurl": ""
           }
         }
@@ -298,8 +307,8 @@
         "background_color": "#f8f6f4",
         "subheading": "It Starts Here",
         "heading": "Our SERVICES",
-        "content": "<p>All needs are not the same; that’s why we provide solutions for every dental professional at any point in their journey.<\/p>",
-        "btnurl": "shopify:\/\/collections",
+        "content": "<p>All needs are not the same; that’s why we provide solutions for every dental professional at any point in their journey.</p>",
+        "btnurl": "shopify://collections",
         "btntext": "view all services"
       }
     },
@@ -309,29 +318,29 @@
         "slide_XQEiqj": {
           "type": "slide",
           "settings": {
-            "title": "<p>customer<br\/><strong>centered<\/strong><\/p>",
-            "label": "<p>We love our customers as they are the heartbeat of our business. You drive us to be the best we can be.<\/p>"
+            "title": "<p>customer<br/><strong>centered</strong></p>",
+            "label": "<p>We love our customers as they are the heartbeat of our business. You drive us to be the best we can be.</p>"
           }
         },
         "slide_Ca66Yh": {
           "type": "slide",
           "settings": {
-            "title": "<p>Relentless<br\/><strong>improvement<\/strong><\/p>",
-            "label": "<p>We embrace change and push the boundaries. We set the bar, then raise it higher.<\/p>"
+            "title": "<p>Relentless<br/><strong>improvement</strong></p>",
+            "label": "<p>We embrace change and push the boundaries. We set the bar, then raise it higher.</p>"
           }
         },
         "slide_9NV4Tk": {
           "type": "slide",
           "settings": {
-            "title": "<p>Outcome<br\/><strong>Driven<\/strong><\/p>",
-            "label": "<p>Results matter. We hold our products and services accountable to ensure they meet our standards of excellence.<\/p>"
+            "title": "<p>Outcome<br/><strong>Driven</strong></p>",
+            "label": "<p>Results matter. We hold our products and services accountable to ensure they meet our standards of excellence.</p>"
           }
         },
         "slide_jXrCcN": {
           "type": "slide",
           "settings": {
-            "title": "<p>We do<br\/><strong>more<\/strong><\/p>",
-            "label": "<p>Every practice is different. You have diverse needs, we have tailored solutions. Your impact is important to us.<\/p>"
+            "title": "<p>We do<br/><strong>more</strong></p>",
+            "label": "<p>Every practice is different. You have diverse needs, we have tailored solutions. Your impact is important to us.</p>"
           }
         }
       },
@@ -347,7 +356,7 @@
         "subheading": "details make the difference",
         "heading": "Why Choose Power Dental?",
         "content": "",
-        "image": "shopify:\/\/shop_images\/image_31.png"
+        "image": "shopify://shop_images/image_31.png"
       }
     },
     "tab_collection_PXdCW4": {
@@ -399,9 +408,9 @@
         "testimonial_mYgKF6": {
           "type": "testimonial",
           "settings": {
-            "profile_image": "shopify:\/\/shop_images\/Rectangle_26105.png",
+            "profile_image": "shopify://shop_images/Rectangle_26105.png",
             "testimonial_title": "Saves Me Valuable Chair Time and Hundreds of Dollars in Bills",
-            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in bills.<\/p>",
+            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in bills.</p>",
             "name": "- Shawn P. Lottier, DDS, MAG, DICOI",
             "credentials": "- Comfort Smiles Atlanta",
             "date": "February 20, 2024"
@@ -410,9 +419,9 @@
         "testimonial_dUdTKb": {
           "type": "testimonial",
           "settings": {
-            "profile_image": "shopify:\/\/shop_images\/Rectangle_26105_1.png",
+            "profile_image": "shopify://shop_images/Rectangle_26105_1.png",
             "testimonial_title": "Fastest and Most Reliable Repairs I’ve Seen",
-            "testimonial_text": "<p>Although their instruments are one of the best I've used over my 15 year professional career, the system that they have in place to replace and repair tools is one of the fastest and most reliable I've seen. Sent in and sent back to me in less than a week. Great service and great company!<\/p>",
+            "testimonial_text": "<p>Although their instruments are one of the best I've used over my 15 year professional career, the system that they have in place to replace and repair tools is one of the fastest and most reliable I've seen. Sent in and sent back to me in less than a week. Great service and great company!</p>",
             "name": "Dr. Santiago, DDS",
             "credentials": "",
             "date": "May 15, 2024"
@@ -421,9 +430,9 @@
         "testimonial_bBW6x4": {
           "type": "testimonial",
           "settings": {
-            "profile_image": "shopify:\/\/shop_images\/Rectangle_26105.png",
+            "profile_image": "shopify://shop_images/Rectangle_26105.png",
             "testimonial_title": "Saves Me Valuable Chair Time and Hundreds of Dollars in Bills",
-            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in bills.<br\/><br\/><\/p>",
+            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in bills.<br/><br/></p>",
             "name": "- Shawn P. Lottier, DDS",
             "credentials": "- Comfort Smiles Atlanta",
             "date": "February 24, 2024"
@@ -447,27 +456,27 @@
         "event_PbfFjd": {
           "type": "event",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26122.png",
+            "image": "shopify://shop_images/Rectangle_26122.png",
             "label": "Misch Institute",
-            "info": "<p>Extract, Preserve & Place<\/p>",
+            "info": "<p>Extract, Preserve & Place</p>",
             "rgsurl": ""
           }
         },
         "event_wHcKXG": {
           "type": "event",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26122.png",
+            "image": "shopify://shop_images/Rectangle_26122.png",
             "label": "PEAK - Model & Pig Jaw",
-            "info": "<p>Bone Foundations<\/p>",
+            "info": "<p>Bone Foundations</p>",
             "rgsurl": ""
           }
         },
         "event_EE3yfU": {
           "type": "event",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26122.png",
+            "image": "shopify://shop_images/Rectangle_26122.png",
             "label": "RDH",
-            "info": "<p>Under One Roof<\/p>",
+            "info": "<p>Under One Roof</p>",
             "rgsurl": ""
           }
         }
@@ -482,8 +491,8 @@
         "background_color": "#f8f6f4",
         "subheading": "Stay In The Know",
         "heading": "Find us at our Next Event",
-        "content": "<p>Your opportunity to learn is here. Our goal is to give you and your patients the best possible outcomes, whether it’s a hands-on training course or trade show event. Our team is ready and committed to making your experience exceptional.<\/p>",
-        "btnurl": "shopify:\/\/collections",
+        "content": "<p>Your opportunity to learn is here. Our goal is to give you and your patients the best possible outcomes, whether it’s a hands-on training course or trade show event. Our team is ready and committed to making your experience exceptional.</p>",
+        "btnurl": "shopify://collections",
         "btntext": "View Upcoming Events"
       }
     },
@@ -493,9 +502,9 @@
         "column_nGiUXp": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_30.png",
+            "image": "shopify://shop_images/image_30.png",
             "title": "THE FUTURE OF DENTISTRY: MISCH INSTITUTE PARTNERSHIP",
-            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.<\/p>",
+            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.</p>",
             "link_label": "",
             "link": ""
           }
@@ -503,9 +512,9 @@
         "column_bXnpkN": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_30_1.png",
+            "image": "shopify://shop_images/image_30_1.png",
             "title": "GOING GOVERNMENT - LOVELL GOVERNMENT SERVICES",
-            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.<\/p>",
+            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.</p>",
             "link_label": "",
             "link": ""
           }
@@ -513,9 +522,9 @@
         "column_hmpVir": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_30_2.png",
+            "image": "shopify://shop_images/image_30_2.png",
             "title": "BEAUTY MEETS FUNCTION - STOGGLES PARTNERSHIP",
-            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.<\/p>",
+            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.</p>",
             "link_label": "",
             "link": ""
           }
@@ -554,8 +563,8 @@
       "settings": {
         "background_color": "#141132",
         "heading": "Sign Up for Email Updates",
-        "image": "shopify:\/\/shop_images\/image_31.png",
-        "form": "<script charset=\"utf-8\" type=\"text\/javascript\" src=\"\/\/js.hsforms.net\/forms\/embed\/v2.js\"><\/script>\n<script>\n  hbspt.forms.create({\n    portalId: \"39754023\",\n    formId: \"df0ba392-d720-4cb4-8d9f-6e7fc47edfb9\",\n    region: \"na1\"\n  });\n<\/script>"
+        "image": "shopify://shop_images/image_31.png",
+        "form": "<script charset=\"utf-8\" type=\"text/javascript\" src=\"//js.hsforms.net/forms/embed/v2.js\"></script>\n<script>\n  hbspt.forms.create({\n    portalId: \"39754023\",\n    formId: \"df0ba392-d720-4cb4-8d9f-6e7fc47edfb9\",\n    region: \"na1\"\n  });\n</script>"
       }
     },
     "meadia_logos_wtKeWD": {
@@ -564,35 +573,35 @@
         "logo_bd3iVA": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify:\/\/shop_images\/image_25.png",
+            "logo_image": "shopify://shop_images/image_25.png",
             "logo_link": ""
           }
         },
         "logo_3CG7x9": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify:\/\/shop_images\/image_26.png",
+            "logo_image": "shopify://shop_images/image_26.png",
             "logo_link": ""
           }
         },
         "logo_dkkaXz": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify:\/\/shop_images\/image_27.png",
+            "logo_image": "shopify://shop_images/image_27.png",
             "logo_link": ""
           }
         },
         "logo_j3QXEG": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify:\/\/shop_images\/image_28.png",
+            "logo_image": "shopify://shop_images/image_28.png",
             "logo_link": ""
           }
         },
         "logo_D3fWai": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify:\/\/shop_images\/image_29.png",
+            "logo_image": "shopify://shop_images/image_29.png",
             "logo_link": ""
           }
         }
