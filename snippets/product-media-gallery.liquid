@@ -171,9 +171,17 @@
     breakpoints: {
         0: {
             direction: 'horizontal',
-            slidesPerView: 5,
+            slidesPerView: 4,
+        },
+         640: {
+            direction: 'horizontal',
+            slidesPerView: 4,
         },
         768: {
+            direction: 'horizontal',
+            slidesPerView: 5,
+        },
+        990: {
             direction: 'vertical',
             slidesPerView: 6,
         }
@@ -237,7 +245,7 @@ $('[data-fancybox="gallery"]').fancybox({
 
 {% else %}
 
-<media-gallery
+<media-gallery 
   id="MediaGallery-{{ section.id }}{{ id_append }}"
   role="region"
   {% if section.settings.enable_sticky_info %}

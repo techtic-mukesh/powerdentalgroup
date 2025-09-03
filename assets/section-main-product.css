@@ -623,6 +623,54 @@ text-transform: capitalize;
   .product--mobile-columns .product__media-item {
     width: calc(50% - 1.5rem - var(--grid-mobile-horizontal-spacing));
   }
+
+  .product__title, .product__title h1, .product__title a {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.custom-price-display span.sale-price {
+    font-size: 20px;
+}
+
+.custom-price-display span.discount-percent {
+    font-size: 18px;
+}
+
+.custom-price-display .compare-price {
+    font-size: 14px;
+}
+
+.product__info-container>*+* {
+    margin: 1.3rem 0;
+}
+
+.product-form__submit {
+    font-size: 16px;
+}
+
+.product-button-block quantity-input.quantity, .product-form__submit {
+  min-height: 45px;
+}
+
+.product-button-block {
+    margin: 18px 0 !important;
+}
+
+.info-secured-block {
+  padding-top: 18px;
+}
+
+.share-wrap {
+    padding-bottom: 0;
+    padding-top: 15px;
+}
+
+.share-wrap a.qa-main, .share-button__button {
+    font-size: 14px;
+}
+
+
 }
 
 @media screen and (min-width: 750px) {
