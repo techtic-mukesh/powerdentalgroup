@@ -57,3 +57,20 @@ deferred-media.video-section__media.custom-vh {
 .video-section__media.media-fit-cover video {
   object-fit: cover;
 }
+
+
+ @media screen and (max-width: 767px) {
+  deferred-media.video-section__media.custom-vh {
+    --ratio-percent: 100%;
+}
+
+.video-section {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+}
+
+.video-section h2.title.inline-richtext.h1 {
+    font-size: 24px;
+    margin: 0 0 20px;
+}
+}
