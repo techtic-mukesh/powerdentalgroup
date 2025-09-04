@@ -133,6 +133,15 @@ summary .icon-caret {
 }
 
 
+.header--middle-left .header__inline-menu ul.list-menu.list-menu--inline li.Products {
+    display: none;
+}
+
+
+.header__search-inline input#Search-Inline:focus {
+    border-color: #000;
+}
+
 @media only screen and (max-width: 1240px) {
   .middle-header-scope {
     padding: 0 20px;
@@ -146,7 +155,15 @@ summary .icon-caret {
 
 @media (max-width: 1100px) and (min-width: 990px) {
   .header--middle-left .header__inline-menu {
-    margin-left: -200px;
+           margin-left: -245px;
+}
+
+.top-inline-bar button.mega-dropdown {
+    display: none;
+}
+
+.header--middle-left .header__inline-menu ul.list-menu.list-menu--inline li.Products {
+    display: block;
 }
 }
 

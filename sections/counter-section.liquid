@@ -72,17 +72,18 @@
   <div class="page-width">
     <div class="counter-wrapper">
       {% for block in section.blocks %}
-        <div class="counter-box" {{ block.shopify_attributes }}>
-          <div class="counter-line">
-            <span
-              class="counter-value"
-              data-counter
-              data-target="{{ block.settings.number | strip }}"
-              data-suffix="{{ block.settings.suffix | strip }}">{{ block.settings.number | strip }}{{ block.settings.suffix | strip }}</span>
+        {% if block.settings.number  !=  blank %}
+          <div class="counter-box" {{ block.shopify_attributes }}>
+            <div class="counter-line">
+              <span
+                class="counter-value"
+                data-counter
+                data-target="{{ block.settings.number | strip }}"
+                data-suffix="{{ block.settings.suffix | strip }}">{{ block.settings.number | strip }}{{ block.settings.suffix | strip }}</span>
+            </div>
+            <p class="counter-label">{{ block.settings.label }}</p>
           </div>
-          <p class="counter-label">{{ block.settings.label }}</p>
-        </div>
-
+          {% endif %}
       {% endfor %}
     </div>
   </div>
@@ -97,18 +98,29 @@
   #CounterSection-{{ section.id }}
   .counter-wrapper {
     display: grid;
-    gap: 16px;
-    /* Auto-responsive columns: min width 220px, else expand */
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+   gap: 121px;
+    grid-template-columns: repeat(4, 1fr);
   }
   #CounterSection-{{ section.id }}
   .counter-box {
     text-align: center;
-    border-right: 1px solid #fff;
+    /* border-right: 1px solid #fff; */
+    position: relative;
   }
 
-  #CounterSection-{{ section.id }}.counter-box:last-of-type {
-    border: unset;
+  #CounterSection-{{ section.id }} .counter-box:after {
+    content: '';
+    background-color: #fff;
+    width: .5px;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: -60px;
+}
+
+  #CounterSection-{{ section.id }} .counter-box:last-of-type:after {
+    display: none;
   }
   #CounterSection-{{ section.id }}
   .counter-line {
@@ -134,6 +146,13 @@
     /* 137.5% */
     margin: 10px 0 0;
   }
+
+    @media only screen and (max-width: 1024px) {
+#CounterSection-{{ section.ids }} .counter-wrapper {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+}
+    }
 
   @media only screen and (max-width: 767px) {
 
@@ -167,7 +186,12 @@
     .counter-wrapper {
       grid-template-columns: 1fr 1fr;
       row-gap: 37px;
+              column-gap: 30px;
     }
+
+    #CounterSection-template--18719665225878__counter_section_8GnqEy .counter-box:after {
+    display: none;
+}
 
     #CounterSection-{{ section.id }}
     .counter-box {
