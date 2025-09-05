@@ -48,18 +48,7 @@
     ],
     "presets": [
       {
-        "name": "Counter Section",
-        "blocks": [
-          {
-            "type": "counter"
-          }, {
-            "type": "counter"
-          }, {
-            "type": "counter"
-          }, {
-            "type": "counter"
-          }
-        ]
+        "name": "Counter Section"
       }
     ]
   }
@@ -99,7 +88,7 @@
   .counter-wrapper {
     display: grid;
    gap: 121px;
-    grid-template-columns: repeat(4, 1fr);
+   grid-template-columns: repeat({{ section.blocks.size }}, 1fr);
   }
   #CounterSection-{{ section.id }}
   .counter-box {
@@ -148,10 +137,14 @@
   }
 
     @media only screen and (max-width: 1024px) {
-#CounterSection-{{ section.ids }} .counter-wrapper {
-    grid-template-columns: 1fr 1fr;
-    row-gap: 40px;
-}
+    #CounterSection-{{ section.id }} .counter-wrapper {
+        row-gap: 40px;
+         gap: 50px
+    }
+
+    #CounterSection-{{ section.id }} .counter-box:after { 
+      right: -25px;
+    }
     }
 
   @media only screen and (max-width: 767px) {
@@ -171,6 +164,9 @@
       transform: translateX(-50%);
     }
 
+    #CounterSection-{{ section.id }} .counter-box:after {
+      display: none;
+    }
 
     #CounterSection-{{ section.id }}:before {
       content: '';
@@ -189,7 +185,7 @@
               column-gap: 30px;
     }
 
-    #CounterSection-template--18719665225878__counter_section_8GnqEy .counter-box:after {
+    #CounterSection-{{ section.id }}.counter-box:after {
     display: none;
 }
 
@@ -240,7 +236,7 @@
   
       let start = null;
       const startVal = 0;
-  
+   
       const step = (ts) => {
         if (!start) start = ts;
         const progress = Math.min((ts - start) / duration, 1);

@@ -335,7 +335,7 @@
   }
 
   .footer-block__details-content > li:not(:last-child) {
-    margin-right: 1.5rem;
+    margin-right: 0;
   }
 }
 
@@ -372,7 +372,11 @@
 @media screen and (min-width: 750px) {
   .footer-block__details-content .list-menu__item--link {
     display: inline-block;
-    font-size: 1.4rem;
+    font-size: 16px;
+font-family: Prompt;
+font-style: normal;
+font-weight: 400;
+line-height: 28px; /* 175% */
   }
 
   .footer-block__details-content > :first-child .list-menu__item--link {

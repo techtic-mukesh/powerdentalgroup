@@ -13,20 +13,18 @@
         </div>
         <div class="slideshow__text-wrapper">
           <div class="page-width-banner">
-            <div class="slideshow__text">
+            <div class="slideshow__text {% if block.settings.position == true %}position-left{% endif %}">
               {% if block.settings.heading != blank %}
-                <h2 class="slideshow__heading">{{ block.settings.heading }}</h2>
+                <h2 class="slideshow__heading" style="color: {{ block.settings.heading_color | default: '#fff' }};">{{ block.settings.heading }}</h2>
               {% endif %}
               {% if block.settings.subheading != blank %}
-                <div class="slideshow__subheading">{{ block.settings.subheading }}</div>
+                <div class="slideshow__subheading" style="color: {{ block.settings.description_color | default: '#fff' }};">{{ block.settings.subheading }}</div>
               {% endif %}
               {% if block.settings.button_label != blank %}
                 <div class="slideshow_button">
                   <a href="{{ block.settings.button_link }}" class="button button--primary">
                     <span>{{ block.settings.button_label }}</span>
-
                     {% render 'button-arrow-primary' %}
-
                   </a>
                 </div>
               {% endif %}
@@ -39,13 +37,39 @@
 
   <!-- Swiper navigation + pagination -->
   <div class="swiper-pagination"></div>
-
 </div>
 
 {% schema %}
   {
     "name": "Slideshow Swiper",
-    "settings": [],
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "autoplay",
+        "label": "Enable Autoplay",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "autoplay_delay",
+        "min": 2000,
+        "max": 9500,
+        "step": 500,
+        "unit": "ms",
+        "label": "Autoplay Delay",
+        "default": 5000
+      },
+      {
+        "type": "range",
+        "id": "transition_speed",
+        "min": 300,
+        "max": 2000,
+        "step": 100,
+        "unit": "ms",
+        "label": "Transition Speed",
+        "default": 800
+      }
+    ],
     "blocks": [
       {
         "type": "slide",
@@ -67,18 +91,37 @@
             "label": "Heading"
           },
           {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading Color",
+            "default": "#ffffff"
+          },
+          {
             "type": "richtext",
             "id": "subheading",
             "label": "Subheading"
           },
           {
+            "type": "color",
+            "id": "description_color",
+            "label": "Description Color",
+            "default": "#ffffff"
+          },
+          {
             "type": "text",
             "id": "button_label",
             "label": "Button label"
-          }, {
+          },
+          {
             "type": "url",
             "id": "button_link",
             "label": "Button link"
+          },
+          {
+            "type": "checkbox",
+            "id": "position",
+            "label": "Content Position Left",
+            "default": false
           }
         ]
       }
@@ -89,7 +132,8 @@
         "blocks": [
           {
             "type": "slide"
-          }, {
+          },
+          {
             "type": "slide"
           }
         ]
@@ -98,7 +142,6 @@
   }
 {% endschema %}
 
-
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const swiperEl = document.querySelector(".banner-swiper");
@@ -106,18 +149,30 @@
         if (swiperEl) {
             const observer = new IntersectionObserver((entries, obs) => {
                 if (entries[0].isIntersecting) {
-                    new Swiper(".banner-swiper", {
+                    // Get settings from section
+                    const autoplay = {{ section.settings.autoplay | json }};
+                    const autoplayDelay = {{ section.settings.autoplay_delay | json }};
+                    const transitionSpeed = {{ section.settings.transition_speed | json }};
+                    
+                    const swiperConfig = {
                         loop: true,
-                        effect: "fade",
-                         speed: 800,
-                        fadeEffect: { crossFade: true },
-                        pagination: { el: ".swiper-pagination", clickable: true },
-                        // autoplay: {
-                        //     delay: 5000,
-                        //     disableOnInteraction: false
-                        // },
+                        speed: transitionSpeed,
+                        pagination: { 
+                            el: ".swiper-pagination", 
+                            clickable: true 
+                        },
                         navigation: false,
-                    });
+                    };
+                    
+                    // Add autoplay if enabled
+                    if (autoplay) {
+                        swiperConfig.autoplay = {
+                            delay: autoplayDelay,
+                            disableOnInteraction: false
+                        };
+                    }
+                    
+                    new Swiper(".banner-swiper", swiperConfig);
                     obs.disconnect(); // init only once
                 }
             });
@@ -126,36 +181,50 @@
     });
 </script>
 
-
 <style>
+  /* FIXED CSS - Replace your existing styles with these */
+  
   .slideshow__slide {
-    display: grid !important;
-    grid-template-rows: [background-start] minmax(1.25rem, auto) [content-start] 1fr [content-end] minmax(1.25rem, auto) [background-end];
-    grid-template-columns: 1fr;
-    align-items: center;
+    /* Remove grid and add proper positioning */
+    position: relative;
+    display: block !important; /* Override Swiper's flex display */
+    width: 100%;
+    height: auto;
+    /* Remove all grid-template properties */
   }
 
   .slideshow__slide .slideshow__media {
-    grid-row: background-start / background-end;
-    grid-column-start: 1;
+    /* Keep as background layer */
+    position: relative;
+    width: 100%;
+    z-index: 1;
     display: flex;
   }
 
   .page-width-banner {
     max-width: 1320px;
     margin: 0 auto;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    width: 100%; /* Add width 100% */
   }
 
   .slideshow__slide .slideshow__text-wrapper {
-    grid-row: content-start / content-end;
-    grid-column-start: 1;
-
+    /* MAIN FIX - Proper absolute positioning */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Remove the transform and top: 50% */
   }
 
- 
-
   .slideshow__text {
-    max-width: 600px;
+    max-width: 561px;
     margin-left: auto;
     color: #fff;
   }
@@ -163,17 +232,15 @@
   .slideshow__text h2.slideshow__heading {
     margin: 0 0 10px;
     position: relative;
-    font-size: 44px;
+    font-size: 43px;
     line-height: 60px;
     text-transform: uppercase;
     font-family: Montserrat;
-    color: #fff;
     text-align: left;
   }
 
   .slideshow__subheading p {
     margin: 0;
-    color: #FFF;
     font-size: 18px;
     font-style: normal;
     line-height: 26px;
@@ -182,8 +249,9 @@
   .slideshow__slide .slideshow__media img {
     width: 100%;
     height: 100%;
-    aspect-ratio: 16 / 6.644;
-  
+    aspect-ratio: 16 / 5.9880;
+    object-fit: cover;
+    display: block; /* Add display block */
   }
 
   .slideshow_button {
@@ -199,8 +267,11 @@
     font-style: normal;
     font-weight: 600;
     text-transform: uppercase;
-    line-height: 50px;
-    padding: 0 20px;
+    line-height: normal;
+    padding: 16.5px 20px;
+    text-decoration: none; /* Add this */
+    transition: all 0.3s ease; /* Add smooth transition */
+    min-height: auto;
   }
 
   .slideshow_button a.button.button--primary:after {
@@ -219,22 +290,16 @@
     cursor: pointer;
     border: none;
     box-sizing: border-box;
-    /* Default SVG - empty circle with white stroke */
     background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10' fill='none'%3E%3Crect x='0.5' y='0.5' width='9' height='9' rx='4.5' stroke='white'/%3E%3C/svg%3E");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
   }
 
-  /* Active dot - filled circle with white stroke */
   .banner-swiper .swiper-pagination-bullet-active {
-    /* Active SVG - filled circle with white stroke */
     background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10' fill='none'%3E%3Crect x='0.5' y='0.5' width='9' height='9' rx='4.5' stroke='white'/%3E%3Crect x='2' y='2' width='6' height='6' rx='3' fill='white'/%3E%3C/svg%3E");
   }
 
-  /* Remove inactive dots styling */
-
-  /* Hover effect */
   .banner-swiper .swiper-pagination-bullet:hover:not(.swiper-pagination-bullet-active) {
     opacity: 0.8;
   }
@@ -243,6 +308,7 @@
     bottom: 17px !important;
     display: flex;
     justify-content: center;
+    z-index: 3; /* Add z-index to ensure pagination is on top */
   }
 
   .slideshow_button a.button.button--primary {
@@ -260,64 +326,75 @@
     stroke: #fff;
   }
 
+  .slideshow__text.position-left {
+    margin: 0;
+  }
+
+  @media only screen and (max-width: 1140px) { 
+    .slideshow__slide .slideshow__media img {
+    aspect-ratio: 16 / 9;
+}
+  }
+
   @media only screen and (max-width: 991px) {
-   .page-width-banner {
-    padding: 0 15px;
-}
+    .page-width-banner {
+      padding: 0 15px;
+    }
 
-.slideshow__text h2.slideshow__heading {
-    font-size: 32px;
-    line-height: 40px;
-}
+    .slideshow__text h2.slideshow__heading {
+      font-size: 32px;
+      line-height: 40px;
+    }
 
-.slideshow_button a.button.button--primary {
-    line-height: 40px;
-}
+    
 
-.slideshow__subheading p {
-    font-size: 16px;
-}
+    .slideshow__subheading p {
+      font-size: 16px;
+    }
 
-.slideshow_button {
-    margin: 20px 0 0;
-}
-
- }
+    .slideshow_button {
+      margin: 20px 0 0;
+    }
+  }
  
-@media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 767px) {
+    .slideshow__slide .slideshow__media img {
+      display: none;
+    }
 
- .slideshow__slide .slideshow__media img {
-    display: none;
-}
+    .slideshow__slide .slideshow__media img.banner-mb {
+      display: block !important;
+      aspect-ratio: 4 / 4.9;
+    }
 
-.slideshow__slide .slideshow__media img.banner-mb {
-    display: block !important;
-    aspect-ratio: 4 / 4.7;
-}
+    .slideshow_button a.button.button--primary {
+      padding: 15px;
+      font-size: 14px;
+    }
 
-.slideshow_button a.button.button--primary {
-    padding: 0 15px;
-    font-size: 14px;
-}
+    .slideshow__subheading p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
 
-.slideshow__subheading p {
-    font-size: 14px;
-    line-height: 1.4;
-}
+    .slideshow__text {
+      text-align: center;
+      margin: 0 auto;
+    }
 
-.slideshow__text {
-    text-align: center;
-}
+    .slideshow__text.position-left {
+      margin: 0 auto;
+    }
 
-.slideshow__text h2.slideshow__heading {
-    font-size: 24px;
-    line-height: 1.4;
-    text-align: center;
-}
+    .slideshow__text h2.slideshow__heading {
+      font-size: 24px;
+      line-height: 1.4;
+      text-align: center;
+    }
 
-.slideshow_button a.button.button--primary svg {
-    width: 26px;
-    min-width: 26px;
-}
-   }
+    .slideshow_button a.button.button--primary svg {
+      width: 26px;
+      min-width: 26px;
+    }
+  }
 </style>

@@ -45,6 +45,11 @@ section.signup-mail .signup-wrap span.bg-image img {
 section.signup-mail .signup-wrap .left-title h2 {
     color: #fff;
     max-width: 430px;
+font-size: 40px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: uppercase;
 }
 
 .right-form * {
@@ -157,7 +162,7 @@ section.signup-mail .signup-wrap .left-title h2 {
     padding: 0 20px !important
     border-radius: 10px !important;
     background: #262626 !important;
-    color: #7b7b7b !important;
+    color: #fff !important;
     font-weight: 500 !important;
     font-family: 'Montserrat';
     padding: 0 20px !important;
@@ -208,13 +213,12 @@ section.signup-mail .signup-wrap .left-title h2 {
     padding: 0 20px !important
     border-radius: 10px !important;
     background: #262626 !important;
-    color: #7b7b7b !important;
+    color: #fff !important;
     font-weight: 500 !important;
     font-family: 'Montserrat';
     padding: 0 20px !important;
     min-height: 50px;
     width: 100%;
-    color: #7B7B7B;
     font-family: Prompt;
     font-size: 16px;
     font-style: normal;
@@ -384,10 +388,12 @@ section.signup-mail .signup-wrap .left-title h2 {
 }
 
 .right-form ul.inputs-list .hs-form-booleancheckbox label span {
-    font-size: 14px;
-    color: #fff;
-    font-weight: 500;
-    font-family: 'Montserrat'
+    color: #FFF;
+font-family: Prompt;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
 }
 
 .right-form .field  {
@@ -416,7 +422,7 @@ section.signup-mail .signup-wrap .left-title h2 {
 .hs_tell_us_your_role_.hs-tell_us_your_role_.hs-fieldtype-radio.field.hs-form-field ul.inputs-list.multi-container label.hs-form-radio-display {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 7px;
     cursor: pointer;
 }
 
@@ -431,7 +437,7 @@ section.signup-mail .signup-wrap .left-title h2 {
     padding: 0 20px;
     width: 100%;
     margin: 10px 0 0;
-    color: #7B7B7B;
+    color: #fff;
     font-family: Prompt;
     font-size: 16px;
     font-style: normal;
@@ -452,32 +458,36 @@ section.signup-mail .signup-wrap .left-title h2 {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: 16px;
-  height: 16px;
-  border: 2px solid #00c8ff;  /* blue outline */
+  width: 12px;
+  height: 12px;
+  border: 2px solid #42C5EF;  /* blue outline */
   border-radius: 50%;
   display: inline-block;
   position: relative;
   margin-right: 3px;
   cursor: pointer;
   background: transparent;
-  min-width: 16px;
+  min-width: 12px;
+  margin: 0;
 }
 
 .hs-form-radio-display input[type="radio"]:checked {
-  border-color: #00c8ff;
+  border-color: #42C5EF;
 }
 
 .hs-form-radio-display input[type="radio"]:checked::after {
   content: "";
-  width: 9px;
-  height: 9px;
-  background: #00c8ff;
+  width: 6px;
+  height: 6px;
+  background: #42C5EF;
   border-radius: 50%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 51%;
+  left: 51%;
+  /* transform: translate(-50%, -50%); */
+  min-width: 6px;
+  left: 1.7px;
+    top: 1.5px;
 }
 
 .hs_submit.hs-submit input.hs-button.primary.large {
@@ -529,19 +539,56 @@ span.hs-form-required {
 }
 
 label.hs-error-msg.hs-main-font-element {
-    color: #F00;
-        font-family: Prompt;
-    font-size: 12px;
+    color: #F00 !important;
+        font-family: Prompt !important;
+    font-size: 12px !important;
     font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    position: absolute;
-    margin-top: -10px;
+    font-weight: 300 !important;
+    line-height: normal !important;
+    position: absolute !important;
+    margin-top: -10px !important;
+}
+
+.hs_email.hs-email.hs-fieldtype-text.field.hs-form-field {
+    margin: 0 0 20px;
+}
+
+.hs_submit.hs-submit {
+    margin-top: 20px;
+}
+
+.right-form .submitted-message {
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 28px;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 27px; /* 150% */
+    letter-spacing: 2.7px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4/1;
 }
 
 
 .right-form .field:after,.right-form .select:after, .right-form .customer .field:after,.right-form .customer select:after,.right-form .localization-form__select:after {
     display: none;
+}
+
+.right-form .customer-names label, .right-form .customer-names label, .hs_email.hs-email.hs-fieldtype-text.field.hs-form-field label {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 @media only screen and (max-width: 990px) { 
@@ -556,6 +603,10 @@ section.signup-mail .signup-wrap {
 
 section.signup-mail .signup-wrap span.bg-image {
     opacity: .2;
+}
+
+section.signup-mail .signup-wrap .left-title h2 { 
+    font-size: 24px;
 }
 }
 

@@ -5,6 +5,7 @@
 
 body {
     color:#141132;
+    overflow-x: clip;
 }
 
 h1 {
@@ -69,7 +70,7 @@ a.button.button--secondary:after {
 
 .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.grid--3-col-tablet {
     display: grid !important;
-    grid-template-columns: 350px auto auto auto auto auto;
+    grid-template-columns: 350px auto auto auto auto;
     gap: 40px;
 }
 
@@ -137,6 +138,14 @@ a.button.button--secondary:after {
 .footer-block__brand-info ul.list-unstyled.list-social.footer__list-social {
     margin: 30px 0 0;
         margin-left: -12px;
+}
+
+.footer-block__brand-info ul.list-unstyled.list-social.footer__list-social a.link.list-social__link svg path {
+    transition: all .4s ease;
+}
+
+.footer-block__brand-info ul.list-unstyled.list-social.footer__list-social a.link.list-social__link:hover svg path {
+    fill: #0033a0;
 }
 
 .footer__content-bottom {
