@@ -64,9 +64,9 @@
         "counter_hgbbaj": {
           "type": "counter",
           "settings": {
-            "number": "",
-            "suffix": "",
-            "label": ""
+            "number": "2300",
+            "suffix": "+",
+            "label": "Instruments Offered"
           }
         },
         "counter_yBG3DR": {
