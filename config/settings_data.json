@@ -9,7 +9,7 @@
     "body_scale": 100,
     "page_width": 1420,
     "spacing_sections": 0,
-    "spacing_grid_horizontal": 28,
+    "spacing_grid_horizontal": 30,
     "spacing_grid_vertical": 8,
     "animations_reveal_on_scroll": false,
     "animations_hover_elements": "none",

@@ -9,29 +9,69 @@
             "image": "shopify:\/\/shop_images\/banner-first-img.png",
             "mobile-image": "shopify:\/\/shop_images\/Main_Homepage_Banner_Mobile_7.jpg",
             "heading": "COMMON PROBLEMS, DISRUPTIVE SOLUTIONS",
+            "heading_color": "#ffffff",
             "subheading": "<p>With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.<\/p>",
+            "description_color": "#ffffff",
             "button_label": "Who We Are",
-            "button_link": "shopify:\/\/collections"
+            "button_link": "shopify:\/\/collections",
+            "position": false
           }
         },
         "slide_LVQGqF": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/power-dental-banner-2.jpg",
+            "image": "shopify:\/\/shop_images\/power-dental-banner-2f.png",
             "mobile-image": "shopify:\/\/shop_images\/Shop_Banner_Mobile.jpg",
             "heading": "Instruments for Every Indication.",
+            "heading_color": "#ffffff",
             "subheading": "<p>Thoughtful attention to detail. Power in every build. Make every moment count with the best instruments in class.<\/p>",
+            "description_color": "#ffffff",
             "button_label": "Shop",
-            "button_link": "shopify:\/\/collections"
+            "button_link": "shopify:\/\/collections",
+            "position": true
+          }
+        },
+        "slide_wQxP98": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/fulcrum-forceps-mainbanner-3f.png",
+            "mobile-image": "shopify:\/\/shop_images\/Fulcrum_Forceps_Highlight_Banner_Mobile_7.jpg",
+            "heading": "Fulcrum Forceps",
+            "heading_color": "#ffffff",
+            "subheading": "<p>The Fulcrum Forceps utilize lever mechanics and light rotational pressure to create constant stress on the periodontal fibers for atraumatic extractions. The  360° rotational pad offers adaptable positioning within the oral cavity to form any ridge and provides alternatives in angulation for certain tooth extraction cases. <\/p>",
+            "description_color": "#ffffff",
+            "button_label": "Find out more",
+            "button_link": "#",
+            "position": false
+          }
+        },
+        "slide_HjUqUU": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/crown-removers-mainbanner-4.png",
+            "mobile-image": "shopify:\/\/shop_images\/Crown_Removers_Highlight_Banner_Mobile_2.jpg",
+            "heading": "Crown Removers",
+            "heading_color": "#ffffff",
+            "subheading": "<p>Traditional methods for removing crowns require sectioning and piece removal. The Power Crown  Removers utilize push and pull mechanics in conjunction with pre-drilled holes to remove crowns fully intact, streamlining the removal process altogether. <\/p>",
+            "description_color": "#ffffff",
+            "button_label": "Our Solution",
+            "button_link": "#",
+            "position": true
           }
         }
       },
       "block_order": [
         "slide_7zX73H",
-        "slide_LVQGqF"
+        "slide_LVQGqF",
+        "slide_wQxP98",
+        "slide_HjUqUU"
       ],
       "name": "Banner Swiper",
-      "settings": {}
+      "settings": {
+        "autoplay": true,
+        "autoplay_delay": 3500,
+        "transition_speed": 500
+      }
     },
     "counter_section_8GnqEy": {
       "type": "counter-section",
@@ -495,7 +535,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/image_30.png",
             "title": "THE FUTURE OF DENTISTRY: MISCH INSTITUTE PARTNERSHIP",
-            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.<\/p>",
+            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit<a href=\"https:\/\/ www.misch.com\" target=\"_blank\" title=\"https:\/\/ www.misch.com\"> www.misch.com<\/a> to sign up.<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -505,7 +545,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/image_30_1.png",
             "title": "GOING GOVERNMENT - LOVELL GOVERNMENT SERVICES",
-            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.<\/p>",
+            "text": "<p>Power Dental has partnered with Lovell Government Services to get our products into the hands of those who serve our country. Visit <a href=\"https:\/\/www.lovell.com\" target=\"_blank\" title=\"https:\/\/www.lovell.com\">www.lovell.com<\/a> to learn more.<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -515,7 +555,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/image_30_2.png",
             "title": "BEAUTY MEETS FUNCTION - STOGGLES PARTNERSHIP",
-            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit www.misch.com to sign up.<\/p>",
+            "text": "<p>Stoggles Inc. and Power Dental Group have partnered together to provide stylish and functional safety goggles to all Power Dental customers. Use code PDG15 to get 15% off your first purchase. <a href=\"https:\/\/www.stoggles.com\" target=\"_blank\" title=\"https:\/\/www.stoggles.com\">www.stoggles.com<\/a><\/p>",
             "link_label": "",
             "link": ""
           }
