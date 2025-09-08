@@ -77,7 +77,7 @@
       ],
       "name": "Banner Swiper",
       "settings": {
-        "autoplay": false,
+        "autoplay": true,
         "autoplay_delay": 3500,
         "transition_speed": 500
       }
