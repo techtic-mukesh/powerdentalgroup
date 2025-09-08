@@ -266,7 +266,7 @@ header-drawer {
 }
 
 .menu-drawer__navigation {
-            padding-top: 58px;
+            margin-top: 58px;
 }
 
 .menu-drawer__utility-links:has(.menu-drawer__localization) .menu-drawer__account {
