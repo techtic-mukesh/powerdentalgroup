@@ -19,7 +19,7 @@
             "mobile-image": "shopify://shop_images/Main_Homepage_Banner_Mobile_7.jpg",
             "heading": "COMMON PROBLEMS, DISRUPTIVE SOLUTIONS",
             "heading_color": "#ffffff",
-            "subheading": "<p>With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.</p>",
+            "subheading": "<p>With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.</p><p>With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.</p>",
             "description_color": "#ffffff",
             "button_label": "Who We Are",
             "button_link": "shopify://collections",
@@ -77,7 +77,7 @@
       ],
       "name": "Banner Swiper",
       "settings": {
-        "autoplay": true,
+        "autoplay": false,
         "autoplay_delay": 3500,
         "transition_speed": 500
       }
