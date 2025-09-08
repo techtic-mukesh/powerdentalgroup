@@ -15,7 +15,7 @@
         "slide_7zX73H": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner-first-img.png",
+            "image": "shopify://shop_images/4638_crown_removers_05.jpg",
             "mobile-image": "shopify://shop_images/Main_Homepage_Banner_Mobile_7.jpg",
             "heading": "COMMON PROBLEMS, DISRUPTIVE SOLUTIONS",
             "heading_color": "#ffffff",
@@ -77,7 +77,7 @@
       ],
       "name": "Banner Swiper",
       "settings": {
-        "autoplay": true,
+        "autoplay": false,
         "autoplay_delay": 3500,
         "transition_speed": 500
       }
