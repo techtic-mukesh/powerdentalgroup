@@ -265,16 +265,8 @@ header-drawer {
     position: unset;
 }
 
-.menu-drawer__navigation {
-            padding-top: 58px;
-}
 
-.menu-drawer__utility-links:has(.menu-drawer__localization) .menu-drawer__account {
-    position: absolute;
-    top: 0;
-    right: 27px;
-    top: 15px;
-}
+
 }
 
 
