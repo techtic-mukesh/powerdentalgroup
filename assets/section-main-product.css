@@ -591,6 +591,21 @@ text-transform: capitalize;
   border-radius: calc(var(--media-radius) - var(--media-border-width));
 }
 
+.jdgm-prev-badge__text {
+    color: #01000A;
+    font-family: Prompt;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 157.143% */
+}
+
+.jdgm-prev-badge__text:before {content: '(';}
+
+.jdgm-prev-badge__text:after {
+    content: ')';
+}
+
 @media screen and (max-width: 749px) {
   .product__media-list {
     margin-left: -2.5rem;
