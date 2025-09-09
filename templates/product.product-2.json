@@ -114,8 +114,8 @@
       "settings": {
         "background_color": "#f9f9f9",
         "heading": "Key Features",
-        "content": "<ul><li>Removes crowns in seconds – Significantly reduces chair time, cutting procedures from minutes down to seconds.<\/li><li>Predictable outcomes - Push-pull mechanics create opposing forces to preserve the core and remove the crown in a single motion.<\/li><li>Universal use – Compatible with permanent or temporary crowns (zirconia, e.max, PFM) in any region: anterior or posterior, maxillary or mandibular.<\/li><li>Ergonomic handle design – Integrated butterfly spring minimizes hand fatigue and enhances grip control.<\/li><\/ul>",
-        "image": "shopify:\/\/shop_images\/image.png"
+        "content": "<ul><li>Removes crowns in seconds – Significantly reduces chair time, cutting procedures from minutes down to seconds.</li><li>Predictable outcomes - Push-pull mechanics create opposing forces to preserve the core and remove the crown in a single motion.</li><li>Universal use – Compatible with permanent or temporary crowns (zirconia, e.max, PFM) in any region: anterior or posterior, maxillary or mandibular.</li><li>Ergonomic handle design – Integrated butterfly spring minimizes hand fatigue and enhances grip control.</li></ul>",
+        "image": "shopify://shop_images/image.png"
       }
     },
     "real_result_VTRxba": {
@@ -124,13 +124,13 @@
         "video_block_7fiBk6": {
           "type": "video_block",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/Video_20250605_090556_307.mp4"
+            "video": "shopify://files/videos/Video_20250605_090556_307.mp4"
           }
         },
         "video_block_ThUwgA": {
           "type": "video_block",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/Video_20250605_090556_300.mp4"
+            "video": "shopify://files/videos/Video_20250605_090556_300.mp4"
           }
         }
       },
@@ -141,7 +141,7 @@
       "name": "Real Results Section",
       "settings": {
         "heading": "CLINICAL USAGE",
-        "content": "<p>CROWN REMOVALS SIMPLIFIED<\/p>",
+        "content": "<p>CROWN REMOVALS SIMPLIFIED</p>",
         "grid_columns": "2"
       }
     },
@@ -153,8 +153,8 @@
         "heading_size": "h1",
         "enable_custom_height": true,
         "enable_video_looping": false,
-        "video_url": "https:\/\/www.youtube.com\/watch?v=rqhkBHfi2H4",
-        "cover_image": "shopify:\/\/shop_images\/1e598d714bca38dfad92dec408c9e302d9d51c56.png",
+        "video_url": "https://www.youtube.com/watch?v=rqhkBHfi2H4",
+        "cover_image": "shopify://shop_images/1e598d714bca38dfad92dec408c9e302d9d51c56.png",
         "description": "",
         "full_width": false,
         "color_scheme": "scheme-c2cb00ea-c497-4faa-9d8f-68b679e10b72",
@@ -168,19 +168,19 @@
         "video_block_h6Er7Q": {
           "type": "video_block",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/crown remover - brian olitsky Final Revision BGM.mp4"
+            "video": "shopify://files/videos/crown remover - brian olitsky Final Revision BGM.mp4"
           }
         },
         "video_block_pianY9": {
           "type": "video_block",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/power crown remover Dr Daniel Combine.mp4"
+            "video": "shopify://files/videos/power crown remover Dr Daniel Combine.mp4"
           }
         },
         "video_block_V6Kqfn": {
           "type": "video_block",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/crown remover - thomas hirch Final Revision with B (1).mp4"
+            "video": "shopify://files/videos/crown remover - thomas hirch Final Revision with B (1).mp4"
           }
         }
       },
@@ -202,9 +202,9 @@
         "testimonial_q3Exhb": {
           "type": "testimonial",
           "settings": {
-            "profile_image": "shopify:\/\/shop_images\/Rectangle_26105.png",
+            "profile_image": "shopify://shop_images/Rectangle_26105.png",
             "testimonial_title": "Saves Me Valuable Chair Time and Hundreds of Dollars in Bills",
-            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in bills.<\/p>",
+            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in bills.</p>",
             "name": "- Shawn P. Lottier, DDS, MAG, DICOI",
             "credentials": "- Comfort Smiles Atlanta",
             "date": "February 20, 2024"
@@ -213,9 +213,9 @@
         "testimonial_DFKGPP": {
           "type": "testimonial",
           "settings": {
-            "profile_image": "shopify:\/\/shop_images\/Rectangle_26105_1.png",
+            "profile_image": "shopify://shop_images/Rectangle_26105_1.png",
             "testimonial_title": "Fastest and Most Reliable Repairs I’ve Seen",
-            "testimonial_text": "<p>Although their instruments are one of the best I've used over my 15 year professional career, the system that they have in place to replace and repair tools is one of the fastest and most reliable I've seen. Sent in and sent back to me in less than a week. Great service and great company!<\/p>",
+            "testimonial_text": "<p>Although their instruments are one of the best I've used over my 15 year professional career, the system that they have in place to replace and repair tools is one of the fastest and most reliable I've seen. Sent in and sent back to me in less than a week. Great service and great company!</p>",
             "name": "Dr. Santiago, DDS",
             "credentials": "",
             "date": "May 15, 2024"
@@ -224,9 +224,9 @@
         "testimonial_cz9qwq": {
           "type": "testimonial",
           "settings": {
-            "profile_image": "shopify:\/\/shop_images\/Rectangle_26105.png",
+            "profile_image": "shopify://shop_images/Rectangle_26105.png",
             "testimonial_title": "Saves Me Valuable Chair Time and Hundreds of Dollars in Bills",
-            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in bills.<\/p>",
+            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in bills.</p>",
             "name": "- Shawn P. Lottier, DDS",
             "credentials": "- Comfort Smiles Atlanta",
             "date": "February 24, 2024"
@@ -265,7 +265,6 @@
     },
     "recently_viewed_products_c8pPNh": {
       "type": "recently-viewed-products",
-      "disabled": true,
       "name": "Recently viewed products",
       "settings": {
         "heading": "Recently viewed products",
