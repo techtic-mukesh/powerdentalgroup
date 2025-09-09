@@ -75,6 +75,7 @@ slider-component.slider-component-full-width {
     scroll-behavior: smooth;
     scroll-padding-left: 1rem;
     -webkit-overflow-scrolling: touch;
+    overflow-y: hidden;
   }
 
   .slider.slider--tablet-up .slider__slide {

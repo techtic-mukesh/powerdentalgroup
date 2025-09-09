@@ -60,25 +60,54 @@
 	</div>
 
 
- <script>
-   	var $titleTab = $('.title_tab');
-	
-	$titleTab.on('click', function(e) {
-	e.preventDefault();
-		if ( $(this).hasClass('active') ) {
-			$(this).removeClass('active');
-			$(this).next().stop().slideUp(400);
-			$(this).next().find('p').removeClass('show');
-		} else {
-			$(this).addClass('active');
-			$(this).next().stop().slideDown(400);
-			$(this).parent().siblings().children('.title_tab').removeClass('active');
-			$(this).parent().siblings().children('.inner_content').slideUp(400);
-			$(this).parent().siblings().children('.inner_content').find('p').removeClass('show');
-			$(this).next().find('p').addClass('show');
-		}
-	});
- </script>
+<script>
+(function(){
+  function initAccordion() {
+    if (typeof jQuery === 'undefined') {
+      console.error('Accordion: jQuery not found. Use the vanilla fallback.');
+      return;
+    }
+    var $ = jQuery;
+
+    // Remove any previous bindings
+    $(document).off('click.myAccordion');
+
+    // Delegate clicks for ALL accordions, desktop or mobile
+    $(document).on('click.myAccordion', '.Accordions .title_tab', function(e) {
+      e.preventDefault();
+      var $this = $(this);
+      var $content = $this.next('.inner_content');
+
+      if (!$content.length) {
+        console.warn('Accordion: .inner_content not found next to', $this);
+        return;
+      }
+
+      if ($this.hasClass('active')) {
+        $this.removeClass('active');
+        $content.stop(true, true).slideUp(400).find('p').removeClass('show');
+      } else {
+        // Limit scope: only close others inside same .Accordions container
+        var $acc = $this.closest('.Accordions');
+        $acc.find('.title_tab').not($this).removeClass('active');
+        $acc.find('.inner_content').not($content).stop(true, true).slideUp(400).find('p').removeClass('show');
+
+        $this.addClass('active');
+        $content.stop(true, true).slideDown(400).find('p').addClass('show');
+      }
+    });
+
+    console.log('Accordion initialized');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAccordion);
+  } else {
+    initAccordion();
+  }
+})();
+</script>
+
 
 
  <style>
@@ -114,24 +143,39 @@
     line-height: 24px; /* 150% */
 }
 
-.product__media-wrapper .Accordions .title_tab.active h3.title {
+ .Accordions .title_tab.active h3.title {
     border: unset;
 }
 
-.product__media-wrapper .Accordions .title_tab.active h3.title  span.icon {
+.Accordions .title_tab.active h3.title  span.icon {
     transition: all .3s linear;
 }
 
-.product__media-wrapper .Accordions .Accordion_item:last-of-type h3.title {
+.Accordions .Accordion_item:last-of-type h3.title {
     border: unset;
 }
 
-.product__media-wrapper .Accordions .title_tab.active h3.title span.icon {
+ .Accordions .title_tab.active h3.title span.icon {
     transform: rotate(90deg);
 }
 
 
-.product__media-wrapper .Accordions .inner_content {
+.Accordions .inner_content {
     display: none;
+}
+
+.mobile-accodian {
+    display: none;
+}
+
+@media (max-width: 750px) {
+   .mobile-accodian {
+    display: block;
+}
+
+.mobile-accodian .Accordion_item .title_tab h3 {
+    font-size: 14px;
+    padding: 10px 0 10px 0;
+}
 }
  </style>

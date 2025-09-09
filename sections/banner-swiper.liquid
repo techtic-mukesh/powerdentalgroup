@@ -4,7 +4,7 @@
       <div class="swiper-slide slideshow__slide">
         <div class="slideshow__media">
           {% if block.settings.image != blank %}
-            <img src="{{ block.settings.image | img_url: '' }}" alt="{{ block.settings.heading | escape }}" class="{% if forloop.index == 2 %}bottom-center{% endif %}">
+          <img src="{{ block.settings.image | img_url: '' }}" alt="{{ block.settings.heading | escape }}" {% if forloop.index == 1 %}style="transform: scaleX(-1);"{% endif %} class="{% if forloop.index == 2 %}bottom-center{% endif %}">
           {% endif %}
 
           {% if block.settings.mobile-image != blank %}
@@ -14,6 +14,11 @@
         <div class="slideshow__text-wrapper">
           <div class="page-width-banner">
             <div class="slideshow__text {% if block.settings.position == true %}position-left{% endif %}">
+              {% if block.settings.auth_image != blank %}
+                <div class="top-logo">
+                  <img src="{{ block.settings.auth_image | img_url: '' }}" alt="">
+                </div>
+              {% endif %}
               {% if block.settings.heading != blank %}
                 <h2 class="slideshow__heading" style="color: {{ block.settings.heading_color | default: '#fff' }};">{{ block.settings.heading }}</h2>
               {% endif %}
@@ -64,12 +69,12 @@
                     };
                     
                     // Add autoplay if enabled
-                    // if (autoplay) {
-                    //     swiperConfig.autoplay = {
-                    //         delay: autoplayDelay,
-                    //         disableOnInteraction: false
-                    //     };
-                    // }
+                    if (autoplay) {
+                        swiperConfig.autoplay = {
+                            delay: autoplayDelay,
+                            disableOnInteraction: false
+                        };
+                    }
                     
                     new Swiper(".banner-swiper", swiperConfig);
                     obs.disconnect(); // init only once
@@ -145,10 +150,24 @@
     line-height: 26px;
   }
 
+  .slideshow__text .top-logo {
+    max-width: 150px;
+    display: flex;
+    margin: 0 0 8px;
+}
+
+.slideshow__text .top-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left;
+}
+
   .slideshow__slide .slideshow__media img {
     width: 100%;
     height: 100%;
-    aspect-ratio: 16 / 6;
+    /* aspect-ratio: 16 / 6; */
+    max-height: 768px;
     object-fit: cover;
     display: block; /* Add display block */
   }
@@ -194,9 +213,10 @@
     border: none;
     box-sizing: border-box;
     background-image: url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10' fill='none'%3E%3Crect x='0.5' y='0.5' width='9' height='9' rx='4.5' stroke='white'/%3E%3C/svg%3E");
-    background-size: contain;
+    background-size: 10px;
     background-repeat: no-repeat;
     background-position: center;
+    padding: 6px;
   }
 
   .banner-swiper .swiper-pagination-bullet-active {
@@ -296,9 +316,14 @@
       display: none;
     }
 
+    .slideshow__text .top-logo {
+    margin: 0 auto 8px;
+}
+
     .slideshow__slide .slideshow__media img.banner-mb {
       display: block !important;
-              aspect-ratio: 4 / 2.5;
+              /* aspect-ratio: 4 / 2.5; */
+              aspect-ratio: 4/4;
         object-position: bottom;
     }
 
@@ -351,7 +376,7 @@
 
    @media only screen and (max-width: 540px) {
     .slideshow__slide .slideshow__media img.banner-mb {
-              aspect-ratio: 4 / 5.5;
+                  aspect-ratio: 4 / 5.9;
     }
     }
 </style>
@@ -425,6 +450,11 @@
             "id": "description_color",
             "label": "Description Color",
             "default": "#ffffff"
+          },
+           {
+            "type": "image_picker",
+            "id": "auth_image",
+            "label": "Logo Image"
           },
           {
             "type": "text",

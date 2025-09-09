@@ -467,3 +467,7 @@
     min-width: 27px;
     height: 24px;
 }
+
+.menu-drawer__localization.header-localization .disclosure__list-wrapper.language-selector {
+    transform: translateY(-180%);
+}
