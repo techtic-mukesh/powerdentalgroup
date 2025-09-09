@@ -790,6 +790,12 @@
       endif
     -%}
 
+    {% comment %} Mobile Accodian {% endcomment %}
+
+    <div class="mobile-accodian">
+        {%  render 'product-accodian' %}
+    </div>
+
     <script type="application/ld+json">
       {{ product | structured_data }}
     </script>

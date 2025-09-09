@@ -193,6 +193,10 @@ a.button.button--secondary:after {
     }
 }
 
+.swiper-pagination {
+    z-index: 2;
+}
+
 /* Globle Responsive */
 
 @media only screen and (max-width: 1240px) {

@@ -37,6 +37,27 @@
     -webkit-text-fill-color: transparent;
 }
 
+.price.price--on-sale {
+    font-variant-numeric: ordinal;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.price--on-sale .price-item--regular {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.price.price--on-sale span.price-item.price-item--sale.price-item--last {
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .price:not(.price--show-badge) .price-item--last:last-of-type {
   margin: 0;
 }

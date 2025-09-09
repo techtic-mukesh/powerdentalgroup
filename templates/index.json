@@ -6,7 +6,7 @@
         "slide_7zX73H": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/banner-first-img_98c74029-cf9f-4a3c-b720-614521e96158.png",
+            "image": "shopify:\/\/shop_images\/dental-instrument-mainbanner-1.jpg",
             "mobile-image": "shopify:\/\/shop_images\/Main_Homepage_Banner_Mobile_7.jpg",
             "heading": "COMMON PROBLEMS, DISRUPTIVE SOLUTIONS",
             "heading_color": "#ffffff",
@@ -40,6 +40,7 @@
             "heading_color": "#ffffff",
             "subheading": "<p>The Fulcrum Forceps utilize lever mechanics and light rotational pressure to create constant stress on the periodontal fibers for atraumatic extractions. The  360° rotational pad offers adaptable positioning within the oral cavity to form any ridge and provides alternatives in angulation for certain tooth extraction cases. <\/p>",
             "description_color": "#ffffff",
+            "auth_image": "shopify:\/\/shop_images\/power-logo.png",
             "button_label": "Find out more",
             "button_link": "#",
             "position": false
@@ -54,6 +55,7 @@
             "heading_color": "#ffffff",
             "subheading": "<p>Traditional methods for removing crowns require sectioning and piece removal. The Power Crown  Removers utilize push and pull mechanics in conjunction with pre-drilled holes to remove crowns fully intact, streamlining the removal process altogether. <\/p>",
             "description_color": "#ffffff",
+            "auth_image": "shopify:\/\/shop_images\/power-logo.png",
             "button_label": "Our Solution",
             "button_link": "#",
             "position": true
@@ -535,7 +537,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/image_30.png",
             "title": "THE FUTURE OF DENTISTRY: MISCH INSTITUTE PARTNERSHIP",
-            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit<a href=\"https:\/\/ www.misch.com\" target=\"_blank\" title=\"https:\/\/ www.misch.com\"> www.misch.com<\/a> to sign up.<\/p>",
+            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit<a href=\"https:\/\/misch.com\/\" target=\"_blank\" title=\"https:\/\/misch.com\/\"> www.misch.com<\/a> to sign up.<\/p>",
             "link_label": "",
             "link": ""
           }
