@@ -78,7 +78,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 
 .menu-drawer__navigation-container {
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
   align-content: space-between;
   overflow-y: auto;
   height: 100%;
@@ -186,10 +186,18 @@ details[open].menu-opening > .menu-drawer__submenu {
   padding: 2rem 3rem;
 }
 
+@media screen and (max-width: 750px) {
+  .menu-drawer__navigation-container {
+    grid-template-rows: auto 1fr auto;
+  }
+}
+
 @media screen and (max-width: 749px) {
   .header--has-account:where(:not(.header--has-social):not(.header--has-localizations)) .menu-drawer__utility-links {
     padding: 2rem 3rem;
   }
+
+
 }
 
 @media screen and (max-width: 989px) {

@@ -8,12 +8,12 @@
           {% endif %}
 
           {% if block.settings.mobile-image != blank %}
-            <img class="banner-mb" style="display: none;" src="{{ block.settings.mobile-image | img_url: '' }}" alt="{{ block.settings.heading | escape }}">
+            <img class="banner-mb {% if forloop.index == 4 %} banner-mb-last {% endif %}" style="display: none;" src="{{ block.settings.mobile-image | img_url: '' }}" alt="{{ block.settings.heading | escape }}">
           {% endif %}
         </div>
         <div class="slideshow__text-wrapper">
           <div class="page-width-banner">
-            <div class="slideshow__text {% if block.settings.position == true %}position-left{% endif %}">
+            <div class="slideshow__text {% if block.settings.position == true %}position-left{% endif %}  {% if forloop.index == 4 %} banner-mb-content {% endif %}">
               {% if block.settings.auth_image != blank %}
                 <div class="top-logo">
                   <img src="{{ block.settings.auth_image | img_url: '' }}" alt="">
@@ -69,12 +69,12 @@
                     };
                     
                     // Add autoplay if enabled
-                    if (autoplay) {
-                        swiperConfig.autoplay = {
-                            delay: autoplayDelay,
-                            disableOnInteraction: false
-                        };
-                    }
+                    // if (autoplay) {
+                    //     swiperConfig.autoplay = {
+                    //         delay: autoplayDelay,
+                    //         disableOnInteraction: false
+                    //     };
+                    // }
                     
                     new Swiper(".banner-swiper", swiperConfig);
                     obs.disconnect(); // init only once
@@ -378,6 +378,14 @@
     .slideshow__slide .slideshow__media img.banner-mb {
                   aspect-ratio: 4 / 5.9;
     }
+
+    .slideshow__slide .slideshow__media img.banner-mb.banner-mb-last {
+    object-position: 33%;
+}
+
+.slideshow__text.position-left.banner-mb-content {
+        padding-bottom: 100px;
+}
     }
 </style>
 
