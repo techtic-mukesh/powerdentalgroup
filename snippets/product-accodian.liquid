@@ -1,122 +1,134 @@
+<div class="container">
+  <div class="Accordions">
+    <div class="Accordion_item">
+      <div class="title_tab">
+        <h3 class="title">
+          Product Description
+          <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="15" viewBox="0 0 8 15" fill="none">
+              <path d="M1 13.7275L7 7.72754L0.999999 1.72754" stroke="#121212" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </h3>
+      </div>
+      <div class="inner_content">
+        {{ product.description }}
+      </div>
+    </div>
 
-	<div class="container">
-		<div class="Accordions">
-			<div class="Accordion_item">
-				<div class="title_tab">
-					<h3 class="title">
-                         Product Description
-                    <span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="15" viewBox="0 0 8 15" fill="none">
-                        <path d="M1 13.7275L7 7.72754L0.999999 1.72754" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                </h3>
-				</div>
-				<div class="inner_content">
-    				{{ product.description }}
-				</div>
-			</div>
-
-
-            <div class="Accordion_item">
-				<div class="title_tab">
-					<h3 class="title">
-                         WHAT'S INCLUDED
-                    <span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="15" viewBox="0 0 8 15" fill="none">
-                        <path d="M1 13.7275L7 7.72754L0.999999 1.72754" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                </h3>
-				</div>
-				<div class="inner_content">
-    				{{ product.description }}
-				</div>
-			</div>
-
-            <div class="Accordion_item">
-				<div class="title_tab">
-					<h3 class="title">
-                        Specifications
-                    <span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="15" viewBox="0 0 8 15" fill="none">
-                        <path d="M1 13.7275L7 7.72754L0.999999 1.72754" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </span>
-                </h3>
-				</div>
-				<div class="inner_content">
-    				{{ product.description }}
-				</div>
-			</div>
-
-            
-        
+    {% if product.metafields.custom.whats_included != blank %}
+    <div class="Accordion_item">
+      <div class="title_tab">
+        <h3 class="title">
+          WHAT'S INCLUDED
+          <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="15" viewBox="0 0 8 15" fill="none">
+              <path d="M1 13.7275L7 7.72754L0.999999 1.72754" stroke="#121212" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </h3>
+      </div>
+      <div class="inner_content">
+        {{ product.metafields.custom.whats_included | newline_to_br }}
+      </div>
+    </div>
+    {% endif %}
 
 
-           
+    {% if product.metafields.custom.product_specifications != blank %}
 
-		</div>
-	</div>
+    <div class="Accordion_item">
+      <div class="title_tab">
+        <h3 class="title">
+          Specifications
+          <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="15" viewBox="0 0 8 15" fill="none">
+              <path d="M1 13.7275L7 7.72754L0.999999 1.72754" stroke="#121212" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </h3>
+      </div>
+      <div class="inner_content">
+        {{ product.metafields.custom.product_specifications | newline_to_br }}
+      </div>
+    </div>
+
+    {% endif %}
+
+
+
+
+
+
+
+  </div>
+</div>
 
 
 <script>
-(function(){
-  function initAccordion() {
-    if (typeof jQuery === 'undefined') {
-      console.error('Accordion: jQuery not found. Use the vanilla fallback.');
-      return;
-    }
-    var $ = jQuery;
-
-    // Remove any previous bindings
-    $(document).off('click.myAccordion');
-
-    // Delegate clicks for ALL accordions, desktop or mobile
-    $(document).on('click.myAccordion', '.Accordions .title_tab', function(e) {
-      e.preventDefault();
-      var $this = $(this);
-      var $content = $this.next('.inner_content');
-
-      if (!$content.length) {
-        console.warn('Accordion: .inner_content not found next to', $this);
+  (function () {
+    function initAccordion() {
+      if (typeof jQuery === 'undefined') {
+        console.error('Accordion: jQuery not found. Use the vanilla fallback.');
         return;
       }
+      var $ = jQuery;
 
-      if ($this.hasClass('active')) {
-        $this.removeClass('active');
-        $content.stop(true, true).slideUp(400).find('p').removeClass('show');
-      } else {
-        // Limit scope: only close others inside same .Accordions container
-        var $acc = $this.closest('.Accordions');
-        $acc.find('.title_tab').not($this).removeClass('active');
-        $acc.find('.inner_content').not($content).stop(true, true).slideUp(400).find('p').removeClass('show');
+      // Remove any previous bindings
+      $(document).off('click.myAccordion');
 
-        $this.addClass('active');
-        $content.stop(true, true).slideDown(400).find('p').addClass('show');
-      }
-    });
+      // Open the first accordion by default
+      var $firstTitle = $('.Accordions .Accordion_item:first .title_tab');
+      var $firstContent = $firstTitle.next('.inner_content');
+      $firstTitle.addClass('active');
+      $firstContent.show().find('p').addClass('show');
 
-    console.log('Accordion initialized');
-  }
+      // Delegate clicks for ALL accordions
+      $(document).on('click.myAccordion', '.Accordions .title_tab', function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $content = $this.next('.inner_content');
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAccordion);
-  } else {
-    initAccordion();
-  }
-})();
+        if (!$content.length) {
+          console.warn('Accordion: .inner_content not found next to', $this);
+          return;
+        }
+
+        if ($this.hasClass('active')) {
+          $this.removeClass('active');
+          $content.stop(true, true).slideUp(400).find('p').removeClass('show');
+        } else {
+          var $acc = $this.closest('.Accordions');
+          $acc.find('.title_tab').not($this).removeClass('active');
+          $acc.find('.inner_content').not($content).stop(true, true).slideUp(400).find('p').removeClass('show');
+
+          $this.addClass('active');
+          $content.stop(true, true).slideDown(400).find('p').addClass('show');
+        }
+      });
+
+      console.log('Accordion initialized');
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAccordion);
+    } else {
+      initAccordion();
+    }
+  })();
 </script>
 
 
 
- <style>
-
-.product__media-wrapper .Accordions {
+<style>
+  .product__media-wrapper .Accordions {
     margin: 30px 0 0;
-}
+  }
 
-.Accordion_item .title_tab h3 {
+  .Accordion_item .title_tab h3 {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -127,14 +139,60 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: 32px; /* 200% */
+    line-height: 32px;
+    /* 200% */
     text-transform: uppercase;
     padding: 18px 20px 18px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.30);
     cursor: pointer;
+  }
+
+  .product__media-wrapper .Accordions .inner_content * {
+    color: #01000A;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+  }
+
+  .Accordions .title_tab.active h3.title {
+    border: unset;
+  }
+
+  .Accordions .title_tab.active h3.title span.icon {
+    transition: all .3s linear;
+  }
+
+  .Accordions .Accordion_item:last-of-type h3.title {
+    border: unset;
+  }
+
+  .Accordions .title_tab.active h3.title span.icon {
+    transform: rotate(90deg);
+  }
+
+
+  .Accordions .inner_content {
+    display: none;
+  }
+
+  .mobile-accodian {
+    display: none;
+  }
+
+  .product__media-wrapper .Accordions .inner_content ul {
+    margin: 0;
+    padding-left: 20px;
 }
 
-.product__media-wrapper .Accordions .inner_content * {
+.product__media-wrapper .Accordions .inner_content ul br {
+    display: none;
+}
+
+.product__media-wrapper .Accordions .inner_content ul li {
+    margin: 0 0 10px;
     color: #01000A;
     font-family: Prompt;
     font-size: 16px;
@@ -143,39 +201,14 @@
     line-height: 24px; /* 150% */
 }
 
- .Accordions .title_tab.active h3.title {
-    border: unset;
-}
+  @media (max-width: 750px) {
+    .mobile-accodian {
+      display: block;
+    }
 
-.Accordions .title_tab.active h3.title  span.icon {
-    transition: all .3s linear;
-}
-
-.Accordions .Accordion_item:last-of-type h3.title {
-    border: unset;
-}
-
- .Accordions .title_tab.active h3.title span.icon {
-    transform: rotate(90deg);
-}
-
-
-.Accordions .inner_content {
-    display: none;
-}
-
-.mobile-accodian {
-    display: none;
-}
-
-@media (max-width: 750px) {
-   .mobile-accodian {
-    display: block;
-}
-
-.mobile-accodian .Accordion_item .title_tab h3 {
-    font-size: 14px;
-    padding: 10px 0 10px 0;
-}
-}
- </style>
+    .mobile-accodian .Accordion_item .title_tab h3 {
+      font-size: 14px;
+      padding: 10px 0 10px 0;
+    }
+  }
+</style>
