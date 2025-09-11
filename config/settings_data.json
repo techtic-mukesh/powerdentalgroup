@@ -1,17 +1,8 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "current": {
-    "logo": "shopify://shop_images/power-dental-logo_2.png",
+    "logo": "shopify:\/\/shop_images\/power-dental-logo_2.png",
     "logo_width": 250,
-    "favicon": "shopify://shop_images/favicon_2.png",
+    "favicon": "shopify:\/\/shop_images\/favicon_2.png",
     "type_header_font": "montserrat_n7",
     "heading_scale": 100,
     "type_body_font": "prompt_n4",
@@ -46,7 +37,7 @@
     "card_style": "standard",
     "card_image_padding": 0,
     "card_text_alignment": "left",
-    "card_color_scheme": "scheme-2",
+    "card_color_scheme": "scheme-1",
     "card_border_thickness": 0,
     "card_border_opacity": 10,
     "card_corner_radius": 0,
@@ -108,12 +99,12 @@
     "sale_badge_color_scheme": "scheme-4",
     "sold_out_badge_color_scheme": "scheme-3",
     "brand_headline": "Contact",
-    "brand_description": "<p>Power Dental Group<br/>2809 Barney Ct. McHenry, IL 60051</p><p>Local <a href=\"tel:+1-815-363-8003\" title=\"tel:+1-815-363-8003\">+1-815-363-8003</a></p>",
+    "brand_description": "<p>Power Dental Group<br\/>2809 Barney Ct. McHenry, IL 60051<\/p><p>Local\u2028<a href=\"tel:+1-815-363-8003\" title=\"tel:+1-815-363-8003\">+1-815-363-8003<\/a><\/p>",
     "brand_image_width": 100,
-    "social_facebook_link": "https://www.facebook.com/people/Power-Dental-Group/100065305369391",
-    "social_instagram_link": "https://www.instagram.com/powerdentalgroup",
-    "social_linkedin_link": "https://www.linkedin.com/company/powerdentalgroup",
-    "social_youtube_link": "https://www.youtube.com/channel/UCznCqyM_9rUZmgAYP0nz9_A",
+    "social_facebook_link": "https:\/\/www.facebook.com\/people\/Power-Dental-Group\/100065305369391",
+    "social_instagram_link": "https:\/\/www.instagram.com\/powerdentalgroup",
+    "social_linkedin_link": "https:\/\/www.linkedin.com\/company\/powerdentalgroup",
+    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UCznCqyM_9rUZmgAYP0nz9_A",
     "social_tiktok_link": "",
     "social_twitter_link": "",
     "social_snapchat_link": "",
@@ -376,7 +367,7 @@
       "sale_badge_color_scheme": "scheme-4",
       "sold_out_badge_color_scheme": "scheme-3",
       "brand_headline": "",
-      "brand_description": "<p></p>",
+      "brand_description": "<p><\/p>",
       "brand_image_width": 100,
       "social_twitter_link": "",
       "social_facebook_link": "",

@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -76,6 +67,20 @@
             "show_payment_icon": true
           }
         },
+        "icon_with_text_4H8fcN": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "image_1": "shopify:\/\/shop_images\/hugeicons_save-money-dollar.png",
+            "heading_1": "45-day money-back guarantee",
+            "icon_2": "return",
+            "image_2": "shopify:\/\/shop_images\/hugeicons_truck.png",
+            "heading_2": "Free shipping on $500+",
+            "icon_3": "truck",
+            "heading_3": ""
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -95,6 +100,7 @@
         "buy_buttons",
         "description",
         "info_secured_aRwqzg",
+        "icon_with_text_4H8fcN",
         "share"
       ],
       "settings": {

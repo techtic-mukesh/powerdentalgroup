@@ -411,6 +411,8 @@ if (!customElements.get('product-info')) {
           'related-products'
         );
         return document.querySelector(`product-recommendations[data-section-id^="${relatedProductsSectionId}"]`);
+
+        
       }
 
       get quickOrderList() {

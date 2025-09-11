@@ -337,6 +337,8 @@
                   {%- endif -%}
                   {%- render 'loading-spinner' -%}
                 </button>
+
+                
               </modal-opener>
               <quick-add-modal id="QuickAdd-{{ card_product.id }}" class="quick-add-modal">
                 <div
@@ -406,7 +408,13 @@
                     {%- render 'loading-spinner' -%}
                   </button>
                 {%- endform -%}
+
+                 <button class="whislist-cart">
+                {%  render 'whislist-icon.liquid' %}
+              </button>
               </product-form>
+
+             
             {%- endif -%}
           </div>
         {% elsif quick_add == 'bulk' %}
@@ -432,6 +440,8 @@
                     {{ 'products.product.sold_out' | t }}
                   </span>
                 </button>
+
+                
               {% else %}
                 {% render 'quantity-input', variant: card_product.selected_or_first_available_variant, min: 0 %}
               {% endif %}
@@ -461,6 +471,7 @@
                   {{ 'products.product.choose_options' | t }}
                   {%- render 'loading-spinner' -%}
                 </button>
+                 
               </modal-opener>
               <modal-dialog
                 id="QuickAddBulk-{{ card_product.id }}-{{ section_id }}"

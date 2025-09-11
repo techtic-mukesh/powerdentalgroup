@@ -61,6 +61,23 @@
                     const swiperConfig = {
                         loop: true,
                         speed: transitionSpeed,
+                      effect: 'creative',
+                        creativeEffect: {
+                          prev: {
+                            translate: ['-120%', 0, -500],
+                            rotate: [0, 0, -15],
+                            scale: 0.8,
+                            opacity: 0.6,
+                            shadow: true
+                          },
+                          next: {
+                            translate: ['120%', 0, -500],
+                            rotate: [0, 0, 15],
+                            scale: 0.8,
+                            opacity: 0.6,
+                            shadow: true
+                          }
+                        },
                         pagination: { 
                             el: ".swiper-pagination", 
                             clickable: true 
@@ -69,12 +86,12 @@
                     };
                     
                     // Add autoplay if enabled
-                    // if (autoplay) {
-                    //     swiperConfig.autoplay = {
-                    //         delay: autoplayDelay,
-                    //         disableOnInteraction: false
-                    //     };
-                    // }
+                    if (autoplay) {
+                        swiperConfig.autoplay = {
+                            delay: autoplayDelay,
+                            disableOnInteraction: false
+                        };
+                    }
                     
                     new Swiper(".banner-swiper", swiperConfig);
                     obs.disconnect(); // init only once
@@ -178,6 +195,10 @@
 
   .slideshow_button {
     margin: 30px 0 0;
+  }
+
+  .swiper-3d {
+    background: #141132;
   }
 
   .slideshow_button a.button.button--primary {

@@ -1157,6 +1157,8 @@ class ProductRecommendations extends HTMLElement {
         html.innerHTML = text;
         const recommendations = html.querySelector('product-recommendations');
 
+
+
         if (recommendations?.innerHTML.trim().length) {
           this.innerHTML = recommendations.innerHTML;
         }
