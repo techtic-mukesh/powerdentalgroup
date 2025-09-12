@@ -606,6 +606,8 @@ text-transform: capitalize;
     content: ')';
 }
 
+
+
 @media screen and (max-width: 749px) {
   .product__media-list {
     margin-left: -2.5rem;
@@ -1815,4 +1817,20 @@ white-space: nowrap;
   .recipient-form > input[type='checkbox']:checked + label .icon-checkmark {
     border: none;
   }
+}
+
+
+@media screen and (max-width: 1440px) { 
+  .icon-with-text--horizontal {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 767px) {  
+  .product__info-container .icon-with-text {
+    margin: 14px 0;
+    padding: 12px;
+    gap: 5px;
+}
 }

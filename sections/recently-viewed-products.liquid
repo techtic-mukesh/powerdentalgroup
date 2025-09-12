@@ -35,11 +35,9 @@
     }
   }
 
-
   .recently-viewed-products .card--standard.card--media .card__inner .card__information {
       display: block;
   }
-
 
   .recently-viewed-products .card--media .card__inner .card__content {
     opacity: 0;;
@@ -47,9 +45,9 @@
 
   .color-scheme-1.gradient.main-recent {
     background: #F7F7FF;
-}
+  }
 
-.color-scheme-1.gradient.main-recent h2.recently-viewed-products__heading {
+  .color-scheme-1.gradient.main-recent h2.recently-viewed-products__heading {
     color: #010005;
     text-align: center;
     font-family: Montserrat;
@@ -59,11 +57,128 @@
     line-height: normal;
     text-transform: uppercase;
     margin: 0 0 50px;
-}
+  }
 
   .recently-viewed-products .card--standard .card__inner {
-  background: #FFFFFF;
+    background: #FFFFFF;
+  }
+
+  .recently-viewed-navigation-{{ section.id }} .swiper-horizontal {
+    padding-bottom : 2px !important;
+  }
+
+  {% if section.settings.enable_swiper %}
+  .recently-viewed-swiper-container-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .recently-viewed-swiper {
+    overflow: visible;
+    padding: 0 2px 2px !important;
+  }
+
+  .recently-viewed-swiper-{{ section.id }} .swiper-slide {
+    height: auto;
+  }
+
+  .recently-viewed-navigation-{{ section.id }} {
+    position: relative;
+  }
+
+   .recently-viewed-navigation-{{ section.id }} .swiper-button-prev-{{ section.id }} {
+    left: -40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+   }
+
+   .recently-viewed-navigation-{{ section.id }} .swiper-button-next-{{ section.id }} {
+    right: -40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+   }
+
+    .recently-viewed-navigation-{{ section.id }} .swiper-button-next-{{ section.id }} svg , 
+    .recently-viewed-navigation-{{ section.id }} .swiper-button-prev-{{ section.id }} svg {
+        width: 40px;
+        height: 32px;
+    }
+
+  .recently-viewed-navigation-{{ section.id }} .swiper-button-next-{{ section.id }}:hover,
+  .recently-viewed-navigation-{{ section.id }} .swiper-button-prev-{{ section.id }}:hover {
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  .recently-viewed-navigation-{{ section.id }} .swiper-button-next-{{ section.id }}:after,
+  .recently-viewed-navigation-{{ section.id }} .swiper-button-prev-{{ section.id }}:after {
+    display: none;
+  }
+
+  .recently-viewed-navigation-{{ section.id }} .swiper-button-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .recently-viewed-navigation-{{ section.id }} .swiper-pagination-{{ section.id }} {
+    position: relative;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .recently-viewed-navigation-{{ section.id }} .swiper-pagination-{{ section.id }} .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: rgba(var(--color-foreground), 0.3);
+    border-radius: 50%;
+    margin: 0 4px;
+    transition: all 0.3s ease;
+  }
+
+  .recently-viewed-navigation-{{ section.id }} .swiper-pagination-{{ section.id }} .swiper-pagination-bullet-active {
+        background: linear-gradient(90deg, #42c5ef, #0033a0), #fff;
+  }
+
+  @media screen and (max-width: 749px) {
+    .recently-viewed-navigation-{{ section.id }} .swiper-button-next-{{ section.id }},
+    .recently-viewed-navigation-{{ section.id }} .swiper-button-prev-{{ section.id }} {
+      display: none;
+    }
+
+    .recently-viewed-navigation-{{ section.id }} .swiper-pagination-{{ section.id }} {
+      bottom: -20px;
+      margin:0;
+    }
+
+    .color-scheme-1.gradient.main-recent h2.recently-viewed-products__heading {
+    font-size: 24px;
+    margin: 0 0 30px;
 }
+  }
+
+  @media screen and (min-width: 750px) {
+    .recently-viewed-navigation-{{ section.id }} .swiper-pagination-{{ section.id }} {
+      display: none;
+    }
+  }
+
+  .recently-viewed-grid-fallback {
+    display: none;
+  }
+
+  .no-js .recently-viewed-swiper-container-{{ section.id }} {
+    display: none;
+  }
+
+  .no-js .recently-viewed-grid-fallback {
+    display: block;
+  }
+  {% endif %}
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient main-recent">
@@ -75,15 +190,51 @@
       {{ section.settings.heading }}
     </h2>
     
-    <ul
-      class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}"
-      role="list"
-      id="RecentlyViewedGrid-{{ section.id }}"
-    >
-      <!-- Products injected via JS -->
-    </ul>
+    {% if section.settings.enable_swiper %}
+      <!-- Swiper Version -->
+      <div class="recently-viewed-navigation-{{ section.id }}">
+        <div class="recently-viewed-swiper-container-{{ section.id }}">
+          <div class="swiper recently-viewed-swiper-{{ section.id }}">
+            <div class="swiper-wrapper" id="RecentlyViewedSwiperWrapper-{{ section.id }}">
+              <!-- Products injected via JS -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- Navigation arrows with section-specific classes -->
+        <div class="swiper-button-prev-{{ section.id }}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="43" viewBox="0 0 22 43" fill="none">
+            <path d="M21 41.5L0.999998 21.5L21 1.5" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next-{{ section.id }}">
+          <svg xmlns="http://www.w3.org/2000/22 43" viewBox="0 0 22 43" fill="none">
+            <path d="M1 41.5L21 21.5L0.999998 1.5" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        
+        <!-- Pagination for mobile with section-specific class -->
+        <div class="swiper-pagination-{{ section.id }}"></div>
+      </div>
 
-   
+      <!-- Fallback Grid (for no-js) -->
+      <ul
+        class="recently-viewed-grid-fallback grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}"
+        role="list"
+        id="RecentlyViewedGridFallback-{{ section.id }}"
+      >
+        <!-- Products injected via JS -->
+      </ul>
+    {% else %}
+      <!-- Original Grid Version -->
+      <ul
+        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}"
+        role="list"
+        id="RecentlyViewedGrid-{{ section.id }}"
+      >
+        <!-- Products injected via JS -->
+      </ul>
+    {% endif %}
   </div>
 
   {% if section.settings.image_shape == 'arch' %}
@@ -96,9 +247,12 @@
   const SECTION_ID = '{{ section.id }}';
   const RECENTLY_VIEWED_KEY = 'recentlyViewedProducts';
   const MAX_PRODUCTS = {{ section.settings.products_to_show }};
+  const ENABLE_SWIPER = {{ section.settings.enable_swiper | default: false }};
 
   const grid = document.getElementById(`RecentlyViewedGrid-${SECTION_ID}`);
-  const errorDiv = document.getElementById(`RecentlyViewedError-${SECTION_ID}`);
+  const swiperWrapper = document.getElementById(`RecentlyViewedSwiperWrapper-${SECTION_ID}`);
+  const gridFallback = document.getElementById(`RecentlyViewedGridFallback-${SECTION_ID}`);
+  let swiperInstance = null;
 
   // Get recently viewed from localStorage
   function getRecentlyViewed() {
@@ -122,94 +276,246 @@
     localStorage.setItem(RECENTLY_VIEWED_KEY, JSON.stringify(rv));
   {% endif %}
 
-  // Build Dawn card HTML
-function createCardHTML(product) {
-  const li = document.createElement('li');
-  li.className = 'grid__item';
+  // Build Dawn card HTML for grid
+  function createCardHTML(product) {
+    const li = document.createElement('li');
+    li.className = 'grid__item';
 
-  li.innerHTML = `
-    <div class="card-wrapper product-card-wrapper underline-links-hover">
-      <div class="card card--standard card--media" style="--ratio-percent: 100%;">
-        <div class="card__inner color-scheme-2 gradient ratio" style="--ratio-percent: 100%;">
-          <div class="card__media">
-            <div class="media media--transparent media--hover-effect">
-              <img src="${product.featured_image}" alt="${product.title}" class="motion-reduce" loading="lazy" width="700" height="700">
+    li.innerHTML = `
+      <div class="card-wrapper product-card-wrapper underline-links-hover">
+        <div class="card card--standard card--media" style="--ratio-percent: 100%;">
+          <div class="card__inner color-scheme-2 gradient ratio" style="--ratio-percent: 100%;">
+            <div class="card__media">
+              <div class="media media--transparent media--hover-effect">
+                <img src="${product.featured_image}" alt="${product.title}" class="motion-reduce" loading="lazy" width="700" height="700">
+              </div>
+            </div>
+
+            <div class="card__content">
+              <div class="card__information">
+                <h3 class="card__heading">
+                  <a href="${product.url}" class="full-unstyled-link">
+                    ${product.title}
+                  </a>
+                </h3>
+              </div>
+              <div class="card__badge bottom left"></div>
             </div>
           </div>
 
           <div class="card__content">
             <div class="card__information">
-              <h3 class="card__heading">
+              <div class="card-information">
+                <span class="caption-large light"></span>
+                <div class="price">
+                  <div class="price__container">
+                    <div class="price__regular">
+                      <span class="price-item price-item--regular">
+                        ${product.price}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="card__heading h5">
                 <a href="${product.url}" class="full-unstyled-link">
                   ${product.title}
                 </a>
               </h3>
-            </div>
-            <div class="card__badge bottom left"></div>
-          </div>
-        </div>
 
-        <div class="card__content">
-          <div class="card__information">
-            <div class="card-information">
-              <span class="caption-large light"></span>
-              <div class="price">
-                <div class="price__container">
-                  <div class="price__regular">
-                    <span class="price-item price-item--regular">
-                      ${product.price}
-                    </span>
-                  </div>
-                </div>
+              <div class="product-sku-stock">
+                <span class="product-sku">
+                  SKU: <strong>${product.variants[0].sku || ''}</strong>
+                </span>
+                <span class="product-stock in-stock">
+                  <span class="stock-dot"></span> In Stock
+                </span>
               </div>
             </div>
 
-            <h3 class="card__heading h5">
-              <a href="${product.url}" class="full-unstyled-link">
-                ${product.title}
-              </a>
-            </h3>
+            <div class="quick-add no-js-hidden">
+              <product-form data-section-id="recently-viewed-${product.id}">
+                <form method="post" action="/cart/add" id="quick-add-${product.variants[0].id}" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate>
+                  <input type="hidden" name="form_type" value="product">
+                  <input type="hidden" name="utf8" value="✓">
+                  <input type="hidden" name="id" value="${product.variants[0].id}" class="product-variant-id">
 
-            <div class="product-sku-stock">
-              <span class="product-sku">
-                SKU: <strong>${product.variants[0].sku || ''}</strong>
-              </span>
-              <span class="product-stock in-stock">
-                <span class="stock-dot"></span> In Stock
-              </span>
+                  <button id="quick-add-${product.variants[0].id}-submit" type="submit" name="add" class="quick-add__submit button button--full-width button--secondary" aria-haspopup="dialog" aria-live="polite" data-sold-out-message="true">
+                    <span>Add to cart</span>
+                    <span class="sold-out-message hidden">Sold out</span>
+                    <div class="loading__spinner hidden">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66">
+                        <circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"></circle>
+                      </svg>
+                    </div>
+                  </button>
+                  <input type="hidden" name="product-id" value="${product.id}">
+                  <input type="hidden" name="section-id" value="recently-viewed-${product.id}">
+                </form>
+                 <button class="whislist-cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                  <g clip-path="url(#clip0_2941_355)">
+                    <path d="M12.5566 21.5002L3.75661 13.2002C3.17059 12.641 2.71285 11.9614 2.41495 11.2082C2.11706 10.455 1.9861 9.64613 2.03112 8.8374C2.07613 8.02867 2.29605 7.23933 2.6757 6.52384C3.05535 5.80834 3.58569 5.18372 4.23014 4.69305C4.8746 4.20239 5.61782 3.85737 6.40854 3.68179C7.19926 3.50621 8.01866 3.50425 8.81021 3.67604C9.60176 3.84784 10.3466 4.1893 10.9934 4.67687C11.6402 5.16445 12.1735 5.78652 12.5566 6.5002C12.9364 5.79103 13.4645 5.17201 14.105 4.68528C14.7455 4.19854 15.4834 3.85552 16.2683 3.67956C17.0533 3.50359 17.867 3.49882 18.654 3.66556C19.441 3.83229 20.1828 4.16663 20.829 4.64582C21.4751 5.125 22.0105 5.73777 22.3986 6.44243C22.7866 7.14709 23.0183 7.92709 23.0779 8.72934C23.1375 9.53159 23.0235 10.3373 22.7437 11.0915C22.4639 11.8457 22.0249 12.5308 21.4566 13.1002L12.5566 21.5002Z" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_2941_355">
+                      <rect width="24" height="24" fill="white" transform="translate(0.556641 0.5)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </button>
+              </product-form>
+            </div>
+
+            <div class="card__badge bottom left"></div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    return li;
+  }
+
+  // Build card HTML for swiper slide
+  function createSwiperSlideHTML(product) {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+
+    slide.innerHTML = `
+      <div class="card-wrapper product-card-wrapper underline-links-hover">
+        <div class="card card--standard card--media" style="--ratio-percent: 100%;">
+          <div class="card__inner color-scheme-2 gradient ratio" style="--ratio-percent: 100%;">
+            <div class="card__media">
+              <div class="media media--transparent media--hover-effect">
+                <img src="${product.featured_image}" alt="${product.title}" class="motion-reduce" loading="lazy" width="700" height="700">
+              </div>
+            </div>
+
+            <div class="card__content">
+              <div class="card__information">
+                <h3 class="card__heading">
+                  <a href="${product.url}" class="full-unstyled-link">
+                    ${product.title}
+                  </a>
+                </h3>
+              </div>
+              <div class="card__badge bottom left"></div>
             </div>
           </div>
 
-          <div class="quick-add no-js-hidden">
-            <product-form data-section-id="recently-viewed-${product.id}">
-              <form method="post" action="/cart/add" id="quick-add-${product.variants[0].id}" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate>
-                <input type="hidden" name="form_type" value="product">
-                <input type="hidden" name="utf8" value="✓">
-                <input type="hidden" name="id" value="${product.variants[0].id}" class="product-variant-id">
-
-                <button id="quick-add-${product.variants[0].id}-submit" type="submit" name="add" class="quick-add__submit button button--full-width button--secondary" aria-haspopup="dialog" aria-live="polite" data-sold-out-message="true">
-                  <span>Add to cart</span>
-                  <span class="sold-out-message hidden">Sold out</span>
-                  <div class="loading__spinner hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66">
-                      <circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"></circle>
-                    </svg>
+          <div class="card__content">
+            <div class="card__information">
+              <div class="card-information">
+                <span class="caption-large light"></span>
+                <div class="price">
+                  <div class="price__container">
+                    <div class="price__regular">
+                      <span class="price-item price-item--regular">
+                        ${product.price}
+                      </span>
+                    </div>
                   </div>
-                </button>
-                <input type="hidden" name="product-id" value="${product.id}">
-                <input type="hidden" name="section-id" value="recently-viewed-${product.id}">
-              </form>
-            </product-form>
-          </div>
+                </div>
+              </div>
 
-          <div class="card__badge bottom left"></div>
+              <h3 class="card__heading h5">
+                <a href="${product.url}" class="full-unstyled-link">
+                  ${product.title}
+                </a>
+              </h3>
+
+              <div class="product-sku-stock">
+                <span class="product-sku">
+                  SKU: <strong>${product.variants[0].sku || ''}</strong>
+                </span>
+                <span class="product-stock in-stock">
+                  <span class="stock-dot"></span> In Stock
+                </span>
+              </div>
+            </div>
+
+            <div class="quick-add no-js-hidden">
+              <product-form data-section-id="recently-viewed-${product.id}">
+                <form method="post" action="/cart/add" id="quick-add-${product.variants[0].id}" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate>
+                  <input type="hidden" name="form_type" value="product">
+                  <input type="hidden" name="utf8" value="✓">
+                  <input type="hidden" name="id" value="${product.variants[0].id}" class="product-variant-id">
+
+                  <button id="quick-add-${product.variants[0].id}-submit" type="submit" name="add" class="quick-add__submit button button--full-width button--secondary" aria-haspopup="dialog" aria-live="polite" data-sold-out-message="true">
+                    <span>Add to cart</span>
+                    <span class="sold-out-message hidden">Sold out</span>
+                    <div class="loading__spinner hidden">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66">
+                        <circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"></circle>
+                      </svg>
+                    </div>
+                  </button>
+                  <input type="hidden" name="product-id" value="${product.id}">
+                  <input type="hidden" name="section-id" value="recently-viewed-${product.id}">
+                </form>
+                 <button class="whislist-cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                  <g clip-path="url(#clip0_2941_355)">
+                    <path d="M12.5566 21.5002L3.75661 13.2002C3.17059 12.641 2.71285 11.9614 2.41495 11.2082C2.11706 10.455 1.9861 9.64613 2.03112 8.8374C2.07613 8.02867 2.29605 7.23933 2.6757 6.52384C3.05535 5.80834 3.58569 5.18372 4.23014 4.69305C4.8746 4.20239 5.61782 3.85737 6.40854 3.68179C7.19926 3.50621 8.01866 3.50425 8.81021 3.67604C9.60176 3.84784 10.3466 4.1893 10.9934 4.67687C11.6402 5.16445 12.1735 5.78652 12.5566 6.5002C12.9364 5.79103 13.4645 5.17201 14.105 4.68528C14.7455 4.19854 15.4834 3.85552 16.2683 3.67956C17.0533 3.50359 17.867 3.49882 18.654 3.66556C19.441 3.83229 20.1828 4.16663 20.829 4.64582C21.4751 5.125 22.0105 5.73777 22.3986 6.44243C22.7866 7.14709 23.0183 7.92709 23.0779 8.72934C23.1375 9.53159 23.0235 10.3373 22.7437 11.0915C22.4639 11.8457 22.0249 12.5308 21.4566 13.1002L12.5566 21.5002Z" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_2941_355">
+                      <rect width="24" height="24" fill="white" transform="translate(0.556641 0.5)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </button>
+              </product-form>
+            </div>
+
+            <div class="card__badge bottom left"></div>
+          </div>
         </div>
       </div>
-    </div>
-  `;
+    `;
 
-  return li;
-}
+    return slide;
+  }
+
+  // Initialize Swiper with section-specific selectors
+  function initRecentlyViewedSwiper() {
+    if (!ENABLE_SWIPER) return;
+    
+    const swiperContainer = document.querySelector(`.recently-viewed-swiper-${SECTION_ID}`);
+    if (swiperContainer && !swiperInstance) {
+      swiperInstance = new Swiper(`.recently-viewed-swiper-${SECTION_ID}`, {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: `.swiper-button-next-${SECTION_ID}`,
+          prevEl: `.swiper-button-prev-${SECTION_ID}`,
+        },
+        pagination: {
+          el: `.swiper-pagination-${SECTION_ID}`,
+          clickable: true,
+        },
+        breakpoints: {
+          750: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          990: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          1140: {
+            slidesPerView: {{ section.settings.swiper_slides_desktop | default: section.settings.columns_desktop | default: 4 }},
+            spaceBetween: 30,
+          }
+        },
+        loop: {{ section.settings.swiper_loop | default: false }},
+        watchSlidesProgress: true,
+        observer: true,
+        observeParents: true,
+      });
+    }
+  }
 
   async function loadProducts() {
     const handles = getRecentlyViewed().slice(0, MAX_PRODUCTS);
@@ -223,25 +529,95 @@ function createCardHTML(product) {
 
         console.log('Loaded product:', product);
 
-        const card = createCardHTML({
+        const productData = {
           title: product.title,
           url: `/products/${product.handle}`,
           featured_image: product.images[0] || '',
           vendor: product.vendor,
           price: `$${(product.price / 100).toFixed(2)}`,
-          variants: product.variants
-        });
+          variants: product.variants,
+          id: product.id
+        };
 
-        grid.appendChild(card);
+        if (ENABLE_SWIPER) {
+          // Add to swiper
+          if (swiperWrapper) {
+            const slide = createSwiperSlideHTML(productData);
+            swiperWrapper.appendChild(slide);
+          }
+          // Add to fallback grid
+          if (gridFallback) {
+            const card = createCardHTML(productData);
+            gridFallback.appendChild(card);
+          }
+        } else {
+          // Add to regular grid
+          if (grid) {
+            const card = createCardHTML(productData);
+            grid.appendChild(card);
+          }
+        }
       } catch(err) {
         console.warn(`Failed to load product ${handle}`, err);
       }
+    }
+
+    // Initialize swiper after products are loaded
+    if (ENABLE_SWIPER) {
+      setTimeout(initRecentlyViewedSwiper, 100);
     }
   }
 
   document.addEventListener('DOMContentLoaded', loadProducts);
 })();
 </script>
+
+{% if section.settings.enable_swiper %}
+<script>
+// Additional Swiper initialization for AJAX scenarios with section-specific selectors
+function initRecentlyViewedSwiperGlobal() {
+  const SECTION_ID = '{{ section.id }}';
+  const swiperContainer = document.querySelector(`.recently-viewed-swiper-${SECTION_ID}`);
+  if (swiperContainer && !swiperContainer.swiper && typeof Swiper !== 'undefined') {
+    const swiper = new Swiper(`.recently-viewed-swiper-${SECTION_ID}`, {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: `.swiper-button-next-${SECTION_ID}`,
+        prevEl: `.swiper-button-prev-${SECTION_ID}`,
+      },
+      pagination: {
+        el: `.swiper-pagination-${SECTION_ID}`,
+        clickable: true,
+      },
+      breakpoints: {
+        750: {
+          slidesPerView: {{ section.settings.swiper_slides_desktop | default: section.settings.columns_desktop | default: 4 }},
+          spaceBetween: 30,
+        },
+        990: {
+          slidesPerView: {{ section.settings.swiper_slides_desktop | default: section.settings.columns_desktop | default: 4 }},
+          spaceBetween: 30,
+        }
+      },
+      loop: {{ section.settings.swiper_loop | default: false }},
+      watchSlidesProgress: true,
+      observer: true,
+      observeParents: true,
+    });
+    
+    swiperContainer.swiper = swiper;
+  }
+}
+
+// Listen for section load events
+document.addEventListener('shopify:section:load', function(event) {
+  if (event.detail && event.detail.sectionId === '{{ section.id }}') {
+    setTimeout(initRecentlyViewedSwiperGlobal, 200);
+  }
+});
+</script>
+{% endif %}
 
 {% schema %}
 {
@@ -264,6 +640,32 @@ function createCardHTML(product) {
       { "value":"2","label":"2 columns"}
     ]},
     { "type":"color_scheme","id":"color_scheme","label":"Color scheme","default":"scheme-1"},
+    {
+      "type": "header",
+      "content": "Swiper Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_swiper",
+      "default": false,
+      "label": "Enable Swiper Carousel"
+    },
+    {
+      "type": "range",
+      "id": "swiper_slides_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "Slides per view (Desktop)",
+      "info": "Number of slides visible at once on desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "swiper_loop",
+      "default": false,
+      "label": "Enable infinite loop"
+    },
     { "type":"select","id":"image_ratio","options":[
       {"value":"adapt","label":"Adapt to image"},
       {"value":"portrait","label":"Portrait"},

@@ -22,6 +22,8 @@
   <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -34,6 +36,86 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {% if section.settings.enable_swiper %}
+  .related-products-swiper-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .related-products-swiper {
+    overflow: visible;
+    padding: 0 2px 2px !important;
+  }
+
+  .related-products-swiper .swiper-slide {
+    height: auto;
+  }
+
+  .related-products-swiper .swiper-button-next,
+  .related-products-swiper .swiper-button-prev {
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+    color: rgba(var(--color-foreground), 0.75);
+    background: rgba(var(--color-background), 0.95);
+    border-radius: 50%;
+    border: 1px solid rgba(var(--color-foreground), 0.1);
+    transition: all 0.2s ease;
+    display: flex;
+  }
+
+product-recommendations .swiper-button-next:after,product-recommendations .swiper-button-prev:after {
+    display: none;
+  }
+
+  product-recommendations .swiper-button-next svg ,product-recommendations .swiper-button-prev svg {
+        width: 40px;
+    height: 32px;
+  }
+  
+
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .swiper-button-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  @media screen and (max-width: 749px) {
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 36px;
+      height: 36px;
+      margin-top: -18px;
+    }
+
+    .related-products__heading {
+      font-size: 24px;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+      font-size: 14px;
+    }
+  }
+
+  .related-products-grid-fallback {
+    display: none;
+  }
+
+  .no-js .related-products-swiper-container {
+    display: none;
+  }
+
+  .no-js .related-products-grid-fallback {
+    display: block;
+  }
+  {% endif %}
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
@@ -47,33 +129,180 @@
       <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
         {{ section.settings.heading }}
       </h2>
-      <ul
-        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}"
-        role="list"
-      >
-        {% assign skip_card_product_styles = false %}
-        {% for recommendation in recommendations.products %}
-          <li class="grid__item">
-            {% render 'card-product',
-              card_product: recommendation,
-              media_aspect_ratio: section.settings.image_ratio,
-              image_shape: section.settings.image_shape,
-              show_secondary_image: section.settings.show_secondary_image,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating,
-              quick_add: section.settings.quick_add,
-              skip_styles: skip_card_product_styles
-            %}
-          </li>
-          {%- assign skip_card_product_styles = true -%}
-        {% endfor %}
-      </ul>
+
+      {% if section.settings.enable_swiper %}
+        <!-- Swiper Version -->
+        <div class="related-products-swiper-container">
+          <div class="swiper related-products-swiper">
+            <div class="swiper-wrapper">
+              {% assign skip_card_product_styles = false %}
+              {% for recommendation in recommendations.products %}
+                <div class="swiper-slide">
+                  {% render 'card-product',
+                    card_product: recommendation,
+                    media_aspect_ratio: section.settings.image_ratio,
+                    image_shape: section.settings.image_shape,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    show_vendor: section.settings.show_vendor,
+                    show_rating: section.settings.show_rating,
+                    quick_add: section.settings.quick_add,
+                    skip_styles: skip_card_product_styles
+                  %}
+                </div>
+                {%- assign skip_card_product_styles = true -%}
+              {% endfor %}
+            </div>
+            </div>
+            </div>
+            <!-- Navigation arrows -->
+            <div class="swiper-button-prev">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="43" viewBox="0 0 22 43" fill="none">
+                <path d="M21 41.5L0.999998 21.5L21 1.5" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="swiper-button-next">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="43" viewBox="0 0 22 43" fill="none">
+                <path d="M1 41.5L21 21.5L0.999998 1.5" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+        <!-- Fallback Grid (for no-js) -->
+        <ul
+          class="related-products-grid-fallback grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}"
+          role="list"
+        >
+          {% assign skip_card_product_styles = false %}
+          {% for recommendation in recommendations.products %}
+            <li class="grid__item">
+              {% render 'card-product',
+                card_product: recommendation,
+                media_aspect_ratio: section.settings.image_ratio,
+                image_shape: section.settings.image_shape,
+                show_secondary_image: section.settings.show_secondary_image,
+                show_vendor: section.settings.show_vendor,
+                show_rating: section.settings.show_rating,
+                quick_add: section.settings.quick_add,
+                skip_styles: skip_card_product_styles
+              %}
+            </li>
+            {%- assign skip_card_product_styles = true -%}
+          {% endfor %}
+        </ul>
+      {% else %}
+        <!-- Original Grid Version -->
+        <ul
+          class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}"
+          role="list"
+        >
+          {% assign skip_card_product_styles = false %}
+          {% for recommendation in recommendations.products %}
+            <li class="grid__item">
+              {% render 'card-product',
+                card_product: recommendation,
+                media_aspect_ratio: section.settings.image_ratio,
+                image_shape: section.settings.image_shape,
+                show_secondary_image: section.settings.show_secondary_image,
+                show_vendor: section.settings.show_vendor,
+                show_rating: section.settings.show_rating,
+                quick_add: section.settings.quick_add,
+                skip_styles: skip_card_product_styles
+              %}
+            </li>
+            {%- assign skip_card_product_styles = true -%}
+          {% endfor %}
+        </ul>
+      {% endif %}
     {% endif %}
   </product-recommendations>
   {% if section.settings.image_shape == 'arch' %}
     {{ 'mask-arch.svg' | inline_asset_content }}
   {%- endif -%}
 </div>
+
+{% if section.settings.enable_swiper %}
+<script>
+// Function to initialize Swiper
+function initRelatedProductsSwiper() {
+  const swiperContainer = document.querySelector('.related-products-swiper');
+  if (swiperContainer && !swiperContainer.swiper) {
+    const swiper = new Swiper('.related-products-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        750: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        990: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+         1140: {
+          slidesPerView: {{ section.settings.swiper_slides_desktop | default: section.settings.columns_desktop | default: 4 }},
+          spaceBetween: 30,
+        }
+      },
+      loop: {{ section.settings.swiper_loop }},
+      watchSlidesProgress: true,
+      observer: true,
+      observeParents: true,
+    });
+    
+    // Store swiper instance
+    swiperContainer.swiper = swiper;
+  }
+}
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+  initRelatedProductsSwiper();
+});
+
+// Initialize when content is loaded via AJAX (for product recommendations)
+document.addEventListener('shopify:section:load', function(event) {
+  if (event.detail && event.detail.sectionId === '{{ section.id }}') {
+    setTimeout(initRelatedProductsSwiper, 100);
+  }
+});
+
+// Listen for product recommendations loaded event
+document.addEventListener('product-recommendations:loaded', function() {
+  setTimeout(initRelatedProductsSwiper, 100);
+});
+
+// MutationObserver to detect when related products content is loaded
+if (typeof MutationObserver !== 'undefined') {
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList') {
+        mutation.addedNodes.forEach(function(node) {
+          if (node.nodeType === 1) { // Element node
+            if (node.classList && node.classList.contains('related-products-swiper')) {
+              setTimeout(initRelatedProductsSwiper, 100);
+            } else if (node.querySelector && node.querySelector('.related-products-swiper')) {
+              setTimeout(initRelatedProductsSwiper, 100);
+            }
+          }
+        });
+      }
+    });
+  });
+  
+  // Observe the product-recommendations element
+  const productRecommendations = document.querySelector('product-recommendations');
+  if (productRecommendations) {
+    observer.observe(productRecommendations, {
+      childList: true,
+      subtree: true
+    });
+  }
+}
+</script>
+{% endif %}
 
 {% schema %}
 {
@@ -159,6 +388,38 @@
       "label": "t:sections.all.colors.label",
       "info": "t:sections.all.colors.has_cards_info",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Swiper Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_swiper",
+      "default": false,
+      "label": "Enable Swiper Carousel"
+    },
+    {
+      "type": "range",
+      "id": "swiper_slides_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "Slides per view (Desktop)",
+      "info": "Number of slides visible at once on desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "swiper_loop",
+      "default": false,
+      "label": "Enable infinite loop"
+    },
+    {
+      "type": "checkbox",
+      "id": "swiper_autoplay",
+      "default": false,
+      "label": "Enable autoplay"
     },
     {
       "type": "header",

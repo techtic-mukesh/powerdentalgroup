@@ -138,6 +138,15 @@
         {%- endif -%}
       </template>
     </deferred-media>
+
+    {% if section.settings.btn_link != blank and section.settings.btn_text != blank %}
+  <a target="_blank" href="{{ section.settings.btn_link }}" class="custom-button button button--secondary">
+    {{ section.settings.btn_text }}
+    <i>
+      <img src="https://cdn.shopify.com/s/files/1/0697/9538/1398/files/pdf-icon.png?v=1757664444" alt="">
+    </i>
+  </a>
+{% endif %}
   </div>
 </div>
 
@@ -271,6 +280,17 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+     {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    },
+     {
+      "type": "url",
+          "id": "btn_link",
+          "label": "Button Link"
     }
   ],
   "presets": [

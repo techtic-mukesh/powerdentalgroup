@@ -50,7 +50,6 @@
 
 
     
-<script src="https://awik.io/demo/webshop-zoom/Drift.min.js"></script>
 
   {{ 'component-product-swiper.css' | asset_url | stylesheet_tag }}
 
@@ -107,8 +106,12 @@
     </div>
   </div>
  {%- if total_images > 1 -%}
+  {%- assign thumbs_class = '' -%}
+{%- if total_images > 6 -%}
+  {%- assign thumbs_class = 'gallery-thumbs--arrowble' -%}
+{%- endif -%}
   <div class="slider__col">
-    <div class="swiper gallery-thumbs">
+    <div class="swiper gallery-thumbs  {{ thumbs_class }}">
       <div class="swiper-wrapper">
         {%- if product.selected_or_first_available_variant.featured_media != null -%}
           <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">

@@ -59,6 +59,36 @@ deferred-media.video-section__media.custom-vh {
 }
 
 
+.video-section {
+  text-align: center;
+}
+
+.video-section  a.custom-button.button.button--secondary {
+    margin: 30px 0 0;
+    color: #FFF;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    min-height: 50px;
+}
+
+.video-section a.custom-button.button.button--secondary i {
+    min-width: 36px;
+    height: 36px;
+    width: 36px;
+}
+
+.video-section a.custom-button.button.button--secondary i img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
  @media screen and (max-width: 767px) {
   deferred-media.video-section__media.custom-vh {
     --ratio-percent: 100%;

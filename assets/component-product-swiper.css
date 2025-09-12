@@ -169,9 +169,28 @@
     border: 6px solid #0033a096;
   }
 
+  .swiper.gallery-thumbs.gallery-thumbs--arrowble {
+    padding: 8px 0 13px;
+    margin: 10px 0 20px;
+}
+
    @media (max-width: 990px) {
     product-info {
     background: linear-gradient(to right, #fff 50.2%, #f7f9ff 50%) !important;
+}
+
+.gallery-thumbs .swiper-slide {
+  height: auto;
+}
+
+.swiper.gallery-thumbs.gallery-thumbs--arrowble {
+  margin: 0;
+  padding: 3px;
+          padding-right: 15px;
+}
+
+.slider__col .swiper-button-next, .slider__col .swiper-button-prev {
+  display: none;
 }
 
 .product__gallery {
