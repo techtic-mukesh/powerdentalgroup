@@ -301,11 +301,9 @@
       }
     </script>
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
-
-    <!-- Swiper JS (defer for speed) -->
-    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Swiper Configure -->
+    {{ 'swiper-bundle.css' | asset_url | stylesheet_tag }}
+     <script src="{{ 'swiper-bundle.js' | asset_url }}" defer="defer"></script>
 
   </head>
 

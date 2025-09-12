@@ -121,7 +121,7 @@
         "background_color": "#f9f9f9",
         "heading": "Key Features",
         "content": "<ul><li>Removes crowns in seconds – Significantly reduces chair time, cutting procedures from minutes down to seconds.<\/li><li>Predictable outcomes - Push-pull mechanics create opposing forces to preserve the core and remove the crown in a single motion.<\/li><li>Universal use – Compatible with permanent or temporary crowns (zirconia, e.max, PFM) in any region: anterior or posterior, maxillary or mandibular.<\/li><li>Ergonomic handle design – Integrated butterfly spring minimizes hand fatigue and enhances grip control.<\/li><\/ul>",
-        "image": "shopify:\/\/shop_images\/image.png"
+        "video": "shopify:\/\/files\/videos\/key-feature-video.mp4"
       }
     },
     "real_result_VTRxba": {
@@ -165,7 +165,9 @@
         "full_width": false,
         "color_scheme": "scheme-c2cb00ea-c497-4faa-9d8f-68b679e10b72",
         "padding_top": 60,
-        "padding_bottom": 60
+        "padding_bottom": 60,
+        "btn_text": "IFU Power Crown Remover Kit",
+        "btn_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0697\/9538\/1398\/files\/IFU_Power_Crown_Remover_Kit.pdf?v=1757663876"
       }
     },
     "real_result_MEe6RC": {
@@ -255,10 +257,14 @@
       "settings": {
         "heading": "Products you may also like",
         "heading_size": "h1",
-        "products_to_show": 4,
+        "products_to_show": 8,
         "columns_desktop": 4,
         "columns_mobile": "1",
         "color_scheme": "scheme-1",
+        "enable_swiper": true,
+        "swiper_slides_desktop": 4,
+        "swiper_loop": false,
+        "swiper_autoplay": false,
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -275,10 +281,13 @@
       "settings": {
         "heading": "Recently viewed products",
         "heading_size": "h1",
-        "products_to_show": 4,
+        "products_to_show": 8,
         "columns_desktop": 4,
         "columns_mobile": "2",
         "color_scheme": "scheme-1",
+        "enable_swiper": true,
+        "swiper_slides_desktop": 4,
+        "swiper_loop": false,
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": false,
