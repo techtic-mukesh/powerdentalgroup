@@ -127,6 +127,19 @@
         {{ form.errors.messages.password }}.
       </span>
     {%- endif -%}
+   <div class="field">
+  <input
+    type="password"
+    name="customer[password_confirmation]"
+    id="RegisterForm-password-confirmation"
+    aria-required="true"
+    placeholder="Confirm Password"
+  >
+  <label for="RegisterForm-password-confirmation">
+    Confirm Password
+  </label>
+</div>
+    
     <button>
       {{ 'customer.register.submit' | t }}
     </button>
@@ -164,3 +177,42 @@
   ]
 }
 {% endschema %}
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form#create_customer');
+  const pass = document.getElementById('RegisterForm-password');
+  const confirm = document.getElementById('RegisterForm-password-confirmation');
+
+  if (form && pass && confirm) {
+    form.addEventListener('submit', (e) => {
+      // If passwords do not match, stop submit
+      if (pass.value !== confirm.value) {
+        e.preventDefault();        // stop the form submission
+        e.stopImmediatePropagation(); // stop any other JS from submitting
+
+        // Show styled error (optional)
+        let existing = document.getElementById('RegisterForm-password-confirm-error');
+        if (!existing) {
+          const msg = document.createElement('span');
+          msg.id = 'RegisterForm-password-confirm-error';
+          msg.className = 'form__message';
+          msg.innerHTML = `
+            <span class="svg-wrapper">
+              {{ 'icon-error.svg' | inline_asset_content }}
+            </span>
+            Passwords do not match. Please re-enter.
+          `;
+          confirm.insertAdjacentElement('afterend', msg);
+        }
+        confirm.focus();
+      } else {
+        // Remove error if matched
+        const err = document.getElementById('RegisterForm-password-confirm-error');
+        if (err) err.remove();
+      }
+    });
+  }
+});
+</script>
