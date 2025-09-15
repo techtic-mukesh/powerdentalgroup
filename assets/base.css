@@ -1578,7 +1578,7 @@ details[open] > .share-button__fallback {
   box-sizing: border-box;
   transition: box-shadow var(--duration-short) ease;
   border-radius: var(--inputs-radius);
-  height: 4.5rem;
+  height: 5rem;
   min-height: calc(var(--inputs-border-width) * 2);
   min-width: calc(7rem + (var(--inputs-border-width) * 2));
   position: relative;
@@ -1617,7 +1617,8 @@ details[open] > .share-button__fallback {
   left: var(--inputs-border-width);
   border: 0.1rem solid transparent;
   border-radius: var(--inputs-radius);
-  box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
+  /* box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity)); */
+          border: 1px solid #d3d4d8;
   transition: box-shadow var(--duration-short) ease;
   z-index: 1;
 }
@@ -1640,6 +1641,7 @@ details[open] > .share-button__fallback {
     rgba(var(--color-foreground), var(--inputs-border-opacity));
   outline: 0;
   border-radius: var(--inputs-radius);
+      box-shadow: 0 0 3px 1px #68a8e0;
 }
 
 .field__input:focus-visible,
@@ -1658,6 +1660,7 @@ details[open] > .share-button__fallback {
 .customer select:focus,
 .localization-form__select:focus.localization-form__select:after {
   box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
+      box-shadow: 0 0 3px 1px #68a8e0;
   outline: 0;
   border-radius: var(--inputs-radius);
 }
@@ -1725,7 +1728,7 @@ details[open] > .share-button__fallback {
 .customer .field label {
   font-size: 1.6rem;
   left: calc(var(--inputs-border-width) + 2rem);
-  top: calc(1rem + var(--inputs-border-width));
+  top: calc(1.2rem + var(--inputs-border-width));
   margin-bottom: 0;
   pointer-events: none;
   position: absolute;
@@ -1733,6 +1736,12 @@ details[open] > .share-button__fallback {
   color: rgba(var(--color-foreground), 0.75);
   letter-spacing: 0.1rem;
   line-height: 1.5;
+  color: #01000A;
+font-family: Prompt;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 150% */
 }
 
 .field__input:focus ~ .field__label,
@@ -1742,7 +1751,8 @@ details[open] > .share-button__fallback {
 .customer .field input:not(:placeholder-shown) ~ label,
 .customer .field input:-webkit-autofill ~ label {
   font-size: 1rem;
-  top: calc(var(--inputs-border-width) + 0.5rem);
+  /* top: calc(var(--inputs-border-width) + 0.5rem); */
+  top: 0;
   left: calc(var(--inputs-border-width) + 2rem);
   letter-spacing: 0.04rem;
 }

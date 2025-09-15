@@ -571,6 +571,27 @@ text-transform: capitalize;
 
 .product-form__buttons {
   max-width: 44rem;
+      display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.product-form__buttons button.pdp-wishlisht {
+    border: unset;
+    background: url();
+    min-width: 50px;
+    height: 49px;
+    border-radius: 10px;
+    border: 1px solid #818181;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.product-form__buttons button.pdp-wishlisht svg.icon.icon-wishlisht {
+    width: 24px;
+    height: 24px;
 }
 
 .product--no-media .product__info-container > modal-opener {

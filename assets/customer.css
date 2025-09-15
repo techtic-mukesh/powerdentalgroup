@@ -1,14 +1,21 @@
 .customer:not(.account):not(.order) {
   margin: 0 auto;
-  max-width: 33.4rem;
+  max-width: 100%;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   text-align: center;
 }
 
+.customer:not(.account):not(.order) .login-wrap {
+    display: grid;
+    gap: 30px; /* gutter */
+    grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
+        margin-top: 50px;
+}
+
 @media screen and (min-width: 750px) {
   .customer:not(.account):not(.order) {
-    max-width: 47.8rem;
+    max-width: 1320px;
   }
 }
 
@@ -18,7 +25,7 @@
 }
 
 .customer form {
-  margin-top: 4rem;
+  margin-top: 0;
 }
 
 .customer button {
@@ -234,6 +241,22 @@
     display: none;
   }
 
+  .customer>h1, .customer__title {
+    font-size: 32px;
+    line-height: 1.4;
+}
+
+.customer:not(.account):not(.order) .login-wrap {
+  margin-top: 30px;
+}
+
+.login a[href="#recover"] {
+    margin-top: 14px;
+}
+
+.login-left h3, .customer-register h3 {
+    font-size: 20px;
+}
   .customer td {
     display: flex;
     text-align: right;
@@ -390,6 +413,148 @@
 .addresses form button[type] {
   background-color: rgba(var(--color-background), var(--alpha-button-background));
   color: rgb(var(--color-link));
+}
+
+.login-left h3, .customer-register h3 {
+    margin: 0;
+    font-family: var(--font-body-family);
+    font-size: 24px;
+    font-weight: 500;
+        padding-bottom: 14px;
+    border-bottom: 1px solid #dadada;
+}
+
+.login-left .title-wrap {
+    text-align: left;
+}
+
+.login-left .title-wrap p {
+    text-align: left;
+    font-weight: 400;
+}
+
+.customer-register a, .login-button  {
+    background: linear-gradient(102deg, #42c5ef 0%, #0033a0 50%, #0033a0 50%, #42c5ef 100%) !important;
+    background-size: 200% 100% !important;
+    background-position: 200% 100% !important;
+    transition: background-position .7s !important;
+    line-height: 110%;
+    text-decoration: none;
+    margin: 0;
+    padding: 17px 30px;
+    border-radius: 10px;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.customer-register a:hover, .login-button:hover {
+    color: #fff;
+    background-position: 100% 0 !important;
+}
+
+.customer form[action="/account/recover"] button, form#create_customer button {
+ background: linear-gradient(102deg, #42c5ef 0%, #0033a0 50%, #0033a0 50%, #42c5ef 100%) !important;
+    background-size: 200% 100% !important;
+    background-position: 200% 100% !important;
+    transition: background-position .7s !important;
+    line-height: 110%;
+    text-decoration: none;
+    padding: 17px 30px;
+    border-radius: 10px;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.customer form[action="/account/recover"] button:hover, form#create_customer button:hover {
+    color: #fff;
+    background-position: 100% 0 !important;
+}
+
+form#create_customer button:after {
+  display: none;
+}
+
+form#create_customer {
+    margin-top: 40px;
+}
+
+.customer h2.form__message {
+    text-transform: capitalize;
+    font-family: var(--font-body-family);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.customer  .errors li {
+    color: #ec0101;
+}
+
+.customer .field span#RegisterForm-password-confirm-error {
+    position: absolute;
+    bottom: -23px;
+}
+
+.customer .login-left  h1#recover {
+      margin: 0;
+    font-family: var(--font-body-family);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+        padding-bottom: 14px;
+    border-bottom: 1px solid #dadada;
+}
+
+.customer form[action="/account/recover"] {
+    margin-bottom: 25px;
+}
+
+.customer form[action="/account/recover"] {
+    margin-bottom: 25px;
+}
+
+.login-left {
+    text-align: left;
+}
+
+.customer button.login-button:after, .customer form[action="/account/recover"] button:after {
+    display: none;
+}
+
+.customer button.login-button, .customer form[action="/account/recover"] button {
+  border-radius: 10px !important;
+   font-family: Montserrat !important;
+    font-size: 15px !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    line-height: normal !important;
+}
+
+.customer-register {
+    text-align: left;
+}
+
+.login a[href="#recover"] {
+    text-decoration: none;
+    color: #0d6efd;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    margin-top: 20px;
+}
+
+.customer:not(.account):not(.order).register {
+    max-width: 70rem;
 }
 
 @media only screen and (min-width: 750px) {

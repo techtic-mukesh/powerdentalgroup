@@ -380,10 +380,20 @@ class PredictiveSearch {
     }
 
     fetchResults(query) {
-        // Fetch products
-        const productPromise = fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=6&section_id=predictive-search`)
+        // Enhanced product search that includes SKU
+        // Using multiple search parameters to cover both title and SKU
+        const productPromise = fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=6&resources[options][fields]=title,product_type,variants.sku,vendor&section_id=predictive-search`)
             .then(response => response.json())
-            .then(data => data.resources.results.products || []);
+            .then(data => {
+                let products = data.resources.results.products || [];
+                
+                // If no results found, try a more specific SKU search
+                if (products.length === 0) {
+                    return this.searchBySKU(query);
+                }
+                
+                return products;
+            });
 
         // Fetch collections for suggestions
         const collectionPromise = fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=collection&resources[limit]=4&section_id=predictive-search`)
@@ -405,18 +415,50 @@ class PredictiveSearch {
             });
     }
 
+    // Additional method to search specifically by SKU if needed
+    async searchBySKU(query) {
+        try {
+            // Try searching with SKU prefix in the query
+            const skuSearchResponse = await fetch(`/search/suggest.json?q=sku:${encodeURIComponent(query)}&resources[type]=product&resources[limit]=6&section_id=predictive-search`);
+            const skuData = await skuSearchResponse.json();
+            
+            if (skuData.resources && skuData.resources.results && skuData.resources.results.products) {
+                return skuData.resources.results.products;
+            }
+            
+            // If SKU prefix search doesn't work, try alternative approach
+            const altSearchResponse = await fetch(`/search?q=${encodeURIComponent(query)}&view=json&type=product`);
+            const altData = await altSearchResponse.json();
+            
+            return altData.products || [];
+        } catch (error) {
+            console.error('SKU search error:', error);
+            return [];
+        }
+    }
+
     renderResults(products, collections, queries, originalQuery) {
         if (!products.length && !collections.length && !queries.length) {
             this.showNoResults();
             return;
         }
 
-        // Build products HTML
+        // Build products HTML with enhanced SKU display
         const productsHtml = products.length ? 
             products.map(product => {
                 const price = product.price;
                 const comparePrice = product.compare_at_price ? (product.compare_at_price / 100).toFixed(2) : null;
                 const imageUrl = product.featured_image?.url ? product.featured_image.url : '/assets/product-placeholder.svg';
+                
+                // Get SKU from variants if available
+                let productSKU = '';
+                if (product.variants && product.variants.length > 0) {
+                    const variant = product.variants.find(v => v.sku) || product.variants[0];
+                    productSKU = variant.sku || '';
+                }
+                
+                // Check if the search query matches the SKU
+                const isSkuMatch = productSKU && productSKU.toLowerCase().includes(originalQuery.toLowerCase());
                 
                 return `
                     <li>
@@ -424,6 +466,8 @@ class PredictiveSearch {
                             <img src="${imageUrl}" alt="${product.featured_image?.alt || product.title}" loading="lazy" />
                             <div class="predictive-info">
                                 <span class="product-title">${product.title}</span>
+                                ${productSKU ? `<div class="product-sku" style="font-size: 0.85em; color: #666; margin: 2px 0;">SKU: ${productSKU}</div>` : ''}
+                                ${isSkuMatch ? `<div class="sku-match-indicator" style="font-size: 0.8em; color: #007acc; font-weight: bold;">✓ SKU Match</div>` : ''}
                                 <p class="product-price">
                                     $${price}
                                     ${comparePrice && comparePrice !== price ? `<span class="compare-price" style="text-decoration: line-through; color: #999; margin-left: 8px;">$${comparePrice}</span>` : ''}
@@ -509,7 +553,7 @@ class PredictiveSearch {
     }
 
     showNoResults() {
-        this.results.innerHTML = '<p class="no-results">No results found</p>';
+        this.results.innerHTML = '<p class="no-results">No results found for products or SKUs</p>';
         this.showResults();
     }
 
@@ -518,7 +562,7 @@ class PredictiveSearch {
         if (this.overlay) {
             this.overlay.style.display = 'inline-block';
         }
-        document.body.classList.add('predictive-show'); // ✅ Add class to body
+        document.body.classList.add('predictive-show');
     }
 
     hideResults() {
@@ -526,7 +570,7 @@ class PredictiveSearch {
         if (this.overlay) {
             this.overlay.style.display = 'none';
         }
-        document.body.classList.remove('predictive-show'); // ✅ Remove class from body
+        document.body.classList.remove('predictive-show');
     }
 
     clearSearch() {
