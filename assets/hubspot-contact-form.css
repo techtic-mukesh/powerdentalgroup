@@ -1,0 +1,81 @@
+section.hubspot-contact-form {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 60px 0;
+}
+
+section.hubspot-contact-form .hubspot-cf-wrap {
+    background-color: #fff;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 60px;
+}
+
+section.hubspot-contact-form .hubspot-cf-wrap h1 {
+    font-weight: 400;
+        margin-bottom: 30px;
+        line-height: 1.2;
+}
+
+section.hubspot-contact-form  .heading-wraper span {
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+section.hubspot-contact-form .heading-wraper  p {
+    color: #010005;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 22px;
+}
+
+section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info {
+    padding: 0;
+    margin: 40px 0 0;
+    list-style: none;
+}
+
+section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info li {
+    color: #010005;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 22px;
+    margin: 0 0 20px;
+        display: flex
+;
+    align-items: flex-start;
+}
+
+
+section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info li i {
+    margin-top: 4px;
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info li p {
+    margin:0;
+    padding-left: 20px;
+ }
+
+section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info li p a {
+    text-decoration: none;
+    color: #010005;
+}
+
+.hubspot-contact-right .field:after {
+    box-shadow: unset !important;
+    border: unset !important;
+}

@@ -197,6 +197,10 @@ a.button.button--secondary:after {
     z-index: 2;
 }
 
+body.gradient.page\.contact section.signup-mail {
+    display: none;
+}
+
 /* Globle Responsive */
 
 @media only screen and (max-width: 1240px) {

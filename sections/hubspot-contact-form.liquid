@@ -1,0 +1,181 @@
+{{ 'hubspot-contact-form.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<section 
+  class="hubspot-contact-form" 
+  style="background-image: url('{{ section.settings.background_image | image_url }}')"
+>
+  <div class="page-width">
+    <div class="hubspot-cf-wrap">
+      
+      <!-- LEFT CONTENT -->
+      <div class="hubspot-contact-left">
+        <div class="heading-wraper">
+            {% if section.settings.sub_heading != blank %}
+              <span>{{ section.settings.sub_heading }}</span>
+            {% endif %}
+            {% if section.settings.heading != blank %}
+              <h1>
+                {{ section.settings.heading }}
+                {% if section.settings.heading_strong != blank %}
+                  <strong>{{ section.settings.heading_strong }}</strong>
+                {% endif %}
+              </h1>
+            {% endif %}
+            {% if section.settings.description != blank %}
+              <p>{{ section.settings.description }}</p>
+            {% endif %}
+        </div>
+
+        <ul class="contact-info">
+          {% if section.settings.phone != blank %}
+          <li>
+            <i class="fa-solid fa-phone"></i>
+            <p>
+            <strong>Phone:</strong> <a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a>
+            </p>
+          </li>
+          {% endif %}
+
+          {% if section.settings.customer_service != blank %}
+          <li>
+            <i class="fa-regular fa-clock"></i>
+            <p>
+            <strong>Customer Service:</strong> <span>{{ section.settings.customer_service }}</span>
+            </p>
+          </li>
+          {% endif %}
+
+          {% if section.settings.address != blank %}
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <p>
+                <span>{{ section.settings.address }}</span>
+            </p>
+          </li>
+          {% endif %}
+
+          {% if section.settings.email != blank %}
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <p>
+            <strong>Email:</strong> <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+            </p>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <!-- RIGHT HUBSPOT FORM -->
+      <div class="hubspot-contact-right">
+        <div id="hubspotFormWrapper-{{ section.id }}"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script src="//js.hsforms.net/forms/embed/v2.js" charset="utf-8"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      if (window.hbspt) {
+          hbspt.forms.create({
+              region: "{{ section.settings.region }}",
+              portalId: "{{ section.settings.portal_id }}",
+              formId: "{{ section.settings.form_id }}",
+              target: "#hubspotFormWrapper-{{ section.id }}"
+          });
+      }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "HubSpot Contact Form",
+  "tag": "section",
+  "class": "hubspot-contact-form-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub Heading",
+      "default": "HAVE QUESTIONS?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "CONTACT OUR TEAM"
+    },
+    {
+      "type": "text",
+      "id": "heading_strong",
+      "label": "Strong Heading Text",
+      "default": "TODAY!"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Give us a call or fill out the form and one of our experts will be in touch with you as soon as possible."
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "888-411-7921"
+    },
+    {
+      "type": "text",
+      "id": "customer_service",
+      "label": "Customer Service Hours",
+      "default": "Mon-Fri 7:30AM - 4:00PM CST"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address",
+      "default": "Power Dental Group 2809 Barney Ct. McHenry, IL 60051"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "info@powerdentalgroup.com"
+    },
+    {
+      "type": "text",
+      "id": "portal_id",
+      "label": "HubSpot Portal ID",
+      "default": "39754023"
+    },
+    {
+      "type": "text",
+      "id": "form_id",
+      "label": "HubSpot Form ID",
+      "default": "92cffa2f-5f86-4803-b5c3-0976d8432bc5"
+    },
+    {
+      "type": "select",
+      "id": "region",
+      "label": "Region",
+      "default": "na1",
+      "options": [
+        { "value": "na1", "label": "North America (na1)" },
+        { "value": "eu1", "label": "Europe (eu1)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "HubSpot Contact Form"
+    }
+  ]
+}
+{% endschema %}
