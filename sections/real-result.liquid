@@ -1,7 +1,8 @@
-<section class="real-results-section" id="videoSection-{{ section.id }}">
+{% comment %} <section class="real-results-section" id="videoSection-{{ section.id }}">
   <div class="page-width">
 
   <div class="title-wrap">
+     
     {% if section.settings.content %}
       {{ section.settings.content }}
     {% endif %}
@@ -67,7 +68,73 @@
     </div>
 
   </div>
+</section> {% endcomment %}
+{% assign video_source = '' %}
+{% if section.settings.show_usage and product.metafields.custom.video_clinical_usage != blank %}
+  {% assign video_source = product.metafields.custom.video_clinical_usage %}
+{% elsif product.metafields.custom.video_feedback != blank %}
+  {% assign video_source = product.metafields.custom.video_feedback %}
+{% endif %}
+
+{% if video_source != blank %}
+<section class="real-results-section" id="videoSection-{{ section.id }}">
+  <div class="page-width">
+
+    <div class="title-wrap">
+      {% if section.settings.content %}
+        {{ section.settings.content }}
+      {% endif %}
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="results-wrap">
+      <div class="videos-grid grid-{{ section.settings.grid_columns | default: 2 }}">
+
+        {% assign raw_videos = video_source | split: ',' %}
+
+        {% for video in raw_videos %}
+          {% assign url = video | strip %}
+          {% if url != blank %}
+
+            {% comment %} Extract video ID from various formats {% endcomment %}
+            {% if url contains 'watch?v=' %}
+              {% assign video_id = url | split: 'watch?v=' | last | split: '&' | first %}
+            {% elsif url contains 'youtu.be/' %}
+              {% assign video_id = url | split: 'youtu.be/' | last | split: '?' | first %}
+            {% elsif url contains 'youtube.com/embed/' %}
+              {% assign video_id = url | split: 'youtube.com/embed/' | last | split: '?' | first %}
+            {% elsif url contains 'youtube.com/shorts/' %}
+              {% assign video_id = url | split: 'youtube.com/shorts/' | last | split: '?' | first %}
+            {% else %}
+              {% assign video_id = url | split: '/' | last | split: '?' | first %}
+            {% endif %}
+
+            <div class="grid-item">
+              <div class="real-results-slide">
+                <div class="video-container">
+                  <iframe 
+                    src="https://www.youtube.com/embed/{{ video_id }}?rel=0&showinfo=0"
+                    title="Customer Feedback Video"
+                    frameborder="0"
+                    allowfullscreen
+                    loading="lazy"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+
+          {% endif %}
+        {% endfor %}
+
+      </div>
+    </div>
+
+  </div>
 </section>
+{% endif %}
+
+
+
 
 <style>
 .real-results-section {
@@ -75,6 +142,10 @@
     padding: 40px 0;
     position: relative;
     background: #fff;
+}
+
+.ytp-large-play-button.ytp-shorts-mode {
+  opacity: 0;
 }
 
 .real-results-section .title-wrap {
@@ -132,12 +203,7 @@
 }
 
 /* 3 Column Layout */
-.videos-grid.grid-3 .grid-item {
-  width: calc(33.333% - 20px);
-  min-width: 300px;
-  max-width: 380px;
-  flex-shrink: 0;
-}
+
 
 /* 4 Column Layout */
 .videos-grid.grid-4 .grid-item {
@@ -228,6 +294,7 @@ position: absolute;
     gap: 0;
     padding-left: 0;
     justify-content: center;
+    width: 100%;
 }
 
 .results-wrap .left-content {
@@ -283,6 +350,50 @@ position: absolute;
   position: relative;
   z-index: 1;
 }
+
+.real-results-section {
+  padding: 60px 0;
+}
+
+.real-results-section .title-wrap {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.videos-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.videos-grid.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+}
+
+.videos-grid.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.real-results-slide .video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.real-results-slide .video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+}
+
 
 @media only screen and (max-width: 1300px) { 
   .results-wrap {
@@ -488,6 +599,12 @@ document.addEventListener('DOMContentLoaded', function () {
       "type": "richtext",
       "id": "content",
       "label": "Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_usage",
+      "label": "Show Clinic Usage",
+      "default": false
     },
      {
       "type": "select",

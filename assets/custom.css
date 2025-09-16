@@ -201,6 +201,66 @@ body.gradient.page\.contact section.signup-mail {
     display: none;
 }
 
+body.gradient.cart h1.title.title--primary {
+    text-transform: capitalize;
+    font-size: 34px;
+}
+
+body.gradient.cart .title-wrapper-with-link a, body.gradient.cart .cart__ctas button {
+    max-width: none;
+    background: linear-gradient(102deg, #42c5ef, #0033a0 50% 50%, #42c5ef);
+    background-size: 200% 100%;
+    background-position: 200% 100%;
+    transition: background-position .7s;
+    line-height: 110%;
+    text-decoration: none;
+    margin: 0;
+    padding: 17px 30px;
+    border-radius: 10px;
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+body.gradient.cart .cart__ctas button:after {
+    display: none;
+}
+
+body.gradient.cart .title-wrapper-with-link a:hover, body.gradient.cart .cart__ctas button:hover {
+    color: #fff;
+     background-position: 100% 0 !important;
+}
+
+body.gradient.cart  .price--end {
+    color: #010005;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+body.gradient.cart  .quantity {
+        width: 120px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    background: #fff;
+    min-height: 36px;
+}
+
+body.gradient.cart  .quantity:after {
+    display: none;
+}
+
+body.gradient.cart .cart-item__name:hover {
+    text-decoration: none;
+}
 /* Globle Responsive */
 
 @media only screen and (max-width: 1240px) {
