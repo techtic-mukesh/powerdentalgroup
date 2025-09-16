@@ -216,73 +216,65 @@
         "category_HrVRA7": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
-            "label": "Category",
-            "urllabel": ""
+            "icon": "shopify:\/\/shop_images\/Power-Line_1_1_af56122e-2f04-4518-ac35-425eebc195d7.jpg",
+            "label": "Power Line",
+            "urllabel": "shopify:\/\/collections\/power-line"
           }
         },
         "category_CCxDmL": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
-            "label": "Category",
-            "urllabel": ""
+            "icon": "shopify:\/\/shop_images\/Periodontal.jpg",
+            "label": "Periodontal",
+            "urllabel": "shopify:\/\/collections\/periodontal"
           }
         },
         "category_FYVXaq": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
-            "label": "Category",
-            "urllabel": ""
+            "icon": "shopify:\/\/shop_images\/Diagnostic.jpg",
+            "label": "Diagnostic",
+            "urllabel": "shopify:\/\/collections\/diagnostic"
           }
         },
         "category_3k7xg9": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
-            "label": "Category",
-            "urllabel": ""
+            "icon": "shopify:\/\/shop_images\/Implant_Surgical.jpg",
+            "label": "Implant and Surgical",
+            "urllabel": "shopify:\/\/collections\/implant-surgical"
           }
         },
         "category_PEJRcf": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
-            "label": "Category",
-            "urllabel": ""
+            "icon": "shopify:\/\/shop_images\/endodontic-cat-2024.jpg",
+            "label": "Endodontic",
+            "urllabel": "shopify:\/\/collections\/endodontic"
           }
         },
         "category_H6bwqD": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
-            "label": "Category",
-            "urllabel": ""
+            "icon": "shopify:\/\/shop_images\/Orthodontic_V2.jpg",
+            "label": "Orthodontic",
+            "urllabel": "shopify:\/\/collections\/orthodontic"
           }
         },
         "category_9pcEjR": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
-            "label": "Category",
-            "urllabel": ""
+            "icon": "shopify:\/\/shop_images\/restorative-new.jpg",
+            "label": "Restorative",
+            "urllabel": "shopify:\/\/collections\/restorative"
           }
         },
         "category_7DUUdj": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
-            "label": "Category",
-            "urllabel": ""
-          }
-        },
-        "category_8xQVr6": {
-          "type": "category",
-          "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1.jpg",
-            "label": "Category11",
-            "urllabel": ""
+            "icon": "shopify:\/\/shop_images\/Cassettes_Accessories.jpg",
+            "label": "Cassettes, Centrifuges, & Accessories",
+            "urllabel": "shopify:\/\/collections\/cassettes-centrifuges-accessories"
           }
         }
       },
@@ -294,8 +286,7 @@
         "category_PEJRcf",
         "category_H6bwqD",
         "category_9pcEjR",
-        "category_7DUUdj",
-        "category_8xQVr6"
+        "category_7DUUdj"
       ],
       "name": "Category Slider",
       "settings": {

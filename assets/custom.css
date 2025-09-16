@@ -266,6 +266,12 @@ body.gradient.cart  .quantity:after {
 body.gradient.cart .cart-item__name:hover {
     text-decoration: none;
 }
+
+.header__icons .header__icon:hover .cart-count-bubble span {
+    color: #ffff !important;
+    background: unset !important;
+    -webkit-text-fill-color: unset;
+}
 /* Globle Responsive */
 
 @media only screen and (max-width: 1240px) {
