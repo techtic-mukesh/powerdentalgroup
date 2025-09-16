@@ -79,3 +79,165 @@ section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info li p a {
     box-shadow: unset !important;
     border: unset !important;
 }
+
+.hubspot-contact-right form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.hubspot-contact-right form .field.hs-form-field {
+    flex-direction: column;
+}
+
+.hubspot-contact-right .hs_email.hs-email.hs-fieldtype-text.field.hs-form-field label {
+color: #1F1F1F;
+margin: 0;
+font-size: 16px;
+}
+
+.hubspot-contact-right form .field.hs-form-field label {
+    color: #1F1F1F;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 10px;
+}   
+
+.hubspot-contact-right form .field select,.hubspot-contact-right form .field  input {
+    width: 100%;
+    padding: 15px 10px;
+    border: 1px solid #d3d4d8;
+    color: #01000A;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.hubspot-contact-right .hs_email.hs-email.hs-fieldtype-text.field.hs-form-field input {
+    background: #fff;
+    border-radius: unset;
+    border: 1px solid #d3d4d8;
+}
+
+.hubspot-contact-right .hs_message.hs-message.hs-fieldtype-textarea.field.hs-form-field .input {
+    height: 100%;
+}
+
+.hubspot-contact-right .hs_message.hs-message.hs-fieldtype-textarea.field.hs-form-field .input textarea {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #d3d4d8;
+    color: #01000A;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+        padding: 15px 10px;
+}
+
+.hubspot-contact-right form  .hs_message.hs-message.hs-fieldtype-textarea.field.hs-form-field {
+    grid-column: span 2;
+}
+
+.hubspot-contact-right form ul.no-list.hs-error-msgs.inputs-list {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    list-style: none;
+    bottom: -11px;
+    margin: 0;
+    padding: 0;
+}
+
+.hubspot-contact-right .legal-consent-container {
+    grid-column: span 2;
+    margin: 10px 0;
+}
+
+.hubspot-contact-right .legal-consent-container * {
+    color: #01000A;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+}
+
+.hubspot-contact-right .legal-consent-container  ul.inputs-list {
+    padding: 0;
+    list-style: none;
+}
+
+.hubspot-contact-right .legal-consent-container ul.inputs-list label.hs-form-booleancheckbox-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.hubspot-contact-right .legal-consent-container ul.inputs-list label.hs-form-booleancheckbox-display input {
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.hubspot-contact-right .legal-consent-container ul.inputs-list label.hs-form-booleancheckbox-display  span {
+    margin: 0;
+}
+
+.hubspot-contact-right .hs_recaptcha.hs-recaptcha.field.hs-form-field {
+    grid-column: span 2;
+    margin: 0;
+}
+
+.hubspot-contact-right .hs_submit.hs-submit {
+    margin: 10px 0 0;
+}
+
+section.hubspot-contact-form .submitted-message span {
+    color: green !important;
+    text-align: center !important;
+    display: inline-block;
+    width: 100%;
+}
+
+@media (max-width: 1140px) {
+    section.hubspot-contact-form .hubspot-cf-wrap {
+             grid-template-columns: 300px 1fr;
+        gap: 30px;
+    }
+
+   
+}
+
+@media (max-width: 991px) {
+    section.hubspot-contact-form .hubspot-cf-wrap {
+    padding: 20px;
+    grid-template-columns: 1fr;
+}
+ }
+
+
+ @media (max-width: 567px) {
+    .hubspot-contact-right form {
+        display: flex;
+        flex-direction: column;
+}
+
+.hubspot-contact-right .legal-consent-container ul.inputs-list label.hs-form-booleancheckbox-display input {
+    min-width: 20px;
+    height: 20px;
+}
+
+section.hubspot-contact-form .hubspot-cf-wrap h1 {
+    font-size: 32px;
+    margin: 0 0 20px;
+}
+  }
