@@ -17,6 +17,7 @@
         },
         "text_bbpjaW": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "Designed for safe and effective crown removal, this kit features left and right removers with ergonomic handles and two packs of high-speed diamond burs.",
             "text_style": "body"

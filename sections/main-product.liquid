@@ -107,6 +107,12 @@
                     </h2>
                   </a>
                 </div>
+
+               {% if product.metafields.custom.short_description != blank %}
+  <div class="product-short-description">
+    {{ product.metafields.custom.short_description | strip_html | newline_to_br }}
+  </div>
+{% endif %} 
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',

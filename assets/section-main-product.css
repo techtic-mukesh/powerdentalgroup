@@ -627,7 +627,18 @@ text-transform: capitalize;
     content: ')';
 }
 
+.product__info-container> .product-short-description br {
+    display: none;
+}
 
+.product__info-container> .product-short-description {
+    color: #01000A;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+}
 
 @media screen and (max-width: 749px) {
   .product__media-list {
