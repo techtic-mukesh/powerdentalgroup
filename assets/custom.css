@@ -206,7 +206,7 @@ body.gradient.cart h1.title.title--primary {
     font-size: 34px;
 }
 
-body.gradient.cart .title-wrapper-with-link a, body.gradient.cart .cart__ctas button {
+body.gradient.cart .title-wrapper-with-link a, body.gradient.cart .cart__ctas button, cart-items.is-empty a.button, .drawer__inner-empty a.button {
     max-width: none;
     background: linear-gradient(102deg, #42c5ef, #0033a0 50% 50%, #42c5ef);
     background-size: 200% 100%;
@@ -225,11 +225,11 @@ body.gradient.cart .title-wrapper-with-link a, body.gradient.cart .cart__ctas bu
     line-height: normal;
 }
 
-body.gradient.cart .cart__ctas button:after {
+body.gradient.cart .cart__ctas button:after, cart-items.is-empty a.button:after, .drawer__inner-empty a.button:after {
     display: none;
 }
 
-body.gradient.cart .title-wrapper-with-link a:hover, body.gradient.cart .cart__ctas button:hover {
+body.gradient.cart .title-wrapper-with-link a:hover, body.gradient.cart .cart__ctas button:hover, cart-items.is-empty a.button:hover, .drawer__inner-empty a.button:hover {
     color: #fff;
      background-position: 100% 0 !important;
 }
@@ -243,6 +243,11 @@ body.gradient.cart  .price--end {
     font-weight: 600;
     line-height: normal;
     text-transform: uppercase;
+}
+
+.is-empty .cart__empty-text, .cart__login-title {
+    font-size: 28px;
+    text-transform: capitalize;
 }
 
 body.gradient.cart  .quantity {
