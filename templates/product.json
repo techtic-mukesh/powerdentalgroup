@@ -33,10 +33,6 @@
           "type": "price",
           "settings": {}
         },
-        "judge_me_reviews_preview_badge_K7XMBH": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -68,7 +64,7 @@
             "show_payment_icon": true
           }
         },
-        "icon_with_text_4H8fcN": {
+        "icon_with_text_7qDcyz": {
           "type": "icon-with-text",
           "settings": {
             "layout": "horizontal",
@@ -95,13 +91,12 @@
         "text_bbpjaW",
         "sku_Gamq4J",
         "price",
-        "judge_me_reviews_preview_badge_K7XMBH",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
         "description",
         "info_secured_aRwqzg",
-        "icon_with_text_4H8fcN",
+        "icon_with_text_7qDcyz",
         "share"
       ],
       "settings": {
@@ -120,6 +115,152 @@
         "padding_bottom": 32
       }
     },
+    "key_features_PEqqeN": {
+      "type": "key-features",
+      "name": "Key Features",
+      "settings": {
+        "background_color": "#f9f9f9",
+        "heading": "Key Features",
+        "content": "<ul><li>Removes crowns in seconds – Significantly reduces chair time, cutting procedures from minutes down to seconds.<\/li><li>Predictable outcomes - Push-pull mechanics create opposing forces to preserve the core and remove the crown in a single motion.<\/li><li>Universal use – Compatible with permanent or temporary crowns (zirconia, e.max, PFM) in any region: anterior or posterior, maxillary or mandibular.<\/li><li>Ergonomic handle design – Integrated butterfly spring minimizes hand fatigue and enhances grip control.<\/li><\/ul>",
+        "video": "shopify:\/\/files\/videos\/key-feature-video.mp4",
+        "video_mp4": "",
+        "video_webm": "",
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true
+      }
+    },
+    "real_result_VTRxba": {
+      "type": "real-result",
+      "blocks": {
+        "video_block_7fiBk6": {
+          "type": "video_block",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/Video_20250605_090556_307.mp4"
+          }
+        },
+        "video_block_ThUwgA": {
+          "type": "video_block",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/Video_20250605_090556_300.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "video_block_7fiBk6",
+        "video_block_ThUwgA"
+      ],
+      "name": "Real Results Section",
+      "settings": {
+        "heading": "CLINICAL USAGE",
+        "content": "<p>{{ product.metafields.custom.clinical_sub_title.value }}<\/p>",
+        "show_usage": true,
+        "grid_columns": "2"
+      }
+    },
+    "video_TtiEDC": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "HOW TO USE",
+        "heading_size": "h1",
+        "enable_custom_height": true,
+        "enable_video_looping": false,
+        "video_url": "https:\/\/www.youtube.com\/watch?v=rqhkBHfi2H4",
+        "cover_image": "shopify:\/\/shop_images\/1e598d714bca38dfad92dec408c9e302d9d51c56.png",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-c2cb00ea-c497-4faa-9d8f-68b679e10b72",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "btn_text": "IFU Power Crown Remover Kit",
+        "btn_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0697\/9538\/1398\/files\/IFU_Power_Crown_Remover_Kit.pdf?v=1757663876"
+      }
+    },
+    "real_result_MEe6RC": {
+      "type": "real-result",
+      "blocks": {
+        "video_block_h6Er7Q": {
+          "type": "video_block",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/crown remover - brian olitsky Final Revision BGM.mp4"
+          }
+        },
+        "video_block_pianY9": {
+          "type": "video_block",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/power crown remover Dr Daniel Combine.mp4"
+          }
+        },
+        "video_block_V6Kqfn": {
+          "type": "video_block",
+          "settings": {
+            "video": "shopify:\/\/files\/videos\/crown remover - thomas hirch Final Revision with B (1).mp4"
+          }
+        }
+      },
+      "block_order": [
+        "video_block_h6Er7Q",
+        "video_block_pianY9",
+        "video_block_V6Kqfn"
+      ],
+      "name": "Real Results Section",
+      "settings": {
+        "heading": "HEAR WHAT YOUR PEERS ARE SAYING",
+        "content": "",
+        "show_usage": false,
+        "grid_columns": "3"
+      }
+    },
+    "testimonial_cAGqp9": {
+      "type": "testimonial",
+      "blocks": {
+        "testimonial_q3Exhb": {
+          "type": "testimonial",
+          "settings": {
+            "profile_image": "shopify:\/\/shop_images\/Rectangle_26105.png",
+            "testimonial_title": "Saves Me Valuable Chair Time and Hundreds of Dollars in Bills",
+            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in bills.<\/p>",
+            "name": "- Shawn P. Lottier, DDS, MAG, DICOI",
+            "credentials": "- Comfort Smiles Atlanta",
+            "date": "February 20, 2024"
+          }
+        },
+        "testimonial_DFKGPP": {
+          "type": "testimonial",
+          "settings": {
+            "profile_image": "shopify:\/\/shop_images\/Rectangle_26105_1.png",
+            "testimonial_title": "Fastest and Most Reliable Repairs I’ve Seen",
+            "testimonial_text": "<p>Although their instruments are one of the best I've used over my 15 year professional career, the system that they have in place to replace and repair tools is one of the fastest and most reliable I've seen. Sent in and sent back to me in less than a week. Great service and great company!<\/p>",
+            "name": "Dr. Santiago, DDS",
+            "credentials": "",
+            "date": "May 15, 2024"
+          }
+        },
+        "testimonial_cz9qwq": {
+          "type": "testimonial",
+          "settings": {
+            "profile_image": "shopify:\/\/shop_images\/Rectangle_26105.png",
+            "testimonial_title": "Saves Me Valuable Chair Time and Hundreds of Dollars in Bills",
+            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in bills.<\/p>",
+            "name": "- Shawn P. Lottier, DDS",
+            "credentials": "- Comfort Smiles Atlanta",
+            "date": "February 24, 2024"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_q3Exhb",
+        "testimonial_DFKGPP",
+        "testimonial_cz9qwq"
+      ],
+      "disabled": true,
+      "name": "Testimonials Swiper",
+      "settings": {
+        "background_color": "#f7f7ff",
+        "section_title": "TESTIMONIALS"
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -127,7 +268,7 @@
         "heading_size": "h1",
         "products_to_show": 8,
         "columns_desktop": 4,
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "color_scheme": "scheme-1",
         "enable_swiper": true,
         "swiper_slides_desktop": 4,
@@ -152,13 +293,13 @@
         "products_to_show": 8,
         "columns_desktop": 4,
         "columns_mobile": "2",
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "enable_swiper": true,
         "swiper_slides_desktop": 4,
         "swiper_loop": false,
         "image_ratio": "adapt",
         "image_shape": "default",
-        "show_secondary_image": true,
+        "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
@@ -166,30 +307,16 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
-    },
-    "17574159246be462cc": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_FJEE87": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_FJEE87"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
     "main",
+    "key_features_PEqqeN",
+    "real_result_VTRxba",
+    "video_TtiEDC",
+    "real_result_MEe6RC",
+    "testimonial_cAGqp9",
     "related-products",
-    "recently_viewed_products_c8pPNh",
-    "17574159246be462cc"
+    "recently_viewed_products_c8pPNh"
   ]
 }

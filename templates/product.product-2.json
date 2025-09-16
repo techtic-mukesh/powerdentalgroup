@@ -153,7 +153,8 @@
       "name": "Real Results Section",
       "settings": {
         "heading": "CLINICAL USAGE",
-        "content": "<p>CROWN REMOVALS SIMPLIFIED<\/p>",
+        "content": "<p>{{ product.metafields.custom.clinical_sub_title.value }}<\/p>",
+        "show_usage": true,
         "grid_columns": "2"
       }
     },
@@ -207,6 +208,7 @@
       "settings": {
         "heading": "HEAR WHAT YOUR PEERS ARE SAYING",
         "content": "",
+        "show_usage": false,
         "grid_columns": "3"
       }
     },

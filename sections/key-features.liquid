@@ -1,38 +1,40 @@
+{% if product.metafields.custom.video_key_feature or product.metafields.custom.featured_use_description %}
 <section class="key-features" style="background-color: {{ section.settings.background_color }};">
   <div class="page-width">
     <div class="key-features__wrap">
+      
       <div class="left-block">
-        <h2>{{ section.settings.heading }}</h2>
-        <div class="content">
-          {{ section.settings.content }}
+        <h2>Key Features</h2>
+        {% if product.metafields.custom.featured_use_description != blank %}
+          <div class="content">
+             {{ product.metafields.custom.featured_use_description | newline_to_br }}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if product.metafields.custom.video_key_feature != blank %}
+      <div class="right-block">
+        <div class="video-wrapper">
+          <div class="video-thumbnail">
+            <iframe 
+              id="featureVideo"
+              src="https://www.youtube.com/embed/{{ product.metafields.custom.video_key_feature | split: '/' | last }}?enablejsapi=1&rel=0"
+              title="Key Feature Video"
+              frameborder="0"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+            <button class="play-button" aria-label="Play video"></button>
+          </div>
         </div>
       </div>
-      <div class="right-block">
-        <span class="bg-media">
-          {% if section.settings.video != blank %}
-          <video id="myVideo" autoplay muted loop playsinline 
-                 {% if section.settings.video_poster != blank %}poster="{{ section.settings.video_poster | img_url: 'master' }}"{% endif %}>
-            {% if section.settings.video_mp4 != blank %}
-            <source src="{{ section.settings.video_mp4 }}" type="video/mp4" />
-            {% endif %}
-            {% if section.settings.video_webm != blank %}
-            <source src="{{ section.settings.video_webm }}" type="video/webm" />
-            {% endif %}
-            <!-- Fallback for Shopify native video field -->
-            {% if section.settings.video.sources %}
-              {% for source in section.settings.video.sources %}
-                <source src="{{ source.url }}" type="{{ source.mime_type }}" />
-              {% endfor %}
-            {% endif %}
-          </video>
-          {% elsif section.settings.image != blank %}
-            <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.heading | escape }}">
-          {% endif %}
-        </span>
-      </div>
+      {% endif %}
+      
     </div>
   </div>
 </section>
+{% endif %}
+
 
 <style>
 section.key-features {
@@ -74,6 +76,10 @@ section.key-features .key-features__wrap .content ul li:before {
   background-size: 24px;
   margin-top: 3px;
 }
+
+section.key-features .key-features__wrap .content ul br {
+  display: none;
+}
 section.key-features .key-features__wrap .content ul li {
   display: flex;
   align-items: flex-start;
@@ -92,6 +98,56 @@ section.key-features .key-features__wrap .right-block span.bg-media video {
   height: 100%;
   object-fit: cover;
 }
+
+.key-features__wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.key-features .content ul {
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+.key-features  .video-wrapper {
+    position: relative;
+    aspect-ratio: 4 / 3.1;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.key-features  .video-thumbnail iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+/* .play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.play-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  border-left: 18px solid #fff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+} */
+
 
 @media screen and (max-width: 991px) {
   section.key-features .key-features__wrap {
