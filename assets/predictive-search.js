@@ -109,7 +109,7 @@ class PredictiveSearch extends SearchForm {
     const searchForTextElement = this.querySelector('[data-predictive-search-search-for-text]');
     const currentButtonText = searchForTextElement?.innerText;
     if (currentButtonText) {
-      if (currentButtonText.match(new RegExp(previousTerm, 'g')).length > 1) {
+      if (currentButtonText.match(new RegExp(previousTerm, 'g'))?.length > 1) {
         // The new term matches part of the button text and not just the search term, do not replace to avoid mistakes
         return;
       }
@@ -176,7 +176,21 @@ class PredictiveSearch extends SearchForm {
       return;
     }
 
-    fetch(`${routes.predictive_search_url}?q=${encodeURIComponent(searchTerm)}&section_id=predictive-search`, {
+    // Enhanced fetch URL to include SKU search parameters
+    const searchParams = new URLSearchParams({
+      q: searchTerm,
+      section_id: 'predictive-search',
+      resources: {
+        type: 'product,page,article,collection,query',
+        limit: 10,
+        options: {
+          unavailable_products: 'last',
+          fields: 'title,product_type,variants.title,variants.sku,vendor,tag'
+        }
+      }
+    });
+
+    fetch(`${routes.predictive_search_url}?${searchParams.toString()}`, {
       signal: this.abortController.signal,
     })
       .then((response) => {
@@ -192,10 +206,12 @@ class PredictiveSearch extends SearchForm {
         const resultsMarkup = new DOMParser()
           .parseFromString(text, 'text/html')
           .querySelector('#shopify-section-predictive-search').innerHTML;
+        
         // Save bandwidth keeping the cache in all instances synced
         this.allPredictiveSearchInstances.forEach((predictiveSearchInstance) => {
           predictiveSearchInstance.cachedResults[queryKey] = resultsMarkup;
         });
+        
         this.renderSearchResults(resultsMarkup);
       })
       .catch((error) => {
