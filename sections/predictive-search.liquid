@@ -130,9 +130,25 @@
               aria-labelledby="predictive-search-products"
             >
               {%- for product in predictive_search.resources.products -%}
+                {%- liquid
+                  assign search_term = predictive_search.terms | downcase
+                  assign matched_variant = null
+                  assign sku_match = false
+                  
+                  for variant in product.variants
+                    if variant.sku != blank
+                      assign variant_sku = variant.sku | downcase
+                      if variant_sku contains search_term
+                        assign matched_variant = variant
+                        assign sku_match = true
+                        break
+                      endif
+                    endif
+                  endfor
+                -%}
                 <li
                   id="predictive-search-option-product-{{ forloop.index }}"
-                  class="predictive-search__list-item"
+                  class="predictive-search__list-item{% if sku_match %} predictive-search__list-item--sku-match{% endif %}"
                   role="option"
                   aria-selected="false"
                 >
@@ -158,8 +174,24 @@
                         </div>
                       {%- endif -%}
                       <p class="predictive-search__item-heading h5">{{ product.title | escape }}</p>
+                      
+                      {%- comment %} Display SKU information when there's a match {%- endcomment -%}
+                      {%- if sku_match and matched_variant -%}
+                        <div class="predictive-search__item-sku">
+                          <span class="predictive-search__sku-label caption-with-letter-spacing">SKU:</span>
+                          <span class="predictive-search__sku-value">{{ matched_variant.sku }}</span>
+                          {%- if matched_variant.title != 'Default Title' -%}
+                            <span class="predictive-search__variant-title caption-with-letter-spacing"> - {{ matched_variant.title }}</span>
+                          {%- endif -%}
+                        </div>
+                      {%- endif -%}
+                      
                       {%- if settings.predictive_search_show_price -%}
-                        {% render 'price', product: product, use_variant: true, show_badges: false %}
+                        {%- if sku_match and matched_variant -%}
+                          {%- render 'price', product: product, use_variant: true, show_badges: false, variant: matched_variant -%}
+                        {%- else -%}
+                          {%- render 'price', product: product, use_variant: true, show_badges: false -%}
+                        {%- endif -%}
                       {%- endif -%}
                     </div>
                   </a>
