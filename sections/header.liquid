@@ -307,8 +307,8 @@
 
 
       <a href="" class="wishlist-header header__icon">
-        {%  render 'icon-wishlist' %}
-        <span>Featured</span>
+        {% render 'wishlist-app-links', linkType: 'wishlist-drawer-link' %}
+        
       </a>
 
       {%- for block in section.blocks -%}
