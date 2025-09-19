@@ -640,6 +640,33 @@ text-transform: capitalize;
     line-height: 20px; /* 142.857% */
 }
 
+.pdp-wishlisht {position: relative;}
+
+.pdp-wishlisht a.iWishAddColl {
+    position: unset;
+    border-radius: 10px;
+    border: 1px solid #818181;
+    width: 50px;
+    min-width: 50px;
+    height: 100%;
+    min-height: 49px;
+    background: url();
+}
+
+.pdp-wishlisht .iWishAdd svg, .pdp-wishlisht .iWishAddColl svg {
+  width: 24px;
+  height: 24px;
+}
+
+.pdp-wishlisht a.iWishAddColl svg.iwishOutline path {
+    stroke: #818181;
+}
+
+.pdp-wishlisht .iWishAdd.st-1.iwishAdded svg path, .pdp-wishlisht .iWishAddColl.iwishAdded svg path {
+  fill: #141132;
+  stroke: #141132;
+}
+
 @media screen and (max-width: 749px) {
   .product__media-list {
     margin-left: -2.5rem;

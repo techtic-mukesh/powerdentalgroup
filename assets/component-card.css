@@ -263,6 +263,29 @@
     align-items: center;
 }
 
+.card--standard>.card__content a.iWishAddColl {
+    position: unset;
+}
+
+.card--standard>.card__content a.iWishAddColl svg.iwishOutline {
+    width: 24px;
+    height: 24px;
+}
+
+.card--standard>.card__content a.iWishAddColl svg.iwishOutline path {
+    stroke: #818181;
+}
+
+.card--standard .iWishAdd svg, .card--standard .iWishAddColl svg {
+    width: 24px;
+    height: 24px;
+}
+
+.iWishAdd.st-1.iwishAdded svg path, .iWishAddColl.iwishAdded svg path {
+  fill: #141132;
+  stroke: #141132;
+}
+
 .card--standard>.card__content product-form form {
     width: 100%;
 }

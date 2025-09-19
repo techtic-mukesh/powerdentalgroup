@@ -379,63 +379,57 @@ class PredictiveSearch {
         }, 300);
     }
 
-    fetchResults(query) {
-        // Enhanced product search that includes SKU
-        // Using multiple search parameters to cover both title and SKU
-        const productPromise = fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=6&resources[options][fields]=title,product_type,variants.sku,vendor&section_id=predictive-search`)
-            .then(response => response.json())
-            .then(data => {
-                let products = data.resources.results.products || [];
-                
-                // If no results found, try a more specific SKU search
-                if (products.length === 0) {
-                    return this.searchBySKU(query);
-                }
-                
-                return products;
-            });
-
-        // Fetch collections for suggestions
-        const collectionPromise = fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=collection&resources[limit]=4&section_id=predictive-search`)
-            .then(response => response.json())
-            .then(data => data.resources.results.collections || []);
-
-        // Fetch queries/suggestions
-        const queryPromise = fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=query&resources[limit]=4&section_id=predictive-search`)
-            .then(response => response.json())
-            .then(data => data.resources.results.queries || []);
-
-        Promise.all([productPromise, collectionPromise, queryPromise])
-            .then(([products, collections, queries]) => {
-                this.renderResults(products, collections, queries, query);
-            })
-            .catch(error => {
-                console.error('Search error:', error);
-                this.showNoResults();
-            });
-    }
-
-    // Additional method to search specifically by SKU if needed
-    async searchBySKU(query) {
-        try {
-            // Try searching with SKU prefix in the query
-            const skuSearchResponse = await fetch(`/search/suggest.json?q=sku:${encodeURIComponent(query)}&resources[type]=product&resources[limit]=6&section_id=predictive-search`);
-            const skuData = await skuSearchResponse.json();
-            
-            if (skuData.resources && skuData.resources.results && skuData.resources.results.products) {
-                return skuData.resources.results.products;
-            }
-            
-            // If SKU prefix search doesn't work, try alternative approach
-            const altSearchResponse = await fetch(`/search?q=${encodeURIComponent(query)}&view=json&type=product`);
-            const altData = await altSearchResponse.json();
-            
-            return altData.products || [];
-        } catch (error) {
-            console.error('SKU search error:', error);
-            return [];
+   fetchResults(query) {
+    // Product search by title and SKU fields
+    const productPromise = fetch(
+        `/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=6&resources[options][fields]=title,product_type,variants.sku,vendor&section_id=predictive-search`
+    )
+    .then(response => response.json())
+    .then(data => {
+        let products = data.resources?.results?.products || [];
+        
+        // If no results from title search, try SKU-specific search
+        if (products.length === 0) {
+            return this.searchBySKU(query);
         }
+        return products;
+    });
+
+    const collectionPromise = fetch(
+        `/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=collection&resources[limit]=4&section_id=predictive-search`
+    )
+    .then(response => response.json())
+    .then(data => data.resources?.results?.collections || []);
+
+    const queryPromise = fetch(
+        `/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=query&resources[limit]=4&section_id=predictive-search`
+    )
+    .then(response => response.json())
+    .then(data => data.resources?.results?.queries || []);
+
+    Promise.all([productPromise, collectionPromise, queryPromise])
+        .then(([products, collections, queries]) => {
+            this.renderResults(products, collections, queries, query);
+        })
+        .catch(error => {
+            console.error('Search error:', error);
+            this.showNoResults();
+        });
+}
+
+// More accurate SKU-only fallback
+async searchBySKU(query) {
+    try {
+        const skuResponse = await fetch(
+            `/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=6&resources[options][fields]=variants.sku&section_id=predictive-search`
+        );
+        const skuData = await skuResponse.json();
+        return skuData.resources?.results?.products || [];
+    } catch (err) {
+        console.error('SKU search error:', err);
+        return [];
     }
+}
 
     renderResults(products, collections, queries, originalQuery) {
         if (!products.length && !collections.length && !queries.length) {

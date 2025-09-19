@@ -272,6 +272,29 @@ body.gradient.cart .cart-item__name:hover {
     background: unset !important;
     -webkit-text-fill-color: unset;
 }
+
+a.iwishDrawer.header__icon {
+    position: relative;
+}
+
+a.iwishDrawer.header__icon span.iwish-counter {
+    position: absolute;
+    top: -2px;
+    right: 9px;
+    font-size: 11px;
+    border-radius: 3000px;
+    background: #0033a0;
+    width: 17px;
+    height: 17px;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__icons .header__icon:hover span.iwish-counter {
+    color: #ffff !important;
+    -webkit-text-fill-color: unset;
+}
 /* Globle Responsive */
 
 @media only screen and (max-width: 1240px) {
