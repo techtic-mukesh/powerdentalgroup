@@ -99,7 +99,7 @@
   
   .gallery-thumbs .swiper-slide {
     width: -webkit-fill-available;
-    height: 95px;
+    height: 95px !important;
     /* opacity: 0.4; */
     cursor: pointer;
     transition: all 0.3s ease;
@@ -180,7 +180,7 @@
 }
 
 .gallery-thumbs .swiper-slide {
-  height: auto;
+  height: auto !important;
 }
 
 .swiper.gallery-thumbs.gallery-thumbs--arrowble {
