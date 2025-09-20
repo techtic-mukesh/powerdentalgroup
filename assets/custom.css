@@ -295,6 +295,11 @@ a.iwishDrawer.header__icon span.iwish-counter {
     color: #ffff !important;
     -webkit-text-fill-color: unset;
 }
+
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+    pointer-events: unset !important;
+    cursor: not-allowed !important;
+}
 /* Globle Responsive */
 
 @media only screen and (max-width: 1240px) {

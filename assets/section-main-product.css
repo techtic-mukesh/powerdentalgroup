@@ -651,7 +651,15 @@ text-transform: capitalize;
     height: 100%;
     min-height: 49px;
     background: url();
+    transition: all .4s linear;
 }
+
+.pdp-wishlisht a.iWishAddColl:hover {
+    background: linear-gradient(90deg, #42c5ef, #0033a0);
+    border: unset;
+}
+
+
 
 .pdp-wishlisht .iWishAdd svg, .pdp-wishlisht .iWishAddColl svg {
   width: 24px;
@@ -662,10 +670,28 @@ text-transform: capitalize;
     stroke: #818181;
 }
 
-.pdp-wishlisht .iWishAdd.st-1.iwishAdded svg path, .pdp-wishlisht .iWishAddColl.iwishAdded svg path {
-  fill: #141132;
-  stroke: #141132;
+
+.iWishAddColl.iwishAdded {
+    background: linear-gradient(90deg, #42c5ef, #0033a0) !important;
+    border: unset;
 }
+
+
+.pdp-wishlisht .iWishAdd.st-1.iwishAdded svg path, .pdp-wishlisht .iWishAddColl.iwishAdded svg path {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.pdp-wishlisht a.iWishAddColl:hover svg.iwishOutline path {
+  stroke: #fff;
+ }
+
+ @media screen and (max-width: 1140px) { 
+  .product-button-block product-form.product-form {
+    grid-column: span 2;
+    margin-top: 20px;
+}
+ }
 
 @media screen and (max-width: 749px) {
   .product__media-list {

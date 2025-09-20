@@ -122,6 +122,11 @@ font-size: 16px;
     background: #fff;
     border-radius: unset;
     border: 1px solid #d3d4d8;
+    color: #01000a;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
 }
 
 .hubspot-contact-right .hs_message.hs-message.hs-fieldtype-textarea.field.hs-form-field .input {
@@ -201,11 +206,25 @@ font-size: 16px;
     margin: 10px 0 0;
 }
 
+section.hubspot-contact-form .hs_error_rollup ul.no-list.hs-error-msgs.inputs-list {
+    position: unset;
+}
+
+section.hubspot-contact-form .hs_error_rollup ul.no-list.hs-error-msgs.inputs-list label.hs-main-font-element {
+    color: #f00;
+    font-size: 14px;
+}
+
 section.hubspot-contact-form .submitted-message span {
     color: green !important;
     text-align: center !important;
     display: inline-block;
     width: 100%;
+}
+
+section.hubspot-contact-form  .hs_error_rollup {
+    grid-column: span 2;
+        margin-bottom: -22px;
 }
 
 @media (max-width: 1140px) {
