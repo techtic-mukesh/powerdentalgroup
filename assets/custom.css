@@ -23,21 +23,25 @@ h2 {
 }
 
 a.button.button--secondary {
-    padding: 0 20px;
+   background: linear-gradient(102deg, #42c5ef, #0033a0 50% 50%, #42c5ef) !important;
+    background-size: 200% 100% !important;
+    background-position: 200% 100% !important;
+    transition: background-position .7s !important;
+    line-height: 110%;
+    text-decoration: none;
+    margin: 0;
+    padding: 17px 30px;
     border-radius: 10px;
-    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%), linear-gradient(0deg, #FFF 0%, #FFF 100%), linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
-    line-height: 50px;
-    align-items: center;
-    gap: 10px;
-    background-size: 100% auto;
-    background-position: left center;
-    transition: background-position 0.5s ease-in-out;
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
 a.button.button--secondary:hover {
-    background-position: right center;
-    /* hover pe gradient slide hoga left→right */
-    background-size: 200% auto;
+   background-position: 100% 0 !important;
 }
 
 a.button.button--secondary span {

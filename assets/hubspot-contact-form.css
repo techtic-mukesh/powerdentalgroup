@@ -29,12 +29,13 @@ section.hubspot-contact-form  .heading-wraper span {
 }
 
 section.hubspot-contact-form .heading-wraper  p {
-    color: #010005;
-    font-family: Prompt;
+    font-family: 'Montserrat';
+    color: #5b5b5b;
     font-size: 16px;
     font-style: normal;
     font-weight: 300;
     line-height: 22px;
+    letter-spacing: -.16px;
 }
 
 section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info {
@@ -101,7 +102,7 @@ font-size: 16px;
     font-family: Montserrat;
     font-size: 16px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400 !important;
     line-height: 24px;
     margin-bottom: 10px;
 }   
@@ -225,6 +226,15 @@ section.hubspot-contact-form .submitted-message span {
 section.hubspot-contact-form  .hs_error_rollup {
     grid-column: span 2;
         margin-bottom: -22px;
+}
+
+section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info p.required-headline {
+    margin: 0 0 30px;
+    position: relative;
+    font-size: .75em;
+    line-height: 0;
+    vertical-align: baseline;
+    font-weight: 300;
 }
 
 @media (max-width: 1140px) {
