@@ -79,6 +79,7 @@ cart-drawer.is-empty .drawer__inner {
 }
 
 
+
 cart-drawer .quantity {
   width: 120px;
   overflow: hidden;
@@ -86,6 +87,14 @@ cart-drawer .quantity {
     border: 1px solid rgba(0, 0, 0, 0.30);
     background: #FFF;
         min-height: 36px;
+}
+
+cart-drawer .quantity .svg-wrapper  { 
+      width: 15px;
+}
+
+cart-drawer  .quantity__button {
+    width: 30px;
 }
 
 cart-drawer .quantity:after {

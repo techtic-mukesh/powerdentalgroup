@@ -17,6 +17,10 @@
   .customer:not(.account):not(.order) {
     max-width: 1320px;
   }
+
+  .customer.reset-password {
+    max-width: 800px !important;
+}
 }
 
 .customer > h1,
@@ -556,6 +560,41 @@ form#create_customer {
 .customer:not(.account):not(.order).register {
     max-width: 70rem;
 }
+
+.customer button:after {
+    display: none;
+}
+
+.customer button {
+  display: flex;
+    height: 42px;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 3000px;
+    background: #0033a0;
+    border: unset;
+    color: #fff;
+    font-family: Prompt;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    text-transform: capitalize;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all .4s ease-in-out;
+}
+
+body.gradient.customers\/addresses form button {
+    display: inline-flex;
+}
+
+.customer button:hover {
+  opacity: .6;
+ }
 
 @media only screen and (min-width: 750px) {
   .activate button[name='decline'] {
