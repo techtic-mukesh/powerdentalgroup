@@ -16,13 +16,30 @@ class CartItems extends HTMLElement {
   constructor() {
     super();
     this.lineItemStatusElement =
-      document.getElementById('shopping-cart-line-item-status') || document.getElementById('CartDrawer-LineItemStatus');
+      document.getElementById('shopping-cart-line-item-status') ||
+      document.getElementById('CartDrawer-LineItemStatus');
 
     const debouncedOnChange = debounce((event) => {
       this.onChange(event);
     }, ON_CHANGE_DEBOUNCE_TIMER);
 
     this.addEventListener('change', debouncedOnChange.bind(this));
+
+    // ✅ Quick remove when typing 0 or clearing input
+    this.addEventListener('input', (event) => {
+      if (!event.target.name?.includes('updates[')) return;
+
+      const value = parseInt(event.target.value);
+      if (value === 0 || event.target.value === '') {
+        this.updateQuantity(
+          event.target.dataset.index,
+          0,
+          event,
+          event.target.getAttribute('name'),
+          event.target.dataset.quantityVariantId
+        );
+      }
+    });
   }
 
   cartUpdateUnsubscriber = undefined;
@@ -44,8 +61,10 @@ class CartItems extends HTMLElement {
 
   resetQuantityInput(id) {
     const input = this.querySelector(`#Quantity-${id}`);
-    input.value = input.getAttribute('value');
-    this.isEnterPressed = false;
+    if (input) {
+      input.value = input.getAttribute('value');
+      this.isEnterPressed = false;
+    }
   }
 
   setValidity(event, index, message) {
@@ -59,6 +78,18 @@ class CartItems extends HTMLElement {
     const inputValue = parseInt(event.target.value);
     const index = event.target.dataset.index;
     let message = '';
+
+    // ✅ Remove item if 0 entered
+    if (inputValue === 0 || event.target.value === '') {
+      this.updateQuantity(
+        index,
+        0,
+        event,
+        document.activeElement?.getAttribute('name'),
+        event.target.dataset.quantityVariantId
+      );
+      return;
+    }
 
     if (inputValue < event.target.dataset.min) {
       message = window.quickOrderListStrings.min_error.replace('[min]', event.target.dataset.min);
@@ -77,7 +108,7 @@ class CartItems extends HTMLElement {
         index,
         inputValue,
         event,
-        document.activeElement.getAttribute('name'),
+        document.activeElement?.getAttribute('name'),
         event.target.dataset.quantityVariantId
       );
     }
@@ -111,7 +142,7 @@ class CartItems extends HTMLElement {
         .then((responseText) => {
           const html = new DOMParser().parseFromString(responseText, 'text/html');
           const sourceQty = html.querySelector('cart-items');
-          this.innerHTML = sourceQty.innerHTML;
+          if (sourceQty) this.innerHTML = sourceQty.innerHTML;
         })
         .catch((e) => {
           console.error(e);
@@ -123,7 +154,7 @@ class CartItems extends HTMLElement {
     return [
       {
         id: 'main-cart-items',
-        section: document.getElementById('main-cart-items').dataset.id,
+        section: document.getElementById('main-cart-items')?.dataset.id,
         selector: '.js-contents',
       },
       {
@@ -138,10 +169,10 @@ class CartItems extends HTMLElement {
       },
       {
         id: 'main-cart-footer',
-        section: document.getElementById('main-cart-footer').dataset.id,
+        section: document.getElementById('main-cart-footer')?.dataset.id,
         selector: '.js-contents',
       },
-    ];
+    ].filter(Boolean);
   }
 
   updateQuantity(line, quantity, event, name, variantId) {
@@ -153,12 +184,10 @@ class CartItems extends HTMLElement {
       sections: this.getSectionsToRender().map((section) => section.section),
       sections_url: window.location.pathname,
     });
-    const eventTarget = event.currentTarget instanceof CartRemoveButton ? 'clear' : 'change';
+    const eventTarget = event?.currentTarget instanceof CartRemoveButton ? 'clear' : 'change';
 
     fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body } })
-      .then((response) => {
-        return response.text();
-      })
+      .then((response) => response.text())
       .then((state) => {
         const parsedState = JSON.parse(state);
 
@@ -168,7 +197,7 @@ class CartItems extends HTMLElement {
           const items = document.querySelectorAll('.cart-item');
 
           if (parsedState.errors) {
-            quantityElement.value = quantityElement.getAttribute('value');
+            if (quantityElement) quantityElement.value = quantityElement.getAttribute('value');
             this.updateLiveRegions(line, parsedState.errors);
             return;
           }
@@ -182,15 +211,19 @@ class CartItems extends HTMLElement {
 
           this.getSectionsToRender().forEach((section) => {
             const elementToReplace =
-              document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
-            elementToReplace.innerHTML = this.getSectionInnerHTML(
-              parsedState.sections[section.section],
-              section.selector
-            );
+              document.getElementById(section.id)?.querySelector(section.selector) ||
+              document.getElementById(section.id);
+            if (elementToReplace) {
+              elementToReplace.innerHTML = this.getSectionInnerHTML(
+                parsedState.sections[section.section],
+                section.selector
+              );
+            }
           });
+
           const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
           let message = '';
-          if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
+          if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement?.value)) {
             if (typeof updatedValue === 'undefined') {
               message = window.cartStrings.error;
             } else {
@@ -219,7 +252,7 @@ class CartItems extends HTMLElement {
       .catch(() => {
         this.querySelectorAll('.loading__spinner').forEach((overlay) => overlay.classList.add('hidden'));
         const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
-        errors.textContent = window.cartStrings.error;
+        if (errors) errors.textContent = window.cartStrings.error;
       })
       .finally(() => {
         this.disableLoading(line);
@@ -248,7 +281,7 @@ class CartItems extends HTMLElement {
 
   enableLoading(line) {
     const mainCartItems = document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
-    mainCartItems.classList.add('cart__items--disabled');
+    if (mainCartItems) mainCartItems.classList.add('cart__items--disabled');
 
     const cartItemElements = this.querySelectorAll(`#CartItem-${line} .loading__spinner`);
     const cartDrawerItemElements = this.querySelectorAll(`#CartDrawer-Item-${line} .loading__spinner`);
@@ -261,7 +294,7 @@ class CartItems extends HTMLElement {
 
   disableLoading(line) {
     const mainCartItems = document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
-    mainCartItems.classList.remove('cart__items--disabled');
+    if (mainCartItems) mainCartItems.classList.remove('cart__items--disabled');
 
     const cartItemElements = this.querySelectorAll(`#CartItem-${line} .loading__spinner`);
     const cartDrawerItemElements = this.querySelectorAll(`#CartDrawer-Item-${line} .loading__spinner`);

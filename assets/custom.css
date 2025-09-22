@@ -300,6 +300,45 @@ a.iwishDrawer.header__icon span.iwish-counter {
     pointer-events: unset !important;
     cursor: not-allowed !important;
 }
+
+body.predictive-show {
+    overflow: hidden;
+}
+
+.wishlist-drawer-container .login_msg {
+    color: #000;
+    font-family: Prompt;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.wishlist-drawer-container .login_msg a {
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.iwish-drawer-menu .continue-shopping-btn {
+    background: linear-gradient(102deg, #42c5ef, #0033a0 50% 50%, #42c5ef) !important;
+    background-size: 200% 100% !important;
+    background-position: 200% 100% !important;
+    transition: background-position .7s !important;
+    line-height: 110%;
+    text-decoration: none;
+    margin: 0;
+    padding: 17px 30px;
+    border-radius: 10px !important;
+    color: #fff !important;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: unset !important;
+}
 /* Globle Responsive */
 
 @media only screen and (max-width: 1240px) {
