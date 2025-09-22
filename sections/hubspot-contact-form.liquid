@@ -29,6 +29,7 @@
         </div>
 
         <ul class="contact-info">
+          <p class="required-headline">*required fields</p>
           {% if section.settings.phone != blank %}
           <li>
             <i class="fa-solid fa-phone"></i>
@@ -42,7 +43,10 @@
           <li>
             <i class="fa-regular fa-clock"></i>
             <p>
-            <strong>Customer Service:</strong> <span>{{ section.settings.customer_service }}</span>
+            <strong>Customer Service:</strong> <span style="
+    width: 100%;
+    display: block;
+">{{ section.settings.customer_service }}</span>
             </p>
           </li>
           {% endif %}
@@ -50,9 +54,9 @@
           {% if section.settings.address != blank %}
           <li>
             <i class="fa-solid fa-location-dot"></i>
-            <p>
-                <span>{{ section.settings.address }}</span>
-            </p>
+            <div claas="adress-cn">
+                {{ section.settings.address }}
+            </div>
           </li>
           {% endif %}
 
@@ -60,7 +64,7 @@
           <li>
             <i class="fa-solid fa-envelope"></i>
             <p>
-            <strong>Email:</strong> <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+             <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
             </p>
           </li>
           {% endif %}
@@ -138,10 +142,9 @@
       "default": "Mon-Fri 7:30AM - 4:00PM CST"
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "address",
-      "label": "Address",
-      "default": "Power Dental Group 2809 Barney Ct. McHenry, IL 60051"
+      "label": "Address"
     },
     {
       "type": "text",
