@@ -234,6 +234,10 @@ product-info {
     width: calc(65% - var(--grid-desktop-horizontal-spacing) / 2);
   }
 
+  .grid__item.product__media-wrapper {
+    background-color: #fff;
+}
+
   .product--large:not(.product--no-media) .product__info-wrapper {
     padding: 0 0 0 4rem;
     max-width: 35%;
@@ -672,10 +676,9 @@ text-transform: capitalize;
 
 
 .iWishAddColl.iwishAdded {
-    background: linear-gradient(90deg, #42c5ef, #0033a0) !important;
     border: unset;
 }
-
+ 
 
 .pdp-wishlisht .iWishAdd.st-1.iwishAdded svg path, .pdp-wishlisht .iWishAddColl.iwishAdded svg path {
   fill: #fff;

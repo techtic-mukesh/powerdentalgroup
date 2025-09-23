@@ -83,6 +83,10 @@
   border-radius: calc(var(--border-radius) - var(--border-width) - var(--image-padding));
 }
 
+.card .card__inner .card__media img {
+    padding: 30px;
+}
+
 .card--card .card__inner .card__media {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
@@ -588,7 +592,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: 24px;
+    line-height: 21px;
 }
 
 .card--horizontal .card-information > .price {

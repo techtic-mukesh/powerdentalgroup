@@ -1157,10 +1157,11 @@ class ProductRecommendations extends HTMLElement {
         html.innerHTML = text;
         const recommendations = html.querySelector('product-recommendations');
 
-
-
         if (recommendations?.innerHTML.trim().length) {
           this.innerHTML = recommendations.innerHTML;
+          
+          // Target the specific iWish buttons that were loaded
+          this.initializeIWishButtons();
         }
 
         if (!this.querySelector('slideshow-component') && this.classList.contains('complementary-products')) {
@@ -1174,6 +1175,187 @@ class ProductRecommendations extends HTMLElement {
       .catch((e) => {
         console.error(e);
       });
+  }
+
+  initializeIWishButtons() {
+    // Find all iWish buttons in the newly loaded content
+    const iWishButtons = this.querySelectorAll('.iWishAddColl, .iWishAdd, [data-iwclick]');
+    
+    console.log(`Found ${iWishButtons.length} iWish buttons to initialize`);
+    
+    if (iWishButtons.length === 0) {
+      console.log('No iWish buttons found in recommendations');
+      return;
+    }
+
+    // Multiple initialization attempts with increasing delays
+    this.attemptIWishInit(0);
+    
+    // Also try to manually bind events if automatic init fails
+    setTimeout(() => {
+      this.manuallyBindIWishEvents(iWishButtons);
+    }, 1000);
+  }
+
+  attemptIWishInit(attempt = 0) {
+    const maxAttempts = 6;
+    const delays = [50, 150, 300, 500, 800, 1200];
+    
+    setTimeout(() => {
+      console.log(`iWish init attempt ${attempt + 1}/${maxAttempts}`);
+      
+      let success = false;
+      
+      // Try window.iWishInit first
+      if (typeof window.iWishInit === "function") {
+        try {
+          window.iWishInit();
+          console.log('✅ window.iWishInit() successful');
+          success = true;
+        } catch (error) {
+          console.error('window.iWishInit() failed:', error);
+        }
+      }
+      
+      // Try jQuery version if first method failed
+      if (!success && typeof jQuery !== "undefined" && jQuery.iWish) {
+        try {
+          if (typeof jQuery.iWish.init === "function") {
+            jQuery.iWish.init();
+            console.log('✅ jQuery.iWish.init() successful');
+            success = true;
+          } else if (typeof jQuery.iWish === "function") {
+            jQuery.iWish();
+            console.log('✅ jQuery.iWish() successful');
+            success = true;
+          }
+        } catch (error) {
+          console.error('jQuery iWish init failed:', error);
+        }
+      }
+      
+      // If still no success and we have more attempts, try again
+      if (!success && attempt < maxAttempts - 1) {
+        this.attemptIWishInit(attempt + 1);
+      } else if (!success) {
+        console.warn('All iWish init attempts failed, trying manual binding');
+      }
+    }, delays[attempt] || 1200);
+  }
+
+  manuallyBindIWishEvents(buttons) {
+    console.log('Attempting manual iWish event binding...');
+    
+    buttons.forEach((button, index) => {
+      if (button.hasAttribute('data-manually-bound')) {
+        return; // Already processed
+      }
+      
+      button.setAttribute('data-manually-bound', 'true');
+      
+      console.log(`Manually binding button ${index + 1}:`, {
+        variant: button.dataset.variant,
+        product: button.dataset.product,
+        title: button.dataset.ptitle
+      });
+      
+      // Remove existing click handlers to avoid duplicates
+      button.removeEventListener('click', this.handleIWishClick);
+      
+      // Add manual click handler
+      button.addEventListener('click', this.handleIWishClick.bind(this));
+    });
+    
+    // Final attempt to trigger iWish after manual binding
+    setTimeout(() => {
+      this.finalIWishTrigger();
+    }, 200);
+  }
+
+  handleIWishClick(event) {
+    event.preventDefault();
+    
+    const button = event.currentTarget;
+    const productId = button.dataset.product;
+    const variantId = button.dataset.variant;
+    const productTitle = button.dataset.ptitle;
+    
+    console.log('Manual iWish click handler:', { productId, variantId, productTitle });
+    
+    // Try to call iWish functions directly if available
+    if (typeof window.iWishAdd === "function") {
+      try {
+        window.iWishAdd(productId, variantId);
+        return;
+      } catch (e) {
+        console.error('Direct iWishAdd call failed:', e);
+      }
+    }
+    
+    // Try jQuery version
+    if (typeof jQuery !== "undefined" && jQuery.iWish && typeof jQuery.iWish.add === "function") {
+      try {
+        jQuery.iWish.add(productId, variantId);
+        return;
+      } catch (e) {
+        console.error('jQuery iWish.add call failed:', e);
+      }
+    }
+    
+    console.warn('Could not execute iWish add function');
+  }
+
+  finalIWishTrigger() {
+    // Try one more comprehensive initialization
+    console.log('Final iWish initialization attempt...');
+    
+    // Trigger various events that might wake up iWish
+    const events = [
+      'iwish:refresh',
+      'wishlist:init', 
+      'DOMContentLoaded'
+    ];
+    
+    events.forEach(eventName => {
+      try {
+        document.dispatchEvent(new CustomEvent(eventName, { bubbles: true }));
+        this.dispatchEvent(new CustomEvent(eventName, { bubbles: true }));
+      } catch (e) {
+        console.log(`Event ${eventName} dispatch failed:`, e);
+      }
+    });
+    
+    // Try calling init functions that might exist
+    ['iWishInit', 'iwishInit', 'initWishlist'].forEach(funcName => {
+      if (typeof window[funcName] === 'function') {
+        try {
+          window[funcName]();
+          console.log(`✅ Called ${funcName}`);
+        } catch (e) {
+          console.error(`Failed calling ${funcName}:`, e);
+        }
+      }
+    });
+    
+    // Force re-scan by temporarily removing and re-adding data attributes
+    setTimeout(() => {
+      const buttons = this.querySelectorAll('.iWishAddColl[data-manually-bound]');
+      buttons.forEach(button => {
+        const iwclick = button.dataset.iwclick;
+        button.removeAttribute('data-iwclick');
+        setTimeout(() => {
+          button.setAttribute('data-iwclick', iwclick);
+          // Try init one more time
+          if (typeof window.iWishInit === "function") {
+            try {
+              window.iWishInit();
+            } catch (e) {
+              console.log('Final init attempt failed:', e);
+            }
+          }
+        }, 100);
+      });
+    }, 300);
   }
 }
 

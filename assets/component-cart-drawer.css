@@ -448,8 +448,9 @@ cart-drawer-items {
     font-family: Montserrat;
     font-size: 15px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     line-height: normal;
+    text-transform: uppercase;
 }
 
 .cart-drawer .cart__checkout-button:hover {
