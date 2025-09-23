@@ -409,9 +409,9 @@
                   </button>
                 {%- endform -%}
 
-                 <button class="whislist-cart">
-                  {% render 'wishlist-app-links', linkType: 'list-product', product: card_product  %}
-                </button>
+                <button class="whislist-cart">
+                 <a class="iWishAddColl iwishcheck" href="#" data-variant="{{ card_product.variants.first.id }}" data-product="{{ card_product.id }}" data-pTitle="{{ card_product.title | escape }}"></a>
+                 </button>
               </product-form>
 
              

@@ -292,3 +292,10 @@ header-drawer {
     display: none;
 }
   }
+
+
+  @media only screen and (max-width: 360px) {
+    .header__heading-logo {
+        max-width: 115px;
+    }
+}
