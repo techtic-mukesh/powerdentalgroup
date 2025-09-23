@@ -37,6 +37,9 @@ $(document).ready(function () {
     });
 
 
+ 
+
+
 //     async function addToWishlist() {
 //   try {
 //     alert('Adding to wishlist...');

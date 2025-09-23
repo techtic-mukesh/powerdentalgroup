@@ -52,7 +52,9 @@ section.why-choose .why-choose__wrap span.bg-image {
     top: 0;
     margin-left: 0;
     height: 100%;
-    right: 0;
+    
+    right: 100px;
+        scale: 1.2;
 }
 
 section.why-choose .why-choose__wrap span.bg-image img {
@@ -134,12 +136,33 @@ section.why-choose .why-choose__wrap .right-block .block-item h3 p, section.why-
 }
 
 section.why-choose .why-choose__wrap .right-block .block-item h3 p strong {
-    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+          background: linear-gradient(102deg, #42c5ef, #0033a0, #42c5ef, #0033a0);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
     font-weight: 600;
+            transition: color .2s ease-in-out;
 }
+
+section.why-choose .why-choose__wrap .right-block .block-item h3 p strong:hover {
+                    animation: rainbow 1.25s ease-in-out infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: left
+    }
+
+    50% {
+        background-position: right
+    }
+
+    100% {
+        background-position: left
+    }
+}
+
 
 section.why-choose .why-choose__wrap .left-block p {
     color: #FFF;
@@ -150,12 +173,18 @@ section.why-choose .why-choose__wrap .left-block p {
     line-height: 20px; /* 125% */
     letter-spacing: 2.4px;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+    background: linear-gradient(102deg, #42c5ef, #0033a0, #42c5ef, #0033a0);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+                    transition: color .2s ease-in-out;
     margin: 0 0 15px;
 }
+
+section.why-choose .why-choose__wrap .left-block p:hover {
+    animation: rainbow 1.25s ease-in-out infinite;
+ }
 
 section.why-choose .why-choose__wrap .right-block .block-item .text-inner * {
     color: #141132;

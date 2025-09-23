@@ -38,6 +38,20 @@ a.button.button--secondary {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    display: inline-flex;
+    gap: 10px;
+    min-width: 235px;
+}
+
+.badge {
+    border-radius: unset;
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+    overflow: hidden;
+    background-color: unset;
+}
+
+.disclosure .localization-form__select svg[preserveAspectRatio="xMidYMid meet"] {
+    height: 21px;
 }
 
 a.button.button--secondary:hover {
