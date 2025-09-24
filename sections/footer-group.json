@@ -112,7 +112,7 @@
         "color_scheme": "scheme-c2cb00ea-c497-4faa-9d8f-68b679e10b72",
         "newsletter_enable": false,
         "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": true,
+        "enable_follow_on_shop": false,
         "show_social": false,
         "enable_country_selector": false,
         "enable_language_selector": false,
