@@ -2,13 +2,159 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "image_banner_EAxgyW": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_dX8mbD": {
+          "type": "heading",
+          "settings": {
+            "heading": "Power Instrument Servicing program",
+            "heading_size": "h1"
+          }
+        },
+        "text_QH9Tki": {
+          "type": "text",
+          "settings": {
+            "text": "Sharpen, Retip, & Repair. Get the most out of your instruments.",
+            "text_style": "body"
+          }
+        },
+        "buttons_YwzJKU": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Power Servicing Form",
+            "button_link_1": "shopify:\/\/pages\/services",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_dX8mbD",
+        "text_QH9Tki",
+        "buttons_YwzJKU"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/retip-sharpen-repair-hd.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-4",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "kitting_process_HLWBmU": {
+      "type": "kitting-process",
+      "blocks": {
+        "step_tjV3LB": {
+          "type": "step",
+          "settings": {
+            "step_svg": "",
+            "title": "Save Time and Money",
+            "content": "<p>Ensure the integrity of your instruments. Your time is valuable. Rely on our experts to extend the life of your instruments while you focus on the practice.<\/p>"
+          }
+        },
+        "step_7QVJ8w": {
+          "type": "step",
+          "settings": {
+            "step_svg": "",
+            "title": "Increased Sustainability",
+            "content": "<p>Contribute to environmental sustainability. Driven by a 100% solar operation, join our commitment to reducing instrument waste one instrument at a time.<\/p>"
+          }
+        },
+        "step_FczYhH": {
+          "type": "step",
+          "settings": {
+            "step_svg": "",
+            "title": "Work With The Best",
+            "content": "<p>We have serviced over 1.4 million instruments and counting. Work with the best in class where excellence is the standard.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_tjV3LB",
+        "step_7QVJ8w",
+        "step_FczYhH"
+      ],
+      "name": "Kitting Process",
+      "settings": {
+        "heading": "why service your instruments?",
+        "subheading": "",
+        "bg_color": "#f0eeee"
+      }
+    },
+    "rich_text_D3dQX9": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_98qRLN": {
+          "type": "caption",
+          "settings": {
+            "caption": "FIRST TIME SERVICING?",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "heading_JkMgDB": {
+          "type": "heading",
+          "settings": {
+            "heading": "take the next step",
+            "heading_size": "h1"
+          }
+        },
+        "text_KeaPc8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Provide your details below and a member from our service team will reach out to you with information on how to start your servicing journey.<\/p>"
+          }
+        },
+        "button_mh3yHi": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "caption_98qRLN",
+        "heading_JkMgDB",
+        "text_KeaPc8",
+        "button_mh3yHi"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "image_banner_EAxgyW",
+    "kitting_process_HLWBmU",
+    "rich_text_D3dQX9"
   ]
 }
