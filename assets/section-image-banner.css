@@ -15,6 +15,30 @@
   transform: perspective(0);
 }
 
+.banner__box>*+.banner__text p {
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+    line-height: 22px;
+    font-family: Prompt;
+    white-space: pre-wrap;
+    text-align: left;
+    display: inline-block;
+    opacity: 0.7;
+    font-weight: 300;
+}
+
+.banner__heading {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+    margin: 0 0 20px;
+} 
+
 @media only screen and (max-width: 749px) {
   .banner--content-align-mobile-right .banner__box {
     text-align: right;
@@ -37,7 +61,7 @@
   .banner--content-align-left.banner--desktop-transparent .banner__box,
   .banner--content-align-right.banner--desktop-transparent .banner__box,
   .banner--medium.banner--desktop-transparent .banner__box {
-    max-width: 68rem;
+    max-width: 568px;
   }
 }
 
@@ -472,7 +496,7 @@
 }
 
 .banner__box > * + .banner__buttons {
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 @media screen and (max-width: 749px) {
@@ -481,6 +505,14 @@
   .banner:not(.slideshow) .rte a:hover {
     color: currentColor;
   }
+
+  .banner__heading {
+    font-size: 24px;
+}
+
+.banner__box>*+.banner__buttons {
+    margin-top: 1.5rem;
+}
 }
 
 @media screen and (min-width: 750px) {

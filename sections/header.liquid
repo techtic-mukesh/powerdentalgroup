@@ -690,6 +690,58 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "slide",
+      "name": "slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "parent_menu",
+          "label": "Parent Menu Name"
+        },
+        {
+          "type": "text",
+          "id": "menu_title",
+          "label": "Menu Title"
+        },
+        {
+          "type": "collection",
+          "id": "menu_collection",
+          "label": "Select Collection"
+        },
+        {
+        "type": "checkbox",
+        "id": "collection_list",
+        "label": "Show Collection list in tab",
+        "default": false
+        },
+        {
+          "type": "collection_list",
+          "id": "menu_collectionlist",
+          "label": "Select Collection List"
+        },
+        {
+          "type": "select",
+          "id": "menu_type",
+          "label": "Menu Type",
+          "options": [
+            {
+              "value": "tab",
+              "label": "Tab"
+            },
+            {
+              "value": "link",
+              "label": "Link"
+            }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "linkurl",
+          "label": "Select Url"
+        }
+      ]
     }
   ]
 }

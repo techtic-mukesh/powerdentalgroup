@@ -29,6 +29,36 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "slide_4U9ybd": {
+          "type": "slide",
+          "settings": {
+            "parent_menu": "Products",
+            "menu_title": "Power Line",
+            "menu_collection": "power-line",
+            "collection_list": false,
+            "menu_collectionlist": [],
+            "menu_type": "tab",
+            "linkurl": ""
+          }
+        },
+        "slide_878mfW": {
+          "type": "slide",
+          "settings": {
+            "parent_menu": "",
+            "menu_title": "Diagnostic",
+            "menu_collection": "",
+            "collection_list": false,
+            "menu_collectionlist": [],
+            "menu_type": "tab",
+            "linkurl": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_4U9ybd",
+        "slide_878mfW"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
