@@ -1,0 +1,276 @@
+<section class="videos-section" id="videosSection-{{ section.id }}" style="background-color: {{ section.settings.background_color }};">
+  <div class="page-width">
+
+    <div class="videos-title-wrap">
+      {% if section.settings.content %}
+        {{ section.settings.content }}
+      {% endif %}
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="videos-grid grid-{{ section.settings.grid_columns | default: 2 }}">
+      {% for block in section.blocks %}
+        <div class="video-item">
+          <div class="video-wrapper">
+            <div class="video-container">
+              {% if block.settings.video != blank %}
+                {% if block.settings.thumbnail != blank %}
+                  <img class="video-thumbnail" src="{{ block.settings.thumbnail | img_url: '400x451' }}" alt="Video Thumbnail">
+                {% endif %}
+
+                {{ block.settings.video | video_tag: 
+                  controls: false,
+                  autoplay: false,
+                  muted: false,
+                  loop: false,
+                  preload: 'metadata',
+                  playsinline: true,
+                  webkit-playsinline: 'true',
+                  poster: block.settings.thumbnail
+                }}
+
+                <div class="custom-play-button">
+                  <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="45" viewBox="0 0 64 45" fill="none">
+  <g clip-path="url(#clip0_2253_9671)">
+    <path d="M62.5865 7.01875C62.2195 5.66214 61.5034 4.42536 60.5096 3.43157C59.5159 2.43778 58.2791 1.72165 56.9226 1.3545C51.9561 0 31.9675 0 31.9675 0C31.9675 0 11.978 0.0409999 7.01155 1.3955C5.65492 1.76267 4.41816 2.47884 3.42441 3.47268C2.43066 4.46651 1.7146 5.70334 1.34755 7.06C-0.154702 15.8845 -0.737452 29.331 1.3888 37.8025C1.75589 39.1591 2.47196 40.3959 3.46571 41.3897C4.45946 42.3835 5.6962 43.0996 7.0528 43.4668C12.0193 44.8213 32.0083 44.8213 32.0083 44.8213C32.0083 44.8213 51.997 44.8213 56.9633 43.4668C58.3199 43.0996 59.5567 42.3835 60.5505 41.3897C61.5443 40.3959 62.2604 39.1591 62.6275 37.8025C64.212 28.9655 64.7003 15.5273 62.5865 7.01875Z" fill="#FF0000"/>
+    <path d="M25.6055 32.0147L42.1875 22.4102L25.6055 12.8057V32.0147Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_2253_9671">
+      <rect width="64" height="45" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+
+                  <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" style="display: none;">
+                    <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.9)" stroke="rgba(0,0,0,0.2)" stroke-width="1"/>
+                    <rect x="9" y="8" width="2" height="8" fill="#121212"/>
+                    <rect x="13" y="8" width="2" height="8" fill="#121212"/>
+                  </svg>
+                </div>
+
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+.videos-section {
+  text-align: center;
+  padding: 60px 0;
+  background: #fff;
+}
+
+.videos-title-wrap h2 {
+  font-family: Montserrat;
+  font-size: 44px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 30px;
+}
+
+.videos-title-wrap p {
+  font-family: Prompt;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+
+.videos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.video-item {
+  flex-shrink: 0;
+}
+
+.video-wrapper .video-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    max-height: 581px;
+    min-height: 581px;
+}
+
+.video-wrapper .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-thumbnail {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.video-container.playing .video-thumbnail {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.video-container.playing:hover .custom-play-button  {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.custom-play-button {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.custom-play-button svg {
+  width: 64px; height: 64px;
+  transition: all 0.3s ease;
+}
+
+.video-container.playing .custom-play-button {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Responsive Grid */
+
+
+.videos-grid.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: grid;
+    gap: 30px;
+}
+
+@media (max-width: 1060px) {
+  .videos-grid { flex-direction: column; gap: 40px; }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const section = document.querySelector('#videosSection-{{ section.id }}');
+  if (!section) return;
+
+  const videos = section.querySelectorAll('video');
+  const buttons = section.querySelectorAll('.custom-play-button');
+  const containers = section.querySelectorAll('.video-container');
+
+  function pauseAllVideos() {
+    videos.forEach(video => {
+      video.pause();
+      const container = video.closest('.video-container');
+      container.classList.remove('playing', 'loading');
+      const playIcon = container.querySelector('.play-icon');
+      const pauseIcon = container.querySelector('.pause-icon');
+      const thumbnail = container.querySelector('.video-thumbnail');
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+      if (thumbnail) thumbnail.style.opacity = '1';
+    });
+  }
+
+  buttons.forEach(button => {
+    button.addEventListener('click', e => {
+      e.preventDefault();
+      const container = button.closest('.video-container');
+      const video = container.querySelector('video');
+      const playIcon = container.querySelector('.play-icon');
+      const pauseIcon = container.querySelector('.pause-icon');
+      const thumbnail = container.querySelector('.video-thumbnail');
+
+      if (!video) return;
+
+      if (video.paused) {
+        pauseAllVideos();
+        container.classList.add('loading');
+        video.play().then(() => {
+          container.classList.remove('loading');
+          container.classList.add('playing');
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = 'block';
+          if (thumbnail) thumbnail.style.opacity = '0';
+        }).catch(() => {});
+      } else {
+        video.pause();
+        container.classList.remove('playing', 'loading');
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+        if (thumbnail) thumbnail.style.opacity = '1';
+      }
+    });
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        const video = entry.target.querySelector('video');
+        if (video) video.pause();
+        pauseAllVideos();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  containers.forEach(container => observer.observe(container));
+  document.addEventListener('visibilitychange', () => { if (document.hidden) pauseAllVideos(); });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Videos Section",
+  "settings": [
+     {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#ffffff"
+      },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "content", "label": "Content" },
+    {
+      "type": "select",
+      "id": "grid_columns",
+      "label": "Grid Layout",
+      "options": [
+        { "value": "2", "label": "2 Columns" },
+        { "value": "3", "label": "3 Columns" },
+        { "value": "4", "label": "4 Columns" }
+      ],
+      "default": "2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video_block",
+      "name": "Video Block",
+      "settings": [
+        { "type": "video", "id": "video", "label": "Video File" },
+        { "type": "image_picker", "id": "thumbnail", "label": "Overlay Image (optional)" }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    { "name": "Videos Section", "category": "Media" }
+  ]
+}
+{% endschema %}
