@@ -148,9 +148,9 @@ summary .icon-caret {
 }
 
 
-/* .header--middle-left .header__inline-menu ul.list-menu.list-menu--inline li.Products {
+.header--middle-left .header__inline-menu ul.list-menu.list-menu--inline li.Products {
     display: none;
-}  */
+} 
 
 .header--middle-left .header__inline-menu ul.list-menu.list-menu--inline li:first-of-type details#Details-HeaderMenu-1 {
     position: unset;

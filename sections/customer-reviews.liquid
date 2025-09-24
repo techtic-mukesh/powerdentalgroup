@@ -1,0 +1,413 @@
+<section class="customer-reviews-section" style="background-color: {{ section.settings.background_color }};">
+  <div class="page-width">
+    <div class="cms-header">
+        <p class="sub_title">{{ section.settings.sub_title }}</p>
+        <h2 class="customer-reviews__title">{{ section.settings.section_title }}</h2>
+    </div>
+
+    <div class="swiper-main" style="position: relative;">
+      <div class="swiper customer-review-swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+          <div class="swiper-slide customer-review__slide">
+            <div class="customer-review__card">
+              {% if block.settings.profile_image != blank %}
+              <div class="customer-review__avatar">
+                <img src="{{ block.settings.profile_image | img_url: '120x120' }}" alt="{{ block.settings.name | escape }}">
+              </div>
+              {% endif %}
+
+              <div class="customer-review__content">
+
+                <div class="customer-review__quote-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+  <path d="M4.61379 7.865C2.25504 10.425 2.49254 13.7125 2.50004 13.75V23.75C2.50004 24.0815 2.63173 24.3995 2.86615 24.6339C3.10058 24.8683 3.41852 25 3.75004 25H11.25C12.6288 25 13.75 23.8788 13.75 22.5V13.75C13.75 13.4185 13.6183 13.1005 13.3839 12.8661C13.1495 12.6317 12.8316 12.5 12.5 12.5H8.65254C8.6795 11.8821 8.8641 11.2814 9.18879 10.755C9.82379 9.75375 11.02 9.07 12.7463 8.725L13.75 8.525V5H12.5C9.02129 5 6.36754 5.96375 4.61379 7.865ZM18.3725 7.865C16.0125 10.425 16.2513 13.7125 16.2588 13.75V23.75C16.2588 24.0815 16.3905 24.3995 16.6249 24.6339C16.8593 24.8683 17.1773 25 17.5088 25H25.0088C26.3875 25 27.5088 23.8788 27.5088 22.5V13.75C27.5088 13.4185 27.3771 13.1005 27.1427 12.8661C26.9083 12.6317 26.5903 12.5 26.2588 12.5H22.4113C22.4383 11.8821 22.6229 11.2814 22.9475 10.755C23.5825 9.75375 24.7788 9.07 26.505 8.725L27.5088 8.525V5H26.2588C22.78 5 20.1263 5.96375 18.3725 7.865Z" fill="black"/>
+  <path d="M4.61379 7.865C2.25504 10.425 2.49254 13.7125 2.50004 13.75V23.75C2.50004 24.0815 2.63173 24.3995 2.86615 24.6339C3.10058 24.8683 3.41852 25 3.75004 25H11.25C12.6288 25 13.75 23.8788 13.75 22.5V13.75C13.75 13.4185 13.6183 13.1005 13.3839 12.8661C13.1495 12.6317 12.8316 12.5 12.5 12.5H8.65254C8.6795 11.8821 8.8641 11.2814 9.18879 10.755C9.82379 9.75375 11.02 9.07 12.7463 8.725L13.75 8.525V5H12.5C9.02129 5 6.36754 5.96375 4.61379 7.865ZM18.3725 7.865C16.0125 10.425 16.2513 13.7125 16.2588 13.75V23.75C16.2588 24.0815 16.3905 24.3995 16.6249 24.6339C16.8593 24.8683 17.1773 25 17.5088 25H25.0088C26.3875 25 27.5088 23.8788 27.5088 22.5V13.75C27.5088 13.4185 27.3771 13.1005 27.1427 12.8661C26.9083 12.6317 26.5903 12.5 26.2588 12.5H22.4113C22.4383 11.8821 22.6229 11.2814 22.9475 10.755C23.5825 9.75375 24.7788 9.07 26.505 8.725L27.5088 8.525V5H26.2588C22.78 5 20.1263 5.96375 18.3725 7.865Z" fill="url(#paint0_linear_2253_9687)"/>
+  <defs>
+    <linearGradient id="paint0_linear_2253_9687" x1="27.5088" y1="15" x2="2.49011" y2="15" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#42C5EF"/>
+      <stop offset="1" stop-color="#0033A0"/>
+    </linearGradient>
+  </defs>
+</svg>
+                </div>
+
+                {% if block.settings.testimonial_title != blank %}
+                <h3 class="customer-review__title">{{ block.settings.testimonial_title }}</h3>
+                {% endif %}
+
+                {% if block.settings.testimonial_text != blank %}
+                <div class="customer-review__content-text">
+                  {{ block.settings.testimonial_text }}
+                </div>
+                {% endif %}
+
+                {% if block.settings.product != blank %}
+                    <div class="customer-review__products">
+                        {% for product in block.settings.product %}
+                        <a href="{{ product.url }}" class="customer-review__product-link">
+                            {% if product.featured_image %}
+                            <img 
+                                src="{{ product.featured_image | img_url: '200x200' }}" 
+                                alt="{{ product.title | escape }}" 
+                                class="customer-review__product-image"
+                            >
+                            {% endif %}
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                <div class="customer-review__footer">
+                  {% if block.settings.name != blank %}
+                  <div class="customer-review__author">
+                    <strong>{{ block.settings.name }}</strong>
+                    {% if block.settings.credentials != blank %}
+                    <span class="customer-review__credentials">{{ block.settings.credentials }}</span>
+                    {% endif %}
+                  </div>
+                  {% endif %}
+
+                  {% if block.settings.date != blank %}
+                  <div class="customer-review__date">
+                    Posted on {{ block.settings.date }}
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Swiper navigation -->
+     
+
+      <div class="swiper-pagination customer-review-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+.customer-reviews-section {
+  padding: 60px 0;
+  background: #fff;
+}
+
+.customer-reviews__title {
+  text-align: center;
+  margin: 0 0 30px;
+}
+
+.customer-review-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.customer-review-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.customer-reviews-section .cms-header {
+    text-align: center;
+}
+
+.customer-reviews-section p.sub_title {
+    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-family: Prompt;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 27px; /* 150% */
+    letter-spacing: 2.7px;
+    text-transform: uppercase;
+    margin: 0 0 15px;
+}
+
+.customer-review__card {
+  padding: 50px 30px;
+  background: #FFF;
+  display: flex;
+  gap: 30px;
+  flex: 1;
+}
+
+.customer-review__quote-icon {
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.customer-review__card > .customer-review__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-review-pagination {
+  display: none;
+}
+
+.customer-review__title {
+  color: #141132;
+  font-family: Prompt;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px 0 20px;
+}
+
+.customer-review__content-text {
+  color: #141132;
+  font-family: Prompt;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 22px;
+  margin: 0 0 20px;
+}
+
+.customer-review__content-text p {
+  margin: 0;
+  color: #010005;
+font-family: Prompt;
+font-size: 16px;
+font-style: normal;
+font-weight: 300;
+line-height: 22px; /* 137.5% */
+}
+
+.customer-review-prev,
+.customer-review-next {
+  width: 40px;
+  height: 20px;
+}
+
+.customer-review-prev {
+  left: -22px;
+  z-index: 1;
+}
+
+.customer-review-next {
+  right: -22px;
+  z-index: 1;
+}
+
+.swiper-main {
+  padding: 0 10px;
+}
+
+.customer-review__author * {
+  color: #0033A0;
+  font-family: Prompt;
+  font-size: 18px;
+}
+
+.customer-review__author {
+  display: flex;
+  flex-direction: column;
+      align-items: baseline;
+}
+
+.customer-review__author strong {
+    color: #0033A0;
+    text-align: right;
+    font-family: Prompt;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.customer-review__date {
+  color: #141132;
+  font-family: Prompt;
+  font-size: 16px;
+}
+
+section.signup-mail {
+    display: none !important;
+}
+
+.customer-review__products {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.customer-review__products a.customer-review__product-link {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    border: 1px solid #D9D9D9;
+    background: #fff;
+    overflow: hidden;
+    max-width: 50px;
+}
+
+.customer-review__products a.customer-review__product-link img.customer-review__product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+  .customer-review-prev,
+  .customer-review-next {
+    display: none !important;
+  }
+
+  .customer-review-pagination {
+    display: block;
+    margin-top: 20px;
+    bottom: -40px !important;
+    text-align: center;
+  }
+
+  .customer-reviews-section {
+    padding: 30px 0 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .customer-review__card {
+    padding: 20px;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .customer-review__avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .customer-review__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .customer-review__title {
+    font-size: 18px;
+    margin: 10px 0 10px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Customer Reviews Swiper",
+  "settings": [
+     {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#ffffff"
+      },
+      {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub Title"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "CUSTOMER REVIEWS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "customer_review",
+      "name": "Customer Review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "profile_image",
+          "label": "Profile Image"
+        },
+        {
+          "type": "text",
+          "id": "testimonial_title",
+          "label": "Review Title",
+          "info": "e.g., Saves Me Valuable Chair Time and Hundreds of Dollars in Bills"
+        },
+        {
+          "type": "richtext",
+          "id": "testimonial_text",
+          "label": "Review Text",
+          "info": "Enter the review content here..."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer Name",
+          "info": "e.g., Dr. Santiago, DDS"
+        },
+        {
+          "type": "text",
+          "id": "credentials",
+          "label": "Credentials/Company",
+          "info": "e.g., Comfort Smiles Atlanta"
+        },
+        { "type": "product_list", "id": "product", "label": "Select Product" },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date",
+          "info": "e.g., February 20, 2024"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer Reviews Swiper"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const swiperEl = document.querySelector(".customer-review-swiper");
+
+  if (swiperEl) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      if (entries[0].isIntersecting) {
+        new Swiper(".customer-review-swiper", {
+          loop: true,
+          slidesPerView: 1,
+          spaceBetween: 30,
+          navigation: {
+            nextEl: ".customer-review-next",
+            prevEl: ".customer-review-prev"
+          },
+          pagination: {
+            el: ".customer-review-pagination",
+            clickable: true,
+          },
+          breakpoints: {
+            991: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            }
+          }
+        });
+        obs.disconnect();
+      }
+    });
+    observer.observe(swiperEl);
+  }
+});
+</script>
