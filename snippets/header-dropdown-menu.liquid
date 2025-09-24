@@ -31,6 +31,100 @@
                 role="list"
                 tabindex="-1"
               >
+              {% if link.title == 'Products' %}
+                  <div class="tabs-menu">
+                    <div class="tabs">
+                      <ul id="tabs-nav">
+                        {% for block in section.blocks %}
+                            <li {% if block.settings.menu_type == 'tab' %}class="tabs-li"{% endif %}>
+                            {% if block.settings.menu_type == 'tab' %}
+                              <a href="#tab{{ forloop.index }}">{{ block.settings.menu_title }}</a>
+                            {% elsif block.settings.menu_type == 'link' %}
+                              <a href="{{ block.settings.linkurl }}">
+                                {{- block.settings.menu_title -}}
+                              </a>
+                          </li>
+                          {% endif %}
+                        {% endfor %}
+                      </ul>
+                      <!-- END tabs-nav -->
+
+                      <div id="tabs-content">
+                        {% for block in section.blocks %}
+                          {% if link.title == block.settings.parent_menu %}
+                            {% if block.settings.collection_list %}
+                              <div id="tab{{ forloop.index }}" class="tab-content collection-list">
+                                <div class="collection-menu">
+                                  {% for collection in block.settings.menu_collectionlist %}
+                                    <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
+                                      <p>{{ collection.title }}</p>
+                                    </a>
+                                  {% endfor %}
+                                </div>
+                                
+  
+                                <div class="image-display">
+                                    <img src="" alt="Current Collection Image" width="" height="">
+                                </div>
+                              </div>
+                            {% else %}
+                              <div id="tab{{ forloop.index }}" class="tab-content">
+                                {% assign collection = collections[block.settings.menu_collection] %}
+                                {% assign collection_sorted = collection.products %}
+                          
+                                {% if collection.products.size > 0 %}
+                                  {% assign product_limit = 10 %}
+                                  {% assign product_count = 0 %}
+                                  {% for product in collection_sorted %}
+                                    {% if product_count < product_limit %}
+                                      <div class="product-item">
+                                        <a href="{{ product.url }}" class="product-image-container">
+                                          {% if product.images.size > 1 %}
+                                            <img src="{{ product.featured_image | img_url: 'large' }}" 
+                                                 alt="{{ product.title }}" width="" height=""
+                                                 class="product-image primary-image">
+                                            <img src="{{ product.images[1] | img_url: 'large' }}" 
+                                                 alt="{{ product.title }}" width="" height=""
+                                                 class="product-image secondary-image">
+                                          {% else %}
+                                            <img src="{{ product.featured_image | img_url: 'large' }}" 
+                                                 alt="{{ product.title }}" width="" height=""
+                                                 class="product-image">
+                                          {% endif %}
+                                        </a>
+                                        <div class="product-details">
+                                          <a href="{{ product.url }}">{{ product.title }}</a>
+                                          <p>{{ product.variants.first.price | money }}</p>
+                                        </div>
+                                      </div>
+                                      {% assign product_count = product_count | plus: 1 %}
+                                    {% else %}
+                                      {% break %}
+                                    {% endif %}
+                                  {% endfor %}
+                                  <a class="view__link" href="{{ collection.url }}">
+                                    View All 
+                                    <span>
+                                    {% render 'right-arrow' %}
+                                      <!-- <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 0.5L7 6.5L1 12.5" stroke="#161616" stroke-linecap="round" stroke-linejoin="round"/>
+                                      </svg> -->
+                                    </span>
+                                  </a>
+                                {% else %}
+                                  <p>No products found in this collection.</p>
+                                {% endif %}
+                              </div>
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}
+                      </div>
+                      
+                      <!-- END tabs-content -->
+                    </div>
+                    <!-- END tabs -->
+                  </div>
+                {% else %}
                 {%- for childlink in link.links -%}
                   <li>
                     {%- if childlink.links == blank -%}
@@ -76,6 +170,7 @@
                     {%- endif -%}
                   </li>
                 {%- endfor -%}
+              {% endif %}
               </ul>
             </details>
           </header-menu>
@@ -101,3 +196,81 @@
     {%- endfor -%}
   </ul>
 </nav>
+
+
+<script>
+  $(document).ready(function () {
+    // Initialize the first tab as active and show the corresponding content
+    $('header-menu').each(function () {
+      $(this).find('#tabs-nav li:first-child').addClass('active');
+      $(this).find('.tab-content').hide();
+      $(this).find('.tab-content:first').show();
+    });
+    
+    // Click function for tab switching
+    $('#tabs-nav li.tabs-li').click(function (e) {
+      e.preventDefault();
+    
+      var parentMenu = $(this).closest('.mega-menu'); // Get parent container
+      parentMenu.find('#tabs-nav li').removeClass('active');
+      $(this).addClass('active');
+    
+      parentMenu.find('.tab-content').hide();
+      var activeTab = $(this).find('a').attr('href');
+      parentMenu.find(activeTab).fadeIn();
+    });
+
+
+
+    // Collection list JS
+
+    $('.collection-list').each(function() {
+    const $collectionList = $(this);
+    const $firstItem = $collectionList.find('.collection-item:first');
+    const $imageDisplay = $collectionList.find('.image-display');
+    const $imageDisplayImg = $imageDisplay.find('img');
+    const defaultImage = "https://cdn.shopify.com/s/files/1/0610/6211/9556/files/image_6.png?v=1738566678";
+
+    // Set default image on load
+    let initialImage = $firstItem.data('image') || defaultImage;
+    let initialLink = $firstItem.attr('href') || "#";
+
+    $firstItem.addClass('active');
+    
+    if (!$imageDisplay.find('a').length) {
+        $imageDisplayImg.wrap(`<a href="${initialLink}"></a>`);
+    } else {
+        $imageDisplay.find('a').attr('href', initialLink);
+    }
+    
+    $imageDisplayImg.attr('src', initialImage).on('error', function() {
+        $(this).attr('src', defaultImage); 
+    });
+
+    $collectionList.on('mouseenter', '.collection-item', function(e) {
+        e.preventDefault();
+
+        const $this = $(this);
+        let imageUrl = $this.data('image') || defaultImage;
+        let collectionUrl = $this.attr('href') || "#";
+
+        $collectionList.find('.collection-item').removeClass('active');
+        $this.addClass('active');
+
+        $imageDisplay.find('a').fadeOut(100, function() {
+            $imageDisplayImg
+                .attr('src', imageUrl)
+                .on('load', function() {
+                    $imageDisplay.find('a').attr('href', collectionUrl).fadeIn(100);
+                })
+                .on('error', function() {
+                    console.error('Failed to load image:', imageUrl);
+                    $(this).attr('src', defaultImage); 
+                });
+        });
+    });
+});
+
+
+  });
+</script>

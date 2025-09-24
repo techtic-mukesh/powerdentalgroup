@@ -2871,6 +2871,9 @@ details[open] > .header__menu-item .icon-caret {
   text-underline-offset: 0.3rem;
 }
 
+.header__active-menu-item ~ svg path {
+  fill: #0033A0;
+}
 .header__active-menu-item svg path {
   fill: #0033A0;
 } 
@@ -2918,6 +2921,12 @@ details[open] > .header__menu-item .icon-caret {
   /* text-decoration-line: underline; */
   background-color: #0033a0cc;
   color: #fff;
+}
+
+.header__submenu .header__menu-item.list-menu__item--active { 
+   background-color: #0033a0cc;
+  color: #fff;
+  text-decoration: none;
 }
 
 .header__menu-item .icon-caret {

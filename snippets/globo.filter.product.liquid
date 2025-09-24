@@ -1112,6 +1112,12 @@ class IWishButtonManager {
       return;
     }
 
+    if (this.retryCount >= this.maxRetries) {
+  console.warn("⛔ Max retries reached. Stopping initialization attempts.");
+  return;
+}
+
+
     const delay = this.retryDelays[this.retryCount] || 2000;
     
     setTimeout(() => {
@@ -1146,6 +1152,12 @@ class IWishButtonManager {
         this.postInitializationSetup(buttons);
       }
     }, delay);
+
+   if (this.retryCount >= this.maxRetries) {
+  console.warn("⛔ Max retries reached. Stopping initialization attempts.");
+  return;
+}
+
   }
 
   // Try a specific initialization method

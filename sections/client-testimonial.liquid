@@ -1,0 +1,413 @@
+    <section class="testimonials-section" style="background: linear-gradient(85deg, #060144 47.57%, #010008 95.61%);">
+    <div class="page-width">
+        <h2 class="testimonials__title">{{ section.settings.section_title }}</h2>
+
+        <div class="swiper-main" style="position: relative;">
+            <div class="swiper testimonial-client">
+        <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+            <div class="swiper-slide testimonial__slide">
+            <div class="testimonial__card">
+                {% if block.settings.profile_image != blank %}
+                <div class="testimonial__avatar">
+                    <img src="{{ block.settings.profile_image | img_url: '' }}" alt="{{ block.settings.name | escape }}">
+                </div>
+                {% endif %}
+
+                            <div class="testimonial__content">
+
+                <div class="testimonial__quote-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="30" viewBox="0 0 36 30" fill="none">
+    <g clip-path="url(#clip0_2253_9814)">
+        <path d="M17.1429 -0.000350686V6.67173C13.6419 6.89088 10.0443 9.15549 10.2616 13.0759H17.1429V29.9997H0V14.5613C0.169014 11.274 1.15895 8.08406 3.23541 5.5029C6.5674 1.36329 12 -0.0977533 17.1429 -0.000350686Z" fill="white"/>
+        <path d="M36.0003 0.000300603V6.67238C32.4993 6.89153 28.95 9.1805 29.119 13.0766H36.0003V30.0003H18.8574V15.0003C18.9781 11.6886 19.8232 8.59608 21.8031 5.91751C25.0385 1.48569 30.7126 -0.097102 36.0003 0.000300603Z" fill="white"/>
+    </g>
+    <defs>
+        <clipPath id="clip0_2253_9814">
+        <rect width="36" height="30" fill="white"/>
+        </clipPath>
+    </defs>
+    </svg>
+                </div>
+                
+                {% if block.settings.testimonial_title != blank %}
+                <h3 class="testimonial__title">{{ block.settings.testimonial_title }}</h3>
+                {% endif %}
+                
+                {% if block.settings.testimonial_text != blank %}
+                <div class="testimonial__content">
+                {{ block.settings.testimonial_text }}
+                </div>
+                {% endif %}
+                
+                <div class="testimonial__footer">
+                {% if block.settings.name != blank %}
+                <div class="testimonial__author">
+                    <strong>{{ block.settings.name }}</strong>
+                    {% if block.settings.credentials != blank %}
+                    <span class="testimonial__credentials">{{ block.settings.credentials }}</span>
+                    {% endif %}
+                </div>
+                {% endif %}
+                
+                {% if block.settings.date != blank %}
+                <div class="testimonial__date">
+                    Posted on {{ block.settings.date }}
+                </div>
+                {% endif %}
+                </div>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+
+        <!-- Swiper navigation -->
+        <div class="swiper-button-prev testimonial-prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="34" viewBox="0 0 18 34" fill="none">
+            <path d="M17 1L0.999999 17L17 33" stroke="#7A7A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="swiper-button-next testimonial-next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="34" viewBox="0 0 18 34" fill="none">
+            <path d="M1 1L17 17L1 33" stroke="#7A7A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+
+        <div class="swiper-pagination testimonial-pagination"></div>
+
+
+        </div>
+        
+    
+    </div>
+    </section>
+
+    <style>
+    .testimonials-section {
+    padding: 60px 0;
+    background: #fff;
+    }
+
+    .testimonials-section h2.testimonials__title {
+        text-align: center;
+        margin: 0 0 60px;
+        color: #fff;
+    }
+
+    /* Equal height for swiper slides */
+    .testimonial-client .swiper-wrapper {
+        align-items: stretch;
+    }
+
+    .testimonial-client .swiper-slide {
+        height: auto;
+        display: flex;
+    }
+
+    .testimonial__card {
+        padding: 0 100px;
+        border-radius: 30px;
+        display: flex;
+        gap: 60px;
+        flex: 1; /* This ensures the card takes full height of the slide */
+    }
+
+    .testimonial__avatar {
+        max-width: 420px;
+        min-width: 420px;
+    }
+
+    .testimonial__avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+            border-radius: 20px;
+            aspect-ratio: 4/4;
+    }
+
+    /* Make the right content area flexible */
+    .testimonial__card > .testimonial__content {
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .testimonial-pagination {
+    display: none;
+    }
+
+    h3.testimonial__title {
+        color: #141132;
+        font-family: Prompt;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 22px; /* 110% */
+        margin: 10px 0 20px;
+    }
+
+    /* Testimonial text content */
+    .testimonial__content .testimonial__content {
+        margin: 0 0 0;
+    }
+
+    .testimonial__content .testimonial__content p {
+        color: #FFF;
+        font-family: Montserrat;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin: 0;
+    }
+
+    .testimonials-section .swiper-button-next:after, .testimonials-section .swiper-button-prev:after {
+        display: none;
+    }
+
+    .testimonials-section .swiper-button-next svg, .testimonials-section .swiper-button-prev svg {
+        width: 40px;
+        height: 20px;
+    }
+
+    .testimonials-section .swiper-button-prev {
+        left: -22px;
+        z-index: 1;
+    }
+
+    .testimonials-section .swiper-button-next {
+        right: -22px;
+        z-index: 1;
+    }
+
+    .swiper-main {
+        padding: 0 10px;
+    }
+
+    .testimonial__author * {
+        color: #fff;
+        font-family: Prompt;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px; /* 133.333% */
+    }
+
+    span.testimonial__credentials {
+        font-weight: 300;
+    }
+
+    .testimonial__author {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .testimonial__date {
+        color: #141132;
+        font-family: Prompt;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+    }
+
+    .testimonial-client .swiper-pagination-bullet {
+        background-color: #fff;
+    }
+
+    @media (max-width: 1200px) {
+        .testimonial__card {
+        padding: 0 40px;
+        gap: 30px;
+    }
+
+    .testimonial__card > .testimonial__content {
+        gap: 30px;
+    }
+
+    .testimonial__avatar {
+        max-width: 320px;
+        min-width: 320px;
+    }
+    }
+
+    @media (max-width: 1024px) {
+    .testimonial-prev,
+    .testimonial-next {
+        display: none !important;
+    }
+
+    .testimonial-pagination {
+        display: block;
+        margin-top: 20px;
+                bottom: -40px !important;
+        text-align: center;
+        z-index: 1;
+    }
+
+    .testimonials-section {
+        padding: 30px 0 60px;
+    }
+
+    .testimonial__card {
+        padding: 0;
+    }
+
+    .testimonial__card > .testimonial__content {
+        gap: 20px;
+    }
+
+    .testimonial__content .testimonial__content p {
+        font-size: 18px;
+    }
+    }
+
+    @media (max-width: 767px) {
+    .testimonials-section h2.testimonials__title {
+        margin: 0 0 30px;
+    }
+
+    .testimonials-section h2.testimonials__title {
+        margin: 0 0 30px;
+    }
+
+    .testimonial__card {
+        flex-direction: column;
+    }
+
+    .testimonial__quote-icon svg {
+        width: 24px;
+    }
+
+        .testimonial__content .testimonial__content p {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+    }
+
+    @media (max-width: 340px) {
+        .testimonial__avatar {
+            max-width: 100%;
+            min-width: 100%;
+        }
+    }
+
+    </style>
+
+    {% schema %}
+    {
+    "name": "Client Testimonials",
+    "settings": [
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background Color",
+            "default": "#ffffff"
+        },
+        {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title",
+        "default": "TESTIMONIALS"
+        }
+    ],
+    "blocks": [
+        {
+        "type": "testimonial",
+        "name": "Testimonial",
+        "settings": [
+            {
+            "type": "image_picker",
+            "id": "profile_image",
+            "label": "Profile Image"
+            },
+            {
+            "type": "text",
+            "id": "testimonial_title",
+            "label": "Testimonial Title",
+            "info": "e.g., Saves Me Valuable Chair Time and Hundreds of Dollars in Bills"
+            },
+            {
+            "type": "richtext",
+            "id": "testimonial_text",
+            "label": "Testimonial Text",
+            "info": "Enter the testimonial content here..."
+            },
+            {
+            "type": "text",
+            "id": "name",
+            "label": "Customer Name",
+            "info": "e.g., Dr. Santiago, DDS"
+            },
+            {
+            "type": "text",
+            "id": "credentials",
+            "label": "Credentials/Company",
+            "info": "e.g., Comfort Smiles Atlanta"
+            },
+            {
+            "type": "text",
+            "id": "date",
+            "label": "Date",
+            "info": "e.g., February 20, 2024"
+            }
+        ]
+        }
+    ],
+    "presets": [
+        {
+        "name": "Client Swiper"
+        }
+    ]
+    }
+    {% endschema %}
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const swiperEl = document.querySelector(".testimonial-client");
+
+    if (swiperEl) {
+        const observer = new IntersectionObserver((entries, obs) => {
+        if (entries[0].isIntersecting) {
+            new Swiper(".testimonial-client", {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 30,
+            navigation: {
+                nextEl: ".testimonial-next",
+                prevEl: ".testimonial-prev"
+            },
+            pagination: {
+                el: ".testimonial-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 4000, // 4 seconds
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                768: {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                },
+                1024: {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                }
+            }
+            });
+            obs.disconnect();
+        }
+        });
+        observer.observe(swiperEl);
+    }
+    });
+
+
+    </script>

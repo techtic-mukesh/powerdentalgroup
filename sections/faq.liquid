@@ -1,0 +1,236 @@
+<section class="faq-section" style="background: {{ section.settings.bg_color | default: 'rgba(240, 238, 238, 0.93)' }};">
+<div class="page-width">
+  <div class="faq-header">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subheading }}</p>
+  </div>
+  <div class="faq-grid">
+    {% for block in section.blocks %}
+     <div class="faq-item" {{ block.shopify_attributes }}>
+        <h2 class="faq-heading">{{ block.settings.title }}
+
+        <div class="icon-dwn">
+           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M1 7H13M7 1V13" stroke="#01000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="2" viewBox="0 0 14 2" fill="none">
+            <path d="M1 1L13 1" stroke="#01000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        </h2>
+      <div class="faq-text">
+        {{ block.settings.content }}
+      </div>
+     
+    </div>
+
+    {% endfor %}
+  </div>
+  </div>
+</section>
+
+<script>
+ $(document).ready(function () {
+  const $accordionItems = $(".faq-heading");
+
+  // Open the first item by default
+  $accordionItems.first().addClass("active").next().slideDown();
+
+  $accordionItems.on("click", function () {
+    const $this = $(this);
+
+    // If this is already active, do nothing
+    if ($this.hasClass("active")) return;
+
+    // Close any currently active item
+    $accordionItems.filter(".active").removeClass("active").next().slideUp();
+
+    // Open the clicked one
+    $this.addClass("active").next().slideDown();
+  });
+});
+
+
+</script>
+
+
+<style>
+
+
+section.faq-section {
+   display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    padding: 60px 0;
+    background: rgba(240, 238, 238, 0.93);
+}
+
+section.faq-section .faq-header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+section.faq-section .faq-header h2 {
+  color: #010005;
+text-align: center;
+font-family: Montserrat;
+font-size: 34px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: uppercase;
+}
+
+section.faq-section .faq-grid {
+    max-width: 703px;
+    margin: 0 auto;
+}
+
+section.faq-section .faq-grid .faq-item {
+    display: flex;
+    flex-direction: column;
+}
+
+section.faq-section .faq-grid .faq-item .faq-heading .icon-dwn svg.minus-icon {
+    display: none;
+}
+
+section.faq-section .faq-grid .faq-item h2.faq-heading.active .icon-dwn svg {
+    display: none;
+}
+
+section.faq-section .faq-grid .faq-item h2.faq-heading.active .icon-dwn svg.minus-icon {
+    display: block;
+}
+
+section.faq-section .faq-grid .faq-item:not(:last-child) {
+    border-bottom: 1px solid #929f8c45;
+}
+
+section.faq-section .faq-grid .faq-item .faq-heading {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    color: #131313;
+font-family: Prompt;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: 0.8px;
+text-transform: uppercase;
+margin: 20px 0;
+}
+
+section.faq-section .faq-grid .faq-item .faq-heading .icon-dwn {
+    min-width: 18px;
+    height: 18px;
+    transition: all 0.4s ease-out;
+    display: flex;
+    align-items: center;
+}
+
+
+
+section.faq-section .faq-grid .faq-text {
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+section.faq-section .faq-grid .faq-text * {
+   color: #01000A;
+font-family: Prompt;
+font-size: 16px;
+font-style: normal;
+font-weight: 300;
+line-height: 22px; /* 137.5% */
+}
+
+section.faq-section .faq-grid .faq-text p {
+    margin-top: 0;
+}
+
+section.faq-section .faq-grid .faq-text a {
+    color: #5C7352 !important;
+}
+
+
+/* RSPNV */
+
+
+
+@media screen and (max-width: 767px) {
+    section.faq-section {
+    padding: 32px 0;
+}
+
+section.faq-section .faq-header {
+    margin-bottom: 30px;
+}
+
+section.faq-section .faq-grid .faq-item .faq-heading {
+    font-size: 16px;
+}
+
+section.faq-section .faq-header h2 {
+    font-size: 24px;
+}
+   
+}
+</style>
+
+
+
+{% schema %}
+{
+  "name": "Faq Section",
+  "tag": "section",
+  "class": "faq",
+  "max_blocks": 30,
+"settings": [
+    {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+    },
+    {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading"
+    },
+    {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color",
+        "default": "#f0eeee"
+    }
+],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "faq",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+       {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Faq Section"     
+    }
+  ]
+}
+{% endschema %}
