@@ -1,0 +1,55 @@
+<section class="kitting-form" style="background-color: {{ section.settings.background_color }};">
+  <div class="page-width">
+        {% if section.settings.sub_title != blank or section.settings.section_title != blank %}
+            <div class="kittng-header">
+                {% if section.settings.sub_title != blank %}
+                    <p class="sub_title">{{ section.settings.sub_title }}</p>
+                {% endif %}
+                {% if section.settings.section_title != blank %}
+                    <h2 class="ktititle">{{ section.settings.section_title }}</h2>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <div class="form-wrap-ks">
+            {{ section.settings.liqud }}
+        </div>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Kitting Form",
+  "settings": [
+     {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#ffffff"
+      },
+      {
+      "type": "text",
+      "id": "sub_title",
+      "label": "Sub Title"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title"
+    },
+    {
+      "type": "liquid",
+      "id": "liqud",
+      "label": "Hubspot Embed"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kitting Form"
+    }
+  ]
+}
+{% endschema %}
+
