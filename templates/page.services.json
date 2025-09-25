@@ -95,6 +95,16 @@
         "grid_columns": "3"
       }
     },
+    "kitting_form_bPq6nh": {
+      "type": "kitting-form",
+      "name": "Kitting Form",
+      "settings": {
+        "background_color": "#ffffff",
+        "sub_title": "",
+        "section_title": "Custom Kitting inquiry",
+        "liqud": "<script charset=\"utf-8\" type=\"text\/javascript\" src=\"\/\/js.hsforms.net\/forms\/embed\/v2.js\"><\/script>\n<script>\n  hbspt.forms.create({\n    portalId: \"39754023\",\n    formId: \"f2009184-4621-4570-b1f6-756c0f34573e\",\n    region: \"na1\"\n  });\n<\/script>"
+      }
+    },
     "customer_reviews_FqbAbC": {
       "type": "customer-reviews",
       "blocks": {
@@ -170,6 +180,7 @@
     "main",
     "image_banner_fxP84U",
     "videos_grid_3MXBqF",
+    "kitting_form_bPq6nh",
     "customer_reviews_FqbAbC"
   ]
 }
