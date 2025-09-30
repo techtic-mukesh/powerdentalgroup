@@ -333,7 +333,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_26115.png",
             "label": "<p>Trade-In<br\/>Program<\/p>",
-            "srvurl": ""
+            "srvurl": "shopify:\/\/pages\/custom-manufacturing"
           }
         },
         "service_jh77jG": {
@@ -341,7 +341,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_26115_1.png",
             "label": "<p>Sharpen,<br\/>Retip & Repair<\/p>",
-            "srvurl": ""
+            "srvurl": "shopify:\/\/pages\/sharpen-retip-repair"
           }
         },
         "service_JkbdUB": {
@@ -349,7 +349,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Rectangle_26115_2.png",
             "label": "<p>Custom Kitting<\/p>",
-            "srvurl": ""
+            "srvurl": "shopify:\/\/pages\/custom-kitting-for-dentists"
           }
         }
       },
@@ -503,25 +503,25 @@
             "image": "shopify:\/\/shop_images\/Rectangle_26122.png",
             "label": "Misch Institute",
             "info": "<p>Extract, Preserve & Place<\/p>",
-            "rgsurl": ""
+            "rgsurl": "https:\/\/misch.com\/all-courses\/"
           }
         },
         "event_wHcKXG": {
           "type": "event",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26122.png",
+            "image": "shopify:\/\/shop_images\/768aa0412bccf36ca036890fc0112af14d31ac2e.png",
             "label": "PEAK - Model & Pig Jaw",
             "info": "<p>Bone Foundations<\/p>",
-            "rgsurl": ""
+            "rgsurl": "https:\/\/www.pikosinstitute.com\/live-courses\/pikos-symposium-live-implant-course"
           }
         },
         "event_EE3yfU": {
           "type": "event",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26122.png",
-            "label": "RDH",
-            "info": "<p>Under One Roof<\/p>",
-            "rgsurl": ""
+            "image": "shopify:\/\/shop_images\/Pikos_Photo_BW_3afa5292-1448-4efa-8ef0-b99e2a52cfb3.jpg",
+            "label": "Pikos Institute",
+            "info": "<p>Full Arch Symposium<\/p>",
+            "rgsurl": "https:\/\/www.pikosinstitute.com\/live-courses\/pikos-symposium-live-implant-course"
           }
         }
       },

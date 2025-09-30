@@ -1,0 +1,158 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_YU4LEz": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_866pQh": {
+          "type": "heading",
+          "settings": {
+            "heading": "become a <strong>power dental partner<\/strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_QQQT6G": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Join our network as a distributing partner. We actively look for key to distribute our highly innovative and essential dental products and services.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "buttons_7BkUhr": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "START THE CONVERSATION",
+            "button_link_1": "\/pages\/contact",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_866pQh",
+        "text_QQQT6G",
+        "buttons_7BkUhr"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/become-distributor-banner.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-4",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "left",
+        "show_text_below": false
+      }
+    },
+    "faq_bmnWtq": {
+      "type": "faq",
+      "blocks": {
+        "faq_EAjiTp": {
+          "type": "faq",
+          "settings": {
+            "title": "People",
+            "content": "<p>We value long-term relationships and growth, and recognize your contribution. You'll be an integral part of a supportive network that fosters development, and year-over-year growth, with support and access to our Power Dental team backed by an experienced team and a proven system.<\/p>"
+          }
+        },
+        "faq_8xPBMz": {
+          "type": "faq",
+          "settings": {
+            "title": "Integrity",
+            "content": "<p>Our unwavering commitment to integrity ensures you conduct business with honesty and ethical practices. We keep it transparent to keep you ahead of any changes. Building a foundation of trust and reliability with us and your customer base will allow for untapped growth to occur.<\/p>"
+          }
+        },
+        "faq_7YpiBm": {
+          "type": "faq",
+          "settings": {
+            "title": "Performance and Growth",
+            "content": "<p>We equip you with the highest quality products, comprehensive training, and marketing support for your success. Our collaborative and hands-on approach allows us to work closely with you to achieve exceptional results that go beyond your business goals.<\/p>"
+          }
+        },
+        "faq_ztdJMH": {
+          "type": "faq",
+          "settings": {
+            "title": "Impact",
+            "content": "<p>As a distributor, your work extends beyond business. You play a vital role in bringing the best dental products to healthcare professionals and patients, contributing to enhanced oral health and improved lives.<\/p>"
+          }
+        },
+        "faq_4GiFbG": {
+          "type": "faq",
+          "settings": {
+            "title": "Improvement",
+            "content": "<p>Our goal is continuing to add value to the high-performing products that you carry. Constant innovation and improving on the way you interact with both us and your clients is our principle, ensuring that we have an unrelenting pursuit of better that our partners can continue to benefit from.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_EAjiTp",
+        "faq_8xPBMz",
+        "faq_7YpiBm",
+        "faq_ztdJMH",
+        "faq_4GiFbG"
+      ],
+      "name": "Faq Section",
+      "settings": {
+        "heading": "Access benefits designed for you",
+        "subheading": "We partner with those who consistently embrace and uphold our fundamental core values. We believe these individuals will thrive and reap the rewards that come with being a part of the Power Dental Group family.",
+        "bg_color": "#ffffff"
+      }
+    },
+    "rich_text_fnrnCk": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PN4wgx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Power Dental Group?",
+            "heading_size": "h1"
+          }
+        },
+        "text_NzMtVU": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Build upon our experience and global presence.<\/p><p>We offer an extensive range of dental solutions. Backed by a strong reputation in the dental community and a growing core team, we are well-equipped to support your needs as a partner. We maintain a hands-on approach with our distributors, committed to ensuring your success.<\/p><p><\/p>"
+          }
+        },
+        "text_mBaxNQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>We also look at the following criteria:<\/strong><\/p><ul><li>Strategically located in areas where our products are underutilized.<\/li><li>No conflict with existing partners.<\/li><li>Year-over-year growth.<\/li><\/ul>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PN4wgx",
+        "text_NzMtVU",
+        "text_mBaxNQ"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_YU4LEz",
+    "faq_bmnWtq",
+    "rich_text_fnrnCk"
+  ]
+}

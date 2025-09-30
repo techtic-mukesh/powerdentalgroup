@@ -522,3 +522,8 @@
     color: currentColor;
   }
 }
+
+
+.banner__box>*+.banner__text p:empty {
+    display: none;
+}
