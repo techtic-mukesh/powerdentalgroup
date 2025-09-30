@@ -689,6 +689,11 @@ text-transform: capitalize;
   stroke: #fff;
  }
 
+ .product-form__buttons a.iWishAddColl.iwishAdded {
+    background: linear-gradient(90deg, #42c5ef, #0033a0);
+    border: unset;
+}
+
  @media screen and (max-width: 1140px) { 
   .product-button-block product-form.product-form {
     grid-column: span 2;

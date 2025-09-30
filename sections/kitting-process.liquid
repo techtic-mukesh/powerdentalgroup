@@ -8,9 +8,13 @@
       {% for block in section.blocks %}
         
         <div class="kitting-item" {{ block.shopify_attributes }}>
+           {% if block.settings.step_image != blank %}
+              <img src="{{ block.settings.step_image | image_url: width: 100 }}" alt="{{ block.settings.title | escape }}">
+            {% else %}
             <div class="kitting-icon">
                 {{ block.settings.step_svg }}
             </div>
+           {% endif %}
           <h3 class="custom-kitting-heading">{{ block.settings.title }}</h3>
           <div class="custom-kitting-text">
             {{ block.settings.content }}
@@ -95,6 +99,15 @@ section.custom-kitting-process-section .custom-kitting-process-header p {
     line-height: 22px; /* 157.143% */
 }
 
+.custom-kitting-process-grid .kitting-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 10px;
+}
+
+
 
 </style>
 
@@ -125,6 +138,11 @@ section.custom-kitting-process-section .custom-kitting-process-header p {
         "type": "step",
         "name": "step",
         "settings": [
+            {
+          "type": "image_picker",
+          "id": "step_image",
+          "label": "Step Image"
+        },
             {
           "type": "textarea",
           "id": "step_svg",

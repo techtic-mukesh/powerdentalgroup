@@ -29,7 +29,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Power Servicing Form",
-            "button_link_1": "shopify:\/\/pages\/services",
+            "button_link_1": "shopify:\/\/pages\/servicing-order-form",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -63,6 +63,7 @@
         "step_tjV3LB": {
           "type": "step",
           "settings": {
+            "step_image": "shopify:\/\/shop_images\/save-time-icon_d3d7bf17-e250-445c-8e37-9b313e030741.png",
             "step_svg": "",
             "title": "Save Time and Money",
             "content": "<p>Ensure the integrity of your instruments. Your time is valuable. Rely on our experts to extend the life of your instruments while you focus on the practice.<\/p>"
@@ -71,6 +72,7 @@
         "step_7QVJ8w": {
           "type": "step",
           "settings": {
+            "step_image": "shopify:\/\/shop_images\/sustainability-icon_d4c574d0-b5ab-4f2b-af82-99d8f82c9f8a.png",
             "step_svg": "",
             "title": "Increased Sustainability",
             "content": "<p>Contribute to environmental sustainability. Driven by a 100% solar operation, join our commitment to reducing instrument waste one instrument at a time.<\/p>"
@@ -79,6 +81,7 @@
         "step_FczYhH": {
           "type": "step",
           "settings": {
+            "step_image": "shopify:\/\/shop_images\/save-more-icon_7e0ebdf0-3ec3-4ced-bebc-91611a1b5618.png",
             "step_svg": "",
             "title": "Work With The Best",
             "content": "<p>We have serviced over 1.4 million instruments and counting. Work with the best in class where excellence is the standard.<\/p>"
@@ -94,7 +97,87 @@
       "settings": {
         "heading": "why service your instruments?",
         "subheading": "",
-        "bg_color": "#f0eeee"
+        "bg_color": "#ffffff"
+      }
+    },
+    "multicolumn_bpPaPB": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_TQppye": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/step-1_5896e89b-2e44-4fd8-8f03-9c487f8ab6b9.png",
+            "title": "Inspection",
+            "text": "<p>Once we receive your instruments, a thorough evaluation of your instruments’ is performed. <\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_VA7zhW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/step-2_3f7a7b2e-263b-4f02-9ce2-eb1f0b64f050.png",
+            "title": "Servicing",
+            "text": "<p>Proven technicians execute thorough repairs and comprehensive checks to ensure your instruments are restored to peak performance.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_WkHirV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/step-3_62916bfa-7666-429b-a2b1-b4d9c2edfc0f.png",
+            "title": "Invoice & Ship",
+            "text": "<p>Your order is invoiced and a shipping confirmation is emailed. <\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_TQppye",
+        "column_VA7zhW",
+        "column_WkHirV"
+      ],
+      "custom_css": [
+        ".multicolumn.color-scheme-2 .multicolumn-card {height: 100%;}",
+        ".multicolumn.color-scheme-2 .multicolumn-card__info {padding-top: 20px;}",
+        ".multicolumn-list__item.center .media--adapt img {left: 50%; transform: translate(-50%); max-width: 50%; object-fit: contain; width: 60px;}",
+        ".multicolumn .title-wrapper-with-link {justify-content: center;}",
+        ".multicolumn.color-scheme-2 .multicolumn-card-spacing {padding-top: 25px; }"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "POWER SERVICING - Our PROCESS",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 52,
+        "padding_bottom": 0
+      }
+    },
+    "video_single_7jCaae": {
+      "type": "video-single",
+      "name": "Video Single",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https:\/\/www.youtube.com\/watch?v=1Re2bt0YD1s",
+        "cover_image": "shopify:\/\/shop_images\/Screenshot_2025-09-30_162013.png",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "rich_text_D3dQX9": {
@@ -146,8 +229,8 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     }
   },
@@ -155,6 +238,8 @@
     "main",
     "image_banner_EAxgyW",
     "kitting_process_HLWBmU",
+    "multicolumn_bpPaPB",
+    "video_single_7jCaae",
     "rich_text_D3dQX9"
   ]
 }
