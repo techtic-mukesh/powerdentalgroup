@@ -1,0 +1,152 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_XxG6Ry": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_9ni9td": {
+          "type": "heading",
+          "settings": {
+            "heading": "our vision & philosophy",
+            "heading_size": "h1"
+          }
+        },
+        "text_V9d4Ww": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Power Dental Group is a 2nd generation family business focused on manufacturing highly specialized dental instrumentation that emphasizes efficiency and repeatable results.<\/p><p>Disruption, innovation, and performance are at the core of every action we take. We are not afraid to challenge traditional methodologies and in doing so, we push the thresholds of what people think is possible through the instrumentation they use.<br\/><br\/>We set the standard, and continue to raise it higher. With over 50 years of combined dental experience and a team of the best doctors in the industry, it's time to experience what the true Power of ground-breaking instrumentation can do for your dental practice.<\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9ni9td",
+        "text_V9d4Ww"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/vision_and_philosophy_banner.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-4",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "left",
+        "show_text_below": true
+      }
+    },
+    "rich_text_JkJERb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xWDcyN": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE POWER DENTAL WAY",
+            "heading_size": "h1"
+          }
+        },
+        "text_g9F9Xq": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Em<em>powering<\/em> Dentistry to do <em>more<\/em>.<\/h3><p>We are fueled by this resolute mission to equip dental professionals with the tools, support, and innovation required to surpass limitations, create lasting impacts, and advance dentistry to new heights that were once unthinkable.<\/p><p>To fulfill this mission, we uphold these core principles, keeping them close to our hearts and at the forefront of our minds each and every day.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xWDcyN",
+        "text_g9F9Xq"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "kitting_process_niCtgw": {
+      "type": "kitting-process",
+      "blocks": {
+        "step_hRzjx4": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify:\/\/shop_images\/people-first-icon_6c1f8d87-4232-453e-b2a4-13f62ae6440e.png",
+            "step_svg": "",
+            "title": "People - We care.",
+            "content": ""
+          }
+        },
+        "step_ATRfbM": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify:\/\/shop_images\/people-first-icon_6c1f8d87-4232-453e-b2a4-13f62ae6440e.png",
+            "step_svg": "",
+            "title": "Integrity - We do what's right.",
+            "content": ""
+          }
+        },
+        "step_zr963c": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify:\/\/shop_images\/performance-icon_6c397ae0-c350-4582-8419-49256e3cf2c4.png",
+            "step_svg": "",
+            "title": "Performance - We execute.",
+            "content": ""
+          }
+        },
+        "step_gfFPkX": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify:\/\/shop_images\/impact-icon_81420320-5b56-4485-b410-58640eaa3644.png",
+            "step_svg": "",
+            "title": "Impact - We drive change.",
+            "content": ""
+          }
+        },
+        "step_e97ffP": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify:\/\/shop_images\/inspiring-icon_7c3292f3-fb6a-44e0-815e-ffd9af017c07.png",
+            "step_svg": "",
+            "title": "Improvement - We're relentless in our pursuit of better.",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_hRzjx4",
+        "step_ATRfbM",
+        "step_zr963c",
+        "step_gfFPkX",
+        "step_e97ffP"
+      ],
+      "custom_css": [
+        ".custom-kitting-process-grid {grid-template-columns: repeat(auto-fit, minmax(208px, 1fr));}"
+      ],
+      "name": "Kitting Process",
+      "settings": {
+        "heading": "",
+        "subheading": "",
+        "bg_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_XxG6Ry",
+    "rich_text_JkJERb",
+    "kitting_process_niCtgw"
+  ]
+}

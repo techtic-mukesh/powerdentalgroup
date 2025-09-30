@@ -41,6 +41,7 @@ a.button.button--secondary {
     display: inline-flex;
     gap: 10px;
     min-width: 235px;
+    text-transform: uppercase;
 }
 
 .badge {
