@@ -83,6 +83,44 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "joy_loyalty_program_joy_referral_PQmT7b": {
+          "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/joy-referral\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "settings": {
+            "joy-referral-image-position": "right",
+            "joy-referral-image-height": "450",
+            "joy-referral-image-layout": "6\/6",
+            "joy-referral-background-position": "center",
+            "joy-referral-heading": "<h2>Share a friend<\/h2>",
+            "joy-referral-heading-after-get-link": "<h2>Share a friend<\/h2>",
+            "joy-referral-heading-size": 34,
+            "joy-referral-description": "<p>You friend will get &lcub;referee_reward&rcub; discount for their first order. You will get  &lcub;referer_reward&rcub; for each successful referral.<\/p>",
+            "joy-referral-placeholder": "Enter your email address",
+            "joy-referral-desktop-content-position": "center",
+            "joy-referral-btn-get-content": "Start sharing",
+            "joy-referral-btn-border-radius": 8,
+            "joy-referral-heading-color": "#303030",
+            "joy-referral-description-color": "#303030",
+            "joy-referral-bg-color": "#ffffff",
+            "joy-referral-btn-get-bg-color": "var(--joy-lp-primary-button-color)",
+            "joy-referral-btn-get-text-color": "var(--joy-lp-primary-button-text-color)",
+            "joy-referral-icon-share-social-color": "#222222",
+            "joy-referral-text-share-social-color": "#000000",
+            "joy-referral-max-width-option": "custom",
+            "joy-referral-max-width": 120,
+            "joy-referral-spacing": 5,
+            "joy-referral-spacing-content": 8,
+            "joy-referral-litmit_message": "<p>You have reached the referral limit (&lcub;limit_referral&rcub;\/&lcub;limit_referral&rcub;)<\/p>"
+          }
+        },
+        "joy_loyalty_program_joy_referral_product_WkYnLE": {
+          "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/joy-referral-product\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "settings": {
+            "joy-referral-product-description": "Invite friends & Earn rewards",
+            "joy-referral-product-placeholder": "Enter your email address",
+            "joy-referral-product-text-color": "#303030",
+            "joy-referral-product-limit-message": "You have reached the referral limit ({limit_referral}\/{limit_referral})"
+          }
         }
       },
       "block_order": [
@@ -97,7 +135,9 @@
         "description",
         "info_secured_aRwqzg",
         "icon_with_text_7qDcyz",
-        "share"
+        "share",
+        "joy_loyalty_program_joy_referral_PQmT7b",
+        "joy_loyalty_program_joy_referral_product_WkYnLE"
       ],
       "settings": {
         "enable_sticky_info": true,
