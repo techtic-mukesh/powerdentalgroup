@@ -45,7 +45,7 @@
             "subheading": "<p>With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.<\/p>",
             "description_color": "#ffffff",
             "button_label": "Who We Are",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify:\/\/pages\/our-vision-philosophy",
             "position": false
           }
         },
@@ -59,7 +59,7 @@
             "subheading": "<p>Thoughtful attention to detail. Power in every build. Make every moment count with the best instruments in class.<\/p>",
             "description_color": "#ffffff",
             "button_label": "Shop",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify:\/\/collections\/all",
             "position": true
           }
         },
@@ -89,7 +89,7 @@
             "description_color": "#ffffff",
             "auth_image": "shopify:\/\/shop_images\/power-logo.png",
             "button_label": "Our Solution",
-            "button_link": "#",
+            "button_link": "shopify:\/\/collections\/crown-removal",
             "position": true
           }
         }
