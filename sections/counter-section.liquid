@@ -95,6 +95,8 @@
     text-align: center;
     /* border-right: 1px solid #fff; */
     position: relative;
+    display: flex;
+    flex-direction: column;
   }
 
   #CounterSection-{{ section.id }} .counter-box:after {
@@ -119,7 +121,7 @@ font-family: Prompt;
 font-size: 48px;
 font-style: normal;
 font-weight: 300;
-line-height: 27px; /* 56.25% */
+line-height: 1; /* 56.25% */
     text-transform: uppercase;
   }
   #CounterSection-{{ section.id }}
@@ -132,7 +134,7 @@ font-style: normal;
 font-weight: 600;
 line-height: 22px; /* 157.143% */
 text-transform: uppercase;
-    margin: 10px 0 0;
+    margin: 4px 0 0 0;
     display: inline-block;
   }
 

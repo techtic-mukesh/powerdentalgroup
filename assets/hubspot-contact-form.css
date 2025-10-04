@@ -33,7 +33,7 @@ section.hubspot-contact-form .heading-wraper  p {
     color: #5b5b5b;
     font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 22px;
     letter-spacing: -.16px;
 }
@@ -45,16 +45,20 @@ section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info {
 }
 
 section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info li {
-    color: #010005;
-    font-family: Prompt;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 22px;
-    margin: 0 0 20px;
-        display: flex
-;
+            font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        color: #5b5b5b;
+        font-family: 'Prompt';
+        line-height: 22px;
+        letter-spacing: -.16px;
+        margin: 0 0 20px;
+        display: flex;
     align-items: flex-start;
+}
+
+section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info li  strong {
+    font-weight: 300;
 }
 
 
@@ -73,7 +77,13 @@ section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info li p {
 
 section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info li p a {
     text-decoration: none;
-    color: #010005;
+            font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        color: #5b5b5b;
+        font-family: 'Prompt';
+        line-height: 22px;
+        letter-spacing: -.16px;
 }
 
 .hubspot-contact-right .field:after {
@@ -104,19 +114,27 @@ font-size: 16px;
     font-style: normal;
     font-weight: 400 !important;
     line-height: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
 }   
 
 .hubspot-contact-right form .field select,.hubspot-contact-right form .field  input {
-    width: 100%;
+ width: 100%;
     padding: 15px 10px;
     border: 1px solid #d3d4d8;
-    color: #01000A;
+    color: #01000a;
     font-family: Montserrat;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
+    background: #fff;
+    border-radius: 0;
+    color: #5b5b5b;
+    font-weight: 300;
+    font-family: 'Prompt';
+    font-size: 16px;
+    padding: 5px 15px;
+    min-height: 48px;
 }
 
 .hubspot-contact-right .hs_email.hs-email.hs-fieldtype-text.field.hs-form-field input {

@@ -141,12 +141,62 @@
         "subheading": "",
         "bg_color": "#ffffff"
       }
+    },
+    "counter_section_ACxUM3": {
+      "type": "counter-section",
+      "blocks": {
+        "counter_XfTP9Q": {
+          "type": "counter",
+          "settings": {
+            "number": "20",
+            "suffix": "+",
+            "label": "Years of Proven Experience"
+          }
+        },
+        "counter_krAJQH": {
+          "type": "counter",
+          "settings": {
+            "number": "25",
+            "suffix": "",
+            "label": "Patents Held"
+          }
+        },
+        "counter_JGQPkH": {
+          "type": "counter",
+          "settings": {
+            "number": "2300",
+            "suffix": "+",
+            "label": "Instruments Offered"
+          }
+        },
+        "counter_rmLJqR": {
+          "type": "counter",
+          "settings": {
+            "number": "5500",
+            "suffix": "+",
+            "label": "Doctors Served Worldwide"
+          }
+        }
+      },
+      "block_order": [
+        "counter_XfTP9Q",
+        "counter_krAJQH",
+        "counter_JGQPkH",
+        "counter_rmLJqR"
+      ],
+      "name": "Counter Section",
+      "settings": {
+        "background": "linear-gradient(90deg, rgba(61, 178, 255, 1), rgba(0, 119, 255, 1) 100%)",
+        "duration": 1200,
+        "animate": true
+      }
     }
   },
   "order": [
     "main",
     "image_banner_XxG6Ry",
     "rich_text_JkJERb",
-    "kitting_process_niCtgw"
+    "kitting_process_niCtgw",
+    "counter_section_ACxUM3"
   ]
 }
