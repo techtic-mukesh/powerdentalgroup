@@ -1,23 +1,127 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "rich_text_KGgCgp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_tTbpMb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Dental Equipment Services",
+            "heading_size": "h0"
+          }
+        },
+        "caption_4xr6XL": {
+          "type": "caption",
+          "settings": {
+            "caption": "IT STARTS HERE",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "heading_t7HDte": {
+          "type": "heading",
+          "settings": {
+            "heading": "OUR <strong>SERVICES<\/strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_zfhkDb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>All needs are not the same; that’s why we provide solutions for every dental professional at any point in their journey.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tTbpMb",
+        "caption_4xr6XL",
+        "heading_t7HDte",
+        "text_zfhkDb"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "multirow_fUMxAg": {
+      "type": "multirow",
+      "blocks": {
+        "row_fAGUbJ": {
+          "type": "row",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Dental-Instrumentation_17581536-12b4-47ea-b831-8d07d4c991f7.jpg",
+            "caption": "",
+            "heading": "Trade-in Program",
+            "text": "<p>Have access to a full suite of essential, highly specialized, and innovative instrumentation for every indication.<\/p>",
+            "button_label": "Shop Now",
+            "button_link": "shopify:\/\/pages\/trade-in-program"
+          }
+        },
+        "row_ttKnb6": {
+          "type": "row",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Servicing_48da65e8-edc6-4398-8107-3d8cb1754b27.jpg",
+            "caption": "",
+            "heading": "Sharpen,Retip & Repair",
+            "text": "<p>Increase the longevity of your instruments through our multifaceted instrument servicing program.<\/p>",
+            "button_label": "More Details",
+            "button_link": "shopify:\/\/pages\/sharpen-retip-repair"
+          }
+        },
+        "row_jcf8TR": {
+          "type": "row",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Custom-Manufacturing_7f83622b-343a-49b0-a25b-214b46d1f8d3.jpg",
+            "caption": "",
+            "heading": "Custom Kitting",
+            "text": "<p>Bring your vision to life through our proven custom design and engineering process.<\/p>",
+            "button_label": "More Details",
+            "button_link": "shopify:\/\/pages\/custom-manufacturing"
+          }
+        }
+      },
+      "block_order": [
+        "row_fAGUbJ",
+        "row_ttKnb6",
+        "row_jcf8TR"
+      ],
+      "custom_css": [
+        ".image-with-text .grid {gap: 20px;}"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "adapt",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-right",
+        "heading_size": "h1",
+        "text_style": "subtitle",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 56
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "rich_text_KGgCgp",
+    "multirow_fUMxAg"
   ]
 }

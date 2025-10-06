@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -27,13 +18,13 @@
             "heading_size": "h1"
           }
         },
-       "text_ULzfg4": {
-  "type": "text",
-  "settings": {
-    "text": "<p>Dentists often know what type of kits they need (diagnostic, surgical, or exam) but don’t have time to sort through endless catalogs or match instruments to their workflow. That’s where we come in. Power Dental Group's Custom Kitting service is built to save time and deliver tailored instrument kits designed for your unique clinical style. We’ll take your input, develop a visual mock-up, revise it together, and deliver a finalized kit in as little as one week.</p>",
-    "text_style": "body"
-  }
-},
+        "text_ULzfg4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Dentists often know what type of kits they need (diagnostic, surgical, or exam) but don’t have time to sort through endless catalogs or match instruments to their workflow. That’s where we come in. Power Dental Group's Custom Kitting service is built to save time and deliver tailored instrument kits designed for your unique clinical style. We’ll take your input, develop a visual mock-up, revise it together, and deliver a finalized kit in as little as one week.<\/p>",
+            "text_style": "body"
+          }
+        },
         "buttons_8WKVTa": {
           "type": "buttons",
           "settings": {
