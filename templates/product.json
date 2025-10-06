@@ -272,7 +272,7 @@
         "color_scheme": "scheme-1",
         "enable_swiper": true,
         "swiper_slides_desktop": 4,
-        "swiper_loop": false,
+        "swiper_loop": true,
         "swiper_autoplay": false,
         "image_ratio": "square",
         "image_shape": "default",
