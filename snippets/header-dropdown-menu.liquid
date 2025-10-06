@@ -8,138 +8,284 @@
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
-      <li class="{{ link.title | handleize }}">
-        {% if link.links != blank %}
+      <li class="{{- link.title | escape -}}">
+        {%- if link.links != blank -%}
           <header-menu>
             <details id="Details-HeaderMenu-{{ forloop.index }}">
               <summary
                 id="HeaderMenu-{{ link.handle }}"
                 class="header__menu-item list-menu__item link focus-inset"
               >
-                <span {% if link.child_active %}class="header__active-menu-item"{% endif %}>
-                  {{ link.title | escape }}
-                </span>
-                {{ 'icon-caret.svg' | inline_asset_content }}
-              </summary>
-
-              {% if link.title == 'Products' %}
-                <!-- 🟦 PRODUCTS TABS MENU -->
-                  <ul
-                  id="HeaderMenu-MenuList-{{ forloop.index }}"
-                  class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
-                  role="list"
-                  tabindex="-1"
+                <span
+                  {%- if link.child_active %}
+                    class="header__active-menu-item"
+                  {% endif %}
                 >
-                <div class="tabs-menu">
-                  <div class="tabs">
-                    <ul id="tabs-nav">
-                      {% for block in section.blocks %}
-                        <li {% if block.settings.menu_type == 'tab' %}class="tabs-li"{% endif %}>
-                          {% if block.settings.menu_type == 'tab' %}
-                            <a href="#tab{{ forloop.index }}">
-                              <div class="icon-menu">{{ block.settings.svg }}</div>
-                              {{ block.settings.menu_title }}
-                            </a>
-                          {% elsif block.settings.menu_type == 'link' %}
-                            <a href="{{ block.settings.linkurl }}">
-                              {{ block.settings.svg }}
-                              {{ block.settings.menu_title }}
-                            </a>
+                  {{- link.title | escape -}}
+                </span>
+                {{- 'icon-caret.svg' | inline_asset_content -}}
+              </summary>
+              <ul
+                id="HeaderMenu-MenuList-{{ forloop.index }}"
+                class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+                role="list"
+                tabindex="-1"
+              >
+              {% if link.title == 'Products' %}
+                  <div class="tabs-menu">
+                    <div class="tabs">
+                      <ul id="tabs-nav">
+                        {% for block in section.blocks %}
+                            <li {% if block.settings.menu_type == 'tab' %}class="tabs-li"{% endif %}>
+                            {% if block.settings.menu_type == 'tab' %}
+                              <a href="#tab{{ forloop.index }}">{{ block.settings.menu_title }}</a>
+                            {% elsif block.settings.menu_type == 'link' %}
+                              <a href="{{ block.settings.linkurl }}">
+                                {{- block.settings.menu_title -}}
+                              </a>
+                          </li>
                           {% endif %}
-                        </li>
-                      {% endfor %}
-                    </ul>
+                        {% endfor %}
+                      </ul>
+                      <!-- END tabs-nav -->
 
-                    <div id="tabs-content">
-                      {% for block in section.blocks %}
-                        <div id="tab{{ forloop.index }}" class="tab-content">
-                          <div class="menu-inner">
+                      <div id="tabs-content">
+                        {% for block in section.blocks %}
+                                      {% if link.title == 'Products' %}
                             {% if block.settings.collection_list %}
-                              <div class="collection-menu collection-list">
-                                {% for collection in block.settings.menu_collectionlist %}
-                                  <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: 'large' }}">
-                                    <p>{{ collection.title }}</p>
-                                  </a>
-                                {% endfor %}
-                              </div>
-                            {% else %}
-                              {% assign collection = collections[block.settings.menu_collection] %}
-                              {% if collection.products.size > 0 %}
-                                <div class="product-list">
-                                  {% for product in collection.products limit:8 %}
-                                    <div class="product-item">
-                                      <a href="{{ product.url }}">
-                                        <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
-                                        <p>{{ product.title }}</p>
-                                      </a>
-                                    </div>
+                              <div id="tab{{ forloop.index }}" class="tab-content collection-list">
+                                <div class="collection-menu">
+                                  {% for collection in block.settings.menu_collectionlist %}
+                                    <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
+                                      <p>{{ collection.title }}</p>
+                                    </a>
                                   {% endfor %}
                                 </div>
-                              {% endif %}
-                            {% endif %}
-
-                            {% if block.settings.featured_product != blank %}
-                              {% assign product = all_products[block.settings.featured_product] %}
-                              <div class="featured-product" style="background-image: url('{{ product.featured_image | img_url: 'master' }}');">
-                                <a class="featured-product-link" href="{{ product.url }}">
-                                  <h4>{{ product.title }}</h4>
-                                  <span>{{ product.price | money }}</span>
-                                  <div class="product-sku-stock">
-                                    {% if product.selected_or_first_available_variant.sku != blank %}
-                                      <span class="product-sku">SKU: <strong>{{ product.selected_or_first_available_variant.sku }}</strong></span>
-                                    {% endif %}
-                                    {% if product.selected_or_first_available_variant.available %}
-                                      <span class="product-stock in-stock"><span class="stock-dot"></span> In Stock</span>
+                                
+  
+                                <div class="image-display">
+                                    <img src="" alt="Current Collection Image" width="" height="">
+                                </div>
+                              </div>
+                            {% else %}
+                              <div id="tab{{ forloop.index }}" class="tab-content">
+                                {% assign collection = collections[block.settings.menu_collection] %}
+                                {% assign collection_sorted = collection.products %}
+                          
+                                {% if collection.products.size > 0 %}
+                                  {% assign product_limit = 10 %}
+                                  {% assign product_count = 0 %}
+                                  {% for product in collection_sorted %}
+                                    {% if product_count < product_limit %}
+                                      <div class="product-item">
+                                        <a href="{{ product.url }}" class="product-image-container">
+                                          {% if product.images.size > 1 %}
+                                            <img src="{{ product.featured_image | img_url: 'large' }}" 
+                                                 alt="{{ product.title }}" width="" height=""
+                                                 class="product-image primary-image">
+                                            <img src="{{ product.images[1] | img_url: 'large' }}" 
+                                                 alt="{{ product.title }}" width="" height=""
+                                                 class="product-image secondary-image">
+                                          {% else %}
+                                            <img src="{{ product.featured_image | img_url: 'large' }}" 
+                                                 alt="{{ product.title }}" width="" height=""
+                                                 class="product-image">
+                                          {% endif %}
+                                        </a>
+                                        <div class="product-details">
+                                          <a href="{{ product.url }}">{{ product.title }}</a>
+                                          <p>{{ product.variants.first.price | money }}</p>
+                                        </div>
+                                      </div>
+                                      {% assign product_count = product_count | plus: 1 %}
                                     {% else %}
-                                      <span class="product-stock out-of-stock"><span class="stock-dot"></span> Out of Stock</span>
+                                      {% break %}
                                     {% endif %}
-                                  </div>
-                                </a>
+                                  {% endfor %}
+                                  <a class="view__link" href="{{ collection.url }}">
+                                    View All 
+                                    <span>
+                                    {% render 'right-arrow' %}
+                                      <!-- <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 0.5L7 6.5L1 12.5" stroke="#161616" stroke-linecap="round" stroke-linejoin="round"/>
+                                      </svg> -->
+                                    </span>
+                                  </a>
+                                {% else %}
+                                  <p>No products found in this collection.</p>
+                                {% endif %}
                               </div>
                             {% endif %}
-                          </div>
-                        </div>
-                      {% endfor %}
+                          {% endif %}
+                        {% endfor %}
+                      </div>
+                      
+                      <!-- END tabs-content -->
                     </div>
+                    <!-- END tabs -->
                   </div>
-                </div>
-                </ul>
-              {% else %}
-                <!-- 🟩 OTHER MENUS (STANDARD DROPDOWN) -->
-                <ul
-                  id="HeaderMenu-MenuList-{{ forloop.index }}"
-                  class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
-                  role="list"
-                  tabindex="-1"
-                >
-                  {% for childlink in link.links %}
-                    <li>
-                      <a href="{{ childlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large">
-                        {{ childlink.title }}
+                {% else %}
+                {%- for childlink in link.links -%}
+                  <li>
+                    {%- if childlink.links == blank -%}
+                      <a
+                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                        href="{{ childlink.url }}"
+                        class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
+                        {% if childlink.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{ childlink.title | escape }}
                       </a>
-                    </li>
-                  {% endfor %}
-                </ul>
+                    {%- else -%}
+                      <details id="Details-HeaderSubMenu-{{ link.handle }}-{{ childlink.handle }}">
+                        <summary
+                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                          class="header__menu-item link link--text list-menu__item focus-inset caption-large"
+                        >
+                          <span>{{ childlink.title | escape }}</span>
+                          {{- 'icon-caret.svg' | inline_asset_content -}}
+                        </summary>
+                        <ul
+                          id="HeaderMenu-SubMenuList-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                          class="header__submenu list-menu motion-reduce"
+                        >
+                          {%- for grandchildlink in childlink.links -%}
+                            <li>
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                href="{{ grandchildlink.url }}"
+                                class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"
+                                {% if grandchildlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      </details>
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
               {% endif %}
+              </ul>
             </details>
           </header-menu>
-        {% else %}
-          <!-- SIMPLE LINK -->
+        {%- else -%}
           <a
             id="HeaderMenu-{{ link.handle }}"
             href="{{ link.url }}"
             class="header__menu-item list-menu__item link link--text focus-inset"
-            {% if link.current %}aria-current="page"{% endif %}
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
           >
-            <span {% if link.current %}class="header__active-menu-item"{% endif %}>
-              {{ link.title | escape }}
+            <span
+              {%- if link.current %}
+                class="header__active-menu-item"
+              {% endif %}
+            >
+              {{- link.title | escape -}}
             </span>
           </a>
-        {% endif %}
+        {%- endif -%}
       </li>
-    {% endfor %}
+    {%- endfor -%}
   </ul>
 </nav>
 
 
+<script>
+ $(document).ready(function () {
+  // Initialize tabs when dropdown opens
+  $('header-menu details').on('toggle', function() {
+    if ($(this).prop('open')) {
+      const $tabsMenu = $(this).find('.tabs-menu');
+      
+      if ($tabsMenu.length) {
+        // Set first tab as active
+        $tabsMenu.find('#tabs-nav li.tabs-li:first-child').addClass('active');
+        
+        // Hide all tab content initially
+        $tabsMenu.find('.tab-content').hide();
+        
+        // Show first tab content
+        $tabsMenu.find('.tab-content:first').show();
+      }
+    }
+  });
+  
+  // Click function for tab switching - use event delegation
+  $(document).on('click', '#tabs-nav li.tabs-li', function (e) {
+    e.preventDefault();
+    e.stopPropagation(); // Prevent dropdown from closing
+  
+    // Get the parent tabs-menu container
+    const $tabsMenu = $(this).closest('.tabs-menu');
+    
+    // Remove active class from all tabs in this menu
+    $tabsMenu.find('#tabs-nav li.tabs-li').removeClass('active');
+    
+    // Add active class to clicked tab
+    $(this).addClass('active');
+  
+    // Hide all tab content in this menu
+    $tabsMenu.find('.tab-content').hide();
+    
+    // Get the target tab ID and show it
+    const activeTab = $(this).find('a').attr('href');
+    $tabsMenu.find(activeTab).fadeIn();
+  });
 
+  // Collection list JS
+  $('.collection-list').each(function() {
+    const $collectionList = $(this);
+    const $firstItem = $collectionList.find('.collection-item:first');
+    const $imageDisplay = $collectionList.find('.image-display');
+    const $imageDisplayImg = $imageDisplay.find('img');
+    const defaultImage = "https://cdn.shopify.com/s/files/1/0610/6211/9556/files/image_6.png?v=1738566678";
+
+    // Set default image on load
+    let initialImage = $firstItem.data('image') || defaultImage;
+    let initialLink = $firstItem.attr('href') || "#";
+
+    $firstItem.addClass('active');
+    
+    if (!$imageDisplay.find('a').length) {
+      $imageDisplayImg.wrap(`<a href="${initialLink}"></a>`);
+    } else {
+      $imageDisplay.find('a').attr('href', initialLink);
+    }
+    
+    $imageDisplayImg.attr('src', initialImage).on('error', function() {
+      $(this).attr('src', defaultImage); 
+    });
+
+    $collectionList.on('mouseenter', '.collection-item', function(e) {
+      e.preventDefault();
+
+      const $this = $(this);
+      let imageUrl = $this.data('image') || defaultImage;
+      let collectionUrl = $this.attr('href') || "#";
+
+      $collectionList.find('.collection-item').removeClass('active');
+      $this.addClass('active');
+
+      $imageDisplay.find('a').fadeOut(100, function() {
+        $imageDisplayImg
+          .attr('src', imageUrl)
+          .on('load', function() {
+            $imageDisplay.find('a').attr('href', collectionUrl).fadeIn(100);
+          })
+          .on('error', function() {
+            console.error('Failed to load image:', imageUrl);
+            $(this).attr('src', defaultImage); 
+          });
+      });
+    });
+  });
+});
+</script>
