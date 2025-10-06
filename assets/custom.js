@@ -1,180 +1,85 @@
+document.addEventListener('DOMContentLoaded', function () {
+    let items = document.querySelectorAll(".header__inline-menu details");
 
-
-$(function () {
-    $('.mega-dropdown').hover(
-    function () {
-      // On mouseenter: open the menu
-      const $details = $('#Details-HeaderMenu-1'); // target the menu
-      if (!$details.attr('open')) {
-        $details.attr('open', true); // open details
-        $details.trigger('mouseenter'); // trigger your existing hover animation
-      }
-    },
-    function () {
-      // On mouseleave: close the menu
-      const $details = $('#Details-HeaderMenu-1');
-      if ($details.attr('open')) {
-        $details.trigger('mouseleave'); // trigger your existing hover out animation
-        $details.removeAttr('open');
-      }
-    }
-  );
-
-  // Optional: also close the menu if the mouse leaves the menu itself
-  $('#Details-HeaderMenu-1').mouseleave(function () {
-    const $details = $(this);
-    $details.trigger('mouseleave');
-    $details.removeAttr('open');
-  });
-  // For each details (top-level menu item)
-  $('.header__inline-menu details').each(function () {
-    const $item = $(this);
-    // look for both normal submenus and mega menu content
-    const $menus = $item.find('ul.header__submenu, .mega-menu__content');
-
-    // If no submenu/mega content -> skip
-    if (!$menus.length) return;
-
-    // Ensure initial state - hidden, zero height, hidden overflow
-    $menus.each(function () {
-      $(this).css({
-        display: 'none',
-        height: 0,
-        opacity: 0,
-        overflow: 'hidden'
-      });
-    });
-
-    // Hover in
-    $item.on('mouseenter', function () {
-      $menus.each(function () {
-        const $m = $(this);
-
-        // stop any running animations
-        $m.stop(true, true);
-
-        // make visible but start from 0 height so measurement is correct
-        $m.css({
-          display: 'block',
-          height: 0,
-          opacity: 0,
-          overflow: 'hidden'
+    items.forEach(item => {
+        item.addEventListener("mouseover", () => {
+            item.setAttribute("open", "true");
+            item.querySelector(".mega-menu__content").style.display = 'block';
         });
 
-        // Force reflow so browser applies height:0 before measuring
-        $m.get(0).offsetHeight;
-
-        // measure real target height
-        const targetHeight = $m.get(0).scrollHeight;
-
-        // animate to measured height, then set height to auto (responsive)
-        $m.animate({ height: targetHeight, opacity: 1 }, 300, function () {
-          $m.css({ height: 'auto', overflow: '' });
+        item.addEventListener("mouseleave", () => {
+            item.removeAttribute("open");
+            item.querySelector(".mega-menu__content").style.display = 'none';
         });
-      });
-
-      // set details open attribute for accessibility / native styles
-      $item.attr('open', 'true');
-
-      // initialize tabs once per details (if present)
-      const $tabsMenu = $item.find('.tabs-menu').first();
-      if ($tabsMenu.length && !$tabsMenu.data('tabs-initialized')) {
-        initTabs($tabsMenu);
-        $tabsMenu.data('tabs-initialized', true);
-      }
     });
+});
 
-    // Hover out
-    $item.on('mouseleave', function () {
-      $menus.each(function () {
-        const $m = $(this);
+$(document).ready(function () {
+    $(".header__inline-menu details").each(function () {
+        let $item = $(this);
+        let $menu = $item.find("ul.header__submenu");
 
-        // stop running animations
-        $m.stop(true, true);
+        // hide initially
+        $menu.hide();
 
-        // If height is 'auto', force it to its current pixel height so animation works
-        const currentHeight = $m.outerHeight();
-        $m.css({ height: currentHeight + 'px', overflow: 'hidden' });
-
-        // Force reflow
-        $m.get(0).offsetHeight;
-
-        // animate back to zero and hide at the end
-        $m.animate({ height: 0, opacity: 0 }, 300, function () {
-          $m.css({ display: 'none', height: 0, overflow: '', opacity: 0 });
+        // Hover in
+        $item.on("mouseenter", function () {
+            $menu.stop(true, true).css({ display: "block", height: 0, opacity: 0 })
+                .animate({ height: $menu.get(0).scrollHeight, opacity: 1 }, 300);
         });
-      });
 
-      $item.removeAttr('open');
+        // Hover out
+        $item.on("mouseleave", function () {
+            $menu.stop(true, true).animate({ height: 0, opacity: 0 }, 300, function () {
+                $(this).hide();
+            });
+        });
     });
-  });
 
-  // Initialize tabs within a specific tabs-menu element
-  function initTabs($tabsMenu) {
-    const $navItems = $tabsMenu.find('#tabs-nav li.tabs-li');
-    const $contents = $tabsMenu.find('.tab-content');
 
-    // reset & show first
-    $navItems.removeClass('active');
-    $navItems.filter(':visible').first().addClass('active');
-    $contents.hide().first().show();
+ 
 
-    // click handler per tabs-menu (safe, attaches only once per menu)
-    $tabsMenu.on('click', '#tabs-nav li.tabs-li', function (e) {
-      e.preventDefault();
-      e.stopPropagation(); // prevent closing the details via click bubbling
 
-      const $li = $(this);
-      const target = $li.find('a').attr('href');
+//     async function addToWishlist() {
+//   try {
+//     alert('Adding to wishlist...');
 
-      $li.addClass('active').siblings().removeClass('active');
+//     const response = await fetch('https://api.myshopapps.com/wishlist/V2/addToWishlist', {
+//       method: 'POST',
+//       headers: {
+//         'Accept': 'application/json',
+//         'Content-Type': 'application/x-www-form-urlencoded',
+//         'xtoken': 'IWISH_API_c1366439955011f0a0270e72f2521631', // replace with your valid token
+//       },
+//       body: new URLSearchParams({
+//         customer_id: '0', // or actual customer ID if logged in
+//         product_id: '8493757825174',
+//         variant_id: '45626803191958',
+//         category_id: '0',
+//         product_qty: '1'
+//       })
+//     });
 
-      $contents.hide();
-      $tabsMenu.find(target).fadeIn(200);
-    });
-  }
+//     const data = await response.json();
+
+//     if (response.ok) {
+//       alert('✅ Product added to wishlist successfully!');
+//       console.log('Success:', data);
+//     } else {
+//       alert('❌ Failed to add to wishlist: ' + (data.message || 'Unknown error'));
+//       console.error('Error:', data);
+//     }
+//   } catch (error) {
+//     alert('❌ Error: Unable to add to wishlist. Please try again.');
+//     console.error('Network Error:', error);
+//   }
+// }
+
+// addToWishlist();
+
+
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const dropdownButton = document.querySelector(".mega-dropdown");
-  const firstMenu = document.querySelector(".mega-menu--dropdown-wrapper");
 
-  if (!dropdownButton || !firstMenu) return;
-
-  // Hide menu initially
-  firstMenu.style.display = "none";
-  firstMenu.style.opacity = "0";
-  firstMenu.style.transition = "opacity 0.3s ease, height 0.3s ease";
-
-  // When hover starts
-  dropdownButton.addEventListener("mouseenter", () => {
-    firstMenu.style.display = "block";
-    firstMenu.style.height = "auto"; // so it adjusts properly
-    const height = firstMenu.scrollHeight + "px";
-    firstMenu.style.height = "0";
-    setTimeout(() => {
-      firstMenu.style.height = height;
-      firstMenu.style.opacity = "1";
-    }, 10);
-  });
-
-  // When hover ends
-  dropdownButton.addEventListener("mouseleave", () => {
-    firstMenu.style.height = "0";
-    firstMenu.style.opacity = "0";
-    setTimeout(() => {
-      firstMenu.style.display = "none";
-    }, 300);
-  });
-
-  // If you want the same behavior when mouse leaves the menu too
-  firstMenu.addEventListener("mouseleave", () => {
-    firstMenu.style.height = "0";
-    firstMenu.style.opacity = "0";
-    setTimeout(() => {
-      firstMenu.style.display = "none";
-    }, 300);
-  });
-});
 
