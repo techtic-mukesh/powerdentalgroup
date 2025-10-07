@@ -31,146 +31,146 @@
                 role="list"
                 tabindex="-1"
               >
-              {% if link.title == 'Products' %}
-                  <div class="tabs-menu">
-                    <div class="tabs">
-                      <ul id="tabs-nav">
-                        {% for block in section.blocks %}
-                            <li {% if block.settings.menu_type == 'tab' %}class="tabs-li"{% endif %}>
-                            {% if block.settings.menu_type == 'tab' %}
-                              <a href="#tab{{ forloop.index }}">{{ block.settings.menu_title }}</a>
-                            {% elsif block.settings.menu_type == 'link' %}
-                              <a href="{{ block.settings.linkurl }}">
-                                {{- block.settings.menu_title -}}
-                              </a>
-                          </li>
+           {% if link.title == 'Products' %}
+  <div class="tabs-menu">
+    <div class="tabs">
+      <!-- Tabs Navigation -->
+      <ul id="tabs-nav">
+        {% for block in section.blocks %}
+          {% if block.type == 'menu' %}
+            <li class="tabs-li {% if forloop.first %} active{% endif %}"">
+              <a href="#tab{{ forloop.index }}">
+                {% if block.settings.svg %}
+                  <span class="tab-icon">{{ block.settings.svg }}</span>
+                {% endif %}
+                <span>{{ block.settings.menu_title }}</span>
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      
+      <!-- Tabs Content -->
+      <div id="tabs-content">
+        {% for block in section.blocks %}
+          {% if block.type == 'menu' %}
+            <div id="tab{{ forloop.index }}" class="tab-content" {% if forloop.first %} style="display: block;"{% endif %}">
+              <div class="mega-menu-layout">
+                <!-- Left Side - Subcategories -->
+                <div class="mega-menu-left">
+                   {% for collection in block.settings.menu_collection %}
+                      <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
+                       <div class="cin-icon"></div>
+                         <p>{{ collection.title }}</p>
+                       </a>
+                    {% endfor %}
+                </div>
+                
+                <!-- Right Side - Featured Product -->
+                <div class="mega-menu-right">
+                  {% if block.settings.featured_product != blank %}
+                    {% assign product = all_products[block.settings.featured_product] %}
+                    <div class="featured-product-card">
+                      <a href="{{ product.url }}" class="featured-product-link" style="background-image: url('{{ product.featured_image | img_url: '' }}');">
+                        
+                        
+                        <div class="featured-product-info">
+                          <p class="featured-product-price">
+                            {{ product.variants.first.price | money }}
+                          </p>
+                          <h4 class="featured-product-title">
+                            {{ product.title }}
+                          </h4>
+                          <div class="sku-info">
+                             {% if product.variants.first.sku != blank %}
+                            <p class="featured-product-sku">
+                             <span>SKU:</span> {{ product.variants.first.sku }}
+                            </p>
                           {% endif %}
-                        {% endfor %}
-                      </ul>
-                      <!-- END tabs-nav -->
 
-                      <div id="tabs-content">
-                        {% for block in section.blocks %}
-                                      {% if link.title == 'Products' %}
-                            {% if block.settings.collection_list %}
-                              <div id="tab{{ forloop.index }}" class="tab-content collection-list">
-                                <div class="collection-menu">
-                                  {% for collection in block.settings.menu_collectionlist %}
-                                    <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
-                                      <p>{{ collection.title }}</p>
-                                    </a>
-                                  {% endfor %}
-                                </div>
-                                
-  
-                                <div class="image-display">
-                                    <img src="" alt="Current Collection Image" width="" height="">
-                                </div>
-                              </div>
-                            {% else %}
-                              <div id="tab{{ forloop.index }}" class="tab-content">
-                                {% assign collection = collections[block.settings.menu_collection] %}
-                                {% assign collection_sorted = collection.products %}
-                          
-                                {% if collection.products.size > 0 %}
-                                  {% assign product_limit = 10 %}
-                                  {% assign product_count = 0 %}
-                                  {% for product in collection_sorted %}
-                                    {% if product_count < product_limit %}
-                                      <div class="product-item">
-                                        <a href="{{ product.url }}" class="product-image-container">
-                                          {% if product.images.size > 1 %}
-                                            <img src="{{ product.featured_image | img_url: 'large' }}" 
-                                                 alt="{{ product.title }}" width="" height=""
-                                                 class="product-image primary-image">
-                                            <img src="{{ product.images[1] | img_url: 'large' }}" 
-                                                 alt="{{ product.title }}" width="" height=""
-                                                 class="product-image secondary-image">
-                                          {% else %}
-                                            <img src="{{ product.featured_image | img_url: 'large' }}" 
-                                                 alt="{{ product.title }}" width="" height=""
-                                                 class="product-image">
-                                          {% endif %}
-                                        </a>
-                                        <div class="product-details">
-                                          <a href="{{ product.url }}">{{ product.title }}</a>
-                                          <p>{{ product.variants.first.price | money }}</p>
-                                        </div>
-                                      </div>
-                                      {% assign product_count = product_count | plus: 1 %}
-                                    {% else %}
-                                      {% break %}
-                                    {% endif %}
-                                  {% endfor %}
-                                  <a class="view__link" href="{{ collection.url }}">
-                                    View All 
-                                    <span>
-                                    {% render 'right-arrow' %}
-                                      <!-- <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 0.5L7 6.5L1 12.5" stroke="#161616" stroke-linecap="round" stroke-linejoin="round"/>
-                                      </svg> -->
-                                    </span>
-                                  </a>
-                                {% else %}
-                                  <p>No products found in this collection.</p>
-                                {% endif %}
-                              </div>
-                            {% endif %}
+                           {% if product.available %}
+                            <p class="featured-product-stock in-stock">
+                              <span class="stock-indicator"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                  <g clip-path="url(#clip0_2203_9850)">
+                                    <circle cx="7" cy="7" r="6.125" fill="#28A745"/>
+                                  </g>
+                                  <defs>
+                                    <clipPath id="clip0_2203_9850">
+                                      <rect width="14" height="14" fill="white"/>
+                                    </clipPath>
+                                  </defs>
+                                </svg></span>
+                              In Stock
+                            </p>
+                          {% else %}
+                            <p class="featured-product-stock out-of-stock">
+                              <span class="stock-indicator"></span>
+                              Out of Stock
+                            </p>
                           {% endif %}
-                        {% endfor %}
-                      </div>
-                      
-                      <!-- END tabs-content -->
-                    </div>
-                    <!-- END tabs -->
-                  </div>
-                {% else %}
-                {%- for childlink in link.links -%}
-                  <li>
-                    {%- if childlink.links == blank -%}
-                      <a
-                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                        href="{{ childlink.url }}"
-                        class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
-                        {% if childlink.current %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ childlink.title | escape }}
+
+                          </div>
+                         
+                         
+                        </div>
                       </a>
-                    {%- else -%}
-                      <details id="Details-HeaderSubMenu-{{ link.handle }}-{{ childlink.handle }}">
-                        <summary
-                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                          class="header__menu-item link link--text list-menu__item focus-inset caption-large"
-                        >
-                          <span>{{ childlink.title | escape }}</span>
-                          {{- 'icon-caret.svg' | inline_asset_content -}}
-                        </summary>
-                        <ul
-                          id="HeaderMenu-SubMenuList-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                          class="header__submenu list-menu motion-reduce"
-                        >
-                          {%- for grandchildlink in childlink.links -%}
-                            <li>
-                              <a
-                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                href="{{ grandchildlink.url }}"
-                                class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"
-                                {% if grandchildlink.current %}
-                                  aria-current="page"
-                                {% endif %}
-                              >
-                                {{ grandchildlink.title | escape }}
-                              </a>
-                            </li>
-                          {%- endfor -%}
-                        </ul>
-                      </details>
-                    {%- endif -%}
-                  </li>
-                {%- endfor -%}
-              {% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% else %}
+  {%- for childlink in link.links -%}
+    <li>
+      {%- if childlink.links == blank -%}
+        <a
+          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+          href="{{ childlink.url }}"
+          class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
+          {% if childlink.current %}
+            aria-current="page"
+          {% endif %}
+        >
+          {{ childlink.title | escape }}
+        </a>
+      {%- else -%}
+        <details id="Details-HeaderSubMenu-{{ link.handle }}-{{ childlink.handle }}">
+          <summary
+            id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+            class="header__menu-item link link--text list-menu__item focus-inset caption-large"
+          >
+            <span>{{ childlink.title | escape }}</span>
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          </summary>
+          <ul
+            id="HeaderMenu-SubMenuList-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+            class="header__submenu list-menu motion-reduce"
+          >
+            {%- for grandchildlink in childlink.links -%}
+              <li>
+                <a
+                  id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                  href="{{ grandchildlink.url }}"
+                  class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"
+                  {% if grandchildlink.current %}
+                    aria-current="page"
+                  {% endif %}
+                >
+                  {{ grandchildlink.title | escape }}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </details>
+      {%- endif -%}
+    </li>
+  {%- endfor -%}
+{% endif %}
               </ul>
             </details>
           </header-menu>
@@ -199,93 +199,97 @@
 
 
 <script>
- $(document).ready(function () {
-  // Initialize tabs when dropdown opens
-  $('header-menu details').on('toggle', function() {
-    if ($(this).prop('open')) {
-      const $tabsMenu = $(this).find('.tabs-menu');
-      
-      if ($tabsMenu.length) {
-        // Set first tab as active
-        $tabsMenu.find('#tabs-nav li.tabs-li:first-child').addClass('active');
-        
-        // Hide all tab content initially
-        $tabsMenu.find('.tab-content').hide();
-        
-        // Show first tab content
-        $tabsMenu.find('.tab-content:first').show();
+$(document).ready(function () {
+
+  // Mega menu hover + submenu animation
+  $(".header__inline-menu details").each(function () {
+    const $item = $(this);
+    const $megaMenu = $item.find(".mega-menu__content");
+    const $submenu = $item.find("ul.header__submenu");
+    const $tabsMenu = $item.find(".tabs-menu");
+
+    // Hide initially
+    if ($megaMenu.length) $megaMenu.hide();
+    if ($submenu.length) $submenu.hide();
+
+    // Hover in
+    $item.on("mouseenter", function () {
+      $item.attr("open", "true");
+
+      // Animate mega menu
+      if ($megaMenu.length) {
+        $megaMenu.stop(true, true)
+          .css({ display: "block", height: 0, opacity: 0 })
+          .animate({ height: $megaMenu.get(0).scrollHeight, opacity: 1 }, 300);
       }
-    }
-  });
-  
-  // Click function for tab switching - use event delegation
-  $(document).on('click', '#tabs-nav li.tabs-li', function (e) {
-    e.preventDefault();
-    e.stopPropagation(); // Prevent dropdown from closing
-  
-    // Get the parent tabs-menu container
-    const $tabsMenu = $(this).closest('.tabs-menu');
-    
-    // Remove active class from all tabs in this menu
-    $tabsMenu.find('#tabs-nav li.tabs-li').removeClass('active');
-    
-    // Add active class to clicked tab
-    $(this).addClass('active');
-  
-    // Hide all tab content in this menu
-    $tabsMenu.find('.tab-content').hide();
-    
-    // Get the target tab ID and show it
-    const activeTab = $(this).find('a').attr('href');
-    $tabsMenu.find(activeTab).fadeIn();
-  });
 
-  // Collection list JS
-  $('.collection-list').each(function() {
-    const $collectionList = $(this);
-    const $firstItem = $collectionList.find('.collection-item:first');
-    const $imageDisplay = $collectionList.find('.image-display');
-    const $imageDisplayImg = $imageDisplay.find('img');
-    const defaultImage = "https://cdn.shopify.com/s/files/1/0610/6211/9556/files/image_6.png?v=1738566678";
+      // Animate submenu
+      if ($submenu.length) {
+        $submenu.stop(true, true)
+          .css({ display: "block", height: 0, opacity: 0 })
+          .animate({ height: $submenu.get(0).scrollHeight, opacity: 1 }, 300);
+      }
 
-    // Set default image on load
-    let initialImage = $firstItem.data('image') || defaultImage;
-    let initialLink = $firstItem.attr('href') || "#";
+      // Initialize tabs
+      if ($tabsMenu.length) {
+        $tabsMenu.find("#tabs-nav li.tabs-li").removeClass("active");
+        $tabsMenu.find(".tab-content").hide();
 
-    $firstItem.addClass('active');
-    
-    if (!$imageDisplay.find('a').length) {
-      $imageDisplayImg.wrap(`<a href="${initialLink}"></a>`);
-    } else {
-      $imageDisplay.find('a').attr('href', initialLink);
-    }
-    
-    $imageDisplayImg.attr('src', initialImage).on('error', function() {
-      $(this).attr('src', defaultImage); 
+        $tabsMenu.find("#tabs-nav li.tabs-li:first").addClass("active");
+        $tabsMenu.find(".tab-content:first").show();
+      }
     });
 
-    $collectionList.on('mouseenter', '.collection-item', function(e) {
-      e.preventDefault();
+    // Hover out
+    $item.on("mouseleave", function () {
+      $item.removeAttr("open");
 
-      const $this = $(this);
-      let imageUrl = $this.data('image') || defaultImage;
-      let collectionUrl = $this.attr('href') || "#";
-
-      $collectionList.find('.collection-item').removeClass('active');
-      $this.addClass('active');
-
-      $imageDisplay.find('a').fadeOut(100, function() {
-        $imageDisplayImg
-          .attr('src', imageUrl)
-          .on('load', function() {
-            $imageDisplay.find('a').attr('href', collectionUrl).fadeIn(100);
-          })
-          .on('error', function() {
-            console.error('Failed to load image:', imageUrl);
-            $(this).attr('src', defaultImage); 
+      // Hide mega menu
+      if ($megaMenu.length) {
+        $megaMenu.stop(true, true)
+          .animate({ height: 0, opacity: 0 }, 300, function () {
+            $(this).hide();
           });
-      });
+      }
+
+      // Hide submenu
+      if ($submenu.length) {
+        $submenu.stop(true, true)
+          .animate({ height: 0, opacity: 0 }, 300, function () {
+            $(this).hide();
+          });
+      }
+
+      // Reset tabs
+      if ($tabsMenu.length) {
+        $tabsMenu.find("#tabs-nav li.tabs-li").removeClass("active");
+        $tabsMenu.find(".tab-content").hide();
+
+        $tabsMenu.find("#tabs-nav li.tabs-li:first").addClass("active");
+        $tabsMenu.find(".tab-content:first").show();
+      }
     });
+
+    // Tab switching on hover
+    $tabsMenu.find("#tabs-nav li.tabs-li").hover(function (e) {
+      e.preventDefault();
+      const $this = $(this);
+
+      // Remove active from all tabs in this menu
+      $tabsMenu.find("#tabs-nav li.tabs-li").removeClass("active");
+      $this.addClass("active");
+
+      // Hide all tab content
+      $tabsMenu.find(".tab-content").hide();
+
+      // Show active tab content
+      const activeTab = $this.find("a").attr("href");
+      $tabsMenu.find(activeTab).stop(true, true).fadeIn(200);
+    });
+
   });
+
 });
+
+
 </script>
