@@ -44,6 +44,10 @@ a.button.button--secondary {
     text-transform: uppercase;
 }
 
+.gf-theme-version-15.spf-has-filter .gf-block-scroll {
+    max-height: 500px !important;
+}
+
 .badge {
     border-radius: unset;
     background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);

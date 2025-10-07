@@ -508,7 +508,7 @@
 {
   "name": "t:sections.header.name",
   "class": "section-header",
-  "max_blocks": 3,
+  "max_blocks": 20,
   "settings": [
     {
       "type": "select",
@@ -687,67 +687,40 @@
       "default": 20
     }
   ],
-  "blocks": [
+ "blocks": [
     {
       "type": "@app"
     },
-  {
-  "type": "menu",
-  "name": "menu",
-  "settings": [
     {
-      "type": "textarea",
-      "id": "svg",
-      "label": "Svg Icon"
-    },
-    {
-      "type": "text",
-      "id": "parent_menu",
-      "label": "Parent Menu Name"
-    },
-    {
-      "type": "text",
-      "id": "menu_title",
-      "label": "Menu Title"
-    },
-    {
-      "type": "collection",
-      "id": "menu_collection",
-      "label": "Select Collection"
-    },
-    {
-      "type": "checkbox",
-      "id": "collection_list",
-      "label": "Show Collection list in tab",
-      "default": false
-    },
-    {
-      "type": "collection_list",
-      "id": "menu_collectionlist",
-      "label": "Select Collection List"
-    },
-    {
-      "type": "product",
-      "id": "featured_product",
-      "label": "Select Featured Product (Optional)"
-    },
-    {
-      "type": "select",
-      "id": "menu_type",
-      "label": "Menu Type",
-      "options": [
-        { "value": "tab", "label": "Tab" },
-        { "value": "link", "label": "Link" }
+      "type": "menu",
+      "name": "Category Menu",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "svg",
+          "label": "SVG Icon",
+          "info": "Add SVG code for the category icon"
+        },
+        {
+          "type": "text",
+          "id": "menu_title",
+          "label": "Category Title",
+          "default": "Category Name"
+        },
+       {
+          "type": "collection_list",
+          "id": "menu_collection",
+          "label": "Select Collection",
+          "info": "Products tags from this collection will be used as subcategories"
+        },
+        {
+          "type": "product",
+          "id": "featured_product",
+          "label": "Featured Product",
+          "info": "Select a product to feature in the right panel"
+        }
       ]
-    },
-    {
-      "type": "url",
-      "id": "linkurl",
-      "label": "Select Url"
     }
-  ]
-}
-
   ]
 }
 {% endschema %}
