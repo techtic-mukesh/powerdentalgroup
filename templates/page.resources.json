@@ -86,6 +86,7 @@
         "resource_item_EGR8Hq",
         "resource_item_Yeg6te"
       ],
+      "disabled": true,
       "name": "Resources Grid",
       "settings": {
         "heading": "RESOURCES"
