@@ -60,6 +60,20 @@
             "title": "Resource Title",
             "link": ""
           }
+        },
+        "resource_item_EGR8Hq": {
+          "type": "resource_item",
+          "settings": {
+            "title": "Resource Title",
+            "link": ""
+          }
+        },
+        "resource_item_Yeg6te": {
+          "type": "resource_item",
+          "settings": {
+            "title": "Resource Title",
+            "link": ""
+          }
         }
       },
       "block_order": [
@@ -68,7 +82,9 @@
         "resource_item_6RjPgp",
         "resource_item_Eziixe",
         "resource_item_niLPDF",
-        "resource_item_Xb3qQF"
+        "resource_item_Xb3qQF",
+        "resource_item_EGR8Hq",
+        "resource_item_Yeg6te"
       ],
       "name": "Resources Grid",
       "settings": {
