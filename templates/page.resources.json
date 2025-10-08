@@ -15,9 +15,69 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "resource_DR9P6B": {
+      "type": "resource",
+      "blocks": {
+        "resource_item_EzJime": {
+          "type": "resource_item",
+          "settings": {
+            "title": "Resource Title",
+            "link": ""
+          }
+        },
+        "resource_item_LXDF7D": {
+          "type": "resource_item",
+          "settings": {
+            "title": "Resource Title",
+            "link": ""
+          }
+        },
+        "resource_item_6RjPgp": {
+          "type": "resource_item",
+          "settings": {
+            "title": "Resource Title",
+            "link": ""
+          }
+        },
+        "resource_item_Eziixe": {
+          "type": "resource_item",
+          "settings": {
+            "title": "Resource Title",
+            "link": ""
+          }
+        },
+        "resource_item_niLPDF": {
+          "type": "resource_item",
+          "settings": {
+            "title": "Resource Title",
+            "link": ""
+          }
+        },
+        "resource_item_Xb3qQF": {
+          "type": "resource_item",
+          "settings": {
+            "title": "Resource Title",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "resource_item_EzJime",
+        "resource_item_LXDF7D",
+        "resource_item_6RjPgp",
+        "resource_item_Eziixe",
+        "resource_item_niLPDF",
+        "resource_item_Xb3qQF"
+      ],
+      "name": "Resources Grid",
+      "settings": {
+        "heading": "RESOURCES"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "resource_DR9P6B"
   ]
 }
