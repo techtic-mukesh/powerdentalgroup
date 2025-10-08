@@ -1,0 +1,144 @@
+
+<section class="resources-section">
+  <div class="container">
+    {% if section.settings.section_title != blank %}
+      <h2 class="resources-title">{{ section.settings.section_title }}</h2>
+    {% endif %}
+    <div class="resources-grid">
+      {% for block in section.blocks %}
+        <div class="resource-card" {{ block.shopify_attributes }}>
+          {% if block.settings.card_link %}
+            <a href="{{ block.settings.card_link }}" class="resource-card-title-link">
+              <h3 class="resource-card-title">{{ block.settings.card_title }}</h3>
+            </a>
+          {% else %}
+            <h3 class="resource-card-title">{{ block.settings.card_title }}</h3>
+          {% endif %}
+          <p class="resource-card-description">{{ block.settings.card_description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+.resources-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.resources-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.resource-card {
+  border: 1px solid #ddd;
+  padding: 25px 20px;
+  text-align: left;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.resource-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transform: translateY(-3px);
+}
+
+.resource-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 10px;
+  border-left: 4px solid #000;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.resource-card-title-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  position: relative;
+}
+
+.resource-card-title-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #000;
+  transition: width 0.3s ease;
+}
+
+.resource-card-title-link:hover::after {
+  width: 100%;
+}
+
+.resource-card-title-link:hover .resource-card-title {
+  color: #000;
+}
+
+.resource-card-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Resources Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "RESOURCES"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "resource_card",
+      "name": "Resource Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Title",
+          "default": "USPS RETURN LABEL"
+        },
+        {
+          "type": "textarea",
+          "id": "card_description",
+          "label": "Card Description",
+          "default": "Utilize our USPS labels to send your packages via United States Postal Service. Simply print the label and affix it to your package. It is $15.99 with use."
+        },
+        {
+          "type": "url",
+          "id": "card_link",
+          "label": "Card Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Resources Grid",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}
