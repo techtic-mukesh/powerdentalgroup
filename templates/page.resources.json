@@ -25,7 +25,7 @@
           "settings": {
             "card_title": "USPS RETURN LABEL",
             "card_description": "<p>Utilize our USPS labels to send your packages via United States Postal Service. Simply print the label and affix it to your package. It is $15.99 with use.</p>",
-            "card_link": ""
+            "card_link": "https://returns.usps.com/Label/CreateSingle?Code=7AC6D5C59F5940EBA1D2A338C8F13E77&DisplayType=Customer"
           }
         },
         "resource_card_PBfFke": {
