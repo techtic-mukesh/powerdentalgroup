@@ -6,15 +6,17 @@
     {% endif %}
     <div class="resources-grid">
       {% for block in section.blocks %}
-        <div class="resource-card" {{ block.shopify_attributes }}>
-          {% if block.settings.card_link %}
-            <a href="{{ block.settings.card_link }}" class="resource-card-title-link">
+        <div class="resource-col">
+          <div class="resource-card" {{ block.shopify_attributes }}>
+            {% if block.settings.card_link %}
+              <a href="{{ block.settings.card_link }}" class="resource-card-title-link">
+                <h3 class="resource-card-title">{{ block.settings.card_title }}</h3>
+              </a>
+            {% else %}
               <h3 class="resource-card-title">{{ block.settings.card_title }}</h3>
-            </a>
-          {% else %}
-            <h3 class="resource-card-title">{{ block.settings.card_title }}</h3>
-          {% endif %}
-          <p class="resource-card-description">{{ block.settings.card_description }}</p>
+            {% endif %}
+            <p class="resource-card-description">{{ block.settings.card_description }}</p>
+          </div>
         </div>
       {% endfor %}
     </div>
@@ -40,7 +42,7 @@
   margin: 0 -10px;
   flex-wrap: wrap;
 }
-.resources-grid .resource-card{width: 25%; padding: 0 10px;}
+.resources-grid .resource-col{width: 25%; padding: 0 10px;}
 .resources-grid:hover .resource-card-title:after {
     content: '>';
     margin-left: 15px;
