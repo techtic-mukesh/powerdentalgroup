@@ -103,15 +103,16 @@
     position: relative;
     z-index: 1;
 }
-.resource-card-title:hover:before{
+.resource-card-title:before{
   content: "";
   position: absolute;
     left: -20px;
     top: 0;
+    width:0;
     height: 100%;
         transition: width .5s ease-in-out;
     animation: movingBg 5s linear infinite;
-   width: calc(100% + 40px);
+   
 background: linear-gradient(102deg,#42c5ef 0%,#0033a0 100%);}
 .resource-card-title-link {
   text-decoration: none;
@@ -119,7 +120,7 @@ background: linear-gradient(102deg,#42c5ef 0%,#0033a0 100%);}
   display: inline-block;
   position: relative;
 }
-
+.resource-card-title:hover:before{width: calc(100% + 40px);}
 {% comment %} .resource-card-title-link::after {
   content: "";
   position: absolute;
