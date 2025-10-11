@@ -16,9 +16,37 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "product_training_videos_block_knfrYA": {
+      "type": "product-training-videos-block",
+      "blocks": {
+        "product_videos_card_RXE9wP": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/DNhsgeyZUmQ",
+            "card_title": "Power Dental USA Crown Removers - Dr. Daniel"
+          }
+        },
+        "product_videos_card_PFhacX": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/DNhsgeyZUmQ",
+            "card_title": "Power Dental USA Crown Removers - Dr. Daniel"
+          }
+        }
+      },
+      "block_order": [
+        "product_videos_card_RXE9wP",
+        "product_videos_card_PFhacX"
+      ],
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": "Product Training Videos"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "product_training_videos_block_knfrYA"
   ]
 }
