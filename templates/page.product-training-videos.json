@@ -20,6 +20,12 @@
     "product_training_videos_block_knfrYA": {
       "type": "product-training-videos-block",
       "blocks": {
+        "product_title_dKwUMV": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "Power Crown Removers"
+          }
+        },
         "product_videos_card_RXE9wP": {
           "type": "product_videos_card",
           "settings": {
@@ -43,6 +49,7 @@
         }
       },
       "block_order": [
+        "product_title_dKwUMV",
         "product_videos_card_RXE9wP",
         "product_videos_card_PFhacX",
         "product_videos_card_nJpF6Y"
@@ -51,10 +58,18 @@
       "settings": {
         "section_title": "Product Training Videos"
       }
+    },
+    "product_training_videos_block_RgMQxk": {
+      "type": "product-training-videos-block",
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": ""
+      }
     }
   },
   "order": [
     "main",
-    "product_training_videos_block_knfrYA"
+    "product_training_videos_block_knfrYA",
+    "product_training_videos_block_RgMQxk"
   ]
 }
