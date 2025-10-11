@@ -33,11 +33,19 @@
             "video_link": "https://www.youtube.com/embed/DNhsgeyZUmQ",
             "card_title": "Power Dental USA Crown Removers - Dr. Daniel"
           }
+        },
+        "product_videos_card_nJpF6Y": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "",
+            "card_title": "Power Dental USA Crown Removers - Dr. Daniel"
+          }
         }
       },
       "block_order": [
         "product_videos_card_RXE9wP",
-        "product_videos_card_PFhacX"
+        "product_videos_card_PFhacX",
+        "product_videos_card_nJpF6Y"
       ],
       "name": "Product Videos Grid",
       "settings": {
