@@ -76,11 +76,65 @@
       "settings": {
         "section_title": ""
       }
+    },
+    "product_training_videos_block_wqhtKV": {
+      "type": "product-training-videos-block",
+      "blocks": {
+        "product_title_tFpWzy": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "Ridge Compressing Forceps"
+          }
+        },
+        "product_videos_card_maLTWt": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/Je-POSfiUbo",
+            "card_title": "Ridge Compressing Forceps - Dr. James E. Sparaga DMD, M.Ed."
+          }
+        }
+      },
+      "block_order": [
+        "product_title_tFpWzy",
+        "product_videos_card_maLTWt"
+      ],
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": ""
+      }
+    },
+    "product_training_videos_block_jFL7RM": {
+      "type": "product-training-videos-block",
+      "blocks": {
+        "product_title_kNnpGy": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "Power Bone Crusher"
+          }
+        },
+        "product_videos_card_Cy3CWL": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/gfqjSA6YvCI",
+            "card_title": "Power Bone Mill With Crusher"
+          }
+        }
+      },
+      "block_order": [
+        "product_title_kNnpGy",
+        "product_videos_card_Cy3CWL"
+      ],
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": ""
+      }
     }
   },
   "order": [
     "main",
     "product_training_videos_block_knfrYA",
-    "product_training_videos_block_ihV3if"
+    "product_training_videos_block_ihV3if",
+    "product_training_videos_block_wqhtKV",
+    "product_training_videos_block_jFL7RM"
   ]
 }
