@@ -35,10 +35,12 @@
 }
 
 .resources-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
+  display: flex;
+  row-gap: 30px;
+  margin: 0 -10px;
+  flex-wrap: wrap;
 }
+.resources-grid .resource-card{width: 25%; padding: 0 10px;}
 .resources-grid:hover .resource-card-title:after {
     content: '>';
     margin-left: 15px;
