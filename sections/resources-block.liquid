@@ -1,6 +1,6 @@
 
 <section class="resources-section">
-  <div class="container page-width">
+  <div class="container">
     {% if section.settings.section_title != blank %}
       <h2 class="resources-title">{{ section.settings.section_title }}</h2>
     {% endif %}
@@ -28,7 +28,10 @@
   padding: 60px 20px;
   text-align: center;
 }
-
+.resources-section  .container{
+  max-width: 1280px;
+  margin: 0 auto;
+}      
 .resources-title {
   font-size: 40px;
   font-weight: 700;
