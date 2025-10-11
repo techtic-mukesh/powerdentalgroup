@@ -36,8 +36,8 @@
         "product_videos_card_PFhacX": {
           "type": "product_videos_card",
           "settings": {
-            "video_link": "https://www.youtube.com/embed/DNhsgeyZUmQ",
-            "card_title": "Power Dental USA Crown Removers - Dr. Daniel"
+            "video_link": "https://www.youtube.com/embed/D_txIVBUzJ0",
+            "card_title": "Power Crown Removers - Instruction"
           }
         }
       },
@@ -50,10 +50,37 @@
       "settings": {
         "section_title": "Product Training Videos"
       }
+    },
+    "product_training_videos_block_ihV3if": {
+      "type": "product-training-videos-block",
+      "blocks": {
+        "product_title_tPfaUQ": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "Fish Bone Tray"
+          }
+        },
+        "product_videos_card_KH4BLh": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/Cf432L2bdJQ",
+            "card_title": "7314-Disposable Fish Bone Tray"
+          }
+        }
+      },
+      "block_order": [
+        "product_title_tPfaUQ",
+        "product_videos_card_KH4BLh"
+      ],
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": ""
+      }
     }
   },
   "order": [
     "main",
-    "product_training_videos_block_knfrYA"
+    "product_training_videos_block_knfrYA",
+    "product_training_videos_block_ihV3if"
   ]
 }
