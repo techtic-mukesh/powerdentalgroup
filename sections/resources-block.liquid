@@ -99,10 +99,14 @@
         background-position: 0 50%
     }
 }
-.resource-card-title:hover span {
-    color: #fff;
+.resource-card-title span {
+    display: block;
     position: relative;
     z-index: 1;
+    transition: color .5s ease-out;
+}
+.resource-card-title:hover span {
+    color: #fff;
 }
 .resource-card-title:before{
   content: "";
