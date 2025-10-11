@@ -4,7 +4,6 @@
             <h2 class="product-training-videos-title">{{ section.settings.section_title }}</h2>
         {% endif %}
         <div class="product-training-videos-grid">
-             {%- case block.type -%}
                 {% if block.settings.subtitle_title != blank %}
             <h3 class="product-training-videos-title">{{ block.settings.subtitle_title }}</h3>
         {% endif %}
@@ -20,7 +19,6 @@
                 </div>
             </div>
             {% endfor %}
-            {%- endcase -%}
         </div>
     </div>
 </section>
