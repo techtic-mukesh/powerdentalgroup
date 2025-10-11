@@ -57,15 +57,26 @@
       width: 25%;
       padding: 0 10px;
   }
-  .product-training-videos-subtitle{
-        font-size: 28px;
-        line-height: 1.3;
-        letter-spacing: -.56px;
-        margin-bottom: 20px;
-    }
-    .product-training-videos-video{
-        
-    }
+  .product-training-videos-subtitle {
+    font-size: 28px;
+    line-height: 1.3;
+    letter-spacing: -.56px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+   .product-training-videos-video {
+    display: block;
+    position: relative;
+    padding-top: 56.25%;
+    overflow: hidden;
+}
+    .product-training-videos-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 </style>
 
 {% schema %}
