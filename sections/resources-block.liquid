@@ -83,6 +83,7 @@
     height: 100%;
     background: #131313;
     transition: width .5s ease-in-out;
+    animation: movingBg 5s linear infinite;
 }
 @keyframes movingBg {
     0% {
@@ -97,10 +98,14 @@
         background-position: 0 50%
     }
 }
-.resource-card-title span:hover{color: #fff;}
+.resource-card-title:hover span {
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
 .resource-card-title:hover:before{
    width: calc(100% + 40px);
-  animation: movingBg 5s linear infinite;
+  
 background: linear-gradient(102deg,#42c5ef 0%,#0033a0 100%);}
 .resource-card-title-link {
   text-decoration: none;
