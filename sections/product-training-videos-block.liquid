@@ -14,16 +14,18 @@
           <div class="product-training-videos-col">
             <div class="product-training-videos-card {{ block.shopify_attributes }}">
               {% if block.settings.video_link %}
-                <iframe
-                  width="560"
-                  height="315"
-                  src="{{ block.settings.video_link }}"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
-                ></iframe>
+                <div class="product-training-videos-video">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="{{ block.settings.video_link }}"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                </div>
               {% endif %}
               {% if block.settings.card_title %}
                 <p>{{ block.settings.card_title }}</p>
