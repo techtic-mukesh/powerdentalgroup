@@ -48,7 +48,7 @@
           "type": "resource_card",
           "settings": {
             "card_title": "RETURN ORDER FORM",
-            "card_description": "<p>Tell us about your return.\n\nYour feedback is important. Please provide details regarding your return.</p>",
+            "card_description": "<p>Tell us about your return.</p><p>Your feedback is important. Please provide details regarding your return.</p>",
             "card_link": ""
           }
         },
@@ -56,7 +56,7 @@
           "type": "resource_card",
           "settings": {
             "card_title": "PRODUCT TRAINING VIDEOS",
-            "card_description": "<p>Maximize your ROI and get the most out of your investment.\n\nReview product demonstrations and training videos here.</p>",
+            "card_description": "<p>Maximize your ROI and get the most out of your investment.</p><p>Review product demonstrations and training videos here. </p>",
             "card_link": ""
           }
         },
@@ -64,7 +64,7 @@
           "type": "resource_card",
           "settings": {
             "card_title": "E-CATALOG",
-            "card_description": "<p>Interested in the full E-Catalog PDF style?\n\nBrowse through all of our products, detailed descriptions, and access pricing information.</p>",
+            "card_description": "<p>Interested in the full E-Catalog PDF style?</p><p>Browse through all of our products, detailed descriptions, and access pricing information.</p>",
             "card_link": ""
           }
         },
@@ -72,7 +72,7 @@
           "type": "resource_card",
           "settings": {
             "card_title": "REPROCESSING GUIDE",
-            "card_description": "<p>Questions about sterilization?\n\nHere you will find comprehensive details regarding the sterilization methods recommended for our products.</p>",
+            "card_description": "<p>Questions about sterilization?</p><p>Here you will find comprehensive details regarding the sterilization methods recommended for our products.</p>",
             "card_link": ""
           }
         },
@@ -80,7 +80,7 @@
           "type": "resource_card",
           "settings": {
             "card_title": "FAQS",
-            "card_description": "<p>Have a question?\n\nAccess quick answers to common queries about our products or services.</p>",
+            "card_description": "<p>Have a question?</p><p>Access quick answers to common queries about our products or services.</p>",
             "card_link": ""
           }
         }
