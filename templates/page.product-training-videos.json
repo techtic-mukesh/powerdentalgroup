@@ -50,18 +50,10 @@
       "settings": {
         "section_title": "Product Training Videos"
       }
-    },
-    "product_training_videos_block_RgMQxk": {
-      "type": "product-training-videos-block",
-      "name": "Product Videos Grid",
-      "settings": {
-        "section_title": ""
-      }
     }
   },
   "order": [
     "main",
-    "product_training_videos_block_knfrYA",
-    "product_training_videos_block_RgMQxk"
+    "product_training_videos_block_knfrYA"
   ]
 }
