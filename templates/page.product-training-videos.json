@@ -128,6 +128,204 @@
       "settings": {
         "section_title": ""
       }
+    },
+    "product_training_videos_block_PrDUiL": {
+      "type": "product-training-videos-block",
+      "blocks": {
+        "product_title_J7FPDL": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "Implant Systems"
+          }
+        },
+        "product_videos_card_H9T7kJ": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/ClYrKu0i8ic",
+            "card_title": "1984 Torque"
+          }
+        },
+        "product_videos_card_nztd9p": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/SZpDKLkuGjI",
+            "card_title": "1985 Bone Mill"
+          }
+        },
+        "product_videos_card_F3TPgP": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/DFJ5VAtLSck",
+            "card_title": "7801 Aqua Sinus"
+          }
+        },
+        "product_videos_card_Kiyey4": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/JCDk_mOyXPI",
+            "card_title": "7802 Crestal Approach"
+          }
+        },
+        "product_videos_card_BacD8D": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/uZvLFIpLVH0",
+            "card_title": "7803 Lateral Approach"
+          }
+        },
+        "product_videos_card_GLCjiG": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/NbQSAFSn28I",
+            "card_title": "7804 Bone Expander"
+          }
+        },
+        "product_videos_card_NbLCF8": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/pj043DJdVJ8",
+            "card_title": "7806 Bur"
+          }
+        },
+        "product_videos_card_RTqWcE": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/9R3327764vo",
+            "card_title": "7808 Bone Spreading"
+          }
+        },
+        "product_videos_card_mk4dHW": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/gQ42Dl8NfDA",
+            "card_title": "7809 Bone Expander Spreading"
+          }
+        },
+        "product_videos_card_eLiTtV": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/nhfXc3EXIc0",
+            "card_title": "7810 Bone Collector"
+          }
+        },
+        "product_videos_card_tG7HwG": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/UuTOjKXPe48",
+            "card_title": "7822 Screw And Fixture Remover"
+          }
+        }
+      },
+      "block_order": [
+        "product_title_J7FPDL",
+        "product_videos_card_H9T7kJ",
+        "product_videos_card_nztd9p",
+        "product_videos_card_F3TPgP",
+        "product_videos_card_Kiyey4",
+        "product_videos_card_BacD8D",
+        "product_videos_card_GLCjiG",
+        "product_videos_card_NbLCF8",
+        "product_videos_card_RTqWcE",
+        "product_videos_card_mk4dHW",
+        "product_videos_card_eLiTtV",
+        "product_videos_card_tG7HwG"
+      ],
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": ""
+      }
+    },
+    "product_training_videos_block_pF6G3X": {
+      "type": "product-training-videos-block",
+      "blocks": {
+        "product_title_LzB4NE": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "Implant Guide Set"
+          }
+        },
+        "product_videos_card_tVLXmq": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/dMO2L72ibOs",
+            "card_title": "Centering Guide"
+          }
+        },
+        "product_videos_card_KPK6hw": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/4lS2F97bs58",
+            "card_title": "Centering Guide"
+          }
+        },
+        "product_videos_card_Eeciaa": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/4iPDRF-DHXw",
+            "card_title": "Mutiple Guide"
+          }
+        },
+        "product_videos_card_XwiPeH": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/T2jc3sZF_Sk",
+            "card_title": "Multiple Guide"
+          }
+        },
+        "product_videos_card_yippHN": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/B_KQruRpL6k",
+            "card_title": "Multiple Guide"
+          }
+        }
+      },
+      "block_order": [
+        "product_title_LzB4NE",
+        "product_videos_card_tVLXmq",
+        "product_videos_card_KPK6hw",
+        "product_videos_card_Eeciaa",
+        "product_videos_card_XwiPeH",
+        "product_videos_card_yippHN"
+      ],
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": ""
+      }
+    },
+    "product_training_videos_block_K3G9DD": {
+      "type": "product-training-videos-block",
+      "blocks": {
+        "product_title_wfVrKE": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "Harvesting of Palatal Double Blade Scalpel Retipping Information"
+          }
+        },
+        "product_videos_card_JWimKd": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/TNvHeqQrrVU",
+            "card_title": "Harvesting of Palatial Scalpel Blade Holder and VT Tunneling"
+          }
+        },
+        "product_videos_card_3fLFcb": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https://www.youtube.com/embed/xPcwarDAlEE",
+            "card_title": "Retipping Information"
+          }
+        }
+      },
+      "block_order": [
+        "product_title_wfVrKE",
+        "product_videos_card_JWimKd",
+        "product_videos_card_3fLFcb"
+      ],
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": ""
+      }
     }
   },
   "order": [
@@ -135,6 +333,9 @@
     "product_training_videos_block_knfrYA",
     "product_training_videos_block_ihV3if",
     "product_training_videos_block_wqhtKV",
-    "product_training_videos_block_jFL7RM"
+    "product_training_videos_block_jFL7RM",
+    "product_training_videos_block_PrDUiL",
+    "product_training_videos_block_pF6G3X",
+    "product_training_videos_block_K3G9DD"
   ]
 }
