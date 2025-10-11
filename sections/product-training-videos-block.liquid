@@ -5,11 +5,9 @@
         {% endif %}
         <div class="product-training-videos-grid">
              {%- case block.type -%}
-            {%- when 'product_title' -%}
                 {% if block.settings.subtitle_title != blank %}
             <h3 class="product-training-videos-title">{{ block.settings.subtitle_title }}</h3>
         {% endif %}
-            {%- when 'product_videos_card' -%}
             {% for block in section.blocks %}
             <div class="product-training-videos-col">
                 <div class="product-training-videos-card {{ block.shopify_attributes }}">
