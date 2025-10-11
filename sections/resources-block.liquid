@@ -39,7 +39,10 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
 }
-
+.resources-grid:hover .resource-card-title:after {
+    content: '>';
+    margin-left: 15px;
+}
 .resource-card {
   border: 1px solid #ddd;
   padding: 25px 20px;
