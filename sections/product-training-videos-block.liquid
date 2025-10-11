@@ -1,47 +1,58 @@
 <section class="product-training-videos-section">
-    <div class="container">
-        {% if section.settings.section_title != blank %}
-            <h2 class="product-training-videos-title">{{ section.settings.section_title }}</h2>
+  <div class="container">
+    {% if section.settings.section_title != blank %}
+      <h2 class="product-training-videos-title">{{ section.settings.section_title }}</h2>
+    {% endif %}
+    <div class="product-training-videos-grid">
+      {% if block.settings.video_link %}
+        {% if block.settings.subtitle_title != blank %}
+          <h3 class="product-training-videos-title">{{ block.settings.subtitle_title }}</h3>
         {% endif %}
-        <div class="product-training-videos-grid">
-                {% if block.settings.subtitle_title != blank %}
-            <h3 class="product-training-videos-title">{{ block.settings.subtitle_title }}</h3>
-        {% endif %}
-            {% for block in section.blocks %}
-            <div class="product-training-videos-col">
-                <div class="product-training-videos-card {{ block.shopify_attributes }}">
-                    {% if block.settings.video_link %}
-                    <iframe width="560" height="315" src="{{ block.settings.video_link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
-                    {% endif %}
-                    {% if block.settings.card_title %}
-                    <p>{{ block.settings.card_title }}</p>
-                    {% endif %}
-                </div>
-            </div>
-            {% endfor %}
+      {% endif %}
+      {% for block in section.blocks %}
+        <div class="product-training-videos-col">
+          <div class="product-training-videos-card {{ block.shopify_attributes }}">
+            {% if block.settings.video_link %}
+              <iframe
+                width="560"
+                height="315"
+                src="{{ block.settings.video_link }}"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            {% endif %}
+            {% if block.settings.card_title %}
+              <p>{{ block.settings.card_title }}</p>
+            {% endif %}
+          </div>
         </div>
+      {% endfor %}
     </div>
+  </div>
 </section>
 
 <style>
-    .product-training-videos-section {
-        padding: 64px 20px;
-        text-align: center;
-    }
-    .product-training-videos-section .container {
-        max-width: 1280px;
-        margin: 0 auto;
-    }
-    .product-training-videos-grid {
-        display: flex;
-        row-gap: 40px;
-        margin: 0 -10px;
-        flex-wrap: wrap;
-    }
-    .product-training-videos-grid .product-training-videos-col {
-        width: 25%;
-        padding: 0 10px;
-    }
+  .product-training-videos-section {
+      padding: 64px 20px;
+      text-align: center;
+  }
+  .product-training-videos-section .container {
+      max-width: 1280px;
+      margin: 0 auto;
+  }
+  .product-training-videos-grid {
+      display: flex;
+      row-gap: 40px;
+      margin: 0 -10px;
+      flex-wrap: wrap;
+  }
+  .product-training-videos-grid .product-training-videos-col {
+      width: 25%;
+      padding: 0 10px;
+  }
 </style>
 
 {% schema %}
