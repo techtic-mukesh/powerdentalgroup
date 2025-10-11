@@ -195,7 +195,12 @@ ul#HeaderMenu-MenuList-1 {
     width: 100%;
     left: 0;
     z-index: 9;
+        top: 107.8%;
 } 
+
+.header__submenu.list-menu {
+    border: unset;
+}
 
 body.mega-menu-open button.mega-dropdown svg {
     transform: scaleY(-1);
@@ -419,6 +424,10 @@ p.featured-product-stock.in-stock {
 
 p.featured-product-stock.in-stock span.stock-indicator {
     display: inline-flex;
+}
+
+body.product.mega-menu-open ul.list-menu.list-menu--inline {
+    pointer-events: none;
 }
 
 @media only screen and (max-width: 1240px) {

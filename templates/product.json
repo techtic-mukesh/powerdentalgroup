@@ -215,46 +215,33 @@
     "testimonial_cAGqp9": {
       "type": "testimonial",
       "blocks": {
-        "testimonial_q3Exhb": {
-          "type": "testimonial",
-          "settings": {
-            "profile_image": "shopify:\/\/shop_images\/Rectangle_26105.png",
-            "testimonial_title": "Saves Me Valuable Chair Time and Hundreds of Dollars in Bills",
-            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in bills.<\/p>",
-            "name": "- Shawn P. Lottier, DDS, MAG, DICOI",
-            "credentials": "- Comfort Smiles Atlanta",
-            "date": "February 20, 2024"
-          }
-        },
         "testimonial_DFKGPP": {
           "type": "testimonial",
           "settings": {
             "profile_image": "shopify:\/\/shop_images\/Rectangle_26105_1.png",
             "testimonial_title": "Fastest and Most Reliable Repairs I’ve Seen",
-            "testimonial_text": "<p>Although their instruments are one of the best I've used over my 15 year professional career, the system that they have in place to replace and repair tools is one of the fastest and most reliable I've seen. Sent in and sent back to me in less than a week. Great service and great company!<\/p>",
-            "name": "Dr. Santiago, DDS",
+            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in lab bills.<\/p>",
+            "name": "Shawn P. Lottier, DDS, MAG, DICOI  – Comfort Smiles Atlanta",
             "credentials": "",
             "date": "May 15, 2024"
           }
         },
-        "testimonial_cz9qwq": {
+        "testimonial_q3Exhb": {
           "type": "testimonial",
           "settings": {
             "profile_image": "shopify:\/\/shop_images\/Rectangle_26105.png",
-            "testimonial_title": "Saves Me Valuable Chair Time and Hundreds of Dollars in Bills",
-            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in bills.<\/p>",
-            "name": "- Shawn P. Lottier, DDS",
+            "testimonial_title": "Effortless Crown Removal. One Piece, First Try",
+            "testimonial_text": "<p>Total game changer. First use was a dream - drilled, gripped, and the zirconia crown popped off in one piece. Effortless.<\/p>",
+            "name": "- Shawn P. Lottier, DDS, MAG, DICOI",
             "credentials": "- Comfort Smiles Atlanta",
-            "date": "February 24, 2024"
+            "date": "February 20, 2024"
           }
         }
       },
       "block_order": [
-        "testimonial_q3Exhb",
         "testimonial_DFKGPP",
-        "testimonial_cz9qwq"
+        "testimonial_q3Exhb"
       ],
-      "disabled": true,
       "name": "Testimonials Swiper",
       "settings": {
         "background_color": "#f7f7ff",
