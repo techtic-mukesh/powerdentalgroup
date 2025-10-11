@@ -113,6 +113,20 @@ a.button.button--secondary:after {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+     background: linear-gradient(102deg, #42c5ef, #0033a0, #42c5ef, #0033a0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    font-weight: 600;
+    transition: color .2s 
+ease-in-out;
+    display: inline-block;
+    width: auto;
+}
+
+.footer-block__heading:hover {
+        animation: rainbow 1.25s ease-in-out infinite;
 }
 
 .footer-block__brand-info p {
@@ -246,6 +260,7 @@ body.gradient.cart .title-wrapper-with-link a, body.gradient.cart .cart__ctas bu
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    text-transform: uppercase;
 }
 
 body.gradient.cart .cart__ctas button:after, cart-items.is-empty a.button:after, .drawer__inner-empty a.button:after {
