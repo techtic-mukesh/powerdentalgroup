@@ -1,2 +1,60 @@
 <section class="product-training-videos-section">
+    <div class="container">
+        {% if section.settings.section_title != blank %}
+            <h2 class="product-training-videos-title">{{ section.settings.section_title }}</h2>
+        {% endif %}
+        <div class="product-training-videos-grid">
+            {% for block in section.blocks %}
+            <div class="product-training-videos-col">
+                <div class="product-training-videos-card {{ block.shopify_attributes }}">
+                    {% if block.settings.video_link %}
+                    <iframe width="560" height="315" src="{{ block.settings.video_link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+                    {% endif %}
+                    {% if block.settings.card_title %}
+                    <p>{{ block.settings.card_title }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
+{% schema %}
+{
+  "name": "Product Videos Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "RESOURCES"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "a",
+      "name": "Product Videos Card",
+      "settings": [
+        {
+          "type": "url",
+          "id": "video_link",
+          "label": "Video Link",
+          "info": "Add Youtube Embed Link"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Title",
+          "default": "Power Dental USA Crown Removers - Dr. Daniel"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Videos Grid",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}
