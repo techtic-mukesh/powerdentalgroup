@@ -75,7 +75,7 @@
     margin: 0 0 15px;
     color: #0033a0;
 }
-.resource-card-title:before {
+.resource-card-title span:before {
     content: "";
     position: absolute;
     left: -20px;
@@ -105,8 +105,12 @@
     z-index: 1;
 }
 .resource-card-title:hover:before{
+  content: "";
+  position: absolute;
+    left: -20px;
+    top: 0;
+    height: 100%;
    width: calc(100% + 40px);
-  
 background: linear-gradient(102deg,#42c5ef 0%,#0033a0 100%);}
 .resource-card-title-link {
   text-decoration: none;
