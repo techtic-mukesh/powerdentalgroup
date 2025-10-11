@@ -6,7 +6,7 @@
     <div class="product-training-videos-row">
       {% for block in section.blocks %}
         {% if block.settings.subtitle_title != blank %}
-          <h3 class="product-training-videos-title">{{ block.settings.subtitle_title }}</h3>
+          <h3 class="product-training-videos-subtitle">{{ block.settings.subtitle_title }}</h3>
         {% endif %}
       {% endfor %}
       <div class="product-training-videos-grid">
@@ -55,6 +55,12 @@
       width: 25%;
       padding: 0 10px;
   }
+  .product-training-videos-subtitle{
+        font-size: 28px;
+        line-height: 1.3;
+        letter-spacing: -.56px;
+        margin-bottom: 20px;
+    }
 </style>
 
 {% schema %}
