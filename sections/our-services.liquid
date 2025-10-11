@@ -60,7 +60,21 @@ section.our-services .title-wrap p.subheading {
     -webkit-text-fill-color: transparent;
     text-align: center;
     display: inline-block;
+    background: linear-gradient(102deg, #42c5ef, #0033a0, #42c5ef, #0033a0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    font-weight: 600;
+    transition: color .2s 
+ease-in-out;
+    display: inline-block;
+    width: auto;
 }
+
+section.our-services .title-wrap p.subheading:hover {
+      animation: rainbow 1.25s ease-in-out infinite;
+ }
 
 section.our-services .title-wrap .content p {
     margin: 0;

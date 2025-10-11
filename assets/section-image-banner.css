@@ -16,7 +16,7 @@
 }
 
 .banner__box>*+.banner__text p {
-    width: 100%;
+  width: 100%;
     position: relative;
     font-size: 16px;
     line-height: 22px;
@@ -24,8 +24,8 @@
     white-space: pre-wrap;
     text-align: left;
     display: inline-block;
-    opacity: 0.7;
-    font-weight: 300;
+    font-weight: 400;
+    font-family: 'Montserrat';
 }
 
 .banner__heading {
@@ -38,6 +38,18 @@
     text-transform: capitalize;
     margin: 0 0 20px;
 } 
+
+.banner__heading {
+    font-size: 56px;
+    font-weight: 300;
+    line-height: 100%;
+    letter-spacing: -1.12px;
+    text-transform: uppercase;
+}
+
+.banner__heading strong {
+    font-weight: 700;
+}
 
 @media only screen and (max-width: 749px) {
   .banner--content-align-mobile-right .banner__box {

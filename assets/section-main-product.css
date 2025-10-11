@@ -367,13 +367,14 @@ product-info {
     min-height: 50px;
     color: #FFF;
 font-family: Montserrat;
-font-size: 20px;
+font-size: 18px;
 font-style: normal;
-font-weight: 700;
+font-weight: 600;
 line-height: normal;
     background-size: 100% auto;
     background-position: left center;
     transition: background-position .5s ease-in-out;
+    text-transform: uppercase;
 }
 
 .product-form__submit:hover {
