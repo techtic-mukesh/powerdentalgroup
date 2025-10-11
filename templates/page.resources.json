@@ -17,179 +17,93 @@
         "padding_bottom": 28
       }
     },
-    "image_banner_fxP84U": {
-      "type": "image-banner",
+    "resources_block_BtbRjC": {
+      "type": "resources-block",
       "blocks": {
-        "heading_ryYwGe": {
-          "type": "heading",
+        "resource_card_zUijdR": {
+          "type": "resource_card",
           "settings": {
-            "heading": "Custom Kitting for Dentists",
-            "heading_size": "h1"
+            "card_title": "USPS RETURN LABEL",
+            "card_description": "Utilize our USPS labels to send your packages via United States Postal Service. Simply print the label and affix it to your package. It is $15.99 with use.",
+            "card_link": ""
           }
         },
-        "text_ULzfg4": {
-          "type": "text",
+        "resource_card_PBfFke": {
+          "type": "resource_card",
           "settings": {
-            "text": "<p>Dentists often know what type of kits they need (diagnostic, surgical, or exam) but don’t have time to sort through endless catalogs or match instruments to their workflow. That’s where we come in. Power Dental Group's Custom Kitting service is built to save time and deliver tailored instrument kits designed for your unique clinical style. We’ll take your input, develop a visual mock-up, revise it together, and deliver a finalized kit in as little as one week.<\/p>",
-            "text_style": "body"
+            "card_title": "FEDEX RETURN LABEL",
+            "card_description": "Utilize our FedEx labels to send your packages via FedEx. Simply print the label and affix it to your package. It is $18.50 with use.",
+            "card_link": ""
           }
         },
-        "buttons_8WKVTa": {
-          "type": "buttons",
+        "resource_card_dfrtMD": {
+          "type": "resource_card",
           "settings": {
-            "button_label_1": "Inquire Now",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "card_title": "SERVICE ORDER FORM",
+            "card_description": "How to maintain your instruments?\n\nComplete this form and specify your preferences for instrument servicing or repairs.",
+            "card_link": ""
+          }
+        },
+        "resource_card_qqmdUf": {
+          "type": "resource_card",
+          "settings": {
+            "card_title": "RETURN ORDER FORM",
+            "card_description": "Tell us about your return.\n\nYour feedback is important. Please provide details regarding your return.",
+            "card_link": ""
+          }
+        },
+        "resource_card_P6ERAk": {
+          "type": "resource_card",
+          "settings": {
+            "card_title": "PRODUCT TRAINING VIDEOS",
+            "card_description": "Maximize your ROI and get the most out of your investment.\n\nReview product demonstrations and training videos here.",
+            "card_link": ""
+          }
+        },
+        "resource_card_8ap8aV": {
+          "type": "resource_card",
+          "settings": {
+            "card_title": "E-CATALOG",
+            "card_description": "Interested in the full E-Catalog PDF style?\n\nBrowse through all of our products, detailed descriptions, and access pricing information.",
+            "card_link": ""
+          }
+        },
+        "resource_card_J3dci9": {
+          "type": "resource_card",
+          "settings": {
+            "card_title": "REPROCESSING GUIDE",
+            "card_description": "Questions about sterilization?\n\nHere you will find comprehensive details regarding the sterilization methods recommended for our products.",
+            "card_link": ""
+          }
+        },
+        "resource_card_CYQrgg": {
+          "type": "resource_card",
+          "settings": {
+            "card_title": "FAQS",
+            "card_description": "Have a question?\n\nAccess quick answers to common queries about our products or services.",
+            "card_link": ""
           }
         }
       },
       "block_order": [
-        "heading_ryYwGe",
-        "text_ULzfg4",
-        "buttons_8WKVTa"
+        "resource_card_zUijdR",
+        "resource_card_PBfFke",
+        "resource_card_dfrtMD",
+        "resource_card_qqmdUf",
+        "resource_card_P6ERAk",
+        "resource_card_8ap8aV",
+        "resource_card_J3dci9",
+        "resource_card_CYQrgg"
       ],
-      "name": "t:sections.image-banner.presets.name",
+      "name": "Resources Grid",
       "settings": {
-        "image": "shopify:\/\/shop_images\/Group_1000009287.png",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "left",
-        "show_text_box": false,
-        "color_scheme": "scheme-4",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "left",
-        "show_text_below": false
+        "section_title": "RESOURCES"
       }
-    },
-    "videos_grid_3MXBqF": {
-      "type": "videos-grid",
-      "blocks": {
-        "video_block_LW6fh4": {
-          "type": "video_block",
-          "settings": {
-            "video": "shopify:\/\/files\/videos\/crown remover - thomas hirch Final Revision with B (1).mp4",
-            "thumbnail": "shopify:\/\/shop_images\/7d690fa317c0ebd0fbf26b2d112d76080926e39e.png"
-          }
-        },
-        "video_block_iUmNHX": {
-          "type": "video_block",
-          "settings": {
-            "video": "shopify:\/\/files\/videos\/power crown remover Dr Daniel Combine.mp4",
-            "thumbnail": "shopify:\/\/shop_images\/5ba190bab7480eaed9e93fce1e63bfb3758bdbe5.png"
-          }
-        },
-        "video_block_Cw9DXb": {
-          "type": "video_block",
-          "settings": {
-            "video": "shopify:\/\/files\/videos\/crown remover - brian olitsky Final Revision BGM.mp4",
-            "thumbnail": "shopify:\/\/shop_images\/1892b9b3963486c8d0d2b8491bccdec93e87a99c.png"
-          }
-        }
-      },
-      "block_order": [
-        "video_block_LW6fh4",
-        "video_block_iUmNHX",
-        "video_block_Cw9DXb"
-      ],
-      "name": "Videos Section",
-      "settings": {
-        "background_color": "#f0eeee",
-        "heading": "",
-        "content": "",
-        "grid_columns": "3"
-      }
-    },
-    "kitting_form_bPq6nh": {
-      "type": "kitting-form",
-      "name": "Kitting Form",
-      "settings": {
-        "background_color": "#ffffff",
-        "sub_title": "",
-        "section_title": "Custom Kitting inquiry",
-        "liqud": "<script charset=\"utf-8\" type=\"text\/javascript\" src=\"\/\/js.hsforms.net\/forms\/embed\/v2.js\"><\/script>\n<script>\n  hbspt.forms.create({\n    portalId: \"39754023\",\n    formId: \"f2009184-4621-4570-b1f6-756c0f34573e\",\n    region: \"na1\"\n  });\n<\/script>"
-      }
-    },
-    "customer_reviews_FqbAbC": {
-      "type": "customer-reviews",
-      "blocks": {
-        "customer_review_xKRikY": {
-          "type": "customer_review",
-          "settings": {
-            "testimonial_title": "",
-            "testimonial_text": "<p>I’ve seen tangible improvements since switching to a custom kit: appointments are shorter, clean-up is faster, and my team loves the consistency.<\/p>",
-            "name": "Dr. Jeremy Martens, DDS",
-            "credentials": "",
-            "product": [
-              "3-way-syringe-tips-air-water-2-pack",
-              "8120-10-bone-spreader-2-5mm-low-speed-handpiece-use-7804"
-            ],
-            "date": ""
-          }
-        },
-        "customer_review_ziEYkk": {
-          "type": "customer_review",
-          "settings": {
-            "testimonial_title": "",
-            "testimonial_text": "<p>Using the E77R Elevator - Outer Serration from Power Dental made a visible difference - the root came out with ease and far less pressure. It was a moment that proved the kit’s value.<\/p>",
-            "name": "Dr. Jeremy Martens, DDS",
-            "credentials": "",
-            "product": [
-              "elevators-proximity-root-accu-lux-tome-large-distal-3774"
-            ],
-            "date": ""
-          }
-        },
-        "customer_review_A34nem": {
-          "type": "customer_review",
-          "settings": {
-            "testimonial_title": "",
-            "testimonial_text": "<p>I completed 13 extractions in under 30 minutes using one versatile forcep. That kind of reliability has changed how I work day to day.<\/p>",
-            "name": "Dr. Jeremy Martens, DDS",
-            "credentials": "",
-            "product": [
-              "bilumix-headlamp-gen-2-with-travel-case"
-            ],
-            "date": ""
-          }
-        },
-        "customer_review_RgTXTG": {
-          "type": "customer_review",
-          "settings": {
-            "testimonial_title": "",
-            "testimonial_text": "<p>Using the E77R Elevator - Outer Serration from Power Dental made a visible difference - the root came out with ease and far less pressure. It was a moment that proved the kit’s value.<\/p>",
-            "name": "Dr. Jeremy Martens, DDS",
-            "credentials": "",
-            "product": [
-              "accu-lux-tome-spade-set-code-9001-abnd3771-elevato-9001-abnd"
-            ],
-            "date": ""
-          }
-        }
-      },
-      "block_order": [
-        "customer_review_xKRikY",
-        "customer_review_ziEYkk",
-        "customer_review_A34nem",
-        "customer_review_RgTXTG"
-      ],
-      "name": "Customer Reviews Swiper",
-      "settings": {
-        "background_color": "#f0eeee",
-        "sub_title": "What Clients Say",
-        "section_title": "Trusted By Doctors Nationwide"
-      }
-    }
+}
+
   },
   "order": [
     "main",
-    "image_banner_fxP84U",
-    "videos_grid_3MXBqF",
-    "kitting_form_bPq6nh",
-    "customer_reviews_FqbAbC"
+    "resources_block_BtbRjC"
   ]
 }
