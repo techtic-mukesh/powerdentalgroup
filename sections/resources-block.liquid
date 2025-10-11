@@ -10,10 +10,10 @@
           <div class="resource-card" {{ block.shopify_attributes }}>
             {% if block.settings.card_link %}
               <a href="{{ block.settings.card_link }}" class="resource-card-title-link">
-                <h3 class="resource-card-title">{{ block.settings.card_title }}</h3>
+                <h3 class="resource-card-title"><span>{{ block.settings.card_title }}</span></h3>
               </a>
             {% else %}
-              <h3 class="resource-card-title">{{ block.settings.card_title }}</h3>
+              <h3 class="resource-card-title"><span>{{ block.settings.card_title }}</span></h3>
             {% endif %}
             <p class="resource-card-description">{{ block.settings.card_description }}</p>
           </div>
@@ -74,7 +74,7 @@
     margin: 0 0 15px;
     color: #0033a0;
 }
-.resource-card-title:before {
+.resource-card-title span:before {
     content: "";
     position: absolute;
     left: -20px;
@@ -97,8 +97,8 @@
         background-position: 0 50%
     }
 }
-.resource-card-title:hover{color: #fff;}
-.resource-card-title:hover:before{
+.resource-card-title span:hover{color: #fff;}
+.resource-card-title:hover span:before{
    width: calc(100% + 40px);
   animation: movingBg 5s linear infinite;
 background: linear-gradient(102deg,#42c5ef 0%,#0033a0 100%);}
@@ -109,7 +109,7 @@ background: linear-gradient(102deg,#42c5ef 0%,#0033a0 100%);}
   position: relative;
 }
 
-.resource-card-title-link::after {
+{% comment %} .resource-card-title-link::after {
   content: "";
   position: absolute;
   left: 0;
@@ -126,7 +126,7 @@ background: linear-gradient(102deg,#42c5ef 0%,#0033a0 100%);}
 
 .resource-card-title-link:hover .resource-card-title {
   color: #000;
-}
+} {% endcomment %}
 
 .resource-card-description {
     font-size: 16px;
