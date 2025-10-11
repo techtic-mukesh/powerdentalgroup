@@ -24,7 +24,7 @@
           "type": "resource_card",
           "settings": {
             "card_title": "USPS RETURN LABEL",
-            "card_description": "Utilize our USPS labels to send your packages via United States Postal Service. Simply print the label and affix it to your package. It is $15.99 with use.",
+            "card_description": "<p>Utilize our USPS labels to send your packages via United States Postal Service. Simply print the label and affix it to your package. It is $15.99 with use.</p>",
             "card_link": ""
           }
         },
@@ -32,7 +32,7 @@
           "type": "resource_card",
           "settings": {
             "card_title": "FEDEX RETURN LABEL",
-            "card_description": "Utilize our FedEx labels to send your packages via FedEx. Simply print the label and affix it to your package. It is $18.50 with use.",
+            "card_description": "<p>Utilize our FedEx labels to send your packages via FedEx. Simply print the label and affix it to your package. It is $18.50 with use.</p>",
             "card_link": ""
           }
         },
@@ -40,7 +40,7 @@
           "type": "resource_card",
           "settings": {
             "card_title": "SERVICE ORDER FORM",
-            "card_description": "How to maintain your instruments?\n\nComplete this form and specify your preferences for instrument servicing or repairs.",
+            "card_description": "<p>How to maintain your instruments?</p><p>Complete this form and specify your preferences for instrument servicing or repairs.</p>",
             "card_link": ""
           }
         },
@@ -48,7 +48,7 @@
           "type": "resource_card",
           "settings": {
             "card_title": "RETURN ORDER FORM",
-            "card_description": "Tell us about your return.\n\nYour feedback is important. Please provide details regarding your return.",
+            "card_description": "<p>Tell us about your return.\n\nYour feedback is important. Please provide details regarding your return.</p>",
             "card_link": ""
           }
         },
@@ -56,7 +56,7 @@
           "type": "resource_card",
           "settings": {
             "card_title": "PRODUCT TRAINING VIDEOS",
-            "card_description": "Maximize your ROI and get the most out of your investment.\n\nReview product demonstrations and training videos here.",
+            "card_description": "<p>Maximize your ROI and get the most out of your investment.\n\nReview product demonstrations and training videos here.</p>",
             "card_link": ""
           }
         },
@@ -64,7 +64,7 @@
           "type": "resource_card",
           "settings": {
             "card_title": "E-CATALOG",
-            "card_description": "Interested in the full E-Catalog PDF style?\n\nBrowse through all of our products, detailed descriptions, and access pricing information.",
+            "card_description": "<p>Interested in the full E-Catalog PDF style?\n\nBrowse through all of our products, detailed descriptions, and access pricing information.</p>",
             "card_link": ""
           }
         },
@@ -72,7 +72,7 @@
           "type": "resource_card",
           "settings": {
             "card_title": "REPROCESSING GUIDE",
-            "card_description": "Questions about sterilization?\n\nHere you will find comprehensive details regarding the sterilization methods recommended for our products.",
+            "card_description": "<p>Questions about sterilization?\n\nHere you will find comprehensive details regarding the sterilization methods recommended for our products.</p>",
             "card_link": ""
           }
         },
@@ -80,7 +80,7 @@
           "type": "resource_card",
           "settings": {
             "card_title": "FAQS",
-            "card_description": "Have a question?\n\nAccess quick answers to common queries about our products or services.",
+            "card_description": "<p>Have a question?\n\nAccess quick answers to common queries about our products or services.</p>",
             "card_link": ""
           }
         }
@@ -99,8 +99,7 @@
       "settings": {
         "section_title": "RESOURCES"
       }
-}
-
+    }
   },
   "order": [
     "main",
