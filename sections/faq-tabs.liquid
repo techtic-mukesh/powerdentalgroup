@@ -1,5 +1,5 @@
 <section class="faq-tabs-section">
-  <div class="faq-container">
+  <div class="container">
     <h2 class="faq-title">{{ section.settings.main_title }}</h2>
 
     {% assign tabs = section.blocks | where: 'type', 'tab' %}
@@ -33,18 +33,18 @@
 </section>
 
 <style>
-.faq-container {
+.faq-tabs-section {
+  padding: 60px 20px;
   text-align: center;
-  padding: 40px 20px;
 }
+.faq-tabs-section .container {
+          max-width: 1280px;
+          margin: 0 auto;
+      }
 .faq-title {
-  font-size: 36px;
+  font-size: 42px;
   font-weight: 700;
   margin-bottom: 30px;
-}
-.faq-tabs {
-  max-width: 1000px;
-  margin: 0 auto;
 }
 .faq-tab-titles {
   display: flex;
