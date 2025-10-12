@@ -11,13 +11,22 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "event_block_iKxjBd": {
+      "type": "event-block",
+      "name": "Events Grid",
+      "settings": {
+        "section_title": "Shows & Events"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "event_block_iKxjBd"
   ]
 }
