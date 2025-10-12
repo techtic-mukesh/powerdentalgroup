@@ -1,8 +1,15 @@
 <section class="content-block-section" style="background-color: {{ section.settings.background_color }};">
   <div class="container">
- {% if section.settings.heading != blank %}
+    {% if section.index == 1 %}
+   {% if section.settings.heading != blank %}
+      <h1 class="content-block-title">{{ section.settings.heading }}</h1>
+    {% endif %}
+{% else %}
+  {% if section.settings.heading != blank %}
       <h2 class="content-block-title">{{ section.settings.heading }}</h2>
     {% endif %}
+{% endif %}
+
     <div class="text-center">
       {% if section.settings.button_label != blank %}
         <a href="{{ section.settings.button_link }}" class="inline-block bg-gradient-to-r from-sky-400 to-blue-800 text-white font-bold py-3 px-6 rounded-lg shadow hover:opacity-90 transition">
