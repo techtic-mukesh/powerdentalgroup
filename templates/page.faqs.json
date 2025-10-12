@@ -38,8 +38,40 @@
           "type": "faq",
           "settings": {
             "tab_id": "general-questions",
-            "question": "Why Power Dental Group?",
-            "answer": "We are deeply committed to the success of you and the improvement of the dental industry. We demonstrate this by offering a comprehensive range of high-quality instruments, equipment, and services, supported by a team of skilled professionals with years of industry experience. We thoughtfully designed reliable and efficient instrument services that are tailored to meet your specific dental needs, with pricing that remains accessible at every stage of your career."
+            "question": "Where Are You Located?",
+            "answer": "We are proudly based in the northwest suburbs of Chicago in McHenry, IL."
+          }
+        },
+        "faq_UUTcby": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "general-questions",
+            "question": "What Are Your Normal Hours Of Operation?",
+            "answer": "We are open Monday through Friday, 7:30AM - 4:00PM CST with lunch between 12 - 1PM CST."
+          }
+        },
+        "faq_CgJhck": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "general-questions",
+            "question": "How Can I Place An Order?",
+            "answer": "For new product orders, you can order via our website, email us at info@powerdentalgroup.com, call us at +1-815-363-8003, or find us at our next event. For servicing orders, all steps are outlined on our servicing page. If you are having any trouble or require further clarification, we are happy to further assist you via phone or email!"
+          }
+        },
+        "faq_iwAPY7": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "general-questions",
+            "question": "Are You The Original Equipment Manufacturers?",
+            "answer": "Yes, we manufacture and sell our own brand."
+          }
+        },
+        "faq_PEXryh": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "general-questions",
+            "question": "Can I See The Instruments In Person?",
+            "answer": "Yes you can! We attend dental conferences all over the world. Please check out our upcoming events page to see where we’ll be next. If you are local, feel free to visit us during our normal business hours by appointment only."
           }
         },
         "tab_RBV4pH": {
@@ -70,6 +102,10 @@
         "tab_UiJmLz",
         "faq_VjzM6J",
         "faq_WMgymr",
+        "faq_UUTcby",
+        "faq_CgJhck",
+        "faq_iwAPY7",
+        "faq_PEXryh",
         "tab_RBV4pH",
         "faq_JtVLJD",
         "faq_ddDX8j"
