@@ -92,7 +92,18 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
   .events-list .events-box {
       width: 25%;
       padding: 0 15px;
+      position: relative;
   }
+  .events-list .events-box:after {
+    content: "";
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 1px;
+    background: #ccc;
+}
   .event-title {
     font-size: 18px;
     line-height: 20px;
