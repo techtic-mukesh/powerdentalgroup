@@ -1,6 +1,6 @@
 <section class="overlay-banner-section" style="background-image: url('{{ section.settings.banner_image | img_url: 'master' }}')">
   <div class="overlay-banner-content container">
-    <h2>{{ section.settings.heading }}</h2>
+    <h2 class="overlay-banner-title">{{ section.settings.heading }}</h2>
     {% if section.settings.button_text and section.settings.button_link %}
       <a 
         href="{{ section.settings.button_link }}" 
@@ -38,9 +38,11 @@
     margin-bottom: 20px;
     font-size: clamp(2.2rem, 0.7872rem + 1.6357vw, 4.4rem);
     color: #fff;
+    margin: 0 0 15px;
     letter-spacing: -.88px;
     text-transform: uppercase;
 }
+.overlay-banner-title > *{margin: 0;}
 .overlay-banner-content .btn {
   padding: 12px 24px;
   text-decoration: none;
@@ -86,10 +88,10 @@
       "label": "Banner Image"
     },
     {
-      "type": "text",
+      "type": "richtext",
       "id": "heading",
       "label": "Heading",
-      "default": "YOUR VISION, OUR EXPERTISE."
+      "default": "<p>YOUR VISION, OUR EXPERTISE.<p>"
     },
     {
       "type": "text",
