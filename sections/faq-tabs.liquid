@@ -1,7 +1,14 @@
 <section class="faq-tabs-section">
   <div class="container">
-    <h2 class="faq-title">{{ section.settings.main_title }}</h2>
-
+    {% if section.index == 1 %}
+  {% if section.settings.main_title %}
+        <h1 class="faq-title">{{ section.settings.main_title }}</h1>
+    {% endif %}
+{% else %}
+  {% if section.settings.main_title %}
+        <h2 class="faq-title h2">{{ section.settings.main_title }}</h2>
+    {% endif %}
+{% endif %}
     {% assign tabs = section.blocks | where: 'type', 'tab' %}
     {% assign faqs = section.blocks | where: 'type', 'faq' %}
 
@@ -41,11 +48,13 @@
           max-width: 1280px;
           margin: 0 auto;
       }
-.faq-title {
+.faq-title,.faq-title.h2 {
   font-size: 44px;
   font-weight: 700;
   margin-bottom: 40px;
+  line-height: 1.3;
 }
+.faq-title.h2{font-size: 36px;}
 .faq-tab-titles {
   display: flex;
   justify-content: space-between;
@@ -124,12 +133,14 @@
 .faq-title {
   font-size: 42px;
 }
+.faq-title.h2{font-size: 32px;}
 }
 @media(max-width: 992px){
 .faq-title {
   font-size: 38px;
   margin-bottom: 30px;
 }
+.faq-title.h2{font-size: 28px;}
 }
 @media(max-width: 768px){
 .faq-tabs-section  summary {
@@ -165,6 +176,7 @@
     width: 16px;
     height: 16px;
 }
+.faq-title.h2{font-size: 24px;}
 }
 </style>
 
