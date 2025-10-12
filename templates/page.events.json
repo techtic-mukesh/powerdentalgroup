@@ -161,32 +161,60 @@
           "type": "faq_block",
           "settings": {
             "faq_question": "AAP Annual Meeting  | Toronto, ON | 10/15/25 - 10/18/25",
-            "faq_answer": "The AAP Annual Meeting is a premier event for dental professionals. It features presentations, workshops, and networking opportunities.",
             "faq_logo": "shopify://shop_images/AAP_Logo_c38bd317-b917-45dc-a568-8170e5ac296a.png",
             "faq_title": "AAP Annual Meeting",
             "faq_subtitle": "Metro Toronto Convention Centre",
             "faq_address": "<p>255 Front St. W<br/>Toronto, ON, Canada</p>",
+            "website_text": "Website: www.am2025.perio.org",
             "faq_website": "https://www.am2025.perio.org",
             "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5774.420857888169!2d-79.386673!3d43.643790100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d6785ffb55%3A0x4209e1f8fd986202!2sMetro%20Toronto%20Convention%20Centre!5e0!3m2!1sen!2sus!4v1749154958125!5m2!1sen!2sus"
+          }
+        },
+        "faq_block_J48X39": {
+          "type": "faq_block",
+          "settings": {
+            "faq_question": "ADA SmileCon | Washington, DC | 10/23/25 - 10/25/25",
+            "faq_logo": "shopify://shop_images/ADA_Logo_0148abc8-44b5-426c-86c2-e120894c7f52.jpg",
+            "faq_title": "SmileCon",
+            "faq_subtitle": "Walter E. Washington Convention Center",
+            "faq_address": "<p>801 Allen Y. Lew Place NW<br/>Washington, DC 20001<br/>Booth# 560</p>",
+            "website_text": "Website: www.ada.org",
+            "faq_website": "https://https//www.ada.org/education/smilecon?campaignid=44025491942&adgroupid=179707836449&creative=757741916086&matchtype=p&network=g&device=c&keyword=dental%20conference&gad_source=1&gad_campaignid=44025491942&gbraid=0AAAAADimcFLeoNgMNaZjtlKzaYjbpOrtd&gclid=Cj0KCQjwyvfDBhDYARIsAItzbZHJNv1YtvPZydnuQDy2tPXOqu8LfBnDClkgzuxkHS1QuDEKGK4PE-8aAv5NEALw_wcB",
+            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.8351991411273!2d-77.02299339999999!3d38.9048838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7ed3715b137%3A0x32771de147fa5350!2sWalter%20E.%20Washington%20Convention%20Center!5e0!3m2!1sen!2sus!4v1753129129819!5m2!1sen!2sus"
           }
         },
         "faq_block_Y8txGF": {
           "type": "faq_block",
           "settings": {
             "faq_question": "KADA Scientific Congress | Los Angeles, CA | 11/7/25 - 11/9/25",
-            "faq_answer": "The AAP Annual Meeting is a premier event for dental professionals. It features presentations, workshops, and networking opportunities.",
             "faq_logo": "shopify://shop_images/KADA-Logo-Blue.png",
             "faq_title": "KADA Scientific Congress",
             "faq_subtitle": "Conrad Los Angeles",
             "faq_address": "<p>100 S. Grand Ave.<br/>Los Angeles, CA 90012</p>",
+            "website_text": "Website: www.kadausa.org",
             "faq_website": "https://www.kadausa.org/2025-scientific-conference/",
             "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.5591931731105!2d-118.25115862428339!3d34.055176873155894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c64d960506bb%3A0x92a0c80de77ecd4e!2sConrad%20Los%20Angeles!5e0!3m2!1sen!2sus!4v1759408621853!5m2!1sen!2sus"
+          }
+        },
+        "faq_block_hpynXX": {
+          "type": "faq_block",
+          "settings": {
+            "faq_question": "Greater New York Dental Meeting | New York, NY | 11/28/25 - 12/3/25",
+            "faq_logo": "shopify://shop_images/logo-2025.jpg",
+            "faq_title": "Greater New York Dental Meeting",
+            "faq_subtitle": "Jacob K. Javits Convention Center",
+            "faq_address": "<p>429 11thh Ave.<br/>New York, NY 10001<br/>Booth# 1513</p>",
+            "website_text": "Website: www.gnydm.com",
+            "faq_website": "https://www.gnydm.com/",
+            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.233901076225!2d-74.004239323972!3d40.756879971386915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2596b0b3394a7%3A0x8461e42130f7d0a6!2sJavits%20Center!5e0!3m2!1sen!2sus!4v1759408850239!5m2!1sen!2sus"
           }
         }
       },
       "block_order": [
         "faq_block_iATR48",
-        "faq_block_Y8txGF"
+        "faq_block_J48X39",
+        "faq_block_Y8txGF",
+        "faq_block_hpynXX"
       ],
       "name": "Shows FAQ Section",
       "settings": {
