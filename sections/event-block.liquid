@@ -68,14 +68,23 @@
 </section>
 
 <style>
-  .event-section {
-    text-align: center;
-    margin: 50px 0;
+   .event-section {
+      padding: 0 20px 40px;
+      text-align: center;
+  }
+  .event-section .container {
+      max-width: 1280px;
+      margin: 0 auto;
   }
   .events-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+      display: flex;
+      row-gap: 40px;
+      margin: 0 -10px;
+      flex-wrap: wrap;
+  }
+  .events-list .event-item {
+      width: 25%;
+      padding: 0 10px;
   }
   .event-item {
     background: #f4f4f4;
