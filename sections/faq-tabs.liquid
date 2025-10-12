@@ -1,67 +1,3 @@
-{% schema %}
-{
-  "name": "FAQ Tabs Section",
-  "settings": [
-    {
-      "type": "text",
-      "id": "main_title",
-      "label": "Main Title",
-      "default": "FAQS"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "tab",
-      "name": "Tab",
-      "settings": [
-        {
-          "type": "text",
-          "id": "tab_id",
-          "label": "Tab ID (unique, e.g. general)",
-          "default": "general"
-        },
-        {
-          "type": "text",
-          "id": "tab_title",
-          "label": "Tab Title",
-          "default": "General Questions"
-        }
-      ]
-    },
-    {
-      "type": "faq",
-      "name": "FAQ Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "tab_id",
-          "label": "Tab ID (must match the Tab block ID)",
-          "default": "general"
-        },
-        {
-          "type": "text",
-          "id": "question",
-          "label": "Question",
-          "default": "Where are you located?"
-        },
-        {
-          "type": "richtext",
-          "id": "answer",
-          "label": "Answer",
-          "default": "<p>We are located in California, USA.</p>"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "FAQ Tabs Section",
-      "category": "Content"
-    }
-  ]
-}
-{% endschema %}
-
 <section class="faq-tabs-section">
   <div class="faq-container">
     <h2 class="faq-title">{{ section.settings.main_title }}</h2>
@@ -85,7 +21,7 @@
               {% if faq.settings.tab_id == tab.settings.tab_id %}
                 <details>
                   <summary>{{ faq.settings.question }}</summary>
-                  <div><strong>Answer:</strong>{{ faq.settings.answer }}</div>
+                  <div class="faq-answer"><strong>Answer:</strong>{{ faq.settings.answer }}</div>
                 </details>
               {% endif %}
             {% endfor %}
@@ -131,6 +67,7 @@
     transition: all 0.3s ease;
     text-transform: uppercase;
 }
+.faq-answer{display: flex;}
 .faq-tab-title.active {
   background: linear-gradient(90deg, #21c3f3, #007dc5);
   color: #fff;
@@ -195,3 +132,66 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+{% schema %}
+{
+  "name": "FAQ Tabs Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "FAQS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_id",
+          "label": "Tab ID (unique, e.g. general)",
+          "default": "general"
+        },
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "General Questions"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_id",
+          "label": "Tab ID (must match the Tab block ID)",
+          "default": "general"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Where are you located?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>We are located in California, USA.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Tabs Section",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}
