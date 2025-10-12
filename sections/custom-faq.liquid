@@ -47,6 +47,7 @@
         const currentAnswer = header.nextElementSibling;
 
         header.classList.toggle('active');
+        header.classList.toggle('faq-question');
         currentAnswer.classList.toggle('active');
 
         if (currentAnswer.style.maxHeight) {
@@ -55,7 +56,8 @@
           const allAnswers = document.querySelectorAll('.faq-item .faq-panel-body');
           allAnswers.forEach((answer) => {
             answer.style.maxHeight = null;
-            answer.previousElementSibling.classList.remove('active');  // Remove active from other questions
+            answer.previousElementSibling.classList.remove('active');
+            answer.previousElementSibling.classList.remove('faq-question'); // Remove faq-question class from other questions
           });
 
           currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 'px';
@@ -64,6 +66,7 @@
     });
   });
 </script>
+
 
 
 {% stylesheet %}
