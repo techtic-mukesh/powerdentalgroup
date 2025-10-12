@@ -5,7 +5,7 @@
     {% endif %}
     {% for block in section.blocks %}
       <div class="faq-item">
-        {% if section.settings.faq_question != blank %}
+        {% if block.settings.faq_question != blank %}
           <h3 class="faq-qustion">{{ block.settings.faq_question }}</h3>
         {% endif %}
         <div class="faq-panel-body">
