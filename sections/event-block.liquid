@@ -18,6 +18,7 @@
             or block.settings.event_date != blank
             or block.settings.event_location != blank
           %}
+          <div class="events-box">
             <div class="event-item">
               {% if block.settings.event_image != blank %}
                 <img
@@ -60,6 +61,7 @@
                 {% endif %}
               </div>
             </div>
+        </div>
           {% endif %}
         {% endfor %}
     </div>
@@ -86,7 +88,7 @@
       width: 25%;
       padding: 0 10px;
   }
-  .event-item {
+  .events-box {
     background: #f4f4f4;
     padding: 20px;
     border-radius: 8px;
