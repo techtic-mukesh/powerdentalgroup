@@ -6,7 +6,7 @@
     {% for block in section.blocks %}
       <div class="faq-item">
         <h3>{{ block.settings.faq_question }}</h3>
-        <div class="faq-panle-body">
+        <div class="faq-panel-body">
             
           {% if block.settings.faq_logo %}
             <div class="faq-logo">
@@ -66,7 +66,6 @@
 
 
 {% stylesheet %}
-.faq-panle-body{display: none;}
 .faq-panel-body {
   max-height: 0;
   overflow: hidden;
