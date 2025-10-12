@@ -18,7 +18,7 @@
           <img src="{{ block.settings.image | img_url: '299x387' }}" alt="{{ block.settings.title }}">
         {% endif %}
         {% if block.settings.title %}
-          <div class="catalog-title">{{ block.settings.title }}</div>
+          <div class="catalog-title" style="color: {{ block.settings.title_color }}">{{ block.settings.title }}</div>
         {% endif %}
       </a>
       </div>
@@ -141,6 +141,12 @@
           "id": "title",
           "label": "Catalog Title",
           "default": "Catalog Name"
+        },
+         {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title Color",
+          "default": "#fff"
         },
           {
           "type": "color",
