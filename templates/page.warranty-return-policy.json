@@ -41,12 +41,24 @@
     },
     "content_block_wT4DLD": {
       "type": "content-block",
+      "blocks": {
+        "policy_item_tWHBGd": {
+          "type": "policy_item",
+          "settings": {
+            "policy_title": "Shipping Policy",
+            "policy_content": "<p>In accordance with OSHA and State Health regulations, used instruments must be sterilized before being returned to PDG to maintain the validity of the warranty or return. Non-compliance with this protocol will result in the rejection of service orders and the nullity of the return or warranty orders.<br/><br/>The customer is responsible for any shipping costs incurred regarding orders shipped to Power Dental. However, if you choose to use a Power Dental shipping label, a shipping charge of $15.99 (USPS Return Label) or $18.50 (FedEx Return Label) will be applied to your order or deducted from your credit/refund. Please note our return shipping labels are not insured. If you prefer to insure your package, please use your own shipping label. Lost packages must be reported within two weeks of shipment. Be sure to retain your tracking number for reference.<br/><br/>To prevent transit damage and ensure the safety of handling personnel, please securely package and cushion all contents before shipping. For added security, we recommend opting for signature-required delivery as needed.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "policy_item_tWHBGd"
+      ],
       "name": "Content Section",
       "settings": {
-        "background_color": "#ffffff",
-        "button_label": "RETURN ORDER FORM",
+        "background_color": "#f0eeee",
+        "button_label": "",
         "button_link": "",
-        "heading": "RETURN POLICY"
+        "heading": ""
       }
     }
   },
