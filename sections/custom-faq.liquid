@@ -1,0 +1,139 @@
+{% schema %}
+{
+  "name": "FAQ Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Trade Shows"
+    },
+    {
+      "type": "text",
+      "label": "FAQ Section Title",
+      "id": "faq_section_title",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_block",
+      "name": "FAQ Block",
+      "settings": [
+        {
+          "type": "text",
+          "label": "FAQ Question",
+          "id": "faq_question",
+          "default": "What is the AAP Annual Meeting?"
+        },
+        {
+          "type": "textarea",
+          "label": "FAQ Answer",
+          "id": "faq_answer",
+          "default": "The AAP Annual Meeting is a premier event for dental professionals. It features presentations, workshops, and networking opportunities."
+        },
+        {
+          "type": "image_picker",
+          "label": "Logo for FAQ Block",
+          "id": "faq_logo"
+        },
+        {
+          "type": "text",
+          "label": "Title for FAQ Block",
+          "id": "faq_title",
+          "default": "AAP Annual Meeting"
+        },
+        {
+          "type": "text",
+          "label": "Subtitle for FAQ Block",
+          "id": "faq_subtitle",
+          "default": "Toronto, ON | 10/15/25 - 10/18/25"
+        },
+        {
+          "type": "textarea",
+          "label": "Address for FAQ Block",
+          "id": "faq_address",
+          "default": "Metro Toronto Convention Centre, 255 Front St. W, Toronto, ON, Canada"
+        },
+        {
+          "type": "url",
+          "label": "Website for FAQ Block",
+          "id": "faq_website"
+        },
+        {
+          "type": "url",
+          "label": "Link for FAQ Block (Iframe)",
+          "id": "faq_link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+/* Custom styling for the FAQ section */
+.faq-section {
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+.faq-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+}
+
+.faq-logo {
+  max-width: 150px;
+  margin-top: 10px;
+}
+
+.faq-info {
+  margin-top: 10px;
+}
+
+.faq-info a {
+  color: #0074cc;
+  text-decoration: none;
+}
+
+.faq-info a:hover {
+  text-decoration: underline;
+}
+{% endstylesheet %}
+
+<div class="faq-section">
+  <div class="faq-title">
+    {{ settings.faq_section_title }}
+  </div>
+
+  {% for block in section.blocks %}
+    <div class="faq-item">
+      <h3>{{ block.settings.faq_question }}</h3>
+      <p>{{ block.settings.faq_answer }}</p>
+      
+      {% if block.settings.faq_logo %}
+        <img class="faq-logo" src="{{ block.settings.faq_logo | img_url: 'medium' }}" alt="{{ block.settings.faq_title }}">
+      {% endif %}
+      
+      <div class="faq-info">
+        <p><strong>{{ block.settings.faq_title }}</strong></p>
+        <p>{{ block.settings.faq_subtitle }}</p>
+        <p>{{ block.settings.faq_address }}</p>
+        
+        {% if block.settings.faq_website %}
+          <a href="{{ block.settings.faq_website }}" target="_blank">{{ block.settings.faq_website }}</a>
+        {% endif %}
+        
+        {% if block.settings.faq_link %}
+          <div style="margin-top: 10px;">
+            <iframe src="{{ block.settings.faq_link }}" width="600" height="400"></iframe>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
