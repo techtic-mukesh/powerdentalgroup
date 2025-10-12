@@ -56,7 +56,7 @@
           "settings": {
             "tab_id": "general-questions",
             "question": "How Can I Place An Order?",
-            "answer": "<p>For new product orders, you can order via our website, email us at <a href=\"mailto:info@powerdentalgroup.com\" title=\"mailto:info@powerdentalgroup.com\">info@powerdentalgroup.com</a>, call us at <a href=\"tel:+1-815-363-8003\" title=\"tel:+1-815-363-8003\">+1-815-363-8003</a>, or find us at our next event. For servicing orders, all steps are outlined on our servicing page. If you are having any trouble or require further clarification, we are happy to further assist you via phone or email!</p>"
+            "answer": "<p>For new product orders, you can order via <a href=\"https://7y310y-hr.myshopify.com/products/\" title=\"https://7y310y-hr.myshopify.com/products/\"><strong>our website</strong></a>, email us at <a href=\"mailto:info@powerdentalgroup.com\" title=\"mailto:info@powerdentalgroup.com\">info@powerdentalgroup.com</a>, call us at <a href=\"tel:+1-815-363-8003\" title=\"tel:+1-815-363-8003\">+1-815-363-8003</a>, or <a href=\"https://7y310y-hr.myshopify.com/pages/shows-events\" title=\"https://7y310y-hr.myshopify.com/pages/shows-events\"><strong>find us at our next event</strong></a>. For servicing orders, all steps are outlined on our <a href=\"https://7y310y-hr.myshopify.com/pages/services\" title=\"https://7y310y-hr.myshopify.com/pages/services\"><strong>servicing page</strong></a>. If you are having any trouble or require further clarification, we are happy to further assist you via phone or email!</p>"
           }
         },
         "faq_iwAPY7": {
@@ -88,7 +88,7 @@
           "settings": {
             "tab_id": "general-questions",
             "question": "Do You Take On Custom Manufacturing Requests?",
-            "answer": "<p>Absolutely. If you have a great idea for a custom instrument or kit, visit our custom manufacturing page to review our guidelines. You can schedule a consultation with us here.</p>"
+            "answer": "<p>Absolutely. If you have a great idea for a custom instrument or kit, visit <a href=\"#\" title=\"#\"><strong>our custom manufacturing page</strong></a> to review our guidelines. You can schedule a consultation with us <a href=\"https://7y310y-hr.myshopify.com/pages/contact\" title=\"https://7y310y-hr.myshopify.com/pages/contact\"><strong>here</strong></a>.</p>"
           }
         },
         "tab_RBV4pH": {
@@ -182,7 +182,7 @@
           "settings": {
             "tab_id": "shipping-warranty-return",
             "question": "What Is Your Return And Warranty Policy?",
-            "answer": "<p>You can review our warranty and return policy here.</p>"
+            "answer": "<p>You can review our warranty and return policy <a href=\"https://7y310y-hr.myshopify.com/pages/warranty-return-policy\" title=\"https://7y310y-hr.myshopify.com/pages/warranty-return-policy\"><strong>here</strong></a>.</p>"
           }
         },
         "faq_aLMm67": {
@@ -190,7 +190,7 @@
           "settings": {
             "tab_id": "shipping-warranty-return",
             "question": "How Do I Return An Item?",
-            "answer": "<p>To return an item, please follow our return instructions here.</p>"
+            "answer": "<p>To return an item, please follow our return instructions <a href=\"https://7y310y-hr.myshopify.com/pages/return-order-form\" title=\"https://7y310y-hr.myshopify.com/pages/return-order-form\"><strong>here</strong></a>.</p>"
           }
         },
         "tab_edtzyL": {
