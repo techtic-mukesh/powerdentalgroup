@@ -138,10 +138,12 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
     text-decoration: none;
     border-radius: 5px;
     font-weight: 700;
-    box-shadow: 0px 6px 12px 0px rgba(0,0,0,.1);
+    background-size: 200% 100% !important;
+  background-position: 200% 100% !important;
+  transition: background-position .7s !important;
   }
   .btn-register:hover {
-    background-color: #0056b3;
+    background-position: 100% 0 !important;
   }
 </style>
 
