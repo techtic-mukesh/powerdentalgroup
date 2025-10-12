@@ -16,8 +16,8 @@
               {% if block.settings.icon %}
                 <img src="{{ block.settings.icon | img_url: '60x60' }}" alt="{{ block.settings.label }}">
               {% endif %}
-              <div class="resource-label">{{ block.settings.label }}</div>
             </div>
+            <div class="resource-label">{{ block.settings.label }}</div>
             <div class="resource-arrow">→</div>
           </a>
         </div>
@@ -75,7 +75,6 @@
   .resource-left {
     display: flex;
     align-items: center;
-    justify-content: spa
     gap: 12px;
   }
   .resource-left img {
