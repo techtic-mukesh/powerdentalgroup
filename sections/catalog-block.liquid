@@ -12,7 +12,7 @@
         {{ block.shopify_attributes }}
       >
         {% if block.settings.image %}
-          <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.title }}">
+          <img src="{{ block.settings.image | img_url: '299x387' }}" alt="{{ block.settings.title }}">
         {% endif %}
         {% if block.settings.title %}
           <div class="catalog-title">{{ block.settings.title }}</div>
