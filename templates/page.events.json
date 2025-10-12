@@ -165,7 +165,7 @@
             "faq_logo": "shopify://shop_images/AAP_Logo_c38bd317-b917-45dc-a568-8170e5ac296a.png",
             "faq_title": "AAP Annual Meeting",
             "faq_subtitle": "Metro Toronto Convention Centre",
-            "faq_address": "Metro Toronto Convention Centre, 255 Front St. W, Toronto, ON, Canada",
+            "faq_address": "<p>255 Front St. W<br/>Toronto, ON, Canada</p>",
             "faq_website": "https://www.am2025.perio.org",
             "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5774.420857888169!2d-79.386673!3d43.643790100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d6785ffb55%3A0x4209e1f8fd986202!2sMetro%20Toronto%20Convention%20Centre!5e0!3m2!1sen!2sus!4v1749154958125!5m2!1sen!2sus"
           }
@@ -176,7 +176,7 @@
       ],
       "name": "Shows FAQ Section",
       "settings": {
-        "faq_section_title": "TRADE SHOWS"
+        "faq_section_title": "<p>TRADE <strong>SHOWS</strong></p>"
       }
     }
   },
