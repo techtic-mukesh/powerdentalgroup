@@ -5,6 +5,13 @@
     {% endif %}
     <div class="events-row">
       {% for block in section.blocks %}
+        {% if block.type == 'product_title' and block.settings.subtitle_title != blank %}
+          <!-- This is the subtitle block (product_title block) -->
+          <h3 class="events-subtitle">{{ block.settings.subtitle_title }}</h3>
+        {% endif %}
+      {% endfor %}
+
+      {% for block in section.blocks %}
         {% if block.settings.event_title != blank or block.settings.event_subtitle != blank or block.settings.event_image != blank or block.settings.event_date != blank or block.settings.event_location != blank %}
           <div class="events-list">
             <div class="event-item">
