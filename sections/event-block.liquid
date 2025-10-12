@@ -93,12 +93,6 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
       width: 25%;
       padding: 0 10px;
   }
-  .event-item {
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .event-title {
     font-size: 18px;
     line-height: 20px;
@@ -109,7 +103,9 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
   .event-image {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 25px;
+    max-height: 155px;
+    object-fit: contain;
   }
   .event-details {
     margin-top: 20px;
