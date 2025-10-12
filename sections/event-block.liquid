@@ -1,0 +1,113 @@
+<section class="event-section">
+      <div class="container">
+
+   {% if section.settings.section_title != blank %}
+      <h2 class="product-training-videos-title">{{ section.settings.section_title }}</h2>
+    {% endif %}
+  <p>{{ section.settings.intro_text }}</p>
+
+  <div class="events-list">
+    {% for event in section.settings.events %}
+      <div class="event-item">
+        <img src="{{ event.image }}" alt="{{ event.title }}" class="event-image" />
+        <div class="event-details">
+          <h3>{{ event.title }}</h3>
+          <p><strong>Location:</strong> {{ event.location }}</p>
+          <p><strong>Date:</strong> {{ event.date }}</p>
+          <p><strong>CE Credits:</strong> {{ event.ce_credits }}</p>
+          <a href="{{ event.register_link }}" class="btn-register">Register Now</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+</section>
+<style>
+  .event-section {
+    text-align: center;
+    margin: 50px 0;
+  }
+  .events-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .event-item {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .event-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .event-details {
+    margin-top: 20px;
+  }
+  .btn-register {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .btn-register:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Event Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Power Crown Removers Training Videos Section Title",
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_title",
+      "name": "Subtitle",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "subtitle_title",
+          "label": "Subtitle",
+        }
+      ]
+    },
+    {
+      "type": "product_videos_card",
+      "name": "Product Videos Card",
+      "settings": [
+        {
+          "type": "url",
+          "id": "video_link",
+          "label": "Video Link",
+          "info": "Add YouTube Embed Link"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Title",
+          "default": "Power Dental USA Crown Removers - Dr. Daniel"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Videos Grid",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}
