@@ -1,3 +1,79 @@
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-title">
+      {{ settings.faq_section_title }}
+    </div>
+
+    {% for block in section.blocks %}
+      <div class="faq-item">
+        <h3>{{ block.settings.faq_question }}</h3>
+        <p>{{ block.settings.faq_answer }}</p>
+
+        {% if block.settings.faq_logo %}
+          <img
+            class="faq-logo"
+            src="{{ block.settings.faq_logo | img_url: 'medium' }}"
+            alt="{{ block.settings.faq_title }}"
+          >
+        {% endif %}
+
+        <div class="faq-info">
+          <p>
+            <strong>{{ block.settings.faq_title }}</strong>
+          </p>
+          <p>{{ block.settings.faq_subtitle }}</p>
+          <p>{{ block.settings.faq_address }}</p>
+
+          {% if block.settings.faq_website %}
+            <a href="{{ block.settings.faq_website }}" target="_blank">{{ block.settings.faq_website }}</a>
+          {% endif %}
+
+          {% if block.settings.faq_link %}
+            <div style="margin-top: 10px;">
+              <iframe src="{{ block.settings.faq_link }}" width="600" height="400"></iframe>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% stylesheet %}
+  /* Custom styling for the FAQ section */
+  .faq-section {
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .faq-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .faq-item {
+    margin-bottom: 20px;
+  }
+
+  .faq-logo {
+    max-width: 150px;
+    margin-top: 10px;
+  }
+
+  .faq-info {
+    margin-top: 10px;
+  }
+
+  .faq-info a {
+    color: #0074cc;
+    text-decoration: none;
+  }
+
+  .faq-info a:hover {
+    text-decoration: underline;
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "FAQ Section",
@@ -68,72 +144,3 @@
   ]
 }
 {% endschema %}
-
-{% stylesheet %}
-/* Custom styling for the FAQ section */
-.faq-section {
-  margin: 20px 0;
-  font-family: Arial, sans-serif;
-}
-
-.faq-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.faq-item {
-  margin-bottom: 20px;
-}
-
-.faq-logo {
-  max-width: 150px;
-  margin-top: 10px;
-}
-
-.faq-info {
-  margin-top: 10px;
-}
-
-.faq-info a {
-  color: #0074cc;
-  text-decoration: none;
-}
-
-.faq-info a:hover {
-  text-decoration: underline;
-}
-{% endstylesheet %}
-
-<div class="faq-section">
-  <div class="faq-title">
-    {{ settings.faq_section_title }}
-  </div>
-
-  {% for block in section.blocks %}
-    <div class="faq-item">
-      <h3>{{ block.settings.faq_question }}</h3>
-      <p>{{ block.settings.faq_answer }}</p>
-      
-      {% if block.settings.faq_logo %}
-        <img class="faq-logo" src="{{ block.settings.faq_logo | img_url: 'medium' }}" alt="{{ block.settings.faq_title }}">
-      {% endif %}
-      
-      <div class="faq-info">
-        <p><strong>{{ block.settings.faq_title }}</strong></p>
-        <p>{{ block.settings.faq_subtitle }}</p>
-        <p>{{ block.settings.faq_address }}</p>
-        
-        {% if block.settings.faq_website %}
-          <a href="{{ block.settings.faq_website }}" target="_blank">{{ block.settings.faq_website }}</a>
-        {% endif %}
-        
-        {% if block.settings.faq_link %}
-          <div style="margin-top: 10px;">
-            <iframe src="{{ block.settings.faq_link }}" width="600" height="400"></iframe>
-          </div>
-        {% endif %}
-      </div>
-    </div>
-  {% endfor %}
-</div>
