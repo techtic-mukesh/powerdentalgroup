@@ -15,9 +15,73 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "faq_tabs_xpzDTP": {
+      "type": "faq-tabs",
+      "blocks": {
+        "tab_UiJmLz": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "general-questions",
+            "tab_title": "General Questions"
+          }
+        },
+        "faq_VjzM6J": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "general-questions",
+            "question": "Why Power Dental Group?",
+            "answer": "We are deeply committed to the success of you and the improvement of the dental industry. We demonstrate this by offering a comprehensive range of high-quality instruments, equipment, and services, supported by a team of skilled professionals with years of industry experience. We thoughtfully designed reliable and efficient instrument services that are tailored to meet your specific dental needs, with pricing that remains accessible at every stage of your career."
+          }
+        },
+        "faq_WMgymr": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "general-questions",
+            "question": "Why Power Dental Group?",
+            "answer": "We are deeply committed to the success of you and the improvement of the dental industry. We demonstrate this by offering a comprehensive range of high-quality instruments, equipment, and services, supported by a team of skilled professionals with years of industry experience. We thoughtfully designed reliable and efficient instrument services that are tailored to meet your specific dental needs, with pricing that remains accessible at every stage of your career."
+          }
+        },
+        "tab_RBV4pH": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "servicing-questions",
+            "tab_title": "Servicing Questions"
+          }
+        },
+        "faq_JtVLJD": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "servicing-questions",
+            "question": "Can You Provide An Estimate Before Servicing Is Performed?",
+            "answer": "Yes, however, it may delay processing your order since it will be dependent on when we receive your response. To request an estimate, please note it on your order form that you require an estimate prior to servicing your instruments."
+          }
+        },
+        "faq_ddDX8j": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "servicing-questions",
+            "question": "Can You Change The Tips That Are On An Instrument To Make It A Different Instrument?",
+            "answer": "Yes. We can retip per the specifications noted on your order form. Please ensure your form is filled out completely to avoid any processing delays."
+          }
+        }
+      },
+      "block_order": [
+        "tab_UiJmLz",
+        "faq_VjzM6J",
+        "faq_WMgymr",
+        "tab_RBV4pH",
+        "faq_JtVLJD",
+        "faq_ddDX8j"
+      ],
+      "name": "FAQ Tabs Section",
+      "settings": {
+        "main_title": "FAQS"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "faq_tabs_xpzDTP"
   ]
 }
