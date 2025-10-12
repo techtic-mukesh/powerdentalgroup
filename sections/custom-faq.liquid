@@ -90,7 +90,7 @@
     }
     .faq-title{
         font-weight: normal;
-  font-size: clamp(2.2rem,.5496rem + 3.6879vw,4.6rem);
+  font-size: 36px;
     margin:0 0 30px;
     text-transform: uppercase;}
     .faq-panel-body {
@@ -214,6 +214,22 @@
     .faq-info a:hover {
       text-decoration: underline;
     }
+
+      @media (max-width: 1200px) {
+  .faq-title{
+  font-size: 32px;
+    }
+}
+  @media (max-width: 992px) {
+ .faq-title{
+  font-size: 28px;
+    }
+}
+ @media (max-width: 768px) {
+   .faq-title{
+  font-size: 24px;
+    }
+}
 {% endstylesheet %}
 
 {% schema %}
