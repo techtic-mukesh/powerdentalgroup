@@ -31,7 +31,7 @@
           "settings": {
             "tab_id": "general-questions",
             "question": "Why Power Dental Group?",
-            "answer": "We are deeply committed to the success of you and the improvement of the dental industry. We demonstrate this by offering a comprehensive range of high-quality instruments, equipment, and services, supported by a team of skilled professionals with years of industry experience. We thoughtfully designed reliable and efficient instrument services that are tailored to meet your specific dental needs, with pricing that remains accessible at every stage of your career."
+            "answer": "<p>We are deeply committed to the success of you and the improvement of the dental industry. We demonstrate this by offering a comprehensive range of high-quality instruments, equipment, and services, supported by a team of skilled professionals with years of industry experience. We thoughtfully designed reliable and efficient instrument services that are tailored to meet your specific dental needs, with pricing that remains accessible at every stage of your career.</p>"
           }
         },
         "faq_WMgymr": {
@@ -39,7 +39,7 @@
           "settings": {
             "tab_id": "general-questions",
             "question": "Where Are You Located?",
-            "answer": "We are proudly based in the northwest suburbs of Chicago in McHenry, IL."
+            "answer": "<p>We are proudly based in the northwest suburbs of Chicago in McHenry, IL.</p>"
           }
         },
         "faq_UUTcby": {
@@ -47,7 +47,7 @@
           "settings": {
             "tab_id": "general-questions",
             "question": "What Are Your Normal Hours Of Operation?",
-            "answer": "We are open Monday through Friday, 7:30AM - 4:00PM CST with lunch between 12 - 1PM CST."
+            "answer": "<p>We are open Monday through Friday, 7:30AM - 4:00PM CST with lunch between 12 - 1PM CST.</p>"
           }
         },
         "faq_CgJhck": {
@@ -55,7 +55,7 @@
           "settings": {
             "tab_id": "general-questions",
             "question": "How Can I Place An Order?",
-            "answer": "For new product orders, you can order via our website, email us at info@powerdentalgroup.com, call us at +1-815-363-8003, or find us at our next event. For servicing orders, all steps are outlined on our servicing page. If you are having any trouble or require further clarification, we are happy to further assist you via phone or email!"
+            "answer": "<p>For new product orders, you can order via our website, email us at <a href=\"mailto:info@powerdentalgroup.com\" title=\"mailto:info@powerdentalgroup.com\">info@powerdentalgroup.com</a>, call us at <a href=\"tel:+1-815-363-8003\" title=\"tel:+1-815-363-8003\">+1-815-363-8003</a>, or find us at our next event. For servicing orders, all steps are outlined on our servicing page. If you are having any trouble or require further clarification, we are happy to further assist you via phone or email!</p>"
           }
         },
         "faq_iwAPY7": {
@@ -63,7 +63,7 @@
           "settings": {
             "tab_id": "general-questions",
             "question": "Are You The Original Equipment Manufacturers?",
-            "answer": "Yes, we manufacture and sell our own brand."
+            "answer": "<p>Yes, we manufacture and sell our own brand.</p>"
           }
         },
         "faq_PEXryh": {
@@ -71,7 +71,23 @@
           "settings": {
             "tab_id": "general-questions",
             "question": "Can I See The Instruments In Person?",
-            "answer": "Yes you can! We attend dental conferences all over the world. Please check out our upcoming events page to see where we’ll be next. If you are local, feel free to visit us during our normal business hours by appointment only."
+            "answer": "<p>Yes you can! We attend dental conferences all over the world. Please check out our <a href=\"https://7y310y-hr.myshopify.com/pages/shows-events\" title=\"https://7y310y-hr.myshopify.com/pages/shows-events\"><strong>upcoming events page</strong></a> to see where we’ll be next. If you are local, feel free to visit us during our normal business hours by appointment only.</p>"
+          }
+        },
+        "faq_EEkYGG": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "general-questions",
+            "question": "What Material Are Your Instruments?",
+            "answer": "<p>Surgical grade 440A and Series 300 stainless steel.</p>"
+          }
+        },
+        "faq_yJMHQE": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "general-questions",
+            "question": "Do You Take On Custom Manufacturing Requests?",
+            "answer": "<p>Absolutely. If you have a great idea for a custom instrument or kit, visit our custom manufacturing page to review our guidelines. You can schedule a consultation with us here.</p>"
           }
         },
         "tab_RBV4pH": {
@@ -86,7 +102,7 @@
           "settings": {
             "tab_id": "servicing-questions",
             "question": "Can You Provide An Estimate Before Servicing Is Performed?",
-            "answer": "Yes, however, it may delay processing your order since it will be dependent on when we receive your response. To request an estimate, please note it on your order form that you require an estimate prior to servicing your instruments."
+            "answer": "<p>Yes, however, it may delay processing your order since it will be dependent on when we receive your response. To request an estimate, please note it on your order form that you require an estimate prior to servicing your instruments.</p>"
           }
         },
         "faq_ddDX8j": {
@@ -94,7 +110,101 @@
           "settings": {
             "tab_id": "servicing-questions",
             "question": "Can You Change The Tips That Are On An Instrument To Make It A Different Instrument?",
-            "answer": "Yes. We can retip per the specifications noted on your order form. Please ensure your form is filled out completely to avoid any processing delays."
+            "answer": "<p>Yes. We can retip per the specifications noted on your order form. Please ensure your form is filled out completely to avoid any processing delays.</p>"
+          }
+        },
+        "faq_qKLPjL": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "servicing-questions",
+            "question": "Can You Retip Cavitrons?",
+            "answer": "<p>We do not. However, we can replace them with what we have in stock at a reduced trade-in price (10% off).</p>"
+          }
+        },
+        "faq_PbVJ3T": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "servicing-questions",
+            "question": "How Do You Know When An Instrument Cannot Be Sharpened Again?",
+            "answer": "<p>Our trained instrument professionals individually inspect every <br/>instrument that comes to us for repairs. Safety is our number one <br/>priority, and we believe it is better to be conservative when it comes <br/>to sharpening. We will not sharpen a blade that is too short or too thin<br/> to our standards because the last thing we want is to increase the <br/>potential of injury to patients, RDHs, or doctors involved during a <br/>procedure should the tip break upon use.</p>"
+          }
+        },
+        "faq_cnU8Tm": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "servicing-questions",
+            "question": "Do You Have A Return Label Or Offer A Box To Ship To You?",
+            "answer": "<p>Feel free to use our USPS return label <a href=\"https://returns.usps.com/Label/CreateSingle?Code=7AC6D5C59F5940EBA1D2A338C8F13E77&DisplayType=Customer\" target=\"_blank\">here</a>. Please note it’s $15.99 with use.</p>"
+          }
+        },
+        "tab_7TrMkM": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "shipping-warranty-return",
+            "tab_title": "Shipping, Warranty, &  Return Questions"
+          }
+        },
+        "faq_dAdVnr": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "shipping-warranty-return",
+            "question": "What Is The Turnaround Time For Orders?",
+            "answer": "<p>Our processing time is between 7-10 business days to ship out upon <br/>receiving your order. This does not include the time the order is <br/>delivered since it is dependent on the shipping address and shipping <br/>method.</p>"
+          }
+        },
+        "faq_Bt3EVj": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "shipping-warranty-return",
+            "question": "Can I Expedite My Order?",
+            "answer": "<p>If you would like your order to be processed &lt;10 days, we are happy <br/>to rush your order with an additional rush fee (10% of the total before <br/>shipping) applied to your order. Alternatively, you can opt to change <br/>your shipping method from Ground to 2nd Day or Next Day Air per request.<br/> Your shipping cost will be adjusted accordingly.</p>"
+          }
+        },
+        "faq_GbXU9h": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "shipping-warranty-return",
+            "question": "What Will The General Shipping Cost Be?",
+            "answer": "<p>Shipping costs will vary depending on the size of the order as well as <br/>the shipping location. Typically, we see most of our orders range from <br/>$15-20 in shipping for ground delivery.</p>"
+          }
+        },
+        "faq_jxbAm8": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "shipping-warranty-return",
+            "question": "Do You Ship Out Of The Country (International)?",
+            "answer": "<p>We currently only ship within the United States and to Canada. Please <br/>note that Power Dental is not responsible for any customs, duties, <br/>taxes, or brokerage fees that may apply to deliveries in Canada. These <br/>charges are the responsibility of the recipient.</p>"
+          }
+        },
+        "faq_xEpxgk": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "shipping-warranty-return",
+            "question": "What Is Your Return And Warranty Policy?",
+            "answer": "<p>You can review our warranty and return policy here.</p>"
+          }
+        },
+        "faq_aLMm67": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "shipping-warranty-return",
+            "question": "How Do I Return An Item?",
+            "answer": "<p>To return an item, please follow our return instructions here.</p>"
+          }
+        },
+        "tab_edtzyL": {
+          "type": "tab",
+          "settings": {
+            "tab_id": "instrument-cleaning-sterilization",
+            "tab_title": "Instrument Cleaning & Sterilization"
+          }
+        },
+        "faq_XJ4agE": {
+          "type": "faq",
+          "settings": {
+            "tab_id": "instrument-cleaning-sterilization",
+            "question": "What Is The Proper Way To Clean, Sterilize, And Store My Instruments?",
+            "answer": "<p>Please review our sterilization guide <a href=\"https://cdn.shopify.com/s/files/1/0697/9538/1398/files/Reprocessing-of-PDG-Dental-Hand-Instruments-and-Accessories.pdf?v=1760280611\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0697/9538/1398/files/Reprocessing-of-PDG-Dental-Hand-Instruments-and-Accessories.pdf?v=1760280611\">here</a> on how to clean and sterilize your instruments, and the pros and cons when comparing different methods.</p>"
           }
         }
       },
@@ -106,9 +216,23 @@
         "faq_CgJhck",
         "faq_iwAPY7",
         "faq_PEXryh",
+        "faq_EEkYGG",
+        "faq_yJMHQE",
         "tab_RBV4pH",
         "faq_JtVLJD",
-        "faq_ddDX8j"
+        "faq_ddDX8j",
+        "faq_qKLPjL",
+        "faq_PbVJ3T",
+        "faq_cnU8Tm",
+        "tab_7TrMkM",
+        "faq_dAdVnr",
+        "faq_Bt3EVj",
+        "faq_GbXU9h",
+        "faq_jxbAm8",
+        "faq_xEpxgk",
+        "faq_aLMm67",
+        "tab_edtzyL",
+        "faq_XJ4agE"
       ],
       "name": "FAQ Tabs Section",
       "settings": {
