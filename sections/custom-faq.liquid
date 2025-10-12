@@ -20,8 +20,8 @@
           {% endif %}
 
           <div class="faq-info faq-content">
-            <h4>{{ block.settings.faq_title }}</h4>
-            <p>{{ block.settings.faq_subtitle }}</p>
+            <h4 class="faq-content-title">{{ block.settings.faq_title }}</h4>
+            <p class="faq-content-subtitle">{{ block.settings.faq_subtitle }}</p>
             <p>{{ block.settings.faq_address }}</p>
 
             {% if block.settings.faq_website %}
@@ -127,6 +127,15 @@
       background-position:left
     }
   }
+  .faq-content-title{
+	color: #0033a0;
+	font-size: 22px;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	line-height: 100%;
+	font-weight: 700;
+}
+
    .faq-logo img {
       max-width: 100%;
       width: auto;
