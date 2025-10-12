@@ -11,13 +11,37 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "content_block_bMLBF8": {
+      "type": "content-block",
+      "blocks": {
+        "policy_item_FWhBU4": {
+          "type": "policy_item",
+          "settings": {
+            "policy_title": "Return Policy",
+            "policy_content": "Only instrument(s) that are unused, left unsterilized in their original Power Dental packaging..."
+          }
+        }
+      },
+      "block_order": [
+        "policy_item_FWhBU4"
+      ],
+      "name": "Content Section",
+      "settings": {
+        "background_color": "#ffffff",
+        "button_label": "RETURN ORDER FORM",
+        "button_link": "",
+        "heading": "RETURN POLICY"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "content_block_bMLBF8"
   ]
 }
