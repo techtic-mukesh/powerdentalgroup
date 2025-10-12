@@ -6,20 +6,35 @@
 
     <div class="resources-grid">
       {% for block in section.blocks %}
-        <div class="resource-cards-col">
-          <a
-            href="{{ block.settings.link }}"
-            class="resource-card {% if block.settings.highlighted %}highlighted{% endif %}"
-            {{ block.shopify_attributes }}
-          >
-            <div class="resource-left">
-              {% if block.settings.icon %}
-                <img src="{{ block.settings.icon | img_url: '60x60' }}" alt="{{ block.settings.label }}">
-              {% endif %}
-            </div>
-            <div class="resource-label">{{ block.settings.label }}</div>
-          </a>
-        </div>
+       <div class="resource-cards-col">
+  {% if block.settings.link != blank %}
+    <a
+      href="{{ block.settings.link }}"
+      class="resource-card {% if block.settings.highlighted %}highlighted{% endif %}"
+      {{ block.shopify_attributes }}
+    >
+      <div class="resource-left">
+        {% if block.settings.icon %}
+          <img src="{{ block.settings.icon | img_url: '60x60' }}" alt="{{ block.settings.label }}">
+        {% endif %}
+      </div>
+      <div class="resource-label">{{ block.settings.label }}</div>
+    </a>
+  {% else %}
+    <div
+      class="resource-card {% if block.settings.highlighted %}highlighted{% endif %}"
+      {{ block.shopify_attributes }}
+    >
+      <div class="resource-left">
+        {% if block.settings.icon %}
+          <img src="{{ block.settings.icon | img_url: '60x60' }}" alt="{{ block.settings.label }}">
+        {% endif %}
+      </div>
+      <div class="resource-label">{{ block.settings.label }}</div>
+    </div>
+  {% endif %}
+</div>
+
       {% endfor %}
     </div>
   </div>
