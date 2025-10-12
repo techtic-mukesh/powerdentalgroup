@@ -76,7 +76,7 @@
 
 {% schema %}
 {
-  "name": "FAQ Section",
+  "name": "Shows FAQ Section",
   "settings": [
     {
       "type": "header",
@@ -141,6 +141,31 @@
         }
       ]
     }
+  ],
+  "presets": [
+    {
+      "name": "Shows FAQ Section",
+       "category": "Content",
+      "settings": {
+        "faq_section_title": "Frequently Asked Questions"
+      },
+      "blocks": [
+        {
+          "type": "faq_block",
+          "settings": {
+            "faq_question": "What is the AAP Annual Meeting?",
+            "faq_answer": "The AAP Annual Meeting is a premier event for dental professionals. It features presentations, workshops, and networking opportunities.",
+            "faq_logo": "",
+            "faq_title": "AAP Annual Meeting",
+            "faq_subtitle": "Toronto, ON | 10/15/25 - 10/18/25",
+            "faq_address": "Metro Toronto Convention Centre, 255 Front St. W, Toronto, ON, Canada",
+            "faq_website": "https://www.am2025.perio.org",
+            "faq_link": "https://www.am2025.perio.org"
+          }
+        }
+      ]
+    }
   ]
 }
 {% endschema %}
+
