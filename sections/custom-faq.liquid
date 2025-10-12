@@ -29,8 +29,10 @@
             {% endif %}
           </div>
           {% if block.settings.faq_link %}
-            <div class="faq-map">
-                <iframe src="{{ block.settings.faq_link }}" width="600" height="400"></iframe>
+            <div class="faq-map-wrapper">
+              <div class="faq-map">
+                  <iframe src="{{ block.settings.faq_link }}" width="600" height="400"></iframe>
+              </div>
             </div>
           {% endif %}
         </div>
