@@ -17,18 +17,16 @@
 
 <style>
      .overlay-banner-section {
-      padding: 60px 20px;
+      padding: 60px 0;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
   }
       .overlay-banner-section .container {
-          max-width: 1280px;
-          margin: 0 auto;
+           max-width: 1420px;
+    margin: 0 auto;
+    padding: 0 50px;
       }
-  .overlay-banner-content {
-    max-width: 40%;
-  }
   .overlay-banner-content h2 {
       font-weight: 300;
       margin-bottom: 20px;
@@ -73,8 +71,11 @@
       font-size: 28px;
   }
   .overlay-banner-section {
-    padding: 50px 20px;
+    padding: 50px 0;
 }
+.overlay-banner-section .container {
+    padding: 0 32px;
+      }
 }
   @media (max-width: 768px) {
     .overlay-banner-wrapper {
@@ -88,9 +89,20 @@
       font-size: 24px;
   }
   .overlay-banner-section {
-    padding: 40px 20px;
+    padding: 40px 0;
 }
   }
+  @media (max-width: 750px) {
+    .overlay-banner-section .container {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 567px) {
+    .overlay-banner-section .container {
+        padding: 0 15px;
+    }
+}
 </style>
 
 {% schema %}
