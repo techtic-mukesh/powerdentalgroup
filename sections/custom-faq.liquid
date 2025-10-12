@@ -1,9 +1,8 @@
 <section class="faq-section">
   <div class="container">
-    <div class="faq-title">
-      {{ settings.faq_section_title }}
-    </div>
-
+ {% if section.settings.faq_section_title != blank %}
+      <h2 class="faq-title">{{ section.settings.faq_section_title }}</h2>
+    {% endif %}
     {% for block in section.blocks %}
       <div class="faq-item">
         <h3>{{ block.settings.faq_question }}</h3>
@@ -38,6 +37,34 @@
     {% endfor %}
   </div>
 </section>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Get all the FAQ headers (questions)
+    const faqHeaders = document.querySelectorAll('.faq-item h3');
+
+    faqHeaders.forEach(header => {
+      header.addEventListener('click', function () {
+        // Toggle the current answer visibility
+        const currentAnswer = header.nextElementSibling;
+
+        // If it's already open, close it
+        if (currentAnswer.style.display === 'block') {
+          currentAnswer.style.display = 'none';
+        } else {
+          // Close all answers
+          const allAnswers = document.querySelectorAll('.faq-item p');
+          allAnswers.forEach(answer => {
+            answer.style.display = 'none';
+          });
+
+          // Open the clicked one
+          currentAnswer.style.display = 'block';
+        }
+      });
+    });
+  });
+</script>
+
 {% stylesheet %}
   /* Custom styling for the FAQ section */
   .faq-section {
