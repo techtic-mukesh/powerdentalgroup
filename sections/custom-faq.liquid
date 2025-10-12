@@ -104,8 +104,8 @@
     .faq-item {
       margin-bottom: 20px;
     }
-  .faq-qustion{
-      font-family: Prompt;
+ .faq-qustion {
+    font-family: Prompt;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -113,16 +113,20 @@
     letter-spacing: 3.6px;
     text-transform: uppercase;
     background: linear-gradient(102deg,#42c5ef,#0033a0,#42c5ef,#0033a0);
-      background-size: auto;
-      background-clip: border-box;
+    background-size: auto;
+    background-clip: border-box;
     background-size: 200% 200%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: color .2s ease-in-out;
-    padding-bottom: 10px;
+    padding: 10px;
     border-bottom: 1px solid #ccc;
-  }
+    margin: 0 0 10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
   .faq-qustion:hover {
   	animation: rainbow 1.25s ease-in-out infinite;
   }
@@ -146,11 +150,6 @@
     font-weight: 700;
     margin: 0;
     text-transform: uppercase;
-}
-.faq-qustion {
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
 }
 .faq-qustion:after {
     flex-shrink: 0;
