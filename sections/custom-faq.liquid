@@ -47,25 +47,28 @@
         const currentAnswer = header.nextElementSibling;
 
         header.classList.toggle('active');
-        header.classList.toggle('faq-question');
+        header.classList.add('faq-question'); 
         currentAnswer.classList.toggle('active');
+
+        const allAnswers = document.querySelectorAll('.faq-item .faq-panel-body');
+        allAnswers.forEach((answer) => {
+          if (answer !== currentAnswer) {
+            answer.style.maxHeight = null;
+            answer.previousElementSibling.classList.remove('active');
+            answer.previousElementSibling.classList.remove('faq-question'); // Remove faq-question class from other questions
+          }
+        });
 
         if (currentAnswer.style.maxHeight) {
           currentAnswer.style.maxHeight = null;
         } else {
-          const allAnswers = document.querySelectorAll('.faq-item .faq-panel-body');
-          allAnswers.forEach((answer) => {
-            answer.style.maxHeight = null;
-            answer.previousElementSibling.classList.remove('active');
-            answer.previousElementSibling.classList.remove('faq-question'); // Remove faq-question class from other questions
-          });
-
           currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 'px';
         }
       });
     });
   });
 </script>
+
 
 
 
