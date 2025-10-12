@@ -1,8 +1,14 @@
 <section class="e-catalog-section">
      <div class="container">
-  {% if section.settings.section_title %}
-    <h2>{{ section.settings.section_title }}</h2>
-  {% endif %}
+      {% if section.index == 1 %}
+{% if section.settings.section_title %}
+    <h1 class="e-catalog-title">{{ section.settings.section_title }}</h1>
+  {% endif %}{% else %}
+{% if section.settings.section_title %}
+    <h2  class="e-catalog-title h2">{{ section.settings.section_title }}</h2>
+  {% endif %}{% endif %}
+
+  
 
   <div class="catalog-grid">
     {% for block in section.blocks %}
