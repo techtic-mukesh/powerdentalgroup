@@ -12,7 +12,7 @@
 
     <div class="text-center">
       {% if section.settings.button_label != blank %}
-        <a href="{{ section.settings.button_link }}" class="inline-block bg-gradient-to-r from-sky-400 to-blue-800 text-white font-bold py-3 px-6 rounded-lg shadow hover:opacity-90 transition">
+        <a href="{{ section.settings.button_link }}" class="btn">
           {{ section.settings.button_label }}
         </a>
       {% endif %}
@@ -39,6 +39,11 @@
           max-width: 1280px;
           margin: 0 auto;
       }
+      .content-block-title{
+     font-size: 44px;
+  font-weight: bold;
+  margin-bottom: 40px;
+    }
 .content-block-section p {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
