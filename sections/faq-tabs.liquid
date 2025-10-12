@@ -11,23 +11,44 @@
   ],
   "blocks": [
     {
-      "type": "faq_item",
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_id",
+          "label": "Tab ID (unique, e.g. general)",
+          "default": "general"
+        },
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "General Questions"
+        }
+      ]
+    },
+    {
+      "type": "faq",
       "name": "FAQ Item",
       "settings": [
         {
           "type": "text",
-          "id": "tab_group",
-          "label": "Tab Name (e.g. General Questions, Servicing Questions)"
+          "id": "tab_id",
+          "label": "Tab ID (must match the Tab block ID)",
+          "default": "general"
         },
         {
           "type": "text",
           "id": "question",
-          "label": "Question"
+          "label": "Question",
+          "default": "Where are you located?"
         },
         {
           "type": "textarea",
           "id": "answer",
-          "label": "Answer"
+          "label": "Answer",
+          "default": "We are located in California, USA."
         }
       ]
     }
@@ -35,7 +56,7 @@
   "presets": [
     {
       "name": "FAQ Tabs Section",
-      "category": "Custom"
+      "category": "Content"
     }
   ]
 }
@@ -45,25 +66,26 @@
   <div class="faq-container">
     <h2 class="faq-title">{{ section.settings.main_title }}</h2>
 
-    {% assign tab_groups = section.blocks | map: 'settings' | map: 'tab_group' | uniq %}
+    {% assign tabs = section.blocks | where: 'type', 'tab' %}
+    {% assign faqs = section.blocks | where: 'type', 'faq' %}
 
     <div class="faq-tabs">
       <ul class="faq-tab-titles">
-        {% for tab in tab_groups %}
-          <li class="faq-tab-title {% if forloop.first %}active{% endif %}" data-tab="tab-{{ forloop.index }}">
-            {{ tab }}
+        {% for tab in tabs %}
+          <li class="faq-tab-title {% if forloop.first %}active{% endif %}" data-tab="tab-{{ tab.settings.tab_id }}">
+            {{ tab.settings.tab_title }}
           </li>
         {% endfor %}
       </ul>
 
       <div class="faq-tab-contents">
-        {% for tab in tab_groups %}
-          <div class="faq-tab-content {% if forloop.first %}active{% endif %}" id="tab-{{ forloop.index }}">
-            {% for block in section.blocks %}
-              {% if block.settings.tab_group == tab %}
+        {% for tab in tabs %}
+          <div class="faq-tab-content {% if forloop.first %}active{% endif %}" id="tab-{{ tab.settings.tab_id }}">
+            {% for faq in faqs %}
+              {% if faq.settings.tab_id == tab.settings.tab_id %}
                 <details>
-                  <summary>{{ block.settings.question }}</summary>
-                  <p>{{ block.settings.answer }}</p>
+                  <summary>{{ faq.settings.question }}</summary>
+                  <p>{{ faq.settings.answer }}</p>
                 </details>
               {% endif %}
             {% endfor %}
@@ -143,6 +165,16 @@ details p {
   margin: 10px 0 0;
   font-size: 15px;
   color: #333;
+}
+@media(max-width: 768px){
+  .faq-tab-titles {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .faq-tab-title {
+    flex: 0 0 auto;
+    min-width: 200px;
+  }
 }
 </style>
 
