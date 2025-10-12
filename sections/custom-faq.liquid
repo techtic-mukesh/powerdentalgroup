@@ -49,20 +49,21 @@
       header.addEventListener('click', function () {
         const currentAnswer = header.nextElementSibling;
 
-        if (currentAnswer.style.display === 'block') {
-          currentAnswer.style.display = 'none';
+        if (currentAnswer.style.maxHeight) {
+          currentAnswer.style.maxHeight = null;
         } else {
-          const allAnswers = document.querySelectorAll('.faq-item .faq-panle-body');
+          const allAnswers = document.querySelectorAll('.faq-item .faq-panel-body');
           allAnswers.forEach((answer) => {
-            answer.style.display = 'none';
+            answer.style.maxHeight = null;
           });
 
-          currentAnswer.style.display = 'block';
+          currentAnswer.style.maxHeight = currentAnswer.scrollHeight + "px";
         }
       });
     });
   });
 </script>
+
 
 {% stylesheet %}
 .faq-panle-body{display: none;}
