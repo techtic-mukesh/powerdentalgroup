@@ -5,16 +5,18 @@
     {% endif %}
     {% for block in section.blocks %}
       <div class="faq-item">
+        {% if section.settings.faq_question != blank %}
+          <h3 class="faq-qustion">{{ block.settings.faq_question }}</h3>
+        {% endif %}
         <div class="faq-panel-body">
-            
           {% if block.settings.faq_logo %}
             <div class="faq-logo">
-            <img
-              class="faq-logo"
-              src="{{ block.settings.faq_logo | img_url: 'medium' }}"
-              alt="{{ block.settings.faq_title }}"
-            >
-                </div>
+              <img
+                class="faq-logo"
+                src="{{ block.settings.faq_logo | img_url: 'medium' }}"
+                alt="{{ block.settings.faq_title }}"
+              >
+            </div>
           {% endif %}
 
           <div class="faq-info faq-content">
@@ -29,12 +31,12 @@
             {% endif %}
           </div>
           {% if block.settings.faq_link %}
-              <div class="faq-map">
+            <div class="faq-map">
               <div style="margin-top: 10px;">
                 <iframe src="{{ block.settings.faq_link }}" width="600" height="400"></iframe>
               </div>
             </div>
-            {% endif %}
+          {% endif %}
         </div>
       </div>
     {% endfor %}
@@ -56,100 +58,96 @@
             answer.style.maxHeight = null;
           });
 
-          currentAnswer.style.maxHeight = currentAnswer.scrollHeight + "px";
+          currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 'px';
         }
       });
     });
   });
 </script>
 
-
 {% stylesheet %}
-.faq-panel-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease-in-out;
-}
-
-   .faq-section {
-      padding: 0 20px 40px;
-  }
-  .faq-section .container {
-      max-width: 1280px;
-      margin: 0 auto;
-  }
-  .faq-title{
-font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
-  font-weight: 700;
-  margin:60px 0 40px;
-      text-align: center;
-  text-transform: uppercase;}
   .faq-panel-body {
-      display: flex;
-      row-gap: 30px;
-      margin: 0 -10px;
-      flex-wrap: wrap;
-  }
-  .faq-panel-body >div {
-      width: 33.33%;
-      padding: 0 10px;
-  }
-  .faq-item {
-    margin-bottom: 20px;
-  }
-.faq-qustion{
-    font-family: Prompt;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 28px;
-  letter-spacing: 3.6px;
-  text-transform: uppercase;
-  background: linear-gradient(102deg,#42c5ef,#0033a0,#42c5ef,#0033a0);
-    background-size: auto;
-    background-clip: border-box;
-  background-size: 200% 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: color .2s ease-in-out;
-}
-.faq-qustion:hover {
-	animation: rainbow 1.25s ease-in-out infinite;
-}
-@keyframes rainbow {
-  0% {
-    background-position:left
-  }
-  50% {
-    background-position:right
-  }
-  100% {
-    background-position:left
-  }
-}
- .faq-logo img {
-    max-width: 100%;
-    width: auto;
-    max-height: 150px;
-    height: auto;
-}
-
-  .faq-info {
-    margin-top: 10px;
-  }
-.faq-map iframe {
-	max-width: 100%;
-	max-height: 200px;
-}
-  .faq-info a {
-    color: #0074cc;
-    text-decoration: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
   }
 
-  .faq-info a:hover {
-    text-decoration: underline;
+     .faq-section {
+        padding: 0 20px 40px;
+        text-align: center;
+    }
+    .faq-section .container {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    .faq-title{
+  font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
+    font-weight: 700;
+    margin:60px 0 40px;
+    text-transform: uppercase;}
+    .faq-panel-body {
+        display: flex;
+        row-gap: 30px;
+        margin: 0 -10px;
+        flex-wrap: wrap;
+    }
+    .faq-panel-body >div {
+        width: 33.33%;
+        padding: 0 10px;
+    }
+    .faq-item {
+      margin-bottom: 20px;
+    }
+  .faq-qustion{
+      font-family: Prompt;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 3.6px;
+    text-transform: uppercase;
+    background: linear-gradient(102deg,#42c5ef,#0033a0,#42c5ef,#0033a0);
+      background-size: auto;
+      background-clip: border-box;
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: color .2s ease-in-out;
   }
+  .faq-qustion:hover {
+  	animation: rainbow 1.25s ease-in-out infinite;
+  }
+  @keyframes rainbow {
+    0% {
+      background-position:left
+    }
+    50% {
+      background-position:right
+    }
+    100% {
+      background-position:left
+    }
+  }
+   .faq-logo img {
+      max-width: 100%;
+      width: auto;
+      max-height: 150px;
+      height: auto;
+  }
+
+    .faq-info {
+      margin-top: 10px;
+    }
+
+    .faq-info a {
+      color: #0074cc;
+      text-decoration: none;
+    }
+
+    .faq-info a:hover {
+      text-decoration: underline;
+    }
 {% endstylesheet %}
 
 {% schema %}
@@ -161,10 +159,10 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
       "content": "Trade Shows"
     },
     {
-      "type": "richtext",  
+      "type": "richtext",
       "label": "FAQ Section Title",
       "id": "faq_section_title",
-      "default": "<p>Frequently Asked Questions</p>" 
+      "default": "<p>Frequently Asked Questions</p>"
     }
   ],
   "blocks": [
@@ -173,10 +171,10 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
       "name": "FAQ Block",
       "settings": [
         {
-          "type": "textarea",
-          "label": "FAQ Answer",
-          "id": "faq_answer",
-          "default": "The AAP Annual Meeting is a premier event for dental professionals. It features presentations, workshops, and networking opportunities."
+          "type": "text",
+          "label": "FAQ Question",
+          "id": "faq_question",
+          "default": "What is the AAP Annual Meeting?"
         },
         {
           "type": "image_picker",
@@ -220,17 +218,17 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
       "name": "Shows FAQ Section",
       "category": "Content",
       "settings": {
-        "faq_section_title": "<p>Frequently Asked Questions</p>" 
+        "faq_section_title": "<p>Frequently Asked Questions</p>"
       },
       "blocks": [
         {
           "type": "faq_block",
           "settings": {
-            "faq_answer": "The AAP Annual Meeting is a premier event for dental professionals. It features presentations, workshops, and networking opportunities.",
+            "faq_question": "What is the AAP Annual Meeting?",
             "faq_logo": "",
             "faq_title": "AAP Annual Meeting",
             "faq_subtitle": "Toronto, ON | 10/15/25 - 10/18/25",
-            "faq_address": "<p>Metro Toronto Convention Centre, 255 Front St. W, Toronto, ON, Canada</p>", 
+            "faq_address": "<p>Metro Toronto Convention Centre, 255 Front St. W, Toronto, ON, Canada</p>",
             "faq_website": "https://www.am2025.perio.org",
             "faq_link": "https://www.am2025.perio.org"
           }
@@ -240,4 +238,3 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
   ]
 }
 {% endschema %}
-
