@@ -230,12 +230,84 @@
         "button_text": "LET'S COLLABORATE",
         "button_link": "#"
       }
+    },
+    "resources_cards_Q4Hndj": {
+      "type": "resources-cards",
+      "blocks": {
+        "resource_wAfiXh": {
+          "type": "resource",
+          "settings": {
+            "icon": "shopify://shop_images/customer-support-icon_2f65fc71-e3d4-4b03-b702-0604b06ff515.png",
+            "label": "Customer Support",
+            "link": "",
+            "highlighted": false
+          }
+        },
+        "resource_7NXwfC": {
+          "type": "resource",
+          "settings": {
+            "icon": "shopify://shop_images/servicing-order-form_d6b91109-fd18-4d8a-b58a-868fa3773d79.png",
+            "label": "",
+            "link": "",
+            "highlighted": false
+          }
+        },
+        "resource_nNeGGP": {
+          "type": "resource",
+          "settings": {
+            "icon": "shopify://shop_images/e-catalog-icon_b92867e0-aa19-4c03-84a1-5e7c2805cfde.png",
+            "label": "E-Catalog",
+            "link": "",
+            "highlighted": false
+          }
+        },
+        "resource_XLwwXp": {
+          "type": "resource",
+          "settings": {
+            "icon": "shopify://shop_images/faq-icon_626d6742-93eb-4737-a059-6bc732a8edee.png",
+            "label": "FAQ",
+            "link": "",
+            "highlighted": false
+          }
+        },
+        "resource_VCfGxK": {
+          "type": "resource",
+          "settings": {
+            "icon": "shopify://shop_images/video-icon_d37c48d3-a95c-44b5-b3d4-1fa52ea7b38c.png",
+            "label": "Product Training Videos",
+            "link": "",
+            "highlighted": false
+          }
+        },
+        "resource_znD78e": {
+          "type": "resource",
+          "settings": {
+            "icon": "shopify://shop_images/become-a-distributor-icon_ebf4e099-4dd6-41da-bd49-90ddfe41a494.png",
+            "label": "Return Order Form",
+            "link": "",
+            "highlighted": false
+          }
+        }
+      },
+      "block_order": [
+        "resource_wAfiXh",
+        "resource_7NXwfC",
+        "resource_nNeGGP",
+        "resource_XLwwXp",
+        "resource_VCfGxK",
+        "resource_znD78e"
+      ],
+      "name": "Resources Cards",
+      "settings": {
+        "section_heading": "RESOURCES"
+      }
     }
   },
   "order": [
     "main",
     "event_block_iKxjBd",
     "custom_faq_AQTphj",
-    "overlay_banner_BAbKiM"
+    "overlay_banner_BAbKiM",
+    "resources_cards_Q4Hndj"
   ]
 }
