@@ -5,185 +5,53 @@
     {% endif %}
     <div class="events-row">
       {% for block in section.blocks %}
-        {% if block.settings.subtitle_title != blank %}
-          <h3 class="events-subtitle">{{ block.settings.subtitle_title }}</h3>
-        {% endif %}
-      {% endfor %}
-      <div class="events-list">
-        {% for block in section.blocks %}
-          <div class="event-item">
-            {% if block.settings.event_image != blank %}
-              <img
-                src="{{ block.settings.event_image | img_url: 'medium' }}"
-                alt="{{ block.settings.event_title }}"
-                class="event-image"
-              >
-            {% endif %}
-            <div class="event-details">
-              {% if block.settings.event_title != blank %}
-                <h3 class="event-title">{{ block.settings.event_title }}</h3>
+        {% if block.settings.event_title != blank or block.settings.event_subtitle != blank or block.settings.event_image != blank or block.settings.event_date != blank or block.settings.event_location != blank %}
+          <div class="events-list">
+            <div class="event-item">
+              {% if block.settings.event_image != blank %}
+                <img
+                  src="{{ block.settings.event_image | img_url: 'medium' }}"
+                  alt="{{ block.settings.event_title }}"
+                  class="event-image"
+                >
               {% endif %}
-              {% if block.settings.event_subtitle != blank %}
-                <p class="event-subtitle">{{ block.settings.event_subtitle }}</p>
-              {% endif %}
-              <div class="event-logo-with-info">
-                <div class="event-logo">
-                  {% if block.settings.event_logo != blank %}
-                    <img
-                      src="{{ block.settings.event_logo | img_url: '70' }}"
-                      alt="{{ block.settings.event_logo }}"
-                      class="event-logo"
-                    >
-                  {% endif %}
+              <div class="event-details">
+                {% if block.settings.event_title != blank %}
+                  <h3 class="event-title">{{ block.settings.event_title }}</h3>
+                {% endif %}
+                {% if block.settings.event_subtitle != blank %}
+                  <p class="event-subtitle">{{ block.settings.event_subtitle }}</p>
+                {% endif %}
+                <div class="event-logo-with-info">
+                  <div class="event-logo">
+                    {% if block.settings.event_logo != blank %}
+                      <img
+                        src="{{ block.settings.event_logo | img_url: '70' }}"
+                        alt="{{ block.settings.event_logo }}"
+                        class="event-logo"
+                      >
+                    {% endif %}
+                  </div>
+                  <div class="event-info">
+                    {% if block.settings.event_date != blank %}
+                      <p class="event-date"><strong>Date:</strong> {{ block.settings.event_date }}</p>
+                    {% endif %}
+                    {% if block.settings.event_location != blank %}
+                      <p class="event-location"><strong>Location:</strong> {{ block.settings.event_location }}</p>
+                    {% endif %}
+                    {% if block.settings.event_credits != blank %}
+                      <p class="event-credits"><strong>CE Credits:</strong> {{ block.settings.event_credits }}</p>
+                    {% endif %}
+                  </div>
                 </div>
-                <div class="event-info">
-                  {% if block.settings.event_date != blank %}
-                    <p class="event-date"><strong>Date:</strong> {{ block.settings.event_date }}</p>
-                  {% endif %}
-                  {% if block.settings.event_location != blank %}
-                    <p class="event-location"><strong>Location:</strong> {{ block.settings.event_location }}</p>
-                  {% endif %}
-                  {% if block.settings.event_credits != blank %}
-                    <p class="event-credits"><strong>CE Credits:</strong> {{ block.settings.event_credits }}</p>
-                  {% endif %}
-                </div>
+                {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+                  <a href="{{ block.settings.button_link }}" class="btn-register">{{ block.settings.button_label }}</a>
+                {% endif %}
               </div>
-              {% if block.settings.button_label != blank and block.settings.button_link != blank %}
-                <a href="{{ block.settings.button_link }}" class="btn-register">{{ block.settings.button_label }}</a>
-              {% endif %}
             </div>
           </div>
-        {% endfor %}
-      </div>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
 </section>
-
-<style>
-  .event-section {
-    text-align: center;
-    margin: 50px 0;
-  }
-  .events-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  .event-item {
-    background: #f4f4f4;
-    padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .event-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-  .event-details {
-    margin-top: 20px;
-  }
-  .btn-register {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  .btn-register:hover {
-    background-color: #0056b3;
-  }
-</style>
-
-{% schema %}
-{
-  "name": "Event",
-  "settings": [
-    {
-      "type": "text",
-      "id": "section_title",
-      "label": "Section Title"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "product_title",
-      "name": "Subtitle",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "text",
-          "id": "subtitle_title",
-          "label": "Subtitle"
-        }
-      ]
-    },
-    {
-      "type": "event_card",
-      "name": "Event Card",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "event_image",
-          "label": "Event Image"
-        },
-        {
-          "type": "text",
-          "id": "event_title",
-          "label": "Event Title",
-          "default": "Pikos Institute"
-        },
-        {
-          "type": "text",
-          "id": "event_subtitle",
-          "label": "Event SubTitle",
-          "default": "Full Arch Symposium"
-        },
-        {
-          "type": "image_picker",
-          "id": "event_logo",
-          "label": "Event Logo"
-        },
-        {
-          "type": "text",
-          "id": "event_date",
-          "label": "Event Date",
-          "default": "October 1-2"
-        },
-        {
-          "type": "text",
-          "id": "event_location",
-          "label": "Event Location",
-          "default": "Orlando, FL"
-        },
-        {
-          "type": "text",
-          "id": "event_credits",
-          "label": "Event Credits",
-          "default": "24 CE Credits"
-        },
-        {
-          "type": "text",
-          "id": "button_label",
-          "label": "Button Label"
-        },
-        {
-          "type": "url",
-          "id": "button_link",
-          "label": "Button Link"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Events",
-      "category": "Content"
-    }
-  ]
-}
-
-{% endschema %}
