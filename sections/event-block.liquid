@@ -94,6 +94,11 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
       padding: 0 15px;
       position: relative;
   }
+  .event-item {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
   .events-list .events-box:after {
     content: "";
     content: '';
@@ -151,7 +156,10 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
 }
   .event-details {
     margin-top: 20px;
-  }
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
 .btn-register {
     margin-top: 20px;
     padding: 16px 24px;
@@ -169,7 +177,7 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
     letter-spacing: -.1px;
     display: flex;
     max-width: max-content;
-    margin: 0 auto;
+    margin: auto auto 0;
 }
   .btn-register:hover {
     background-position: 100% 0 !important;
