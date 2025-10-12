@@ -38,10 +38,93 @@
         "button_link": "",
         "heading": "Terms of Use"
       }
+    },
+    "overlay_banner_jDk9jz": {
+      "type": "overlay-banner",
+      "name": "Overlay Banner",
+      "settings": {
+        "banner_image": "shopify://shop_images/lets-collaborate-banner-hd.jpg",
+        "heading": "<p>YOUR VISION,<br/><strong>OUR EXPERTISE.</strong></p>",
+        "button_text": "LET'S COLLABORATE",
+        "button_link": "https://7y310y-hr.myshopify.com/pages/contact"
+      }
+    },
+    "resources_cards_PRyFEY": {
+      "type": "resources-cards",
+      "blocks": {
+        "resource_D6T8pd": {
+          "type": "resource",
+          "settings": {
+            "icon": "shopify://shop_images/customer-support-icon_2f65fc71-e3d4-4b03-b702-0604b06ff515.png",
+            "label": "Customer Support",
+            "link": "#",
+            "highlighted": false
+          }
+        },
+        "resource_LDThW6": {
+          "type": "resource",
+          "settings": {
+            "icon": "shopify://shop_images/servicing-order-form_d6b91109-fd18-4d8a-b58a-868fa3773d79.png",
+            "label": "",
+            "link": "#",
+            "highlighted": false
+          }
+        },
+        "resource_irMmxa": {
+          "type": "resource",
+          "settings": {
+            "icon": "shopify://shop_images/e-catalog-icon_b92867e0-aa19-4c03-84a1-5e7c2805cfde.png",
+            "label": "E-Catalog",
+            "link": "https://7y310y-hr.myshopify.com/pages/e-catalog",
+            "highlighted": false
+          }
+        },
+        "resource_bcHNMm": {
+          "type": "resource",
+          "settings": {
+            "icon": "shopify://shop_images/faq-icon_626d6742-93eb-4737-a059-6bc732a8edee.png",
+            "label": "FAQ",
+            "link": "https://7y310y-hr.myshopify.com/pages/frequently-asked-questions",
+            "highlighted": false
+          }
+        },
+        "resource_LkE4W3": {
+          "type": "resource",
+          "settings": {
+            "icon": "shopify://shop_images/video-icon_d37c48d3-a95c-44b5-b3d4-1fa52ea7b38c.png",
+            "label": "Product Training Videos",
+            "link": "https://7y310y-hr.myshopify.com/pages/frequently-asked-questions",
+            "highlighted": false
+          }
+        },
+        "resource_wtGcAy": {
+          "type": "resource",
+          "settings": {
+            "icon": "shopify://shop_images/become-a-distributor-icon_ebf4e099-4dd6-41da-bd49-90ddfe41a494.png",
+            "label": "Return Order Form",
+            "link": "https://7y310y-hr.myshopify.com/pages/return-order-form",
+            "highlighted": false
+          }
+        }
+      },
+      "block_order": [
+        "resource_D6T8pd",
+        "resource_LDThW6",
+        "resource_irMmxa",
+        "resource_bcHNMm",
+        "resource_LkE4W3",
+        "resource_wtGcAy"
+      ],
+      "name": "Resources Cards",
+      "settings": {
+        "section_heading": "RESOURCES"
+      }
     }
   },
   "order": [
     "main",
-    "content_block_D44qdi"
+    "content_block_D44qdi",
+    "overlay_banner_jDk9jz",
+    "resources_cards_PRyFEY"
   ]
 }
