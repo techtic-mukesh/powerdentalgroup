@@ -19,6 +19,32 @@
     },
     "event_block_iKxjBd": {
       "type": "event-block",
+      "blocks": {
+        "product_title_naRkeM": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "HANDS-ON COURSES"
+          }
+        },
+        "event_card_6cekJm": {
+          "type": "event_card",
+          "settings": {
+            "event_image": "shopify://shop_images/Pikos_Photo_BW_38ba6d85-67e9-459d-92af-3a372cb66b85.jpg",
+            "event_title": "Pikos Institute",
+            "event_subtitle": "Full Arch Symposium",
+            "event_logo": "shopify://shop_images/Pikos_Logo_3a7929da-0745-48a0-925a-b87946464163.png",
+            "event_date": "October 1-2",
+            "event_location": "Orlando, FL",
+            "event_credits": "24 CE Credits",
+            "button_label": "Register Now",
+            "button_link": "https://www.pikosinstitute.com/live-courses/pikos-symposium-live-implant-course"
+          }
+        }
+      },
+      "block_order": [
+        "product_title_naRkeM",
+        "event_card_6cekJm"
+      ],
       "name": "Events Grid",
       "settings": {
         "section_title": "Shows & Events"
