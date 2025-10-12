@@ -38,10 +38,21 @@
         "button_link": "",
         "heading": "Warranty & Return Policy"
       }
+    },
+    "content_block_wT4DLD": {
+      "type": "content-block",
+      "name": "Content Section",
+      "settings": {
+        "background_color": "#ffffff",
+        "button_label": "RETURN ORDER FORM",
+        "button_link": "",
+        "heading": "RETURN POLICY"
+      }
     }
   },
   "order": [
     "main",
-    "content_block_bMLBF8"
+    "content_block_bMLBF8",
+    "content_block_wT4DLD"
   ]
 }
