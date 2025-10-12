@@ -25,7 +25,7 @@
             <address>{{ block.settings.faq_address }}</address>
 
             {% if block.settings.faq_website != blank and block.settings.website_text != blank %}
-              <a href="{{ block.settings.faq_website }}" target="_blank">Website: {{ block.settings.Website_text }}</a>
+              <a href="{{ block.settings.faq_website }}" target="_blank">{{ block.settings.Website_text }}</a>
             {% endif %}
           </div>
           {% if block.settings.faq_link %}
@@ -46,12 +46,16 @@
       header.addEventListener('click', function () {
         const currentAnswer = header.nextElementSibling;
 
+        header.classList.toggle('active');
+        currentAnswer.classList.toggle('active');
+
         if (currentAnswer.style.maxHeight) {
           currentAnswer.style.maxHeight = null;
         } else {
           const allAnswers = document.querySelectorAll('.faq-item .faq-panel-body');
           allAnswers.forEach((answer) => {
             answer.style.maxHeight = null;
+            answer.previousElementSibling.classList.remove('active');  // Remove active from other questions
           });
 
           currentAnswer.style.maxHeight = currentAnswer.scrollHeight + 'px';
@@ -60,6 +64,7 @@
     });
   });
 </script>
+
 
 {% stylesheet %}
   .faq-panel-body {
