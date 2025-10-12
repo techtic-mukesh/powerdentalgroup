@@ -5,7 +5,7 @@
     {% endif %}
     {% for block in section.blocks %}
       <div class="faq-item">
-        <h3>{{ block.settings.faq_question }}</h3>
+        <h3 class="faq-qustion">{{ block.settings.faq_question }}</h3>
         <div class="faq-panel-body">
             
           {% if block.settings.faq_logo %}
@@ -99,10 +99,12 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
     margin-bottom: 20px;
   }
 
-  .faq-logo {
-    max-width: 150px;
-    margin-top: 10px;
-  }
+ .faq-logo img {
+    max-width: 100%;
+    width: auto;
+    max-height: 150px;
+    height: auto;
+}
 
   .faq-info {
     margin-top: 10px;
