@@ -1,8 +1,5 @@
-<section
-  class="overlay-banner-wrapper"
-  style="background-image: url('{{ section.settings.banner_image | img_url: 'master' }}')"
->
-  <div class="overlay-banner-content">
+<section class="overlay-banner-wrapper" style="background-image: url('{{ section.settings.banner_image | img_url: 'master' }}')">
+  <div class="overlay-banner-content container">
     <h2>{{ section.settings.heading }}</h2>
     {% if section.settings.button_text and section.settings.button_link %}
       <a 
