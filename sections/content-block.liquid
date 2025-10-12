@@ -1,0 +1,94 @@
+<section class="content-block-section" style="background-color: {{ section.settings.background_color }};">
+  <div class="container mx-auto py-10 px-4">
+
+    <div class="text-center mb-8">
+      {% if section.settings.button_label != blank %}
+        <a href="{{ section.settings.button_link }}" class="inline-block bg-gradient-to-r from-sky-400 to-blue-800 text-white font-bold py-3 px-6 rounded-lg shadow hover:opacity-90 transition">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if section.settings.heading != blank %}
+      <h1 class="text-4xl font-extrabold mb-6 text-left">{{ section.settings.heading }}</h1>
+    {% endif %}
+
+    <div class="policy-items space-y-6 text-left">
+      {% for block in section.blocks %}
+        <div class="policy-item">
+          {% if block.settings.policy_title != blank %}
+            <p class="font-extrabold mb-2 uppercase">{{ block.settings.policy_title }}</p>
+          {% endif %}
+          <p class="text-gray-700 leading-relaxed">{{ block.settings.policy_content }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+.content-block-section p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.content-block h1 {
+  color: #000;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Content Section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "RETURN ORDER FORM"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "RETURN POLICY"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "policy_item",
+      "name": "Policy Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "policy_title",
+          "label": "Title",
+          "default": "POWER DENTAL PRODUCTS:"
+        },
+        {
+          "type": "textarea",
+          "id": "policy_content",
+          "label": "Content",
+          "default": "Only instrument(s) that are unused, left unsterilized in their original Power Dental packaging..."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Content Section"
+    }
+  ]
+}
+{% endschema %}
