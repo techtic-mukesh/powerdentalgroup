@@ -1,4 +1,4 @@
-<section class="overlay-banner-wrapper" style="background-image: url('{{ section.settings.banner_image | img_url: 'master' }}')">
+<section class="overlay-banner-section" style="background-image: url('{{ section.settings.banner_image | img_url: 'master' }}')">
   <div class="overlay-banner-content container">
     <h2>{{ section.settings.heading }}</h2>
     {% if section.settings.button_text and section.settings.button_link %}
@@ -13,6 +13,13 @@
 </section>
 
 <style>
+      .overlay-banner-section {
+        padding: 20px 20px 80px;
+    }
+    .overlay-banner-section .container {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
 .overlay-banner-wrapper {
   display: flex;
   justify-content: space-between;
