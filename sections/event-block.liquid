@@ -10,8 +10,8 @@
         {% endif %}
       {% endfor %}
 
+      <div class="events-list">
       {% for block in section.blocks %}
-        <div class="events-list">
           {% if block.settings.event_title != blank
             or block.settings.event_subtitle != blank
             or block.settings.event_image != blank
@@ -61,8 +61,8 @@
               </div>
             </div>
           {% endif %}
-        </div>
-      {% endfor %}
+        {% endfor %}
+    </div>
     </div>
   </div>
 </section>
