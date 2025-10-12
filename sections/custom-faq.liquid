@@ -27,14 +27,12 @@
             <p>{{ block.settings.faq_address }}</p>
 
             {% if block.settings.faq_website %}
-              <a href="{{ block.settings.faq_website }}" target="_blank">{{ block.settings.faq_website }}</a>
+              <a href="{{ block.settings.faq_website }}" target="_blank">Website: {{ block.settings.faq_website }}</a>
             {% endif %}
           </div>
           {% if block.settings.faq_link %}
             <div class="faq-map">
-              <div style="margin-top: 10px;">
                 <iframe src="{{ block.settings.faq_link }}" width="600" height="400"></iframe>
-              </div>
             </div>
           {% endif %}
         </div>
