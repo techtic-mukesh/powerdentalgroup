@@ -88,7 +88,18 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
       row-gap: 40px;
       margin: 0 -15px;
       flex-wrap: wrap;
+      position: relative;
   }
+  .events-list:after {
+    content: "";
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90%;
+    width: 1px;
+    background: #fff;
+}
   .events-list .events-box {
       width: 25%;
       padding: 0 15px;
