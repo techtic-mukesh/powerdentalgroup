@@ -98,7 +98,37 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
   .faq-item {
     margin-bottom: 20px;
   }
-
+.faq-qustion{
+    font-family: Prompt;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 3.6px;
+  text-transform: uppercase;
+  background: linear-gradient(102deg,#42c5ef,#0033a0,#42c5ef,#0033a0);
+    background-size: auto;
+    background-clip: border-box;
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: color .2s ease-in-out;
+}
+.faq-qustion:hover {
+	animation: rainbow 1.25s ease-in-out infinite;
+}
+@keyframes rainbow {
+  0% {
+    background-position:left
+  }
+  50% {
+    background-position:right
+  }
+  100% {
+    background-position:left
+  }
+}
  .faq-logo img {
     max-width: 100%;
     width: auto;
