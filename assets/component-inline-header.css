@@ -239,11 +239,12 @@ li.tabs-li.active:after {
 }
 
 ul#tabs-nav li.tabs-li  span.tab-icon svg path {
-    fill: #0033a0;
+    /* fill: #0033a0; */
 }
 
 ul#tabs-nav li.tabs-li.active  span.tab-icon svg path  {
-    fill: #fff;
+    stroke: #fff;
+    stroke-width: .7px;
 }
 
 ul#tabs-nav li.tabs-li {
