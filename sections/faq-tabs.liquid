@@ -1,0 +1,164 @@
+{% schema %}
+{
+  "name": "FAQ Tabs Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "FAQS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_group",
+          "label": "Tab Name (e.g. General Questions, Servicing Questions)"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Tabs Section",
+      "category": "FAQ"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="faq-tabs-section">
+  <div class="faq-container">
+    <h2 class="faq-title">{{ section.settings.main_title }}</h2>
+
+    {% assign tab_groups = section.blocks | map: 'settings' | map: 'tab_group' | uniq %}
+
+    <div class="faq-tabs">
+      <ul class="faq-tab-titles">
+        {% for tab in tab_groups %}
+          <li class="faq-tab-title {% if forloop.first %}active{% endif %}" data-tab="tab-{{ forloop.index }}">
+            {{ tab }}
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="faq-tab-contents">
+        {% for tab in tab_groups %}
+          <div class="faq-tab-content {% if forloop.first %}active{% endif %}" id="tab-{{ forloop.index }}">
+            {% for block in section.blocks %}
+              {% if block.settings.tab_group == tab %}
+                <details>
+                  <summary>{{ block.settings.question }}</summary>
+                  <p>{{ block.settings.answer }}</p>
+                </details>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.faq-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+.faq-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.faq-tabs {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.faq-tab-titles {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  border-bottom: 3px solid #007dc5;
+}
+.faq-tab-title {
+  flex: 1;
+  text-align: center;
+  padding: 15px;
+  background: #f5f5f5;
+  cursor: pointer;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  transition: all 0.3s ease;
+}
+.faq-tab-title.active {
+  background: linear-gradient(90deg, #21c3f3, #007dc5);
+  color: #fff;
+}
+.faq-tab-content {
+  display: none;
+  text-align: left;
+}
+.faq-tab-content.active {
+  display: block;
+}
+details {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  position: relative;
+}
+summary::after {
+  content: "▾";
+  position: absolute;
+  right: 0;
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+details[open] summary::after {
+  transform: rotate(180deg);
+}
+details p {
+  margin: 10px 0 0;
+  font-size: 15px;
+  color: #333;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tabTitles = document.querySelectorAll('.faq-tab-title');
+  const tabContents = document.querySelectorAll('.faq-tab-content');
+
+  tabTitles.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-tab');
+      tabTitles.forEach(t => t.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(target).classList.add('active');
+    });
+  });
+});
+</script>
