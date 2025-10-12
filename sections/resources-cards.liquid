@@ -6,7 +6,7 @@
 
     <div class="resources-grid">
       {% for block in section.blocks %}
-        <div class="resource-cards-row">
+        <div class="resource-cards-col">
           <a
             href="{{ block.settings.link }}"
             class="resource-card {% if block.settings.highlighted %}highlighted{% endif %}"
@@ -46,7 +46,7 @@
     margin: 0 -15px;
     row-gap: 30px;
   }
-  .resource-cards-row{
+  .resource-cards-col{
   width: 33.33%;
         padding: 0 15px;
   }
