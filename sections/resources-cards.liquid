@@ -1,85 +1,92 @@
 <section class="custom-resources-cards-wrapper">
-  {% if section.settings.section_heading %}
-    <h2>{{ section.settings.section_heading }}</h2>
-  {% endif %}
+  <div class="container">
+    {% if section.settings.section_heading %}
+      <h2>{{ section.settings.section_heading }}</h2>
+    {% endif %}
 
-  <div class="custom-resources-grid">
-    {% for block in section.blocks %}
+    <div class="custom-resources-grid">
+      {% for block in section.blocks %}
         <div class="resource-cards-row">
-      <a 
-        href="{{ block.settings.link }}" 
-        class="resource-card {% if block.settings.highlighted %}highlighted{% endif %}" 
-        {{ block.shopify_attributes }}
-      >
-        <div class="resource-left">
-          {% if block.settings.icon %}
-            <img src="{{ block.settings.icon | img_url: '60x60' }}" alt="{{ block.settings.label }}">
-          {% endif %}
-          <div class="resource-label">{{ block.settings.label }}</div>
+          <a
+            href="{{ block.settings.link }}"
+            class="resource-card {% if block.settings.highlighted %}highlighted{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="resource-left">
+              {% if block.settings.icon %}
+                <img src="{{ block.settings.icon | img_url: '60x60' }}" alt="{{ block.settings.label }}">
+              {% endif %}
+              <div class="resource-label">{{ block.settings.label }}</div>
+            </div>
+            <div class="resource-arrow">→</div>
+          </a>
         </div>
-        <div class="resource-arrow">→</div>
-      </a>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
 </section>
 
 <style>
-.custom-resources-cards-wrapper {
-  padding: 60px 20px;
-  text-align: center;
-}
-.custom-resources-cards-wrapper h2 {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 40px;
-}
-.custom-resources-grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px;
-}
-.resource-cards-row{
-width: 33.33%;
-      padding: 0 15px;
-}
-.resource-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  background-color: #fff;
-  color: inherit;
-}
-.resource-card.highlighted {
-  background-color: #e8f2fb;
-}
-.resource-card:hover {
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-.resource-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.resource-left img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
-.resource-label {
-  font-size: 16px;
-  font-weight: 500;
-  text-align: left;
-}
-.resource-arrow {
-  font-size: 20px;
-  color: #00205b;
-}
+  .custom-resources-cards-wrapper {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .custom-resources-cards-wrapper h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  .overlay-banner-section .container {
+          max-width: 1280px;
+          margin: 0 auto;
+      }
+  .custom-resources-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+    row-gap: 30px;
+  }
+  .resource-cards-row{
+  width: 33.33%;
+        padding: 0 15px;
+  }
+  .resource-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    background-color: #fff;
+    color: inherit;
+  }
+  .resource-card.highlighted {
+    background-color: #e8f2fb;
+  }
+  .resource-card:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .resource-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .resource-left img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+  .resource-label {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+  }
+  .resource-arrow {
+    font-size: 20px;
+    color: #00205b;
+  }
 </style>
 
 {% schema %}
