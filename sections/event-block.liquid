@@ -17,16 +17,19 @@
             {% endif %}
             <div class="event-details">
               {% if block.settings.event_title != blank %}
-                <h3>{{ block.settings.event_title }}</h3>
+                <h3 class="event-title">{{ block.settings.event_title }}</h3>
               {% endif %}
-              {% if block.settings.event_location != blank %}
-                <p><strong>Location:</strong> {{ block.settings.event_location }}</p>
+              {% if block.settings.event_subtitle != blank %}
+                <p class="event-subtitle">{{ block.settings.event_subtitle }}</p>
               {% endif %}
               {% if block.settings.event_date != blank %}
-                <p><strong>Date:</strong> {{ block.settings.event_date }}</p>
+                <p class="event-date"><strong>Date:</strong> {{ block.settings.event_date }}</p>
+              {% endif %}
+              {% if block.settings.event_location != blank %}
+                <p class="event-location"><strong>Location:</strong> {{ block.settings.event_location }}</p>
               {% endif %}
               {% if block.settings.event_credits != blank %}
-                <p><strong>CE Credits:</strong> {{ block.settings.event_credits }}</p>
+                <p class="event-credits"><strong>CE Credits:</strong> {{ block.settings.event_credits }}</p>
               {% endif %}
               {% if block.settings.button_label != blank and block.settings.button_link != blank %}
                 <a href="{{ block.settings.button_link }}" class="btn-register">{{ block.settings.button_label }}</a>
