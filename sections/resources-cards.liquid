@@ -5,10 +5,10 @@
 
   <div class="custom-resources-grid">
     {% for block in section.blocks %}
-        <div class="resource-card">
+        <div class="resource-cards-row">
       <a 
         href="{{ block.settings.link }}" 
-        class="{% if block.settings.highlighted %}highlighted{% endif %}" 
+        class="resource-card {% if block.settings.highlighted %}highlighted{% endif %}" 
         {{ block.shopify_attributes }}
       >
         <div class="resource-left">
@@ -19,7 +19,7 @@
         </div>
         <div class="resource-arrow">→</div>
       </a>
-      </div>
+    </div>
     {% endfor %}
   </div>
 </section>
