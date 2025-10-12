@@ -101,18 +101,23 @@
 
 <style>
      .event-section {
-        padding: 60px 20px;
+        padding: 60px 0;
     }
     .event-section .container {
-        max-width: 1280px;
-        margin: 0 auto;
+        max-width: 1420px;
+      margin: 0 auto;
+      padding: 0 50px;
     }
-    .event-sec-title {
+    .event-sec-title,.event-sec-title.h2 {
       font-size: 44px;
       font-weight: 700;
       margin: 0 0 40px;
       text-align: center;
       text-transform: uppercase;
+      line-height: 1.3;
+  }
+  .event-sec-title.h2{
+     font-size: 36px;  
   }
     .events-list {
         display: flex;
@@ -239,6 +244,9 @@
   .events-subtitle {
       font-size: 32px;
   }
+  .event-sec-title.h2{
+     font-size: 32px;  
+  }
   }
     @media (max-width: 992px) {
       .events-list .events-box {
@@ -251,8 +259,14 @@
       font-size: 28px;
   }
   .event-section {
-      padding: 50px 20px;
+      padding: 50px 0;
   }
+  .event-sec-title.h2{
+     font-size: 28px;  
+  }
+  .event-section .container{
+        padding: 0 32px;
+    }
   }
    @media (max-width: 768px) {
       .events-list .events-box {
@@ -277,9 +291,23 @@
       font-size: 24px;
   }
   .event-section {
-      padding: 40px 20px;
+      padding: 40px 0;
+  }
+  .event-sec-title.h2{
+     font-size: 24px;  
   }
   }
+  @media (max-width: 750px) {
+    .event-section .container {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 567px) {
+    .event-section .container {
+        padding: 0 15px;
+    }
+}
 </style>
 
 {% schema %}
