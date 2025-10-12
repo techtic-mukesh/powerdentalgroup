@@ -135,7 +135,7 @@
           "settings": {
             "tab_id": "servicing-questions",
             "question": "Do You Have A Return Label Or Offer A Box To Ship To You?",
-            "answer": "<p>Feel free to use our USPS return label <a href=\"https://returns.usps.com/Label/CreateSingle?Code=7AC6D5C59F5940EBA1D2A338C8F13E77&DisplayType=Customer\" target=\"_blank\">here</a>. Please note it’s $15.99 with use.</p>"
+            "answer": "<p>Feel free to use our USPS return label <a href=\"https://returns.usps.com/Label/CreateSingle?Code=7AC6D5C59F5940EBA1D2A338C8F13E77&DisplayType=Customer\" target=\"_blank\"><strong>here</strong></a>. Please note it’s $15.99 with use.</p>"
           }
         },
         "tab_7TrMkM": {
