@@ -189,6 +189,16 @@
   .btn-register:hover {
     background-position: 100% 0 !important;
   }
+  .events-list:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: #fff;
+    z-index: 1;
+}
   @media (max-width: 1200px) {
     .events-list .events-box {
         width: 33.33%;
@@ -204,6 +214,9 @@
         width: 100%;
         padding: 20px 15px;
     }
+    .events-list:before {
+    height: 20px;
+}
     .event-item {
     max-width: 60%;
     margin: 0 auto;
