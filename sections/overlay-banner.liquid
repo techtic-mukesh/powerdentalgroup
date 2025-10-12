@@ -1,22 +1,16 @@
 <section
   class="overlay-banner-wrapper"
-  style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};"
+  style="background-image: url('{{ section.settings.banner_image | img_url: 'master' }}')"
 >
   <div class="overlay-banner-content">
-    <h2 style="color: {{ section.settings.text_color }};">{{ section.settings.heading }}</h2>
+    <h2>{{ section.settings.heading }}</h2>
     {% if section.settings.button_text and section.settings.button_link %}
       <a 
         href="{{ section.settings.button_link }}" 
         class="btn" 
-        style="color: {{ section.settings.text_color }}; border-color: {{ section.settings.button_border_color }};"
       >
         {{ section.settings.button_text }}
       </a>
-    {% endif %}
-  </div>
-  <div class="overlay-banner-image">
-    {% if section.settings.banner_image %}
-      <img src="{{ section.settings.banner_image | img_url: 'master' }}" alt="overlay Image">
     {% endif %}
   </div>
 </section>
@@ -97,24 +91,6 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background Color",
-      "default": "#00004f"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text Color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "color",
-      "id": "button_border_color",
-      "label": "Button Border Color",
-      "default": "#ffffff"
     }
   ],
   "presets": [
