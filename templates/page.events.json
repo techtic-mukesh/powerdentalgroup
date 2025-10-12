@@ -226,12 +226,9 @@
       "name": "Overlay Banner",
       "settings": {
         "banner_image": "shopify://shop_images/lets-collaborate-banner-hd.jpg",
-        "heading": "YOUR VISION, OUR EXPERTISE.",
+        "heading": "<p>YOUR VISION,<br/><strong>OUR EXPERTISE.</strong></p>",
         "button_text": "LET'S COLLABORATE",
-        "button_link": "#",
-        "background_color": "#00004f",
-        "text_color": "#ffffff",
-        "button_border_color": "#ffffff"
+        "button_link": "#"
       }
     }
   },
