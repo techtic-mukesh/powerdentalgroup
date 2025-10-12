@@ -1,0 +1,129 @@
+<section class="custom-resources-cards-wrapper">
+  {% if section.settings.section_heading %}
+    <h2>{{ section.settings.section_heading }}</h2>
+  {% endif %}
+
+  <div class="custom-resources-grid">
+    {% for block in section.blocks %}
+      <a 
+        href="{{ block.settings.link }}" 
+        class="resource-card {% if block.settings.highlighted %}highlighted{% endif %}" 
+        {{ block.shopify_attributes }}
+      >
+        <div class="resource-left">
+          {% if block.settings.icon %}
+            <img src="{{ block.settings.icon | img_url: '60x60' }}" alt="{{ block.settings.label }}">
+          {% endif %}
+          <div class="resource-label">{{ block.settings.label }}</div>
+        </div>
+        <div class="resource-arrow">→</div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+.custom-resources-cards-wrapper {
+  padding: 60px 20px;
+  text-align: center;
+}
+.custom-resources-cards-wrapper h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.custom-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.resource-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  background-color: #fff;
+  color: inherit;
+}
+.resource-card.highlighted {
+  background-color: #e8f2fb;
+}
+.resource-card:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.resource-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.resource-left img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+.resource-label {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+}
+.resource-arrow {
+  font-size: 20px;
+  color: #00205b;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Custom Resources Cards",
+  "tag": "section",
+  "class": "custom-resources-cards",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "RESOURCES"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "resource",
+      "name": "Resource Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Resource Title"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlighted",
+          "label": "Highlighted (with background)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Resources Cards",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
