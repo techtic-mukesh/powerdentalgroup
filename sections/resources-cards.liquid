@@ -1,10 +1,10 @@
-<section class="custom-resources-cards-wrapper">
+<section class="resources-cards-wrapper">
   <div class="container">
     {% if section.settings.section_heading %}
       <h2>{{ section.settings.section_heading }}</h2>
     {% endif %}
 
-    <div class="custom-resources-grid">
+    <div class="resources-grid">
       {% for block in section.blocks %}
         <div class="resource-cards-row">
           <a
@@ -27,20 +27,20 @@
 </section>
 
 <style>
-  .custom-resources-cards-wrapper {
+  .resources-cards-wrapper {
     padding: 60px 20px;
     text-align: center;
   }
-  .custom-resources-cards-wrapper h2 {
+  .resources-cards-wrapper h2 {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 40px;
   }
-  .overlay-banner-section .container {
+  .resources-cards-wrapper .container {
           max-width: 1280px;
           margin: 0 auto;
       }
-  .custom-resources-grid {
+  .resources-grid {
     display: flex;
     flex-wrap: wrap;
     margin: 0 -15px;
@@ -93,7 +93,7 @@
 {
   "name": "Resources Cards",
   "tag": "section",
-  "class": "custom-resources-cards",
+  "class": "resources-cards",
   "settings": [
     {
       "type": "text",
