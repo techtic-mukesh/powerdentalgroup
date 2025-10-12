@@ -24,7 +24,7 @@
           "type": "policy_item",
           "settings": {
             "policy_title": "Return Policy",
-            "policy_content": "Only instrument(s) that are unused, left unsterilized in their original Power Dental packaging..."
+            "policy_content": "<p><strong>POWER DENTAL PRODUCTS:</strong> Only instrument(s) that are unused, left unsterilized in their original Power Dental packaging, and returned within 45 days of the original shipment date will be accepted for a full refund. If a discount was provided at the time of purchase on the overall order, not including individual instrument discounts, then the overall discounted percentage will be pro-rated across any individual instrument returned within that order. Please refer to the shipping policy below for shipping guidelines. Proof of purchase is required to process the return. Returns will not be accepted without a completed return order form. Reference shipping policy accordingly.<br/><br/><strong>DISTRIBUTORS:</strong> Distributors are responsible for verifying that all instrument(s) that Power Dental provides match the details of the original invoice. The distributor has 45 days from the day the package is shipped to notify Power Dental that an instrument(s) does not match the details of the invoice provided or does not meet expectations. Only instrument(s) that are unused, left unsterilized in their original Power Dental packaging can be returned for refund/credit. Proof of purchase is required to process the return. Returns will not be accepted without a completed return order form or approved PO. Reference shipping policy accordingly.<br/><br/><strong>CLEARANCE ITEMS:</strong> No refunds, credits, or exchanges will be provided for instruments sold as “Clearance” items. All “Clearance” items are sold “as is” and do not qualify for warranty.<br/><br/><strong>RESTOCKING FEE:</strong> A 25% restocking fee will be applied to any returns that are sent past 45 days from the day the original package was shipped. This fee is subject to increase.<br/><br/><strong>PRIVATE LABELS/CUSTOM INSTRUMENTS:</strong> No refunds, credits, or exchanges will be provided for items with private labeling/engraving unless the private label was mis-engraved from the approved design that both parties, Power Dental and the customer, agreed upon. For custom instruments, the same terms will apply unless the custom instrument was incorrectly manufactured from agreed-upon specifications.</p>"
           }
         }
       },
@@ -36,7 +36,7 @@
         "background_color": "#ffffff",
         "button_label": "RETURN ORDER FORM",
         "button_link": "",
-        "heading": "RETURN POLICY"
+        "heading": "Warranty & Return Policy"
       }
     }
   },
