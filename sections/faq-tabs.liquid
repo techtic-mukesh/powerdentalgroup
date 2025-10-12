@@ -79,11 +79,11 @@
 .faq-tab-content.active {
   display: block;
 }
-details {
+.faq-tabs-section details {
     border-bottom: 1px solid rgba(0,0,0,.125);
     padding: 15px;
 }
-summary {
+.faq-tabs-section summary {
     cursor: pointer;
     position: relative;
     font-weight: 400;
@@ -94,7 +94,7 @@ summary {
     padding-right: 20px;
 }
 .faq-answer{margin-top: 10px;}
-summary::after {
+.faq-tabs-section summary::after {
     content: "";
     position: absolute;
     right: 0;
@@ -104,13 +104,13 @@ summary::after {
     transition: transform 0.3s;
     background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") no-repeat;
 }
-details[open] summary::after {
+.faq-tabs-section details[open] summary::after {
   transform: rotate(180deg);
 }
 .faq-answer strong {
         font-family: 'Montserrat';
 }
-details p {
+.faq-tabs-section details p {
     margin: 0 0 0;
     color: #5b5b5b;
     font-size: 16px;
@@ -131,7 +131,7 @@ details p {
 }
 }
 @media(max-width: 768px){
- summary {
+.faq-tabs-section  summary {
     font-size: 18px;
 }
   .faq-tab-title {
@@ -141,7 +141,7 @@ details p {
   font-size: 32px;
   margin-bottom: 25px;
 }
-details p {
+.faq-tabs-section details p {
     font-size: 14px;
     line-height: 20px;
 }
@@ -155,14 +155,14 @@ details p {
 }
 }
 @media(max-width: 768px){
-    summary {
+  .faq-tabs-section  summary {
     font-size: 16px;
     padding-right: 16px;
 }
 .faq-tabs-section {
     padding: 40px 20px;
 }
-summary::after {
+.faq-tabs-section summary::after {
     width: 16px;
     height: 16px;
 }
