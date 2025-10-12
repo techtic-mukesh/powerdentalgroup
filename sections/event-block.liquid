@@ -13,7 +13,11 @@
         {% for block in section.blocks %}
           <div class="event-item">
             {% if block.settings.event_image != blank %}
-              <img src="{{ block.settings.event_image | img_url: 'medium' }}" alt="{{ block.settings.event_title }}" class="event-image">
+              <img
+                src="{{ block.settings.event_image | img_url: 'medium' }}"
+                alt="{{ block.settings.event_title }}"
+                class="event-image"
+              >
             {% endif %}
             <div class="event-details">
               {% if block.settings.event_title != blank %}
@@ -22,15 +26,28 @@
               {% if block.settings.event_subtitle != blank %}
                 <p class="event-subtitle">{{ block.settings.event_subtitle }}</p>
               {% endif %}
-              {% if block.settings.event_date != blank %}
-                <p class="event-date"><strong>Date:</strong> {{ block.settings.event_date }}</p>
-              {% endif %}
-              {% if block.settings.event_location != blank %}
-                <p class="event-location"><strong>Location:</strong> {{ block.settings.event_location }}</p>
-              {% endif %}
-              {% if block.settings.event_credits != blank %}
-                <p class="event-credits"><strong>CE Credits:</strong> {{ block.settings.event_credits }}</p>
-              {% endif %}
+              <div class="event-logo-with-info">
+                <div class="event-logo">
+                  {% if block.settings.event_logo != blank %}
+                    <img
+                      src="{{ block.settings.event_logo | img_url: 'medium' }}"
+                      alt="{{ block.settings.event_logo }}"
+                      class="event-logo"
+                    >
+                  {% endif %}
+                </div>
+                <div class="event-info">
+                  {% if block.settings.event_date != blank %}
+                    <p class="event-date"><strong>Date:</strong> {{ block.settings.event_date }}</p>
+                  {% endif %}
+                  {% if block.settings.event_location != blank %}
+                    <p class="event-location"><strong>Location:</strong> {{ block.settings.event_location }}</p>
+                  {% endif %}
+                  {% if block.settings.event_credits != blank %}
+                    <p class="event-credits"><strong>CE Credits:</strong> {{ block.settings.event_credits }}</p>
+                  {% endif %}
+                </div>
+              </div>
               {% if block.settings.button_label != blank and block.settings.button_link != blank %}
                 <a href="{{ block.settings.button_link }}" class="btn-register">{{ block.settings.button_label }}</a>
               {% endif %}
