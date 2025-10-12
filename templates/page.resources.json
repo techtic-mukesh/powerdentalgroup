@@ -33,7 +33,7 @@
           "settings": {
             "card_title": "FEDEX RETURN LABEL",
             "card_description": "<p>Utilize our FedEx labels to send your packages via FedEx. Simply print the label and affix it to your package. It is $18.50 with use.</p>",
-            "card_link": ""
+            "card_link": "https://fulfillment.fedex.com/web/commerce/rma-web?customerId=2554667&token=eyJjdHkiOiJKV1QiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..C8DvnRo7PA2XJV7Lq1BYUw.Y242Z_0ReAQssdSIHVfcYZhitQmcTJ3cxOmtmpzMKd4d2wRFKc5u02I9hOW-sKWLlSv2fZAADMi1s7v7_wXbadRRE9rFQyeIpuFgQcl9inAkrw62TQGwgdZGGYbhsrwbpdkeZ9vc-DPpatE0VSfFxp12364COp2J7qWh7PsHAl9GgHUe1f29eX8PjvoLLGbNtVNlldnKy7mOWz7MFu0DM0hW6mWt_DwDBA0z4thDlvlkCEAq78weSZpyk6iiIwpdEKpzQaNBxBJoFMkY5HZOiJdYhS-yVBPDqZo3kLXmWJza5ggPqNsfQno6ysioOZPDXBc0pDyk5bgHFL51vIhkPJb8Q045jUEXFNzSNFt9PzCBIWpm_p8Z7sY17FlF_OyN._JM3OS0DL-zBB5PzYnObrw"
           }
         },
         "resource_card_dfrtMD": {
@@ -41,7 +41,7 @@
           "settings": {
             "card_title": "SERVICE ORDER FORM",
             "card_description": "<p>How to maintain your instruments?</p><p>Complete this form and specify your preferences for instrument servicing or repairs.</p>",
-            "card_link": ""
+            "card_link": "https://7y310y-hr.myshopify.com/pages/servicing-order-form"
           }
         },
         "resource_card_qqmdUf": {
@@ -49,7 +49,7 @@
           "settings": {
             "card_title": "RETURN ORDER FORM",
             "card_description": "<p>Tell us about your return.</p><p>Your feedback is important. Please provide details regarding your return.</p>",
-            "card_link": ""
+            "card_link": "https://7y310y-hr.myshopify.com/pages/return-order-form"
           }
         },
         "resource_card_P6ERAk": {
@@ -57,7 +57,7 @@
           "settings": {
             "card_title": "PRODUCT TRAINING VIDEOS",
             "card_description": "<p>Maximize your ROI and get the most out of your investment.</p><p>Review product demonstrations and training videos here. </p>",
-            "card_link": ""
+            "card_link": "https://7y310y-hr.myshopify.com/pages/product-training-videos"
           }
         },
         "resource_card_8ap8aV": {
@@ -65,7 +65,7 @@
           "settings": {
             "card_title": "E-CATALOG",
             "card_description": "<p>Interested in the full E-Catalog PDF style?</p><p>Browse through all of our products, detailed descriptions, and access pricing information.</p>",
-            "card_link": ""
+            "card_link": "https://7y310y-hr.myshopify.com/pages/e-catalog"
           }
         },
         "resource_card_J3dci9": {
@@ -73,7 +73,7 @@
           "settings": {
             "card_title": "REPROCESSING GUIDE",
             "card_description": "<p>Questions about sterilization?</p><p>Here you will find comprehensive details regarding the sterilization methods recommended for our products.</p>",
-            "card_link": ""
+            "card_link": "https://cdn.shopify.com/s/files/1/0697/9538/1398/files/Reprocessing-of-PDG-Dental-Hand-Instruments-and-Accessories.pdf?v=1760280611"
           }
         },
         "resource_card_CYQrgg": {
@@ -81,7 +81,7 @@
           "settings": {
             "card_title": "FAQS",
             "card_description": "<p>Have a question?</p><p>Access quick answers to common queries about our products or services.</p>",
-            "card_link": ""
+            "card_link": "https://7y310y-hr.myshopify.com/pages/frequently-asked-questions"
           }
         }
       },
