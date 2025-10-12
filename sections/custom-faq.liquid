@@ -5,7 +5,6 @@
     {% endif %}
     {% for block in section.blocks %}
       <div class="faq-item">
-        <h3 class="faq-qustion">{{ block.settings.faq_question }}</h3>
         <div class="faq-panel-body">
             
           {% if block.settings.faq_logo %}
@@ -171,12 +170,6 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
       "name": "FAQ Block",
       "settings": [
         {
-          "type": "text",
-          "label": "FAQ Question",
-          "id": "faq_question",
-          "default": "What is the AAP Annual Meeting?"
-        },
-        {
           "type": "textarea",
           "label": "FAQ Answer",
           "id": "faq_answer",
@@ -230,7 +223,6 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
         {
           "type": "faq_block",
           "settings": {
-            "faq_question": "What is the AAP Annual Meeting?",
             "faq_answer": "The AAP Annual Meeting is a premier event for dental professionals. It features presentations, workshops, and networking opportunities.",
             "faq_logo": "",
             "faq_title": "AAP Annual Meeting",
