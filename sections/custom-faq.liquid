@@ -52,7 +52,7 @@
         if (currentAnswer.style.display === 'block') {
           currentAnswer.style.display = 'none';
         } else {
-          const allAnswers = document.querySelectorAll('.faq-item p');
+          const allAnswers = document.querySelectorAll('.faq-item .faq-panle-body');
           allAnswers.forEach((answer) => {
             answer.style.display = 'none';
           });
@@ -65,7 +65,7 @@
 </script>
 
 {% stylesheet %}
-  /* Custom styling for the FAQ section */
+.faq-panle-body{display: none;}
   .faq-section {
     margin: 20px 0;
     font-family: Arial, sans-serif;
