@@ -169,10 +169,23 @@
             "faq_website": "https://www.am2025.perio.org",
             "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5774.420857888169!2d-79.386673!3d43.643790100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d6785ffb55%3A0x4209e1f8fd986202!2sMetro%20Toronto%20Convention%20Centre!5e0!3m2!1sen!2sus!4v1749154958125!5m2!1sen!2sus"
           }
+        },
+        "faq_block_Y8txGF": {
+          "type": "faq_block",
+          "settings": {
+            "faq_question": "ADA SmileCon | Washington, DC | 10/23/25 - 10/25/25",
+            "faq_answer": "The AAP Annual Meeting is a premier event for dental professionals. It features presentations, workshops, and networking opportunities.",
+            "faq_title": "KADA Scientific Congress",
+            "faq_subtitle": "Conrad Los Angeles",
+            "faq_address": "<p>100 S. Grand Ave.<br/>Los Angeles, CA 90012</p>",
+            "faq_website": "https://www.kadausa.org/2025-scientific-conference/",
+            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.5591931731105!2d-118.25115862428339!3d34.055176873155894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c64d960506bb%3A0x92a0c80de77ecd4e!2sConrad%20Los%20Angeles!5e0!3m2!1sen!2sus!4v1759408621853!5m2!1sen!2sus"
+          }
         }
       },
       "block_order": [
-        "faq_block_iATR48"
+        "faq_block_iATR48",
+        "faq_block_Y8txGF"
       ],
       "name": "Shows FAQ Section",
       "settings": {
