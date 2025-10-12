@@ -1,27 +1,44 @@
 <section class="event-section">
-      <div class="container">
-
-   {% if section.settings.section_title != blank %}
+  <div class="container">
+    {% if section.settings.section_title != blank %}
       <h2 class="product-training-videos-title">{{ section.settings.section_title }}</h2>
     {% endif %}
-  <p>{{ section.settings.intro_text }}</p>
-
-  <div class="events-list">
-    {% for event in section.settings.events %}
-      <div class="event-item">
-        <img src="{{ event.image }}" alt="{{ event.title }}" class="event-image" />
-        <div class="event-details">
-          <h3>{{ event.title }}</h3>
-          <p><strong>Location:</strong> {{ event.location }}</p>
-          <p><strong>Date:</strong> {{ event.date }}</p>
-          <p><strong>CE Credits:</strong> {{ event.ce_credits }}</p>
-          <a href="{{ event.register_link }}" class="btn-register">Register Now</a>
-        </div>
+    <div class="events-row">
+      {% for block in section.blocks %}
+        {% if block.settings.subtitle_title != blank %}
+          <h3 class="events-subtitle">{{ block.settings.subtitle_title }}</h3>
+        {% endif %}
+      {% endfor %}
+      <div class="events-list">
+        {% for block in section.blocks %}
+          <div class="event-item">
+            {% if block.settings.event_image != blank %}
+              <img src="{{ block.settings.event_image | img_url: 'medium' }}" alt="{{ block.settings.event_title }}" class="event-image">
+            {% endif %}
+            <div class="event-details">
+              {% if block.settings.event_title != blank %}
+                <h3>{{ block.settings.event_title }}</h3>
+              {% endif %}
+              {% if block.settings.event_location != blank %}
+                <p><strong>Location:</strong> {{ block.settings.event_location }}</p>
+              {% endif %}
+              {% if block.settings.event_date != blank %}
+                <p><strong>Date:</strong> {{ block.settings.event_date }}</p>
+              {% endif %}
+              {% if block.settings.event_credits != blank %}
+                <p><strong>CE Credits:</strong> {{ block.settings.event_credits }}</p>
+              {% endif %}
+              {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+                <a href="{{ block.settings.button_link }}" class="btn-register">{{ block.settings.button_label }}</a>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
       </div>
-    {% endfor %}
+    </div>
   </div>
-</div>
 </section>
+
 <style>
   .event-section {
     text-align: center;
@@ -68,7 +85,7 @@
     {
       "type": "text",
       "id": "section_title",
-      "label": "Power Crown Removers Training Videos Section Title",
+      "label": "Power Crown Removers Training Videos Section Title"
     }
   ],
   "blocks": [
@@ -80,32 +97,70 @@
         {
           "type": "text",
           "id": "subtitle_title",
-          "label": "Subtitle",
+          "label": "Subtitle"
         }
       ]
     },
     {
-      "type": "product_videos_card",
-      "name": "Product Videos Card",
+      "type": "event_card",
+      "name": "Event Card",
       "settings": [
         {
-          "type": "url",
-          "id": "video_link",
-          "label": "Video Link",
-          "info": "Add YouTube Embed Link"
+          "type": "image_picker",
+          "id": "event_image",
+          "label": "Event Image"
         },
         {
           "type": "text",
-          "id": "card_title",
-          "label": "Card Title",
-          "default": "Power Dental USA Crown Removers - Dr. Daniel"
+          "id": "event_title",
+          "label": "Event Title",
+          "default": "Pikos Institute"
+        },
+        {
+          "type": "text",
+          "id": "event_subtitle",
+          "label": "Event SubTitle",
+          "default": "Full Arch Symposium"
+        },
+        {
+          "type": "image_picker",
+          "id": "event_logo",
+          "label": "Event Logo"
+        },
+        {
+          "type": "text",
+          "id": "event_date",
+          "label": "Event Date",
+          "default": "October 1-2"
+        },
+        {
+          "type": "text",
+          "id": "event_location",
+          "label": "Event Location",
+          "default": "Orlando, FL"
+        },
+        {
+          "type": "text",
+          "id": "event_credits",
+          "label": "Event Credits",
+          "default": "24 CE Credits"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Product Videos Grid",
+      "name": "Events Grid",
       "category": "Content"
     }
   ]
