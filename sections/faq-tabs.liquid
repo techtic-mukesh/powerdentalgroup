@@ -91,14 +91,17 @@ summary {
     line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: -.2px;
+    padding-right: 20px;
 }
 .faq-answer{margin-top: 10px;}
 summary::after {
-  content: "▾";
-  position: absolute;
-  right: 0;
-  font-size: 18px;
-  transition: transform 0.3s;
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s;
+    background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") no-repeat;
 }
 details[open] summary::after {
   transform: rotate(180deg);
