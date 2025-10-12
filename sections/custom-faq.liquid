@@ -159,10 +159,10 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
       "content": "Trade Shows"
     },
     {
-      "type": "text",
+      "type": "richtext",  
       "label": "FAQ Section Title",
       "id": "faq_section_title",
-      "default": "Frequently Asked Questions"
+      "default": "<p>Frequently Asked Questions</p>" 
     }
   ],
   "blocks": [
@@ -200,10 +200,10 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
           "default": "Toronto, ON | 10/15/25 - 10/18/25"
         },
         {
-          "type": "textarea",
+          "type": "richtext",
           "label": "Address for FAQ Block",
           "id": "faq_address",
-          "default": "Metro Toronto Convention Centre, 255 Front St. W, Toronto, ON, Canada"
+          "default": "<p>Metro Toronto Convention Centre, 255 Front St. W, Toronto, ON, Canada</p>"
         },
         {
           "type": "url",
@@ -212,8 +212,9 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
         },
         {
           "type": "url",
-          "label": "Link for FAQ Block (Iframe)",
-          "id": "faq_link"
+          "label": "Map Url",
+          "id": "faq_link",
+          "info": "Add YouTube Embed Link"
         }
       ]
     }
@@ -223,7 +224,7 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
       "name": "Shows FAQ Section",
       "category": "Content",
       "settings": {
-        "faq_section_title": "Frequently Asked Questions"
+        "faq_section_title": "<p>Frequently Asked Questions</p>" 
       },
       "blocks": [
         {
@@ -234,7 +235,7 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
             "faq_logo": "",
             "faq_title": "AAP Annual Meeting",
             "faq_subtitle": "Toronto, ON | 10/15/25 - 10/18/25",
-            "faq_address": "Metro Toronto Convention Centre, 255 Front St. W, Toronto, ON, Canada",
+            "faq_address": "<p>Metro Toronto Convention Centre, 255 Front St. W, Toronto, ON, Canada</p>", 
             "faq_website": "https://www.am2025.perio.org",
             "faq_link": "https://www.am2025.perio.org"
           }
@@ -244,3 +245,4 @@ font-size: clamp(2.4rem, 0.5496rem + 3.6879vw, 5.6rem);
   ]
 }
 {% endschema %}
+
