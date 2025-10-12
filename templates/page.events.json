@@ -166,7 +166,7 @@
             "faq_subtitle": "Metro Toronto Convention Centre",
             "faq_address": "<p>255 Front St. W<br/>Toronto, ON, Canada</p>",
             "website_text": "Website: www.am2025.perio.org",
-            "faq_website": "https://www.am2025.perio.org",
+            "faq_website": "https://am2025.perio.org/",
             "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5774.420857888169!2d-79.386673!3d43.643790100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d6785ffb55%3A0x4209e1f8fd986202!2sMetro%20Toronto%20Convention%20Centre!5e0!3m2!1sen!2sus!4v1749154958125!5m2!1sen!2sus"
           }
         },
@@ -228,7 +228,7 @@
         "banner_image": "shopify://shop_images/lets-collaborate-banner-hd.jpg",
         "heading": "<p>YOUR VISION,<br/><strong>OUR EXPERTISE.</strong></p>",
         "button_text": "LET'S COLLABORATE",
-        "button_link": "#"
+        "button_link": "https://7y310y-hr.myshopify.com/pages/contact"
       }
     },
     "resources_cards_Q4Hndj": {
@@ -239,7 +239,7 @@
           "settings": {
             "icon": "shopify://shop_images/customer-support-icon_2f65fc71-e3d4-4b03-b702-0604b06ff515.png",
             "label": "Customer Support",
-            "link": "",
+            "link": "#",
             "highlighted": false
           }
         },
@@ -248,7 +248,7 @@
           "settings": {
             "icon": "shopify://shop_images/servicing-order-form_d6b91109-fd18-4d8a-b58a-868fa3773d79.png",
             "label": "",
-            "link": "",
+            "link": "#",
             "highlighted": false
           }
         },
@@ -257,7 +257,7 @@
           "settings": {
             "icon": "shopify://shop_images/e-catalog-icon_b92867e0-aa19-4c03-84a1-5e7c2805cfde.png",
             "label": "E-Catalog",
-            "link": "",
+            "link": "https://7y310y-hr.myshopify.com/pages/e-catalog",
             "highlighted": false
           }
         },
@@ -266,7 +266,7 @@
           "settings": {
             "icon": "shopify://shop_images/faq-icon_626d6742-93eb-4737-a059-6bc732a8edee.png",
             "label": "FAQ",
-            "link": "",
+            "link": "https://7y310y-hr.myshopify.com/pages/frequently-asked-questions",
             "highlighted": false
           }
         },
@@ -275,7 +275,7 @@
           "settings": {
             "icon": "shopify://shop_images/video-icon_d37c48d3-a95c-44b5-b3d4-1fa52ea7b38c.png",
             "label": "Product Training Videos",
-            "link": "",
+            "link": "https://7y310y-hr.myshopify.com/pages/product-training-videos",
             "highlighted": false
           }
         },
@@ -284,7 +284,7 @@
           "settings": {
             "icon": "shopify://shop_images/become-a-distributor-icon_ebf4e099-4dd6-41da-bd49-90ddfe41a494.png",
             "label": "Return Order Form",
-            "link": "",
+            "link": "https://7y310y-hr.myshopify.com/pages/return-order-form",
             "highlighted": false
           }
         }
