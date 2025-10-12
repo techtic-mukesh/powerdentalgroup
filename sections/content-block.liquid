@@ -32,12 +32,13 @@
 
 <style>
     .content-block-section {
-  padding: 60px 20px;
+  padding: 60px 0;
   text-align: center;
 }
 .content-block-section .container {
-          max-width: 1280px;
-          margin: 0 auto;
+         max-width: 1420px;
+      margin: 0 auto;
+      padding: 0 50px;
       }
       .content-block-title{
      font-size: 44px;
@@ -105,8 +106,9 @@ background-position: 100% 0;}
     font-size: 28px;
 }
  .content-block-section {
-  padding: 50px 20px;
+  padding: 50px 0;
 }
+.content-block-section .container{padding: 0 32px;}
 }
 @media (max-width: 768px) {
   .content-block-title{
@@ -117,9 +119,20 @@ background-position: 100% 0;}
     font-size: 24px;
 }
 .content-block-section {
-  padding: 40px 20px;
+  padding: 40px 0;
 }
 }
+  @media (max-width: 750px) {
+      .content-block-section .container {
+          padding: 0 30px;
+      }
+  }
+
+  @media (max-width: 567px) {
+      .content-block-section .container {
+          padding: 0 15px;
+      }
+  }
 </style>
 
 {% schema %}
