@@ -39,7 +39,7 @@
                     {% for block in section.blocks %}
                       {% if block.type == 'menu' %}
                         <li class="tabs-li {% if forloop.first %} active{% endif %}"">
-                          <a href="#tab{{ forloop.index }}">
+                          <a href="{{ block.settings.menu_link }}" data-tab="#tab{{ forloop.index }}">
                             {% if block.settings.svg %}
                               <span class="tab-icon">{{ block.settings.svg }}</span>
                             {% endif %}
@@ -64,66 +64,66 @@
                       <div class="mega-menu-layout">
                         <!-- Left Side - Subcategories -->
                       <div class="mega-menu-left {% if block.settings.featured_product != blank %} has-featured-product {% endif %}">
-  {% for collection in block.settings.menu_collection %}
-    <li>
-      <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
-        <div class="cin-icon"></div>
-        <p>{{ collection.title }}</p>
-      </a>
-      
-      <!-- 🔽 Subcategories Matching This Main Collection -->
-      {% assign sub_groups = (1..10) %}
-      {% assign has_subs = false %}
-      {% assign sub_count = 0 %}
-      {% assign total_subs = 0 %}
-      
-      {% comment %} First pass: count total matching subcollections {% endcomment %}
-      {% for i in sub_groups %}
-        {% assign sub_title_key = 'sub_title_' | append: i %}
-        {% assign sub_collection_key = 'sub_collection_' | append: i %}
-        {% assign sub_title = block.settings[sub_title_key] %}
-        {% assign sub_collection = block.settings[sub_collection_key] %}
+                        {% for collection in block.settings.menu_collection %}
+                          <li>
+                            <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
+                              <div class="cin-icon"></div>
+                              <p>{{ collection.title }}</p>
+                            </a>
+                            
+                            <!-- 🔽 Subcategories Matching This Main Collection -->
+                            {% assign sub_groups = (1..10) %}
+                            {% assign has_subs = false %}
+                            {% assign sub_count = 0 %}
+                            {% assign total_subs = 0 %}
+                            
+                            {% comment %} First pass: count total matching subcollections {% endcomment %}
+                            {% for i in sub_groups %}
+                              {% assign sub_title_key = 'sub_title_' | append: i %}
+                              {% assign sub_collection_key = 'sub_collection_' | append: i %}
+                              {% assign sub_title = block.settings[sub_title_key] %}
+                              {% assign sub_collection = block.settings[sub_collection_key] %}
 
-        {% if sub_title == collection.title and sub_collection != blank %}
-          {% assign total_subs = total_subs | plus: sub_collection.size %}
-        {% endif %}
-      {% endfor %}
+                              {% if sub_title == collection.title and sub_collection != blank %}
+                                {% assign total_subs = total_subs | plus: sub_collection.size %}
+                              {% endif %}
+                            {% endfor %}
 
-      {% comment %} Second pass: display first 2 subcollections {% endcomment %}
-      <ul class="subcategory-list">
-        {% for i in sub_groups %}
-          {% assign sub_title_key = 'sub_title_' | append: i %}
-          {% assign sub_collection_key = 'sub_collection_' | append: i %}
-          {% assign sub_title = block.settings[sub_title_key] %}
-          {% assign sub_collection = block.settings[sub_collection_key] %}
+                            {% comment %} Second pass: display first 2 subcollections {% endcomment %}
+                            <ul class="subcategory-list">
+                              {% for i in sub_groups %}
+                                {% assign sub_title_key = 'sub_title_' | append: i %}
+                                {% assign sub_collection_key = 'sub_collection_' | append: i %}
+                                {% assign sub_title = block.settings[sub_title_key] %}
+                                {% assign sub_collection = block.settings[sub_collection_key] %}
 
-          {% if sub_title == collection.title and sub_collection != blank %}
-            {% for sub in sub_collection %}
-              {% if sub_count < 2 %}
-                <li>
-                  <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
-                    <p>{{ sub.title }}</p>
-                  </a>
-                </li>
-                {% assign sub_count = sub_count | plus: 1 %}
-                {% assign has_subs = true %}
-              {% endif %}
-            {% endfor %}
+                                {% if sub_title == collection.title and sub_collection != blank %}
+                                  {% for sub in sub_collection %}
+                                    {% if sub_count < 2 %}
+                                      <li>
+                                        <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
+                                          <p>{{ sub.title }}</p>
+                                        </a>
+                                      </li>
+                                      {% assign sub_count = sub_count | plus: 1 %}
+                                      {% assign has_subs = true %}
+                                    {% endif %}
+                                  {% endfor %}
 
-             <li class="view-more-item">
-              <a href="{{ collection.url }}" class="view-more-link">
-                <p>View More</p>
-              </a>
-            </li>
-          {% endif %}
-        {% endfor %}
-        
-        {% comment %} Show "View More" if more than 2 subcollections exist {% endcomment %}
-           
-      </ul>
-    </li>
-  {% endfor %}
-</div>
+                                  <li class="view-more-item">
+                                    <a href="{{ collection.url }}" class="view-more-link">
+                                      <p>View More</p>
+                                    </a>
+                                  </li>
+                                {% endif %}
+                              {% endfor %}
+                              
+                              {% comment %} Show "View More" if more than 2 subcollections exist {% endcomment %}
+                                
+                            </ul>
+                          </li>
+                        {% endfor %}
+                      </div>
                         
                         <!-- Right Side - Featured Product -->
                         {% if block.settings.featured_product != blank %}
@@ -327,26 +327,37 @@ $(document).ready(function () {
       }
     });
 
-    // Tab switching on hover
+    // Tab switching on hover (use data-tab)
     $tabsMenu.find("#tabs-nav li.tabs-li").hover(function (e) {
-      e.preventDefault();
+      e.preventDefault(); // prevent link triggering
       const $this = $(this);
 
-      // Remove active from all tabs in this menu
+      // Remove active from all tabs
       $tabsMenu.find("#tabs-nav li.tabs-li").removeClass("active");
       $this.addClass("active");
 
-      // Hide all tab content
+      // Hide all tab contents
       $tabsMenu.find(".tab-content").hide();
 
-      // Show active tab content
-      const activeTab = $this.find("a").attr("href");
-      $tabsMenu.find(activeTab).stop(true, true).fadeIn(200);
+      // Show the one that matches data-tab
+      const activeTab = $this.find("a").data("tab");
+      if (activeTab) {
+        $tabsMenu.find(activeTab).stop(true, true).fadeIn(200);
+      }
+    });
+
+    // Allow clicking the tab link to actually go to its href
+    $tabsMenu.find("#tabs-nav li.tabs-li a").on("click", function (e) {
+      const link = $(this).attr("href");
+      if (link && link !== "#") {
+        window.location.href = link; // navigate normally
+      }
     });
 
   });
 
 });
+
 
 
 </script>

@@ -85,6 +85,12 @@
       "
     >
       <div class="price__container">
+
+       {%- if discount_percentage > 0 -%}
+        <span class="discount-percent">
+          -{{ discount_percentage }}%
+        </span>
+      {%- endif -%}
         <div class="price__regular">
           <span class="price-item price-item--regular">
             {{ money_price }}

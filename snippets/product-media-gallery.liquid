@@ -60,15 +60,19 @@
   
     <div class="swiper gallery-main">
       <div class="swiper-wrapper">
-        {%- if product.selected_or_first_available_variant.featured_media != null -%}
+       {%- if product.selected_or_first_available_variant.featured_media != null -%}
           <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
             {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
-            <img
-              srcset="{%- if featured_media.preview_image.width >= 800 -%}{{ featured_media.preview_image | image_url: width: 800 }} 800w{%- endif -%}"
-              src="{{ featured_media | image_url: width: 800 }}"
-              alt="{{ featured_media.alt | escape }}"
-              loading="lazy"
-            >
+            <a href="{{ featured_media | image_url: width: 800 }}" data-fancybox="gallery" data-thumb="{{ featured_media.preview_image | image_url: width: 120 }}">
+              <div class="gallery-media">
+                <img
+                  srcset="{%- if featured_media.preview_image.width >= 800 -%}{{ featured_media.preview_image | image_url: width: 800 }} 800w{%- endif -%}"
+                  src="{{ featured_media | image_url: width: 800 }}"
+                  alt="{{ featured_media.alt | escape }}"
+                  loading="lazy"
+                >
+              </div>
+            </a>
           </div>
         {%- endif -%}
 
