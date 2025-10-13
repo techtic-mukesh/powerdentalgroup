@@ -33,6 +33,10 @@
           "type": "price",
           "settings": {}
         },
+        "judge_me_reviews_preview_badge_DaBz33": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -91,6 +95,7 @@
         "text_bbpjaW",
         "sku_Gamq4J",
         "price",
+        "judge_me_reviews_preview_badge_DaBz33",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
@@ -111,8 +116,8 @@
         "image_zoom": "hover",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 32,
-        "padding_bottom": 32
+        "padding_top": 0,
+        "padding_bottom": 4
       }
     },
     "key_features_PEqqeN": {
@@ -326,6 +331,26 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "1760336853a29439c1": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_Mbw98G": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_Mbw98G"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -337,6 +362,7 @@
     "testimonial_cAGqp9",
     "related-products",
     "recently_viewed_products_c8pPNh",
-    "175826590273b899fd"
+    "175826590273b899fd",
+    "1760336853a29439c1"
   ]
 }

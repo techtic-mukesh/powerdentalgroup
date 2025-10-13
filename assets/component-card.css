@@ -98,6 +98,7 @@
 
 .card-information {
   text-align: var(--text-alignment);
+      order: -1;
 }
 
 .card__media,
@@ -375,9 +376,12 @@
 }
 
 .card__badge {
-  align-self: flex-end;
-  grid-row-start: 3;
-  justify-self: flex-start;
+ align-self: flex-end;
+    grid-row-start: unset;
+    justify-self: flex-start;
+    position: absolute;
+    top: 0;
+    left: -1px;
 }
 
 .card__badge.top {
@@ -525,6 +529,19 @@
 
 .card--standard > .card__content {
   padding: 0;
+  position: relative;
+}
+
+.card__information span.discount-percent {
+    position: absolute;
+    right: 18px;
+    top: -44px;
+    font-size: 14px;
+    font-weight: 400;
+    color: red;
+    border: 1px solid red;
+    padding: 4px 8px;
+    border-radius: 10px 0;
 }
 
 .card--standard > .card__content .card__information {
