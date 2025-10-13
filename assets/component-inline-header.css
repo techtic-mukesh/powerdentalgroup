@@ -195,7 +195,12 @@ ul#HeaderMenu-MenuList-1 {
     width: 100%;
     left: 0;
     z-index: 9;
+        top: 107.8%;
 } 
+
+.header__submenu.list-menu {
+    border: unset;
+}
 
 body.mega-menu-open button.mega-dropdown svg {
     transform: scaleY(-1);
@@ -234,11 +239,23 @@ li.tabs-li.active:after {
 }
 
 ul#tabs-nav li.tabs-li  span.tab-icon svg path {
-    fill: #0033a0;
+    /* fill: #0033a0; */
 }
 
 ul#tabs-nav li.tabs-li.active  span.tab-icon svg path  {
-    fill: #fff;
+    stroke: #fff;
+    stroke-width: .7px;
+}
+
+/* ul#tabs-nav li.tabs-li a .right-arw {
+    transition: all .4s li;
+}
+ul#tabs-nav li.tabs-li.active a .right-arw {
+    transform: rotate(90deg);
+} */
+
+ul#tabs-nav li.tabs-li.active a .right-arw svg path {
+    stroke: #fff;
 }
 
 ul#tabs-nav li.tabs-li {
@@ -276,6 +293,7 @@ ul#tabs-nav li.tabs-li a {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    opacity: 0;
 }
 
 .menu-inner .featured-product {
@@ -311,9 +329,23 @@ ul#tabs-nav li.tabs-li a {
     height: 100%;
 }
 
-.mega-menu-layout .mega-menu-left {
+.mega-menu-layout .mega-menu-left.has-featured-product {
     flex: 1;
     column-count: 2;
+  
+}
+
+.mega-menu-layout .mega-menu-left {
+    flex: 1;
+    column-count: 3;
+  
+}
+
+.mega-menu-layout .mega-menu-left > li {
+    max-width: 370px;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    break-inside: avoid;
 }
 
 .mega-menu-layout .mega-menu-left a {
@@ -328,6 +360,40 @@ ul#tabs-nav li.tabs-li a {
     font-weight: 400;
     line-height: normal;
     margin: 0 0 20px;
+        transition: all .3s 
+ease;
+}
+
+.mega-menu-layout .mega-menu-left a:hover {
+    color: #0033a0;
+}
+
+.mega-menu-layout .mega-menu-left ul.subcategory-list {
+    list-style: none;
+    padding-left: 24px;
+    margin-bottom: 20px;
+}
+
+.mega-menu-layout .mega-menu-left ul.subcategory-list li.view-more-item a {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 0 10px;
+    color: #0033a0;
+}
+
+ul#tabs-nav li.tabs-li a .right-arw {
+    margin-left: auto;
+}
+
+ul#tabs-nav li.tabs-li a .right-arw svg {
+    width: 12px;
+    height: 12px;
+}
+
+.mega-menu-layout .mega-menu-left ul.subcategory-list a.sub-collection-item {
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0 0 10px;
 }
 
 .mega-menu-layout .mega-menu-left a p {
@@ -419,6 +485,10 @@ p.featured-product-stock.in-stock {
 
 p.featured-product-stock.in-stock span.stock-indicator {
     display: inline-flex;
+}
+
+body.product.mega-menu-open ul.list-menu.list-menu--inline {
+    pointer-events: none;
 }
 
 @media only screen and (max-width: 1240px) {

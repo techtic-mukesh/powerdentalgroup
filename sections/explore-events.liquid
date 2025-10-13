@@ -69,7 +69,21 @@ section.our-events .title-wrap p.subheading {
     justify-content: center;
     align-items: center;
     gap: 15px;
+     background: linear-gradient(102deg, #42c5ef, #0033a0, #42c5ef, #0033a0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    font-weight: 600;
+    transition: color .2s 
+ease-in-out;
+    display: inline-flex;
+    width: auto;
 }
+
+section.our-events .title-wrap p.subheading:hover {
+      animation: rainbow 1.25s ease-in-out infinite;
+ }
 
 section.our-events .title-wrap p.subheading:before, section.our-events .title-wrap p.subheading:after {
     content: '';

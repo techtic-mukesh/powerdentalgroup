@@ -32,145 +32,202 @@
                 tabindex="-1"
               >
            {% if link.title == 'Products' %}
-  <div class="tabs-menu">
-    <div class="tabs">
-      <!-- Tabs Navigation -->
-      <ul id="tabs-nav">
-        {% for block in section.blocks %}
-          {% if block.type == 'menu' %}
-            <li class="tabs-li {% if forloop.first %} active{% endif %}"">
-              <a href="#tab{{ forloop.index }}">
-                {% if block.settings.svg %}
-                  <span class="tab-icon">{{ block.settings.svg }}</span>
-                {% endif %}
-                <span>{{ block.settings.menu_title }}</span>
+              <div class="tabs-menu">
+                <div class="tabs">
+                  <!-- Tabs Navigation -->
+                  <ul id="tabs-nav">
+                    {% for block in section.blocks %}
+                      {% if block.type == 'menu' %}
+                        <li class="tabs-li {% if forloop.first %} active{% endif %}"">
+                          <a href="#tab{{ forloop.index }}">
+                            {% if block.settings.svg %}
+                              <span class="tab-icon">{{ block.settings.svg }}</span>
+                            {% endif %}
+                            <span>{{ block.settings.menu_title }}</span>
+                            <div class="right-arw">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+                                <path d="M1 13L7 7L0.999999 1" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </div>
+                          </a>
+                          
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                  
+                  <!-- Tabs Content -->
+               <div id="tabs-content">
+                {% for block in section.blocks %}
+                  {% if block.type == 'menu' %}
+                    <div id="tab{{ forloop.index }}" class="tab-content" {% if forloop.first %} style="display: block;"{% endif %}>
+                      <div class="mega-menu-layout">
+                        <!-- Left Side - Subcategories -->
+                      <div class="mega-menu-left {% if block.settings.featured_product != blank %} has-featured-product {% endif %}">
+  {% for collection in block.settings.menu_collection %}
+    <li>
+      <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
+        <div class="cin-icon"></div>
+        <p>{{ collection.title }}</p>
+      </a>
+      
+      <!-- 🔽 Subcategories Matching This Main Collection -->
+      {% assign sub_groups = (1..10) %}
+      {% assign has_subs = false %}
+      {% assign sub_count = 0 %}
+      {% assign total_subs = 0 %}
+      
+      {% comment %} First pass: count total matching subcollections {% endcomment %}
+      {% for i in sub_groups %}
+        {% assign sub_title_key = 'sub_title_' | append: i %}
+        {% assign sub_collection_key = 'sub_collection_' | append: i %}
+        {% assign sub_title = block.settings[sub_title_key] %}
+        {% assign sub_collection = block.settings[sub_collection_key] %}
+
+        {% if sub_title == collection.title and sub_collection != blank %}
+          {% assign total_subs = total_subs | plus: sub_collection.size %}
+        {% endif %}
+      {% endfor %}
+
+      {% comment %} Second pass: display first 2 subcollections {% endcomment %}
+      <ul class="subcategory-list">
+        {% for i in sub_groups %}
+          {% assign sub_title_key = 'sub_title_' | append: i %}
+          {% assign sub_collection_key = 'sub_collection_' | append: i %}
+          {% assign sub_title = block.settings[sub_title_key] %}
+          {% assign sub_collection = block.settings[sub_collection_key] %}
+
+          {% if sub_title == collection.title and sub_collection != blank %}
+            {% for sub in sub_collection %}
+              {% if sub_count < 2 %}
+                <li>
+                  <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
+                    <p>{{ sub.title }}</p>
+                  </a>
+                </li>
+                {% assign sub_count = sub_count | plus: 1 %}
+                {% assign has_subs = true %}
+              {% endif %}
+            {% endfor %}
+
+             <li class="view-more-item">
+              <a href="{{ collection.url }}" class="view-more-link">
+                <p>View More</p>
               </a>
             </li>
           {% endif %}
         {% endfor %}
+        
+        {% comment %} Show "View More" if more than 2 subcollections exist {% endcomment %}
+           
       </ul>
-      
-      <!-- Tabs Content -->
-      <div id="tabs-content">
-        {% for block in section.blocks %}
-          {% if block.type == 'menu' %}
-            <div id="tab{{ forloop.index }}" class="tab-content" {% if forloop.first %} style="display: block;"{% endif %}">
-              <div class="mega-menu-layout">
-                <!-- Left Side - Subcategories -->
-                <div class="mega-menu-left">
-                   {% for collection in block.settings.menu_collection %}
-                      <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
-                       <div class="cin-icon"></div>
-                         <p>{{ collection.title }}</p>
-                       </a>
-                    {% endfor %}
-                </div>
-                
-                <!-- Right Side - Featured Product -->
-                <div class="mega-menu-right">
-                  {% if block.settings.featured_product != blank %}
-                    {% assign product = all_products[block.settings.featured_product] %}
-                    <div class="featured-product-card">
-                      <a href="{{ product.url }}" class="featured-product-link" style="background-image: url('{{ product.featured_image | img_url: '' }}');">
+    </li>
+  {% endfor %}
+</div>
                         
-                        
-                        <div class="featured-product-info">
-                          <p class="featured-product-price">
-                            {{ product.variants.first.price | money }}
-                          </p>
-                          <h4 class="featured-product-title">
-                            {{ product.title }}
-                          </h4>
-                          <div class="sku-info">
-                             {% if product.variants.first.sku != blank %}
-                            <p class="featured-product-sku">
-                             <span>SKU:</span> {{ product.variants.first.sku }}
-                            </p>
-                          {% endif %}
+                        <!-- Right Side - Featured Product -->
+                        {% if block.settings.featured_product != blank %}
+                        <div class="mega-menu-right">
+                            {% assign product = all_products[block.settings.featured_product] %}
+                            <div class="featured-product-card">
+                              <a href="{{ product.url }}" class="featured-product-link" style="background-image: url('{{ product.featured_image | img_url: '' }}');">
+                                <div class="featured-product-info">
+                                  <p class="featured-product-price">
+                                    {{ product.variants.first.price | money }}
+                                  </p>
+                                  <h4 class="featured-product-title">
+                                    {{ product.title }}
+                                  </h4>
+                                  <div class="sku-info">
+                                    {% if product.variants.first.sku != blank %}
+                                      <p class="featured-product-sku">
+                                        <span>SKU:</span> {{ product.variants.first.sku }}
+                                      </p>
+                                    {% endif %}
 
-                           {% if product.available %}
-                            <p class="featured-product-stock in-stock">
-                              <span class="stock-indicator"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                  <g clip-path="url(#clip0_2203_9850)">
-                                    <circle cx="7" cy="7" r="6.125" fill="#28A745"/>
-                                  </g>
-                                  <defs>
-                                    <clipPath id="clip0_2203_9850">
-                                      <rect width="14" height="14" fill="white"/>
-                                    </clipPath>
-                                  </defs>
-                                </svg></span>
-                              In Stock
-                            </p>
-                          {% else %}
-                            <p class="featured-product-stock out-of-stock">
-                              <span class="stock-indicator"></span>
-                              Out of Stock
-                            </p>
-                          {% endif %}
-
-                          </div>
-                         
+                                    {% if product.available %}
+                                      <p class="featured-product-stock in-stock">
+                                        <span class="stock-indicator">
+                                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                            <g clip-path="url(#clip0_2203_9850)">
+                                              <circle cx="7" cy="7" r="6.125" fill="#28A745"/>
+                                            </g>
+                                            <defs>
+                                              <clipPath id="clip0_2203_9850">
+                                                <rect width="14" height="14" fill="white"/>
+                                              </clipPath>
+                                            </defs>
+                                          </svg>
+                                        </span>
+                                        In Stock
+                                      </p>
+                                    {% else %}
+                                      <p class="featured-product-stock out-of-stock">
+                                        <span class="stock-indicator"></span>
+                                        Out of Stock
+                                      </p>
+                                    {% endif %}
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
                          
                         </div>
-                      </a>
+                                  {% endif %}
+                      </div>
                     </div>
                   {% endif %}
+                {% endfor %}
+              </div>
                 </div>
               </div>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-{% else %}
-  {%- for childlink in link.links -%}
-    <li>
-      {%- if childlink.links == blank -%}
-        <a
-          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-          href="{{ childlink.url }}"
-          class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
-          {% if childlink.current %}
-            aria-current="page"
-          {% endif %}
-        >
-          {{ childlink.title | escape }}
-        </a>
-      {%- else -%}
-        <details id="Details-HeaderSubMenu-{{ link.handle }}-{{ childlink.handle }}">
-          <summary
-            id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-            class="header__menu-item link link--text list-menu__item focus-inset caption-large"
-          >
-            <span>{{ childlink.title | escape }}</span>
-            {{- 'icon-caret.svg' | inline_asset_content -}}
-          </summary>
-          <ul
-            id="HeaderMenu-SubMenuList-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-            class="header__submenu list-menu motion-reduce"
-          >
-            {%- for grandchildlink in childlink.links -%}
-              <li>
-                <a
-                  id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                  href="{{ grandchildlink.url }}"
-                  class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"
-                  {% if grandchildlink.current %}
-                    aria-current="page"
-                  {% endif %}
-                >
-                  {{ grandchildlink.title | escape }}
-                </a>
-              </li>
-            {%- endfor -%}
-          </ul>
-        </details>
-      {%- endif -%}
-    </li>
-  {%- endfor -%}
-{% endif %}
+            {% else %}
+              {%- for childlink in link.links -%}
+                <li>
+                  {%- if childlink.links == blank -%}
+                    <a
+                      id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                      href="{{ childlink.url }}"
+                      class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
+                      {% if childlink.current %}
+                        aria-current="page"
+                      {% endif %}
+                    >
+                      {{ childlink.title | escape }}
+                    </a>
+                  {%- else -%}
+                    <details id="Details-HeaderSubMenu-{{ link.handle }}-{{ childlink.handle }}">
+                      <summary
+                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                        class="header__menu-item link link--text list-menu__item focus-inset caption-large"
+                      >
+                        <span>{{ childlink.title | escape }}</span>
+                        {{- 'icon-caret.svg' | inline_asset_content -}}
+                      </summary>
+                      <ul
+                        id="HeaderMenu-SubMenuList-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                        class="header__submenu list-menu motion-reduce"
+                      >
+                        {%- for grandchildlink in childlink.links -%}
+                          <li>
+                            <a
+                              id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                              href="{{ grandchildlink.url }}"
+                              class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"
+                              {% if grandchildlink.current %}
+                                aria-current="page"
+                              {% endif %}
+                            >
+                              {{ grandchildlink.title | escape }}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    </details>
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            {% endif %}
               </ul>
             </details>
           </header-menu>
