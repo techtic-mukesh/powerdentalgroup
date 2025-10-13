@@ -11,90 +11,142 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
     },
-    "resource_DR9P6B": {
-      "type": "resource",
+    "resources_block_BtbRjC": {
+      "type": "resources-block",
       "blocks": {
-        "resource_item_EzJime": {
-          "type": "resource_item",
+        "resource_card_zUijdR": {
+          "type": "resource_card",
           "settings": {
-            "title": "Resource Title",
-            "link": ""
+            "card_title": "USPS RETURN LABEL",
+            "card_description": "<p>Utilize our USPS labels to send your packages via United States Postal Service. Simply print the label and affix it to your package. It is $15.99 with use.</p>",
+            "card_link": "https://returns.usps.com/Label/CreateSingle?Code=7AC6D5C59F5940EBA1D2A338C8F13E77&DisplayType=Customer"
           }
         },
-        "resource_item_LXDF7D": {
-          "type": "resource_item",
+        "resource_card_PBfFke": {
+          "type": "resource_card",
           "settings": {
-            "title": "Resource Title",
-            "link": ""
+            "card_title": "FEDEX RETURN LABEL",
+            "card_description": "<p>Utilize our FedEx labels to send your packages via FedEx. Simply print the label and affix it to your package. It is $18.50 with use.</p>",
+            "card_link": "https://fulfillment.fedex.com/web/commerce/rma-web?customerId=2554667&token=eyJjdHkiOiJKV1QiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..C8DvnRo7PA2XJV7Lq1BYUw.Y242Z_0ReAQssdSIHVfcYZhitQmcTJ3cxOmtmpzMKd4d2wRFKc5u02I9hOW-sKWLlSv2fZAADMi1s7v7_wXbadRRE9rFQyeIpuFgQcl9inAkrw62TQGwgdZGGYbhsrwbpdkeZ9vc-DPpatE0VSfFxp12364COp2J7qWh7PsHAl9GgHUe1f29eX8PjvoLLGbNtVNlldnKy7mOWz7MFu0DM0hW6mWt_DwDBA0z4thDlvlkCEAq78weSZpyk6iiIwpdEKpzQaNBxBJoFMkY5HZOiJdYhS-yVBPDqZo3kLXmWJza5ggPqNsfQno6ysioOZPDXBc0pDyk5bgHFL51vIhkPJb8Q045jUEXFNzSNFt9PzCBIWpm_p8Z7sY17FlF_OyN._JM3OS0DL-zBB5PzYnObrw"
           }
         },
-        "resource_item_6RjPgp": {
-          "type": "resource_item",
+        "resource_card_dfrtMD": {
+          "type": "resource_card",
           "settings": {
-            "title": "Resource Title",
-            "link": ""
+            "card_title": "SERVICE ORDER FORM",
+            "card_description": "<p>How to maintain your instruments?</p><p>Complete this form and specify your preferences for instrument servicing or repairs.</p>",
+            "card_link": "https://7y310y-hr.myshopify.com/pages/servicing-order-form"
           }
         },
-        "resource_item_Eziixe": {
-          "type": "resource_item",
+        "resource_card_qqmdUf": {
+          "type": "resource_card",
           "settings": {
-            "title": "Resource Title",
-            "link": ""
+            "card_title": "RETURN ORDER FORM",
+            "card_description": "<p>Tell us about your return.</p><p>Your feedback is important. Please provide details regarding your return.</p>",
+            "card_link": "https://7y310y-hr.myshopify.com/pages/return-order-form"
           }
         },
-        "resource_item_niLPDF": {
-          "type": "resource_item",
+        "resource_card_P6ERAk": {
+          "type": "resource_card",
           "settings": {
-            "title": "Resource Title",
-            "link": ""
+            "card_title": "PRODUCT TRAINING VIDEOS",
+            "card_description": "<p>Maximize your ROI and get the most out of your investment.</p><p>Review product demonstrations and training videos here. </p>",
+            "card_link": "https://7y310y-hr.myshopify.com/pages/product-training-videos"
           }
         },
-        "resource_item_Xb3qQF": {
-          "type": "resource_item",
+        "resource_card_8ap8aV": {
+          "type": "resource_card",
           "settings": {
-            "title": "Resource Title",
-            "link": ""
+            "card_title": "E-CATALOG",
+            "card_description": "<p>Interested in the full E-Catalog PDF style?</p><p>Browse through all of our products, detailed descriptions, and access pricing information.</p>",
+            "card_link": "https://7y310y-hr.myshopify.com/pages/e-catalog"
           }
         },
-        "resource_item_EGR8Hq": {
-          "type": "resource_item",
+        "resource_card_J3dci9": {
+          "type": "resource_card",
           "settings": {
-            "title": "Resource Title",
-            "link": ""
+            "card_title": "REPROCESSING GUIDE",
+            "card_description": "<p>Questions about sterilization?</p><p>Here you will find comprehensive details regarding the sterilization methods recommended for our products.</p>",
+            "card_link": "https://cdn.shopify.com/s/files/1/0697/9538/1398/files/Reprocessing-of-PDG-Dental-Hand-Instruments-and-Accessories.pdf?v=1760280611"
           }
         },
-        "resource_item_Yeg6te": {
-          "type": "resource_item",
+        "resource_card_CYQrgg": {
+          "type": "resource_card",
           "settings": {
-            "title": "Resource Title",
-            "link": ""
+            "card_title": "FAQS",
+            "card_description": "<p>Have a question?</p><p>Access quick answers to common queries about our products or services.</p>",
+            "card_link": "https://7y310y-hr.myshopify.com/pages/frequently-asked-questions"
           }
         }
       },
       "block_order": [
-        "resource_item_EzJime",
-        "resource_item_LXDF7D",
-        "resource_item_6RjPgp",
-        "resource_item_Eziixe",
-        "resource_item_niLPDF",
-        "resource_item_Xb3qQF",
-        "resource_item_EGR8Hq",
-        "resource_item_Yeg6te"
+        "resource_card_zUijdR",
+        "resource_card_PBfFke",
+        "resource_card_dfrtMD",
+        "resource_card_qqmdUf",
+        "resource_card_P6ERAk",
+        "resource_card_8ap8aV",
+        "resource_card_J3dci9",
+        "resource_card_CYQrgg"
       ],
-      "disabled": true,
       "name": "Resources Grid",
       "settings": {
-        "heading": "RESOURCES"
+        "section_title": "RESOURCES"
+      }
+    },
+    "our_services_HFXeCY": {
+      "type": "our-services",
+      "blocks": {
+        "service_Ybdqth": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_26115.png",
+            "label": "<p>Trade-In<br/>Program</p>",
+            "srvurl": "shopify://pages/trade-in-program"
+          }
+        },
+        "service_jh77jG": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_26115_1.png",
+            "label": "<p>Sharpen,<br/>Retip & Repair</p>",
+            "srvurl": "shopify://pages/sharpen-retip-repair"
+          }
+        },
+        "service_JkbdUB": {
+          "type": "service",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_26115_2.png",
+            "label": "<p>Custom Kitting</p>",
+            "srvurl": "shopify://pages/custom-kitting"
+          }
+        }
+      },
+      "block_order": [
+        "service_Ybdqth",
+        "service_jh77jG",
+        "service_JkbdUB"
+      ],
+      "name": "Our Service",
+      "settings": {
+        "background_color": "#f8f6f4",
+        "subheading": "It Starts Here",
+        "heading": "Our SERVICES",
+        "content": "<p>All needs are not the same; that’s why we provide solutions for every dental professional at any point in their journey.</p>",
+        "btnurl": "shopify://pages/services",
+        "btntext": "view all services"
       }
     }
   },
   "order": [
     "main",
-    "resource_DR9P6B"
+    "resources_block_BtbRjC",
+    "our_services_HFXeCY"
   ]
 }

@@ -20,12 +20,12 @@
       "type": "vision",
       "name": "BgImage with Text",
       "settings": {
-        "desktop_background_image": "shopify:\/\/shop_images\/image_20.png",
-        "mobile_background_image": "shopify:\/\/shop_images\/Let_s_Collaborate_Banner_Mobile.jpg",
+        "desktop_background_image": "shopify://shop_images/image_20.png",
+        "mobile_background_image": "shopify://shop_images/Let_s_Collaborate_Banner_Mobile.jpg",
         "heading": "Your Vision,",
         "subheading": "Our Expertise.",
         "button_text": "LET'S COLLABORATE",
-        "button_link": "\/pages\/contact"
+        "button_link": "/pages/contact"
       }
     },
     "our_services_jVbkkY": {
@@ -34,25 +34,25 @@
         "service_7Q8rhY": {
           "type": "service",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26115.png",
-            "label": "<p>Trade-In<br\/>Program<\/p>",
-            "srvurl": "shopify:\/\/pages\/trade-in-program"
+            "image": "shopify://shop_images/Rectangle_26115.png",
+            "label": "<p>Trade-In<br/>Program</p>",
+            "srvurl": "shopify://pages/trade-in-program"
           }
         },
         "service_zR86x9": {
           "type": "service",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26115_1.png",
-            "label": "<p>Sharpen,<br\/>Retip & Repair<\/p>",
-            "srvurl": "shopify:\/\/pages\/sharpen-retip-repair"
+            "image": "shopify://shop_images/Rectangle_26115_1.png",
+            "label": "<p>Sharpen,<br/>Retip & Repair</p>",
+            "srvurl": "shopify://pages/sharpen-retip-repair"
           }
         },
         "service_CLQfbF": {
           "type": "service",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26115_2.png",
-            "label": "<p>Custom Kitting<\/p>",
-            "srvurl": "shopify:\/\/pages\/custom-kitting"
+            "image": "shopify://shop_images/Rectangle_26115_2.png",
+            "label": "<p>Custom Kitting</p>",
+            "srvurl": "shopify://pages/custom-kitting"
           }
         }
       },
@@ -66,8 +66,8 @@
         "background_color": "#f8f6f4",
         "subheading": "It Starts Here",
         "heading": "Our SERVICES",
-        "content": "<p>All needs are not the same; that’s why we provide solutions for every dental professional at any point in their journey.<\/p>",
-        "btnurl": "shopify:\/\/pages\/services",
+        "content": "<p>All needs are not the same; that’s why we provide solutions for every dental professional at any point in their journey.</p>",
+        "btnurl": "shopify://pages/services",
         "btntext": "view all services"
       }
     },
@@ -77,7 +77,7 @@
         "resource_item_b3NkAk": {
           "type": "resource_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/customer-support-icon.png",
+            "icon": "shopify://shop_images/customer-support-icon.png",
             "title": "Customer Support",
             "link": ""
           }
@@ -85,7 +85,7 @@
         "resource_item_p6679b": {
           "type": "resource_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/servicing-order-form.png",
+            "icon": "shopify://shop_images/servicing-order-form.png",
             "title": "",
             "link": ""
           }
@@ -93,7 +93,7 @@
         "resource_item_HQUhL6": {
           "type": "resource_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/e-catalog-icon.png",
+            "icon": "shopify://shop_images/e-catalog-icon.png",
             "title": "E-Catalog",
             "link": ""
           }
@@ -101,7 +101,7 @@
         "resource_item_UcYe8y": {
           "type": "resource_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/faq-icon.png",
+            "icon": "shopify://shop_images/faq-icon.png",
             "title": "FAQ",
             "link": ""
           }
@@ -109,7 +109,7 @@
         "resource_item_fDEBfe": {
           "type": "resource_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/video-icon.png",
+            "icon": "shopify://shop_images/video-icon.png",
             "title": "Product Training Videos",
             "link": ""
           }
@@ -117,7 +117,7 @@
         "resource_item_H4RgQd": {
           "type": "resource_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/become-a-distributor-icon.png",
+            "icon": "shopify://shop_images/become-a-distributor-icon.png",
             "title": "Return Order Form",
             "link": ""
           }
