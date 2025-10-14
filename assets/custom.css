@@ -360,7 +360,7 @@ body.predictive-show {
     -webkit-text-fill-color: transparent;
 }
 
-.iwish-drawer-menu .continue-shopping-btn {
+.iwish-drawer-menu .continue-shopping-btn , #iwish-drawer-root .iwish-drawer-menu .iwish-row button.addToCart-btn {
     background: linear-gradient(102deg, #42c5ef, #0033a0 50% 50%, #42c5ef) !important;
     background-size: 200% 100% !important;
     background-position: 200% 100% !important;
@@ -494,4 +494,12 @@ a.jdgm-write-rev-link:hover {
     padding-left: 15px;
     padding-right: 15px;
 }
+}
+
+.right-form ul.inputs-list .hs-form-booleancheckbox label span.hs-form-required:before {
+    display: none;
+}
+.right-form ul.inputs-list .hs-form-booleancheckbox label span.hs-form-required {
+    color: red;
+    margin-left: 2px;
 }

@@ -2,7 +2,7 @@
   <div class="page-width">
     <div class="custom-kitting-process-header">
       <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.subheading }}</p>
+      <p class="para_new">{{ section.settings.subheading }}</p>
     </div>
     <div class="custom-kitting-process-grid">
       {% for block in section.blocks %}
@@ -41,7 +41,7 @@ section.custom-kitting-process-section .custom-kitting-process-header {
     max-width: 800px;
 }
 
-section.custom-kitting-process-section .custom-kitting-process-header p {
+section.custom-kitting-process-section .custom-kitting-process-header p.para_new {
     margin: 0 auto;
     color: #01000A;
     text-align: center;
@@ -114,6 +114,16 @@ body.gradient.page\.our-vision-philosophy .custom-kitting-process-grid .kitting-
     margin: 0 0 15px;
 }
 
+body.gradient.page\.sharpening  .custom-kitting-process-header h2 p strong , body.gradient.page\.sharpening .custom-kitting-process-grid .kitting-item h3 p strong{
+  font-weight: 300;
+}
+
+section.custom-kitting-process-section .custom-kitting-process-header h2 p{
+      font-size: 36px;
+    line-height: 40px;
+    /* text-transform: uppercase; */
+    /* margin: 0 0 20px; */
+}
 .custom-kitting-process-grid .kitting-item .custom-kitting-text p {
     color: #01000A;
     text-align: center;
@@ -124,6 +134,8 @@ body.gradient.page\.our-vision-philosophy .custom-kitting-process-grid .kitting-
     line-height: 22px; /* 157.143% */
 }
 
+
+
 .custom-kitting-process-grid .kitting-item img {
     width: 80px;
     height: 80px;
@@ -131,7 +143,9 @@ body.gradient.page\.our-vision-philosophy .custom-kitting-process-grid .kitting-
     object-position: center;
     margin-bottom: 10px;
 }
-
+body.gradient.page\.our-vision-philosophy .custom-kitting-heading strong{
+    font-weight:300 !important; 
+}
 
 @media (max-width:1140px) {
   .custom-kitting-process-grid .kitting-item:after {
@@ -150,7 +164,7 @@ body.gradient.page\.our-vision-philosophy .custom-kitting-process-grid .kitting-
     "max_blocks": 30,
     "settings": [
       {
-        "type": "text",
+        "type": "richtext",
         "id": "heading",
         "label": "Heading"
       }, {
@@ -180,7 +194,7 @@ body.gradient.page\.our-vision-philosophy .custom-kitting-process-grid .kitting-
           "label": "Step SVG Code"
         },
           {
-            "type": "text",
+            "type": "richtext",
             "id": "title",
             "label": "Title"
           }, {
