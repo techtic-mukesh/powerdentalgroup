@@ -212,7 +212,7 @@ font-size: 16px;
     display: flex;
     align-items: center;
     gap: 10px;
-    margin: 20px 0;
+    margin: 13px 0 0;
 }
 
 .hubspot-contact-right .legal-consent-container ul.inputs-list label.hs-form-booleancheckbox-display input {
@@ -220,6 +220,11 @@ font-size: 16px;
     height: 22px;
     margin: 0;
     cursor: pointer;
+    min-height: 22px;
+}
+
+.hubspot-contact-right .legal-consent-container ul.inputs-list {
+        margin-bottom: 12px;
 }
 
 .hubspot-contact-right .legal-consent-container ul.inputs-list label.hs-form-booleancheckbox-display  span {

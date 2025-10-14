@@ -361,72 +361,74 @@
               endif
             -%}
             {%- if variants_count > 1 or qty_rules -%}
-              <modal-opener data-modal="#QuickAdd-{{ card_product.id }}">
-                <button
-                  id="{{ product_form_id }}-submit"
-                  type="submit"
-                  name="add"
-                  class="quick-add__submit button button--full-width button--secondary{% if horizontal_quick_add %} card--horizontal__quick-add animate-arrow{% endif %}"
-                  aria-haspopup="dialog"
-                  aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
-                  data-product-url="{{ card_product.url }}"
-                >
-                  {% endraw %}{{ themeTranslation.products.product.choose_options }}{% raw %}
-                  {%- if horizontal_quick_add -%}
-                    <span class="icon-wrap">
+              <product-form data-section-id="{{ section.id }}">
+                  <form method="post" action="{{ root_url }}/cart/add" id="{{ product_form_id }}" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate="novalidate" data-type="add-to-cart-form">
+                  <input type="hidden" name="form_type" value="product">
+                  <input type="hidden" name="utf8" value="✓">
+                  <input
+                    type="hidden"
+                    name="id"
+                    value="{{ card_product.selected_or_first_available_variant.id }}"
+                    class="product-variant-id"
+                    {% if card_product.selected_or_first_available_variant.available == false %}
+                      disabled
+                    {% endif %}
+                  >
+                  <button
+                    id="{{ product_form_id }}-submit"
+                    type="submit"
+                    name="add"
+                    class="quick-add__submit button button--full-width button--secondary{% if horizontal_quick_add %} card--horizontal__quick-add{% endif %}"
+                    aria-haspopup="dialog"
+                    aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
+                    aria-live="polite"
+                    data-sold-out-message="true"
+                    {% if card_product.selected_or_first_available_variant.available == false %}
+                      disabled
+                    {% endif %}
+                  >
+                    <span>
+                      {%- if card_product.selected_or_first_available_variant.available -%}
+                        {% endraw %}{{ themeTranslation.products.product.add_to_cart }}{% raw %}
+                      {%- else -%}
+                        {% endraw %}{{ themeTranslation.products.product.sold_out }}{% raw %}
+                      {%- endif -%}
+                    </span>
+                    <span class="sold-out-message hidden">
+                      {% endraw %}{{ themeTranslation.products.product.sold_out }}{% raw %}
+                    </span>
+                    {%- if horizontal_quick_add -%}
+                      <span class="icon-wrap">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                          focusable="false"
+                          class="icon icon-plus"
+                          fill="none"
+                          viewBox="0 0 10 10"
+                        >
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor">
+                        </svg>
+                      </span>
+                    {%- endif -%}
+                    <div class="{% if class %}{{ class }}{% else %}loading__spinner hidden{% endif %}">
                       <svg
-                        viewBox="0 0 14 10"
-                        fill="none"
                         aria-hidden="true"
                         focusable="false"
-                        class="icon icon-arrow"
+                        class="spinner"
+                        viewBox="0 0 66 66"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="currentColor">
+                        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
                       </svg>
-                    </span>
-                  {%- endif -%}
-                  <div class="{% if class %}{{ class }}{% else %}loading__spinner hidden{% endif %}">
-                    <svg
-                      aria-hidden="true"
-                      focusable="false"
-                      class="spinner"
-                      viewBox="0 0 66 66"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                    </svg>
-                  </div>
-                </button>
-              </modal-opener>
-              <quick-add-modal id="QuickAdd-{{ card_product.id }}" class="quick-add-modal">
-                <div
-                  role="dialog"
-                  aria-label="{% endraw %}{{ themeTranslation.products.product.choose_product_options }}{% raw %} {{ card_product.title | escape }}"
-                  aria-modal="true"
-                  class="quick-add-modal__content global-settings-popup"
-                  tabindex="-1"
-                >
-                  <button
-                    id="ModalClose-{{ card_product.id }}"
-                    type="button"
-                    class="quick-add-modal__toggle"
-                    aria-label="{{ 'accessibility.close' | t }}"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                      focusable="false"
-                      class="icon icon-close"
-                      fill="none"
-                      viewBox="0 0 18 17"
-                    >
-                      <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
-                    </svg>
+                    </div>
                   </button>
-                  <div id="QuickAddInfo-{{ card_product.id }}" class="quick-add-modal__content-info"></div>
-                </div>
-              </quick-add-modal>
+                </form>
+                 <button class="whislist-cart">
+                 <a class="iWishAddColl iwishcheck" href="#" data-variant="{{ card_product.variants.first.id }}" data-product="{{ card_product.id }}" data-pTitle="{{ card_product.title | escape }}"></a>
+                 </button>
+
+              </product-form>
             {%- else -%}
               <product-form data-section-id="{{ section.id }}">
                   <form method="post" action="{{ root_url }}/cart/add" id="{{ product_form_id }}" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate="novalidate" data-type="add-to-cart-form">
@@ -1063,396 +1065,281 @@
 
 
 <script>
-    // Enhanced iWish button initialization for dynamically loaded content
-class IWishButtonManager {
-  constructor() {
-    this.initialized = false;
-    this.retryCount = 0;
-    this.maxRetries = 8;
-    this.retryDelays = [50, 100, 200, 400, 600, 1000, 1500, 2000];
-    this.initMethods = [
-      'window.iWishInit',
-      'jQuery.iWish.init',
-      'jQuery.iWish',
-      'iWish.init',
-      'window.iWish'
-    ];
-  }
+/* === Prevent multiple declarations (fixes Globo Filter reload issue) === */
+if (!window.IWishButtonManagerDefined) {
+  window.IWishButtonManagerDefined = true;
 
-  // Main method to initialize iWish buttons in newly loaded content
-  initializeIWishButtons(container = document) {
-    console.log('🔄 Starting iWish button initialization...');
-    
-    // Find all iWish buttons in the container
-    const iWishButtons = container.querySelectorAll(
-      '.iWishAddColl, .iWishAdd, [data-iwclick], .iwishcheck, [class*="iwish"], [id*="iwish"]'
-    );
-    
-    console.log(`Found ${iWishButtons.length} potential iWish buttons`);
-    
-    if (iWishButtons.length === 0) {
-      console.log('No iWish buttons found');
-      return;
+  // ================== CLASS DEFINITION ==================
+  class IWishButtonManager {
+    constructor() {
+      this.initialized = false;
+      this.retryCount = 0;
+      this.maxRetries = 8;
+      this.retryDelays = [50, 100, 200, 400, 600, 1000, 1500, 2000];
+      this.initMethods = [
+        'window.iWishInit',
+        'jQuery.iWish.init',
+        'jQuery.iWish',
+        'iWish.init',
+        'window.iWish'
+      ];
     }
 
-    // Reset retry count for new initialization
-    this.retryCount = 0;
-    
-    // Start initialization attempts
-    this.attemptInitialization(container, iWishButtons);
-    
-    // Also try manual event binding as backup
-    setTimeout(() => {
-      this.manuallyBindEvents(iWishButtons);
-    }, 1000);
-  }
+    initializeIWishButtons(container = document) {
+      console.log('🔄 Starting iWish button initialization...');
 
-  // Attempt initialization with multiple methods and retries
-  attemptInitialization(container, buttons) {
-    if (this.retryCount >= this.maxRetries) {
-      console.warn('⚠️ Max initialization attempts reached');
-      this.fallbackInitialization(buttons);
-      return;
+      const iWishButtons = container.querySelectorAll(
+        '.iWishAddColl, .iWishAdd, [data-iwclick], .iwishcheck, [class*="iwish"], [id*="iwish"]'
+      );
+
+      console.log(`Found ${iWishButtons.length} potential iWish buttons`);
+      if (iWishButtons.length === 0) return;
+
+      this.retryCount = 0;
+      this.attemptInitialization(container, iWishButtons);
+
+      // Fallback manual binding
+      setTimeout(() => {
+        this.manuallyBindEvents(iWishButtons);
+      }, 1000);
     }
 
-    if (this.retryCount >= this.maxRetries) {
-  console.warn("⛔ Max retries reached. Stopping initialization attempts.");
-  return;
-}
-
-
-    const delay = this.retryDelays[this.retryCount] || 2000;
-    
-    setTimeout(() => {
-      console.log(`🔄 iWish init attempt ${this.retryCount + 1}/${this.maxRetries}`);
-      
-      let success = false;
-
-      // Try each initialization method
-      for (const method of this.initMethods) {
-        if (this.tryInitMethod(method)) {
-          console.log(`✅ ${method} successful`);
-          success = true;
-          break;
-        }
+    attemptInitialization(container, buttons) {
+      if (this.retryCount >= this.maxRetries) {
+        console.warn('⚠️ Max initialization attempts reached');
+        this.fallbackInitialization(buttons);
+        return;
       }
 
-      // If no standard method worked, try custom approaches
-      if (!success) {
-        success = this.tryCustomInit();
-      }
+      const delay = this.retryDelays[this.retryCount] || 2000;
+      setTimeout(() => {
+        console.log(`🔄 iWish init attempt ${this.retryCount + 1}/${this.maxRetries}`);
+        let success = false;
 
-      // Verify buttons are actually working
-      if (success) {
-        success = this.verifyButtonsWorking(buttons);
-      }
-
-      if (!success) {
-        this.retryCount++;
-        this.attemptInitialization(container, buttons);
-      } else {
-        console.log('✅ iWish buttons successfully initialized');
-        this.postInitializationSetup(buttons);
-      }
-    }, delay);
-
-   if (this.retryCount >= this.maxRetries) {
-  console.warn("⛔ Max retries reached. Stopping initialization attempts.");
-  return;
-}
-
-  }
-
-  // Try a specific initialization method
-  tryInitMethod(methodPath) {
-    try {
-      const parts = methodPath.split('.');
-      let obj = window;
-      
-      // Navigate to the method
-      for (let i = 0; i < parts.length - 1; i++) {
-        if (!obj[parts[i]]) return false;
-        obj = obj[parts[i]];
-      }
-      
-      const method = obj[parts[parts.length - 1]];
-      if (typeof method === 'function') {
-        method.call(obj);
-        return true;
-      }
-    } catch (error) {
-      console.error(`Failed to execute ${methodPath}:`, error);
-    }
-    return false;
-  }
-
-  // Try custom initialization approaches
-  tryCustomInit() {
-    try {
-      // Method 1: Look for iWish object and try common methods
-      if (window.iWish && typeof window.iWish === 'object') {
-        const methods = ['init', 'initialize', 'setup', 'load', 'refresh'];
-        for (const method of methods) {
-          if (typeof window.iWish[method] === 'function') {
-            window.iWish[method]();
-            console.log(`✅ window.iWish.${method}() successful`);
-            return true;
+        for (const method of this.initMethods) {
+          if (this.tryInitMethod(method)) {
+            console.log(`✅ ${method} successful`);
+            success = true;
+            break;
           }
         }
+
+        if (!success) success = this.tryCustomInit();
+        if (success) success = this.verifyButtonsWorking(buttons);
+
+        if (!success) {
+          this.retryCount++;
+          this.attemptInitialization(container, buttons);
+        } else {
+          console.log('✅ iWish buttons successfully initialized');
+          this.postInitializationSetup(buttons);
+        }
+      }, delay);
+    }
+
+    tryInitMethod(methodPath) {
+      try {
+        const parts = methodPath.split('.');
+        let obj = window;
+        for (let i = 0; i < parts.length - 1; i++) {
+          if (!obj[parts[i]]) return false;
+          obj = obj[parts[i]];
+        }
+        const method = obj[parts[parts.length - 1]];
+        if (typeof method === 'function') {
+          method.call(obj);
+          return true;
+        }
+      } catch (e) {
+        console.error(`Failed to execute ${methodPath}:`, e);
       }
+      return false;
+    }
 
-      // Method 2: Try jQuery plugin patterns
-      if (typeof jQuery !== 'undefined') {
-        // Common jQuery plugin initialization patterns
-        const jQueryMethods = [
-          () => jQuery('.iWishAddColl').iWish(),
-          () => jQuery('[data-iwclick]').iWish(),
-          () => jQuery.fn.iWish && jQuery('.iwishcheck').iWish(),
-          () => jQuery(document).trigger('iwish:init'),
-          () => jQuery(document).trigger('iWish:refresh')
-        ];
+    tryCustomInit() {
+      try {
+        if (window.iWish && typeof window.iWish === 'object') {
+          const methods = ['init', 'initialize', 'setup', 'load', 'refresh'];
+          for (const m of methods) {
+            if (typeof window.iWish[m] === 'function') {
+              window.iWish[m]();
+              console.log(`✅ window.iWish.${m}() successful`);
+              return true;
+            }
+          }
+        }
 
-        for (const method of jQueryMethods) {
+        if (typeof jQuery !== 'undefined') {
+          const jQueryMethods = [
+            () => jQuery('.iWishAddColl').iWish(),
+            () => jQuery('[data-iwclick]').iWish(),
+            () => jQuery.fn.iWish && jQuery('.iwishcheck').iWish(),
+            () => jQuery(document).trigger('iwish:init'),
+            () => jQuery(document).trigger('iWish:refresh')
+          ];
+
+          for (const m of jQueryMethods) {
+            try {
+              m();
+              console.log('✅ jQuery iWish method successful');
+              return true;
+            } catch {}
+          }
+        }
+
+        const events = ['iwish:init', 'iWish:refresh', 'wishlist:init', 'DOMContentLoaded'];
+        for (const eName of events) {
           try {
-            method();
-            console.log('✅ jQuery iWish method successful');
-            return true;
-          } catch (e) {
-            // Continue to next method
-          }
+            document.dispatchEvent(new Event(eName));
+          } catch {}
         }
+      } catch (error) {
+        console.error('Custom init failed:', error);
       }
-
-      // Method 3: Trigger custom events that the iWish script might listen for
-      const events = ['iwish:init', 'iWish:refresh', 'wishlist:init', 'DOMContentLoaded'];
-      for (const eventName of events) {
-        try {
-          document.dispatchEvent(new Event(eventName));
-        } catch (e) {
-          // Continue
-        }
-      }
-
-    } catch (error) {
-      console.error('Custom init failed:', error);
+      return false;
     }
-    
-    return false;
-  }
 
-  // Verify that buttons are actually working
-  verifyButtonsWorking(buttons) {
-    // Check if buttons have been properly initialized
-    for (const button of buttons) {
-      // Look for signs that the button has been initialized
-      if (button.onclick || 
+    verifyButtonsWorking(buttons) {
+      for (const button of buttons) {
+        if (
+          button.onclick ||
           button.getAttribute('data-initialized') === 'true' ||
           button.classList.contains('iwish-initialized') ||
-          button.hasAttribute('data-iwish-ready')) {
-        return true;
+          button.hasAttribute('data-iwish-ready')
+        ) {
+          return true;
+        }
       }
+      return false;
     }
 
-    // Check if clicking a button would trigger the expected behavior
-    const testButton = buttons[0];
-    if (testButton) {
-      const originalClick = testButton.onclick;
-      let hasHandler = false;
-      
-      // Create a test click event to see if any handlers respond
-      const testEvent = new MouseEvent('click', { bubbles: true });
-      try {
-        hasHandler = testButton.dispatchEvent(testEvent);
-      } catch (e) {
-        // Event handling failed
-      }
+    manuallyBindEvents(buttons) {
+      console.log('🔧 Attempting manual event binding for iWish buttons...');
+      buttons.forEach((button, i) => {
+        if (button.getAttribute('data-manual-bound') === 'true') return;
 
-      return hasHandler || originalClick !== null;
+        const productId =
+          button.getAttribute('data-product') ||
+          button.closest('[data-product-id]')?.getAttribute('data-product-id');
+        const variantId =
+          button.getAttribute('data-variant') ||
+          button.closest('[data-variant-id]')?.getAttribute('data-variant-id');
+        const productTitle =
+          button.getAttribute('data-pTitle') ||
+          button.closest('.card-wrapper')?.querySelector('.card__heading a')?.textContent?.trim();
+
+        if (productId) {
+          button.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.handleWishlistClick(button, productId, variantId, productTitle);
+          });
+          button.setAttribute('data-manual-bound', 'true');
+          console.log(`✅ Manually bound button ${i + 1} for product ${productId}`);
+        }
+      });
     }
 
-    return false;
-  }
-
-  // Manually bind events as a fallback
-  manuallyBindEvents(buttons) {
-    console.log('🔧 Attempting manual event binding for iWish buttons...');
-    
-    buttons.forEach((button, index) => {
-      if (button.getAttribute('data-manual-bound') === 'true') {
-        return; // Already manually bound
+    handleWishlistClick(button, productId, variantId, productTitle) {
+      console.log('🎯 Manual wishlist click:', { productId, variantId, productTitle });
+      if (window.iWish && typeof window.iWish.addToWishlist === 'function') {
+        window.iWish.addToWishlist(productId, variantId);
+        return;
       }
-
-      // Extract data attributes
-      const productId = button.getAttribute('data-product') || 
-                       button.closest('[data-product-id]')?.getAttribute('data-product-id');
-      const variantId = button.getAttribute('data-variant') || 
-                       button.closest('[data-variant-id]')?.getAttribute('data-variant-id');
-      const productTitle = button.getAttribute('data-pTitle') || 
-                           button.closest('.card-wrapper')?.querySelector('.card__heading a')?.textContent?.trim();
-
-      if (productId) {
-        button.addEventListener('click', (e) => {
-          e.preventDefault();
-          this.handleWishlistClick(button, productId, variantId, productTitle);
-        });
-
-        button.setAttribute('data-manual-bound', 'true');
-        console.log(`✅ Manually bound button ${index + 1} for product ${productId}`);
-      }
-    });
-  }
-
-  // Handle wishlist button click manually
-  handleWishlistClick(button, productId, variantId, productTitle) {
-    console.log('🎯 Manual wishlist click:', { productId, variantId, productTitle });
-    
-    // Try to call the original iWish function if available
-    if (window.iWish && typeof window.iWish.addToWishlist === 'function') {
-      window.iWish.addToWishlist(productId, variantId);
-      return;
-    }
-
-    // Try jQuery version
-    if (typeof jQuery !== 'undefined' && jQuery.iWish) {
-      if (typeof jQuery.iWish.add === 'function') {
+      if (typeof jQuery !== 'undefined' && jQuery.iWish && typeof jQuery.iWish.add === 'function') {
         jQuery.iWish.add(productId, variantId);
         return;
       }
+
+      const wishlistEvent = new CustomEvent('addToWishlist', {
+        detail: { productId, variantId, productTitle, button }
+      });
+      document.dispatchEvent(wishlistEvent);
     }
 
-    // Fallback: trigger a custom event that the iWish script might listen for
-    const wishlistEvent = new CustomEvent('addToWishlist', {
-      detail: {
-        productId: productId,
-        variantId: variantId,
-        productTitle: productTitle,
-        button: button
-      }
-    });
-    
-    document.dispatchEvent(wishlistEvent);
-    
-    // Visual feedback
-  }
-
-  // Show visual feedback for wishlist action
- 
-
-  // Fallback initialization when all else fails
-  fallbackInitialization(buttons) {
-    console.log('🚨 Fallback initialization for iWish buttons');
-    
-    // Set up a MutationObserver to watch for DOM changes
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-          // Check if iWish script has been loaded
-          const scripts = document.querySelectorAll('script');
-          const iWishScriptLoaded = Array.from(scripts).some(script => 
-            script.src.includes('iwish') || script.textContent.includes('iWish')
-          );
-          
-          if (iWishScriptLoaded) {
-            setTimeout(() => this.initializeIWishButtons(), 500);
-            observer.disconnect();
+    fallbackInitialization(buttons) {
+      console.log('🚨 Fallback initialization for iWish buttons');
+      const observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+          if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+            const scripts = document.querySelectorAll('script');
+            const iWishLoaded = Array.from(scripts).some(
+              (s) => s.src.includes('iwish') || s.textContent.includes('iWish')
+            );
+            if (iWishLoaded) {
+              setTimeout(() => this.initializeIWishButtons(), 500);
+              observer.disconnect();
+            }
           }
         }
       });
-    });
+      observer.observe(document.head, { childList: true });
+      setTimeout(() => observer.disconnect(), 10000);
+      this.manuallyBindEvents(buttons);
+    }
 
-    observer.observe(document.head, { childList: true });
-    
-    // Disconnect after 10 seconds to prevent memory leaks
-    setTimeout(() => observer.disconnect(), 10000);
-
-    // Also manually bind events as final fallback
-    this.manuallyBindEvents(buttons);
+    postInitializationSetup(buttons) {
+      buttons.forEach((b) => b.setAttribute('data-iwish-initialized', 'true'));
+      document.dispatchEvent(new CustomEvent('iWishReady', { detail: { buttonsCount: buttons.length } }));
+    }
   }
 
-  // Post-initialization setup
-  postInitializationSetup(buttons) {
-    // Add any additional setup needed after successful initialization
-    buttons.forEach(button => {
-      button.setAttribute('data-iwish-initialized', 'true');
-    });
-
-    // Dispatch a custom event to notify that iWish is ready
-    document.dispatchEvent(new CustomEvent('iWishReady', { 
-      detail: { buttonsCount: buttons.length }
-    }));
-  }
+  // ✅ Create global instance once
+  window.iWishButtonManager = new IWishButtonManager();
 }
 
-// Create global instance
-window.iWishButtonManager = new IWishButtonManager();
-
-// Enhanced loadRecommendations method for your product-recommendations component
-// Add this to your existing component
-const enhancedLoadRecommendations = function(productId) {
-  fetch(`${this.dataset.url}&product_id=${productId}&section_id=${this.dataset.sectionId}`)
-    .then((response) => response.text())
-    .then((text) => {
-      const html = document.createElement('div');
-      html.innerHTML = text;
-      const recommendations = html.querySelector('product-recommendations');
-
-      if (recommendations?.innerHTML.trim().length) {
-        this.innerHTML = recommendations.innerHTML;
-        
-        // Use the enhanced iWish button manager
-        window.iWishButtonManager.initializeIWishButtons(this);
-      }
-
-      if (!this.querySelector('slideshow-component') && this.classList.contains('complementary-products')) {
-        this.remove();
-      }
-
-      if (html.querySelector('.grid__item')) {
-        this.classList.add('product-recommendations--loaded');
-      }
-    })
-    .catch((e) => {
-      console.error(e);
-    });
-};
-
-// Auto-initialize on DOM ready
+/* === Initialization Hooks === */
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
-    window.iWishButtonManager.initializeIWishButtons();
+    window.iWishButtonManager?.initializeIWishButtons();
   });
 } else {
-  window.iWishButtonManager.initializeIWishButtons();
+  window.iWishButtonManager?.initializeIWishButtons();
 }
 
-// Also initialize when new content is loaded via AJAX
+// Shopify section loads
 document.addEventListener('shopify:section:load', () => {
   setTimeout(() => {
-    window.iWishButtonManager.initializeIWishButtons();
+    window.iWishButtonManager?.initializeIWishButtons();
   }, 100);
 });
 
+// Collection / filter reloads
 document.addEventListener('afterFilterUpdate', () => {
-  console.log("🔄 Filter update detected");
-  window.iWishButtonManager.initializeIWishButtons(document.querySelector('#ProductGridContainer'));
+  console.log('🔄 Filter update detected');
+  const grid = document.querySelector('#ProductGridContainer');
+  if (grid) window.iWishButtonManager?.initializeIWishButtons(grid);
 });
 
-
-// Observe product grid container for AJAX reloads
+// Observe for dynamic product grids (collections)
 const productGrid = document.querySelector('#ProductGridContainer, .collection, .product-grid');
-
 if (productGrid) {
-  const observer = new MutationObserver((mutations) => {
-    for (const mutation of mutations) {
-      if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-        console.log("🔄 Product grid updated, re-initializing iWish buttons...");
-        window.iWishButtonManager.initializeIWishButtons(productGrid);
+  const gridObserver = new MutationObserver((mutations) => {
+    for (const m of mutations) {
+      if (m.type === 'childList' && m.addedNodes.length > 0) {
+        console.log('🔄 Product grid updated, re-initializing iWish buttons...');
+        window.iWishButtonManager?.initializeIWishButtons(productGrid);
       }
     }
   });
-
-  observer.observe(productGrid, { childList: true, subtree: true });
+  gridObserver.observe(productGrid, { childList: true, subtree: true });
 }
 
+// 🔍 Support for search result pages
+document.addEventListener('DOMContentLoaded', () => {
+  const searchResults = document.querySelector('.template-search__results.collection.page-width');
+  if (searchResults) {
+    console.log('🔍 Search results detected, initializing iWish...');
+    window.iWishButtonManager?.initializeIWishButtons(searchResults);
 
+    const searchObserver = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        if (m.type === 'childList' && m.addedNodes.length > 0) {
+          console.log('🔁 Search results updated, re-initializing iWish...');
+          window.iWishButtonManager?.initializeIWishButtons(searchResults);
+        }
+      }
+    });
+    searchObserver.observe(searchResults, { childList: true, subtree: true });
+  }
+});
 </script>

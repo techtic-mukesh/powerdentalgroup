@@ -48,9 +48,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
-
-    
-
   {{ 'component-product-swiper.css' | asset_url | stylesheet_tag }}
 
   {%- assign total_images = product.media.size -%}
@@ -63,7 +60,7 @@
        {%- if product.selected_or_first_available_variant.featured_media != null -%}
           <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
             {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
-            <a href="{{ featured_media | image_url: width: 800 }}" data-fancybox="gallery" data-thumb="{{ featured_media.preview_image | image_url: width: 120 }}">
+            <a href="{{ featured_media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ featured_media.preview_image | image_url: width: 120 }}">
               <div class="gallery-media">
                 <img
                   srcset="{%- if featured_media.preview_image.width >= 800 -%}{{ featured_media.preview_image | image_url: width: 800 }} 800w{%- endif -%}"
@@ -79,7 +76,7 @@
         {%- for media in product.media -%}
           {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
             <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
-              <a href="{{ media | image_url: width: 800 }}" data-fancybox="gallery" data-thumb="{{ media.preview_image | image_url: width: 120 }}">
+              <a href="{{ media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ media.preview_image | image_url: width: 120 }}">
                 <div class="gallery-media">
                   <img
                     srcset="{%- if media.preview_image.width >= 800 -%}{{ media.preview_image | image_url: width: 800 }} 800w{%- endif -%}"
@@ -121,9 +118,9 @@
           <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
             {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
             <img
-            srcset="{{ media.preview_image | image_url }} 120w"
-            src="{{ media | image_url }}"
-            alt="{{ media.alt | escape }}"
+            srcset="{{ featured_media.preview_image | image_url }} 120w"
+            src="{{ featured_media | image_url }}"
+            alt="{{ featured_media.alt | escape }}"
             loading="lazy"
           />
           
@@ -232,22 +229,168 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Enhanced Fancybox configuration with zoom controls
 $('[data-fancybox="gallery"]').fancybox({
   buttons: [
-    "slideShow",
     "zoom",
+    "slideShow",
     "fullScreen",
-    "share",
     "thumbs",
     "close"
   ],
   loop: true,
   protect: true,
-  animationEffect: "zoom",  
+  animationEffect: "zoom",
+  transitionEffect: "slide",
   thumbs: {
-    autoStart: false,
+    hideOnClose: true
+  },
+  // Enable zoom functionality
+  clickContent: "zoom",
+  clickSlide: "close",
+  dblclickContent: false,
+  dblclickSlide: false,
+  
+  // Zoom settings - allow up to 200% zoom
+  image: {
+    preload: true
+  },
+  
+  // Custom zoom controls
+  beforeShow: function(instance, current) {
+    // Add custom zoom controls
+    if (!$('.fancybox-zoom-controls').length) {
+      var $controls = $('<div class="fancybox-zoom-controls">' +
+        '<button class="fancybox-button fancybox-zoom-in" title="Zoom In"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></button>' +
+        '<button class="fancybox-button fancybox-zoom-out" title="Zoom Out"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z"/></svg></button>' +
+        '<span class="fancybox-zoom-level">100%</span>' +
+        '</div>');
+      
+      $('.fancybox-toolbar').after($controls);
+      
+      // Zoom functionality
+      var currentZoom = 1;
+      var minZoom = 1;
+      var maxZoom = 2; // 200% zoom
+      var zoomStep = 0.25;
+      
+      $('.fancybox-zoom-in').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $img = $('.fancybox-image');
+        if (currentZoom < maxZoom) {
+          currentZoom = Math.min(currentZoom + zoomStep, maxZoom);
+          $img.css({
+            'transform': 'scale(' + currentZoom + ')',
+            'cursor': currentZoom > 1 ? 'move' : 'zoom-in'
+          });
+          $('.fancybox-zoom-level').text(Math.round(currentZoom * 100) + '%');
+          
+          if (currentZoom > 1) {
+            enableImageDrag($img);
+          }
+        }
+      });
+      
+      $('.fancybox-zoom-out').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $img = $('.fancybox-image');
+        if (currentZoom > minZoom) {
+          currentZoom = Math.max(currentZoom - zoomStep, minZoom);
+          $img.css({
+            'transform': 'scale(' + currentZoom + ')',
+            'cursor': currentZoom > 1 ? 'move' : 'zoom-in'
+          });
+          $('.fancybox-zoom-level').text(Math.round(currentZoom * 100) + '%');
+          
+          if (currentZoom === 1) {
+            $img.css({
+              'left': '0',
+              'top': '0'
+            });
+          }
+        }
+      });
+      
+      // Enable dragging when zoomed
+      function enableImageDrag($img) {
+        var isDragging = false;
+        var startX, startY, scrollLeft, scrollTop;
+        
+        $img.on('mousedown', function(e) {
+          if (currentZoom > 1) {
+            isDragging = true;
+            startX = e.pageX - $(this).offset().left;
+            startY = e.pageY - $(this).offset().top;
+            scrollLeft = parseInt($(this).css('left')) || 0;
+            scrollTop = parseInt($(this).css('top')) || 0;
+            $(this).css('cursor', 'grabbing');
+          }
+        });
+        
+        $(document).on('mousemove', function(e) {
+          if (!isDragging) return;
+          e.preventDefault();
+          var x = e.pageX - $img.offset().left;
+          var y = e.pageY - $img.offset().top;
+          var walkX = (x - startX);
+          var walkY = (y - startY);
+          $img.css({
+            'left': (scrollLeft + walkX) + 'px',
+            'top': (scrollTop + walkY) + 'px',
+            'position': 'relative'
+          });
+        });
+        
+        $(document).on('mouseup', function() {
+          if (isDragging) {
+            isDragging = false;
+            $img.css('cursor', 'move');
+          }
+        });
+      }
+      
+      // Reset zoom on slide change
+      instance.$refs.container.on('beforeShow.fb', function() {
+        currentZoom = 1;
+        $('.fancybox-zoom-level').text('100%');
+        $('.fancybox-image').css({
+          'transform': 'scale(1)',
+          'cursor': 'zoom-in',
+          'left': '0',
+          'top': '0'
+        });
+      });
+    }
+  },
+  
+  // Keyboard shortcuts for zoom
+  keyboard: {
+    ESCAPE: "close",
+    DELETE: "close",
+    LEFT: "previousSlide",
+    RIGHT: "nextSlide",
+    UP: function() {
+      $('.fancybox-zoom-in').click();
+    },
+    DOWN: function() {
+      $('.fancybox-zoom-out').click();
+    }
   }
 });
+
+// Add CSS for zoom controls
+if (!$('#fancybox-zoom-styles').length) {
+  $('head').append('<style id="fancybox-zoom-styles">' +
+    '.fancybox-zoom-controls { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 99999; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.7); padding: 8px 15px; border-radius: 25px; }' +
+    '.fancybox-zoom-in, .fancybox-zoom-out { background: transparent; border: none; cursor: pointer; padding: 5px; transition: all 0.2s; }' +
+    '.fancybox-zoom-in svg, .fancybox-zoom-out svg { fill: #fff; width: 24px; height: 24px; }' +
+    '.fancybox-zoom-in:hover, .fancybox-zoom-out:hover { transform: scale(1.1); }' +
+    '.fancybox-zoom-level { color: #fff; font-size: 14px; font-weight: 500; min-width: 50px; text-align: center; }' +
+    '.fancybox-image { transition: transform 0.3s ease, left 0.1s, top 0.1s; }' +
+    '</style>');
+}
 
   })
 </script>
@@ -337,32 +480,6 @@ $('[data-fancybox="gallery"]').fancybox({
     {% if section.settings.gallery_layout == 'slider' %}
       </div>
     {% endif %}
-    {% comment %} {%- unless is_duplicate -%}
-      <div class="slider-buttons no-js-hidden quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
-        <button
-          type="button"
-          class="slider-button slider-button--prev"
-          name="previous"
-          aria-label="{{ 'general.slider.previous_slide' | t }}"
-        >
-          {% render 'icon-caret' %}
-        </button>
-        <div class="slider-counter caption">
-          <span class="slider-counter--current">1</span>
-          <span aria-hidden="true"> / </span>
-          <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-          <span class="slider-counter--total">{{ media_count }}</span>
-        </div>
-        <button
-          type="button"
-          class="slider-button slider-button--next"
-          name="next"
-          aria-label="{{ 'general.slider.next_slide' | t }}"
-        >
-          {% render 'icon-caret' %}
-        </button>
-      </div>
-    {%- endunless -%} {% endcomment %}
   </slider-component>
 
   {% if section.settings.gallery_layout == 'slider' %}
