@@ -34,10 +34,18 @@
 .gf-left #gf-tree {
     width: auto;
     min-width: 308px; 
+    max-width: 308px; 
     border: 1px solid #DCDCDC;
 background: #FFF;
-    position: sticky;
-    top: 154px;
+    /* position: sticky;
+    top: 154px; */
+}
+
+@media (min-width: 767px) {
+    .gf-left #gf-tree {
+        position: sticky;
+        top: 154px;
+    }
 }
 
 .gf-theme-version-15.spf-has-filter .gf-block-scroll {
@@ -146,3 +154,51 @@ ul.gf-option-box span.gf-Checkbox {
     background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
     color: #fff !important;
 }
+
+.gf-actions {
+    margin-bottom: 0 !important;
+}
+
+ul#gf-products {
+    margin-top: 0;
+}
+
+span.gf-summary, span.gf-summary b, gf-theme-version-15.spf-has-filter span.gf-summary {
+    color: #000 !important;
+    font-family: Montserrat;
+    font-size: 14px !important;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+#gf_pagination_wrap .pagination>span>a, .gf-theme-version-15 #gf_pagination_wrap button.gf-loadmore-btn, .gf-theme-version-15.spf-has-filter #gf-tree .globo-selected-items-wrapper .selected-item>.clear-refinements, .gf-theme-version-15.spf-has-filter #gf-tree .noUi-value, .gf-theme-version-15.spf-has-filter #gf_pagination_wrap .pagination>span.current, .gf-theme-version-15.spf-has-filter #gf_pagination_wrap .pagination>span.deco, .gf-theme-version-15.spf-has-filter .gf-option-block ul li a, .gf-theme-version-15.spf-has-filter .gf-refine-toggle-mobile, .gf-theme-version-15.spf-has-filter .sort-by label, .gf-theme-version-15.spf-has-filter span.gf-summary {
+    color: #000 !important;
+    font-family: Montserrat;
+    font-size: 14px !important;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+ label.sort-by-toggle {
+    display: flex;
+    align-items: center;
+}
+
+
+@media (max-width: 1140px) {
+    .gf-left #gf-tree {
+            min-width: 277px;
+    max-width: 302px;
+    }
+}
+
+
+@media (max-width: 767px) {
+    span.gf-summary {
+        display: none;
+}
+ }

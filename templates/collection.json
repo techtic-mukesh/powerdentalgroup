@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "banner": {
@@ -34,7 +25,7 @@
             "text_font_size": 14,
             "text_color": "#000000",
             "text_color_hover": "",
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "z_index": 2,
             "qv_wrapper": "",
             "qv_button": "",
@@ -49,12 +40,95 @@
         "include_margins": true
       }
     },
+    "our_category_dAjLQW": {
+      "type": "our-category",
+      "blocks": {
+        "category_HrVRA7": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Power-Line_1_1_af56122e-2f04-4518-ac35-425eebc195d7.jpg",
+            "label": "Power Line",
+            "urllabel": "shopify:\/\/collections\/power-line"
+          }
+        },
+        "category_CCxDmL": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Periodontal.jpg",
+            "label": "Periodontal",
+            "urllabel": "shopify:\/\/collections\/periodontal"
+          }
+        },
+        "category_FYVXaq": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Diagnostic.jpg",
+            "label": "Diagnostic",
+            "urllabel": "shopify:\/\/collections\/diagnostic"
+          }
+        },
+        "category_3k7xg9": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Implant_Surgical.jpg",
+            "label": "Implant and Surgical",
+            "urllabel": "shopify:\/\/collections\/implant-surgical"
+          }
+        },
+        "category_PEJRcf": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/endodontic-cat-2024.jpg",
+            "label": "Endodontic",
+            "urllabel": "shopify:\/\/collections\/endodontic"
+          }
+        },
+        "category_H6bwqD": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Orthodontic_V2.jpg",
+            "label": "Orthodontic",
+            "urllabel": "shopify:\/\/collections\/orthodontic"
+          }
+        },
+        "category_9pcEjR": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/restorative-new.jpg",
+            "label": "Restorative",
+            "urllabel": "shopify:\/\/collections\/restorative"
+          }
+        },
+        "category_7DUUdj": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Cassettes_Accessories.jpg",
+            "label": "Cassettes, Centrifuges, & Accessories",
+            "urllabel": "shopify:\/\/collections\/cassettes-centrifuges-accessories"
+          }
+        }
+      },
+      "block_order": [
+        "category_HrVRA7",
+        "category_CCxDmL",
+        "category_FYVXaq",
+        "category_3k7xg9",
+        "category_PEJRcf",
+        "category_H6bwqD",
+        "category_9pcEjR",
+        "category_7DUUdj"
+      ],
+      "name": "Category Slider",
+      "settings": {
+        "heading": ""
+      }
+    },
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
         "products_per_page": 12,
         "columns_desktop": 3,
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "image_shape": "default",
@@ -62,9 +136,9 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
-        "enable_filtering": true,
+        "enable_filtering": false,
         "filter_type": "vertical",
-        "enable_sorting": true,
+        "enable_sorting": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -73,6 +147,7 @@
   "order": [
     "banner",
     "17582653178953a751",
+    "our_category_dAjLQW",
     "product-grid"
   ]
 }

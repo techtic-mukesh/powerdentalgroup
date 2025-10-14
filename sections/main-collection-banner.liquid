@@ -91,6 +91,24 @@
     .collection-hero__title {
       font-size: 1.8rem;
     }
+
+    .collection-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4); /* dark overlay for text visibility */
+    z-index: 1;
+  }
+
+  .collection-hero__inner {
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+.collection-hero__inner h1.collection-hero__title {
+    font-size: 28px;
+}
   }
 </style>
 
