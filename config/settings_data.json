@@ -214,7 +214,7 @@
           "productGridSelector": "",
           "useCustomQuickviewTemplate": false,
           "customJs": "window.mobile_break_point = 1140;",
-          "customCss": "",
+          "customCss": "@media(max-width: 1140px){\n #gf-controls-container .gf-refine-toggle-mobile{\ndisplay: block !important;\n}\n}",
           "customProductTemplateLoader": "{%- capture productTemplate -%}{% render 'globo.filter.product', themeTranslation: shop.metafields.globoFilter.themeTranslation.value[request.locale.iso_code] %}{%- endcapture -%}{%- unless productTemplate contains 'Liquid error' -%}<script id=\"gspfProduct\" type=\"template/html\">{{- productTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
           "customTreeTemplateLoader": "{%- capture treeTemplate -%}{% render 'globo.filter.tree' %}{%- endcapture -%}{%- unless treeTemplate contains 'Liquid error' -%}<script id=\"gspfFilterTree\" type=\"template/html\">{{- treeTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
           "customSortTemplateLoader": "{%- capture sortTemplate -%}{% render 'globo.filter.sort' %}{%- endcapture -%}{%- unless sortTemplate contains 'Liquid error' -%}<script id=\"gspfFilterSort\" type=\"template/html\">{{- sortTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
