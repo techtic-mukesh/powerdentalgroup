@@ -51,7 +51,7 @@
         "heading_xWDcyN": {
           "type": "heading",
           "settings": {
-            "heading": "THE POWER DENTAL WAY",
+            "heading": "<strong>THE<\/strong> POWER DENTAL WAY",
             "heading_size": "h1"
           }
         },
@@ -84,7 +84,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/people-first-icon_6c1f8d87-4232-453e-b2a4-13f62ae6440e.png",
             "step_svg": "",
-            "title": "People - We care.",
+            "title": "<p>People <strong>- We care.<\/strong><\/p>",
             "content": ""
           }
         },
@@ -93,7 +93,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/people-first-icon_6c1f8d87-4232-453e-b2a4-13f62ae6440e.png",
             "step_svg": "",
-            "title": "Integrity - We do what's right.",
+            "title": "<p>Integrity <strong>- We do what's right.<\/strong><\/p>",
             "content": ""
           }
         },
@@ -102,7 +102,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/performance-icon_6c397ae0-c350-4582-8419-49256e3cf2c4.png",
             "step_svg": "",
-            "title": "Performance - We execute.",
+            "title": "<p>Performance <strong>- We execute.<\/strong><\/p>",
             "content": ""
           }
         },
@@ -111,7 +111,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/impact-icon_81420320-5b56-4485-b410-58640eaa3644.png",
             "step_svg": "",
-            "title": "Impact - We drive change.",
+            "title": "<p>Impact <strong>- We drive change.<\/strong><\/p>",
             "content": ""
           }
         },
@@ -120,7 +120,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/inspiring-icon_7c3292f3-fb6a-44e0-815e-ffd9af017c07.png",
             "step_svg": "",
-            "title": "Improvement - We're relentless in our pursuit of better.",
+            "title": "<p>Improvement <strong>- We're relentless in our pursuit of better.<\/strong><\/p>",
             "content": ""
           }
         }

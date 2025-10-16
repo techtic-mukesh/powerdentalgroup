@@ -68,7 +68,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/save-time-icon_d3d7bf17-e250-445c-8e37-9b313e030741.png",
             "step_svg": "",
-            "title": "Save Time and Money",
+            "title": "<p>Save Time <strong>and<\/strong> Money<\/p>",
             "content": "<p>Ensure the integrity of your instruments. Your time is valuable. Rely on our experts to extend the life of your instruments while you focus on the practice.<\/p>"
           }
         },
@@ -77,7 +77,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/sustainability-icon_d4c574d0-b5ab-4f2b-af82-99d8f82c9f8a.png",
             "step_svg": "",
-            "title": "Increased Sustainability",
+            "title": "<p>Increased <strong>Sustainability<\/strong><\/p>",
             "content": "<p>Contribute to environmental sustainability. Driven by a 100% solar operation, join our commitment to reducing instrument waste one instrument at a time.<\/p>"
           }
         },
@@ -86,7 +86,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/save-more-icon_7e0ebdf0-3ec3-4ced-bebc-91611a1b5618.png",
             "step_svg": "",
-            "title": "Work With The Best",
+            "title": "<p><strong>Work With <\/strong>The Best<\/p>",
             "content": "<p>We have serviced over 1.4 million instruments and counting. Work with the best in class where excellence is the standard.<\/p>"
           }
         }
@@ -98,7 +98,7 @@
       ],
       "name": "Kitting Process",
       "settings": {
-        "heading": "why service your instruments?",
+        "heading": "<p><strong>why service your<\/strong> instruments?<\/p>",
         "subheading": "",
         "bg_color": "#ffffff"
       }

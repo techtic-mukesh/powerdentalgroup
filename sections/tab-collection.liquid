@@ -231,7 +231,7 @@ section.collection-tabs  .swiper-pagination {
 section.collection-tabs .tabs-buttons {
             gap: 19px;
         overflow-x: auto;
-        justify-content: flex-start;
+        justify-content: center;
         padding-bottom: 10px;
 }
 
@@ -240,6 +240,15 @@ section.collection-tabs .tabs-buttons {
     line-height: 40px;
             white-space: nowrap;
 }
+   }
+
+   @media only screen and (max-width: 500px) {
+      section.collection-tabs .tabs-buttons {
+            gap: 19px;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+     }
    }
 
 
