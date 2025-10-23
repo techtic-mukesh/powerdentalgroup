@@ -553,6 +553,15 @@
       "payment": {
         "bank_account_vaulted_company_location": "Cuenta bancaria guardada para esta ubicación",
         "bank_account_generic_error": "No se pudo agregar la cuenta bancaria. Inténtalo de nuevo más tarde."
+      },
+      "payment_errors": {
+        "captcha_required": "Ingrese la información de pago y resuelva el captcha para completar su compra."
+      },
+      "payment_gateway": {
+        "bank_account_label": "Cuenta bancaria"
+      },
+      "offsite_payment_failed": {
+        "title": "Pago externo fallido"
       }
     }
   },
@@ -560,6 +569,14 @@
     "payment_methods": {
       "bank_account": {
         "generic_error": "No se pudo agregar la cuenta bancaria. Inténtalo de nuevo más tarde."
+      },
+      "update_payment_method": {
+        "title": "Actualizar el método de pago",
+        "button_title": "Actualizar",
+        "billing_address": "Dirección de Envio",
+        "disclaimer": "Este método de pago se guardará para futuras compras y podrá utilizarse para cualquier compra recurrente o diferida.",
+        "error_message": "No se puede actualizar el método de pago",
+        "current": "Actual"
       }
     }
   }
