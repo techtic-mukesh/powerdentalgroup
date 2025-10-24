@@ -380,8 +380,8 @@
     grid-row-start: unset;
     justify-self: flex-start;
     position: absolute;
-    top: 0;
-    left: -1px;
+    top: 4px;
+    left: 4px;
 }
 
 .card__badge.top {

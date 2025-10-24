@@ -48,12 +48,13 @@ a.button.button--secondary {
 
 .badge {
         border-radius: unset;
-    background: linear-gradient(90deg, #42c5ef, #0033a0);
+    background: linear-gradient(102deg,#42c5ef,#0033a0 50% 50%,#42c5ef)!important;
     overflow: hidden;
     background-color: unset;
     text-transform: uppercase;
     padding: 8px 20px;
     color: #fff;
+    border-radius: 4px;
 }
 
 .disclosure .localization-form__select svg[preserveAspectRatio="xMidYMid meet"] {

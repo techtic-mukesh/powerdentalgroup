@@ -541,6 +541,11 @@ form#HeaderCountryMobileForm {
     display: none;
 }
 
+ul#tabs-nav li.tabs-li a span.tab-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
 .right-header-block {
     grid-area: icons;
     padding: 0;
