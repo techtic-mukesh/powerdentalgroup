@@ -227,7 +227,8 @@
       "name": "Client Swiper",
       "settings": {
         "background_color": "#ffffff",
-        "section_title": "TRUSTED BY DOCTORS NATIONWIDE"
+        "section_title": "TRUSTED BY DOCTORS NATIONWIDE",
+        "section_sub": "<p>Real Results. Real Efficiency.</p>"
       }
     },
     "faq_VeEJEE": {
