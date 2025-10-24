@@ -89,7 +89,7 @@
             "description_color": "#ffffff",
             "auth_image": "shopify:\/\/shop_images\/power-logo.png",
             "button_label": "Our Solution",
-            "button_link": "shopify:\/\/collections\/crown-removal",
+            "button_link": "shopify:\/\/products\/power-crown-remover-kit-set-of-3",
             "position": true
           }
         }
@@ -410,7 +410,7 @@
       "settings": {
         "background_color": "#ffffff",
         "subheading": "details make the difference",
-        "heading": "Why Choose Power Dental?",
+        "heading": "<h2>Why Choose <strong>Power Dental?<\/strong><\/h2>",
         "content": "",
         "image": "shopify:\/\/shop_images\/image_31.png"
       }
