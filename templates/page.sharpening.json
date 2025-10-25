@@ -209,7 +209,7 @@
         "heading_JkMgDB": {
           "type": "heading",
           "settings": {
-            "heading": "take the next step",
+            "heading": "take the <strong>next step</strong>",
             "heading_size": "h1"
           }
         },
