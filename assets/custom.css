@@ -457,6 +457,7 @@ a.jdgm-write-rev-link:hover {
     cursor: pointer;
     position: relative;
     margin-bottom: 0;
+    display: flex;
   }
 
 .footer-block.grid__item.footer-block--menu   .footer-block__heading::after {
