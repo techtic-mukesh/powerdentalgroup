@@ -120,6 +120,17 @@
     "multirow_fUMxAg": {
       "type": "multirow",
       "blocks": {
+        "row_jcf8TR": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Custom-Manufacturing_7f83622b-343a-49b0-a25b-214b46d1f8d3.jpg",
+            "caption": "",
+            "heading": "Custom Kitting",
+            "text": "<p>Bring your vision to life through our proven custom design and engineering process.</p>",
+            "button_label": "More Details",
+            "button_link": "shopify://pages/custom-kitting"
+          }
+        },
         "row_fAGUbJ": {
           "type": "row",
           "settings": {
@@ -141,23 +152,12 @@
             "button_label": "More Details",
             "button_link": "shopify://pages/sharpen-retip-repair"
           }
-        },
-        "row_jcf8TR": {
-          "type": "row",
-          "settings": {
-            "image": "shopify://shop_images/Custom-Manufacturing_7f83622b-343a-49b0-a25b-214b46d1f8d3.jpg",
-            "caption": "",
-            "heading": "Custom Kitting",
-            "text": "<p>Bring your vision to life through our proven custom design and engineering process.</p>",
-            "button_label": "More Details",
-            "button_link": "shopify://pages/custom-kitting"
-          }
         }
       },
       "block_order": [
+        "row_jcf8TR",
         "row_fAGUbJ",
-        "row_ttKnb6",
-        "row_jcf8TR"
+        "row_ttKnb6"
       ],
       "custom_css": [
         ".image-with-text .grid {gap: 20px;}"
