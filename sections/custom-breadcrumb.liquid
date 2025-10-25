@@ -6,7 +6,6 @@
       "type": "color_background",
       "id": "background_gradient",
       "label": "Background Gradient",
-      "default": "linear-gradient(90deg, #000000 0%, #0033A0 100%)"
     },
     {
       "type": "text",
@@ -44,7 +43,6 @@
 
 <section
   class="custom-breadcrumb-section"
-  style="background: {{ section.settings.background_gradient }};"
 >
   <div class="page-width breadcrumb-inner">
     <nav class="breadcrumb-nav">
@@ -67,9 +65,12 @@
 
 <style>
 .custom-breadcrumb-section {
-  padding: 15px 0;
-  color: #fff;
+    padding: 23px 0;
+    color: #fff;
+    background-image: url(https://cdn.shopify.com/s/files/1/0697/9538/1398/files/breadcrumbs-bar.jpg?v=1761380069);
+    background-size: cover;
 }
+
 .breadcrumb-inner {
   margin: 0 auto;
 }
