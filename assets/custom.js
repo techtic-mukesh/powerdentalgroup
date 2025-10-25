@@ -1,37 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
-  let items = document.querySelectorAll(".header__inline-menu details summary");
+    let items = document.querySelectorAll(".header__inline-menu details summary");
 
-  items.forEach((item) => {
-    // Skip the Products menu (has class 'Products')
-    let parentLi = item.closest('li');
-    if (parentLi && parentLi.classList.contains('Products')) return;
+    items.forEach((item) => {
+        // Skip the Products menu (has class 'Products')
+        let parentLi = item.closest('li');
+        if (parentLi && parentLi.classList.contains('Products')) return;
 
-    let details = item.parentElement; // the <details> element
+        item.addEventListener("mouseover", () => {
+            item.setAttribute("open", "true");
+            let megaMenu = item.querySelector(".mega-menu__content");
+            if (megaMenu) megaMenu.style.display = 'block';
+        });
 
-    // Hover open/close
-    item.addEventListener("mouseover", () => {
-      details.setAttribute("open", "true");
-      let megaMenu = details.querySelector(".mega-menu__content, .header__submenu");
-      if (megaMenu) megaMenu.style.display = 'block';
+        item.addEventListener("mouseleave", () => {
+            item.removeAttribute("open");
+            let megaMenu = item.querySelector(".mega-menu__content");
+            if (megaMenu) megaMenu.style.display = 'none';
+        });
     });
-
-    item.addEventListener("mouseleave", () => {
-      details.removeAttribute("open");
-      let megaMenu = details.querySelector(".mega-menu__content, .header__submenu");
-      if (megaMenu) megaMenu.style.display = 'none';
-    });
-
-    // ✅ Redirect on click
-    item.addEventListener("click", (e) => {
-      e.preventDefault(); // prevent dropdown toggle
-      const dataUrl = details.getAttribute('data-url');
-      if (dataUrl) {
-        window.location.href = dataUrl;
-      }
-    });
-  });
 });
-
 
 $(document).ready(function () {
     // Move menu on load
