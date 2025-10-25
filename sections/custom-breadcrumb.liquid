@@ -1,0 +1,99 @@
+{% schema %}
+{
+  "name": "Custom Breadcrumb Section",
+  "settings": [
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background Gradient",
+      "default": "linear-gradient(90deg, #000000 0%, #0033A0 100%)"
+    },
+    {
+      "type": "text",
+      "id": "page_title",
+      "label": "Page Title",
+      "default": "Servicing Order Form"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "breadcrumb_item",
+      "name": "Breadcrumb Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Resources"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Breadcrumb Section"
+    }
+  ]
+}
+{% endschema %}
+
+<section
+  class="custom-breadcrumb-section"
+  style="background: {{ section.settings.background_gradient }};"
+>
+  <div class="page-width breadcrumb-inner">
+    <nav class="breadcrumb-nav">
+      <a href="{{ routes.root_url }}" class="breadcrumb-home">Home</a>
+
+      {% for block in section.blocks %}
+        <span class="breadcrumb-separator">›</span>
+        {% if block.settings.link != blank %}
+          <a href="{{ block.settings.link }}" class="breadcrumb-link">{{ block.settings.label }}</a>
+        {% else %}
+          <span class="breadcrumb-label">{{ block.settings.label }}</span>
+        {% endif %}
+      {% endfor %}
+
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">{{ section.settings.page_title }}</span>
+    </nav>
+  </div>
+</section>
+
+<style>
+.custom-breadcrumb-section {
+  padding: 15px 0;
+  color: #fff;
+}
+.breadcrumb-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 16px;
+}
+.breadcrumb-nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+.breadcrumb-nav a:hover {
+  opacity: 0.8;
+}
+.breadcrumb-separator {
+  color: #fff;
+}
+.breadcrumb-current {
+  font-weight: 600;
+}
+</style>
