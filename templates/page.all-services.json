@@ -160,7 +160,7 @@
         "row_ttKnb6"
       ],
       "custom_css": [
-        ".image-with-text .grid {gap: 20px;}"
+        ".image-with-text .grid {gap: 40px;}"
       ],
       "name": "t:sections.multirow.presets.name",
       "settings": {
@@ -170,7 +170,7 @@
         "heading_size": "h1",
         "text_style": "subtitle",
         "button_style": "secondary",
-        "desktop_content_position": "middle",
+        "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
         "section_color_scheme": "",
