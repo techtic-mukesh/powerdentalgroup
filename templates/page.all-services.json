@@ -160,7 +160,8 @@
         "row_ttKnb6"
       ],
       "custom_css": [
-        ".image-with-text .grid {gap: 40px;}"
+        ".image-with-text .grid {gap: 40px;}",
+        "@media (max-width: 767px) {.image-with-text .grid {gap: 0; }}"
       ],
       "name": "t:sections.multirow.presets.name",
       "settings": {
