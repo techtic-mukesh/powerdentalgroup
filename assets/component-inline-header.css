@@ -166,6 +166,13 @@ summary .icon-caret {
     border-color: #000;
 }
 
+ul#tabs-nav li.tabs-li span.tab-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+}
+
 /* Mega Menu */
 
 ul#tabs-nav {
