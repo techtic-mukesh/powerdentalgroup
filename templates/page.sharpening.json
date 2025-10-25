@@ -106,7 +106,7 @@
         "step_FczYhH"
       ],
       "custom_css": [
-        ".custom-kitting-process-grid .kitting-item:after {display: none}"
+        ".custom-kitting-process-grid .kitting-item:after {display: none;}"
       ],
       "name": "Kitting Process",
       "settings": {
@@ -163,7 +163,7 @@
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "POWER SERVICING - Our PROCESS",
+        "title": "<strong>POWER SERVICING</strong> - Our <strong>PROCESS</strong>",
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "adapt",
