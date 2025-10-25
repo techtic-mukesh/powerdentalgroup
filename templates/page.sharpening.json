@@ -238,6 +238,10 @@
         "text_KeaPc8",
         "button_mh3yHi"
       ],
+      "custom_css": [
+        "h2.rich-text__heading.rte.inline-richtext.h1 {font-weight: 300;}",
+        "h2.rich-text__heading.rte.inline-richtext.h1 strong {font-weight: 700;}"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
