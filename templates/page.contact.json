@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -6,6 +15,14 @@
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "custom_breadcrumb_LnKcmw": {
+      "type": "custom-breadcrumb",
+      "name": "Custom Breadcrumb Section",
+      "settings": {
+        "background_gradient": "",
+        "page_title": "Servicing Order Form"
       }
     },
     "form": {
@@ -23,14 +40,14 @@
       "type": "hubspot-contact-form",
       "name": "HubSpot Contact Form",
       "settings": {
-        "background_image": "shopify:\/\/shop_images\/contact-background-new-v4.jpg",
+        "background_image": "shopify://shop_images/contact-background-new-v4.jpg",
         "sub_heading": "HAVE QUESTIONS?",
         "heading": "CONTACT OUR TEAM",
         "heading_strong": "TODAY!",
         "description": "Give us a call or fill out the form and one of our experts will be in touch with you as soon as possible.",
         "phone": "+1-815-363-8003",
         "customer_service": "Mon-Fri 7:30AM - 4:00PM CST",
-        "address": "<p>Power Dental Group<\/p><p>2809 Barney Ct.<\/p><p>McHenry, IL 60051<\/p>",
+        "address": "<p>Power Dental Group</p><p>2809 Barney Ct.</p><p>McHenry, IL 60051</p>",
         "email": "info@powerdentalgroup.com",
         "portal_id": "39754023",
         "form_id": "92cffa2f-5f86-4803-b5c3-0976d8432bc5",
@@ -40,6 +57,7 @@
   },
   "order": [
     "main",
+    "custom_breadcrumb_LnKcmw",
     "form",
     "hubspot_contact_form_KQyTYh"
   ]
