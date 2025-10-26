@@ -529,13 +529,9 @@
 
 .card--standard > .card__content {
   padding: 0;
-  position: relative;
 }
 
 .card__information span.discount-percent {
-    position: absolute;
-    right: 18px;
-    top: -44px;
     font-size: 14px;
     font-weight: 400;
     color: red;
