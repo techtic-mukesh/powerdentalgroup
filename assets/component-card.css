@@ -532,12 +532,17 @@
 }
 
 .card__information span.discount-percent {
-    font-size: 14px;
+  font-size: 14px;
     font-weight: 400;
     color: red;
     border: 1px solid red;
     padding: 4px 8px;
     border-radius: 10px 0;
+    margin-left: auto;
+    display: inline-table;
+    position: absolute;
+    margin-top: -40px;
+    right: 10px;
 }
 
 .card--standard > .card__content .card__information {
