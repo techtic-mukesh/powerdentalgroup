@@ -9,6 +9,26 @@
  */
 {
   "sections": {
+    "custom_breadcrumb_TrF4qf": {
+      "type": "custom-breadcrumb",
+      "blocks": {
+        "breadcrumb_item_3VB77k": {
+          "type": "breadcrumb_item",
+          "settings": {
+            "label": "Services",
+            "link": "shopify://pages/services"
+          }
+        }
+      },
+      "block_order": [
+        "breadcrumb_item_3VB77k"
+      ],
+      "name": "Custom Breadcrumb Section",
+      "settings": {
+        "background_gradient": "",
+        "page_title": "Servicing Order Form"
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -278,6 +298,7 @@
     }
   },
   "order": [
+    "custom_breadcrumb_TrF4qf",
     "main",
     "image_banner_EPbymN",
     "kitting_process_zTbwCT",
