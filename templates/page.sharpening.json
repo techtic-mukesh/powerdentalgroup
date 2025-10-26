@@ -19,6 +19,18 @@
     },
     "custom_breadcrumb_hadjXN": {
       "type": "custom-breadcrumb",
+      "blocks": {
+        "breadcrumb_item_q8zqDC": {
+          "type": "breadcrumb_item",
+          "settings": {
+            "label": "Services",
+            "link": "shopify://pages/services"
+          }
+        }
+      },
+      "block_order": [
+        "breadcrumb_item_q8zqDC"
+      ],
       "name": "Custom Breadcrumb Section",
       "settings": {
         "background_gradient": "",
