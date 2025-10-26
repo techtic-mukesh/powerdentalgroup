@@ -460,6 +460,10 @@ a.jdgm-write-rev-link:hover {
     display: flex;
   }
 
+  .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    z-index: 2;
+}
+
 .footer-block.grid__item.footer-block--menu   .footer-block__heading::after {
            content: "";
         position: absolute;
