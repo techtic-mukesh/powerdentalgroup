@@ -17,6 +17,14 @@
         "padding_bottom": 28
       }
     },
+    "custom_breadcrumb_hadjXN": {
+      "type": "custom-breadcrumb",
+      "name": "Custom Breadcrumb Section",
+      "settings": {
+        "background_gradient": "",
+        "page_title": "{{ page.title }}"
+      }
+    },
     "image_banner_EAxgyW": {
       "type": "image-banner",
       "blocks": {
@@ -241,7 +249,7 @@
       "custom_css": [
         "h2.rich-text__heading.rte.inline-richtext.h1 {font-weight: 300;}",
         "h2.rich-text__heading.rte.inline-richtext.h1 strong {font-weight: 700;}",
-        ".rich-text__text.rte p {color: #5b5b5b; font-family: 'Montserrat' !important; font-weight: 400; font-size: 16px; font-style: normal; font-weight: 300; line-height: 22px; letter-spacing: -.16px;}"
+        ".rich-text__text.rte p {color: #5b5b5b; font-family: \"Montserrat\" !important; font-weight: 400; font-size: 16px; font-style: normal; font-weight: 300; line-height: 22px; letter-spacing: -0.16px;}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -256,6 +264,7 @@
   },
   "order": [
     "main",
+    "custom_breadcrumb_hadjXN",
     "image_banner_EAxgyW",
     "kitting_process_HLWBmU",
     "multicolumn_bpPaPB",
