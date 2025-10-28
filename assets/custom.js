@@ -1,24 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let items = document.querySelectorAll(".header__inline-menu details summary");
+  let items = document.querySelectorAll(".header__inline-menu details summary");
 
-    items.forEach((item) => {
-        // Skip the Products menu (has class 'Products')
-        let parentLi = item.closest('li');
-        if (parentLi && parentLi.classList.contains('Products')) return;
+  items.forEach((item) => {
+    let parentDetails = item.closest('details');
+    let parentLi = item.closest('li');
 
-        item.addEventListener("mouseover", () => {
-            item.setAttribute("open", "true");
-            let megaMenu = item.querySelector(".mega-menu__content");
-            if (megaMenu) megaMenu.style.display = 'block';
-        });
+    // Skip the Products menu (has class 'Products')
+    if (parentLi && parentLi.classList.contains('Products')) return;
 
-        item.addEventListener("mouseleave", () => {
-            item.removeAttribute("open");
-            let megaMenu = item.querySelector(".mega-menu__content");
-            if (megaMenu) megaMenu.style.display = 'none';
-        });
+    // Hover: show submenu
+    item.addEventListener("mouseover", () => {
+      parentDetails.setAttribute("open", "true");
+      let submenu = parentDetails.querySelector("ul");
+      if (submenu) submenu.style.display = 'block';
     });
+
+    // Mouse leave: hide submenu
+    item.addEventListener("mouseleave", () => {
+      parentDetails.removeAttribute("open");
+      let submenu = parentDetails.querySelector("ul");
+      if (submenu) submenu.style.display = 'none';
+    });
+
+    // Click: redirect to data-url
+    item.addEventListener("click", (e) => {
+      e.preventDefault(); // prevent native dropdown toggle
+      let targetUrl = parentDetails.getAttribute("data-url");
+      if (targetUrl) {
+        window.location.href = targetUrl;
+      }
+    });
+  });
 });
+
 
 $(document).ready(function () {
     // Move menu on load
