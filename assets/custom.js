@@ -1,38 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
-  let items = document.querySelectorAll(".header__inline-menu details summary");
+    let items = document.querySelectorAll(".header__inline-menu details summary");
 
-  items.forEach((item) => {
-    let parentDetails = item.closest('details');
-    let parentLi = item.closest('li');
+    items.forEach((item) => {
+        // Skip the Products menu (has class 'Products')
+        let parentLi = item.closest('li');
+        if (parentLi && parentLi.classList.contains('Products')) return;
 
-    // Skip the Products menu (has class 'Products')
-    if (parentLi && parentLi.classList.contains('Products')) return;
+        item.addEventListener("mouseover", () => {
+            item.setAttribute("open", "true");
+            let megaMenu = item.querySelector(".mega-menu__content");
+            if (megaMenu) megaMenu.style.display = 'block';
+        });
 
-    // Hover: show submenu
-    item.addEventListener("mouseover", () => {
-      parentDetails.setAttribute("open", "true");
-      let submenu = parentDetails.querySelector("ul");
-      if (submenu) submenu.style.display = 'block';
+        item.addEventListener("mouseleave", () => {
+            item.removeAttribute("open");
+            let megaMenu = item.querySelector(".mega-menu__content");
+            if (megaMenu) megaMenu.style.display = 'none';
+        });
     });
-
-    // Mouse leave: hide submenu
-    item.addEventListener("mouseleave", () => {
-      parentDetails.removeAttribute("open");
-      let submenu = parentDetails.querySelector("ul");
-      if (submenu) submenu.style.display = 'none';
-    });
-
-    // Click: redirect to data-url
-    item.addEventListener("click", (e) => {
-      e.preventDefault(); // prevent native dropdown toggle
-      let targetUrl = parentDetails.getAttribute("data-url");
-      if (targetUrl) {
-        window.location.href = targetUrl;
-      }
-    });
-  });
 });
-
 
 $(document).ready(function () {
     // Move menu on load
@@ -64,6 +50,14 @@ $(document).ready(function () {
                     .css({ display: "block", height: 0, opacity: 0 })
                     .animate({ height: $submenu.get(0).scrollHeight, opacity: 1 }, 300);
             }
+
+            $summary.on("click", function (e) {
+      e.preventDefault();
+      const targetUrl = $details.attr("data-url");
+      if (targetUrl) {
+        window.location.href = targetUrl;
+      }
+    });
         });
 
         $item.on("mouseleave", function () {
