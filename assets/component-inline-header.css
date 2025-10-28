@@ -322,6 +322,8 @@ ul#tabs-nav li.tabs-li a {
     align-items: flex-start;
     justify-content: space-between;
     gap: 20px;
+        max-height: 520px;
+    overflow-y: auto;
 }
 
 .mega-menu-layout .mega-menu-right {
