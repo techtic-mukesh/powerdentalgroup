@@ -81,7 +81,7 @@
           "type": "heading",
           "settings": {
             "heading": "<strong>THE</strong> POWER DENTAL WAY",
-            "heading_size": "h1"
+            "heading_size": "h0"
           }
         },
         "text_g9F9Xq": {
@@ -94,6 +94,9 @@
       "block_order": [
         "heading_xWDcyN",
         "text_g9F9Xq"
+      ],
+      "custom_css": [
+        ".rich-text__text.rte h3 {font-size: 18px; font-style: normal; font-weight: 700; line-height: 28px; letter-spacing: 3.6px; text-transform: uppercase; font-family: \"Montserrat\"; font-style: normal; font-weight: 700; text-transform: uppercase; margin: 0;}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
