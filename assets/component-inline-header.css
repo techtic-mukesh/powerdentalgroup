@@ -203,7 +203,19 @@ ul#HeaderMenu-MenuList-1 {
     left: 0;
     z-index: 9;
         top: 107.8%;
+            width: 100%;
+    left: 0;
+    padding: 0 29px;
+    background-color: unset;
+    box-shadow: unset;
 } 
+
+ul#HeaderMenu-MenuList-1  .tabs {
+    display: flex
+;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
 .header__submenu.list-menu {
     border: unset;
