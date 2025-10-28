@@ -64,7 +64,6 @@
                       <div class="mega-menu-layout">
                         <!-- Left Side - Subcategories -->
                      <div class="mega-menu-left {% if block.settings.featured_product != blank %} has-featured-product {% endif %}">
-                      <ul>
                         {% for collection in block.settings.menu_collection %}
                           <li>
                             <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
@@ -89,7 +88,6 @@
                             {% endif %}
                           </li>
                         {% endfor %}
-                      </ul>
                       </div>
 
                         
