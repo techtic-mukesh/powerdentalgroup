@@ -301,7 +301,7 @@
       "custom_css": [
         "h2.rich-text__heading.rte.inline-richtext.h1 {font-weight: 300;}",
         "h2.rich-text__heading.rte.inline-richtext.h1 strong {font-weight: 700;}",
-        ".rich-text__text.rte p {color: #5b5b5b; font-family: \"Montserrat\" !important; font-weight: 400; font-size: 16px; font-style: normal; font-weight: 300; line-height: 22px; letter-spacing: -0.16px;}"
+        ".rich-text__text.rte p {color: #5b5b5b; font-family: \"Montserrat\" !important; font-weight: 400 ; font-size: 16px; font-style: normal; line-height: 22px; letter-spacing: -0.16px;}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
