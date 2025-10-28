@@ -96,7 +96,9 @@
         "text_g9F9Xq"
       ],
       "custom_css": [
-        ".rich-text__text.rte h3 {font-size: 18px; font-style: normal; font-weight: 700; line-height: 28px; letter-spacing: 3.6px; text-transform: uppercase; font-family: \"Montserrat\"; font-style: normal; font-weight: 700; text-transform: uppercase; margin: 0;}"
+        ".rich-text__text.rte h3 {font-size: 18px; font-style: normal; font-weight: 700; line-height: 28px; letter-spacing: 3.6px; text-transform: uppercase; font-family: \"Montserrat\"; font-style: normal; font-weight: 700; text-transform: uppercase; margin: 0;}",
+        ".rich-text__text.rte p {margin-top: 0; color: #5b5b5b; text-align: center; font-family: 'Montserrat' !important; font-weight: 400; font-size: 16px; font-style: normal; line-height: 22px; letter-spacing: -.16px;}",
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 119rem; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
