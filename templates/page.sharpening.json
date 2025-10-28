@@ -127,7 +127,7 @@
       ],
       "custom_css": [
         ".custom-kitting-process-grid .kitting-item:after {display: none;}",
-        ".custom-kitting-process-grid .kitting-item .custom-kitting-text p {margin-top: 0; font-family: 'Montserrat' !important; font-weight: 400; color: #5b5b5b; text-align: center; font-size: 16px; font-style: normal; line-height: 22px; letter-spacing: -.16px;}"
+        ".custom-kitting-process-grid .kitting-item .custom-kitting-text p {margin-top: 0; font-family: \"Montserrat\" !important; font-weight: 400; color: #5b5b5b; text-align: center; font-size: 16px; font-style: normal; line-height: 22px; letter-spacing: -0.16px;}"
       ],
       "name": "Kitting Process",
       "settings": {
@@ -175,6 +175,7 @@
         "column_VA7zhW",
         "column_WkHirV"
       ],
+      "disabled": true,
       "custom_css": [
         ".multicolumn.color-scheme-2 .multicolumn-card {height: 100%;}",
         ".multicolumn.color-scheme-2 .multicolumn-card__info {padding-top: 20px;}",
