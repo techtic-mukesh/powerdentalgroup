@@ -15,6 +15,7 @@
             <a onclick="removeFilter({{filter.id}})">
               <span  class="selected-item">
                 <span class="hidden-xs">{{filter.label | escape}}</span>
+                hello
                 <strong>
                   {% if filter.attribute == 'Price' %}
                     <span class="money">{{filter.values.min | money}}</span> - <span class="money">{{filter.values.max | money}}</span>
