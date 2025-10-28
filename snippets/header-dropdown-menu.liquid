@@ -72,28 +72,28 @@
                   {% assign subcategories = main_collection.metafields.custom.subcategory.value %}
                   
                {% if subcategories != blank %}
-  {% for sub in subcategories %}
-    <li>
-      <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
-        <p>{{ sub.title }}</p>
-      </a>
+                  {% for sub in subcategories %}
+                    <li>
+                      <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
+                        <p>{{ sub.title }}</p>
+                      </a>
 
-     
-      {% assign sub_subcategories = sub.metafields.custom.subcategory.value %}
-      {% if sub_subcategories != blank %}
-        <ul class="subcategory-list">
-          {% for inner_sub in sub_subcategories %}
-            <li>
-              <a href="{{ inner_sub.url }}" class="sub-collection-item" data-image="{{ inner_sub.image | img_url: 'medium' }}">
-                <p>{{ inner_sub.title }}</p>
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </li>
-  {% endfor %}
-{% endif %}
+                    
+                      {% assign sub_subcategories = sub.metafields.custom.subcategory.value %}
+                      {% if sub_subcategories != blank %}
+                        <ul class="subcategory-list">
+                          {% for inner_sub in sub_subcategories %}
+                            <li>
+                              <a href="{{ inner_sub.url }}" class="sub-collection-item" data-image="{{ inner_sub.image | img_url: 'medium' }}">
+                                <p>{{ inner_sub.title }}</p>
+                              </a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                {% endif %}
 
                 {% endif %}
               </div>
