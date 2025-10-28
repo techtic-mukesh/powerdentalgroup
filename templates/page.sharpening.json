@@ -126,7 +126,8 @@
         "step_FczYhH"
       ],
       "custom_css": [
-        ".custom-kitting-process-grid .kitting-item:after {display: none;}"
+        ".custom-kitting-process-grid .kitting-item:after {display: none;}",
+        ".custom-kitting-process-grid .kitting-item .custom-kitting-text p {margin-top: 0; font-family: 'Montserrat' !important; font-weight: 400; color: #5b5b5b; text-align: center; font-size: 16px; font-style: normal; line-height: 22px; letter-spacing: -.16px;}"
       ],
       "name": "Kitting Process",
       "settings": {
