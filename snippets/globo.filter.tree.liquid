@@ -140,6 +140,7 @@
                   {% endif %}
 
                   <li data-collection="{{node.value}}"{% if node.is_collapse %} class="is-collapsed"{% endif %}>
+                    Hello
                     <div>
                     {% if filter.style == 'Checkbox' %}
                       <a {% if node.selected or node.value == collection_id %} class="checked"{% endif %} onclick="toggleCheckboxFilter({{filter.id}},'{{node.value}}')" title="{{node.label | escape}}">
