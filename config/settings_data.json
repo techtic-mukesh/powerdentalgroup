@@ -202,11 +202,6 @@
           "custom_settings": "{\"show_price_on_login\": \"false\", \"show_vendor\": \"false\", \"cart_counter\": \".cart-count-bubble span:first-of-type\", \"custom_filters\": \"facet-filters-form, .facet-filters__sort\", \"custom_delay\": \"500\", \"remove_all_wishlist\": \"false\",\"hide_cart_btn\": \"false\"}"
         }
       },
-      "7584948915495707528": {
-        "type": "shopify://apps/joy-loyalty-program/blocks/app-embed/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
-        "disabled": true,
-        "settings": {}
-      },
       "5059203847231188605": {
         "type": "shopify://apps/smart-product-filter-search/blocks/app-embed/5cc1944c-3014-4a2a-af40-7d65abc0ef73",
         "disabled": false,
@@ -222,6 +217,11 @@
           "customPaginationTemplateLoader": "",
           "customYMMTemplateLoader": ""
         }
+      },
+      "7584948915495707528": {
+        "type": "shopify://apps/joy-loyalty-program/blocks/app-embed/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
