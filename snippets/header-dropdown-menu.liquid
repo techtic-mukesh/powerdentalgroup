@@ -71,35 +71,21 @@
                               <p>{{ collection.title }}</p>
                             </a>
 
-                          {% assign subcategories = collection.metafields.custom.subcategory.value %}
-{% if subcategories != blank %}
-  {% assign sub_count = subcategories.size %}
-  <ul class="subcategory-list" data-count="{{ sub_count }}">
-    {% for sub in subcategories limit:5 %}
-      <li>
-        <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
-          <p>{{ sub.title }}</p>
-        </a>
-      </li>
-    {% endfor %}
-    
-    {% if sub_count > 5 %}
-      <li class="more-button">
-        <span class="more-toggle">More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 8L10 4H2L6 8Z" fill="currentColor"/></svg></span>
-        <ul class="more-subcategories">
-          {% for sub in subcategories offset:4 %}
-            <li>
-              <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
-                <p>{{ sub.title }}</p>
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </li>
-    {% endif %}
-  </ul>
-{% endif %}
+                            {% comment %} ✅ Loop through assigned subcategories metafield {% endcomment %}
+                            {% assign subcategories = collection.metafields.custom.subcategory.value %}
+                            {% if subcategories != blank %}
+                              <ul class="subcategory-list">
+                                {% for sub in subcategories %}
+                                  <li>
+                                    <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
+                                      <p>{{ sub.title }}</p>
+                                    </a>
+                                  </li>
+                                {% endfor %}
 
+                                 
+                              </ul>
+                            {% endif %}
                           </li>
                         {% endfor %}
                       </div>
