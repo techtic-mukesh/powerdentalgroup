@@ -64,37 +64,37 @@
                       <div class="mega-menu-layout">
                         <!-- Left Side - Subcategories -->
                      <div class="mega-menu-left {% if block.settings.featured_product != blank %} has-featured-product {% endif %}">
-  {% for collection in block.settings.menu_collection %}
-    <li>
-      <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
-        <div class="cin-icon"></div>
-        <p>{{ collection.title }}</p>
-      </a>
+                        {% for collection in block.settings.menu_collection %}
+                          <li>
+                            <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
+                              <div class="cin-icon"></div>
+                              <p>{{ collection.title }}</p>
+                            </a>
 
-      {% comment %} ✅ Loop through assigned subcategories metafield {% endcomment %}
-      {% assign subcategories = collection.metafields.custom.subcategory.value %}
-      {% if subcategories != blank %}
-        <ul class="subcategory-list">
-          {% for sub in subcategories limit: 2 %}
-            <li>
-              <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
-                <p>{{ sub.title }}</p>
-              </a>
-            </li>
-          {% endfor %}
+                            {% comment %} ✅ Loop through assigned subcategories metafield {% endcomment %}
+                            {% assign subcategories = collection.metafields.custom.subcategory.value %}
+                            {% if subcategories != blank %}
+                              <ul class="subcategory-list">
+                                {% for sub in subcategories limit: 2 %}
+                                  <li>
+                                    <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
+                                      <p>{{ sub.title }}</p>
+                                    </a>
+                                  </li>
+                                {% endfor %}
 
-          {% if subcategories.size > 2 %}
-            <li class="view-more-item">
-              <a href="{{ collection.url }}" class="view-more-link">
-                <p>View More</p>
-              </a>
-            </li>
-          {% endif %}
-        </ul>
-      {% endif %}
-    </li>
-  {% endfor %}
-</div>
+                                {% if subcategories.size > 1 %}
+                                  <li class="view-more-item">
+                                    <a href="{{ collection.url }}" class="view-more-link">
+                                      <p>View More</p>
+                                    </a>
+                                  </li>
+                                {% endif %}
+                              </ul>
+                            {% endif %}
+                          </li>
+                        {% endfor %}
+                      </div>
 
                         
                         <!-- Right Side - Featured Product -->
