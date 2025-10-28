@@ -48,6 +48,7 @@ Hello
         {% endif %}
       </div>
       <div class="gf-block-content">
+        Hello
         {% if filter.searchable and filter.style != 'Slider' %}<input type="text" placeholder="{{ translation.filter.search | default: "Search options"}}" value="" onkeyup="globofilter.searchValues(this);" class="gf-search">{% endif %}
         {%- assign values_count = 0 %}
         {% if filter.values %}{%- assign values_count = filter.values | size %}{% endif %}
