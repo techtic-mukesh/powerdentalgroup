@@ -294,23 +294,26 @@ $(document).ready(function () {
     });
 
     // Tab switching on hover (use data-tab)
-    $tabsMenu.find("#tabs-nav li.tabs-li").hover(function (e) {
-      e.preventDefault(); // prevent link triggering
-      const $this = $(this);
+    // Tab switching on hover (use data-tab)
+$tabsMenu.find("#tabs-nav li.tabs-li").hover(function (e) {
+  e.preventDefault();
+  const $this = $(this);
 
-      // Remove active from all tabs
-      $tabsMenu.find("#tabs-nav li.tabs-li").removeClass("active");
-      $this.addClass("active");
+  // Remove active from all tabs
+  $tabsMenu.find("#tabs-nav li.tabs-li").removeClass("active");
+  $this.addClass("active");
 
-      // Hide all tab contents
-      $tabsMenu.find(".tab-content").hide();
+  // Get the target tab content
+  const activeTab = $this.find("a").data("tab");
+  if (!activeTab) return;
 
-      // Show the one that matches data-tab
-      const activeTab = $this.find("a").data("tab");
-      if (activeTab) {
-        $tabsMenu.find(activeTab).stop(true, true).fadeIn(200);
-      }
-    });
+  // Hide all other tab contents smoothly
+  $tabsMenu.find(".tab-content").not(activeTab).stop(true, true).fadeOut(200);
+
+  // Show the active tab content smoothly
+  $tabsMenu.find(activeTab).stop(true, true).fadeIn(200);
+});
+
 
     // Allow clicking the tab link to actually go to its href
     $tabsMenu.find("#tabs-nav li.tabs-li a").on("click", function (e) {
