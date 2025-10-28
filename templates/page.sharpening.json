@@ -201,6 +201,44 @@
         "padding_bottom": 0
       }
     },
+    "power_servicing_process_e7PkYi": {
+      "type": "power-servicing-process",
+      "blocks": {
+        "step_e6pXWp": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify://shop_images/step-1_5896e89b-2e44-4fd8-8f03-9c487f8ab6b9.png",
+            "title": "Inspection",
+            "description": "Once we receive your instruments, a thorough evaluation of your instruments’ is performed."
+          }
+        },
+        "step_mK97CX": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify://shop_images/step-2_3f7a7b2e-263b-4f02-9ce2-eb1f0b64f050.png",
+            "title": "Servicing",
+            "description": "Proven technicians execute thorough repairs and comprehensive checks to ensure your instruments are restored to peak performance."
+          }
+        },
+        "step_KAPUme": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify://shop_images/step-3_62916bfa-7666-429b-a2b1-b4d9c2edfc0f.png",
+            "title": "Invoice & Ship",
+            "description": "Your order is invoiced and a shipping confirmation is emailed."
+          }
+        }
+      },
+      "block_order": [
+        "step_e6pXWp",
+        "step_mK97CX",
+        "step_KAPUme"
+      ],
+      "name": "Power Servicing Process",
+      "settings": {
+        "heading": "Power Servicing - Our Process"
+      }
+    },
     "video_single_7jCaae": {
       "type": "video-single",
       "name": "Video Single",
@@ -282,6 +320,7 @@
     "image_banner_EAxgyW",
     "kitting_process_HLWBmU",
     "multicolumn_bpPaPB",
+    "power_servicing_process_e7PkYi",
     "video_single_7jCaae",
     "rich_text_D3dQX9"
   ]
