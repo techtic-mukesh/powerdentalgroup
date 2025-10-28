@@ -336,13 +336,13 @@ ul#tabs-nav li.tabs-li a {
     height: 100%;
 }
 
-.mega-menu-layout .mega-menu-left.has-featured-product {
+.mega-menu-layout .mega-menu-left.has-featured-product ul {
     flex: 1;
     column-count: 2;
   
-}
+} 
 
-.mega-menu-layout .mega-menu-left {
+.mega-menu-layout .mega-menu-left ul {
     flex: 1;
     column-count: 3;
   
