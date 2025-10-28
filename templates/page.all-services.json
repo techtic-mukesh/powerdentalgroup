@@ -58,7 +58,9 @@
       "custom_css": [
         "h2.rich-text__heading.rte.inline-richtext.h1 {font-weight: 300;}",
         "h2.rich-text__heading.rte.inline-richtext.h1 strong {font-weight: 700;}",
-        "@media (max-width: 767px) {h2.rich-text__heading.rte.inline-richtext.h0 {font-size: 28px; line-height: 1.2; margin: 30px 0 30px;}}"
+        ".rich-text__text.rte {margin: 0;}",
+        ".rich-text__text.rte * {font-family: 'Montserrat' !important; font-weight: 400; color: #5b5b5b; text-align: center; font-size: 16px; font-style: normal; font-weight: 300; line-height: 22px; letter-spacing: -.16px;}",
+        "@media (max-width: 767px) {h2.rich-text__heading.rte.inline-richtext.h0 {font-size: 28px; line-height: 1.2; margin: 30px 0 30px; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
