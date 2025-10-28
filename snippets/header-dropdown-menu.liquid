@@ -32,121 +32,104 @@
                 tabindex="-1"
               >
            {% if forloop.first %}
-              <div class="tabs-menu">
-                <div class="tabs">
-                  <!-- Tabs Navigation -->
-                  <ul id="tabs-nav">
-                    {% for block in section.blocks %}
-                      {% if block.type == 'menu' %}
-                        <li class="tabs-li {% if forloop.first %} active{% endif %}"">
-                          <a href="{{ block.settings.menu_link }}" data-tab="#tab{{ forloop.index }}">
-                            {% if block.settings.svg %}
-                              <span class="tab-icon">{{ block.settings.svg }}</span>
-                            {% endif %}
-                            <span>{{ block.settings.menu_title }}</span>
-                            <div class="right-arw">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-                                <path d="M1 13L7 7L0.999999 1" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                              </svg>
-                            </div>
-                          </a>
-                          
-                        </li>
-                      {% endif %}
-                    {% endfor %}
-                  </ul>
+            <div class="tabs-menu">
+  <div class="tabs">
+    <!-- Tabs Navigation -->
+    <ul id="tabs-nav">
+      {% for block in section.blocks %}
+        {% if block.type == 'menu' %}
+          <li class="tabs-li {% if forloop.first %} active{% endif %}">
+            <a href="{{ block.settings.menu_link }}" data-tab="#tab{{ forloop.index }}">
+              {% if block.settings.svg %}
+                <span class="tab-icon">{{ block.settings.svg }}</span>
+              {% endif %}
+              <span>{{ block.settings.menu_title }}</span>
+              <div class="right-arw">
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+                  <path d="M1 13L7 7L0.999999 1" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    <!-- Tabs Content -->
+    <div id="tabs-content">
+      {% for block in section.blocks %}
+        {% if block.type == 'menu' %}
+          <div id="tab{{ forloop.index }}" class="tab-content" {% if forloop.first %} style="display: block;"{% endif %}>
+            <div class="mega-menu-layout">
+
+              <!-- Left Side - Subcategories -->
+              <div class="mega-menu-left {% if block.settings.featured_product != blank %} has-featured-product {% endif %}">
+                {% assign main_handle = block.settings.menu_link | split: '/' | last %}
+                {% assign main_collection = collections[main_handle] %}
+
+                {% if main_collection != blank %}
+                  {% comment %} ✅ Loop through subcategories metafield or automatic collections {% endcomment %}
+                  {% assign subcategories = main_collection.metafields.custom.subcategory.value %}
                   
-                  <!-- Tabs Content -->
-               <div id="tabs-content">
-                {% for block in section.blocks %}
-                  {% if block.type == 'menu' %}
-                    <div id="tab{{ forloop.index }}" class="tab-content" {% if forloop.first %} style="display: block;"{% endif %}>
-                      <div class="mega-menu-layout">
-                        <!-- Left Side - Subcategories -->
-                     <div class="mega-menu-left {% if block.settings.featured_product != blank %} has-featured-product {% endif %}">
-                        {% for collection in block.settings.menu_collection %}
-                          <li>
-                            <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
-                              <div class="cin-icon"></div>
-                              <p>{{ collection.title }}</p>
-                            </a>
-
-                            {% comment %} ✅ Loop through assigned subcategories metafield {% endcomment %}
-                            {% assign subcategories = collection.metafields.custom.subcategory.value %}
-                            {% if subcategories != blank %}
-                              <ul class="subcategory-list">
-                                {% for sub in subcategories %}
-                                  <li>
-                                    <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
-                                      <p>{{ sub.title }}</p>
-                                    </a>
-                                  </li>
-                                {% endfor %}
-
-                                 
-                              </ul>
-                            {% endif %}
-                          </li>
-                        {% endfor %}
-                      </div>
-
-                        
-                        <!-- Right Side - Featured Product -->
-                        {% if block.settings.featured_product != blank %}
-                        <div class="mega-menu-right">
-                            {% assign product = all_products[block.settings.featured_product] %}
-                            <div class="featured-product-card">
-                              <a href="{{ product.url }}" class="featured-product-link" style="background-image: url('{{ product.featured_image | img_url: '' }}');">
-                                <div class="featured-product-info">
-                                  <p class="featured-product-price">
-                                    {{ product.variants.first.price | money }}
-                                  </p>
-                                  <h4 class="featured-product-title">
-                                    {{ product.title }}
-                                  </h4>
-                                  <div class="sku-info">
-                                    {% if product.variants.first.sku != blank %}
-                                      <p class="featured-product-sku">
-                                        <span>SKU:</span> {{ product.variants.first.sku }}
-                                      </p>
-                                    {% endif %}
-
-                                    {% if product.available %}
-                                      <p class="featured-product-stock in-stock">
-                                        <span class="stock-indicator">
-                                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                            <g clip-path="url(#clip0_2203_9850)">
-                                              <circle cx="7" cy="7" r="6.125" fill="#28A745"/>
-                                            </g>
-                                            <defs>
-                                              <clipPath id="clip0_2203_9850">
-                                                <rect width="14" height="14" fill="white"/>
-                                              </clipPath>
-                                            </defs>
-                                          </svg>
-                                        </span>
-                                        In Stock
-                                      </p>
-                                    {% else %}
-                                      <p class="featured-product-stock out-of-stock">
-                                        <span class="stock-indicator"></span>
-                                        Out of Stock
-                                      </p>
-                                    {% endif %}
-                                  </div>
-                                </div>
-                              </a>
-                            </div>
-                         
-                        </div>
-                                  {% endif %}
-                      </div>
-                    </div>
+                  {% if subcategories != blank %}
+                    {% for sub in subcategories %}
+                      <li>
+                        <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
+                          <p>{{ sub.title }}</p>
+                        </a>
+                      </li>
+                    {% endfor %}
                   {% endif %}
-                {% endfor %}
+                {% endif %}
               </div>
+
+              <!-- Right Side - Featured Product -->
+              {% if block.settings.featured_product != blank %}
+                <div class="mega-menu-right">
+                  {% assign product = all_products[block.settings.featured_product] %}
+                  <div class="featured-product-card">
+                    <a href="{{ product.url }}" class="featured-product-link" style="background-image: url('{{ product.featured_image | img_url: '' }}');">
+                      <div class="featured-product-info">
+                        <p class="featured-product-price">{{ product.variants.first.price | money }}</p>
+                        <h4 class="featured-product-title">{{ product.title }}</h4>
+                        <div class="sku-info">
+                          {% if product.variants.first.sku != blank %}
+                            <p class="featured-product-sku"><span>SKU:</span> {{ product.variants.first.sku }}</p>
+                          {% endif %}
+                          {% if product.available %}
+                            <p class="featured-product-stock in-stock">
+                              <span class="stock-indicator">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                  <g clip-path="url(#clip0_2203_9850)">
+                                    <circle cx="7" cy="7" r="6.125" fill="#28A745"/>
+                                  </g>
+                                  <defs>
+                                    <clipPath id="clip0_2203_9850">
+                                      <rect width="14" height="14" fill="white"/>
+                                    </clipPath>
+                                  </defs>
+                                </svg>
+                              </span>
+                              In Stock
+                            </p>
+                          {% else %}
+                            <p class="featured-product-stock out-of-stock"><span class="stock-indicator"></span>Out of Stock</p>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </a>
+                  </div>
                 </div>
-              </div>
+              {% endif %}
+
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
             {% else %}
               {%- for childlink in link.links -%}
                 <li>
