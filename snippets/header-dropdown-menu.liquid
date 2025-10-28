@@ -328,9 +328,9 @@ $(document).ready(function () {
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.subcategory-list').forEach(function(list) {
     const items = list.querySelectorAll('li');
-    if (items.length > 4) {
+    if (items.length > 5) {
       // Hide all after the 5th
-      for (let i = 4; i < items.length; i++) {
+      for (let i = 5; i < items.length; i++) {
         items[i].classList.add('hidden-sub');
       }
 
