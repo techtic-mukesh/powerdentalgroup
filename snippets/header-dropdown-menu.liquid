@@ -75,7 +75,7 @@
                             {% assign subcategories = collection.metafields.custom.subcategory.value %}
                             {% if subcategories != blank %}
                               <ul class="subcategory-list">
-                                {% for sub in subcategories limit: 2 %}
+                                {% for sub in subcategories %}
                                   <li>
                                     <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
                                       <p>{{ sub.title }}</p>
@@ -83,11 +83,7 @@
                                   </li>
                                 {% endfor %}
 
-                                  <li class="view-more-item">
-                                    <a href="{{ collection.url }}" class="view-more-link">
-                                      <p>View More</p>
-                                    </a>
-                                  </li>
+                                 
                               </ul>
                             {% endif %}
                           </li>
