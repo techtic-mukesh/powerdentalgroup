@@ -352,3 +352,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 </script>
+
+<style>
+  .subcategory-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.subcategory-list li {
+  margin-bottom: 5px;
+}
+
+.hidden-sub {
+  display: none;
+}
+
+.more-btn {
+  color: var(--color-link, #009688);
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.3s ease;
+}
+
+.more-btn .arrow {
+  font-size: 10px;
+}
+
+.more-btn:hover {
+  color: var(--color-text, #000);
+}
+
+</style>
