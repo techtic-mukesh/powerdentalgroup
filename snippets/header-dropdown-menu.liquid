@@ -325,5 +325,32 @@ $(document).ready(function () {
 });
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.subcategory-list').forEach(function(list) {
+    const items = list.querySelectorAll('li');
+    if (items.length > 5) {
+      // Hide all after the 5th
+      for (let i = 5; i < items.length; i++) {
+        items[i].classList.add('hidden-sub');
+      }
+
+      // Create More button
+      const moreBtn = document.createElement('li');
+      moreBtn.className = 'more-btn';
+      moreBtn.innerHTML = 'More <span class="arrow">▼</span>';
+      list.appendChild(moreBtn);
+
+      // Hover logic
+      moreBtn.addEventListener('mouseenter', () => {
+        list.querySelectorAll('.hidden-sub').forEach(el => el.style.display = 'block');
+      });
+      moreBtn.addEventListener('mouseleave', () => {
+        list.querySelectorAll('.hidden-sub').forEach(el => el.style.display = 'none');
+      });
+    }
+  });
+});
+
+
 
 </script>
