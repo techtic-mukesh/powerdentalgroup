@@ -63,67 +63,39 @@
                     <div id="tab{{ forloop.index }}" class="tab-content" {% if forloop.first %} style="display: block;"{% endif %}>
                       <div class="mega-menu-layout">
                         <!-- Left Side - Subcategories -->
-                      <div class="mega-menu-left {% if block.settings.featured_product != blank %} has-featured-product {% endif %}">
-                        {% for collection in block.settings.menu_collection %}
-                          <li>
-                            <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
-                              <div class="cin-icon"></div>
-                              <p>{{ collection.title }}</p>
-                            </a>
-                            
-                            <!-- 🔽 Subcategories Matching This Main Collection -->
-                            {% assign sub_groups = (1..10) %}
-                            {% assign has_subs = false %}
-                            {% assign sub_count = 0 %}
-                            {% assign total_subs = 0 %}
-                            
-                            {% comment %} First pass: count total matching subcollections {% endcomment %}
-                            {% for i in sub_groups %}
-                              {% assign sub_title_key = 'sub_title_' | append: i %}
-                              {% assign sub_collection_key = 'sub_collection_' | append: i %}
-                              {% assign sub_title = block.settings[sub_title_key] %}
-                              {% assign sub_collection = block.settings[sub_collection_key] %}
+                     <div class="mega-menu-left {% if block.settings.featured_product != blank %} has-featured-product {% endif %}">
+  {% for collection in block.settings.menu_collection %}
+    <li>
+      <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
+        <div class="cin-icon"></div>
+        <p>{{ collection.title }}</p>
+      </a>
 
-                              {% if sub_title == collection.title and sub_collection != blank %}
-                                {% assign total_subs = total_subs | plus: sub_collection.size %}
-                              {% endif %}
-                            {% endfor %}
+      {% comment %} ✅ Loop through assigned subcategories metafield {% endcomment %}
+      {% assign subcategories = collection.metafields.custom.subcategory.value %}
+      {% if subcategories != blank %}
+        <ul class="subcategory-list">
+          {% for sub in subcategories limit: 2 %}
+            <li>
+              <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
+                <p>{{ sub.title }}</p>
+              </a>
+            </li>
+          {% endfor %}
 
-                            {% comment %} Second pass: display first 2 subcollections {% endcomment %}
-                            <ul class="subcategory-list">
-                              {% for i in sub_groups %}
-                                {% assign sub_title_key = 'sub_title_' | append: i %}
-                                {% assign sub_collection_key = 'sub_collection_' | append: i %}
-                                {% assign sub_title = block.settings[sub_title_key] %}
-                                {% assign sub_collection = block.settings[sub_collection_key] %}
+          {% if subcategories.size > 2 %}
+            <li class="view-more-item">
+              <a href="{{ collection.url }}" class="view-more-link">
+                <p>View More</p>
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</div>
 
-                                {% if sub_title == collection.title and sub_collection != blank %}
-                                  {% for sub in sub_collection %}
-                                    {% if sub_count < 2 %}
-                                      <li>
-                                        <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
-                                          <p>{{ sub.title }}</p>
-                                        </a>
-                                      </li>
-                                      {% assign sub_count = sub_count | plus: 1 %}
-                                      {% assign has_subs = true %}
-                                    {% endif %}
-                                  {% endfor %}
-
-                                  <li class="view-more-item">
-                                    <a href="{{ collection.url }}" class="view-more-link">
-                                      <p>View More</p>
-                                    </a>
-                                  </li>
-                                {% endif %}
-                              {% endfor %}
-                              
-                              {% comment %} Show "View More" if more than 2 subcollections exist {% endcomment %}
-                                
-                            </ul>
-                          </li>
-                        {% endfor %}
-                      </div>
                         
                         <!-- Right Side - Featured Product -->
                         {% if block.settings.featured_product != blank %}
