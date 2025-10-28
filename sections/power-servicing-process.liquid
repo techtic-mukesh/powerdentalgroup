@@ -9,16 +9,21 @@
     <div class="process-grid">
       {% for block in section.blocks %}
         <div class="process-item">
-          {% if block.settings.step_image != blank %}
+            <div class="ps-header">
+                  {% if block.settings.title != blank %}
+            <h3 class="process-title">{{ block.settings.title }}</h3>
+          {% endif %}
+
+                 {% if block.settings.step_image != blank %}
             <img
               src="{{ block.settings.step_image | img_url: 'master' }}"
               alt="Step {{ forloop.index }}"
               class="process-number"
             >
           {% endif %}
-          {% if block.settings.title != blank %}
-            <h3 class="process-title">{{ block.settings.title }}</h3>
-          {% endif %}
+        
+            </div>
+         
           {% if block.settings.description != blank %}
             <p class="process-desc">{{ block.settings.description }}</p>
           {% endif %}
