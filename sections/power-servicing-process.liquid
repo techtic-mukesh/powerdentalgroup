@@ -52,7 +52,35 @@
 }
 
 
+.ps-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid #d3d4d8;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
 
+.ps-header h3.process-title {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Montserrat';
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: -.44px;
+    background: linear-gradient(102deg, #42c5ef, #0033a0, #42c5ef, #0033a0);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: color .2s 
+ease-in-out;
+}
 
     @media (max-width: 767px) {
       .process-grid {
