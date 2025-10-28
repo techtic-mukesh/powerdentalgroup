@@ -340,12 +340,10 @@ document.addEventListener('DOMContentLoaded', function() {
       moreBtn.innerHTML = 'More <span class="arrow">▼</span>';
       list.appendChild(moreBtn);
 
-      // Hover logic
+      // Mouse enter (show all + remove button)
       moreBtn.addEventListener('mouseenter', () => {
         list.querySelectorAll('.hidden-sub').forEach(el => el.style.display = 'block');
-      });
-      moreBtn.addEventListener('mouseleave', () => {
-        list.querySelectorAll('.hidden-sub').forEach(el => el.style.display = 'none');
+        moreBtn.remove(); // remove "More" button
       });
     }
   });
