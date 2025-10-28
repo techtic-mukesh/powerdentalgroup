@@ -47,35 +47,15 @@
             "menu_title": "Power Line",
             "menu_collection": [
               "diagnostic-exam",
+              "hygiene-implant-maintenance",
+              "atraumatic-extraction",
               "crown-removal",
-              "sinus-lift-kits",
-              "hygiene"
+              "soft-tissue-flap-management",
+              "suturing-instruments",
+              "implant-placement-aids",
+              "kits-cassettes",
+              "black-edition"
             ],
-            "sub_title_1": "Headlamps and Loupes",
-            "sub_collection_1": [
-              "headlamps",
-              "cams"
-            ],
-            "sub_title_2": "Cams",
-            "sub_collection_2": [
-              "amalgam-carriers"
-            ],
-            "sub_title_3": "Cams",
-            "sub_collection_3": [],
-            "sub_title_4": "",
-            "sub_collection_4": [],
-            "sub_title_5": "",
-            "sub_collection_5": [],
-            "sub_title_6": "",
-            "sub_collection_6": [],
-            "sub_title_7": "",
-            "sub_collection_7": [],
-            "sub_title_8": "",
-            "sub_collection_8": [],
-            "sub_title_9": "",
-            "sub_collection_9": [],
-            "sub_title_10": "",
-            "sub_collection_10": [],
             "featured_product": "anterior-sickle-scaler-h6-h7-double-ended"
           }
         },
@@ -93,32 +73,6 @@
               "accessories",
               "curettes"
             ],
-            "sub_title_1": "Scalers",
-            "sub_collection_1": [
-              "sickle-scalers",
-              "sickle-scalers-anterior",
-              "sickle-scalers-posterior",
-              "universal-curettes",
-              "ball-scalers"
-            ],
-            "sub_title_2": "",
-            "sub_collection_2": [],
-            "sub_title_3": "",
-            "sub_collection_3": [],
-            "sub_title_4": "",
-            "sub_collection_4": [],
-            "sub_title_5": "",
-            "sub_collection_5": [],
-            "sub_title_6": "",
-            "sub_collection_6": [],
-            "sub_title_7": "",
-            "sub_collection_7": [],
-            "sub_title_8": "",
-            "sub_collection_8": [],
-            "sub_title_9": "",
-            "sub_collection_9": [],
-            "sub_title_10": "",
-            "sub_collection_10": [],
             "featured_product": "scaler-and-curette-kit-set-of-6-with-cassette"
           }
         },
@@ -134,29 +88,6 @@
               "calipers",
               "diagnostic-kits"
             ],
-            "sub_title_1": "Mirrors",
-            "sub_collection_1": [
-              "mirror-handles",
-              "mirror-heads"
-            ],
-            "sub_title_2": "",
-            "sub_collection_2": [],
-            "sub_title_3": "",
-            "sub_collection_3": [],
-            "sub_title_4": "",
-            "sub_collection_4": [],
-            "sub_title_5": "",
-            "sub_collection_5": [],
-            "sub_title_6": "",
-            "sub_collection_6": [],
-            "sub_title_7": "",
-            "sub_collection_7": [],
-            "sub_title_8": "",
-            "sub_collection_8": [],
-            "sub_title_9": "",
-            "sub_collection_9": [],
-            "sub_title_10": "",
-            "sub_collection_10": [],
             "featured_product": "probe-x-sets-set-of-3-1151-1b-probe-x-exp-23cp12-1151"
           }
         },
@@ -188,38 +119,6 @@
               "calipers",
               "needle-holders"
             ],
-            "sub_title_1": "Kits And Collections",
-            "sub_collection_1": [
-              "implant-kits",
-              "extraction-kits"
-            ],
-            "sub_title_2": "Forceps",
-            "sub_collection_2": [
-              "micro-forceps",
-              "extraction-forceps"
-            ],
-            "sub_title_3": "Bone Instruments",
-            "sub_collection_3": [
-              "bone-files",
-              "bone-kits"
-            ],
-            "sub_title_4": "Needle Holders",
-            "sub_collection_4": [
-              "crile",
-              "mayo-hegar"
-            ],
-            "sub_title_5": "",
-            "sub_collection_5": [],
-            "sub_title_6": "",
-            "sub_collection_6": [],
-            "sub_title_7": "",
-            "sub_collection_7": [],
-            "sub_title_8": "",
-            "sub_collection_8": [],
-            "sub_title_9": "",
-            "sub_collection_9": [],
-            "sub_title_10": "",
-            "sub_collection_10": [],
             "featured_product": ""
           }
         },
@@ -250,31 +149,6 @@
               "hoes",
               "crown-removal"
             ],
-            "sub_title_1": "Amalgam Hand Instruments",
-            "sub_collection_1": [
-              "amalgam-carriers"
-            ],
-            "sub_title_2": "Crown Removal",
-            "sub_collection_2": [
-              "crown-scissors",
-              "crown-spreaders"
-            ],
-            "sub_title_3": "",
-            "sub_collection_3": [],
-            "sub_title_4": "",
-            "sub_collection_4": [],
-            "sub_title_5": "",
-            "sub_collection_5": [],
-            "sub_title_6": "",
-            "sub_collection_6": [],
-            "sub_title_7": "",
-            "sub_collection_7": [],
-            "sub_title_8": "",
-            "sub_collection_8": [],
-            "sub_title_9": "",
-            "sub_collection_9": [],
-            "sub_title_10": "",
-            "sub_collection_10": [],
             "featured_product": ""
           }
         },
@@ -292,26 +166,6 @@
               "disc-guard",
               "tweezers"
             ],
-            "sub_title_1": "",
-            "sub_collection_1": [],
-            "sub_title_2": "",
-            "sub_collection_2": [],
-            "sub_title_3": "",
-            "sub_collection_3": [],
-            "sub_title_4": "",
-            "sub_collection_4": [],
-            "sub_title_5": "",
-            "sub_collection_5": [],
-            "sub_title_6": "",
-            "sub_collection_6": [],
-            "sub_title_7": "",
-            "sub_collection_7": [],
-            "sub_title_8": "",
-            "sub_collection_8": [],
-            "sub_title_9": "",
-            "sub_collection_9": [],
-            "sub_title_10": "",
-            "sub_collection_10": [],
             "featured_product": "orthodontic-wire-cutter-str-thin-soft-t-c-13cm-ligature-cutter-max-cutting-soft-wire-size-020-5607k"
           }
         },
@@ -326,26 +180,6 @@
               "loupes",
               "accessories"
             ],
-            "sub_title_1": "",
-            "sub_collection_1": [],
-            "sub_title_2": "",
-            "sub_collection_2": [],
-            "sub_title_3": "",
-            "sub_collection_3": [],
-            "sub_title_4": "",
-            "sub_collection_4": [],
-            "sub_title_5": "",
-            "sub_collection_5": [],
-            "sub_title_6": "",
-            "sub_collection_6": [],
-            "sub_title_7": "",
-            "sub_collection_7": [],
-            "sub_title_8": "",
-            "sub_collection_8": [],
-            "sub_title_9": "",
-            "sub_collection_9": [],
-            "sub_title_10": "",
-            "sub_collection_10": [],
             "featured_product": ""
           }
         },
@@ -367,29 +201,6 @@
               "tweezers",
               "endodontic-cassettes"
             ],
-            "sub_title_1": "Rubber Dam Instruments",
-            "sub_collection_1": [
-              "rubber-dam-pliers",
-              "rubber-dam-punch"
-            ],
-            "sub_title_2": "",
-            "sub_collection_2": [],
-            "sub_title_3": "",
-            "sub_collection_3": [],
-            "sub_title_4": "",
-            "sub_collection_4": [],
-            "sub_title_5": "",
-            "sub_collection_5": [],
-            "sub_title_6": "",
-            "sub_collection_6": [],
-            "sub_title_7": "",
-            "sub_collection_7": [],
-            "sub_title_8": "",
-            "sub_collection_8": [],
-            "sub_title_9": "",
-            "sub_collection_9": [],
-            "sub_title_10": "",
-            "sub_collection_10": [],
             "featured_product": "endo-spreaders-d11ts-3411"
           }
         },
@@ -406,32 +217,6 @@
               "piezo-tips",
               "gbr-prf-cassettes"
             ],
-            "sub_title_1": "Cassettes",
-            "sub_collection_1": [
-              "endodontic-cassettes",
-              "utility-cassettes"
-            ],
-            "sub_title_2": "Centrifuges & Accessories",
-            "sub_collection_2": [
-              "centrifuge-machine",
-              "prf-tubes"
-            ],
-            "sub_title_3": "",
-            "sub_collection_3": [],
-            "sub_title_4": "",
-            "sub_collection_4": [],
-            "sub_title_5": "",
-            "sub_collection_5": [],
-            "sub_title_6": "",
-            "sub_collection_6": [],
-            "sub_title_7": "",
-            "sub_collection_7": [],
-            "sub_title_8": "",
-            "sub_collection_8": [],
-            "sub_title_9": "",
-            "sub_collection_9": [],
-            "sub_title_10": "",
-            "sub_collection_10": [],
             "featured_product": ""
           }
         }
