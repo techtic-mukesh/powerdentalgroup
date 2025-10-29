@@ -48,12 +48,13 @@ a.button.button--secondary {
 
 .badge {
         border-radius: unset;
-    background: linear-gradient(90deg, #42c5ef, #0033a0);
+    background: linear-gradient(102deg,#42c5ef,#0033a0 50% 50%,#42c5ef)!important;
     overflow: hidden;
     background-color: unset;
     text-transform: uppercase;
     padding: 8px 20px;
     color: #fff;
+    border-radius: 4px;
 }
 
 .disclosure .localization-form__select svg[preserveAspectRatio="xMidYMid meet"] {
@@ -96,6 +97,13 @@ a.button.button--secondary:after {
     display: grid !important;
     grid-template-columns: 350px auto auto auto auto;
     gap: 40px;
+}
+
+.jdgm-rev-widg__title {
+    font-size: 36px !important;
+    line-height: 40px !important;
+    text-transform: uppercase !important;
+    margin: 0 0 20px !important;
 }
 
 .grid--3-col-tablet .grid__item {
@@ -456,7 +464,12 @@ a.jdgm-write-rev-link:hover {
     cursor: pointer;
     position: relative;
     margin-bottom: 0;
+    display: flex;
   }
+
+  .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    z-index: 2;
+}
 
 .footer-block.grid__item.footer-block--menu   .footer-block__heading::after {
            content: "";
@@ -489,6 +502,13 @@ a.jdgm-write-rev-link:hover {
 .footer-block.grid__item.footer-block--menu {
     margin: 0 !important;
 }
+
+.jdgm-rev-widg__title {
+    font-size: 24px !important;
+          line-height: 1.4 !important;
+    text-transform: uppercase !important;
+    margin: 0 0 20px;
+} 
 
 .footer__content-top {
     padding-left: 15px;

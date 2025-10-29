@@ -1,6 +1,6 @@
 <!-- sections/two-buttons-with-dynamic-pdf.liquid -->
 <section class="two-buttons-pdf-section">
-  <div class="container">
+  <div class="page-width">
     {% if section.settings.heading != blank %}
       <h1>{{ section.settings.heading }}</h1>
     {% endif %}
@@ -8,7 +8,7 @@
     <div class="buttons-wrapper">
       <div class="button-item">
         {% if section.settings.button1_label != blank %}
-          <a href="{{ section.settings.button1_link }}" class="btn btn-primary">
+          <a id="dwld-pdf" href="{{ section.settings.button1_link }}" class="btn btn-primary">
             {{ section.settings.button1_label }}
           </a>
         {% endif %}
@@ -16,7 +16,7 @@
 
       <div class="button-item">
         {% if section.settings.button2_label != blank %}
-          <a href="{{ section.settings.button2_link }}" class="btn btn-secondary">
+          <a target="_blank" href="{{ section.settings.button2_link }}" class="btn btn-secondary">
             {{ section.settings.button2_label }}
           </a>
         {% endif %}
@@ -35,6 +35,33 @@
     {% endif %}
   </div>
 </section>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const downloadBtn = document.getElementById('dwld-pdf');
+  const pdfIframe = document.querySelector('.pdf-container iframe');
+
+  if (downloadBtn && pdfIframe) {
+    downloadBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Get the actual PDF URL from iframe src
+      const pdfUrl = pdfIframe.getAttribute('src');
+      if (pdfUrl) {
+        // Create a temporary invisible link to trigger download
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = pdfUrl.split('/').pop() || 'document.pdf';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    });
+  }
+});
+</script>
+
 
 {% schema %}
 {
@@ -106,7 +133,7 @@
 }
 
 section.two-buttons-pdf-section {
-    padding-bottom: 60px;
+    padding: 60px 0;
 }
 {% endstylesheet %}
 

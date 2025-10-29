@@ -41,7 +41,11 @@
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
       <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
+
+      
+        
         <form class="facets-vertical-form" id="FacetSortForm">
+          
           <div class="facet-filters sorting caption">
             <div class="facet-filters__field">
               <h2 class="facet-filters__label caption-large text-body">
@@ -241,6 +245,15 @@
       "info": "t:sections.all.colors.has_cards_info",
       "default": "scheme-1"
     },
+    {
+      "type": "header",
+      "content": "Category Settings"
+    },
+       {
+          "type": "collection_list",
+          "id": "filter_collection",
+          "label": "Filter Collection"
+        },
     {
       "type": "header",
       "content": "t:sections.main-collection-product-grid.settings.header__3.content"

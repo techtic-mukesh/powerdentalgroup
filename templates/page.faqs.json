@@ -8,6 +8,26 @@
         "padding_bottom": 28
       }
     },
+    "custom_breadcrumb_8rKEjU": {
+      "type": "custom-breadcrumb",
+      "blocks": {
+        "breadcrumb_item_RPaQRk": {
+          "type": "breadcrumb_item",
+          "settings": {
+            "label": "Resources",
+            "link": "shopify:\/\/pages\/resources"
+          }
+        }
+      },
+      "block_order": [
+        "breadcrumb_item_RPaQRk"
+      ],
+      "name": "Custom Breadcrumb Section",
+      "settings": {
+        "background_gradient": "",
+        "page_title": "Servicing Order Form"
+      }
+    },
     "faq_tabs_xpzDTP": {
       "type": "faq-tabs",
       "blocks": {
@@ -277,6 +297,7 @@
   },
   "order": [
     "main",
+    "custom_breadcrumb_8rKEjU",
     "faq_tabs_xpzDTP",
     "our_services_HFXeCY"
   ]

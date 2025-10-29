@@ -1,5 +1,5 @@
 <section class="shows-faq-section">
-  <div class="shows-container">
+  <div class="page-width">
     <div class="shows-header">
       {% if section.settings.shows_faq_section_title != blank %}
         <h2 class="shows-faq-title">{{ section.settings.shows_faq_section_title }}</h2>
@@ -140,7 +140,7 @@
     color: #5b5b5b;
     text-align: center;
     font-family: 'Montserrat';
-    font-weight: 400;
+    font-weight: 400 !important;
     line-height: 1.4;
     max-width: 90%;
     margin: 0 auto;
@@ -199,7 +199,7 @@ ease-in-out infinite;
 h4.shows-faq-info-title {
     color: #5b5b5b;
     font-family: 'Montserrat' !important;
-    font-weight: 400;
+    font-weight: 400 !important;
     margin-top: 0;
     font-size: 16px;
     font-style: normal;
@@ -207,6 +207,10 @@ h4.shows-faq-info-title {
     line-height: 22px;
     letter-spacing: -.16px;
     padding-left: 20px;
+}
+
+.sw-wrap .right-im {
+    min-width: 420px;
 }
 
 .sw-wrap {
@@ -278,9 +282,23 @@ h4.shows-faq-info-title {
     flex-direction: column;
 }
 
+.sw-wrap .right-im {
+    min-width: 100%;
+    max-width: 420px;
+} 
+
+h3.shows-faq-question p {
+    font-size: 16px;
+}
+
 body.gradient.page\.become-a-distributor     .rich-text__text.rte {
 
     width: 100% !important;
+}
+
+.shows-header h2.shows-faq-title {
+    font-size: 32px;
+    line-height: 1.2;
 }
 
 
@@ -293,19 +311,10 @@ body.gradient.page\.become-a-distributor     .rich-text__text.rte {
     object-position: center;
 }
 
-.shows-header h2.shows-faq-title {
-    font-size: 32px;
-    line-height: 1.2;
-}
 
-.shows-faq-section {
-    padding: 40px 0;
-}
 
-h3.shows-faq-question p {
-    font-size: 16px;
-}
   }
+  
 </style>
 
 {% schema %}

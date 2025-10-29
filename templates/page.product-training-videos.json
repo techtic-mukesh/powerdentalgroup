@@ -8,6 +8,26 @@
         "padding_bottom": 28
       }
     },
+    "custom_breadcrumb_YDbbTg": {
+      "type": "custom-breadcrumb",
+      "blocks": {
+        "breadcrumb_item_4EHFfa": {
+          "type": "breadcrumb_item",
+          "settings": {
+            "label": "Resources",
+            "link": "shopify:\/\/pages\/resources"
+          }
+        }
+      },
+      "block_order": [
+        "breadcrumb_item_4EHFfa"
+      ],
+      "name": "Custom Breadcrumb Section",
+      "settings": {
+        "background_gradient": "",
+        "page_title": "Servicing Order Form"
+      }
+    },
     "product_training_videos_block_knfrYA": {
       "type": "product-training-videos-block",
       "blocks": {
@@ -364,6 +384,7 @@
   },
   "order": [
     "main",
+    "custom_breadcrumb_YDbbTg",
     "product_training_videos_block_knfrYA",
     "product_training_videos_block_ihV3if",
     "product_training_videos_block_wqhtKV",

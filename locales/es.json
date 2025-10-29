@@ -569,6 +569,12 @@
         "error_message": "No se puede actualizar el método de pago",
         "current": "Actual"
       }
+    },
+    "subscriptions": {
+      "update_success": {
+        "title": "Método de pago actualizado",
+        "done_button": "Seguir comprando"
+      }
     }
   }
 }

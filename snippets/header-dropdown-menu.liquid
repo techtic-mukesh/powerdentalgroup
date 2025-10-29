@@ -11,7 +11,7 @@
       <li class="{{- link.title | escape -}}">
         {%- if link.links != blank -%}
           <header-menu>
-            <details id="Details-HeaderMenu-{{ forloop.index }}">
+            <details id="Details-HeaderMenu-{{ forloop.index }}" data-url="{{ link.url }}">
               <summary
                 id="HeaderMenu-{{ link.handle }}"
                 class="header__menu-item list-menu__item link focus-inset"
@@ -32,155 +32,119 @@
                 tabindex="-1"
               >
            {% if forloop.first %}
-              <div class="tabs-menu">
-                <div class="tabs">
-                  <!-- Tabs Navigation -->
-                  <ul id="tabs-nav">
-                    {% for block in section.blocks %}
-                      {% if block.type == 'menu' %}
-                        <li class="tabs-li {% if forloop.first %} active{% endif %}"">
-                          <a href="{{ block.settings.menu_link }}" data-tab="#tab{{ forloop.index }}">
-                            {% if block.settings.svg %}
-                              <span class="tab-icon">{{ block.settings.svg }}</span>
-                            {% endif %}
-                            <span>{{ block.settings.menu_title }}</span>
-                            <div class="right-arw">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
-                                <path d="M1 13L7 7L0.999999 1" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                              </svg>
-                            </div>
-                          </a>
-                          
-                        </li>
-                      {% endif %}
-                    {% endfor %}
-                  </ul>
+            <div class="tabs-menu">
+  <div class="tabs">
+    <!-- Tabs Navigation -->
+    <ul id="tabs-nav">
+      {% for block in section.blocks %}
+        {% if block.type == 'menu' %}
+          <li class="tabs-li {% if forloop.first %} active{% endif %}">
+            <a href="{{ block.settings.menu_link }}" data-tab="#tab{{ forloop.index }}">
+              {% if block.settings.svg %}
+                <span class="tab-icon">{{ block.settings.svg }}</span>
+              {% endif %}
+              <span>{{ block.settings.menu_title }}</span>
+              <div class="right-arw">
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+                  <path d="M1 13L7 7L0.999999 1" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    <!-- Tabs Content -->
+    <div id="tabs-content">
+      {% for block in section.blocks %}
+        {% if block.type == 'menu' %}
+          <div id="tab{{ forloop.index }}" class="tab-content" {% if forloop.first %} style="display: block;"{% endif %}>
+            <div class="mega-menu-layout">
+
+              <!-- Left Side - Subcategories -->
+              <div class="mega-menu-left {% if block.settings.featured_product != blank %} has-featured-product {% endif %}">
+                {% assign main_handle = block.settings.menu_link | split: '/' | last %}
+                {% assign main_collection = collections[main_handle] %}
+
+                {% if main_collection != blank %}
+                  {% comment %} ✅ Loop through subcategories metafield or automatic collections {% endcomment %}
+                  {% assign subcategories = main_collection.metafields.custom.subcategory.value %}
                   
-                  <!-- Tabs Content -->
-               <div id="tabs-content">
-                {% for block in section.blocks %}
-                  {% if block.type == 'menu' %}
-                    <div id="tab{{ forloop.index }}" class="tab-content" {% if forloop.first %} style="display: block;"{% endif %}>
-                      <div class="mega-menu-layout">
-                        <!-- Left Side - Subcategories -->
-                      <div class="mega-menu-left {% if block.settings.featured_product != blank %} has-featured-product {% endif %}">
-                        {% for collection in block.settings.menu_collection %}
-                          <li>
-                            <a href="{{ collection.url }}" class="collection-item" data-image="{{ collection.image | img_url: '' }}">
-                              <div class="cin-icon"></div>
-                              <p>{{ collection.title }}</p>
-                            </a>
-                            
-                            <!-- 🔽 Subcategories Matching This Main Collection -->
-                            {% assign sub_groups = (1..10) %}
-                            {% assign has_subs = false %}
-                            {% assign sub_count = 0 %}
-                            {% assign total_subs = 0 %}
-                            
-                            {% comment %} First pass: count total matching subcollections {% endcomment %}
-                            {% for i in sub_groups %}
-                              {% assign sub_title_key = 'sub_title_' | append: i %}
-                              {% assign sub_collection_key = 'sub_collection_' | append: i %}
-                              {% assign sub_title = block.settings[sub_title_key] %}
-                              {% assign sub_collection = block.settings[sub_collection_key] %}
+               {% if subcategories != blank %}
+                  {% for sub in subcategories %}
+                    <li>
+                      <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
+                        <p>{{ sub.title }}</p>
+                      </a>
 
-                              {% if sub_title == collection.title and sub_collection != blank %}
-                                {% assign total_subs = total_subs | plus: sub_collection.size %}
-                              {% endif %}
-                            {% endfor %}
-
-                            {% comment %} Second pass: display first 2 subcollections {% endcomment %}
-                            <ul class="subcategory-list">
-                              {% for i in sub_groups %}
-                                {% assign sub_title_key = 'sub_title_' | append: i %}
-                                {% assign sub_collection_key = 'sub_collection_' | append: i %}
-                                {% assign sub_title = block.settings[sub_title_key] %}
-                                {% assign sub_collection = block.settings[sub_collection_key] %}
-
-                                {% if sub_title == collection.title and sub_collection != blank %}
-                                  {% for sub in sub_collection %}
-                                    {% if sub_count < 2 %}
-                                      <li>
-                                        <a href="{{ sub.url }}" class="sub-collection-item" data-image="{{ sub.image | img_url: 'medium' }}">
-                                          <p>{{ sub.title }}</p>
-                                        </a>
-                                      </li>
-                                      {% assign sub_count = sub_count | plus: 1 %}
-                                      {% assign has_subs = true %}
-                                    {% endif %}
-                                  {% endfor %}
-
-                                  <li class="view-more-item">
-                                    <a href="{{ collection.url }}" class="view-more-link">
-                                      <p>View More</p>
-                                    </a>
-                                  </li>
-                                {% endif %}
-                              {% endfor %}
-                              
-                              {% comment %} Show "View More" if more than 2 subcollections exist {% endcomment %}
-                                
-                            </ul>
-                          </li>
-                        {% endfor %}
-                      </div>
-                        
-                        <!-- Right Side - Featured Product -->
-                        {% if block.settings.featured_product != blank %}
-                        <div class="mega-menu-right">
-                            {% assign product = all_products[block.settings.featured_product] %}
-                            <div class="featured-product-card">
-                              <a href="{{ product.url }}" class="featured-product-link" style="background-image: url('{{ product.featured_image | img_url: '' }}');">
-                                <div class="featured-product-info">
-                                  <p class="featured-product-price">
-                                    {{ product.variants.first.price | money }}
-                                  </p>
-                                  <h4 class="featured-product-title">
-                                    {{ product.title }}
-                                  </h4>
-                                  <div class="sku-info">
-                                    {% if product.variants.first.sku != blank %}
-                                      <p class="featured-product-sku">
-                                        <span>SKU:</span> {{ product.variants.first.sku }}
-                                      </p>
-                                    {% endif %}
-
-                                    {% if product.available %}
-                                      <p class="featured-product-stock in-stock">
-                                        <span class="stock-indicator">
-                                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                            <g clip-path="url(#clip0_2203_9850)">
-                                              <circle cx="7" cy="7" r="6.125" fill="#28A745"/>
-                                            </g>
-                                            <defs>
-                                              <clipPath id="clip0_2203_9850">
-                                                <rect width="14" height="14" fill="white"/>
-                                              </clipPath>
-                                            </defs>
-                                          </svg>
-                                        </span>
-                                        In Stock
-                                      </p>
-                                    {% else %}
-                                      <p class="featured-product-stock out-of-stock">
-                                        <span class="stock-indicator"></span>
-                                        Out of Stock
-                                      </p>
-                                    {% endif %}
-                                  </div>
-                                </div>
+                    
+                      {% assign sub_subcategories = sub.metafields.custom.subcategory.value %}
+                      {% if sub_subcategories != blank %}
+                        <ul class="subcategory-list">
+                          {% for inner_sub in sub_subcategories %}
+                            <li>
+                              <a href="{{ inner_sub.url }}" class="sub-collection-item" data-image="{{ inner_sub.image | img_url: 'medium' }}">
+                                <p>{{ inner_sub.title }}</p>
                               </a>
-                            </div>
-                         
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    </li>
+                  {% endfor %}
+                {% endif %}
+
+                {% endif %}
+              </div>
+
+              <!-- Right Side - Featured Product -->
+              {% if block.settings.featured_product != blank %}
+                <div class="mega-menu-right">
+                  {% assign product = all_products[block.settings.featured_product] %}
+                  <div class="featured-product-card">
+                    <a href="{{ product.url }}" class="featured-product-link" style="background-image: url('{{ product.featured_image | img_url: '' }}');">
+                      <div class="featured-product-info">
+                        <p class="featured-product-price">{{ product.variants.first.price | money }}</p>
+                        <h4 class="featured-product-title">{{ product.title }}</h4>
+                        <div class="sku-info">
+                          {% if product.variants.first.sku != blank %}
+                            <p class="featured-product-sku"><span>SKU:</span> {{ product.variants.first.sku }}</p>
+                          {% endif %}
+                          {% if product.available %}
+                            <p class="featured-product-stock in-stock">
+                              <span class="stock-indicator">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                  <g clip-path="url(#clip0_2203_9850)">
+                                    <circle cx="7" cy="7" r="6.125" fill="#28A745"/>
+                                  </g>
+                                  <defs>
+                                    <clipPath id="clip0_2203_9850">
+                                      <rect width="14" height="14" fill="white"/>
+                                    </clipPath>
+                                  </defs>
+                                </svg>
+                              </span>
+                              In Stock
+                            </p>
+                          {% else %}
+                            <p class="featured-product-stock out-of-stock"><span class="stock-indicator"></span>Out of Stock</p>
+                          {% endif %}
                         </div>
-                                  {% endif %}
                       </div>
-                    </div>
-                  {% endif %}
-                {% endfor %}
-              </div>
+                    </a>
+                  </div>
                 </div>
-              </div>
+              {% endif %}
+
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
             {% else %}
               {%- for childlink in link.links -%}
                 <li>
@@ -327,24 +291,26 @@ $(document).ready(function () {
       }
     });
 
-    // Tab switching on hover (use data-tab)
-    $tabsMenu.find("#tabs-nav li.tabs-li").hover(function (e) {
-      e.preventDefault(); // prevent link triggering
-      const $this = $(this);
+   // Tab switching on hover (use data-tab)
+$tabsMenu.find("#tabs-nav li.tabs-li").hover(function (e) {
+  e.preventDefault();
+  const $this = $(this);
 
-      // Remove active from all tabs
-      $tabsMenu.find("#tabs-nav li.tabs-li").removeClass("active");
-      $this.addClass("active");
+  // Remove active from all tabs
+  $tabsMenu.find("#tabs-nav li.tabs-li").removeClass("active");
+  $this.addClass("active");
 
-      // Hide all tab contents
-      $tabsMenu.find(".tab-content").hide();
+  // Get the target tab content
+  const activeTab = $this.find("a").data("tab");
+  if (!activeTab) return;
 
-      // Show the one that matches data-tab
-      const activeTab = $this.find("a").data("tab");
-      if (activeTab) {
-        $tabsMenu.find(activeTab).stop(true, true).fadeIn(200);
-      }
-    });
+  // Hide all other tab contents immediately (no fade)
+  $tabsMenu.find(".tab-content").not(activeTab).stop(true, true).hide();
+
+  // Show the active tab content smoothly
+  $tabsMenu.find(activeTab).stop(true, true).fadeIn(200);
+});
+
 
     // Allow clicking the tab link to actually go to its href
     $tabsMenu.find("#tabs-nav li.tabs-li a").on("click", function (e) {
@@ -359,5 +325,65 @@ $(document).ready(function () {
 });
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.subcategory-list').forEach(function(list) {
+    const items = list.querySelectorAll('li');
+    if (items.length > 5) {
+      // Hide all after the 5th
+      for (let i = 5; i < items.length; i++) {
+        items[i].classList.add('hidden-sub');
+      }
+
+      // Create More button
+      const moreBtn = document.createElement('li');
+      moreBtn.className = 'more-btn';
+      moreBtn.innerHTML = 'More <span class="arrow">▼</span>';
+      list.appendChild(moreBtn);
+
+      // Mouse enter (show all + remove button)
+      moreBtn.addEventListener('mouseenter', () => {
+        list.querySelectorAll('.hidden-sub').forEach(el => el.style.display = 'block');
+        moreBtn.remove(); // remove "More" button
+      });
+    }
+  });
+});
+
+
 
 </script>
+
+<style>
+  .subcategory-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.subcategory-list li {
+  margin-bottom: 5px;
+}
+
+.hidden-sub {
+  display: none;
+}
+
+.more-btn {
+  color: #0033a0;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.3s ease;
+}
+
+.more-btn .arrow {
+  font-size: 10px;
+}
+
+.more-btn:hover {
+  color: var(--color-text, #000);
+}
+
+</style>

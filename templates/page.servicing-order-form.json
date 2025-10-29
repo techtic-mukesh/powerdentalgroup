@@ -8,6 +8,26 @@
         "padding_bottom": 28
       }
     },
+    "custom_breadcrumb_fkqjt9": {
+      "type": "custom-breadcrumb",
+      "blocks": {
+        "breadcrumb_item_FHtTQC": {
+          "type": "breadcrumb_item",
+          "settings": {
+            "label": "Resources",
+            "link": "shopify:\/\/pages\/resources"
+          }
+        }
+      },
+      "block_order": [
+        "breadcrumb_item_FHtTQC"
+      ],
+      "name": "Custom Breadcrumb Section",
+      "settings": {
+        "background_gradient": "linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 51, 160, 1) 100%)",
+        "page_title": "Servicing Order Form"
+      }
+    },
     "two_buttons_with_pdf_D8fxU3": {
       "type": "two-buttons-with-pdf",
       "name": "Two Buttons with PDF",
@@ -101,6 +121,7 @@
   },
   "order": [
     "main",
+    "custom_breadcrumb_fkqjt9",
     "two_buttons_with_pdf_D8fxU3",
     "vision_BJpYwz",
     "resource_fiiwfg"

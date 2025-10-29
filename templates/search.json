@@ -3,7 +3,7 @@
     "main": {
       "type": "main-search",
       "settings": {
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "columns_mobile": "1",
         "image_ratio": "portrait",
         "image_shape": "default",

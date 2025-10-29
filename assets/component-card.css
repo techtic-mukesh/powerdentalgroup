@@ -380,8 +380,8 @@
     grid-row-start: unset;
     justify-self: flex-start;
     position: absolute;
-    top: 0;
-    left: -1px;
+    top: 4px;
+    left: 4px;
 }
 
 .card__badge.top {
@@ -529,19 +529,20 @@
 
 .card--standard > .card__content {
   padding: 0;
-  position: relative;
 }
 
 .card__information span.discount-percent {
-    position: absolute;
-    right: 18px;
-    top: -44px;
-    font-size: 14px;
+  font-size: 14px;
     font-weight: 400;
     color: red;
     border: 1px solid red;
     padding: 4px 8px;
     border-radius: 10px 0;
+    margin-left: auto;
+    display: inline-table;
+    position: absolute;
+    margin-top: -40px;
+    right: 10px;
 }
 
 .card--standard > .card__content .card__information {

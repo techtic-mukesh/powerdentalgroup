@@ -1,0 +1,113 @@
+{% schema %}
+{
+  "name": "Custom Breadcrumb Section",
+  "settings": [
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background Gradient",
+    },
+    {
+      "type": "text",
+      "id": "page_title",
+      "label": "Page Title",
+      "default": "Servicing Order Form"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "breadcrumb_item",
+      "name": "Breadcrumb Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Resources"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Breadcrumb Section"
+    }
+  ]
+}
+{% endschema %}
+
+<section
+  class="custom-breadcrumb-section"
+>
+  <div class="page-width breadcrumb-inner">
+    <nav class="breadcrumb-nav">
+      <a href="{{ routes.root_url }}" class="breadcrumb-home">Home</a>
+
+      {% for block in section.blocks %}
+        <span class="breadcrumb-separator">›</span>
+        {% if block.settings.link != blank %}
+          <a href="{{ block.settings.link }}" class="breadcrumb-link">{{ block.settings.label }}</a>
+        {% else %}
+          <span class="breadcrumb-label">{{ block.settings.label }}</span>
+        {% endif %}
+      {% endfor %}
+
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">{{ page.title }}</span>
+    </nav>
+  </div>
+</section>
+
+<style>
+.custom-breadcrumb-section {
+    padding: 23px 0;
+    color: #fff;
+    background-image: url(https://cdn.shopify.com/s/files/1/0697/9538/1398/files/breadcrumbs-bar.jpg?v=1761380069);
+    background-size: cover;
+}
+
+.breadcrumb-inner {
+  margin: 0 auto;
+}
+.breadcrumb-nav {
+     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 16px;
+    font-family: 'Prompt';
+    font-weight: 300;
+}
+.breadcrumb-nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+.breadcrumb-nav a:hover {
+  opacity: 0.8;
+}
+.breadcrumb-separator {
+  color: #fff;
+}
+.breadcrumb-current {
+  font-weight: 400;
+}
+
+@media (max-width:640px) {
+.breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 13px;
+    font-family: 'Prompt';
+    font-weight: 300;
+    row-gap: 0;
+}
+}
+</style>

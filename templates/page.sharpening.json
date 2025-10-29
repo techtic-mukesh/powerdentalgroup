@@ -8,6 +8,26 @@
         "padding_bottom": 28
       }
     },
+    "custom_breadcrumb_hadjXN": {
+      "type": "custom-breadcrumb",
+      "blocks": {
+        "breadcrumb_item_q8zqDC": {
+          "type": "breadcrumb_item",
+          "settings": {
+            "label": "Services",
+            "link": "shopify:\/\/pages\/services"
+          }
+        }
+      },
+      "block_order": [
+        "breadcrumb_item_q8zqDC"
+      ],
+      "name": "Custom Breadcrumb Section",
+      "settings": {
+        "background_gradient": "",
+        "page_title": "{{ page.title }}"
+      }
+    },
     "image_banner_EAxgyW": {
       "type": "image-banner",
       "blocks": {
@@ -96,6 +116,10 @@
         "step_7QVJ8w",
         "step_FczYhH"
       ],
+      "custom_css": [
+        ".custom-kitting-process-grid .kitting-item:after {display: none;}",
+        ".custom-kitting-process-grid .kitting-item .custom-kitting-text p {margin-top: 0; font-family: \"Montserrat\" !important; font-weight: 400; color: #5b5b5b; text-align: center; font-size: 16px; font-style: normal; line-height: 22px; letter-spacing: -0.16px;}"
+      ],
       "name": "Kitting Process",
       "settings": {
         "heading": "<p><strong>why service your<\/strong> instruments?<\/p>",
@@ -142,6 +166,7 @@
         "column_VA7zhW",
         "column_WkHirV"
       ],
+      "disabled": true,
       "custom_css": [
         ".multicolumn.color-scheme-2 .multicolumn-card {height: 100%;}",
         ".multicolumn.color-scheme-2 .multicolumn-card__info {padding-top: 20px;}",
@@ -151,7 +176,7 @@
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "POWER SERVICING - Our PROCESS",
+        "title": "<strong>POWER SERVICING<\/strong> - Our <strong>PROCESS<\/strong>",
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "adapt",
@@ -165,6 +190,44 @@
         "swipe_on_mobile": true,
         "padding_top": 52,
         "padding_bottom": 0
+      }
+    },
+    "power_servicing_process_e7PkYi": {
+      "type": "power-servicing-process",
+      "blocks": {
+        "step_e6pXWp": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify:\/\/shop_images\/step-1_5896e89b-2e44-4fd8-8f03-9c487f8ab6b9.png",
+            "title": "Inspection",
+            "description": "Once we receive your instruments, a thorough evaluation of your instruments’ is performed."
+          }
+        },
+        "step_mK97CX": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify:\/\/shop_images\/step-2_3f7a7b2e-263b-4f02-9ce2-eb1f0b64f050.png",
+            "title": "Servicing",
+            "description": "Proven technicians execute thorough repairs and comprehensive checks to ensure your instruments are restored to peak performance."
+          }
+        },
+        "step_KAPUme": {
+          "type": "step",
+          "settings": {
+            "step_image": "shopify:\/\/shop_images\/step-3_62916bfa-7666-429b-a2b1-b4d9c2edfc0f.png",
+            "title": "Invoice & Ship",
+            "description": "Your order is invoiced and a shipping confirmation is emailed."
+          }
+        }
+      },
+      "block_order": [
+        "step_e6pXWp",
+        "step_mK97CX",
+        "step_KAPUme"
+      ],
+      "name": "Power Servicing Process",
+      "settings": {
+        "heading": "<p><strong>POWER SERVICING<\/strong> - Our <strong>PROCESS<\/strong><\/p>"
       }
     },
     "video_single_7jCaae": {
@@ -197,7 +260,7 @@
         "heading_JkMgDB": {
           "type": "heading",
           "settings": {
-            "heading": "take the next step",
+            "heading": "take the <strong>next step<\/strong>",
             "heading_size": "h1"
           }
         },
@@ -226,6 +289,12 @@
         "text_KeaPc8",
         "button_mh3yHi"
       ],
+      "custom_css": [
+        "h2.rich-text__heading.rte.inline-richtext.h1 {font-weight: 300;}",
+        "h2.rich-text__heading.rte.inline-richtext.h1 strong {font-weight: 700;}",
+        ".rich-text__text.rte p {color: #5b5b5b; font-family: \"Montserrat\" !important; font-weight: 400; font-size: 16px; font-style: normal; line-height: 22px; letter-spacing: -0.16px;}",
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 120rem; }}"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -239,9 +308,11 @@
   },
   "order": [
     "main",
+    "custom_breadcrumb_hadjXN",
     "image_banner_EAxgyW",
     "kitting_process_HLWBmU",
     "multicolumn_bpPaPB",
+    "power_servicing_process_e7PkYi",
     "video_single_7jCaae",
     "rich_text_D3dQX9"
   ]

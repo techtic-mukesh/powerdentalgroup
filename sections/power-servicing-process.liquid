@@ -1,0 +1,174 @@
+<section class="power-servicing-process">
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="process-heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    <div class="process-grid">
+      {% for block in section.blocks %}
+        <div class="process-item">
+            <div class="ps-header">
+                  {% if block.settings.title != blank %}
+            <h3 class="process-title">{{ block.settings.title }}</h3>
+          {% endif %}
+
+                 {% if block.settings.step_image != blank %}
+            <img
+              src="{{ block.settings.step_image | img_url: 'master' }}"
+              alt="Step {{ forloop.index }}"
+              class="process-number"
+            >
+          {% endif %}
+        
+            </div>
+         
+          {% if block.settings.description != blank %}
+            <p class="process-desc">{{ block.settings.description }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <style>
+   .power-servicing-process {
+        background: #f8f6f4;
+        padding: 40px 0 30px;
+        text-align: center;
+    }
+
+  
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+   .process-item {
+    background: #fff;
+    padding: 18px;
+}
+
+
+.ps-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px solid #d3d4d8;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.ps-header h3.process-title {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Montserrat';
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: -.44px;
+    background: linear-gradient(102deg, #42c5ef, #0033a0, #42c5ef, #0033a0);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: color .2s 
+ease-in-out;
+}
+
+.ps-header h3:hover {
+    animation: rainbow 1.25s 
+ease-in-out infinite;
+}
+
+.ps-header h3:hover {
+    animation: rainbow 1.25s 
+ease-in-out infinite;
+}
+
+.process-grid p.process-desc {
+    margin: 0;
+    font-family: 'Montserrat' !important;
+    font-weight: 400;
+    color: #5b5b5b;
+    text-align: left;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 22px;
+    letter-spacing: -.16px;
+}
+
+h2.process-heading p {
+    margin: 0;
+    font-size: 44px;
+    line-height: 48px;
+    font-weight: 300;
+}
+
+h2.process-heading p strong {
+    font-weight: 700;
+}
+
+    @media (max-width: 767px) {
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h2.process-heading p {
+    font-size: 28px;
+    line-height: 1.2;
+}
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Power Servicing Process",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "step_image",
+          "label": "Step Number Image (e.g. 01, 02, 03)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step Title",
+          "default": "Inspection"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Step Description",
+          "default": "Once we receive your instruments, a thorough evaluation is performed."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Power Servicing Process",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

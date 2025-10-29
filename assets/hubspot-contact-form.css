@@ -156,6 +156,7 @@ font-size: 16px;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
+    margin: 0;
 }
 
 .hubspot-contact-right .hs_message.hs-message.hs-fieldtype-textarea.field.hs-form-field .input {

@@ -48,7 +48,10 @@
       ],
       "custom_css": [
         "h2.rich-text__heading.rte.inline-richtext.h1 {font-weight: 300;}",
-        "h2.rich-text__heading.rte.inline-richtext.h1 strong {font-weight: 700;}"
+        "h2.rich-text__heading.rte.inline-richtext.h1 strong {font-weight: 700;}",
+        ".rich-text__text.rte {margin: 0;}",
+        ".rich-text__text.rte * {font-family: 'Montserrat' !important; font-weight: 400; color: #5b5b5b; text-align: center; font-size: 16px; font-style: normal; font-weight: 300; line-height: 22px; letter-spacing: -.16px;}",
+        "@media (max-width: 767px) {h2.rich-text__heading.rte.inline-richtext.h0 {font-size: 28px; line-height: 1.2; margin: 30px 0 30px; }}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
@@ -93,6 +96,7 @@
         "service_jh77jG",
         "service_JkbdUB"
       ],
+      "disabled": true,
       "custom_css": [
         "section.our-services {padding-top: 0;}",
         "section.our-services .title-wrap {display: none;}"
@@ -110,12 +114,23 @@
     "multirow_fUMxAg": {
       "type": "multirow",
       "blocks": {
+        "row_jcf8TR": {
+          "type": "row",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Custom-Manufacturing_7f83622b-343a-49b0-a25b-214b46d1f8d3.jpg",
+            "caption": "",
+            "heading": "Custom <strong>Kitting<\/strong>",
+            "text": "<p>Bring your vision to life through our proven custom design and engineering process.<\/p>",
+            "button_label": "More Details",
+            "button_link": "shopify:\/\/pages\/custom-kitting"
+          }
+        },
         "row_fAGUbJ": {
           "type": "row",
           "settings": {
             "image": "shopify:\/\/shop_images\/Dental-Instrumentation_17581536-12b4-47ea-b831-8d07d4c991f7.jpg",
             "caption": "",
-            "heading": "Trade-in Program",
+            "heading": "Trade-in <strong>Program<\/strong>",
             "text": "<p>Have access to a full suite of essential, highly specialized, and innovative instrumentation for every indication.<\/p>",
             "button_label": "Shop Now",
             "button_link": "shopify:\/\/pages\/trade-in-program"
@@ -126,32 +141,21 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Servicing_48da65e8-edc6-4398-8107-3d8cb1754b27.jpg",
             "caption": "",
-            "heading": "Sharpen,Retip & Repair",
+            "heading": "Sharpen, <strong>Retip & Repair<\/strong>",
             "text": "<p>Increase the longevity of your instruments through our multifaceted instrument servicing program.<\/p>",
             "button_label": "More Details",
             "button_link": "shopify:\/\/pages\/sharpen-retip-repair"
           }
-        },
-        "row_jcf8TR": {
-          "type": "row",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Custom-Manufacturing_7f83622b-343a-49b0-a25b-214b46d1f8d3.jpg",
-            "caption": "",
-            "heading": "Custom Kitting",
-            "text": "<p>Bring your vision to life through our proven custom design and engineering process.<\/p>",
-            "button_label": "More Details",
-            "button_link": "shopify:\/\/pages\/custom-kitting"
-          }
         }
       },
       "block_order": [
+        "row_jcf8TR",
         "row_fAGUbJ",
-        "row_ttKnb6",
-        "row_jcf8TR"
+        "row_ttKnb6"
       ],
-      "disabled": true,
       "custom_css": [
-        ".image-with-text .grid {gap: 20px;}"
+        ".image-with-text .grid {gap: 40px;}",
+        "@media (max-width: 767px) {.image-with-text .grid {gap: 0; }}"
       ],
       "name": "t:sections.multirow.presets.name",
       "settings": {
@@ -161,7 +165,7 @@
         "heading_size": "h1",
         "text_style": "subtitle",
         "button_style": "secondary",
-        "desktop_content_position": "middle",
+        "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "mobile_content_alignment": "left",
         "section_color_scheme": "",

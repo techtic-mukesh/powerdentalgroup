@@ -1,5 +1,25 @@
 {
   "sections": {
+    "custom_breadcrumb_9iVixm": {
+      "type": "custom-breadcrumb",
+      "blocks": {
+        "breadcrumb_item_dLyYnz": {
+          "type": "breadcrumb_item",
+          "settings": {
+            "label": "Resources",
+            "link": "shopify:\/\/pages\/resources"
+          }
+        }
+      },
+      "block_order": [
+        "breadcrumb_item_dLyYnz"
+      ],
+      "name": "Custom Breadcrumb Section",
+      "settings": {
+        "background_gradient": "",
+        "page_title": "Servicing Order Form"
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -100,6 +120,7 @@
     }
   },
   "order": [
+    "custom_breadcrumb_9iVixm",
     "main",
     "two_buttons_with_pdf_nYNppj",
     "vision_7RRFwe",

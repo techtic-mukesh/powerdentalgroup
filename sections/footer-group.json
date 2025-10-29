@@ -74,9 +74,10 @@
         },
         "link_list_nkA4RP": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
             "heading": "Products",
-            "menu": "products"
+            "menu": ""
           }
         },
         "link_list_DK8MUK": {

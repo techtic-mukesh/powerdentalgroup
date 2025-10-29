@@ -195,12 +195,12 @@
       },
       "7584948915495707528": {
         "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/app-embed\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
-        "disabled": true,
+        "disabled": false,
         "settings": {}
       },
       "5059203847231188605": {
         "type": "shopify:\/\/apps\/smart-product-filter-search\/blocks\/app-embed\/5cc1944c-3014-4a2a-af40-7d65abc0ef73",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "productGridSelector": "",
           "useCustomQuickviewTemplate": false,
