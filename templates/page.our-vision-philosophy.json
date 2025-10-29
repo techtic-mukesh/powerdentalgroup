@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -34,14 +43,14 @@
         "heading_9ni9td": {
           "type": "heading",
           "settings": {
-            "heading": "our vision & <strong>philosophy<\/strong>",
+            "heading": "our vision & <strong>philosophy</strong>",
             "heading_size": "h1"
           }
         },
         "text_V9d4Ww": {
           "type": "text",
           "settings": {
-            "text": "<p>Power Dental Group is a 2nd generation family business focused on manufacturing highly specialized dental instrumentation that emphasizes efficiency and repeatable results.<\/p><p>Disruption, innovation, and performance are at the core of every action we take. We are not afraid to challenge traditional methodologies and in doing so, we push the thresholds of what people think is possible through the instrumentation they use.<br\/><br\/>We set the standard, and continue to raise it higher. With over 50 years of combined dental experience and a team of the best doctors in the industry, it's time to experience what the true Power of ground-breaking instrumentation can do for your dental practice.<\/p>",
+            "text": "<p>Power Dental Group is a 2nd generation family business focused on manufacturing highly specialized dental instrumentation that emphasizes efficiency and repeatable results.</p><p>Disruption, innovation, and performance are at the core of every action we take. We are not afraid to challenge traditional methodologies and in doing so, we push the thresholds of what people think is possible through the instrumentation they use.<br/><br/>We set the standard, and continue to raise it higher. With over 50 years of combined dental experience and a team of the best doctors in the industry, it's time to experience what the true Power of ground-breaking instrumentation can do for your dental practice.</p>",
             "text_style": "body"
           }
         }
@@ -52,7 +61,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify:\/\/shop_images\/vision_and_philosophy_banner.jpg",
+        "image": "shopify://shop_images/vision_and_philosophy_banner.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "image_behavior": "none",
@@ -78,7 +87,7 @@
         "text_g9F9Xq": {
           "type": "text",
           "settings": {
-            "text": "<h3>Em<em>powering<\/em> Dentistry to do <em>more<\/em>.<\/h3><p>We are fueled by this resolute mission to equip dental professionals with the tools, support, and innovation required to surpass limitations, create lasting impacts, and advance dentistry to new heights that were once unthinkable.<\/p><p>To fulfill this mission, we uphold these core principles, keeping them close to our hearts and at the forefront of our minds each and every day.<\/p>"
+            "text": "<h3>Em<em>powering</em> Dentistry to do <em>more</em>.</h3><p>We are fueled by this resolute mission to equip dental professionals with the tools, support, and innovation required to surpass limitations, create lasting impacts, and advance dentistry to new heights that were once unthinkable.</p><p>To fulfill this mission, we uphold these core principles, keeping them close to our hearts and at the forefront of our minds each and every day.</p>"
           }
         }
       },
@@ -107,45 +116,45 @@
         "step_hRzjx4": {
           "type": "step",
           "settings": {
-            "step_image": "shopify:\/\/shop_images\/people-first-icon_6c1f8d87-4232-453e-b2a4-13f62ae6440e.png",
+            "step_image": "shopify://shop_images/people-first-icon_6c1f8d87-4232-453e-b2a4-13f62ae6440e.png",
             "step_svg": "",
-            "title": "<p>People <strong>- We care.<\/strong><\/p>",
+            "title": "<p>People <strong>- We care.</strong></p>",
             "content": ""
           }
         },
         "step_ATRfbM": {
           "type": "step",
           "settings": {
-            "step_image": "shopify:\/\/shop_images\/people-first-icon_6c1f8d87-4232-453e-b2a4-13f62ae6440e.png",
+            "step_image": "shopify://shop_images/people-first-icon_6c1f8d87-4232-453e-b2a4-13f62ae6440e.png",
             "step_svg": "",
-            "title": "<p>Integrity <strong>- We do what's right.<\/strong><\/p>",
+            "title": "<p>Integrity <strong>- We do what's right.</strong></p>",
             "content": ""
           }
         },
         "step_zr963c": {
           "type": "step",
           "settings": {
-            "step_image": "shopify:\/\/shop_images\/performance-icon_6c397ae0-c350-4582-8419-49256e3cf2c4.png",
+            "step_image": "shopify://shop_images/performance-icon_6c397ae0-c350-4582-8419-49256e3cf2c4.png",
             "step_svg": "",
-            "title": "<p>Performance <strong>- We execute.<\/strong><\/p>",
+            "title": "<p>Performance <strong>- We execute.</strong></p>",
             "content": ""
           }
         },
         "step_gfFPkX": {
           "type": "step",
           "settings": {
-            "step_image": "shopify:\/\/shop_images\/impact-icon_81420320-5b56-4485-b410-58640eaa3644.png",
+            "step_image": "shopify://shop_images/impact-icon_81420320-5b56-4485-b410-58640eaa3644.png",
             "step_svg": "",
-            "title": "<p>Impact <strong>- We drive change.<\/strong><\/p>",
+            "title": "<p>Impact <strong>- We drive change.</strong></p>",
             "content": ""
           }
         },
         "step_e97ffP": {
           "type": "step",
           "settings": {
-            "step_image": "shopify:\/\/shop_images\/inspiring-icon_7c3292f3-fb6a-44e0-815e-ffd9af017c07.png",
+            "step_image": "shopify://shop_images/inspiring-icon_7c3292f3-fb6a-44e0-815e-ffd9af017c07.png",
             "step_svg": "",
-            "title": "<p>Improvement <strong>- We're relentless in our pursuit of better.<\/strong><\/p>",
+            "title": "<p>Improvement <strong>- We're relentless in our pursuit of better.</strong></p>",
             "content": ""
           }
         }
