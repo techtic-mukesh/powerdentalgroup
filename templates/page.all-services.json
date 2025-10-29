@@ -126,23 +126,12 @@
         "row_jcf8TR": {
           "type": "row",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Custom-Manufacturing_7f83622b-343a-49b0-a25b-214b46d1f8d3.jpg",
-            "caption": "",
-            "heading": "Custom <strong>Kitting<\/strong>",
-            "text": "<p>Bring your vision to life through our proven custom design and engineering process.<\/p>",
-            "button_label": "More Details",
-            "button_link": "shopify:\/\/pages\/custom-kitting"
-          }
-        },
-        "row_fAGUbJ": {
-          "type": "row",
-          "settings": {
             "image": "shopify://shop_images/Custom-Manufacturing_7f83622b-343a-49b0-a25b-214b46d1f8d3.jpg",
             "caption": "",
-            "heading": "Trade-in <strong>Program<\/strong>",
-            "text": "<p>Have access to a full suite of essential, highly specialized, and innovative instrumentation for every indication.<\/p>",
-            "button_label": "Shop Now",
-            "button_link": "shopify:\/\/pages\/trade-in-program"
+            "heading": "Custom <strong>Kitting</strong>",
+            "text": "<p>Bring your vision to life through our proven custom design and engineering process.</p>",
+            "button_label": "More Details",
+            "button_link": "shopify://pages/custom-kitting"
           }
         },
         "row_fAGUbJ": {
@@ -150,17 +139,16 @@
           "settings": {
             "image": "shopify://shop_images/Dental-Instrumentation_17581536-12b4-47ea-b831-8d07d4c991f7.jpg",
             "caption": "",
-            "heading": "Sharpen, <strong>Retip & Repair<\/strong>",
-            "text": "<p>Increase the longevity of your instruments through our multifaceted instrument servicing program.<\/p>",
+            "heading": "Sharpen, <strong>Retip & Repair</strong>",
+            "text": "<p>Increase the longevity of your instruments through our multifaceted instrument servicing program.</p>",
             "button_label": "More Details",
-            "button_link": "shopify:\/\/pages\/sharpen-retip-repair"
+            "button_link": "shopify://pages/sharpen-retip-repair"
           }
         }
       },
       "block_order": [
         "row_jcf8TR",
-        "row_fAGUbJ",
-        "row_ttKnb6"
+        "row_fAGUbJ"
       ],
       "custom_css": [
         ".image-with-text .grid {gap: 40px;}",
