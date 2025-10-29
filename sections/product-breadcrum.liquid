@@ -1,0 +1,84 @@
+<section class="custom-breadcrumb-section">
+  <div class="page-width breadcrumb-inner">
+    <nav class="breadcrumb-nav">
+      <a href="{{ routes.root_url }}" class="breadcrumb-home">Home</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="/collections" class="breadcrumb-link">Products</a>
+
+      {% if product %}
+        {% for collection in product.collections %}
+          <span class="breadcrumb-separator">›</span>
+          <a href="{{ collection.url }}" class="breadcrumb-link">{{ collection.title }}</a>
+        {% endfor %}
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">{{ product.title }}</span>
+      {% elsif collection %}
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">{{ collection.title }}</span>
+      {% elsif page %}
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">{{ page.title }}</span>
+      {% endif %}
+    </nav>
+  </div>
+</section>
+
+<style>
+.custom-breadcrumb-section {
+  padding: 23px 0;
+  color: #fff;
+  background-image: url(https://cdn.shopify.com/s/files/1/0697/9538/1398/files/breadcrumbs-bar.jpg?v=1761380069);
+  background-size: cover;
+}
+
+.breadcrumb-inner {
+  margin: 0 auto;
+}
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 16px;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 300;
+}
+
+.breadcrumb-nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.breadcrumb-nav a:hover {
+  opacity: 0.8;
+}
+
+.breadcrumb-separator {
+  color: #fff;
+}
+
+.breadcrumb-current {
+  font-weight: 400;
+}
+
+@media (max-width: 640px) {
+  .breadcrumb-nav {
+    gap: 6px;
+    font-size: 13px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Product Breadcrumb",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Breadcrumb"
+    }
+  ]
+}
+{% endschema %}

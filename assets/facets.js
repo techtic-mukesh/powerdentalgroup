@@ -79,18 +79,36 @@ class FacetFiltersForm extends HTMLElement {
     if (typeof initializeScrollAnimationTrigger === 'function') initializeScrollAnimationTrigger(html.innerHTML);
   }
 
-  static renderProductGridContainer(html) {
-    document.getElementById('ProductGridContainer').innerHTML = new DOMParser()
-      .parseFromString(html, 'text/html')
-      .getElementById('ProductGridContainer').innerHTML;
+ static renderProductGridContainer(html) {
+  const existingContainer = document.getElementById('ProductGridContainer');
 
-    document
-      .getElementById('ProductGridContainer')
-      .querySelectorAll('.scroll-trigger')
-      .forEach((element) => {
-        element.classList.add('scroll-trigger--cancel');
-      });
+  // Preserve category filter element
+  const categoryFilter = existingContainer.querySelector('.category-filter');
+
+  const parsedHTML = new DOMParser().parseFromString(html, 'text/html');
+  const newGrid = parsedHTML.getElementById('ProductGridContainer').querySelector('.collection');
+
+  const collectionElement = existingContainer.querySelector('.collection');
+  if (collectionElement) {
+    const category = collectionElement.querySelector('.category-filter');
+    if (category) category.remove();
+    collectionElement.innerHTML = newGrid.innerHTML;
+    if (categoryFilter) {
+      collectionElement.insertAdjacentElement('afterbegin', categoryFilter);
+    }
+    
+    // ✅ Remove loading class to hide overlay
+    collectionElement.classList.remove('loading');
   }
+
+  // Reapply category filter state
+  if (window.CategoryFilterManager) {
+    const state = window.CategoryFilterManager.getCurrentState();
+    window.CategoryFilterManager.restoreState(state);
+  }
+}
+
+
 
   static renderProductCount(html) {
     const count = new DOMParser().parseFromString(html, 'text/html').getElementById('ProductCount').innerHTML;
@@ -117,7 +135,6 @@ class FacetFiltersForm extends HTMLElement {
       '#FacetFiltersForm .js-filter, #FacetFiltersFormMobile .js-filter, #FacetFiltersPillsForm .js-filter'
     );
 
-    // Remove facets that are no longer returned from the server
     Array.from(facetDetailsElementsFromDom).forEach((currentElement) => {
       if (!Array.from(facetDetailsElementsFromFetch).some(({ id }) => currentElement.id === id)) {
         currentElement.remove();
@@ -134,13 +151,11 @@ class FacetFiltersForm extends HTMLElement {
 
     facetsToRender.forEach((elementToRender, index) => {
       const currentElement = document.getElementById(elementToRender.id);
-      // Element already rendered in the DOM so just update the innerHTML
       if (currentElement) {
         document.getElementById(elementToRender.id).innerHTML = elementToRender.innerHTML;
       } else {
         if (index > 0) {
           const { className: previousElementClassName, id: previousElementId } = facetsToRender[index - 1];
-          // Same facet type (eg horizontal/vertical or drawer/mobile)
           if (elementToRender.className === previousElementClassName) {
             document.getElementById(previousElementId).after(elementToRender);
             return;
@@ -363,3 +378,217 @@ class FacetRemove extends HTMLElement {
 }
 
 customElements.define('facet-remove', FacetRemove);
+
+// ============================================
+// CATEGORY FILTER MANAGER
+// ============================================
+// ============================================
+// CATEGORY FILTER MANAGER
+// ============================================
+window.CategoryFilterManager = (function() {
+  const STORAGE_KEY = 'categoryFilterState';
+
+  function getCurrentCollectionHandle() {
+    const path = window.location.pathname;
+    const match = path.match(/\/collections\/([^\/\?]+)/);
+    return match ? match[1] : null;
+  }
+
+  function loadState() {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved ? JSON.parse(saved) : { selectedItem: null };
+    } catch (e) {
+      return { selectedItem: null };
+    }
+  }
+
+  function saveState(state) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {
+      console.error('Failed to save filter state');
+    }
+  }
+
+  function findParentHandles(handle) {
+    const parents = [];
+    const checkbox = document.querySelector(`.category-filter__checkbox[data-handle="${handle}"]`);
+
+    if (checkbox) {
+      let parent = checkbox.closest('.category-filter__item').parentElement;
+      while (parent) {
+        if (parent.classList.contains('category-filter__list')) {
+          const parentItem = parent.closest('.category-filter__item');
+          if (parentItem) {
+            const parentCheckbox = parentItem.querySelector(':scope > .category-filter__row .category-filter__checkbox');
+            if (parentCheckbox) parents.push(parentCheckbox.dataset.handle);
+          }
+        }
+        parent = parent.parentElement;
+      }
+    }
+    return parents;
+  }
+
+  function closeAllItems() {
+    document.querySelectorAll('.category-filter__item').forEach(li => {
+      li.classList.remove('open');
+      const childList = li.querySelector('.category-filter__list');
+      if (childList) childList.style.display = 'none';
+    });
+  }
+
+  function openItemsByHandles(handles) {
+    handles.forEach(handle => {
+      const checkbox = document.querySelector(`.category-filter__checkbox[data-handle="${handle}"]`);
+      if (checkbox) {
+        const item = checkbox.closest('.category-filter__item');
+        if (item) {
+          item.classList.add('open');
+          const childList = item.querySelector('.category-filter__list');
+          if (childList) childList.style.display = 'block';
+        }
+      }
+    });
+  }
+
+  function getCurrentState() {
+    const openItems = [];
+    document.querySelectorAll('.category-filter__item.open').forEach(item => {
+      const checkbox = item.querySelector(':scope > .category-filter__row .category-filter__checkbox');
+      if (checkbox) openItems.push(checkbox.dataset.handle);
+    });
+
+    let selectedHandle = null;
+    const selectedCheckbox = document.querySelector('.category-filter__checkbox:checked');
+    if (selectedCheckbox) selectedHandle = selectedCheckbox.dataset.handle;
+
+    return { openItems, selectedHandle };
+  }
+
+  function restoreState(state) {
+    if (!document.querySelector('.category-filter')) return;
+
+    document.querySelectorAll('.category-filter__checkbox').forEach(chk => chk.checked = false);
+    closeAllItems();
+
+    if (state && state.selectedHandle) {
+      const checkbox = document.querySelector(`.category-filter__checkbox[data-handle="${state.selectedHandle}"]`);
+      if (checkbox) checkbox.checked = true;
+
+      if (state.openItems && state.openItems.length > 0) {
+        openItemsByHandles(state.openItems);
+      } else {
+        const parents = findParentHandles(state.selectedHandle);
+        openItemsByHandles(parents);
+      }
+    } else {
+      const currentHandle = getCurrentCollectionHandle();
+      if (currentHandle) {
+        const currentCheckbox = document.querySelector(`.category-filter__checkbox[data-handle="${currentHandle}"]`);
+        if (currentCheckbox) currentCheckbox.checked = true;
+
+        const parents = findParentHandles(currentHandle);
+        openItemsByHandles(parents);
+
+        saveState({ selectedItem: currentHandle });
+      }
+    }
+  }
+
+  function init() {
+    if (!document.querySelector('.category-filter')) return;
+
+    document.addEventListener('click', function(e) {
+      // Toggle open/close for items
+      const toggleBtn = e.target.closest('.category-filter__toggle');
+      if (toggleBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        const li = toggleBtn.closest('.category-filter__item');
+        const childList = li.querySelector('.category-filter__list');
+        if (!childList) return;
+
+        const isOpen = li.classList.contains('open');
+        if (isOpen) {
+          childList.style.display = 'none';
+          li.classList.remove('open');
+        } else {
+          childList.style.display = 'block';
+          li.classList.add('open');
+        }
+        return;
+      }
+
+      // Checkbox click
+      if (e.target.classList.contains('category-filter__checkbox')) {
+        const checkbox = e.target;
+
+        // Uncheck all others
+        document.querySelectorAll('.category-filter__checkbox').forEach(otherChk => {
+          if (otherChk !== checkbox) otherChk.checked = false;
+        });
+
+        checkbox.checked = true;
+        saveState({ selectedItem: checkbox.dataset.handle });
+
+        if (checkbox.dataset.url) {
+          const drawer = document.querySelector('menu-drawer');
+          if (drawer && typeof drawer.hide === 'function') drawer.hide();
+          setTimeout(() => { window.location.href = checkbox.dataset.url; }, 50);
+        }
+        return;
+      }
+
+      // Label click
+      const label = e.target.closest('.category-filter__label');
+      if (label && e.target.tagName !== 'INPUT') {
+        const li = label.closest('.category-filter__item');
+        const childList = li && li.querySelector('.category-filter__list');
+
+        if (!childList) {
+          const checkbox = label.querySelector('.category-filter__checkbox');
+          if (checkbox && checkbox.dataset.url) {
+            e.preventDefault();
+
+            // Close drawer overlay
+            const drawer = document.querySelector('menu-drawer');
+            if (drawer && typeof drawer.hide === 'function') drawer.hide();
+
+            document.querySelectorAll('.category-filter__checkbox').forEach(chk => chk.checked = false);
+            checkbox.checked = true;
+            saveState({ selectedItem: checkbox.dataset.handle });
+            window.location.href = checkbox.dataset.url;
+          }
+          return;
+        }
+
+        e.preventDefault();
+        const isOpen = li.classList.contains('open');
+        if (isOpen) {
+          childList.style.display = 'none';
+          li.classList.remove('open');
+        } else {
+          childList.style.display = 'block';
+          li.classList.add('open');
+        }
+      }
+    });
+
+    // Restore saved state
+    restoreState(loadState());
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  return {
+    getCurrentState,
+    restoreState,
+    init
+  };
+})();

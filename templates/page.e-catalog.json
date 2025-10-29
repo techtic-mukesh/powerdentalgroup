@@ -24,7 +24,7 @@
           "type": "breadcrumb_item",
           "settings": {
             "label": "Resources",
-            "link": "shopify://pages/resources"
+            "link": "shopify:\/\/pages\/resources"
           }
         }
       },

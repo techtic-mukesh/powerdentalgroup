@@ -16,7 +16,7 @@
           "type": "breadcrumb_item",
           "settings": {
             "label": " Our Company",
-            "link": "shopify://pages/our-vision-philosophy"
+            "link": "shopify:\/\/pages\/our-vision-philosophy"
           }
         }
       },

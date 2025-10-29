@@ -24,7 +24,7 @@
           "type": "breadcrumb_item",
           "settings": {
             "label": "Services",
-            "link": "shopify://pages/services"
+            "link": "shopify:\/\/pages\/services"
           }
         }
       },
@@ -185,7 +185,7 @@
       ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
-        "title": "<strong>POWER SERVICING</strong> - Our <strong>PROCESS</strong>",
+        "title": "<strong>POWER SERVICING<\/strong> - Our <strong>PROCESS<\/strong>",
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "adapt",
@@ -207,7 +207,7 @@
         "step_e6pXWp": {
           "type": "step",
           "settings": {
-            "step_image": "shopify://shop_images/step-1_5896e89b-2e44-4fd8-8f03-9c487f8ab6b9.png",
+            "step_image": "shopify:\/\/shop_images\/step-1_5896e89b-2e44-4fd8-8f03-9c487f8ab6b9.png",
             "title": "Inspection",
             "description": "Once we receive your instruments, a thorough evaluation of your instruments’ is performed."
           }
@@ -215,7 +215,7 @@
         "step_mK97CX": {
           "type": "step",
           "settings": {
-            "step_image": "shopify://shop_images/step-2_3f7a7b2e-263b-4f02-9ce2-eb1f0b64f050.png",
+            "step_image": "shopify:\/\/shop_images\/step-2_3f7a7b2e-263b-4f02-9ce2-eb1f0b64f050.png",
             "title": "Servicing",
             "description": "Proven technicians execute thorough repairs and comprehensive checks to ensure your instruments are restored to peak performance."
           }
@@ -223,7 +223,7 @@
         "step_KAPUme": {
           "type": "step",
           "settings": {
-            "step_image": "shopify://shop_images/step-3_62916bfa-7666-429b-a2b1-b4d9c2edfc0f.png",
+            "step_image": "shopify:\/\/shop_images\/step-3_62916bfa-7666-429b-a2b1-b4d9c2edfc0f.png",
             "title": "Invoice & Ship",
             "description": "Your order is invoiced and a shipping confirmation is emailed."
           }
@@ -236,7 +236,7 @@
       ],
       "name": "Power Servicing Process",
       "settings": {
-        "heading": "<p><strong>POWER SERVICING</strong> - Our <strong>PROCESS</strong></p>"
+        "heading": "<p><strong>POWER SERVICING<\/strong> - Our <strong>PROCESS<\/strong><\/p>"
       }
     },
     "video_single_7jCaae": {
@@ -269,7 +269,7 @@
         "heading_JkMgDB": {
           "type": "heading",
           "settings": {
-            "heading": "take the <strong>next step</strong>",
+            "heading": "take the <strong>next step<\/strong>",
             "heading_size": "h1"
           }
         },

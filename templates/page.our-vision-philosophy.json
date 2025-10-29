@@ -24,7 +24,7 @@
           "type": "breadcrumb_item",
           "settings": {
             "label": " Our Company ",
-            "link": "shopify://pages/our-vision-philosophy"
+            "link": "shopify:\/\/pages\/our-vision-philosophy"
           }
         }
       },
@@ -80,7 +80,7 @@
         "heading_xWDcyN": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>THE</strong> POWER DENTAL WAY",
+            "heading": "<strong>THE<\/strong> POWER DENTAL WAY",
             "heading_size": "h0"
           }
         },

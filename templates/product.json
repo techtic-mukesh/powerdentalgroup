@@ -1,5 +1,11 @@
 {
   "sections": {
+    "product_breadcrum_FQbJFE": {
+      "type": "product-breadcrum",
+      "disabled": true,
+      "name": "Product Breadcrumb",
+      "settings": {}
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -117,7 +123,27 @@
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 0,
-        "padding_bottom": 4
+        "padding_bottom": 0
+      }
+    },
+    "1760336853a29439c1": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_Mbw98G": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_Mbw98G"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "key_features_PEqqeN": {
@@ -331,30 +357,12 @@
       "settings": {
         "include_margins": true
       }
-    },
-    "1760336853a29439c1": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_Mbw98G": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget",
-            "max_width": 1200
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_Mbw98G"
-      ],
-      "settings": {
-        "include_margins": true
-      }
     }
   },
   "order": [
+    "product_breadcrum_FQbJFE",
     "main",
+    "1760336853a29439c1",
     "key_features_PEqqeN",
     "real_result_VTRxba",
     "video_TtiEDC",
@@ -362,7 +370,6 @@
     "testimonial_cAGqp9",
     "related-products",
     "recently_viewed_products_c8pPNh",
-    "175826590273b899fd",
-    "1760336853a29439c1"
+    "175826590273b899fd"
   ]
 }
