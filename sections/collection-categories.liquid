@@ -1,0 +1,188 @@
+<section class="collection-categories">
+  <div class="page-width">
+    <h2>Catalog</h2>
+    <div class="collection-categories__grid">
+      {% for block in section.blocks %}
+        {% assign collection = block.settings.collection %}
+        {% if collection %}
+          <div class="collection-category" {{ block.shopify_attributes }}>
+            
+           
+
+            <h3 class="collection-category__title">
+                 {% if block.settings.icon != blank %}
+              <div class="collection-category__icon">
+                {{ block.settings.icon }}
+              </div>
+            {% endif %}
+              <a href="{{ collection.url }}">{{ collection.title }}</a>
+            </h3>
+
+            {% assign subcategories = collection.metafields.custom.subcategory.value %}
+            {% if subcategories %}
+              <ul class="collection-category__list">
+                {% for subcat in subcategories %}
+                  <li>
+                    {% assign link = subcat.url | default: subcat.handle | prepend: '/collections/' %}
+                    {% if subcat.url %}
+                      <a href="{{ subcat.url }}">{{ subcat.title }}</a>
+                    {% elsif subcat.handle %}
+                      <a href="{{ link }}">{{ subcat.title }}</a>
+                    {% else %}
+                      <span>{{ subcat.title }}</span>
+                    {% endif %}
+
+                    {% if subcat.children.size > 0 %}
+                      <ul>
+                        {% for level1 in subcat.children %}
+                          <li>
+                            {% assign link1 = level1.url | default: level1.handle | prepend: '/collections/' %}
+                            {% if level1.url %}
+                              <a href="{{ level1.url }}">{{ level1.title }}</a>
+                            {% elsif level1.handle %}
+                              <a href="{{ link1 }}">{{ level1.title }}</a>
+                            {% else %}
+                              <span>{{ level1.title }}</span>
+                            {% endif %}
+
+                            {% if level1.children.size > 0 %}
+                              <ul>
+                                {% for level2 in level1.children %}
+                                  <li>
+                                    {% assign link2 = level2.url | default: level2.handle | prepend: '/collections/' %}
+                                    {% if level2.url %}
+                                      <a href="{{ level2.url }}">{{ level2.title }}</a>
+                                    {% elsif level2.handle %}
+                                      <a href="{{ link2 }}">{{ level2.title }}</a>
+                                    {% else %}
+                                      <span>{{ level2.title }}</span>
+                                    {% endif %}
+
+                                    {% if level2.children.size > 0 %}
+                                      <ul>
+                                        {% for level3 in level2.children %}
+                                          {% assign link3 = level3.url | default: level3.handle | prepend: '/collections/' %}
+                                          <li>
+                                            {% if level3.url %}
+                                              <a href="{{ level3.url }}">{{ level3.title }}</a>
+                                            {% elsif level3.handle %}
+                                              <a href="{{ link3 }}">{{ level3.title }}</a>
+                                            {% else %}
+                                              <span>{{ level3.title }}</span>
+                                            {% endif %}
+                                          </li>
+                                        {% endfor %}
+                                      </ul>
+                                    {% endif %}
+                                  </li>
+                                {% endfor %}
+                              </ul>
+                            {% endif %}
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Categories Grid (Linked)",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category Column",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "icon",
+          "label": "Icon (SVG code)"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Categories Grid (Linked)",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+.collection-categories__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  text-align: left;
+}
+
+.collection-category__icon {
+  margin-bottom: 10px;
+}
+
+.collection-category__icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.collection-category__title a {
+  text-decoration: none;
+  color: #111;
+      font-size: 16px;
+  font-weight: 700;
+}
+
+.collection-category__icon {
+    margin-bottom: 0;
+}
+
+h3.collection-category__title {
+    display: flex
+;
+    align-items: center;
+    gap: 14px;
+}
+
+.collection-category__title a:hover {
+  text-decoration: underline;
+}
+
+.collection-category__list,
+.collection-category__list ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+section.collection-categories {
+    padding: 50px 0;
+}
+
+.collection-category__list a {
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+  margin: 2px 0;
+}
+
+.collection-category__list a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+{% endstylesheet %}
