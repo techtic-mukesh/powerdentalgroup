@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "custom_breadcrumb_9iVixm": {
@@ -33,11 +42,11 @@
       "name": "Two Buttons with PDF",
       "settings": {
         "heading": "Return Order Form",
-        "button1_label": "Download \/ View PDF",
+        "button1_label": "Download / View PDF",
         "button1_link": "",
         "button2_label": "USPS Return Label",
-        "button2_link": "https:\/\/returns.usps.com\/Label\/CreateSingle?Code=7AC6D5C59F5940EBA1D2A338C8F13E77&DisplayType=Customer",
-        "pdf_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/0697\/9538\/1398\/files\/Return_Form.pdf?v=1759737254",
+        "button2_link": "https://returns.usps.com/Label/CreateSingle?Code=7AC6D5C59F5940EBA1D2A338C8F13E77&DisplayType=Customer",
+        "pdf_url": "https://cdn.shopify.com/s/files/1/0697/9538/1398/files/Return_Form.pdf?v=1759737254",
         "pdf_query": ""
       }
     },
@@ -45,8 +54,8 @@
       "type": "vision",
       "name": "BgImage with Text",
       "settings": {
-        "desktop_background_image": "shopify:\/\/shop_images\/image_20.png",
-        "mobile_background_image": "shopify:\/\/shop_images\/Let_s_Collaborate_Banner_Mobile.jpg",
+        "desktop_background_image": "shopify://shop_images/image_20.png",
+        "mobile_background_image": "shopify://shop_images/Let_s_Collaborate_Banner_Mobile.jpg",
         "heading": "Your Vision,",
         "subheading": "Our Expertise.",
         "button_text": "let's collaborate",
@@ -59,7 +68,7 @@
         "resource_item_zkVkwA": {
           "type": "resource_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/customer-support-icon.png",
+            "icon": "shopify://shop_images/customer-support-icon.png",
             "title": "Customer Support",
             "link": ""
           }
@@ -67,7 +76,7 @@
         "resource_item_UmBQPt": {
           "type": "resource_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/servicing-order-form.png",
+            "icon": "shopify://shop_images/servicing-order-form.png",
             "title": "",
             "link": ""
           }
@@ -75,7 +84,7 @@
         "resource_item_DHPMmK": {
           "type": "resource_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/e-catalog-icon.png",
+            "icon": "shopify://shop_images/e-catalog-icon.png",
             "title": "E-Catalog",
             "link": ""
           }
@@ -83,7 +92,7 @@
         "resource_item_7zUKGi": {
           "type": "resource_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/faq-icon.png",
+            "icon": "shopify://shop_images/faq-icon.png",
             "title": "FAQ",
             "link": ""
           }
@@ -91,7 +100,7 @@
         "resource_item_UWEMJ6": {
           "type": "resource_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/video-icon.png",
+            "icon": "shopify://shop_images/video-icon.png",
             "title": "Product Training Videos",
             "link": ""
           }
@@ -99,7 +108,7 @@
         "resource_item_iJNXtz": {
           "type": "resource_item",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/become-a-distributor-icon.png",
+            "icon": "shopify://shop_images/become-a-distributor-icon.png",
             "title": "Return Order Form",
             "link": ""
           }

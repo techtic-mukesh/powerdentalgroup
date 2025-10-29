@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "custom_breadcrumb_TrF4qf": {
@@ -34,14 +43,14 @@
         "heading_AzTGYF": {
           "type": "heading",
           "settings": {
-            "heading": "custom <strong>manufacturing<\/strong>",
+            "heading": "custom <strong>manufacturing</strong>",
             "heading_size": "h1"
           }
         },
         "text_Rax9LM": {
           "type": "text",
           "settings": {
-            "text": "<p>Our pioneering approach to dental equipment manufacturing services combines cutting-edge technologies, advanced materials, and streamlined processes to revolutionize the dental instrument landscape for custom dental tools. Bring your ideas to life through our redefined custom dental instruments manufacturing process.<\/p>",
+            "text": "<p>Our pioneering approach to dental equipment manufacturing services combines cutting-edge technologies, advanced materials, and streamlined processes to revolutionize the dental instrument landscape for custom dental tools. Bring your ideas to life through our redefined custom dental instruments manufacturing process.</p>",
             "text_style": "body"
           }
         },
@@ -49,10 +58,10 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "BUILD MY CUSTOM KIT",
-            "button_link_1": "https:\/\/share.hsforms.com\/1XOdki2FxTey80KlMOA6T_Ano2ef",
+            "button_link_1": "https://share.hsforms.com/1XOdki2FxTey80KlMOA6T_Ano2ef",
             "button_style_secondary_1": true,
             "button_label_2": "",
-            "button_link_2": "shopify:\/\/collections",
+            "button_link_2": "shopify://collections",
             "button_style_secondary_2": false
           }
         }
@@ -64,7 +73,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify:\/\/shop_images\/kitting-banner.png",
+        "image": "shopify://shop_images/kitting-banner.png",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "image_behavior": "none",
@@ -130,7 +139,7 @@
         "text_FxTdr8": {
           "type": "text",
           "settings": {
-            "text": "<p>At Power Dental Group, every custom kit is built on precision, collaboration, and innovation. From timeless quality and artistry in design to seamless integration and a collaborative approach, we ensure that each tool reflects your unique clinical needs. Our process combines expert craftsmanship with advanced technology – delivering solutions that perform beautifully in your hands and elevate every procedure.<\/p>",
+            "text": "<p>At Power Dental Group, every custom kit is built on precision, collaboration, and innovation. From timeless quality and artistry in design to seamless integration and a collaborative approach, we ensure that each tool reflects your unique clinical needs. Our process combines expert craftsmanship with advanced technology – delivering solutions that perform beautifully in your hands and elevate every procedure.</p>",
             "text_style": "body"
           }
         },
@@ -151,7 +160,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify:\/\/shop_images\/dcdd1a7199bacf4d187fa51cd05d3b0111998de1.jpg",
+        "image": "shopify://shop_images/dcdd1a7199bacf4d187fa51cd05d3b0111998de1.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -172,13 +181,13 @@
         "item_tyjQz7": {
           "type": "item",
           "settings": {
-            "profile_image": "shopify:\/\/shop_images\/6d311e1e78e9d4a75f5fece38f571c5789aa34d8.jpg"
+            "profile_image": "shopify://shop_images/6d311e1e78e9d4a75f5fece38f571c5789aa34d8.jpg"
           }
         },
         "item_EBjFEf": {
           "type": "item",
           "settings": {
-            "profile_image": "shopify:\/\/shop_images\/9016-cisk_pic_4.jpg"
+            "profile_image": "shopify://shop_images/9016-cisk_pic_4.jpg"
           }
         }
       },
@@ -190,7 +199,7 @@
       "settings": {
         "background_color": "#f0eeee",
         "section_title": "What We have Built",
-        "content": "<p>Every kit here began with a conversation. Explore real examples of how we’ve turned practitioner workflows into ready-to-use solutions.<\/p>"
+        "content": "<p>Every kit here began with a conversation. Explore real examples of how we’ve turned practitioner workflows into ready-to-use solutions.</p>"
       }
     },
     "client_testimonial_9BMC8d": {
@@ -199,9 +208,9 @@
         "testimonial_ahixRD": {
           "type": "testimonial",
           "settings": {
-            "profile_image": "shopify:\/\/shop_images\/Jason_Emett_DDS.jpg",
+            "profile_image": "shopify://shop_images/Jason_Emett_DDS.jpg",
             "testimonial_title": "",
-            "testimonial_text": "<p>After 10,000+ extractions, I finally stopped digging through drawers. PDG’s custom kit has every tool I actually use, no fluff. It saves time, boosts my confidence, and keeps me moving fast.<\/p>",
+            "testimonial_text": "<p>After 10,000+ extractions, I finally stopped digging through drawers. PDG’s custom kit has every tool I actually use, no fluff. It saves time, boosts my confidence, and keeps me moving fast.</p>",
             "name": "Jason Emett, DDS",
             "credentials": "",
             "date": ""
@@ -210,9 +219,9 @@
         "testimonial_8fbJYj": {
           "type": "testimonial",
           "settings": {
-            "profile_image": "shopify:\/\/shop_images\/Jeremy_Martens_DDS.jpg",
+            "profile_image": "shopify://shop_images/Jeremy_Martens_DDS.jpg",
             "testimonial_title": "",
-            "testimonial_text": "<p>13 extractions. Under 30 minutes. One forceps. I don’t work the same way anymore.<\/p>",
+            "testimonial_text": "<p>13 extractions. Under 30 minutes. One forceps. I don’t work the same way anymore.</p>",
             "name": "Jeremy Martens, DDS",
             "credentials": "",
             "date": ""
@@ -221,9 +230,9 @@
         "testimonial_EjWpW7": {
           "type": "testimonial",
           "settings": {
-            "profile_image": "shopify:\/\/shop_images\/Ted_Fields.jpg",
+            "profile_image": "shopify://shop_images/Ted_Fields.jpg",
             "testimonial_title": "",
-            "testimonial_text": "<p>Your curettes changed the game. Better control, smoother action, and they handle infection sites where old ones just couldn’t. I get cleaner results, faster.<\/p>",
+            "testimonial_text": "<p>Your curettes changed the game. Better control, smoother action, and they handle infection sites where old ones just couldn’t. I get cleaner results, faster.</p>",
             "name": "Ted Fields, DDS, PhD",
             "credentials": "",
             "date": ""
@@ -249,28 +258,28 @@
           "type": "faq",
           "settings": {
             "title": "How long does it take to receive a custom kit?",
-            "content": "<p>Once the design is approved, most kits are produced and shipped within 1 week.<\/p>"
+            "content": "<p>Once the design is approved, most kits are produced and shipped within 1 week.</p>"
           }
         },
         "faq_cgzEk8": {
           "type": "faq",
           "settings": {
             "title": "Can I reorder the same kit again?",
-            "content": "<p>Once the design is approved, most kits are produced and shipped within 1 week.<\/p>"
+            "content": "<p>Once the design is approved, most kits are produced and shipped within 1 week.</p>"
           }
         },
         "faq_zNcYKi": {
           "type": "faq",
           "settings": {
             "title": "What types of kits can be customized?",
-            "content": "<p>Once the design is approved, most kits are produced and shipped within 1 week.<\/p>"
+            "content": "<p>Once the design is approved, most kits are produced and shipped within 1 week.</p>"
           }
         },
         "faq_WbcRQy": {
           "type": "faq",
           "settings": {
             "title": "What if I’m not sure what I need in my kit?",
-            "content": "<p>Once the design is approved, most kits are produced and shipped within 1 week.<\/p>"
+            "content": "<p>Once the design is approved, most kits are produced and shipped within 1 week.</p>"
           }
         }
       },
