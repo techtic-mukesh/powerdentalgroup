@@ -2,6 +2,17 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "shipping_threshold_HqymML": {
+      "type": "shipping-threshold",
+      "disabled": true,
+      "name": "Shipping Threshold",
+      "settings": {
+        "shipping_threshold": 700,
+        "progress_color": "#334fb4",
+        "bar_color": "#334fb4",
+        "position": "top"
+      }
+    },
     "signup_email_W8inKC": {
       "type": "signup-email",
       "name": "Sign Up Form",
@@ -126,6 +137,7 @@
     }
   },
   "order": [
+    "shipping_threshold_HqymML",
     "signup_email_W8inKC",
     "meadia_logos_AGV4g7",
     "footer"
