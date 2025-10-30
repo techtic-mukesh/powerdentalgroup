@@ -406,16 +406,7 @@
                     id="SortBy"
                     aria-describedby="a11y-refresh-page-message"
                   >
-                    {%- for option in results.sort_options -%}
-                      <option
-                        value="{{ option.value | escape }}"
-                        {% if option.value == sort_by %}
-                          selected="selected"
-                        {% endif %}
-                      >
-                        {{ option.name | escape }}
-                      </option>
-                    {%- endfor -%}
+                   
                   </select>
                   <span class="svg-wrapper">
                     {{- 'icon-caret.svg' | inline_asset_content -}}
@@ -479,6 +470,7 @@
       </summary>
       <facet-filters-form>
         <form id="FacetFiltersFormMobile" class="mobile-facets">
+          {%  render 'collection-filter' %}
           <div class="mobile-facets__inner gradient">
             <div class="mobile-facets__header">
               <div class="mobile-facets__header-inner">
@@ -510,8 +502,6 @@
                 </p>
               </div>
             </div>
-                      {%  render 'collection-filter' %}
-
             <div
               id="FacetsWrapperMobile"
               class="mobile-facets__main has-submenu gradient"
