@@ -103,7 +103,10 @@
                 <div class="mega-menu-right">
                   {% assign product = all_products[block.settings.featured_product] %}
                   <div class="featured-product-card">
-                    <a href="{{ product.url }}" class="featured-product-link" style="background-image: url('{{ product.featured_image | img_url: '' }}');">
+                    <a href="{{ product.url }}" class="featured-product-link">
+                      <div class="featured-product-image">
+                        <img src="{{ product.featured_image | img_url: '' }}" alt="">
+                      </div>
                       <div class="featured-product-info">
                         <p class="featured-product-price">{{ product.variants.first.price | money }}</p>
                         <h4 class="featured-product-title">{{ product.title }}</h4>
