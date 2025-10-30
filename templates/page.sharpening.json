@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -43,14 +34,14 @@
         "heading_dX8mbD": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>Power</strong> Instrument Servicing program",
+            "heading": "<strong>Power<\/strong> Instrument Servicing program",
             "heading_size": "h1"
           }
         },
         "text_QH9Tki": {
           "type": "text",
           "settings": {
-            "text": "<p>Sharpen, Retip, & Repair. Get the most out of your instruments.</p>",
+            "text": "<p>Sharpen, Retip, & Repair. Get the most out of your instruments.<\/p>",
             "text_style": "body"
           }
         },
@@ -58,7 +49,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Power Servicing Form",
-            "button_link_1": "shopify://pages/servicing-order-form",
+            "button_link_1": "shopify:\/\/pages\/servicing-order-form",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -76,7 +67,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/retip-sharpen-repair-hd.jpg",
+        "image": "shopify:\/\/shop_images\/retip-sharpen-repair-hd.jpg",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
         "image_behavior": "none",
@@ -95,28 +86,28 @@
         "step_tjV3LB": {
           "type": "step",
           "settings": {
-            "step_image": "shopify://shop_images/save-time-icon_d3d7bf17-e250-445c-8e37-9b313e030741.png",
+            "step_image": "shopify:\/\/shop_images\/save-time-icon_d3d7bf17-e250-445c-8e37-9b313e030741.png",
             "step_svg": "",
-            "title": "<p>Save Time <strong>and</strong> Money</p>",
-            "content": "<p>Ensure the integrity of your instruments. Your time is valuable. Rely on our experts to extend the life of your instruments while you focus on the practice.</p>"
+            "title": "<p>Save Time <strong>and<\/strong> Money<\/p>",
+            "content": "<p>Ensure the integrity of your instruments. Your time is valuable. Rely on our experts to extend the life of your instruments while you focus on the practice.<\/p>"
           }
         },
         "step_7QVJ8w": {
           "type": "step",
           "settings": {
-            "step_image": "shopify://shop_images/sustainability-icon_d4c574d0-b5ab-4f2b-af82-99d8f82c9f8a.png",
+            "step_image": "shopify:\/\/shop_images\/sustainability-icon_d4c574d0-b5ab-4f2b-af82-99d8f82c9f8a.png",
             "step_svg": "",
-            "title": "<p>Increased <strong>Sustainability</strong></p>",
-            "content": "<p>Contribute to environmental sustainability. Driven by a 100% solar operation, join our commitment to reducing instrument waste one instrument at a time.</p>"
+            "title": "<p>Increased <strong>Sustainability<\/strong><\/p>",
+            "content": "<p>Contribute to environmental sustainability. Driven by a 100% solar operation, join our commitment to reducing instrument waste one instrument at a time.<\/p>"
           }
         },
         "step_FczYhH": {
           "type": "step",
           "settings": {
-            "step_image": "shopify://shop_images/save-more-icon_7e0ebdf0-3ec3-4ced-bebc-91611a1b5618.png",
+            "step_image": "shopify:\/\/shop_images\/save-more-icon_7e0ebdf0-3ec3-4ced-bebc-91611a1b5618.png",
             "step_svg": "",
-            "title": "<p><strong>Work With </strong>The Best</p>",
-            "content": "<p>We have serviced over 1.4 million instruments and counting. Work with the best in class where excellence is the standard.</p>"
+            "title": "<p><strong>Work With <\/strong>The Best<\/p>",
+            "content": "<p>We have serviced over 1.4 million instruments and counting. Work with the best in class where excellence is the standard.<\/p>"
           }
         }
       },
@@ -131,7 +122,7 @@
       ],
       "name": "Kitting Process",
       "settings": {
-        "heading": "<p><strong>why service your</strong> instruments?</p>",
+        "heading": "<p><strong>why service your<\/strong> instruments?<\/p>",
         "subheading": "",
         "bg_color": "#ffffff"
       }
@@ -142,9 +133,9 @@
         "column_TQppye": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/step-1_5896e89b-2e44-4fd8-8f03-9c487f8ab6b9.png",
+            "image": "shopify:\/\/shop_images\/step-1_5896e89b-2e44-4fd8-8f03-9c487f8ab6b9.png",
             "title": "Inspection",
-            "text": "<p>Once we receive your instruments, a thorough evaluation of your instruments’ is performed. </p>",
+            "text": "<p>Once we receive your instruments, a thorough evaluation of your instruments’ is performed. <\/p>",
             "link_label": "",
             "link": ""
           }
@@ -152,9 +143,9 @@
         "column_VA7zhW": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/step-2_3f7a7b2e-263b-4f02-9ce2-eb1f0b64f050.png",
+            "image": "shopify:\/\/shop_images\/step-2_3f7a7b2e-263b-4f02-9ce2-eb1f0b64f050.png",
             "title": "Servicing",
-            "text": "<p>Proven technicians execute thorough repairs and comprehensive checks to ensure your instruments are restored to peak performance.</p>",
+            "text": "<p>Proven technicians execute thorough repairs and comprehensive checks to ensure your instruments are restored to peak performance.<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -162,9 +153,9 @@
         "column_WkHirV": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/step-3_62916bfa-7666-429b-a2b1-b4d9c2edfc0f.png",
+            "image": "shopify:\/\/shop_images\/step-3_62916bfa-7666-429b-a2b1-b4d9c2edfc0f.png",
             "title": "Invoice & Ship",
-            "text": "<p>Your order is invoiced and a shipping confirmation is emailed. </p>",
+            "text": "<p>Your order is invoiced and a shipping confirmation is emailed. <\/p>",
             "link_label": "",
             "link": ""
           }
@@ -246,8 +237,8 @@
         "heading": "",
         "heading_size": "h1",
         "enable_video_looping": false,
-        "video_url": "https://www.youtube.com/watch?v=1Re2bt0YD1s",
-        "cover_image": "shopify://shop_images/Screenshot_2025-09-30_162013.png",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=1Re2bt0YD1s",
+        "cover_image": "shopify:\/\/shop_images\/Screenshot_2025-09-30_162013.png",
         "description": "",
         "full_width": false,
         "color_scheme": "scheme-2",
@@ -276,7 +267,7 @@
         "text_KeaPc8": {
           "type": "text",
           "settings": {
-            "text": "<p>Provide your details below and a member from our service team will reach out to you with information on how to start your servicing journey.</p>"
+            "text": "<p>Provide your details below and a member from our service team will reach out to you with information on how to start your servicing journey.<\/p>"
           }
         },
         "button_mh3yHi": {
