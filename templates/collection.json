@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "banner": {
@@ -12,7 +21,7 @@
       "type": "apps",
       "blocks": {
         "mst_wishlist_marketing_flow_v3_app_block_list_KJdirU": {
-          "type": "shopify:\/\/apps\/mst-wishlist-marketing-flow\/blocks\/v3-app-block-list\/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
+          "type": "shopify://apps/mst-wishlist-marketing-flow/blocks/v3-app-block-list/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
           "settings": {
             "multi_language": false,
             "iwish_add_txt": "Add To Wishlist",
@@ -46,65 +55,65 @@
         "category_HrVRA7": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Power-Line_1_1_af56122e-2f04-4518-ac35-425eebc195d7.jpg",
+            "icon": "shopify://shop_images/Power-Line_1_1_af56122e-2f04-4518-ac35-425eebc195d7.jpg",
             "label": "Power Line",
-            "urllabel": "shopify:\/\/collections\/power-line"
+            "urllabel": "shopify://collections/power-line"
           }
         },
         "category_CCxDmL": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Periodontal.jpg",
+            "icon": "shopify://shop_images/Periodontal.jpg",
             "label": "Periodontal",
-            "urllabel": "shopify:\/\/collections\/periodontal"
+            "urllabel": "shopify://collections/periodontal"
           }
         },
         "category_FYVXaq": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Diagnostic.jpg",
+            "icon": "shopify://shop_images/Diagnostic.jpg",
             "label": "Diagnostic",
-            "urllabel": "shopify:\/\/collections\/diagnostic"
+            "urllabel": "shopify://collections/diagnostic"
           }
         },
         "category_3k7xg9": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Implant_Surgical.jpg",
+            "icon": "shopify://shop_images/Implant_Surgical.jpg",
             "label": "Implant and Surgical",
-            "urllabel": "shopify:\/\/collections\/implant-surgical"
+            "urllabel": "shopify://collections/implant-surgical"
           }
         },
         "category_PEJRcf": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/endodontic-cat-2024.jpg",
+            "icon": "shopify://shop_images/endodontic-cat-2024.jpg",
             "label": "Endodontic",
-            "urllabel": "shopify:\/\/collections\/endodontic"
+            "urllabel": "shopify://collections/endodontic"
           }
         },
         "category_H6bwqD": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Orthodontic_V2.jpg",
+            "icon": "shopify://shop_images/Orthodontic_V2.jpg",
             "label": "Orthodontic",
-            "urllabel": "shopify:\/\/collections\/orthodontic"
+            "urllabel": "shopify://collections/orthodontic"
           }
         },
         "category_9pcEjR": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/restorative-new.jpg",
+            "icon": "shopify://shop_images/restorative-new.jpg",
             "label": "Restorative",
-            "urllabel": "shopify:\/\/collections\/restorative"
+            "urllabel": "shopify://collections/restorative"
           }
         },
         "category_7DUUdj": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/Cassettes_Accessories.jpg",
+            "icon": "shopify://shop_images/Cassettes_Accessories.jpg",
             "label": "Cassettes, Centrifuges, & Accessories",
-            "urllabel": "shopify:\/\/collections\/cassettes-centrifuges-accessories"
+            "urllabel": "shopify://collections/cassettes-centrifuges-accessories"
           }
         }
       },
@@ -153,12 +162,58 @@
         "padding_top": 0,
         "padding_bottom": 36
       }
+    },
+    "rich_text_bKYGcQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RXAqkJ": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_agR4KE": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.description }}"
+          }
+        },
+        "button_6EkEjU": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_RXAqkJ",
+        "text_agR4KE",
+        "button_6EkEjU"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "banner",
     "17582653178953a751",
     "our_category_dAjLQW",
-    "product-grid"
+    "product-grid",
+    "rich_text_bKYGcQ"
   ]
 }

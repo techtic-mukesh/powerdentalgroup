@@ -130,10 +130,10 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/Dental-Instrumentation_17581536-12b4-47ea-b831-8d07d4c991f7.jpg",
             "caption": "",
-            "heading": "Sharpen, <strong>Retip & Repair<\/strong>",
-            "text": "<p>Increase the longevity of your instruments through our multifaceted instrument servicing program.<\/p>",
+            "heading": "Sharpen, <strong>Retip & Repair</strong>",
+            "text": "<p>Increase the longevity of your instruments through our multifaceted instrument servicing program.</p>",
             "button_label": "More Details",
-            "button_link": "shopify:\/\/pages\/sharpen-retip-repair"
+            "button_link": "shopify://pages/sharpen-retip-repair"
           }
         }
       },
