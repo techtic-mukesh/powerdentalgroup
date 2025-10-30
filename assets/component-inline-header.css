@@ -418,7 +418,7 @@ ul#tabs-nav li.tabs-li a {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin: 0 0 20px;
+    margin: 0 0 10px;
         transition: all .3s 
 ease;
 }
@@ -453,6 +453,9 @@ ul#tabs-nav li.tabs-li a .right-arw svg {
     font-size: 14px;
     font-weight: 300;
     margin: 0 0 10px;
+        font-family: 'Prompt';
+    font-weight: 300;
+    letter-spacing: -.16px;
 }
 
 .mega-menu-layout .mega-menu-left a p {
