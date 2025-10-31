@@ -81,6 +81,7 @@ text-transform: uppercase;
     font-weight: 700;
     line-height: normal;
     min-height: 50px;
+    text-transform: capitalize;
 }
 
 .video-section a.custom-button.button.button--secondary i {

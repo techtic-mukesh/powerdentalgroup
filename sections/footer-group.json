@@ -4,7 +4,6 @@
   "sections": {
     "shipping_threshold_HqymML": {
       "type": "shipping-threshold",
-      "disabled": true,
       "name": "Shipping Threshold",
       "settings": {
         "shipping_threshold": 700,
