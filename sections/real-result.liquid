@@ -1,82 +1,32 @@
-{% comment %} <section class="real-results-section" id="videoSection-{{ section.id }}">
-  <div class="page-width">
-
-  <div class="title-wrap">
-     
-    {% if section.settings.content %}
-      {{ section.settings.content }}
-    {% endif %}
-     <h2>{{ section.settings.heading }}</h2>
-  </div>
-   
-    <div class="results-wrap">
-   
-      
-      <div class="videos-grid grid-{{ section.settings.grid_columns | default: 2 }}">
-        {% for block in section.blocks %}
-          <div class="grid-item">
-            <div class="real-results-slide">
-              <div class="video-container">
-                {% if block.settings.video != blank %}
-                    <!-- Thumbnail overlay for Safari/iOS -->
-                    {% if block.settings.thumbnail != blank %}
-                      <img class="video-thumbnail" src="{{ block.settings.thumbnail | img_url: '400x451' }}" alt="Video Thumbnail">
-                    {% endif %}
-                    
-                    {{ block.settings.video | video_tag:
-                    controls: false,
-                    autoplay: false,
-                    muted: false,
-                    loop: false,
-                    preload: 'metadata',
-                    playsinline: true,
-                    webkit-playsinline: 'true',
-                    poster: block.settings.thumbnail
-                    }}
-                    <div class="custom-play-button">
-                
-
-                      <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
-  <g clip-path="url(#clip0_2253_15301)">
-    <rect x="0.5" y="0.5" width="63" height="63" rx="31.5" fill="black" fill-opacity="0.2"/>
-    <rect x="0.5" y="0.5" width="63" height="63" rx="31.5" fill="url(#paint0_linear_2253_15301)" fill-opacity="0.6"/>
-    <rect x="0.5" y="0.5" width="63" height="63" rx="31.5" stroke="white"/>
-    <path d="M24 43L44 31.5L24 20V43Z" fill="white"/>
-  </g>
-  <defs>
-    <linearGradient id="paint0_linear_2253_15301" x1="0" y1="32" x2="64" y2="32" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#42C5EF"/>
-      <stop offset="1" stop-color="#0033A0"/>
-    </linearGradient>
-    <clipPath id="clip0_2253_15301">
-      <rect width="64" height="64" fill="white"/>
-    </clipPath>
-  </defs>
-</svg>
-                      <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" style="display: none;">
-                        <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.9)" stroke="rgba(0,0,0,0.2)" stroke-width="1"/>
-                        <rect x="9" y="8" width="2" height="8" fill="#121212"/>
-                        <rect x="13" y="8" width="2" height="8" fill="#121212"/>
-                      </svg>
-                    </div>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-
-  </div>
-</section> {% endcomment %}
+{% comment %} Determine video source based on settings {% endcomment %}
 {% assign video_source = '' %}
-{% if section.settings.show_usage and product.metafields.custom.video_clinical_usage != blank %}
-  {% assign video_source = product.metafields.custom.video_clinical_usage %}
-{% elsif product.metafields.custom.video_feedback != blank %}
-  {% assign video_source = product.metafields.custom.video_feedback %}
+{% assign has_videos = false %}
+
+{% if section.settings.show_usage %}
+  {% comment %} This is the CLINIC USAGE section - only show clinic videos {% endcomment %}
+  {% if product.metafields.custom.video_clinical_usage != blank %}
+    {% assign video_source = product.metafields.custom.video_clinical_usage | strip %}
+  {% endif %}
+{% else %}
+  {% comment %} This is the FEEDBACK section - only show feedback videos {% endcomment %}
+  {% if product.metafields.custom.video_feedback != blank %}
+    {% assign video_source = product.metafields.custom.video_feedback | strip %}
+  {% endif %}
 {% endif %}
 
+{% comment %} Validate that we have actual video URLs {% endcomment %}
 {% if video_source != blank %}
+  {% assign raw_videos = video_source | split: ',' %}
+  {% for video in raw_videos %}
+    {% assign url = video | strip %}
+    {% if url != blank %}
+      {% assign has_videos = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if has_videos %}
 <section class="real-results-section" id="videoSection-{{ section.id }}">
   <div class="page-width">
 
@@ -88,15 +38,28 @@
     </div>
 
     <div class="results-wrap">
-      <div class="videos-grid grid-{{ section.settings.grid_columns | default: 2 }}">
+      {% assign raw_videos = video_source | split: ',' %}
+      {% assign video_count = 0 %}
+      
+      {% comment %} Count actual valid videos {% endcomment %}
+      {% for video in raw_videos %}
+        {% assign url = video | strip %}
+        {% if url != blank %}
+          {% assign video_count = video_count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+      
+      {% assign grid_class = 'grid-2' %}
+      {% if video_count == 3 %}
+        {% assign grid_class = 'grid-3' %}
+      {% elsif video_count >= 4 %}
+        {% assign grid_class = 'grid-4' %}
+      {% endif %}
 
-        {% assign raw_videos = video_source | split: ',' %}
-
+      <div class="videos-grid {{ grid_class }}">
         {% for video in raw_videos %}
           {% assign url = video | strip %}
           {% if url != blank %}
-
-            {% comment %} Extract video ID from various formats {% endcomment %}
             {% if url contains 'watch?v=' %}
               {% assign video_id = url | split: 'watch?v=' | last | split: '&' | first %}
             {% elsif url contains 'youtu.be/' %}
@@ -122,19 +85,13 @@
                 </div>
               </div>
             </div>
-
           {% endif %}
         {% endfor %}
-
       </div>
     </div>
-
   </div>
 </section>
 {% endif %}
-
-
-
 
 <style>
 .real-results-section {
@@ -172,7 +129,7 @@ text-transform: uppercase;
     font-size: 18px;
     font-style: normal;
     font-weight: 600; 
-    line-height: 27px; /* 150% */
+    line-height: 27px;
     letter-spacing: 2.7px;
     text-transform: uppercase;
     background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%); 
@@ -194,7 +151,6 @@ text-transform: uppercase;
   border-radius: 20px;
 }
 
-/* Grid Layout */
 .videos-grid {
   display: flex;
   flex-wrap: wrap;
@@ -210,10 +166,6 @@ text-transform: uppercase;
     max-width: 420px;
 }
 
-/* 3 Column Layout */
-
-
-/* 4 Column Layout */
 .videos-grid.grid-4 .grid-item {
   width: calc(25% - 22.5px);
   min-width: 280px;
@@ -225,8 +177,6 @@ text-transform: uppercase;
   flex-shrink: 0;
 }
 
-
-/* Thumbnail overlay - SAFARI/iOS FIX */
 .video-thumbnail {
   position: absolute;
   top: 0;
@@ -276,7 +226,6 @@ position: absolute;
   pointer-events: all;
 }
 
-/* Loading state */
 .video-container.loading::after {
   content: '';
   position: absolute;
@@ -385,7 +334,7 @@ position: absolute;
 .real-results-slide .video-container {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
+  padding-top: 56.25%;
   overflow: hidden;
   border-radius: 12px;
   background: #000;
@@ -494,6 +443,10 @@ position: absolute;
   margin: 0 0 20px;
 }
 }
+
+body.gradient.product.power-twist-periotome-posterior-root-remover-set-of-2 .section-real-results:first-of-type {
+    display: none;
+}
 </style>
 
 <script>
@@ -505,7 +458,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const buttons = section.querySelectorAll('.custom-play-button');
   const containers = section.querySelectorAll('.video-container');
 
-  // Pause all videos in this section
   function pauseAllVideos() {
     videos.forEach(video => {
       video.pause();
@@ -521,7 +473,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Setup each video
   videos.forEach(video => {
     const container = video.closest('.video-container');
 
@@ -543,7 +494,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Play button logic
   buttons.forEach(button => {
     button.addEventListener('click', function (e) {
       e.preventDefault();
@@ -575,7 +525,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Intersection Observer (pause if out of view)
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) {
@@ -590,7 +539,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   containers.forEach(container => observer.observe(container));
 
-  // Pause when tab hidden
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) pauseAllVideos();
   });
@@ -601,6 +549,7 @@ document.addEventListener('DOMContentLoaded', function () {
 {% schema %}
 {
   "name": "Real Results",
+  "class": "section-real-results",
   "settings": [
     {
       "type": "text",
@@ -616,7 +565,8 @@ document.addEventListener('DOMContentLoaded', function () {
       "type": "checkbox",
       "id": "show_usage",
       "label": "Show Clinic Usage",
-      "default": false
+      "default": false,
+      "info": "Check this to show clinic usage videos. Uncheck to show feedback videos."
     },
      {
       "type": "select",

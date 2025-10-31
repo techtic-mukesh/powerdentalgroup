@@ -159,12 +159,21 @@
     {%- endif -%}
 
      {% if product.metafields.custom.how_to_use_doc != blank %}
+      {% if product.metafields.custom.how_to_use_button_text != blank %}
+        <a target="_blank" href="{{ product.metafields.custom.how_to_use_doc }}" class="custom-button button button--secondary">
+          {{ product.metafields.custom.how_to_use_button_text }}
+           <i>
+      <img src="https://cdn.shopify.com/s/files/1/0697/9538/1398/files/pdf-icon.png?v=1757664444" alt="">
+    </i>
+        </a>
+      {% else %}
        <a target="_blank" href="{{ product.metafields.custom.how_to_use_doc }}" class="custom-button button button--secondary">
       IFU {{ product.title | split: '–' | first | strip }}
     <i>
       <img src="https://cdn.shopify.com/s/files/1/0697/9538/1398/files/pdf-icon.png?v=1757664444" alt="">
     </i>
     </a>
+      {% endif %}
     {% endif %}
 
    
