@@ -55,8 +55,8 @@
           "type": "category",
           "settings": {
             "icon": "shopify:\/\/shop_images\/Periodontal.jpg",
-            "label": "Periodontal",
-            "urllabel": "shopify:\/\/collections\/periodontal"
+            "label": "Hygiene",
+            "urllabel": "shopify:\/\/collections\/hygiene"
           }
         },
         "category_FYVXaq": {
@@ -71,8 +71,16 @@
           "type": "category",
           "settings": {
             "icon": "shopify:\/\/shop_images\/Implant_Surgical.jpg",
-            "label": "Implant and Surgical",
-            "urllabel": "shopify:\/\/collections\/implant-surgical"
+            "label": "Surgical & Implantology",
+            "urllabel": "shopify:\/\/collections\/surgical-implantology"
+          }
+        },
+        "category_9pcEjR": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/restorative-new.jpg",
+            "label": "Restorative",
+            "urllabel": "shopify:\/\/collections\/restorative"
           }
         },
         "category_PEJRcf": {
@@ -91,20 +99,20 @@
             "urllabel": "shopify:\/\/collections\/orthodontic"
           }
         },
-        "category_9pcEjR": {
+        "category_XfPRTj": {
           "type": "category",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/restorative-new.jpg",
-            "label": "Restorative",
-            "urllabel": "shopify:\/\/collections\/restorative"
+            "icon": "shopify:\/\/shop_images\/6daf287d24246982448de0ee1b089d94b62f5246.png",
+            "label": "Headlamps & Loupes",
+            "urllabel": "shopify:\/\/collections\/headlamps-loupes"
           }
         },
         "category_7DUUdj": {
           "type": "category",
           "settings": {
             "icon": "shopify:\/\/shop_images\/Cassettes_Accessories.jpg",
-            "label": "Cassettes, Centrifuges, & Accessories",
-            "urllabel": "shopify:\/\/collections\/cassettes-centrifuges-accessories"
+            "label": "Cassettes & Centrifuges",
+            "urllabel": "shopify:\/\/collections\/cassettes-accessories"
           }
         }
       },
@@ -113,9 +121,10 @@
         "category_CCxDmL",
         "category_FYVXaq",
         "category_3k7xg9",
+        "category_9pcEjR",
         "category_PEJRcf",
         "category_H6bwqD",
-        "category_9pcEjR",
+        "category_XfPRTj",
         "category_7DUUdj"
       ],
       "name": "Category Slider",

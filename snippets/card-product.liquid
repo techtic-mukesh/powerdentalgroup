@@ -654,3 +654,380 @@
     </div>
   </div>
 {%- endif -%}
+
+
+<script>
+  /* === iWish Button Manager for Standard Shopify Themes === */
+if (!window.IWishButtonManagerDefined) {
+  window.IWishButtonManagerDefined = true;
+
+  class IWishButtonManager {
+    constructor() {
+      this.initialized = false;
+      this.retryCount = 0;
+      this.maxRetries = 6;
+      this.retryDelays = [100, 200, 400, 800, 1200, 2000];
+      this.isInitializing = false;
+      this.initAttempts = new WeakMap(); // Track initialization attempts per container
+    }
+
+    initializeIWishButtons(container = document) {
+      // Prevent multiple simultaneous initializations
+      if (this.isInitializing) {
+        console.log('⏳ Already initializing, skipping...');
+        return;
+      }
+
+      this.isInitializing = true;
+      console.log('🔄 Starting iWish button initialization...');
+
+      const iWishButtons = container.querySelectorAll(
+        '.iWishAddColl, .iwishcheck, [data-iwclick], [class*="iwish"]'
+      );
+
+      console.log(`Found ${iWishButtons.length} iWish buttons`);
+      
+      if (iWishButtons.length === 0) {
+        this.isInitializing = false;
+        return;
+      }
+
+      this.retryCount = 0;
+      this.attemptInitialization(container, iWishButtons);
+    }
+
+    attemptInitialization(container, buttons) {
+      if (this.retryCount >= this.maxRetries) {
+        console.warn('⚠️ Max initialization attempts reached, using fallback');
+        this.manuallyBindEvents(buttons);
+        this.isInitializing = false;
+        return;
+      }
+
+      const delay = this.retryDelays[this.retryCount] || 2000;
+      
+      setTimeout(() => {
+        console.log(`🔄 iWish init attempt ${this.retryCount + 1}/${this.maxRetries}`);
+        let success = this.tryInitialization();
+
+        if (success) {
+          success = this.verifyButtonsWorking(buttons);
+        }
+
+        if (!success) {
+          this.retryCount++;
+          this.attemptInitialization(container, buttons);
+        } else {
+          console.log('✅ iWish buttons successfully initialized');
+          this.postInitializationSetup(buttons);
+          this.isInitializing = false;
+        }
+      }, delay);
+    }
+
+    tryInitialization() {
+      try {
+        // Method 1: Check for window.iWishInit
+        if (typeof window.iWishInit === 'function') {
+          window.iWishInit();
+          console.log('✅ window.iWishInit() executed');
+          return true;
+        }
+
+        // Method 2: Check for jQuery iWish plugin
+        if (typeof jQuery !== 'undefined' && jQuery.fn.iWish) {
+          jQuery('.iWishAddColl, .iwishcheck').iWish();
+          console.log('✅ jQuery iWish plugin executed');
+          return true;
+        }
+
+        // Method 3: Check for iWish object methods
+        if (window.iWish && typeof window.iWish === 'object') {
+          const methods = ['init', 'initialize', 'refresh', 'setup'];
+          for (const method of methods) {
+            if (typeof window.iWish[method] === 'function') {
+              window.iWish[method]();
+              console.log(`✅ window.iWish.${method}() executed`);
+              return true;
+            }
+          }
+        }
+
+        // Method 4: Trigger events
+        if (typeof jQuery !== 'undefined') {
+          jQuery(document).trigger('iwish:init');
+          console.log('✅ jQuery iwish:init event triggered');
+          return true;
+        }
+
+      } catch (error) {
+        console.error('Init attempt failed:', error);
+      }
+      
+      return false;
+    }
+
+    verifyButtonsWorking(buttons) {
+      for (const button of buttons) {
+        if (
+          button.onclick ||
+          button.getAttribute('data-initialized') === 'true' ||
+          button.classList.contains('iwish-initialized') ||
+          button.hasAttribute('data-iwish-ready')
+        ) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    manuallyBindEvents(buttons) {
+      console.log('🔧 Manually binding iWish buttons...');
+      
+      buttons.forEach((button, i) => {
+        if (button.getAttribute('data-manual-bound') === 'true') {
+          return;
+        }
+
+        const productId = button.getAttribute('data-product');
+        const variantId = button.getAttribute('data-variant');
+        const productTitle = button.getAttribute('data-pTitle');
+
+        if (productId) {
+          button.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.handleWishlistClick(button, productId, variantId, productTitle);
+          });
+          
+          button.setAttribute('data-manual-bound', 'true');
+          console.log(`✅ Manually bound button ${i + 1} for product ${productId}`);
+        }
+      });
+    }
+
+    handleWishlistClick(button, productId, variantId, productTitle) {
+      console.log('🎯 Wishlist click:', { productId, variantId, productTitle });
+      
+      // Try different iWish API methods
+      if (window.iWish && typeof window.iWish.addToWishlist === 'function') {
+        window.iWish.addToWishlist(productId, variantId);
+        return;
+      }
+      
+      if (typeof jQuery !== 'undefined' && jQuery.iWish) {
+        if (typeof jQuery.iWish.add === 'function') {
+          jQuery.iWish.add(productId, variantId);
+          return;
+        }
+      }
+
+      // Dispatch custom event as fallback
+      const event = new CustomEvent('addToWishlist', {
+        detail: { productId, variantId, productTitle, button }
+      });
+      document.dispatchEvent(event);
+    }
+
+    postInitializationSetup(buttons) {
+      buttons.forEach(b => b.setAttribute('data-iwish-initialized', 'true'));
+      document.dispatchEvent(
+        new CustomEvent('iWishReady', { 
+          detail: { buttonsCount: buttons.length } 
+        })
+      );
+    }
+  }
+
+  // Create global instance
+  window.iWishButtonManager = new IWishButtonManager();
+}
+
+/* === Initialization Hooks === */
+
+// 1. Initial page load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    window.iWishButtonManager?.initializeIWishButtons();
+  });
+} else {
+  window.iWishButtonManager?.initializeIWishButtons();
+}
+
+// 2. Shopify section loads (theme editor)
+document.addEventListener('shopify:section:load', (e) => {
+  console.log('🔄 Shopify section loaded');
+  setTimeout(() => {
+    window.iWishButtonManager?.initializeIWishButtons();
+  }, 150);
+});
+
+// 3. Shopify section unload (cleanup)
+document.addEventListener('shopify:section:unload', () => {
+  console.log('🗑️ Shopify section unloaded');
+});
+
+// 4. Monitor product grid for changes
+const observeProductGrid = () => {
+  const productGrids = document.querySelectorAll(
+    '#ProductGridContainer, .product-grid, .collection, [id*="product-grid"]'
+  );
+
+  productGrids.forEach(grid => {
+    if (grid.getAttribute('data-iwish-observed') === 'true') {
+      return;
+    }
+
+    const observer = new MutationObserver((mutations) => {
+      let hasNewProducts = false;
+
+      for (const mutation of mutations) {
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+          for (const node of mutation.addedNodes) {
+            if (node.nodeType === 1) {
+              // Check if it's a product card or contains product cards
+              if (
+                node.classList?.contains('grid__item') ||
+                node.classList?.contains('product-card-wrapper') ||
+                node.querySelector?.('.card-wrapper') ||
+                node.querySelector?.('.iWishAddColl')
+              ) {
+                hasNewProducts = true;
+                break;
+              }
+            }
+          }
+        }
+        if (hasNewProducts) break;
+      }
+
+      if (hasNewProducts) {
+        console.log('🆕 New products detected in grid');
+        setTimeout(() => {
+          window.iWishButtonManager?.initializeIWishButtons(grid);
+        }, 200);
+      }
+    });
+
+    observer.observe(grid, {
+      childList: true,
+      subtree: true
+    });
+
+    grid.setAttribute('data-iwish-observed', 'true');
+    console.log('👁️ Product grid observer attached');
+  });
+};
+
+// Setup observers after DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', observeProductGrid);
+} else {
+  observeProductGrid();
+}
+
+// Re-setup observers after a delay (for dynamic content)
+setTimeout(observeProductGrid, 1000);
+
+// 5. Intercept Fetch API for AJAX requests
+const originalFetch = window.fetch;
+window.fetch = function(...args) {
+  return originalFetch.apply(this, args).then(response => {
+    const url = args[0];
+    
+    // Check if it's a collection/product request
+    if (url && typeof url === 'string') {
+      if (
+        url.includes('/collections/') ||
+        url.includes('section-id=') ||
+        url.includes('?section_id=') ||
+        url.includes('products.json')
+      ) {
+        console.log('🔄 AJAX fetch completed:', url);
+        setTimeout(() => {
+          window.iWishButtonManager?.initializeIWishButtons();
+        }, 300);
+      }
+    }
+    
+    return response;
+  });
+};
+
+// 6. jQuery AJAX support
+if (typeof jQuery !== 'undefined') {
+  jQuery(document).ajaxComplete((event, xhr, settings) => {
+    if (
+      settings.url.includes('collection') ||
+      settings.url.includes('products') ||
+      settings.url.includes('section')
+    ) {
+      console.log('🔄 jQuery AJAX completed:', settings.url);
+      setTimeout(() => {
+        window.iWishButtonManager?.initializeIWishButtons();
+      }, 250);
+    }
+  });
+}
+
+// 7. Quick add modal support
+document.addEventListener('click', (e) => {
+  const quickAddButton = e.target.closest('.quick-add__submit, modal-opener button');
+  if (quickAddButton) {
+    console.log('🔄 Quick add clicked, will check for new content');
+    setTimeout(() => {
+      const modal = document.querySelector('.quick-add-modal[open], [aria-modal="true"]');
+      if (modal) {
+        window.iWishButtonManager?.initializeIWishButtons(modal);
+      }
+    }, 500);
+  }
+});
+
+// 8. Search results support
+const observeSearchResults = () => {
+  const searchResults = document.querySelector('.template-search__results, .search-results');
+  if (searchResults) {
+    console.log('🔍 Search results detected');
+    
+    const observer = new MutationObserver(() => {
+      console.log('🔄 Search results updated');
+      setTimeout(() => {
+        window.iWishButtonManager?.initializeIWishButtons(searchResults);
+      }, 200);
+    });
+
+    observer.observe(searchResults, {
+      childList: true,
+      subtree: true
+    });
+  }
+};
+
+document.addEventListener('DOMContentLoaded', observeSearchResults);
+
+// 9. Pagination / Load more support
+document.addEventListener('click', (e) => {
+  const paginationLink = e.target.closest('a[href*="page="], .pagination__item');
+  if (paginationLink) {
+    console.log('🔄 Pagination clicked');
+    setTimeout(() => {
+      window.iWishButtonManager?.initializeIWishButtons();
+    }, 500);
+  }
+});
+
+// 10. Fallback checker - runs every 3 seconds
+setInterval(() => {
+  const uninitializedButtons = document.querySelectorAll(
+    '.iWishAddColl:not([data-manual-bound="true"]):not([data-iwish-initialized="true"])'
+  );
+  
+  if (uninitializedButtons.length > 0) {
+    console.log(`⚠️ Found ${uninitializedButtons.length} uninitialized buttons`);
+    window.iWishButtonManager?.initializeIWishButtons();
+  }
+}, 3000);
+
+console.log('✅ iWish Button Manager loaded (Standard Shopify Theme)');
+</script>

@@ -1070,10 +1070,10 @@
 
 <script>
 /* === Prevent multiple declarations (fixes Globo Filter reload issue) === */
+/* === Prevent multiple declarations === */
 if (!window.IWishButtonManagerDefined) {
   window.IWishButtonManagerDefined = true;
 
-  // ================== CLASS DEFINITION ==================
   class IWishButtonManager {
     constructor() {
       this.initialized = false;
@@ -1087,9 +1087,17 @@ if (!window.IWishButtonManagerDefined) {
         'iWish.init',
         'window.iWish'
       ];
+      this.isInitializing = false;
     }
 
     initializeIWishButtons(container = document) {
+      // Prevent multiple simultaneous initializations
+      if (this.isInitializing) {
+        console.log('⏳ Already initializing, skipping...');
+        return;
+      }
+
+      this.isInitializing = true;
       console.log('🔄 Starting iWish button initialization...');
 
       const iWishButtons = container.querySelectorAll(
@@ -1097,7 +1105,11 @@ if (!window.IWishButtonManagerDefined) {
       );
 
       console.log(`Found ${iWishButtons.length} potential iWish buttons`);
-      if (iWishButtons.length === 0) return;
+      
+      if (iWishButtons.length === 0) {
+        this.isInitializing = false;
+        return;
+      }
 
       this.retryCount = 0;
       this.attemptInitialization(container, iWishButtons);
@@ -1105,6 +1117,7 @@ if (!window.IWishButtonManagerDefined) {
       // Fallback manual binding
       setTimeout(() => {
         this.manuallyBindEvents(iWishButtons);
+        this.isInitializing = false;
       }, 1000);
     }
 
@@ -1112,6 +1125,7 @@ if (!window.IWishButtonManagerDefined) {
       if (this.retryCount >= this.maxRetries) {
         console.warn('⚠️ Max initialization attempts reached');
         this.fallbackInitialization(buttons);
+        this.isInitializing = false;
         return;
       }
 
@@ -1137,6 +1151,7 @@ if (!window.IWishButtonManagerDefined) {
         } else {
           console.log('✅ iWish buttons successfully initialized');
           this.postInitializationSetup(buttons);
+          this.isInitializing = false;
         }
       }, delay);
     }
@@ -1291,7 +1306,9 @@ if (!window.IWishButtonManagerDefined) {
   window.iWishButtonManager = new IWishButtonManager();
 }
 
-/* === Initialization Hooks === */
+/* === Enhanced Initialization Hooks === */
+
+// 1. Initial page load
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     window.iWishButtonManager?.initializeIWishButtons();
@@ -1300,35 +1317,104 @@ if (document.readyState === 'loading') {
   window.iWishButtonManager?.initializeIWishButtons();
 }
 
-// Shopify section loads
+// 2. Shopify section loads
 document.addEventListener('shopify:section:load', () => {
   setTimeout(() => {
     window.iWishButtonManager?.initializeIWishButtons();
   }, 100);
 });
 
-// Collection / filter reloads
-document.addEventListener('afterFilterUpdate', () => {
-  console.log('🔄 Filter update detected');
-  const grid = document.querySelector('#ProductGridContainer');
-  if (grid) window.iWishButtonManager?.initializeIWishButtons(grid);
+// 3. Collection / filter reloads - MULTIPLE EVENT TYPES
+const filterEvents = [
+  'afterFilterUpdate',
+  'globo:filter:updated',
+  'globo:afterFilter',
+  'collection:updated',
+  'ajaxify:updated'
+];
+
+filterEvents.forEach(eventName => {
+  document.addEventListener(eventName, () => {
+    console.log(`🔄 ${eventName} detected`);
+    setTimeout(() => {
+      const grid = document.querySelector('#ProductGridContainer, .collection, .product-grid');
+      if (grid) window.iWishButtonManager?.initializeIWishButtons(grid);
+    }, 200);
+  });
 });
 
-// Observe for dynamic product grids (collections)
-const productGrid = document.querySelector('#ProductGridContainer, .collection, .product-grid');
-if (productGrid) {
-  const gridObserver = new MutationObserver((mutations) => {
-    for (const m of mutations) {
-      if (m.type === 'childList' && m.addedNodes.length > 0) {
-        console.log('🔄 Product grid updated, re-initializing iWish buttons...');
-        window.iWishButtonManager?.initializeIWishButtons(productGrid);
-      }
+// 4. AJAX request completion detection
+const originalFetch = window.fetch;
+window.fetch = function(...args) {
+  return originalFetch.apply(this, args).then(response => {
+    // Check if response is from collection/products
+    if (args[0] && (args[0].includes('/collections/') || args[0].includes('section-id='))) {
+      console.log('🔄 AJAX fetch completed, reinitializing iWish...');
+      setTimeout(() => {
+        window.iWishButtonManager?.initializeIWishButtons();
+      }, 300);
+    }
+    return response;
+  });
+};
+
+// 5. jQuery AJAX completion (if jQuery is used)
+if (typeof jQuery !== 'undefined') {
+  jQuery(document).ajaxComplete(function(event, xhr, settings) {
+    if (settings.url && (settings.url.includes('collection') || settings.url.includes('filter'))) {
+      console.log('🔄 jQuery AJAX completed');
+      setTimeout(() => {
+        window.iWishButtonManager?.initializeIWishButtons();
+      }, 200);
     }
   });
-  gridObserver.observe(productGrid, { childList: true, subtree: true });
 }
 
-// 🔍 Support for search result pages
+// 6. Enhanced MutationObserver for product grid
+const setupGridObserver = () => {
+  const productGrid = document.querySelector('#ProductGridContainer, .collection, .product-grid, #product-grid');
+  if (productGrid) {
+    console.log('👁️ Setting up grid observer');
+    const gridObserver = new MutationObserver((mutations) => {
+      let shouldReinitialize = false;
+      
+      for (const m of mutations) {
+        if (m.type === 'childList' && m.addedNodes.length > 0) {
+          // Check if added nodes contain product cards
+          for (const node of m.addedNodes) {
+            if (node.nodeType === 1) { // Element node
+              if (node.classList?.contains('grid__item') || 
+                  node.querySelector?.('.card-wrapper') ||
+                  node.classList?.contains('product-card-wrapper')) {
+                shouldReinitialize = true;
+                break;
+              }
+            }
+          }
+        }
+      }
+      
+      if (shouldReinitialize) {
+        console.log('🔄 Product grid updated with new products, re-initializing iWish buttons...');
+        setTimeout(() => {
+          window.iWishButtonManager?.initializeIWishButtons(productGrid);
+        }, 100);
+      }
+    });
+    
+    gridObserver.observe(productGrid, { 
+      childList: true, 
+      subtree: true,
+      attributes: false 
+    });
+  }
+};
+
+// Setup observer initially and after any potential page changes
+setupGridObserver();
+setTimeout(setupGridObserver, 1000);
+
+// 7. Search results support
 document.addEventListener('DOMContentLoaded', () => {
   const searchResults = document.querySelector('.template-search__results.collection.page-width');
   if (searchResults) {
@@ -1346,4 +1432,18 @@ document.addEventListener('DOMContentLoaded', () => {
     searchObserver.observe(searchResults, { childList: true, subtree: true });
   }
 });
+
+// 8. Global fallback - check every 2 seconds for uninitialized buttons
+setInterval(() => {
+  const uninitializedButtons = document.querySelectorAll(
+    '.iWishAddColl:not([data-manual-bound="true"]):not([data-iwish-initialized="true"])'
+  );
+  
+  if (uninitializedButtons.length > 0) {
+    console.log(`⚠️ Found ${uninitializedButtons.length} uninitialized wishlist buttons, fixing...`);
+    window.iWishButtonManager?.initializeIWishButtons();
+  }
+}, 2000);
+
+console.log('✅ Enhanced iWish Button Manager loaded');
 </script>
