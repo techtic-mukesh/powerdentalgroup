@@ -1,17 +1,7 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "product_breadcrum_FQbJFE": {
       "type": "product-breadcrum",
-      "disabled": true,
       "name": "Product Breadcrumb",
       "settings": {}
     },
@@ -217,6 +207,14 @@
         "btn_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0697\/9538\/1398\/files\/IFU_Power_Crown_Remover_Kit.pdf?v=1757663876"
       }
     },
+    "pdp_testimonial_aVMFMG": {
+      "type": "pdp-testimonial",
+      "name": "Product Testimonials",
+      "settings": {
+        "background_color": "#f7f7ff",
+        "section_title": "TESTIMONIALS"
+      }
+    },
     "real_result_MEe6RC": {
       "type": "real-result",
       "blocks": {
@@ -250,42 +248,6 @@
         "content": "",
         "show_usage": false,
         "grid_columns": "3"
-      }
-    },
-    "testimonial_cAGqp9": {
-      "type": "testimonial",
-      "blocks": {
-        "testimonial_DFKGPP": {
-          "type": "testimonial",
-          "settings": {
-            "profile_image": "shopify:\/\/shop_images\/Rectangle_26105_1.png",
-            "testimonial_title": "Fastest and Most Reliable Repairs I’ve Seen",
-            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in lab bills.<\/p>",
-            "name": "Shawn P. Lottier, DDS, MAG, DICOI  – Comfort Smiles Atlanta",
-            "credentials": "",
-            "date": "May 15, 2024"
-          }
-        },
-        "testimonial_q3Exhb": {
-          "type": "testimonial",
-          "settings": {
-            "profile_image": "shopify:\/\/shop_images\/Rectangle_26105.png",
-            "testimonial_title": "Effortless Crown Removal. One Piece, First Try",
-            "testimonial_text": "<p>Total game changer. First use was a dream - drilled, gripped, and the zirconia crown popped off in one piece. Effortless.<\/p>",
-            "name": "- Shawn P. Lottier, DDS, MAG, DICOI",
-            "credentials": "- Comfort Smiles Atlanta",
-            "date": "February 20, 2024"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_DFKGPP",
-        "testimonial_q3Exhb"
-      ],
-      "name": "Testimonials Swiper",
-      "settings": {
-        "background_color": "#f7f7ff",
-        "section_title": "TESTIMONIALS"
       }
     },
     "related-products": {
@@ -375,8 +337,8 @@
     "key_features_PEqqeN",
     "real_result_VTRxba",
     "video_TtiEDC",
+    "pdp_testimonial_aVMFMG",
     "real_result_MEe6RC",
-    "testimonial_cAGqp9",
     "related-products",
     "recently_viewed_products_c8pPNh",
     "175826590273b899fd"

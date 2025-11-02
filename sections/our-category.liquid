@@ -53,6 +53,8 @@
 
   .swiper.category-swiper {
     padding: 50px 20px 0;
+    margin-left: -20px;
+    margin-right: -20px;
 } 
   .category-title {
      color: #141132;
@@ -223,7 +225,7 @@ background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%), linear-gradient(0d
           new Swiper('.category-swiper', {
             slidesPerView: 3,
             spaceBetween: 20,
-            loop: true,
+            loop: false,
             speed: 800,
             navigation: {
               nextEl: '.swiper-button-next',
@@ -250,8 +252,8 @@ background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%), linear-gradient(0d
                   enabled: true
                 }
               },
-              1240: {
-                slidesPerView: 8,
+              1340: {
+                slidesPerView: 9,
                 navigation: {
                   enabled: true
                 }

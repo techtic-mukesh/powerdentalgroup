@@ -187,6 +187,10 @@ product-info {
     height: 20px;
 }
 
+.product__info-wrapper shopify-payment-terms {
+  display: none !important;
+}
+
 @media screen and (min-width: 750px) {
   .product__column-sticky {
     display: block;
@@ -200,7 +204,7 @@ product-info {
   }
 
   .product__info-wrapper {
-    padding: 0 0 0 3rem;
+    padding: 20px 0 0 3rem;
   }
 
   .product__info-wrapper--extra-padding {
@@ -458,7 +462,7 @@ font-size: 24px;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
-text-transform: capitalize;
+text-transform: math-auto;
 }
 
 .product__title > * {

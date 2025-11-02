@@ -79,36 +79,52 @@ class FacetFiltersForm extends HTMLElement {
     if (typeof initializeScrollAnimationTrigger === 'function') initializeScrollAnimationTrigger(html.innerHTML);
   }
 
- static renderProductGridContainer(html) {
-  const existingContainer = document.getElementById('ProductGridContainer');
+  static renderProductGridContainer(html) {
+    const existingContainer = document.getElementById('ProductGridContainer');
 
-  // Preserve category filter element
-  const categoryFilter = existingContainer.querySelector('.category-filter');
-
-  const parsedHTML = new DOMParser().parseFromString(html, 'text/html');
-  const newGrid = parsedHTML.getElementById('ProductGridContainer').querySelector('.collection');
-
-  const collectionElement = existingContainer.querySelector('.collection');
-  if (collectionElement) {
-    const category = collectionElement.querySelector('.category-filter');
-    if (category) category.remove();
-    collectionElement.innerHTML = newGrid.innerHTML;
-    if (categoryFilter) {
-      collectionElement.insertAdjacentElement('afterbegin', categoryFilter);
+    // ✅ Save category filter state BEFORE any DOM changes
+    let categoryFilterState = null;
+    if (window.CategoryFilterManager) {
+      categoryFilterState = window.CategoryFilterManager.getCurrentState();
     }
-    
-    // ✅ Remove loading class to hide overlay
-    collectionElement.classList.remove('loading');
+
+    // Preserve category filter element
+    const categoryFilter = existingContainer.querySelector('.category-filter');
+
+    const parsedHTML = new DOMParser().parseFromString(html, 'text/html');
+    const newGrid = parsedHTML.getElementById('ProductGridContainer').querySelector('.collection');
+
+    const collectionElement = existingContainer.querySelector('.collection');
+    if (collectionElement) {
+      // Remove old category filter from collection
+      const oldCategory = collectionElement.querySelector('.category-filter');
+      if (oldCategory) oldCategory.remove();
+      
+      // Update the grid content
+      collectionElement.innerHTML = newGrid.innerHTML;
+      
+      // ✅ Re-insert the preserved category filter at the top
+      if (categoryFilter) {
+        collectionElement.insertAdjacentElement('afterbegin', categoryFilter);
+      }
+      
+      // Remove loading class
+      collectionElement.classList.remove('loading');
+    }
+
+    // ✅ Restore category filter state AFTER DOM is updated
+    if (window.CategoryFilterManager && categoryFilterState) {
+      // Small delay to ensure DOM is fully ready
+      setTimeout(() => {
+        window.CategoryFilterManager.restoreState(categoryFilterState);
+      }, 50);
+    }
+
+    // ✅ Move active facets to filter container
+    setTimeout(() => {
+      FacetFiltersForm.moveActiveFacetsToFilterContainer();
+    }, 100);
   }
-
-  // Reapply category filter state
-  if (window.CategoryFilterManager) {
-    const state = window.CategoryFilterManager.getCurrentState();
-    window.CategoryFilterManager.restoreState(state);
-  }
-}
-
-
 
   static renderProductCount(html) {
     const count = new DOMParser().parseFromString(html, 'text/html').getElementById('ProductCount').innerHTML;
@@ -201,6 +217,104 @@ class FacetFiltersForm extends HTMLElement {
     });
 
     FacetFiltersForm.toggleActiveFacets(false);
+    
+    // ✅ Move active facets to .filter-cr container
+    FacetFiltersForm.moveActiveFacetsToFilterContainer();
+  }
+
+  static moveActiveFacetsToFilterContainer() {
+    const filterContainer = document.querySelector('.filter-cr');
+    if (!filterContainer) {
+      console.log('Filter container .filter-cr not found');
+      return;
+    }
+
+    // Clear existing content
+    filterContainer.innerHTML = '';
+
+    let hasFilters = false;
+
+    // ✅ Add selected category first
+    const selectedCategoryCheckbox = document.querySelector('.category-filter__checkbox:checked');
+    if (selectedCategoryCheckbox) {
+      const categoryNameSpan = selectedCategoryCheckbox.parentElement.querySelector('.category-filter__name');
+      const categoryName = categoryNameSpan ? categoryNameSpan.textContent.trim() : '';
+      
+      if (categoryName) {
+        hasFilters = true;
+        const categoryPill = document.createElement('facet-remove');
+        categoryPill.innerHTML = `
+          <a href="/collections/all" class="active-facets__button active-facets__button--light">
+            <span class="active-facets__button-inner button button--tertiary">
+              ${categoryName}
+              <span class="svg-wrapper">
+                <svg class="icon icon-close-small" aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 12 12">
+                  <path d="M9.5 2.5L2.5 9.5M2.5 2.5L9.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span class="visually-hidden">Remove category filter</span>
+            </span>
+          </a>
+        `;
+        
+        const link = categoryPill.querySelector('a');
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          // Clear category selection
+          if (window.CategoryFilterManager) {
+            localStorage.removeItem('categoryFilterState');
+          }
+          window.location.href = '/collections/all';
+        });
+        
+        filterContainer.appendChild(categoryPill);
+      }
+    }
+
+    // Get all active facet buttons from desktop view
+    const activeFacetsDesktop = document.querySelector('.active-facets-desktop');
+    if (activeFacetsDesktop) {
+      const allActiveFacets = activeFacetsDesktop.querySelectorAll('facet-remove');
+
+      // Clone and append each active facet
+      allActiveFacets.forEach(facet => {
+        hasFilters = true;
+        const clone = facet.cloneNode(true);
+        // Re-bind click events
+        const link = clone.querySelector('a');
+        if (link) {
+          link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const form = document.querySelector('facet-filters-form');
+            if (form) form.onActiveFilterClick(event);
+          });
+        }
+        filterContainer.appendChild(clone);
+      });
+    }
+
+    // Add clear all button if there are any filters
+    if (hasFilters) {
+      const clearAllWrapper = document.createElement('facet-remove');
+      clearAllWrapper.className = 'active-facets__button-wrapper';
+      clearAllWrapper.innerHTML = `
+        <a href="/collections/all" class="active-facets__button-remove underlined-link">
+          <span>Clear all</span>
+        </a>
+      `;
+      
+      const clearLink = clearAllWrapper.querySelector('a');
+      clearLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        // Clear category selection
+        if (window.CategoryFilterManager) {
+          localStorage.removeItem('categoryFilterState');
+        }
+        window.location.href = '/collections/all';
+      });
+      
+      filterContainer.appendChild(clearAllWrapper);
+    }
   }
 
   static renderAdditionalElements(html) {
@@ -314,6 +428,9 @@ FacetFiltersForm.searchParamsPrev = window.location.search.slice(1);
 customElements.define('facet-filters-form', FacetFiltersForm);
 FacetFiltersForm.setListeners();
 
+// ✅ The CategoryFilterManager.init() will now call moveActiveFacetsToFilterContainer after restoring state
+// No need to call it separately here anymore
+
 class PriceRange extends HTMLElement {
   constructor() {
     super();
@@ -379,9 +496,6 @@ class FacetRemove extends HTMLElement {
 
 customElements.define('facet-remove', FacetRemove);
 
-// ============================================
-// CATEGORY FILTER MANAGER
-// ============================================
 // ============================================
 // CATEGORY FILTER MANAGER
 // ============================================
@@ -497,88 +611,100 @@ window.CategoryFilterManager = (function() {
     }
   }
 
-  function init() {
-    if (!document.querySelector('.category-filter')) return;
+ function init() {
+  if (!document.querySelector('.category-filter')) return;
 
-    document.addEventListener('click', function(e) {
-      // Toggle open/close for items
-      const toggleBtn = e.target.closest('.category-filter__toggle');
-      if (toggleBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-        const li = toggleBtn.closest('.category-filter__item');
-        const childList = li.querySelector('.category-filter__list');
-        if (!childList) return;
+  // Handle clicks on category filters
+  document.addEventListener('click', function(e) {
+    // Only handle if click is within category filter
+    const categoryFilter = e.target.closest('.category-filter');
+    if (!categoryFilter) return;
 
-        const isOpen = li.classList.contains('open');
-        if (isOpen) {
-          childList.style.display = 'none';
-          li.classList.remove('open');
-        } else {
-          childList.style.display = 'block';
-          li.classList.add('open');
-        }
-        return;
+    // Stop propagation to prevent drawer from closing
+    e.stopPropagation();
+    
+    // Toggle open/close for items
+    const toggleBtn = e.target.closest('.category-filter__toggle');
+    if (toggleBtn) {
+      e.preventDefault();
+      const li = toggleBtn.closest('.category-filter__item');
+      const childList = li.querySelector('.category-filter__list');
+      if (!childList) return;
+
+      const isOpen = li.classList.contains('open');
+      if (isOpen) {
+        childList.style.display = 'none';
+        li.classList.remove('open');
+      } else {
+        childList.style.display = 'block';
+        li.classList.add('open');
       }
+      return;
+    }
 
-      // Checkbox click
-      if (e.target.classList.contains('category-filter__checkbox')) {
-        const checkbox = e.target;
+    // Checkbox click
+    if (e.target.classList.contains('category-filter__checkbox')) {
+      const checkbox = e.target;
 
-        // Uncheck all others
-        document.querySelectorAll('.category-filter__checkbox').forEach(otherChk => {
-          if (otherChk !== checkbox) otherChk.checked = false;
-        });
+      // Uncheck all others
+      document.querySelectorAll('.category-filter__checkbox').forEach(otherChk => {
+        if (otherChk !== checkbox) otherChk.checked = false;
+      });
 
-        checkbox.checked = true;
-        saveState({ selectedItem: checkbox.dataset.handle });
+      checkbox.checked = true;
+      saveState({ selectedItem: checkbox.dataset.handle });
 
-        if (checkbox.dataset.url) {
+      if (checkbox.dataset.url) {
+        const drawer = document.querySelector('menu-drawer');
+        if (drawer && typeof drawer.hide === 'function') drawer.hide();
+        setTimeout(() => { window.location.href = checkbox.dataset.url; }, 50);
+      }
+      return;
+    }
+
+    // Label click
+    const label = e.target.closest('.category-filter__label');
+    if (label && e.target.tagName !== 'INPUT') {
+      const li = label.closest('.category-filter__item');
+      const childList = li && li.querySelector('.category-filter__list');
+
+      if (!childList) {
+        e.preventDefault();
+        const checkbox = label.querySelector('.category-filter__checkbox');
+        if (checkbox && checkbox.dataset.url) {
           const drawer = document.querySelector('menu-drawer');
           if (drawer && typeof drawer.hide === 'function') drawer.hide();
-          setTimeout(() => { window.location.href = checkbox.dataset.url; }, 50);
+
+          document.querySelectorAll('.category-filter__checkbox').forEach(chk => chk.checked = false);
+          checkbox.checked = true;
+          saveState({ selectedItem: checkbox.dataset.handle });
+          window.location.href = checkbox.dataset.url;
         }
         return;
       }
 
-      // Label click
-      const label = e.target.closest('.category-filter__label');
-      if (label && e.target.tagName !== 'INPUT') {
-        const li = label.closest('.category-filter__item');
-        const childList = li && li.querySelector('.category-filter__list');
-
-        if (!childList) {
-          const checkbox = label.querySelector('.category-filter__checkbox');
-          if (checkbox && checkbox.dataset.url) {
-            e.preventDefault();
-
-            // Close drawer overlay
-            const drawer = document.querySelector('menu-drawer');
-            if (drawer && typeof drawer.hide === 'function') drawer.hide();
-
-            document.querySelectorAll('.category-filter__checkbox').forEach(chk => chk.checked = false);
-            checkbox.checked = true;
-            saveState({ selectedItem: checkbox.dataset.handle });
-            window.location.href = checkbox.dataset.url;
-          }
-          return;
-        }
-
-        e.preventDefault();
-        const isOpen = li.classList.contains('open');
-        if (isOpen) {
-          childList.style.display = 'none';
-          li.classList.remove('open');
-        } else {
-          childList.style.display = 'block';
-          li.classList.add('open');
-        }
+      e.preventDefault();
+      const isOpen = li.classList.contains('open');
+      if (isOpen) {
+        childList.style.display = 'none';
+        li.classList.remove('open');
+      } else {
+        childList.style.display = 'block';
+        li.classList.add('open');
       }
-    });
+    }
+  });
 
-    // Restore saved state
-    restoreState(loadState());
-  }
+  // Restore saved state on initial load
+  restoreState(loadState());
+  
+  // After restoring category state, trigger the filter container update
+  setTimeout(() => {
+    if (typeof FacetFiltersForm !== 'undefined' && FacetFiltersForm.moveActiveFacetsToFilterContainer) {
+      FacetFiltersForm.moveActiveFacetsToFilterContainer();
+    }
+  }, 100);
+}
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

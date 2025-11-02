@@ -3,21 +3,27 @@
     <nav class="breadcrumb-nav">
       <a href="{{ routes.root_url }}" class="breadcrumb-home">Home</a>
       <span class="breadcrumb-separator">›</span>
-      <a href="/collections" class="breadcrumb-link">Products</a>
+      <a href="/collections/all" class="breadcrumb-link">Products</a>
 
       {% if product %}
-        {% for collection in product.collections %}
-          <span class="breadcrumb-separator">›</span>
-          <a href="{{ collection.url }}" class="breadcrumb-link">{{ collection.title }}</a>
-        {% endfor %}
-        <span class="breadcrumb-separator">›</span>
-        <span class="breadcrumb-current">{{ product.title }}</span>
+        {%- assign filtered_collections = product.collections | where: "handle", "all" | size -%}
+        {% if filtered_collections == 0 %}
+          {% assign visible_collections = product.collections | reject: "handle", "all" %}
+          {% for collection in visible_collections limit: 2 %}
+            <span class="breadcrumb-separator">›</span>
+            <a href="{{ collection.url }}" class="breadcrumb-link">{{ collection.title }}</a>
+          {% endfor %}
+        {% endif %}
+        {% comment %} <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">{{ product.title }}</span> {% endcomment %}
       {% elsif collection %}
-        <span class="breadcrumb-separator">›</span>
-        <span class="breadcrumb-current">{{ collection.title }}</span>
+        {% if collection.handle != 'all' %}
+          <span class="breadcrumb-separator">›</span>
+          <span class="breadcrumb-current">{{ collection.title }}</span>
+        {% endif %}
       {% elsif page %}
-        <span class="breadcrumb-separator">›</span>
-        <span class="breadcrumb-current">{{ page.title }}</span>
+        {% comment %} <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">{{ page.title }}</span> {% endcomment %}
       {% endif %}
     </nav>
   </div>

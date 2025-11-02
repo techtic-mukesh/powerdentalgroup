@@ -470,7 +470,6 @@
       </summary>
       <facet-filters-form>
         <form id="FacetFiltersFormMobile" class="mobile-facets">
-          {%  render 'collection-filter' %}
           <div class="mobile-facets__inner gradient">
             <div class="mobile-facets__header">
               <div class="mobile-facets__header-inner">
@@ -506,6 +505,8 @@
               id="FacetsWrapperMobile"
               class="mobile-facets__main has-submenu gradient"
             >
+                      {%  render 'collection-filter' %}
+
               {%- if enable_filtering -%}
                 {%- for filter in results.filters -%}
                   {% liquid
