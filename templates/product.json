@@ -38,6 +38,12 @@
           "type": "price",
           "settings": {}
         },
+        "joy_loyalty_program_joy_points_calculator_block_CydeK8": {
+          "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/joy-points-calculator-block\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "settings": {
+            "points_calculator_alignment": "left"
+          }
+        },
         "judge_me_reviews_preview_badge_DaBz33": {
           "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
@@ -100,6 +106,7 @@
         "text_bbpjaW",
         "sku_Gamq4J",
         "price",
+        "joy_loyalty_program_joy_points_calculator_block_CydeK8",
         "judge_me_reviews_preview_badge_DaBz33",
         "variant_picker",
         "quantity_selector",

@@ -209,9 +209,16 @@
           "customYMMTemplateLoader": ""
         }
       },
+      "18208872656243357035": {
+        "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/joy-points-calculator-embed\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+        "disabled": false,
+        "settings": {
+          "points_calculator_alignment": "left"
+        }
+      },
       "7584948915495707528": {
         "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/app-embed\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
-        "disabled": true,
+        "disabled": false,
         "settings": {}
       }
     },
