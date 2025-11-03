@@ -1,0 +1,153 @@
+<div class="progress-bar__wrapper">
+  {% assign goal = 700 %}
+  {% assign progress = cart.total_price | divided_by: 100 %}
+  {% assign remaining = goal | minus: progress %}
+
+  <div class="progress-text">
+    {% if progress >= goal %}
+    <p class="progress-message success">🎉 You’ve unlocked free shipping!</p>
+  {% else %}
+    <p class="progress-message">Spend <strong>${{ remaining | ceil }}</strong> more to get free shipping</p>
+  {% endif %}
+    <span class="end-amount">${{ goal }}</span>
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-fill" style="width: {{ progress | times: 100.0 | divided_by: goal | at_most: 100 }}%;"></div>
+  </div>
+
+ 
+</div>
+
+
+<style>
+  .progress-bar__wrapper {
+  text-align: center;
+  font-family: sans-serif;
+  margin: 0 0 25px;
+  max-width: 100%;
+    position: relative;
+    padding-top: 25px;
+}
+
+.progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  color: #5a4232;
+  margin-bottom: 12px;
+      width: 100%;
+}
+
+.progress-container {
+  background-color: #e3dbce;
+  border-radius: 999px;
+  height: 10px;
+ width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  background-color: #ffdd00;
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+  display:block !important;
+      background: linear-gradient(102deg, #42c5ef, #0033a0 50% 50%, #42c5ef);
+}
+
+.progress-message {
+    color: #000;
+    margin: 9px 0 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 3%;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    letter-spacing: -.16px;
+    margin: 0;
+}
+
+.progress-message.success {
+ font-weight: bold;
+    color: #0033a0;
+    font-weight: 400;
+       font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    letter-spacing: -.16px;
+}
+
+  .star-icon {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+}
+
+  .progress-text span {
+   font-weight: 600;
+    font-size: 16px;
+    line-height: 13px;
+    letter-spacing: 3%;
+    text-align: right;
+    display: inline-block;
+    margin: 0 0 4px;
+    color: #01000A;
+    position: relative;
+    font-family: 'Prompt';
+    margin: 0;
+    letter-spacing: -.16px;
+}
+
+  .progress-text span.end-amount {
+    margin-left: auto;
+}
+
+.progress-message strong {
+    font-weight: 800;
+}
+
+  .star-icon.fly.blink {
+     /* animation: blink 0.001s infinite alternate; */
+     animation: flyStar 1s ease-in-out forwards;
+  }
+
+  @keyframes blink{
+  0% { opacity:0.2;}
+  25% { opacity:1;}
+  50% { opacity:0.2;}
+  75% { opacity:1;}
+}
+
+  /* Fly-to-cart animation */
+@keyframes flyStar {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, -150px) scale(1.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(0, -200px) scale(0.3);
+    opacity: 0;
+  }
+}
+
+  @media screen and (max-width: 989px) {
+    .progress-container {
+          width: 88%;
+    }
+
+   .totals>h2, .totals__total-value {
+    font-size: 18px;
+}
+  }
+
+</style>
