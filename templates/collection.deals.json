@@ -1,0 +1,228 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "17582653178953a751": {
+      "type": "apps",
+      "blocks": {
+        "mst_wishlist_marketing_flow_v3_app_block_list_KJdirU": {
+          "type": "shopify:\/\/apps\/mst-wishlist-marketing-flow\/blocks\/v3-app-block-list\/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
+          "settings": {
+            "multi_language": false,
+            "iwish_add_txt": "Add To Wishlist",
+            "iwish_added_txt": "Added To Wishlist",
+            "theme_btn_class": "",
+            "icon_position": "top-right",
+            "icon_style": "heart",
+            "iwish_add_icon_outline": "",
+            "iwish_added_icon_filled": "",
+            "text_font_size": 14,
+            "text_color": "#000000",
+            "text_color_hover": "",
+            "background_color": "#ffffff",
+            "z_index": 2,
+            "qv_wrapper": "",
+            "qv_button": "",
+            "qv_close_button": ""
+          }
+        }
+      },
+      "block_order": [
+        "mst_wishlist_marketing_flow_v3_app_block_list_KJdirU"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "our_category_dAjLQW": {
+      "type": "our-category",
+      "blocks": {
+        "category_HrVRA7": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Power-Line_1_1_af56122e-2f04-4518-ac35-425eebc195d7.jpg",
+            "label": "Power Line",
+            "urllabel": "shopify:\/\/collections\/power-line"
+          }
+        },
+        "category_CCxDmL": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Periodontal.jpg",
+            "label": "Hygiene",
+            "urllabel": "shopify:\/\/collections\/hygiene"
+          }
+        },
+        "category_FYVXaq": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Diagnostic.jpg",
+            "label": "Diagnostic",
+            "urllabel": "shopify:\/\/collections\/diagnostic"
+          }
+        },
+        "category_3k7xg9": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Implant_Surgical.jpg",
+            "label": "Surgical & Implantology",
+            "urllabel": "shopify:\/\/collections\/surgical-implantology"
+          }
+        },
+        "category_9pcEjR": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/restorative-new.jpg",
+            "label": "Restorative",
+            "urllabel": "shopify:\/\/collections\/restorative"
+          }
+        },
+        "category_PEJRcf": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/endodontic-cat-2024.jpg",
+            "label": "Endodontic",
+            "urllabel": "shopify:\/\/collections\/endodontic"
+          }
+        },
+        "category_H6bwqD": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Orthodontic_V2.jpg",
+            "label": "Orthodontic",
+            "urllabel": "shopify:\/\/collections\/orthodontic"
+          }
+        },
+        "category_XfPRTj": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/6daf287d24246982448de0ee1b089d94b62f5246.png",
+            "label": "Headlamps & Loupes",
+            "urllabel": "shopify:\/\/collections\/headlamps-loupes"
+          }
+        },
+        "category_7DUUdj": {
+          "type": "category",
+          "settings": {
+            "icon": "shopify:\/\/shop_images\/Cassettes_Accessories.jpg",
+            "label": "Cassettes & Centrifuges",
+            "urllabel": "shopify:\/\/collections\/cassettes-accessories"
+          }
+        }
+      },
+      "block_order": [
+        "category_HrVRA7",
+        "category_CCxDmL",
+        "category_FYVXaq",
+        "category_3k7xg9",
+        "category_9pcEjR",
+        "category_PEJRcf",
+        "category_H6bwqD",
+        "category_XfPRTj",
+        "category_7DUUdj"
+      ],
+      "name": "Category Slider",
+      "settings": {
+        "heading": ""
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "color_scheme": "scheme-1",
+        "filter_collection": [
+          "power-line",
+          "hygiene",
+          "diagnostic",
+          "surgical-implantology",
+          "restorative",
+          "endodontic",
+          "orthodontic",
+          "headlamps-loupes",
+          "cassettes-accessories"
+        ],
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_bKYGcQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RXAqkJ": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_agR4KE": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.description }}"
+          }
+        },
+        "button_6EkEjU": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_RXAqkJ",
+        "text_agR4KE",
+        "button_6EkEjU"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "17582653178953a751",
+    "our_category_dAjLQW",
+    "product-grid",
+    "rich_text_bKYGcQ"
+  ]
+}
