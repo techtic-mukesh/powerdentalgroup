@@ -8,7 +8,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "<p><strong>🎄Holiday Notice:<\/strong> Power Dental Group will be closed for our annual winter break from <strong>December 24, 2025 to January 2, 2026. <\/strong>We’ll resume regular business on <strong>Monday, January 5, 2026.<\/strong> Rush orders are not guaranteed after Monday, December 8th. Please plan your orders in advance. Thank you for choosing Power Dental!<\/p>",
             "link": ""
           }
         }
@@ -16,11 +16,14 @@
       "block_order": [
         "announcement-bar-0"
       ],
-      "disabled": true,
       "settings": {
         "auto_rotate": false,
         "change_slides_speed": 5,
-        "color_scheme": "scheme-1",
+        "background_image": "shopify:\/\/shop_images\/breadcrumbs-bar.jpg",
+        "background_image_opacity": 100,
+        "enable_marquee": true,
+        "marquee_speed": 200,
+        "color_scheme": "scheme-5",
         "show_line_separator": true,
         "show_social": false,
         "enable_country_selector": false,

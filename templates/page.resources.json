@@ -124,6 +124,7 @@
         "service_jh77jG",
         "service_JkbdUB"
       ],
+      "disabled": true,
       "name": "Our Service",
       "settings": {
         "background_color": "#f8f6f4",

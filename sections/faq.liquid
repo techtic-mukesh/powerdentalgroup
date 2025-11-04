@@ -4,29 +4,29 @@
     <h2>{{ section.settings.heading }}</h2>
     <p>{{ section.settings.subheading }}</p>
   </div>
-  <div class="faq-grid">
-    {% for block in section.blocks %}
-     <div class="faq-item" {{ block.shopify_attributes }}>
-        <h2 class="faq-heading">{{ block.settings.title }}
-
-        <div class="icon-dwn">
-           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M1 7H13M7 1V13" stroke="#01000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<div class="faq-grid">
+  {% for block in section.blocks %}
+    {% if block.type == 'faq_title' %}
+      <h3 class="faq-block-title" {{ block.shopify_attributes }}>{{ block.settings.title }}</h3>
+    {% elsif block.type == 'faq_item' %}
+      <div class="faq-item" {{ block.shopify_attributes }}>
+        <h2 class="faq-heading">
+          {{ block.settings.title }}
+          <div class="icon-dwn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1 7H13M7 1V13" stroke="#01000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-
             <svg class="minus-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="2" viewBox="0 0 14 2" fill="none">
-            <path d="M1 1L13 1" stroke="#01000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M1 1L13 1" stroke="#01000A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-        </div>
+          </div>
         </h2>
-      <div class="faq-text">
-        {{ block.settings.content }}
+        <div class="faq-text">{{ block.settings.content }}</div>
       </div>
-     
-    </div>
+    {% endif %}
+  {% endfor %}
+</div>
 
-    {% endfor %}
-  </div>
   </div>
 </section>
 
@@ -68,12 +68,14 @@ section.faq-section {
 
 section.faq-section .faq-header {
     margin-bottom: 50px;
-    text-align: center;
+    text-align: left;
+        padding-bottom: 20px;
+    border-bottom: 1px solid;
 }
 
 section.faq-section .faq-header h2 {
   color: #010005;
-text-align: center;
+text-align: left;
 font-family: Montserrat;
 font-size: 34px;
 font-style: normal;
@@ -83,10 +85,47 @@ text-transform: uppercase;
 }
 
 section.faq-section .faq-grid {
-    max-width: 703px;
     margin: 0 auto;
 }
 
+section.faq-section h3.faq-block-title {
+    margin: 0 0 15px;
+    width: 100%;
+    position: relative;
+    font-size: 18px;
+    letter-spacing: 0.15em;
+    line-height: 27px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: Prompt;
+    background: linear-gradient(90deg, #42c5ef, #0033a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    display: inline-block;
+    background: linear-gradient(102deg, #42c5ef, #0033a0, #42c5ef, #0033a0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    font-weight: 600;
+    transition: color .2s 
+ease-in-out;
+    display: inline-block;
+    width: auto;
+}
+
+section.faq-section h3.faq-block-title:hover {
+      animation: rainbow 1.25s ease-in-out infinite;
+ }
+
+section.faq-section h3.faq-block-title:not(:first-of-type) {
+    margin-top: 35px;
+}
+
+section.faq-section .faq-grid .faq-text p strong {
+    font-weight: 500;
+}
 section.faq-section .faq-grid .faq-item {
     display: flex;
     flex-direction: column;
@@ -190,7 +229,7 @@ section.faq-section .faq-header h2 {
   "name": "Faq Section",
   "tag": "section",
   "class": "faq",
-  "max_blocks": 30,
+  "max_blocks": 200,
 "settings": [
     {
         "type": "text",
@@ -209,24 +248,39 @@ section.faq-section .faq-header h2 {
         "default": "#f0eeee"
     }
 ],
-  "blocks": [
-    {
-      "type": "faq",
-      "name": "faq",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-       {
+"blocks": [
+  {
+    "type": "faq_title",
+    "name": "FAQ Title",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Products & Purchasing"
+      }
+    ]
+  },
+  {
+    "type": "faq_item",
+    "name": "FAQ Item",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Question",
+        "default": "Where can I purchase specific products?"
+      },
+      {
         "type": "richtext",
         "id": "content",
-        "label": "Content"
-        }
-      ]
-    }
-  ],
+        "label": "Answer",
+        "default": "<p>You can purchase our products directly from our online store or through authorized retailers.</p>"
+      }
+    ]
+  }
+],
+
   "presets": [
     {
       "name": "Faq Section"     

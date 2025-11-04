@@ -170,6 +170,7 @@
         "resource_yKCQmw",
         "resource_UHcxg3"
       ],
+      "disabled": true,
       "name": "Resources Cards",
       "settings": {
         "section_heading": "Resources"
@@ -208,6 +209,7 @@
         "service_jh77jG",
         "service_JkbdUB"
       ],
+      "disabled": true,
       "name": "Our Service",
       "settings": {
         "background_color": "#f8f6f4",

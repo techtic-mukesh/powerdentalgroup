@@ -245,45 +245,231 @@
     "faq_VeEJEE": {
       "type": "faq",
       "blocks": {
-        "faq_nMF68m": {
-          "type": "faq",
+        "faq_title_dLRM6Y": {
+          "type": "faq_title",
           "settings": {
-            "title": "How long does it take to receive a custom kit?",
-            "content": "<p>Once the design is approved, most kits are produced and shipped within 1 week.<\/p>"
+            "title": "GENERAL & PROCESS"
           }
         },
-        "faq_cgzEk8": {
-          "type": "faq",
+        "faq_item_EEABAA": {
+          "type": "faq_item",
           "settings": {
-            "title": "Can I reorder the same kit again?",
-            "content": "<p>Once the design is approved, most kits are produced and shipped within 1 week.<\/p>"
+            "title": "What is a custom dental kit?",
+            "content": "<p>A custom dental kit from Power Dental Group is a personalized set of instruments tailored to your exact workflow. Instead of a standard preset, your kit is built around your preferred instruments, procedures, and working sequence.<\/p><p>Each instrument is organized, labeled, and assembled into a single tray for easy sterilization, efficiency, and consistency across every procedure. Whether used for implant surgery, perio, restorative, or education, your kit is designed to simplify setup and enhance your clinical flow.<\/p>"
           }
         },
-        "faq_zNcYKi": {
-          "type": "faq",
+        "faq_item_KgPYqJ": {
+          "type": "faq_item",
           "settings": {
-            "title": "What types of kits can be customized?",
-            "content": "<p>Once the design is approved, most kits are produced and shipped within 1 week.<\/p>"
+            "title": "How does the custom kitting process work?",
+            "content": "<p>You’ll collaborate with a PDG representative to design your ideal setup. We’ll review your workflow, instrument preferences, and procedural needs, then create a tray layout that optimizes efficiency and sterilization. Once you approve the layout, our team assembles, inspects, and packages your kit for a ready-to-use, professional setup.<\/p>"
           }
         },
-        "faq_WbcRQy": {
-          "type": "faq",
+        "faq_item_giCGXD": {
+          "type": "faq_item",
           "settings": {
-            "title": "What if I’m not sure what I need in my kit?",
-            "content": "<p>Once the design is approved, most kits are produced and shipped within 1 week.<\/p>"
+            "title": "Can I combine instruments from different categories in one kit?",
+            "content": "<p>Yes. You can mix surgical, restorative, periodontal, or diagnostic instruments – whatever best supports your workflow.<\/p>"
+          }
+        },
+        "faq_item_jjQG6a": {
+          "type": "faq_item",
+          "settings": {
+            "title": "How long does it take to produce a custom kit?",
+            "content": "<p>Once approved, your kit ships within <strong>3–5 business days.<\/strong><\/p>"
+          }
+        },
+        "faq_item_CTmGit": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Is there a minimum order quantity for custom kits?",
+            "content": "<p>There is no minimum order quantity. <\/p>"
+          }
+        },
+        "faq_item_WQ6rEV": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Can I modify an existing PDG kit instead of starting from scratch?",
+            "content": "<p>Absolutely. You can use any existing PDG kit as a base and customize it. Swap instruments, adjust layouts, or merge elements from several kits.<\/p>"
+          }
+        },
+        "faq_item_Hx6pnG": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Do I need to provide my own instruments, or can I select from PDG’s catalog?",
+            "content": "<p>You decide. Use your existing instruments, choose from PDG’s catalog, or combine both. Just make sure the instruments fit within your cassette size.<\/p>"
+          }
+        },
+        "faq_title_UbdXAT": {
+          "type": "faq_title",
+          "settings": {
+            "title": "DESIGN & PERSONALIZATION"
+          }
+        },
+        "faq_item_3WUAfP": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Can I choose handle types, finishes, or coatings?",
+            "content": "<p>Yes. Available finishes (e.g., Titanium, Black Edition, Power Line) are detailed in each product’s description during selection.<\/p>"
+          }
+        },
+        "faq_item_gHenRQ": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Can I engrave my logo or clinic name?",
+            "content": "<p>Yes. Custom laser engraving is available for most instruments for an additional fee.<\/p>"
+          }
+        },
+        "faq_item_X3LQA3": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Can  I preview my kit before production?",
+            "content": "<p>Yes. You’ll receive a digital mockup for review and approval before production begins.<\/p>"
+          }
+        },
+        "faq_title_7fyAyn": {
+          "type": "faq_title",
+          "settings": {
+            "title": "PRICING & ORDERS"
+          }
+        },
+        "faq_item_9kfnzm": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Do you offer volume discounts?",
+            "content": "<p>Yes, bulk orders may obtain tier-based pricing during promotional periods. <\/p>"
+          }
+        },
+        "faq_item_g6XiLx": {
+          "type": "faq_item",
+          "settings": {
+            "title": "When will I receive a quote or sample?",
+            "content": "<p>After your initial consultation, you’ll receive a quotation or kit mockup for review.<\/p>"
+          }
+        },
+        "faq_item_NKUfD9": {
+          "type": "faq_item",
+          "settings": {
+            "title": "What payment options are available?",
+            "content": "<p>We accept credit cards, bank transfers, and purchase orders. For large or ongoing projects,  payment terms can be arranged upon approval.<\/p>"
+          }
+        },
+        "faq_title_LVpRFg": {
+          "type": "faq_title",
+          "settings": {
+            "title": "SHIPPING, DELIVERY & SUPPORT"
+          }
+        },
+        "faq_item_3PTTEV": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Do you ship custom kits internationally?",
+            "content": "<p>Yes. Power Dental Group proudly serves clinicians around the world. We are committed to maintaining ongoing regulatory compliance across all regions where we operate, ensuring every shipment meets the requirements of each destination country.<\/p><p>Whether your practice is in the United States or abroad, our team coordinates documentation, labeling, and logistics to make international delivery smooth and compliant. Check with us to see if we can ship to your country. <\/p>"
+          }
+        },
+        "faq_item_qGwBTK": {
+          "type": "faq_item",
+          "settings": {
+            "title": "What is the average lead time for delivery after approval?",
+            "content": "<p>The average lead time for delivery after design and mockup approval is between 3-5 business days, unless other terms and conditions are agreed upon. <\/p>"
+          }
+        },
+        "faq_item_3WBr6t": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Can I reorder the same kit later?",
+            "content": "<p>Yes. Provide your previous order or invoice number, and we’ll recreate it exactly.<\/p>"
+          }
+        },
+        "faq_item_qeRzQ9": {
+          "type": "faq_item",
+          "settings": {
+            "title": "What if I need to replace a single instrument from my kit?",
+            "content": "<p>No problem. Contact us, and we’ll help you replace it quickly.<\/p>"
+          }
+        },
+        "faq_item_r4wxN6": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Do you provide technical or after-sales support for custom kits?",
+            "content": "<p>Yes. We provide ongoing support and adjustments to ensure your kit continues to perform perfectly.<\/p>"
+          }
+        },
+        "faq_title_CktnJb": {
+          "type": "faq_title",
+          "settings": {
+            "title": "QUALITY & MATERIALS"
+          }
+        },
+        "faq_item_yafyJw": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Do custom kits include sterilization trays or cases? ",
+            "content": "<p>You can include a PDG cassette with your order or use your own.<\/p>"
+          }
+        },
+        "faq_item_pXy3rW": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Are the kits autoclavable and reusable?",
+            "content": "<p>Yes. All components are fully autoclavable and reusable.<\/p>"
+          }
+        },
+        "faq_title_qMKGXU": {
+          "type": "faq_title",
+          "settings": {
+            "title": "PARTNERSHIP & SPECIAL PROJECTS"
+          }
+        },
+        "faq_item_fFpARU": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Can I create teaching or demo kits for training programs or universities?",
+            "content": "<p>Yes. We partner with universities and educators to design custom teaching or demo kits for courses, labs, and hands-on sessions.<\/p>"
+          }
+        },
+        "faq_item_pxqXLB": {
+          "type": "faq_item",
+          "settings": {
+            "title": "Do you create private-label kits for distributors or OEM clients?",
+            "content": "<p>Yes. PDG partners with distributors and OEM clients to produce private-label or co-branded kits.<\/p>"
           }
         }
       },
       "block_order": [
-        "faq_nMF68m",
-        "faq_cgzEk8",
-        "faq_zNcYKi",
-        "faq_WbcRQy"
+        "faq_title_dLRM6Y",
+        "faq_item_EEABAA",
+        "faq_item_KgPYqJ",
+        "faq_item_giCGXD",
+        "faq_item_jjQG6a",
+        "faq_item_CTmGit",
+        "faq_item_WQ6rEV",
+        "faq_item_Hx6pnG",
+        "faq_title_UbdXAT",
+        "faq_item_3WUAfP",
+        "faq_item_gHenRQ",
+        "faq_item_X3LQA3",
+        "faq_title_7fyAyn",
+        "faq_item_9kfnzm",
+        "faq_item_g6XiLx",
+        "faq_item_NKUfD9",
+        "faq_title_LVpRFg",
+        "faq_item_3PTTEV",
+        "faq_item_qGwBTK",
+        "faq_item_3WBr6t",
+        "faq_item_qeRzQ9",
+        "faq_item_r4wxN6",
+        "faq_title_CktnJb",
+        "faq_item_yafyJw",
+        "faq_item_pXy3rW",
+        "faq_title_qMKGXU",
+        "faq_item_fFpARU",
+        "faq_item_pxqXLB"
       ],
       "name": "Faq Section",
       "settings": {
-        "heading": "Frequently ASked Questions",
-        "subheading": "",
+        "heading": "FAQs",
+        "subheading": "Select a question to view the answer. If you need more details, contact our team below.",
         "bg_color": "#f0eeee"
       }
     }
