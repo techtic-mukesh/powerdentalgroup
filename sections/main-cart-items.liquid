@@ -308,7 +308,20 @@
                                 {{- 'icon-remove.svg' | inline_asset_content -}}
                               </span>
                             </a>
+
+                           
                           </cart-remove-button>
+
+                           <button class="whislist-cart">
+                              <a
+                                class="iWishAddColl iwishcheck"
+                                href="#"
+                                data-variant="{{ item.variant.id }}"
+                                data-product="{{ item.product.id }}"
+                                data-pTitle="{{ item.product.title | escape }}"
+                              >
+                              </a>
+                            </button>
                         </div>
                         {%- if has_qty_rules or has_vol_pricing -%}
                           <button

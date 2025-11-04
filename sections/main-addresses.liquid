@@ -38,9 +38,15 @@
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
+/* Required field asterisk styling */
+.required-asterisk {
+  color: red;
+  margin-left: 2px;
+}
+
 /* ---------- Modal styling ---------- */
 .customer.addresses .modal {
-  display: none; /* hidden by default */
+  display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.5);
@@ -69,6 +75,15 @@
   animation: fadeIn 0.3s ease;
 }
 
+.customer.addresses select[name="address[country]"] option {
+    display: none;
+}
+
+.customer.addresses select[name="address[country]"] option[value="Canada"], .customer.addresses select[name="address[country]"] option[value="United States"] {
+  display: block;
+}
+
+
 .customer.addresses .close-modal {
   position: absolute;
   top: 10px;
@@ -80,6 +95,11 @@
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to   { opacity: 1; transform: scale(1); }
+}
+
+/* Hide the add address form by default */
+#AddAddress {
+  display: none;
 }
 
 /* ---------- Responsive ---------- */
@@ -105,6 +125,8 @@
     <div data-address>
       <button
         type="button"
+        id="AddNewAddressBtn"
+        class="add-new-address-btn"
         aria-expanded="false"
         aria-controls="AddAddress"
       >
@@ -121,8 +143,9 @@
               value="{{ form.first_name }}"
               autocomplete="given-name"
               placeholder="{{ 'customer.addresses.first_name' | t }}"
+              required
             >
-            <label for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}</label>
+            <label for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}<span class="required-asterisk">*</span></label>
           </div>
           <div class="field">
             <input
@@ -132,8 +155,9 @@
               value="{{ form.last_name }}"
               autocomplete="family-name"
               placeholder="{{ 'customer.addresses.last_name' | t }}"
+              required
             >
-            <label for="AddressLastNameNew">{{ 'customer.addresses.last_name' | t }}</label>
+            <label for="AddressLastNameNew">{{ 'customer.addresses.last_name' | t }}<span class="required-asterisk">*</span></label>
           </div>
           <div class="field">
             <input
@@ -154,8 +178,9 @@
               value="{{ form.address1 }}"
               autocomplete="address-line1"
               placeholder="{{ 'customer.addresses.address1' | t }}"
+              required
             >
-            <label for="AddressAddress1New">{{ 'customer.addresses.address1' | t }}</label>
+            <label for="AddressAddress1New">{{ 'customer.addresses.address1' | t }}<span class="required-asterisk">*</span></label>
           </div>
           <div class="field">
             <input
@@ -176,11 +201,12 @@
               value="{{ form.city }}"
               autocomplete="address-level2"
               placeholder="{{ 'customer.addresses.city' | t }}"
+              required
             >
-            <label for="AddressCityNew">{{ 'customer.addresses.city' | t }}</label>
+            <label for="AddressCityNew">{{ 'customer.addresses.city' | t }}<span class="required-asterisk">*</span></label>
           </div>
           <div>
-            <label for="AddressCountryNew">{{ 'customer.addresses.country' | t }}</label>
+            <label for="AddressCountryNew">{{ 'customer.addresses.country' | t }}<span class="required-asterisk">*</span></label>
             <div class="select">
               <select
                 id="AddressCountryNew"
@@ -195,20 +221,6 @@
               </span>
             </div>
           </div>
-          <div id="AddressProvinceContainerNew" style="display: none">
-            <label for="AddressProvinceNew">{{ 'customer.addresses.province' | t }}</label>
-            <div class="select">
-              <select
-                id="AddressProvinceNew"
-                name="address[province]"
-                data-default="{{ form.province }}"
-                autocomplete="address-level1"
-              ></select>
-              <span class="svg-wrapper">
-                {{- 'icon-caret.svg' | inline_asset_content -}}
-              </span>
-            </div>
-          </div>
           <div class="field">
             <input
               type="text"
@@ -218,8 +230,9 @@
               autocapitalize="characters"
               autocomplete="postal-code"
               placeholder="{{ 'customer.addresses.zip' | t }}"
+              required
             >
-            <label for="AddressZipNew">{{ 'customer.addresses.zip' | t }}</label>
+            <label for="AddressZipNew">{{ 'customer.addresses.zip' | t }}<span class="required-asterisk">*</span></label>
           </div>
           <div class="field">
             <input
@@ -229,16 +242,17 @@
               value="{{ form.phone }}"
               autocomplete="tel"
               placeholder="{{ 'customer.addresses.phone' | t }}"
+              required
             >
-            <label for="AddressPhoneNew">{{ 'customer.addresses.phone' | t }}</label>
+            <label for="AddressPhoneNew">{{ 'customer.addresses.phone' | t }}<span class="required-asterisk">*</span></label>
           </div>
           <div>
             {{ form.set_as_default_checkbox }}
             <label for="address_default_address_new">{{ 'customer.addresses.set_default' | t }}</label>
           </div>
           <div>
-            <button>{{ 'customer.addresses.add' | t }}</button>
-            <button type="reset">{{ 'customer.addresses.cancel' | t }}</button>
+            <button type="submit">{{ 'customer.addresses.add' | t }}</button>
+            <button type="button" class="cancel-add-btn">{{ 'customer.addresses.cancel' | t }}</button>
           </div>
         {%- endform -%}
       </div>
@@ -281,8 +295,9 @@
                   value="{{ form.first_name }}"
                   autocomplete="given-name"
                   placeholder="{{ 'customer.addresses.first_name' | t }}"
+                  required
                 >
-                <label for="AddressFirstName_{{ form.id }}">{{ 'customer.addresses.first_name' | t }}</label>
+                <label for="AddressFirstName_{{ form.id }}">{{ 'customer.addresses.first_name' | t }}<span class="required-asterisk">*</span></label>
               </div>
               <div class="field">
                 <input
@@ -292,8 +307,9 @@
                   value="{{ form.last_name }}"
                   autocomplete="family-name"
                   placeholder="{{ 'customer.addresses.last_name' | t }}"
+                  required
                 >
-                <label for="AddressLastName_{{ form.id }}">{{ 'customer.addresses.last_name' | t }}</label>
+                <label for="AddressLastName_{{ form.id }}">{{ 'customer.addresses.last_name' | t }}<span class="required-asterisk">*</span></label>
               </div>
               <div class="field">
                 <input
@@ -314,8 +330,9 @@
                   value="{{ form.address1 }}"
                   autocomplete="address-line1"
                   placeholder="{{ 'customer.addresses.address1' | t }}"
+                  required
                 >
-                <label for="AddressAddress1_{{ form.id }}">{{ 'customer.addresses.address1' | t }}</label>
+                <label for="AddressAddress1_{{ form.id }}">{{ 'customer.addresses.address1' | t }}<span class="required-asterisk">*</span></label>
               </div>
               <div class="field">
                 <input
@@ -336,40 +353,23 @@
                   value="{{ form.city }}"
                   autocomplete="address-level2"
                   placeholder="{{ 'customer.addresses.city' | t }}"
+                  required
                 >
-                <label for="AddressCity_{{ form.id }}">{{ 'customer.addresses.city' | t }}</label>
+                <label for="AddressCity_{{ form.id }}">{{ 'customer.addresses.city' | t }}<span class="required-asterisk">*</span></label>
               </div>
               <div>
                 <label for="AddressCountry_{{ form.id }}">
-                  {{ 'customer.addresses.country' | t }}
+                  {{ 'customer.addresses.country' | t }}<span class="required-asterisk">*</span>
                 </label>
                 <div class="select">
-                  <select
-                    id="AddressCountry_{{ form.id }}"
-                    name="address[country]"
-                    data-address-country-select
-                    data-default="{{ form.country }}"
-                    data-form-id="{{ form.id }}"
-                    autocomplete="country"
-                  >
-                    {{ all_country_option_tags }}
-                  </select>
-                  <span class="svg-wrapper">
-                    {{- 'icon-caret.svg' | inline_asset_content -}}
-                  </span>
-                </div>
-              </div>
-              <div id="AddressProvinceContainer_{{ form.id }}" style="display:none;">
-                <label for="AddressProvince_{{ form.id }}">
-                  {{ 'customer.addresses.province' | t }}
-                </label>
-                <div class="select">
-                  <select
-                    id="AddressProvince_{{ form.id }}"
-                    name="address[province]"
-                    data-default="{{ form.province }}"
-                    autocomplete="address-level1"
-                  ></select>
+                 <select
+                id="AddressCountryNew"
+                name="address[country]"
+                data-default="{{ form.country }}"
+                autocomplete="country"
+              >
+                {{ all_country_option_tags }}
+              </select>
                   <span class="svg-wrapper">
                     {{- 'icon-caret.svg' | inline_asset_content -}}
                   </span>
@@ -384,8 +384,9 @@
                   autocapitalize="characters"
                   autocomplete="postal-code"
                   placeholder="{{ 'customer.addresses.zip' | t }}"
+                  required
                 >
-                <label for="AddressZip_{{ form.id }}">{{ 'customer.addresses.zip' | t }}</label>
+                <label for="AddressZip_{{ form.id }}">{{ 'customer.addresses.zip' | t }}<span class="required-asterisk">*</span></label>
               </div>
               <div class="field">
                 <input
@@ -395,8 +396,9 @@
                   value="{{ form.phone }}"
                   autocomplete="tel"
                   placeholder="{{ 'customer.addresses.phone' | t }}"
+                  required
                 >
-                <label for="AddressPhone_{{ form.id }}">{{ 'customer.addresses.phone' | t }}</label>
+                <label for="AddressPhone_{{ form.id }}">{{ 'customer.addresses.phone' | t }}<span class="required-asterisk">*</span></label>
               </div>
               <div>
                 {{ form.set_as_default_checkbox }}
@@ -406,7 +408,7 @@
               </div>
               <div>
                 <button type="submit">{{ 'customer.addresses.update' | t }}</button>
-                <button class="cancel-edit-btn" type="reset">{{ 'customer.addresses.cancel' | t }}</button>
+                <button class="cancel-edit-btn" type="button">{{ 'customer.addresses.cancel' | t }}</button>
               </div>
             {%- endform -%}
           </div>
@@ -418,8 +420,6 @@
     <div id="AddressEditModal" class="modal">
       <div class="modal-content">
         <span class="close-modal">&times;</span>
-
-        <!-- Placeholder where the selected form will load -->
         <div id="ModalFormContainer"></div>
       </div>
     </div>
@@ -510,7 +510,6 @@
 }
 {% endschema %}
 
-
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('AddressEditModal');
@@ -518,7 +517,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.querySelector('.close-modal');
   let activeForm = null;
 
-  // Open modal
+  // Open modal for "Add New Address"
+  const addNewBtn = document.getElementById('AddNewAddressBtn');
+  if (addNewBtn) {
+    addNewBtn.addEventListener('click', () => {
+      const formContainer = document.getElementById('AddAddress');
+      if (!formContainer) return;
+
+      activeForm = formContainer;
+      modalContainer.appendChild(formContainer);
+      formContainer.style.display = 'block';
+      modal.classList.add('active');
+    });
+  }
+
+  // Open modal for "Edit Address"
   document.querySelectorAll('.edit-address-btn').forEach(button => {
     button.addEventListener('click', e => {
       const id = e.currentTarget.dataset.addressId;
@@ -537,7 +550,13 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.classList.remove('active');
     if (activeForm) {
       activeForm.style.display = 'none';
-      document.querySelector(`li[data-address]`).appendChild(activeForm);
+      // Return form to its original location
+      const originalParent = activeForm.id === 'AddAddress' 
+        ? document.querySelector('[data-address]')
+        : document.querySelector(`li[data-address]`);
+      if (originalParent) {
+        originalParent.appendChild(activeForm);
+      }
       activeForm = null;
       modalContainer.innerHTML = '';
     }
@@ -548,9 +567,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === modal) closeModal();
   });
 
-  // Handle "Cancel" button inside the form
+  // Handle "Cancel" button inside the forms
   document.addEventListener('click', e => {
-    if (e.target.classList.contains('cancel-edit-btn')) {
+    if (e.target.classList.contains('cancel-edit-btn') || e.target.classList.contains('cancel-add-btn')) {
       e.preventDefault();
       closeModal();
     }

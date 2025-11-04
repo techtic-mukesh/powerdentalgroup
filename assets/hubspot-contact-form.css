@@ -145,6 +145,7 @@ font-size: 16px;
     font-size: 16px;
     padding: 5px 15px;
     min-height: 48px;
+    border-radius: 8px;
 }
 
 .hubspot-contact-right .hs_email.hs-email.hs-fieldtype-text.field.hs-form-field input {
@@ -157,6 +158,7 @@ font-size: 16px;
     font-style: normal;
     font-weight: 500;
     margin: 0;
+    border-radius: 8px;
 }
 
 .hubspot-contact-right .hs_message.hs-message.hs-fieldtype-textarea.field.hs-form-field .input {
@@ -174,6 +176,7 @@ font-size: 16px;
     font-weight: 500;
     line-height: 20px;
         padding: 15px 10px;
+        border-radius: 8px;
 }
 
 .hubspot-contact-right form  .hs_message.hs-message.hs-fieldtype-textarea.field.hs-form-field {
