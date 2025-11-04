@@ -25,7 +25,7 @@
             <address>{{ block.settings.faq_address }}</address>
 
             {% if block.settings.faq_website != blank and block.settings.website_text != blank %}
-              <a href="{{ block.settings.faq_website }}">{{ block.settings.website_text }}</a>
+              <span>Website: <a href="{{ block.settings.faq_website }}">{{ block.settings.website_text }}</a></span>
             {% endif %}
           </div>
           {% if block.settings.faq_link %}
@@ -192,8 +192,12 @@
   }
 
   .faq-info address>*,
-  .faq-info a {
-      margin: 0;
+  .faq-info a, .faq-panel-body span {
+          margin: 0;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    color: #5b5b5b;
+    letter-spacing: -.16px;
   }
 
   .faq-content-subtitle {
@@ -235,12 +239,11 @@
   }
 
   .faq-info a {
-      color: #0033a0;
       text-decoration: none;
   }
 
   .faq-info a:hover {
-      text-decoration: underline;
+      text-decoration: none;
   }
 
   @media (max-width: 1200px) {

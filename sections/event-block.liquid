@@ -111,23 +111,21 @@
 
 .event-sec-title,
 .event-sec-title.h2 {
-    font-size: 44px;
+    font-size: 56px;
     font-weight: 700;
-    margin: 0 0 40px;
+    margin: 0 0 25px;
     text-align: center;
     text-transform: uppercase;
-    line-height: 1.3;
+    line-height: 56px;
 }
 
-.event-sec-title.h2 {
-    font-size: 36px;
-}
 
 .events-list {
     display: flex;
     margin: 0 -15px;
     flex-wrap: wrap;
     position: relative;
+    row-gap: 34px;
 }
 
 .events-list:after {
@@ -145,8 +143,19 @@
     width: 25%;
     padding: 30px 15px;
     position: relative;
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 1px solid #ccc; */
     border-right: 1px solid #ccc;
+    padding-top: 0;
+}
+
+.events-list .events-box:after {
+    content: '';
+    width: 102%;
+    height: .9px;
+    background-color: #ccc;
+    display: inline-block;
+    position: absolute;
+    bottom: -17px;
 }
 
 .event-item {
@@ -170,7 +179,7 @@
 .event-subtitle {
     line-height: 20px;
     margin: 0;
-    font-weight: 300;
+    font-weight: 400;
     font-family: 'Montserrat';
     color: #0033a0;
     font-size: 16px;
@@ -180,7 +189,7 @@
 .event-image {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 25px;
     width: 100%;
     object-fit: cover;
     display: block;
@@ -194,12 +203,21 @@
 }
 
 .events-subtitle {
-    font-size: 36px;
+    font-size: 44px;
     line-height: 1.3;
     text-transform: uppercase;
-    letter-spacing: -.56px;
+    letter-spacing: -.88px;
     margin: 0 0 10px;
     text-align: left;
+    font-weight: 300;
+}
+
+.events-subtitle p {
+    margin: 0;
+}
+
+.events-subtitle p  strong{
+  font-weight: 700;
 }
 
 .event-info p span svg {
@@ -220,9 +238,11 @@
 }
 
 .event-info p {
-    margin: 0;
+      margin: 0;
     line-height: 20px;
     color: #5b5b5b;
+    font-weight: 400;
+    font-family: 'Montserrat';
 }
 
 .event-details {
@@ -258,7 +278,7 @@
 }
 
 .events-list:before {
-    content: "";
+    /* content: ""; */
     position: absolute;
     top: 0;
     left: 0;
@@ -380,7 +400,7 @@
       "limit": 1,
       "settings": [
         {
-          "type": "text",
+          "type": "richtext",
           "id": "subtitle_title",
           "label": "Subtitle"
         }
