@@ -358,7 +358,7 @@
           "settings": {
             "image": "shopify://shop_images/Rectangle_26115_2.png",
             "label": "<p>Custom Kitting</p>",
-            "srvurl": "shopify://pages/custom-kitting-for-dentists"
+            "srvurl": "shopify://pages/custom-kitting-page"
           }
         }
       },
