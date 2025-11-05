@@ -17,10 +17,17 @@
             "heading": "Coming Soon",
             "heading_size": "h1"
           }
+        },
+        "text_4Wh4JV": {
+          "type": "text",
+          "settings": {
+            "text": "<p><em>This page is currently under development<\/em><\/p>"
+          }
         }
       },
       "block_order": [
-        "heading_tNX9Mc"
+        "heading_tNX9Mc",
+        "text_4Wh4JV"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {

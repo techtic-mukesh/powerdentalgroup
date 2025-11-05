@@ -126,6 +126,7 @@
   .product__media-wrapper .Accordions {
     margin: 30px 0 0;
     padding-bottom: 20px;
+    padding-right: 20px;
   }
 
   .Accordion_item .title_tab h3 {
@@ -142,8 +143,12 @@
     line-height: 32px;
     text-transform: uppercase;
     padding: 18px 20px 18px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.30);
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.30); */
     cursor: pointer;
+  }
+
+  .Accordion_item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.30);
   }
 
   .Accordions .inner_content * {
@@ -167,9 +172,9 @@
     transition: all .3s linear;
   }
 
-  .Accordions .Accordion_item:last-of-type h3.title {
+  /* .Accordions .Accordion_item:last-of-type h3.title {
     border: unset;
-  }
+  } */
 
   .Accordions .title_tab.active h3.title span.icon {
     transform: rotate(90deg);
@@ -189,7 +194,7 @@
 .Accordions .inner_content b {
     font-family: 'Montserrat';
     font-weight: 600;
-    margin-bottom: 0;
+    margin-bottom: 12px;
     display: inline-block;
 }
 
