@@ -416,8 +416,9 @@ class PredictiveSearch {
     async fetchResults(query) {
         // Product search by title and SKU fields
         const productPromise = fetch(
-            `/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=6&resources[options][fields]=title,product_type,variants.sku,vendor&section_id=predictive-search`
-        )
+            `/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=6&resources[options][fields]=title,body,product_type,variants.sku,vendor&section_id=predictive-search`
+            )
+
         .then(response => response.json())
         .then(async data => {
             let products = data.resources?.results?.products || [];
@@ -456,14 +457,95 @@ class PredictiveSearch {
         .then(response => response.json())
         .then(data => data.resources?.results?.queries || []);
 
-        Promise.all([productPromise, collectionPromise, queryPromise])
-            .then(([products, collections, queries]) => {
-                this.renderResults(products, collections, queries, query);
+        // Fetch the actual total count from the search results page
+        const totalCountPromise = this.fetchTotalResultCount(query);
+
+        Promise.all([productPromise, collectionPromise, queryPromise, totalCountPromise])
+            .then(([products, collections, queries, totalCount]) => {
+                this.renderResults(products, collections, queries, query, totalCount);
             })
             .catch(error => {
                 console.error('Search error:', error);
                 this.showNoResults();
             });
+    }
+
+    // New method to fetch total result count from search page
+    async fetchTotalResultCount(query) {
+        try {
+            const response = await fetch(`/search?q=${encodeURIComponent(query)}&type=product`);
+            const html = await response.text();
+            
+            // Parse the HTML
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            // Try multiple selectors to find the result count
+            // Method 1: Look for text containing "results found"
+            const bodyText = doc.body.textContent;
+            const patterns = [
+                /(\d+)\s+results?\s+found/i,
+                /(\d+)\s+results?/i,
+                /found\s+(\d+)/i,
+                /showing\s+.*?of\s+(\d+)/i
+            ];
+            
+            for (const pattern of patterns) {
+                const match = bodyText.match(pattern);
+                if (match && match[1]) {
+                    const count = parseInt(match[1]);
+                    if (count > 0) {
+                        return count;
+                    }
+                }
+            }
+            
+            // Method 2: Try common Shopify theme selectors
+            const selectors = [
+                '.collection-product-count',
+                '.results-count',
+                '[data-results-count]',
+                '.product-count',
+                '.search-results-count',
+                'h1.h2',
+                '.collection-hero__title'
+            ];
+            
+            for (const selector of selectors) {
+                const element = doc.querySelector(selector);
+                if (element) {
+                    const text = element.textContent;
+                    const match = text.match(/(\d+)/);
+                    if (match) {
+                        const count = parseInt(match[0]);
+                        if (count > 0) {
+                            return count;
+                        }
+                    }
+                }
+            }
+            
+            // Method 3: Count actual product grid items as fallback
+            const productSelectors = [
+                '.grid__item.product-card-wrapper',
+                '.product-item',
+                '[data-product-id]',
+                '.product-grid-item',
+                '.collection-product-card'
+            ];
+            
+            for (const selector of productSelectors) {
+                const items = doc.querySelectorAll(selector);
+                if (items.length > 0) {
+                    return items.length;
+                }
+            }
+            
+            return 0;
+        } catch (error) {
+            console.error('Error fetching total count:', error);
+            return 0;
+        }
     }
 
     // More accurate SKU-only fallback
@@ -480,7 +562,7 @@ class PredictiveSearch {
         }
     }
 
-    renderResults(products, collections, queries, originalQuery) {
+    renderResults(products, collections, queries, originalQuery, totalCount = 0) {
         // Store query for view all link
         this.currentQuery = originalQuery;
         
@@ -587,6 +669,11 @@ class PredictiveSearch {
                 <li><a href="${suggestion.url}">${suggestion.title}</a></li>
             `).join('') : '<li style="color: #999; font-style: italic;">No suggestions</li>';
 
+        // Build the "View all" text with count - show actual total from search page
+        const viewAllText = totalCount > 0 
+            ? `View all ${totalCount} result${totalCount !== 1 ? 's' : ''} →`
+            : 'View all results →';
+
         this.results.innerHTML = `
             <div class="search-results-container">
                 <div class="products-section">
@@ -596,7 +683,7 @@ class PredictiveSearch {
                     </ul>
                     <div class="view-all-container">
                         <a href="/search?q=${encodeURIComponent(originalQuery)}" class="view-all-link">
-                            View all results →
+                            ${viewAllText}
                         </a>
                     </div>
                 </div>

@@ -40,13 +40,13 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/dental-instrument-mainbanner-1.jpg",
             "mobile-image": "shopify:\/\/shop_images\/Main_Homepage_Banner_Mobile_7.jpg",
-            "heading": "COMMON PROBLEMS, DISRUPTIVE SOLUTIONS",
+            "heading": "<p>COMMON PROBLEMS,<strong> DISRUPTIVE SOLUTIONS<\/strong><\/p>",
             "heading_color": "#ffffff",
             "subheading": "<p>With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.<\/p>",
             "description_color": "#ffffff",
             "button_label": "Who We Are",
             "button_link": "shopify:\/\/pages\/our-vision-philosophy",
-            "position": false
+            "position": true
           }
         },
         "slide_LVQGqF": {
@@ -54,9 +54,9 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/power-dental-banner-2f.png",
             "mobile-image": "shopify:\/\/shop_images\/Shop_Banner_Mobile.jpg",
-            "heading": "Instruments for Every Indication",
+            "heading": "<p>Instruments for <strong>Every Indication<\/strong><\/p>",
             "heading_color": "#ffffff",
-            "subheading": "<p>Thoughtful attention to detail. Power in every build. Make every moment count with the best instruments in class.<\/p>",
+            "subheading": "<p>Thoughtful attention to detail. Power in every build.<br\/>Make every moment count with the best instruments in class.<\/p>",
             "description_color": "#ffffff",
             "button_label": "Shop Now",
             "button_link": "shopify:\/\/collections\/all",
@@ -68,9 +68,9 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/fulcrum-forceps-mainbanner-3f.png",
             "mobile-image": "shopify:\/\/shop_images\/Fulcrum_Forceps_Highlight_Banner_Mobile_7.jpg",
-            "heading": "Fulcrum Forceps",
+            "heading": "<p>Fulcrum <strong>Forceps<\/strong><\/p>",
             "heading_color": "#ffffff",
-            "subheading": "<p>The Fulcrum Forceps utilize lever mechanics and light rotational pressure to create constant stress on the periodontal fibers for atraumatic extractions. The  360° rotational pad offers adaptable positioning within the oral cavity to form any ridge and provides alternatives in angulation for certain tooth extraction cases. <\/p>",
+            "subheading": "<p>The Fulcrum Forceps utilize lever mechanics and light rotational pressure to create constant stress on the periodontal fibers for atraumatic extractions. The 360° rotational pad offers adaptable positioning within the oral cavity to form any ridge and provides alternatives in angulation for certain tooth extraction cases. <\/p>",
             "description_color": "#ffffff",
             "auth_image": "shopify:\/\/shop_images\/power-logo.png",
             "button_label": "Find out more",
@@ -83,9 +83,9 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/crown-removers-mainbanner-4.png",
             "mobile-image": "shopify:\/\/shop_images\/Crown_Removers_Highlight_Banner_Mobile_2.jpg",
-            "heading": "Crown Removers",
+            "heading": "<p>Crown <strong>Removers<\/strong><\/p>",
             "heading_color": "#ffffff",
-            "subheading": "<p>Traditional methods for removing crowns require sectioning and piece removal. The Power Crown  Removers utilize push and pull mechanics in conjunction with pre-drilled holes to remove crowns fully intact, streamlining the removal process altogether. <\/p>",
+            "subheading": "<p>Traditional methods for removing crowns require sectioning and piece removal. The Power Crown Removers utilize push and pull mechanics in conjunction with pre-drilled holes to remove crowns fully intact, streamlining the removal process altogether. <\/p>",
             "description_color": "#ffffff",
             "auth_image": "shopify:\/\/shop_images\/power-logo.png",
             "button_label": "Our Solution",
