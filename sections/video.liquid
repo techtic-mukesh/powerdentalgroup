@@ -1,5 +1,4 @@
-
-     {% if product.metafields.custom.how_to_use_doc != blank %}
+{% if product.metafields.custom.how_to_use_doc != blank %}
 
 {{ 'video-section.css' | asset_url | stylesheet_tag }}
 {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
@@ -57,105 +56,62 @@
 
      {%- assign video_url = product.metafields.custom.video_how_to_use -%}
      {%- if video_url != blank or section.settings.video != null -%}  
-    <deferred-media
-      class="video-section__media {% if  section.settings.enable_custom_height %} custom-vh {% endif %} deferred-media gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    <div
+      class="video-section__media {% if section.settings.enable_custom_height %} custom-vh {% endif %} gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
       data-media-id="{{ video_id }}"
-
-     {% if section.settings.enable_custom_height %}
+      {% if section.settings.enable_custom_height %}
         
-  {% else %}
-    {% if poster != null %}
-      style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
-    {% endif %}
-  {% endif %}
+      {% else %}
+        {% if poster != null %}
+          style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
+        {% endif %}
+      {% endif %}
     >
-      <button
-        id="Deferred-Poster-Modal-{{ video_id }}"
-        class="video-section__poster media deferred-media__poster media--landscape"
-        type="button"
-        aria-label="{{ alt }}"
-      >
-        {%- if poster != null -%}
-          {{
-            poster
-            | image_url: width: 3840
-            | image_tag: sizes: sizes, widths: '375, 750, 1100, 1500, 1780, 2000, 3000, 3840', alt: alt
-          }}
-        {%- else -%}
-          {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+      {%- if video_url != blank -%}
+        {%- assign video_id = '' -%}
+        {%- assign loop = '' -%}
+        {%- if section.settings.enable_video_looping -%}
+          {%- assign loop = '&loop=1&playlist=' | append: video_id -%}
         {%- endif -%}
-        <span class="deferred-media__poster-button motion-reduce">
-          <span class="svg-wrapper">
-           <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
-  <g clip-path="url(#clip0_2253_15316)">
-    <rect x="0.5" y="0.5" width="63" height="63" rx="31.5" fill="black" fill-opacity="0.2"/>
-    <rect x="0.5" y="0.5" width="63" height="63" rx="31.5" fill="url(#paint0_linear_2253_15316)" fill-opacity="0.6"/>
-    <rect x="0.5" y="0.5" width="63" height="63" rx="31.5" stroke="white"/>
-    <path d="M24 43L44 31.5L24 20V43Z" fill="white"/>
-  </g>
-  <defs>
-    <linearGradient id="paint0_linear_2253_15316" x1="0" y1="32" x2="64" y2="32" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#42C5EF"/>
-      <stop offset="1" stop-color="#0033A0"/>
-    </linearGradient>
-    <clipPath id="clip0_2253_15316">
-      <rect width="64" height="64" fill="white"/>
-    </clipPath>
-  </defs>
-</svg>
-          </span>
-        </span>
-      </button>
-      <template>
-       
 
-{%- if video_url != blank -%}
-  {%- assign video_id = '' -%}
-  {%- assign loop = '' -%}
-  {%- if section.settings.enable_video_looping -%}
-    {%- assign loop = '&loop=1&playlist=' | append: video_id -%}
-  {%- endif -%}
+        {%- if video_url contains 'youtube.com' or video_url contains 'youtu.be' -%}
+          {%- if video_url contains 'v=' -%}
+            {%- assign video_id = video_url | split: 'v=' | last | split: '&' | first -%}
+          {%- else -%}
+            {%- assign video_id = video_url | split: '/' | last -%}
+          {%- endif -%}
 
-  {%- if video_url contains 'youtube.com' or video_url contains 'youtu.be' -%}
-    {%- if video_url contains 'v=' -%}
-      {%- assign video_id = video_url | split: 'v=' | last | split: '&' | first -%}
-    {%- else -%}
-      {%- assign video_id = video_url | split: '/' | last -%}
-    {%- endif -%}
+          <iframe
+            src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1{{ loop }}"
+            class="js-youtube"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="{{ product.title | escape }}"
+          ></iframe>
 
-    <iframe
-      src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&autoplay=1{{ loop }}"
-      class="js-youtube"
-      allow="autoplay; encrypted-media"
-      allowfullscreen
-      title="{{ product.title | escape }}"
-    ></iframe>
+        {%- elsif video_url contains 'vimeo.com' -%}
+          {%- assign video_id = video_url | split: '/' | last -%}
+          <iframe
+            src="https://player.vimeo.com/video/{{ video_id }}?{{ loop }}"
+            class="js-vimeo"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            title="{{ product.title | escape }}"
+          ></iframe>
+        {%- endif -%}
 
-  {%- elsif video_url contains 'vimeo.com' -%}
-    {%- assign video_id = video_url | split: '/' | last -%}
-    <iframe
-      src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1{{ loop }}"
-      class="js-vimeo"
-      allow="autoplay; encrypted-media"
-      allowfullscreen
-      title="{{ product.title | escape }}"
-    ></iframe>
-  {%- endif -%}
-
-{%- elsif section.settings.video != null -%}
-  {{
-    section.settings.video
-    | video_tag:
-      image_size: '1100x',
-      autoplay: true,
-      loop: section.settings.enable_video_looping,
-      controls: true,
-      muted: false
-  }}
-{%- endif -%}
-
-      </template>
-    </deferred-media>
+      {%- elsif section.settings.video != null -%}
+        {{
+          section.settings.video
+          | video_tag:
+            image_size: '1100x',
+            autoplay: false,
+            loop: section.settings.enable_video_looping,
+            controls: true,
+            muted: false
+        }}
+      {%- endif -%}
+    </div>
     {%- endif -%}
 
      {% if product.metafields.custom.how_to_use_doc != blank %}
@@ -180,7 +136,7 @@
   </div>
 </div>
 
-  {% endif %}
+{% endif %}
 
 {% schema %}
 {
