@@ -16,103 +16,111 @@
   }
 
   .customer.addresses .address-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  max-width: 1200px;
-}
-
-.customer.addresses .address-grid li[data-address] {
-  background: #f8f8f8;
-  border: 1px solid #e3e3e3;
-  border-radius: 8px;
-  padding: 20px;
-  text-align: left;
-  transition: box-shadow 0.3s ease;
-}
-.customer.addresses .address-grid li[data-address]:hover {
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-}
-
-/* Required field asterisk styling */
-.required-asterisk {
-  color: red;
-  margin-left: 2px;
-}
-
-/* ---------- Modal styling ---------- */
-.customer.addresses .modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 9999;
-  justify-content: center;
-  align-items: center;
-}
-
-.customer.addresses .modal .edit_addresses{
-  display:block !important;
-}
-
-.customer.addresses .modal.active {
-  display: flex;
-}
-
-.customer.addresses .modal-content {
-  background: #fff;
-  border-radius: 8px;
-  padding: 30px;
-  max-width: 600px;
-  width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  animation: fadeIn 0.3s ease;
-}
-
-.customer.addresses select[name="address[country]"] option {
-    display: none;
-}
-
-.customer.addresses select[name="address[country]"] option[value="Canada"], .customer.addresses select[name="address[country]"] option[value="United States"] {
-  display: block;
-}
-
-
-.customer.addresses .close-modal {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-/* Hide the add address form by default */
-#AddAddress {
-  display: none;
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 900px) {
-  .customer.addresses .address-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .customer.addresses .address-grid { grid-template-columns: 1fr; }
-  .customer.addresses .modal-content{
-    width: 94%;
-    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1200px;
   }
+
+  .customer.addresses .address-grid li[data-address] {
+    background: #f8f8f8;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
+    transition: box-shadow 0.3s ease;
+        position: relative;
+    overflow: hidden;
+  }
+
+  .customer.addresses .address-grid li[data-address] > h2 {
+    font-size: 14px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-family: 'Montserrat';
+    background-color: green;
+    color: #fff;
+    line-height: 30px;
+    padding: 0 10px;
 }
+
+  .customer.addresses .address-grid li[data-address]:hover {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+
+  /* Required field asterisk styling */
+  .required-asterisk {
+    color: red;
+    margin-left: 2px;
+  }
+
+  /* ---------- Modal styling ---------- */
+  .customer.addresses .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .customer.addresses .modal.active {
+    display: flex;
+  }
+
+  .customer.addresses .modal-content {
+    background: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .customer.addresses .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  /* Hide forms initially */
+  #AddAddress,
+  .edit_addresses {
+    display: none;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .customer.addresses .address-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .customer.addresses .address-grid { grid-template-columns: 1fr; }
+    .customer.addresses .modal-content {
+      width: 94%;
+      padding: 15px;
+    }
+  }
 {%- endstyle -%}
 
 {%- paginate customer.addresses by 5 -%}
@@ -122,7 +130,8 @@
       {{ 'customer.account.return' | t }}
     </a>
 
-    <div data-address>
+    <!-- Add New Address Button & Form -->
+    <div data-address id="AddNewAddressContainer">
       <button
         type="button"
         id="AddNewAddressBtn"
@@ -132,6 +141,7 @@
       >
         {{ 'customer.addresses.add_new' | t }}
       </button>
+      
       <div id="AddAddress">
         <h2 id="AddressNewHeading">{{ 'customer.addresses.add_new' | t }}</h2>
         {%- form 'customer_address', customer.new_address, aria-labelledBy: 'AddressNewHeading' -%}
@@ -221,6 +231,20 @@
               </span>
             </div>
           </div>
+          <div id="AddressProvinceContainerNew" style="display: none">
+            <label for="AddressProvinceNew">{{ 'customer.addresses.province' | t }}</label>
+            <div class="select">
+              <select
+                id="AddressProvinceNew"
+                name="address[province]"
+                data-default="{{ form.province }}"
+                autocomplete="address-level1"
+              ></select>
+              <span class="svg-wrapper">
+                {{- 'icon-caret.svg' | inline_asset_content -}}
+              </span>
+            </div>
+          </div>
           <div class="field">
             <input
               type="text"
@@ -258,9 +282,10 @@
       </div>
     </div>
 
+    <!-- Address Grid -->
     <ul role="list" class="address-grid">
       {%- for address in customer.addresses -%}
-        <li data-address>
+        <li data-address data-address-container="{{ address.id }}">
           {%- if address == customer.default_address -%}
             <h2>{{ 'customer.addresses.default' | t }}</h2>
           {%- endif -%}
@@ -278,13 +303,16 @@
           </button>
           <button
             type="button"
+            class="delete-address-btn"
             aria-label="{{ 'customer.addresses.delete' | t }} {{ forloop.index }}"
             data-target="{{ address.url }}"
             data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}"
           >
             {{ 'customer.addresses.delete' | t }}
           </button>
-          <div id="EditAddress_{{ address.id }}" class="edit_addresses" style="display:none;">
+          
+          <!-- Edit Form (hidden by default) -->
+          <div id="EditAddress_{{ address.id }}" class="edit_addresses">
             <h2>{{ 'customer.addresses.edit_address' | t }}</h2>
             {%- form 'customer_address', address -%}
               <div class="field">
@@ -362,14 +390,32 @@
                   {{ 'customer.addresses.country' | t }}<span class="required-asterisk">*</span>
                 </label>
                 <div class="select">
-                 <select
-                id="AddressCountryNew"
-                name="address[country]"
-                data-default="{{ form.country }}"
-                autocomplete="country"
-              >
-                {{ all_country_option_tags }}
-              </select>
+                  <select
+                    id="AddressCountry_{{ form.id }}"
+                    name="address[country]"
+                    data-address-country-select
+                    data-default="{{ form.country }}"
+                    data-form-id="{{ form.id }}"
+                    autocomplete="country"
+                  >
+                    {{ all_country_option_tags }}
+                  </select>
+                  <span class="svg-wrapper">
+                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                  </span>
+                </div>
+              </div>
+              <div id="AddressProvinceContainer_{{ form.id }}" style="display:none;">
+                <label for="AddressProvince_{{ form.id }}">
+                  {{ 'customer.addresses.province' | t }}
+                </label>
+                <div class="select">
+                  <select
+                    id="AddressProvince_{{ form.id }}"
+                    name="address[province]"
+                    data-default="{{ form.province }}"
+                    autocomplete="address-level1"
+                  ></select>
                   <span class="svg-wrapper">
                     {{- 'icon-caret.svg' | inline_asset_content -}}
                   </span>
@@ -416,10 +462,10 @@
       {%- endfor -%}
     </ul>
 
-    <!-- ✅ MODAL POPUP (shared for all addresses) -->
+    <!-- Modal Popup -->
     <div id="AddressEditModal" class="modal">
       <div class="modal-content">
-        <span class="close-modal">&times;</span>
+        <button class="close-modal" aria-label="Close">&times;</button>
         <div id="ModalFormContainer"></div>
       </div>
     </div>
@@ -478,6 +524,95 @@
   });
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('AddressEditModal');
+  const modalContainer = document.getElementById('ModalFormContainer');
+  const closeBtn = document.querySelector('.close-modal');
+  let activeForm = null;
+  let originalParent = null;
+
+  // Open modal for "Add New Address"
+  const addNewBtn = document.getElementById('AddNewAddressBtn');
+  if (addNewBtn) {
+    addNewBtn.addEventListener('click', () => {
+      const formContainer = document.getElementById('AddAddress');
+      if (!formContainer) return;
+
+      originalParent = document.getElementById('AddNewAddressContainer');
+      activeForm = formContainer;
+      modalContainer.appendChild(formContainer);
+      formContainer.style.display = 'block';
+      modal.classList.add('active');
+    });
+  }
+
+  // Open modal for "Edit Address"
+  document.querySelectorAll('.edit-address-btn').forEach(button => {
+    button.addEventListener('click', e => {
+      const id = e.currentTarget.dataset.addressId;
+      const formContainer = document.querySelector(`#EditAddress_${id}`);
+      if (!formContainer) return;
+
+      originalParent = document.querySelector(`[data-address-container="${id}"]`);
+      activeForm = formContainer;
+      modalContainer.appendChild(formContainer);
+      formContainer.style.display = 'block';
+      modal.classList.add('active');
+    });
+  });
+
+  // Close modal and return form to original location
+  function closeModal() {
+    modal.classList.remove('active');
+    if (activeForm && originalParent) {
+      activeForm.style.display = 'none';
+      originalParent.appendChild(activeForm);
+      activeForm = null;
+      originalParent = null;
+      modalContainer.innerHTML = '';
+    }
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Handle "Cancel" buttons
+  document.addEventListener('click', e => {
+    if (e.target.classList.contains('cancel-edit-btn') || e.target.classList.contains('cancel-add-btn')) {
+      e.preventDefault();
+      closeModal();
+    }
+  });
+
+  // Handle delete button with confirmation
+  document.querySelectorAll('.delete-address-btn').forEach(button => {
+    button.addEventListener('click', e => {
+      const target = e.currentTarget.dataset.target;
+      const message = e.currentTarget.dataset.confirmMessage;
+      
+      if (confirm(message)) {
+        // Create a form to delete the address
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = target;
+        
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = '_method';
+        input.value = 'delete';
+        
+        form.appendChild(input);
+        document.body.appendChild(form);
+        form.submit();
+      }
+    });
+  });
+});
+</script>
+
 {% schema %}
 {
   "name": "t:sections.main-addresses.name",
@@ -509,70 +644,3 @@
   ]
 }
 {% endschema %}
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('AddressEditModal');
-  const modalContainer = document.getElementById('ModalFormContainer');
-  const closeBtn = document.querySelector('.close-modal');
-  let activeForm = null;
-
-  // Open modal for "Add New Address"
-  const addNewBtn = document.getElementById('AddNewAddressBtn');
-  if (addNewBtn) {
-    addNewBtn.addEventListener('click', () => {
-      const formContainer = document.getElementById('AddAddress');
-      if (!formContainer) return;
-
-      activeForm = formContainer;
-      modalContainer.appendChild(formContainer);
-      formContainer.style.display = 'block';
-      modal.classList.add('active');
-    });
-  }
-
-  // Open modal for "Edit Address"
-  document.querySelectorAll('.edit-address-btn').forEach(button => {
-    button.addEventListener('click', e => {
-      const id = e.currentTarget.dataset.addressId;
-      const formContainer = document.querySelector(`#EditAddress_${id}`);
-      if (!formContainer) return;
-
-      activeForm = formContainer;
-      modalContainer.appendChild(formContainer);
-      formContainer.style.display = 'block';
-      modal.classList.add('active');
-    });
-  });
-
-  // Close modal and return form to original place
-  function closeModal() {
-    modal.classList.remove('active');
-    if (activeForm) {
-      activeForm.style.display = 'none';
-      // Return form to its original location
-      const originalParent = activeForm.id === 'AddAddress' 
-        ? document.querySelector('[data-address]')
-        : document.querySelector(`li[data-address]`);
-      if (originalParent) {
-        originalParent.appendChild(activeForm);
-      }
-      activeForm = null;
-      modalContainer.innerHTML = '';
-    }
-  }
-
-  closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', e => {
-    if (e.target === modal) closeModal();
-  });
-
-  // Handle "Cancel" button inside the forms
-  document.addEventListener('click', e => {
-    if (e.target.classList.contains('cancel-edit-btn') || e.target.classList.contains('cancel-add-btn')) {
-      e.preventDefault();
-      closeModal();
-    }
-  });
-});
-</script>
