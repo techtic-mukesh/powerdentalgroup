@@ -1,12 +1,4 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
+
 {
   "current": {
     "logo": "shopify://shop_images/power-dental-logo_2.png",
@@ -146,7 +138,7 @@
     "content_for_index": [],
     "blocks": {
       "14060646107696862457": {
-        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
       },
@@ -218,9 +210,23 @@
           "custom_settings": "{\"show_price_on_login\": \"false\", \"show_vendor\": \"false\", \"cart_counter\": \".cart-count-bubble span:first-of-type\", \"custom_filters\": \"facet-filters-form, .facet-filters__sort\", \"custom_delay\": \"500\", \"remove_all_wishlist\": \"false\",\"hide_cart_btn\": \"false\"}"
         }
       },
-      "7584948915495707528": {
-        "type": "shopify://apps/joy-loyalty-program/blocks/app-embed/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+      "14060646107696862457": {
+        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "4291333794791649201": {
+        "type": "shopify:\/\/apps\/loyalty-rewards-and-referrals\/blocks\/embed-sdk\/6f172e67-4106-4ac0-89c5-b32a069b3101",
         "disabled": true,
+        "settings": {
+          "disableBundledCSS": false,
+          "disableBundledFonts": false,
+          "useClassIsolator": false
+        }
+      },
+      "11560147490181472608": {
+        "type": "shopify:\/\/apps\/rivo-loyalty-rewards-referrals\/blocks\/app-embed\/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
+        "disabled": false,
         "settings": {}
       },
       "18208872656243357035": {
@@ -230,18 +236,9 @@
           "points_calculator_alignment": "left"
         }
       },
-      "4291333794791649201": {
-        "type": "shopify://apps/loyalty-rewards-and-referrals/blocks/embed-sdk/6f172e67-4106-4ac0-89c5-b32a069b3101",
-        "disabled": false,
-        "settings": {
-          "disableBundledCSS": true,
-          "disableBundledFonts": true,
-          "useClassIsolator": true
-        }
-      },
-      "11560147490181472608": {
-        "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/app-embed/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
-        "disabled": false,
+      "7584948915495707528": {
+        "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/app-embed\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+        "disabled": true,
         "settings": {}
       }
     },

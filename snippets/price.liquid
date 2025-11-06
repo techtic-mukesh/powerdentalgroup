@@ -61,9 +61,12 @@
       {%- endif -%}
 
 
-     <span class="sale-price" data-lion-price-for-product-id="{{ product.id }}">
+     <span class="sale-price"  id="ProductPrice" data-lion-price-for-product-id="{{ product.id }}">
 {{ money_price }}
 </span>
+
+
+
 
       {%- if compare_at_price > price -%}
         <div class="compare-price">
