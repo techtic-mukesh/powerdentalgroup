@@ -230,19 +230,19 @@
           "points_calculator_alignment": "left"
         }
       },
+      "11560147490181472608": {
+        "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/app-embed/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
+        "disabled": false,
+        "settings": {}
+      },
       "4291333794791649201": {
         "type": "shopify://apps/loyalty-rewards-and-referrals/blocks/embed-sdk/6f172e67-4106-4ac0-89c5-b32a069b3101",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "disableBundledCSS": true,
           "disableBundledFonts": true,
           "useClassIsolator": true
         }
-      },
-      "11560147490181472608": {
-        "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/app-embed/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
-        "disabled": false,
-        "settings": {}
       }
     },
     "color_schemes": {
