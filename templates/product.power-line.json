@@ -40,8 +40,15 @@
         },
         "joy_loyalty_program_joy_points_calculator_block_Hzt3Qb": {
           "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/joy-points-calculator-block\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "disabled": true,
           "settings": {
             "points_calculator_alignment": "left"
+          }
+        },
+        "custom_liquid_H8yKfr": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": ""
           }
         },
         "judge_me_reviews_preview_badge_DaBz33": {
@@ -107,6 +114,7 @@
         "sku_Gamq4J",
         "price",
         "joy_loyalty_program_joy_points_calculator_block_Hzt3Qb",
+        "custom_liquid_H8yKfr",
         "judge_me_reviews_preview_badge_DaBz33",
         "variant_picker",
         "quantity_selector",

@@ -71,6 +71,8 @@
   .recently-viewed-swiper-container-{{ section.id }} {
     position: relative;
     overflow: hidden;
+    /* Prevent height jumping */
+    min-height: 500px;
   }
 
   .recently-viewed-swiper {
@@ -80,8 +82,10 @@
 
   .recently-viewed-swiper-{{ section.id }} .swiper-slide {
     height: auto;
-    /* Prevent stretching during transitions */
     flex-shrink: 0;
+    /* Prevent layout shift */
+    opacity: 1;
+    transition: none;
   }
 
   .recently-viewed-navigation-{{ section.id }} {
@@ -161,6 +165,10 @@
       font-size: 24px;
       margin: 0 0 30px;
     }
+
+    .recently-viewed-swiper-container-{{ section.id }} {
+      min-height: 450px;
+    }
   }
 
   @media screen and (min-width: 750px) {
@@ -179,6 +187,11 @@
 
   .no-js .recently-viewed-grid-fallback {
     display: block;
+  }
+
+  /* Hide section until products are loaded */
+  .recently-viewed-products {
+    opacity: 1;
   }
   {% endif %}
 {%- endstyle -%}
@@ -251,10 +264,14 @@
   const MAX_PRODUCTS = {{ section.settings.products_to_show }};
   const ENABLE_SWIPER = {{ section.settings.enable_swiper | default: false }};
 
+  const sectionElement = document.getElementById(`RecentlyViewed-${SECTION_ID}`);
   const grid = document.getElementById(`RecentlyViewedGrid-${SECTION_ID}`);
   const swiperWrapper = document.getElementById(`RecentlyViewedSwiperWrapper-${SECTION_ID}`);
   const gridFallback = document.getElementById(`RecentlyViewedGridFallback-${SECTION_ID}`);
+  
   let swiperInstance = null;
+  let isInitialized = false;
+  let loadedProductHandles = new Set(); // Track loaded products to prevent duplicates
 
   // Get recently viewed from localStorage
   function getRecentlyViewed() {
@@ -282,6 +299,7 @@
   function createCardHTML(product) {
     const li = document.createElement('li');
     li.className = 'grid__item';
+    li.dataset.productHandle = product.handle; // Add identifier
 
     li.innerHTML = `
       <div class="card-wrapper product-card-wrapper underline-links-hover">
@@ -383,6 +401,7 @@
   function createSwiperSlideHTML(product) {
     const slide = document.createElement('div');
     slide.className = 'swiper-slide';
+    slide.dataset.productHandle = product.handle; // Add identifier
 
     slide.innerHTML = `
       <div class="card-wrapper product-card-wrapper underline-links-hover">
@@ -480,143 +499,20 @@
     return slide;
   }
 
-  // Initialize Swiper with section-specific selectors - FIXED BREAKPOINTS
+  // Initialize Swiper - only once
   function initRecentlyViewedSwiper() {
-    if (!ENABLE_SWIPER) return;
+    if (!ENABLE_SWIPER || swiperInstance) return;
     
     const swiperContainer = document.querySelector(`.recently-viewed-swiper-${SECTION_ID}`);
-    if (swiperContainer && !swiperInstance) {
-      swiperInstance = new Swiper(`.recently-viewed-swiper-${SECTION_ID}`, {
-        slidesPerView: 1.2,
-        spaceBetween: 15,
-        centeredSlides: false,
-        navigation: {
-          nextEl: `.swiper-button-next-${SECTION_ID}`,
-          prevEl: `.swiper-button-prev-${SECTION_ID}`,
-        },
-        pagination: {
-          el: `.swiper-pagination-${SECTION_ID}`,
-          clickable: true,
-        },
-        breakpoints: {
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 25,
-          },
-          1024: {
-            slidesPerView: {{ section.settings.swiper_slides_desktop | default: section.settings.columns_desktop | default: 4 }},
-            spaceBetween: 30,
-          }
-        },
-        loop: {{ section.settings.swiper_loop | default: false }},
-        watchSlidesProgress: true,
-        observer: true,
-        observeParents: true,
-        // Prevent stretching
-        autoHeight: false,
-        allowTouchMove: true,
-        resistance: true,
-        resistanceRatio: 0.85,
-      });
-    }
-  }
+    if (!swiperContainer) return;
 
-  async function loadProducts() {
-    const handles = getRecentlyViewed().slice(0, MAX_PRODUCTS);
-    if (!handles.length) return;
-
-    for (const handle of handles) {
-      try {
-        const res = await fetch(`/products/${handle}.js`);
-        if (!res.ok) continue;
-        const product = await res.json();
-
-        const productData = {
-          title: product.title,
-          url: `/products/${product.handle}`,
-          featured_image: product.images[0] || '',
-          vendor: product.vendor,
-          price: `$${(product.price / 100).toFixed(2)}`,
-          variants: product.variants,
-          id: product.id
-        };
-
-        if (ENABLE_SWIPER) {
-          // Add to swiper
-          if (swiperWrapper) {
-            const slide = createSwiperSlideHTML(productData);
-            swiperWrapper.appendChild(slide);
-          }
-          // Add to fallback grid
-          if (gridFallback) {
-            const card = createCardHTML(productData);
-            gridFallback.appendChild(card);
-          }
-        } else {
-          // Add to regular grid
-          if (grid) {
-            const card = createCardHTML(productData);
-            grid.appendChild(card);
-          }
-        }
-      } catch(err) {
-        console.warn(`Failed to load product ${handle}`, err);
-      }
+    // Check if Swiper library is loaded
+    if (typeof Swiper === 'undefined') {
+      console.error('Swiper library not loaded');
+      return;
     }
 
-    // Initialize swiper after products are loaded
-    if (ENABLE_SWIPER) {
-      setTimeout(initRecentlyViewedSwiper, 150);
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', loadProducts);
-})();
-</script>
-
-{% if section.settings.enable_swiper %}
-<script>
-function initRecentlyViewedSwiperGlobal() {
-  const SECTION_ID = '{{ section.id }}';
-  const swiperContainer = document.querySelector(`.recently-viewed-swiper-${SECTION_ID}`);
-
-  if (!swiperContainer || swiperContainer.swiper || typeof Swiper === 'undefined') return;
-
-  // Set min-height to avoid blink
-  const firstSlide = swiperContainer.querySelector('.swiper-slide');
-  if (firstSlide) {
-    const firstSlideHeight = firstSlide.offsetHeight;
-    swiperContainer.style.minHeight = firstSlideHeight + 'px';
-  }
-
-  // Wait for all images to load
-  const images = swiperContainer.querySelectorAll('img');
-  let loadedCount = 0;
-
-  function tryInit() {
-    loadedCount++;
-    if (loadedCount >= images.length) initializeSwiper();
-  }
-
-  if (images.length > 0) {
-    images.forEach(img => {
-      if (img.complete) {
-        tryInit();
-      } else {
-        img.addEventListener('load', tryInit);
-        img.addEventListener('error', tryInit);
-      }
-    });
-  } else {
-    initializeSwiper();
-  }
-
-  function initializeSwiper() {
-    const swiper = new Swiper(`.recently-viewed-swiper-${SECTION_ID}`, {
+    swiperInstance = new Swiper(`.recently-viewed-swiper-${SECTION_ID}`, {
       slidesPerView: 1.2,
       spaceBetween: 15,
       centeredSlides: false,
@@ -629,39 +525,127 @@ function initRecentlyViewedSwiperGlobal() {
         clickable: true,
       },
       breakpoints: {
-        640: { slidesPerView: 2, spaceBetween: 20 },
-        768: { slidesPerView: 3, spaceBetween: 25 },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 25,
+        },
         1024: {
           slidesPerView: {{ section.settings.swiper_slides_desktop | default: section.settings.columns_desktop | default: 4 }},
-          spaceBetween: 30
+          spaceBetween: 30,
         }
       },
       loop: {{ section.settings.swiper_loop | default: false }},
-      autoHeight: false, // keep false if you use min-height
-      observer: false,   // disable continuous recalculation
+      watchSlidesProgress: true,
+      observer: false,
       observeParents: false,
+      autoHeight: false,
+      allowTouchMove: true,
+      resistance: true,
+      resistanceRatio: 0.85,
+      on: {
+        init: function() {
+          console.log('Swiper initialized successfully');
+        }
+      }
     });
-
-    swiperContainer.swiper = swiper;
   }
-}
 
-// Re-init on Shopify section load
-document.addEventListener('shopify:section:load', function(event) {
-  if (event.detail && event.detail.sectionId === '{{ section.id }}') {
-    initRecentlyViewedSwiperGlobal();
+  async function loadProducts() {
+    if (isInitialized) return; // Prevent multiple initializations
+    isInitialized = true;
+
+    const handles = getRecentlyViewed().slice(0, MAX_PRODUCTS);
+    if (!handles.length) {
+      if (sectionElement) {
+        sectionElement.style.display = 'none';
+      }
+      return;
+    }
+
+    for (const handle of handles) {
+      // Skip if already loaded
+      if (loadedProductHandles.has(handle)) continue;
+
+      try {
+        const res = await fetch(`/products/${handle}.js`);
+        if (!res.ok) continue;
+        const product = await res.json();
+
+        // Mark as loaded
+        loadedProductHandles.add(handle);
+
+        const productData = {
+          handle: product.handle,
+          title: product.title,
+          url: `/products/${product.handle}`,
+          featured_image: product.images[0] || '',
+          vendor: product.vendor,
+          price: `$${(product.price / 100).toFixed(2)}`,
+          variants: product.variants,
+          id: product.id
+        };
+
+        if (ENABLE_SWIPER) {
+          // Add to swiper
+          if (swiperWrapper && !swiperWrapper.querySelector(`[data-product-handle="${handle}"]`)) {
+            const slide = createSwiperSlideHTML(productData);
+            swiperWrapper.appendChild(slide);
+          }
+          // Add to fallback grid
+          if (gridFallback && !gridFallback.querySelector(`[data-product-handle="${handle}"]`)) {
+            const card = createCardHTML(productData);
+            gridFallback.appendChild(card);
+          }
+        } else {
+          // Add to regular grid
+          if (grid && !grid.querySelector(`[data-product-handle="${handle}"]`)) {
+            const card = createCardHTML(productData);
+            grid.appendChild(card);
+          }
+        }
+      } catch(err) {
+        console.warn(`Failed to load product ${handle}`, err);
+      }
+    }
+
+    // Initialize swiper after ALL products are loaded
+    if (ENABLE_SWIPER) {
+      setTimeout(initRecentlyViewedSwiper, 100);
+    } else {
+      // Show section for grid layout
+      if (sectionElement) {
+        sectionElement.setAttribute('data-loading', 'false');
+      }
+    }
   }
-});
 
-
-// Listen for section load events
-document.addEventListener('shopify:section:load', function(event) {
-  if (event.detail && event.detail.sectionId === '{{ section.id }}') {
-    setTimeout(initRecentlyViewedSwiperGlobal, 200);
+  // Single initialization on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadProducts);
+  } else {
+    loadProducts();
   }
-});
+
+  // Handle Shopify section reload
+  document.addEventListener('shopify:section:load', function(event) {
+    if (event.detail && event.detail.sectionId === SECTION_ID) {
+      // Reset state
+      isInitialized = false;
+      loadedProductHandles.clear();
+      if (swiperInstance) {
+        swiperInstance.destroy(true, true);
+        swiperInstance = null;
+      }
+      // Reload products
+      setTimeout(loadProducts, 100);
+    }
+  });
+})();
 </script>
-{% endif %}
 
 {% schema %}
 {

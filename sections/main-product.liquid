@@ -114,6 +114,10 @@
   </div>
 {% endif %} 
               {%- when 'price' -%}
+
+               
+
+        <div>Earn <span data-lion-points-for-product-id="{{ product.id }}"></span> points</div>
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
                     product: product,

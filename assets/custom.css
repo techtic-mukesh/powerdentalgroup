@@ -5,7 +5,10 @@
 
 body {
     color:#141132;
-    overflow-x: hidden;
+}
+
+html, body {
+    overflow-x: clip;
 }
 
 h1 {
@@ -535,4 +538,8 @@ body.gradient.collection\.deals facet-filters-form.facets.facets-vertical-sort.p
 td.cart-item__quantity button.whislist-cart {
     background: url();
     border: unset;
+}
+
+#iwish-drawer-root .social-container, #iwish-drawer-root .iwish-row.gap-15 {
+    display: none !important;
 }
