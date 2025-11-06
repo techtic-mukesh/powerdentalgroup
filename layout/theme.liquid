@@ -306,6 +306,72 @@
      <script src="{{ 'swiper-bundle.js' | asset_url }}" defer="defer"></script>
 
 
+   <script>
+  !(function (t, n) {
+    var e = n.loyaltylion || []
+    if (!e.isLoyaltyLion) {
+      ;(n.loyaltylion = e),
+        void 0 === n.lion && (n.lion = e),
+        (e.version = 2),
+        (e.isLoyaltyLion = !0)
+      var o = n.URLSearchParams,
+        i = n.sessionStorage,
+        r = 'll_loader_revision',
+        a = new Date().toISOString().replace(/-/g, ''),
+        s =
+          'function' == typeof o
+            ? (function () {
+                try {
+                  var t = new o(n.location.search).get(r)
+                  return t && i.setItem(r, t), i.getItem(r)
+                } catch (t) {
+                  return ''
+                }
+              })()
+            : null
+      c(
+        'https://sdk.loyaltylion.net/static/2/' +
+          a.slice(0, 8) +
+          '/loader' +
+          (s ? '-' + s : '') +
+          '.js',
+      )
+      var l = !1
+      e.init = function (t) {
+        if (l) throw new Error('Cannot call lion.init more than once')
+        l = !0
+        var n = (e._token = t.token)
+        if (!n) throw new Error('Token must be supplied to lion.init')
+        var o = []
+        function i(t, n) {
+          t[n] = function () {
+            o.push([n, Array.prototype.slice.call(arguments, 0)])
+          }
+        }
+        '_push configure bootstrap shutdown on removeListener authenticateCustomer'
+          .split(' ')
+          .forEach(function (t) {
+            i(e, t)
+          }),
+          c(
+            'https://sdk.loyaltylion.net/sdk/start/' +
+              a.slice(0, 11) +
+              '/' +
+              n +
+              '.js',
+          ),
+          (e._initData = t),
+          (e._buffer = o)
+      }
+    }
+    function c(n) {
+      var e = t.getElementsByTagName('script')[0],
+        o = t.createElement('script')
+      ;(o.src = n), (o.crossOrigin = ''), e.parentNode.insertBefore(o, e)
+    }
+  })(document, window)
+</script>
+
   </head>
 
   <body class="gradient {{ template }} {{ product.handle }} {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
