@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "product_breadcrum_FQbJFE": {
@@ -38,10 +47,30 @@
           "type": "price",
           "settings": {}
         },
-        "joy_loyalty_program_joy_points_calculator_block_CydeK8": {
+        "rivo_loyalty_rewards_referrals_potential_points_VKyHYM": {
+          "type": "shopify:\/\/apps\/rivo-loyalty-rewards-referrals\/blocks\/potential-points\/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
+          "settings": {
+            "panel_color": "#ffffff",
+            "panel_padding": 2,
+            "title": "[potential_points] points",
+            "subtext": "",
+            "show_icon": true,
+            "icon": "shopify:\/\/shop_images\/reward.svg",
+            "logged_out_only": false,
+            "custom_css": "div#loy-potential-points {\n    border-radius: 20px;\n    border: 1px solid #ebebeb;\n    background: #fff;\n    display: inline-flex !important;\n    gap: 7px !important;\n    align-items: center;\n    height: 29px;\n    padding: 0 10px 0 5px;\n    color: #333;\n    font-size: 16px;\n    font-family: 'Prompt';\n    font-weight: 400;\n    justify-content: flex-start !important;\n    padding: 0 7px !important;\n}\n\ndiv#loy-potential-points div#potential-points-icon {\n    margin: 0 !IMPORTANT;\n    display: flex;\n}\n\ndiv#loy-potential-points div#potential-points-icon img.points-icon {\n    width: 22px;\n    height: 19px;\n}\n\ndiv#potential-points-text h3 {\n    font-size: 16px;\n    font-family: 'Prompt' !important;\n    font-weight: 400 !important;\n    margin: 0 !important;\n    display: flex;\n    gap: 3px;\n    align-items: center;\n    letter-spacing: -.16px;\n}\n\ndiv#potential-points-text h3 span.order-placed-potential-points-amount {\n    display: flex;\n    line-height: 16px;\n}\n\ndiv#potential-points-text {\n    display: flex;\n}"
+          }
+        },
+        "joy_loyalty_program_joy_points_calculator_block_Hzt3Qb": {
           "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/joy-points-calculator-block\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "disabled": true,
           "settings": {
             "points_calculator_alignment": "left"
+          }
+        },
+        "custom_liquid_H8yKfr": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": ""
           }
         },
         "judge_me_reviews_preview_badge_DaBz33": {
@@ -106,7 +135,9 @@
         "text_bbpjaW",
         "sku_Gamq4J",
         "price",
-        "joy_loyalty_program_joy_points_calculator_block_CydeK8",
+        "rivo_loyalty_rewards_referrals_potential_points_VKyHYM",
+        "joy_loyalty_program_joy_points_calculator_block_Hzt3Qb",
+        "custom_liquid_H8yKfr",
         "judge_me_reviews_preview_badge_DaBz33",
         "variant_picker",
         "quantity_selector",
@@ -130,26 +161,6 @@
         "enable_video_looping": false,
         "padding_top": 0,
         "padding_bottom": 0
-      }
-    },
-    "1760336853a29439c1": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_Mbw98G": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": false,
-            "empty_state": "empty_widget"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_Mbw98G"
-      ],
-      "settings": {
-        "include_margins": true
       }
     },
     "key_features_PEqqeN": {
@@ -214,7 +225,7 @@
         "btn_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0697\/9538\/1398\/files\/IFU_Power_Crown_Remover_Kit.pdf?v=1757663876"
       }
     },
-    "pdp_testimonial_aVMFMG": {
+    "pdp_testimonial_RjHiJz": {
       "type": "pdp-testimonial",
       "name": "Product Testimonials",
       "settings": {
@@ -340,11 +351,10 @@
   "order": [
     "product_breadcrum_FQbJFE",
     "main",
-    "1760336853a29439c1",
     "key_features_PEqqeN",
     "real_result_VTRxba",
     "video_TtiEDC",
-    "pdp_testimonial_aVMFMG",
+    "pdp_testimonial_RjHiJz",
     "real_result_MEe6RC",
     "related-products",
     "recently_viewed_products_c8pPNh",
