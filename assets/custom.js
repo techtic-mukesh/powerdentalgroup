@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function () {
     let items = document.querySelectorAll(".header__inline-menu details summary");
 

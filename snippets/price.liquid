@@ -60,9 +60,10 @@
         </span>
       {%- endif -%}
 
-      <span class="sale-price">
-        {{ money_price }}
-      </span>
+
+     <span class="sale-price" data-lion-price-for-product-id="{{ product.id }}">
+{{ money_price }}
+</span>
 
       {%- if compare_at_price > price -%}
         <div class="compare-price">
@@ -86,15 +87,17 @@
     >
       <div class="price__container">
 
+      
+
        {%- if discount_percentage > 0 -%}
         <span class="discount-percent">
           -{{ discount_percentage }}%
         </span>
       {%- endif -%}
         <div class="price__regular">
-          <span class="price-item price-item--regular">
-            {{ money_price }}
-          </span>
+        <span class="price-item price-item--regular" data-lion-price-for-product-id="{{ product.id }}">
+{{ money_price }}
+</span>
         </div>
         <div class="price__sale">
           {%- if compare_at_price > price -%}
