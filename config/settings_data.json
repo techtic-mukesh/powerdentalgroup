@@ -143,16 +143,16 @@
         "settings": {}
       },
       "5059203847231188605": {
-        "type": "shopify:\/\/apps\/smart-product-filter-search\/blocks\/app-embed\/5cc1944c-3014-4a2a-af40-7d65abc0ef73",
+        "type": "shopify://apps/smart-product-filter-search/blocks/app-embed/5cc1944c-3014-4a2a-af40-7d65abc0ef73",
         "disabled": true,
         "settings": {
           "productGridSelector": "",
           "useCustomQuickviewTemplate": false,
           "customJs": "window.mobile_break_point = 1155;",
           "customCss": "@media(min-width: 768px) and (max-width: 1155px){\n.gf-filter-trigger,\n #gf-controls-container .gf-refine-toggle-mobile{\ndisplay: block !important;\n}\n.gf-theme-version-15.spf-has-filter span.gf-summary{\n    display: flex;\n    align-items: center;\n}\nhtml.gf-left #gf-tree {\n        bottom: 0px;\n        height: 100%;\n        left: -350px;\n        position: fixed;\n        top: 0px;\n        z-index: 2147483647;\n        width: 350px !important;\n        overflow: auto;\n        transition: 0.2s \nease-in-out;\n        background: var(--gradient-background) !important;\n    }\n\n.gf-theme-version-15.offcanvas-open #gf-tree{\n   left: 0;\n}\nhtml.gf-theme-version-15.gf-left #gf-tree{\nbackground: var(--gradient-background) !important;\n}\n}",
-          "customProductTemplateLoader": "{%- capture productTemplate -%}{% render 'globo.filter.product', themeTranslation: shop.metafields.globoFilter.themeTranslation.value[request.locale.iso_code] %}{%- endcapture -%}{%- unless productTemplate contains 'Liquid error' -%}<script id=\"gspfProduct\" type=\"template\/html\">{{- productTemplate | replace: \"script>\", \"scripttag>\" -}}<\/script>{%- endunless -%}",
-          "customTreeTemplateLoader": "{%- capture treeTemplate -%}{% render 'globo.filter.tree' %}{%- endcapture -%}{%- unless treeTemplate contains 'Liquid error' -%}<script id=\"gspfFilterTree\" type=\"template\/html\">{{- treeTemplate | replace: \"script>\", \"scripttag>\" -}}<\/script>{%- endunless -%}",
-          "customSortTemplateLoader": "{%- capture sortTemplate -%}{% render 'globo.filter.sort' %}{%- endcapture -%}{%- unless sortTemplate contains 'Liquid error' -%}<script id=\"gspfFilterSort\" type=\"template\/html\">{{- sortTemplate | replace: \"script>\", \"scripttag>\" -}}<\/script>{%- endunless -%}",
+          "customProductTemplateLoader": "{%- capture productTemplate -%}{% render 'globo.filter.product', themeTranslation: shop.metafields.globoFilter.themeTranslation.value[request.locale.iso_code] %}{%- endcapture -%}{%- unless productTemplate contains 'Liquid error' -%}<script id=\"gspfProduct\" type=\"template/html\">{{- productTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
+          "customTreeTemplateLoader": "{%- capture treeTemplate -%}{% render 'globo.filter.tree' %}{%- endcapture -%}{%- unless treeTemplate contains 'Liquid error' -%}<script id=\"gspfFilterTree\" type=\"template/html\">{{- treeTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
+          "customSortTemplateLoader": "{%- capture sortTemplate -%}{% render 'globo.filter.sort' %}{%- endcapture -%}{%- unless sortTemplate contains 'Liquid error' -%}<script id=\"gspfFilterSort\" type=\"template/html\">{{- sortTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
           "customSearchTemplateLoader": "",
           "customPaginationTemplateLoader": "",
           "customYMMTemplateLoader": ""
@@ -230,7 +230,7 @@
         "settings": {}
       },
       "18208872656243357035": {
-        "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/joy-points-calculator-embed\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+        "type": "shopify://apps/joy-loyalty-program/blocks/joy-points-calculator-embed/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
         "disabled": true,
         "settings": {
           "points_calculator_alignment": "left"
