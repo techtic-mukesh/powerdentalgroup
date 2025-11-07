@@ -51,6 +51,28 @@ a.button.button--secondary {
     display: none !important;
 }
 
+.rich-text__text.rte ol {
+    max-width: 532px;
+    text-align: left;
+    padding: 20px 0 0;
+    margin: 0 auto;
+}
+
+.rich-text__text.rte ol * {
+    margin-top: 0;
+    color: #01000a;
+    font-family: "Montserrat" !important;
+    font-weight: 500;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 22px;
+    letter-spacing: -0.16px;
+}
+
+.rich-text__text.rte ol li {
+    margin: 0 0 8px;
+}
+
 .badge {
         border-radius: unset;
     background: linear-gradient(102deg,#42c5ef,#0033a0 50% 50%,#42c5ef)!important;

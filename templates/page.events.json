@@ -51,52 +51,24 @@
             "button_link": "https:\/\/www.aaidmaxicourse.com\/maxicourse\/aaid-chicago-maxicourse\/"
           }
         },
-        "event_card_6cekJm": {
+        "event_card_BJRkdH": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify:\/\/shop_images\/Pikos_Photo_BW_38ba6d85-67e9-459d-92af-3a372cb66b85.jpg",
-            "event_title": "Pikos Institute",
-            "event_subtitle": "Full Arch Symposium",
-            "event_logo": "shopify:\/\/shop_images\/Pikos_Logo_3a7929da-0745-48a0-925a-b87946464163.png",
-            "event_date": "October 1-2",
+            "event_image": "shopify:\/\/shop_images\/The_Closing_Institute_Photo_BW_4.jpg",
+            "event_title": "The Closing Institute",
+            "event_subtitle": "Full Arch Growth Conference",
+            "event_logo": "shopify:\/\/shop_images\/TCI_Logo.png",
+            "event_date": "October 24-25",
             "event_location": "Orlando, FL",
-            "event_credits": "24 CE Credits",
-            "button_label": "Register Now",
-            "button_link": "https:\/\/www.pikosinstitute.com\/live-courses\/pikos-symposium-live-implant-course"
-          }
-        },
-        "event_card_dJTqKL": {
-          "type": "event_card",
-          "settings": {
-            "event_image": "shopify:\/\/shop_images\/SIN360_B_W_05652966-134d-490c-b73b-49b89fac72fa.jpg",
-            "event_title": "S.I.N. 360",
-            "event_subtitle": "Full Arch Full Auto",
-            "event_logo": "shopify:\/\/shop_images\/SIN_360_Logo_59363ecd-7138-451f-b57e-ad8f0ab85b39.png",
-            "event_date": "October 10-11",
-            "event_location": "Austin, TX",
             "event_credits": "16 CE Credits",
             "button_label": "Register Now",
-            "button_link": "https:\/\/sin360.us\/ce-course\/full-arch-full-auto-2025-10\/"
+            "button_link": "https:\/\/www.theclosinginstitute.com\/"
           }
         },
-        "event_card_X7cE7x": {
+        "event_card_3RaBDK": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify:\/\/shop_images\/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
-            "event_title": "Misch Institute",
-            "event_subtitle": "Implant Prosthetics & Multi-Implant Placement",
-            "event_logo": "shopify:\/\/shop_images\/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
-            "event_date": "October 11-12",
-            "event_location": "Dallas, TX",
-            "event_credits": "18 CE Credits",
-            "button_label": "Register Now",
-            "button_link": "https:\/\/misch.com\/all-courses\/"
-          }
-        },
-        "event_card_HmhfXq": {
-          "type": "event_card",
-          "settings": {
-            "event_image": "shopify:\/\/shop_images\/AAID_Maxicourse_Photo_BW_4_cb000433-54e2-419a-b3f4-ac37da967bc7.jpg",
+            "event_image": "shopify:\/\/shop_images\/AAID_Maxicourse_Photo_BW_4_fc8b10ab-1b36-487a-976b-65e1b843ac54.jpg",
             "event_title": "AAID Chicago Maxicourse",
             "event_subtitle": "Module 3",
             "event_logo": "shopify:\/\/shop_images\/AAID_Logo_2_85c018ed-4426-4834-9191-64474d2e1bfe.png",
@@ -107,12 +79,12 @@
             "button_link": "https:\/\/www.aaidmaxicourse.com\/maxicourse\/aaid-chicago-maxicourse\/"
           }
         },
-        "event_card_86QBDK": {
+        "event_card_KK7Gyb": {
           "type": "event_card",
           "settings": {
             "event_image": "shopify:\/\/shop_images\/Amplify_Photo_BW_1b484265-2581-4883-9871-882910cbe329.jpg",
             "event_title": "PEAK - Model & Live Patient",
-            "event_subtitle": "PEAK - Model & Live Patient",
+            "event_subtitle": "Implant Bootcamp",
             "event_logo": "shopify:\/\/shop_images\/Peak_Logo_52886808-0eed-42b0-85cd-52ffca452326.png",
             "event_date": "November 13-15",
             "event_location": "Detroit, MI",
@@ -121,7 +93,21 @@
             "button_link": "https:\/\/peakimplantinstitute.com\/"
           }
         },
-        "event_card_fhh8GE": {
+        "event_card_Ykfifc": {
+          "type": "event_card",
+          "settings": {
+            "event_image": "shopify:\/\/shop_images\/Biotem_Photo_BW.jpg",
+            "event_title": "Biotem",
+            "event_subtitle": "Sticky Show",
+            "event_logo": "shopify:\/\/shop_images\/Biotem_Logo.png",
+            "event_date": "November 15-16",
+            "event_location": "Dallas, TX",
+            "event_credits": "14 CE Credits",
+            "button_label": "Register Now",
+            "button_link": "https:\/\/biotemusa.com\/products\/sticky-show-by-prof-dong-seok-sohn"
+          }
+        },
+        "event_card_xhpaiN": {
           "type": "event_card",
           "settings": {
             "event_image": "shopify:\/\/shop_images\/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
@@ -135,30 +121,45 @@
             "button_link": "https:\/\/misch.com\/all-courses\/"
           }
         },
-        "event_card_pgcQCn": {
+        "event_card_ajXXQ4": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify:\/\/shop_images\/AAID_Maxicourse_Photo_BW_4_cb000433-54e2-419a-b3f4-ac37da967bc7.jpg",
+            "event_image": "shopify:\/\/shop_images\/AAID_Maxicourse_Photo_BW_4_fc8b10ab-1b36-487a-976b-65e1b843ac54.jpg",
             "event_title": "AAID Chicago Maxicourse",
             "event_subtitle": "Module 4",
+            "event_logo": "shopify:\/\/shop_images\/AAID_Logo_2_85c018ed-4426-4834-9191-64474d2e1bfe.png",
             "event_date": "January 9-11",
             "event_location": "Chicago, IL",
             "event_credits": "300 CE Credits",
             "button_label": "Register Now",
             "button_link": "https:\/\/www.aaidmaxicourse.com\/maxicourse\/aaid-chicago-maxicourse\/"
           }
+        },
+        "event_card_yChCpd": {
+          "type": "event_card",
+          "settings": {
+            "event_image": "shopify:\/\/shop_images\/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
+            "event_title": "Misch Institute",
+            "event_subtitle": "Implants with GBR & Sinus",
+            "event_logo": "shopify:\/\/shop_images\/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
+            "event_date": "February 7-8",
+            "event_location": "Dallas, TX",
+            "event_credits": "18 CE Credits",
+            "button_label": "Register Now",
+            "button_link": "https:\/\/misch.com\/all-courses\/"
+          }
         }
       },
       "block_order": [
         "product_title_naRkeM",
         "event_card_mLRchp",
-        "event_card_6cekJm",
-        "event_card_dJTqKL",
-        "event_card_X7cE7x",
-        "event_card_HmhfXq",
-        "event_card_86QBDK",
-        "event_card_fhh8GE",
-        "event_card_pgcQCn"
+        "event_card_BJRkdH",
+        "event_card_3RaBDK",
+        "event_card_KK7Gyb",
+        "event_card_Ykfifc",
+        "event_card_xhpaiN",
+        "event_card_ajXXQ4",
+        "event_card_yChCpd"
       ],
       "name": "Events Grid",
       "settings": {
