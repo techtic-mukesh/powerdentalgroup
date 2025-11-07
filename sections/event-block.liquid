@@ -29,7 +29,7 @@
               <div class="event-item">
                 {% if block.settings.event_image != blank %}
                   <img
-                    src="{{ block.settings.event_image | img_url: 'medium' }}"
+                    src="{{ block.settings.event_image | img_url: '' }}"
                     alt="{{ block.settings.event_title }}"
                     class="event-image"
                   >
@@ -111,12 +111,12 @@
 
 .event-sec-title,
 .event-sec-title.h2 {
-    font-size: 56px;
+    font-size: 44px;
     font-weight: 700;
     margin: 0 0 25px;
     text-align: center;
     text-transform: uppercase;
-    line-height: 56px;
+    line-height: 45px;
 }
 
 
@@ -125,7 +125,7 @@
     margin: 0 -15px;
     flex-wrap: wrap;
     position: relative;
-    row-gap: 34px;
+    row-gap: 0;
 }
 
 .events-list:after {
@@ -145,8 +145,14 @@
     position: relative;
     /* border-bottom: 1px solid #ccc; */
     border-right: 1px solid #ccc;
-    padding-top: 0;
 }
+
+@media (min-width:991px) {
+  .events-list .events-box:nth-child(n+5):after {
+  display: none;
+}
+}
+
 
 .events-list .events-box:after {
     content: '';
@@ -155,7 +161,7 @@
     background-color: #ccc;
     display: inline-block;
     position: absolute;
-    bottom: -17px;
+    bottom: 0;
 }
 
 .event-item {
@@ -179,7 +185,7 @@
 .event-subtitle {
     line-height: 20px;
     margin: 0;
-    font-weight: 400;
+    font-weight: 500;
     font-family: 'Montserrat';
     color: #0033a0;
     font-size: 16px;
@@ -189,7 +195,7 @@
 .event-image {
     max-width: 100%;
     height: auto;
-    border-radius: 25px;
+    border-radius: 10px;
     width: 100%;
     object-fit: cover;
     display: block;
@@ -241,7 +247,7 @@
       margin: 0;
     line-height: 20px;
     color: #5b5b5b;
-    font-weight: 400;
+    font-weight: 500;
     font-family: 'Montserrat';
 }
 
@@ -453,7 +459,8 @@
         {
           "type": "text",
           "id": "button_label",
-          "label": "Button Label"
+          "label": "Button Label",
+           "default": "Register Now"
         },
         {
           "type": "url",

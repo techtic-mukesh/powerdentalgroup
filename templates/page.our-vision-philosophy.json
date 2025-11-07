@@ -78,7 +78,7 @@
         "text_g9F9Xq": {
           "type": "text",
           "settings": {
-            "text": "<h3>Em<em>powering<\/em> Dentistry to do <em>more<\/em>.<\/h3><p>We are fueled by this resolute mission to equip dental professionals with the tools, support, and innovation required to surpass limitations, create lasting impacts, and advance dentistry to new heights that were once unthinkable.<\/p><p>To fulfill this mission, we uphold these core principles, keeping them close to our hearts and at the forefront of our minds each and every day.<\/p>"
+            "text": "<h3><em>EMPOWERING<\/em> DENTISTRY TO GO <em>FURTHER<\/em><\/h3><ol><li>We are driven by a clear mission ‒ to equip dental professionals<\/li><li>and innovation they need to overcome limitations, achieve lasting results, <\/li><li>and elevate dentistry to new heights once thought impossible.<\/li><li>We honor this mission every day by upholding our core principles ‒ <\/li><li>keeping them close to our hearts and at the forefront of everything we do.<\/li><\/ol>"
           }
         }
       },
@@ -109,7 +109,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/people-first-icon_6c1f8d87-4232-453e-b2a4-13f62ae6440e.png",
             "step_svg": "",
-            "title": "<p>People <strong>- We care.<\/strong><\/p>",
+            "title": "<p>People ‒ <strong>we care<\/strong><\/p>",
             "content": ""
           }
         },
@@ -118,7 +118,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/integrity-icon_1.png",
             "step_svg": "",
-            "title": "<p>Integrity <strong>- We do what's right.<\/strong><\/p>",
+            "title": "<p>Integrity ‒<strong> we do what's right.<\/strong><\/p>",
             "content": ""
           }
         },
@@ -127,7 +127,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/performance-icon_6c397ae0-c350-4582-8419-49256e3cf2c4.png",
             "step_svg": "",
-            "title": "<p>Performance <strong>- We execute.<\/strong><\/p>",
+            "title": "<p>Performance ‒<strong> we execute.<\/strong><\/p>",
             "content": ""
           }
         },
@@ -136,7 +136,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/impact-icon_81420320-5b56-4485-b410-58640eaa3644.png",
             "step_svg": "",
-            "title": "<p>Impact <strong>- We drive change.<\/strong><\/p>",
+            "title": "<p>Impact ‒<strong> we drive change.<\/strong><\/p>",
             "content": ""
           }
         },
@@ -145,7 +145,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/inspiring-icon_7c3292f3-fb6a-44e0-815e-ffd9af017c07.png",
             "step_svg": "",
-            "title": "<p>Improvement <strong>- We're relentless in our pursuit of better.<\/strong><\/p>",
+            "title": "<p>Improvement ‒<strong> we're relentless in our pursuit of better.<\/strong><\/p>",
             "content": ""
           }
         }
