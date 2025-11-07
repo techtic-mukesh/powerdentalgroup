@@ -53,23 +53,38 @@
               </h2>
               <div class="select">
                 {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-                <select
+              <select
                   name="sort_by"
                   class="facet-filters__sort select__select caption-large"
                   id="SortBy"
                   aria-describedby="a11y-refresh-page-message"
                 >
-                  {%- for option in collection.sort_options -%}
-                    <option
-                      value="{{ option.value | escape }}"
-                      {% if option.value == sort_by %}
-                        selected="selected"
-                      {% endif %}
-                    >
-                      {{ option.name | escape }}
-                    </option>
+                  {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+
+                  {%- assign sort_order = "best-selling,price-descending,price-ascending,title-ascending,title-descending" | split: "," -%}
+
+                  {%- for value in sort_order -%}
+                    {%- assign option = collection.sort_options | where: "value", value | first -%}
+                    {%- if option -%}
+                      <option
+                        value="{{ option.value | escape }}"
+                        {% if option.value == sort_by %}
+                          selected="selected"
+                        {% endif %}
+                      >
+                        {%- case option.value -%}
+                          {%- when "best-selling" -%}Best Sellers
+                          {%- when "price-descending" -%}Price: High to Low
+                          {%- when "price-ascending" -%}Price: Low to High
+                          {%- when "title-ascending" -%}Alphabetically: A–Z
+                          {%- when "title-descending" -%}Alphabetically: Z–A
+                          {%- else -%}{{ option.name | escape }}
+                        {%- endcase -%}
+                      </option>
+                    {%- endif -%}
                   {%- endfor -%}
                 </select>
+
                 <span class="svg-wrapper">
                   {{- 'icon-caret.svg' | inline_asset_content -}}
                 </span>

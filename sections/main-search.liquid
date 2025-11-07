@@ -237,12 +237,13 @@
               id="main-search-filters"
               data-id="{{ section.id }}"
             >
-              {% render 'facets',
+             {% render 'facets',
                 results: search,
                 enable_filtering: section.settings.enable_filtering,
                 enable_sorting: section.settings.enable_sorting,
                 filter_type: section.settings.filter_type,
-                paginate: paginate
+                paginate: paginate,
+                is_search: true
               %}
             </aside>
           {%- endif -%}
@@ -502,6 +503,15 @@
       "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
       "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
     },
+     {
+      "type": "header",
+      "content": "Category Settings"
+    },
+       {
+          "type": "collection_list",
+          "id": "filter_collection",
+          "label": "Filter Collection"
+        },
     {
       "type": "select",
       "id": "filter_type",

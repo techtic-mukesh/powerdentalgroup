@@ -1,16 +1,8 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "banner": {
       "type": "main-collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -47,6 +39,39 @@
       ],
       "settings": {
         "include_margins": true
+      }
+    },
+    "rich_text_DQP8jT": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_MrRFjd": {
+          "type": "caption",
+          "settings": {
+            "caption": "PREMIUM TOOLS. SPECIAL PRICES",
+            "text_style": "subtitle",
+            "text_size": "medium"
+          }
+        },
+        "heading_MK6cyk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Deals",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "caption_MrRFjd",
+        "heading_MK6cyk"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 12
       }
     },
     "our_category_dAjLQW": {
@@ -136,6 +161,7 @@
         "category_XfPRTj",
         "category_7DUUdj"
       ],
+      "disabled": true,
       "name": "Category Slider",
       "settings": {
         "heading": ""
@@ -165,7 +191,7 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
-        "enable_filtering": true,
+        "enable_filtering": false,
         "filter_type": "vertical",
         "enable_sorting": true,
         "padding_top": 0,
@@ -221,6 +247,7 @@
   "order": [
     "banner",
     "17582653178953a751",
+    "rich_text_DQP8jT",
     "our_category_dAjLQW",
     "product-grid",
     "rich_text_bKYGcQ"

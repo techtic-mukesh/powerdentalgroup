@@ -1,3 +1,4 @@
+<!-- UPDATED PREDICTIVE SEARCH WITH EXACT SKU MATCHING -->
 <div class="header__search-inline">
   <form action="{{ routes.search_url }}" method="get" role="search" class="search-form" autocomplete="off">
     <input
@@ -200,6 +201,34 @@ div#PredictiveResults ul.predictive-list a.predictive-item span.product-title {
     color: #666;
     margin-top: 2px;
     font-family: Montserrat;
+}
+
+/* Exact SKU Match Styling */
+div#PredictiveResults ul.predictive-list li.exact-sku-match {
+    background-color: #f0f8ff;
+    border-left: 3px solid #007acc;
+}
+
+div#PredictiveResults ul.predictive-list li.exact-sku-match a.predictive-item {
+    background-color: #f0f8ff;
+}
+
+div#PredictiveResults ul.predictive-list li.exact-sku-match:hover a.predictive-item {
+    background-color: #e6f3ff;
+}
+
+.sku-match-indicator {
+    font-size: 0.8em;
+    color: #007acc;
+    font-weight: bold;
+    margin-top: 2px;
+    display: none;
+}
+
+.sku-match-indicator.exact {
+    color: #0066cc;
+    font-weight: 700;
+    display: none;
 }
 
 /* Suggestions List */
@@ -416,9 +445,8 @@ class PredictiveSearch {
     async fetchResults(query) {
         // Product search by title and SKU fields
         const productPromise = fetch(
-            `/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=6&resources[options][fields]=title,body,product_type,variants.sku,vendor&section_id=predictive-search`
-            )
-
+            `/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=12&resources[options][fields]=title,body,product_type,variants.sku,vendor&section_id=predictive-search`
+        )
         .then(response => response.json())
         .then(async data => {
             let products = data.resources?.results?.products || [];
@@ -462,12 +490,68 @@ class PredictiveSearch {
 
         Promise.all([productPromise, collectionPromise, queryPromise, totalCountPromise])
             .then(([products, collections, queries, totalCount]) => {
-                this.renderResults(products, collections, queries, query, totalCount);
+                // SORT PRODUCTS BY SKU RELEVANCE
+                const sortedProducts = this.sortProductsBySKURelevance(products, query);
+                this.renderResults(sortedProducts, collections, queries, query, totalCount);
             })
             .catch(error => {
                 console.error('Search error:', error);
                 this.showNoResults();
             });
+    }
+
+    // NEW METHOD: Sort products by SKU relevance
+    sortProductsBySKURelevance(products, query) {
+        const queryLower = query.toLowerCase().trim();
+        
+        return products.sort((a, b) => {
+            const scoreA = this.calculateRelevanceScore(a, queryLower);
+            const scoreB = this.calculateRelevanceScore(b, queryLower);
+            return scoreB - scoreA;
+        });
+    }
+
+    // NEW METHOD: Calculate relevance score
+    calculateRelevanceScore(product, query) {
+        let score = 0;
+        
+        // Get all SKUs from product
+        const skus = [];
+        if (product.fullDetails && product.fullDetails.variants) {
+            product.fullDetails.variants.forEach(v => {
+                if (v.sku) skus.push(v.sku.toLowerCase());
+            });
+        } else if (product.variants) {
+            product.variants.forEach(v => {
+                if (v.sku) skus.push(v.sku.toLowerCase());
+            });
+        }
+        
+        const title = (product.title || '').toLowerCase();
+        
+        // Scoring logic - Exact SKU match gets highest priority
+        for (const sku of skus) {
+            if (sku === query) {
+                return 10000; // Exact SKU match - TOP PRIORITY
+            }
+            if (sku.startsWith(query)) {
+                score = Math.max(score, 9000); // SKU starts with query
+            }
+            if (sku.includes(query)) {
+                score = Math.max(score, 8000); // SKU contains query
+            }
+        }
+        
+        // Title matching (lower priority than SKU)
+        if (title === query) {
+            score = Math.max(score, 7000);
+        } else if (title.startsWith(query)) {
+            score = Math.max(score, 6000);
+        } else if (title.includes(query)) {
+            score = Math.max(score, 5000);
+        }
+        
+        return score;
     }
 
     // New method to fetch total result count from search page
@@ -552,7 +636,7 @@ class PredictiveSearch {
     async searchBySKU(query) {
         try {
             const skuResponse = await fetch(
-                `/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=6&resources[options][fields]=variants.sku&section_id=predictive-search`
+                `/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=12&resources[options][fields]=variants.sku&section_id=predictive-search`
             );
             const skuData = await skuResponse.json();
             return skuData.resources?.results?.products || [];
@@ -571,9 +655,11 @@ class PredictiveSearch {
             return;
         }
 
+        const queryLower = originalQuery.toLowerCase().trim();
+
         // Build products HTML with SKU from Product API
         const productsHtml = products.length ? 
-            products.map(product => {
+            products.slice(0, 6).map(product => {
                 const price = product.price;
                 const comparePrice = product.compare_at_price ? (product.compare_at_price / 100).toFixed(2) : null;
                 const imageUrl = product.featured_image?.url ? product.featured_image.url : '/assets/product-placeholder.svg';
@@ -597,18 +683,30 @@ class PredictiveSearch {
                     productSKU = variant.sku || '';
                 }
                 
-                // Check if the search query matches any SKU
+                // Check if exact SKU match or partial match
+                const isExactSkuMatch = allSKUs.some(sku => 
+                    sku.toLowerCase() === queryLower
+                ) || (productSKU && productSKU.toLowerCase() === queryLower);
+                
                 const isSkuMatch = allSKUs.some(sku => 
-                    sku.toLowerCase().includes(originalQuery.toLowerCase())
-                ) || (productSKU && productSKU.toLowerCase().includes(originalQuery.toLowerCase()));
+                    sku.toLowerCase().includes(queryLower)
+                ) || (productSKU && productSKU.toLowerCase().includes(queryLower));
                 
                 // Display multiple SKUs if available
                 const skuDisplay = allSKUs.length > 1 
                     ? `${productSKU} ${allSKUs.length > 1 ? `(+${allSKUs.length - 1} more)` : ''}`
                     : productSKU;
                 
+                // Determine match indicator
+                let matchIndicator = '';
+                if (isExactSkuMatch) {
+                    matchIndicator = '<div class="sku-match-indicator exact">✓ Exact SKU Match</div>';
+                } else if (isSkuMatch) {
+                    matchIndicator = '<div class="sku-match-indicator">✓ SKU Match</div>';
+                }
+                
                 return `
-                    <li>
+                    <li class="${isExactSkuMatch ? 'exact-sku-match' : ''}">
                         <a href="${product.url}" class="predictive-item">
                             <img src="${imageUrl}" alt="${product.featured_image?.alt || product.title}" loading="lazy" />
                             <div class="predictive-info">
@@ -618,7 +716,7 @@ class PredictiveSearch {
                                     ${comparePrice && comparePrice !== price ? `<span class="compare-price" style="text-decoration: line-through; color: #999; margin-left: 8px;">$${comparePrice}</span>` : ''}
                                 </p>
                                 ${productSKU ? `<div class="product-sku" style="font-size: 0.85em; color: #666; margin: 4px 0 2px 0;">SKU: ${skuDisplay}</div>` : ''}
-                                ${isSkuMatch ? `<div class="sku-match-indicator" style="font-size: 0.8em; color: #007acc; font-weight: bold;">✓ SKU Match</div>` : ''}
+                                ${matchIndicator}
                             </div>
                         </a>
                     </li>

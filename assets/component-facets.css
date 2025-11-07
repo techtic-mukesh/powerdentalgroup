@@ -1383,8 +1383,12 @@ input.mobile-facets__checkbox {
     text-transform: capitalize;
 }
 
+.facets-vertical .facets__summary {
+  border-radius: 4px;
+}
+
 .facets-vertical-form .facet-filters.sorting.caption .select {
-    border-radius: 10px;
+    border-radius: 4px;
     border: 1.2px solid rgba(0, 0, 0, 0.10);
     background: #FFF;
     min-height: 40px;
@@ -1461,6 +1465,7 @@ facet-filters-form.facets.facets-vertical-sort.page-width.small-hide #FacetSortF
     font-style: normal;
     font-weight: 500;
     line-height: 14px; /* 100% */
+    border-radius: 4px !important;
 }
 
 ul.category-filter__list.category-filter__list--level-0 li.category-filter__item.category-filter__item--level-0 > .category-filter__row span.category-filter__name {
