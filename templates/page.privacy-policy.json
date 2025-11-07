@@ -29,6 +29,7 @@
     },
     "vision_YaxjmQ": {
       "type": "vision",
+      "disabled": true,
       "name": "BgImage with Text",
       "settings": {
         "desktop_background_image": "shopify:\/\/shop_images\/image_20.png",
@@ -72,6 +73,7 @@
         "service_zR86x9",
         "service_CLQfbF"
       ],
+      "disabled": true,
       "name": "Our Service",
       "settings": {
         "background_color": "#f8f6f4",
@@ -142,6 +144,7 @@
         "resource_item_fDEBfe",
         "resource_item_H4RgQd"
       ],
+      "disabled": true,
       "name": "Resources Grid",
       "settings": {
         "heading": "RESOURCES"

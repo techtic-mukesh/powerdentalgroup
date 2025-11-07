@@ -37,6 +37,20 @@
             "subtitle_title": "<p>HANDS-ON <strong>COURSES<\/strong><\/p>"
           }
         },
+        "event_card_mLRchp": {
+          "type": "event_card",
+          "settings": {
+            "event_image": "shopify:\/\/shop_images\/AAID_Maxicourse_Photo_BW_4_cb000433-54e2-419a-b3f4-ac37da967bc7.jpg",
+            "event_title": "AAID Chicago Maxicourse",
+            "event_subtitle": "Module 2",
+            "event_logo": "shopify:\/\/shop_images\/AAID_Logo_2_85c018ed-4426-4834-9191-64474d2e1bfe.png",
+            "event_date": "October 17-19",
+            "event_location": "Chicago, IL",
+            "event_credits": "300 CE Credits",
+            "button_label": "Register Now",
+            "button_link": "https:\/\/www.aaidmaxicourse.com\/maxicourse\/aaid-chicago-maxicourse\/"
+          }
+        },
         "event_card_6cekJm": {
           "type": "event_card",
           "settings": {
@@ -77,20 +91,6 @@
             "event_credits": "18 CE Credits",
             "button_label": "Register Now",
             "button_link": "https:\/\/misch.com\/all-courses\/"
-          }
-        },
-        "event_card_mLRchp": {
-          "type": "event_card",
-          "settings": {
-            "event_image": "shopify:\/\/shop_images\/AAID_Maxicourse_Photo_BW_4_cb000433-54e2-419a-b3f4-ac37da967bc7.jpg",
-            "event_title": "AAID Chicago Maxicourse",
-            "event_subtitle": "Module 2",
-            "event_logo": "shopify:\/\/shop_images\/AAID_Logo_2_85c018ed-4426-4834-9191-64474d2e1bfe.png",
-            "event_date": "October 17-19",
-            "event_location": "Chicago, IL",
-            "event_credits": "300 CE Credits",
-            "button_label": "Register Now",
-            "button_link": "https:\/\/www.aaidmaxicourse.com\/maxicourse\/aaid-chicago-maxicourse\/"
           }
         },
         "event_card_HmhfXq": {
@@ -151,10 +151,10 @@
       },
       "block_order": [
         "product_title_naRkeM",
+        "event_card_mLRchp",
         "event_card_6cekJm",
         "event_card_dJTqKL",
         "event_card_X7cE7x",
-        "event_card_mLRchp",
         "event_card_HmhfXq",
         "event_card_86QBDK",
         "event_card_fhh8GE",

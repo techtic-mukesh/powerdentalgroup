@@ -140,9 +140,9 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: 32px;
+    line-height: normal;
     text-transform: uppercase;
-    padding: 18px 20px 18px 0;
+    padding: 20px 20px 20px 0;
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.30); */
     cursor: pointer;
   }
@@ -164,6 +164,10 @@
     margin: 0 0 20px;
 }
 
+.Accordions .inner_content p:last-of-type {
+  margin-bottom: 0;
+ }
+
   .Accordions .title_tab.active h3.title {
     border: unset;
   }
@@ -184,6 +188,7 @@
   .Accordions .inner_content {
     display: none;
     padding-right: 53px;
+    padding-bottom: 20px;
   }
 
   .Accordions .inner_content ul strong {
@@ -202,6 +207,10 @@
     display: none;
   }
 
+  .Accordions .Accordion_item:last-child {
+    border-bottom: none;
+}
+
  .Accordions .inner_content ul {
     margin: 0;
     padding-left: 20px;
@@ -209,7 +218,7 @@
     letter-spacing: 0;
     line-height: 24px;
     padding-left: 20px;
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 .Accordions .inner_content ul br {
@@ -221,9 +230,13 @@
         font-weight: 500;
         color: #01000a;
         line-height: 20px;
-            margin-bottom: 1rem;
+            margin-bottom: 16px;
             font-size: 16px;
 }
+
+ .Accordions .inner_content ul li:last-of-type {
+    margin-bottom: 0;
+ }
 
 .Accordions .inner_content ul li a {
   text-decoration: none;

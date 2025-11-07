@@ -47,7 +47,9 @@ a.button.button--secondary {
     text-transform: uppercase;
 }
 
-
+#iwish-drawer-root .drawer-body span.transferProducts {
+    display: none !important;
+}
 
 .badge {
         border-radius: unset;

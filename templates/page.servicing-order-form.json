@@ -43,6 +43,7 @@
     },
     "vision_BJpYwz": {
       "type": "vision",
+      "disabled": true,
       "name": "BgImage with Text",
       "settings": {
         "desktop_background_image": "shopify:\/\/shop_images\/image_20.png",

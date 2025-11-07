@@ -110,6 +110,13 @@ section.hubspot-contact-form .hubspot-cf-wrap ul.contact-info li p a {
 color: #1F1F1F;
 margin: 0;
 font-size: 16px;
+    color: #1f1f1f;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400 !important;
+    line-height: 24px;
+    margin-bottom: 2px;
 }
 
 .hubspot-contact-right form .field.hs-form-field label {
@@ -146,6 +153,7 @@ font-size: 16px;
     padding: 5px 15px;
     min-height: 48px;
     border-radius: 8px;
+    text-transform: capitalize;
 }
 
 .hubspot-contact-right .hs_email.hs-email.hs-fieldtype-text.field.hs-form-field input {
@@ -154,13 +162,18 @@ font-size: 16px;
     border: 1px solid #d3d4d8;
     color: #01000a;
     font-family: Montserrat;
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
     margin: 0;
     border-radius: 8px;
+    color: #5b5b5b;
+    font-weight: 300;
+    font-family: Prompt;
 }
-
+.hs_email.hs-email.hs-fieldtype-text.field.hs-form-field {
+    margin: 0 !important; 
+}
 .hubspot-contact-right .hs_message.hs-message.hs-fieldtype-textarea.field.hs-form-field .input {
     height: 100%;
 }
@@ -171,12 +184,15 @@ font-size: 16px;
     border: 1px solid #d3d4d8;
     color: #01000A;
     font-family: Montserrat;
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
         padding: 15px 10px;
         border-radius: 8px;
+        color: #5b5b5b;
+    font-weight: 300;
+    font-family: Prompt;
 }
 
 .hubspot-contact-right form  .hs_message.hs-message.hs-fieldtype-textarea.field.hs-form-field {

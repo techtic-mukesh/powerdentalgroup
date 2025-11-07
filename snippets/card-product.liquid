@@ -191,6 +191,28 @@
 
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
 
+      <div class="catalog-points" style="margin-bottom:12px">
+  <img src="https://powerdentalgroup.com/media/mageplaza/rewardpoints/default/point_1.png" alt="Reward Points" style="height:15px; width:15px !important;">
+  <div class="mp-point-label" style="display:inline-block">
+    {% assign raw_points = card_product.price | divided_by: 100 | times: 5 | round %}
+    {% assign remainder = raw_points | modulo: 10 %}
+
+    {% if remainder == 5 %}
+      {% assign points = raw_points | plus: 5 %}
+    {% else %}
+      {% assign points = raw_points | plus: 2.5 | divided_by: 5 | floor | times: 5 %}
+    {% endif %}
+
+    <span class="points" style="margin-left: 5px">
+      Earn 
+      <span class="mp-rw-highlight">{{ points }} points</span>
+    </span>
+  </div>
+  <div class="clr"></div>
+</div>
+
+
+
             {%- if card_product.quantity_price_breaks_configured? -%}
               {% if card_product.variants_count == 1 and quick_add == 'bulk' %}
                 {% liquid

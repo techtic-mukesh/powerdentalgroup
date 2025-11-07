@@ -216,14 +216,6 @@
         "btn_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0697\/9538\/1398\/files\/IFU_Power_Crown_Remover_Kit.pdf?v=1757663876"
       }
     },
-    "pdp_testimonial_RjHiJz": {
-      "type": "pdp-testimonial",
-      "name": "Product Testimonials",
-      "settings": {
-        "background_color": "#f7f7ff",
-        "section_title": "TESTIMONIALS"
-      }
-    },
     "real_result_MEe6RC": {
       "type": "real-result",
       "blocks": {
@@ -257,6 +249,14 @@
         "content": "",
         "show_usage": false,
         "grid_columns": "3"
+      }
+    },
+    "pdp_testimonial_RjHiJz": {
+      "type": "pdp-testimonial",
+      "name": "Product Testimonials",
+      "settings": {
+        "background_color": "#f7f7ff",
+        "section_title": "TESTIMONIALS"
       }
     },
     "related-products": {
@@ -345,8 +345,8 @@
     "key_features_PEqqeN",
     "real_result_VTRxba",
     "video_TtiEDC",
-    "pdp_testimonial_RjHiJz",
     "real_result_MEe6RC",
+    "pdp_testimonial_RjHiJz",
     "related-products",
     "recently_viewed_products_c8pPNh",
     "175826590273b899fd"
