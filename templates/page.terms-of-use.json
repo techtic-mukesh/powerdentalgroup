@@ -52,6 +52,7 @@
     },
     "overlay_banner_jDk9jz": {
       "type": "overlay-banner",
+      "disabled": true,
       "name": "Overlay Banner",
       "settings": {
         "banner_image": "shopify:\/\/shop_images\/lets-collaborate-banner-hd.jpg",

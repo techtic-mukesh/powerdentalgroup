@@ -1,7 +1,10 @@
 .video-section__media {
-  --ratio-percent: 56.25%;
+  --ratio-percent: 38.25%;
   position: relative;
   padding-bottom: calc(var(--ratio-percent) - var(--media-border-width));
+  margin-bottom: 30px;
+  border-radius: 20px;
+  overflow: hidden !important;
 }
 
 deferred-media.video-section__media.custom-vh {
@@ -72,7 +75,7 @@ text-transform: uppercase;
 }
 
 .video-section  a.custom-button.button.button--secondary {
-    margin: 30px 0 0;
+    margin: 0 0 0;
     color: #FFF;
     text-align: center;
     font-family: Montserrat;
