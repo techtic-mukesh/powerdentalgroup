@@ -3,7 +3,7 @@
     "main": {
       "type": "main-search",
       "settings": {
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "columns_mobile": "1",
         "image_ratio": "portrait",
         "image_shape": "default",
@@ -11,9 +11,20 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "standard",
-        "enable_filtering": false,
-        "filter_type": "horizontal",
-        "enable_sorting": false,
+        "enable_filtering": true,
+        "filter_collection": [
+          "power-line",
+          "hygiene",
+          "diagnostic",
+          "surgical-implantology",
+          "restorative",
+          "endodontic",
+          "orthodontic",
+          "headlamps-loupes",
+          "cassette-accessories"
+        ],
+        "filter_type": "vertical",
+        "enable_sorting": true,
         "article_show_date": true,
         "article_show_author": false,
         "padding_top": 36,

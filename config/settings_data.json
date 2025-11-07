@@ -1,17 +1,8 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "current": {
-    "logo": "shopify://shop_images/power-dental-logo_2.png",
+    "logo": "shopify:\/\/shop_images\/power-dental-logo_2.png",
     "logo_width": 250,
-    "favicon": "shopify://shop_images/favicon_2.png",
+    "favicon": "shopify:\/\/shop_images\/favicon_2.png",
     "type_header_font": "montserrat_n7",
     "heading_scale": 100,
     "type_body_font": "prompt_n4",
@@ -108,12 +99,12 @@
     "sale_badge_color_scheme": "scheme-4",
     "sold_out_badge_color_scheme": "scheme-3",
     "brand_headline": "Contact",
-    "brand_description": "<p>Power Dental Group<br/>2809 Barney Ct, McHenry, IL 60051</p><p>Local <a href=\"tel:+1-815-363-8003\" title=\"tel:+1-815-363-8003\">+1-815-363-8003</a></p>",
+    "brand_description": "<p>Power Dental Group<br\/>2809 Barney Ct, McHenry, IL 60051<\/p><p>Local\u2028<a href=\"tel:+1-815-363-8003\" title=\"tel:+1-815-363-8003\">+1-815-363-8003<\/a><\/p>",
     "brand_image_width": 100,
-    "social_facebook_link": "https://www.facebook.com/people/Power-Dental-Group/100065305369391",
-    "social_instagram_link": "https://www.instagram.com/powerdentalgroup",
-    "social_linkedin_link": "https://www.linkedin.com/company/powerdentalgroup",
-    "social_youtube_link": "https://www.youtube.com/channel/UCznCqyM_9rUZmgAYP0nz9_A",
+    "social_facebook_link": "https:\/\/www.facebook.com\/people\/Power-Dental-Group\/100065305369391",
+    "social_instagram_link": "https:\/\/www.instagram.com\/powerdentalgroup",
+    "social_linkedin_link": "https:\/\/www.linkedin.com\/company\/powerdentalgroup",
+    "social_youtube_link": "https:\/\/www.youtube.com\/channel\/UCznCqyM_9rUZmgAYP0nz9_A",
     "social_tiktok_link": "",
     "social_twitter_link": "",
     "social_snapchat_link": "",
@@ -146,28 +137,28 @@
     "content_for_index": [],
     "blocks": {
       "14060646107696862457": {
-        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
       },
       "5059203847231188605": {
-        "type": "shopify://apps/smart-product-filter-search/blocks/app-embed/5cc1944c-3014-4a2a-af40-7d65abc0ef73",
+        "type": "shopify:\/\/apps\/smart-product-filter-search\/blocks\/app-embed\/5cc1944c-3014-4a2a-af40-7d65abc0ef73",
         "disabled": true,
         "settings": {
           "productGridSelector": "",
           "useCustomQuickviewTemplate": false,
           "customJs": "window.mobile_break_point = 1155;",
           "customCss": "@media(min-width: 768px) and (max-width: 1155px){\n.gf-filter-trigger,\n #gf-controls-container .gf-refine-toggle-mobile{\ndisplay: block !important;\n}\n.gf-theme-version-15.spf-has-filter span.gf-summary{\n    display: flex;\n    align-items: center;\n}\nhtml.gf-left #gf-tree {\n        bottom: 0px;\n        height: 100%;\n        left: -350px;\n        position: fixed;\n        top: 0px;\n        z-index: 2147483647;\n        width: 350px !important;\n        overflow: auto;\n        transition: 0.2s \nease-in-out;\n        background: var(--gradient-background) !important;\n    }\n\n.gf-theme-version-15.offcanvas-open #gf-tree{\n   left: 0;\n}\nhtml.gf-theme-version-15.gf-left #gf-tree{\nbackground: var(--gradient-background) !important;\n}\n}",
-          "customProductTemplateLoader": "{%- capture productTemplate -%}{% render 'globo.filter.product', themeTranslation: shop.metafields.globoFilter.themeTranslation.value[request.locale.iso_code] %}{%- endcapture -%}{%- unless productTemplate contains 'Liquid error' -%}<script id=\"gspfProduct\" type=\"template/html\">{{- productTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
-          "customTreeTemplateLoader": "{%- capture treeTemplate -%}{% render 'globo.filter.tree' %}{%- endcapture -%}{%- unless treeTemplate contains 'Liquid error' -%}<script id=\"gspfFilterTree\" type=\"template/html\">{{- treeTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
-          "customSortTemplateLoader": "{%- capture sortTemplate -%}{% render 'globo.filter.sort' %}{%- endcapture -%}{%- unless sortTemplate contains 'Liquid error' -%}<script id=\"gspfFilterSort\" type=\"template/html\">{{- sortTemplate | replace: \"script>\", \"scripttag>\" -}}</script>{%- endunless -%}",
+          "customProductTemplateLoader": "{%- capture productTemplate -%}{% render 'globo.filter.product', themeTranslation: shop.metafields.globoFilter.themeTranslation.value[request.locale.iso_code] %}{%- endcapture -%}{%- unless productTemplate contains 'Liquid error' -%}<script id=\"gspfProduct\" type=\"template\/html\">{{- productTemplate | replace: \"script>\", \"scripttag>\" -}}<\/script>{%- endunless -%}",
+          "customTreeTemplateLoader": "{%- capture treeTemplate -%}{% render 'globo.filter.tree' %}{%- endcapture -%}{%- unless treeTemplate contains 'Liquid error' -%}<script id=\"gspfFilterTree\" type=\"template\/html\">{{- treeTemplate | replace: \"script>\", \"scripttag>\" -}}<\/script>{%- endunless -%}",
+          "customSortTemplateLoader": "{%- capture sortTemplate -%}{% render 'globo.filter.sort' %}{%- endcapture -%}{%- unless sortTemplate contains 'Liquid error' -%}<script id=\"gspfFilterSort\" type=\"template\/html\">{{- sortTemplate | replace: \"script>\", \"scripttag>\" -}}<\/script>{%- endunless -%}",
           "customSearchTemplateLoader": "",
           "customPaginationTemplateLoader": "",
           "customYMMTemplateLoader": ""
         }
       },
       "10603822535667782919": {
-        "type": "shopify://apps/mst-wishlist-marketing-flow/blocks/app-embed/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
+        "type": "shopify:\/\/apps\/mst-wishlist-marketing-flow\/blocks\/app-embed\/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
         "disabled": true,
         "settings": {
           "hide_float_icon": false,
@@ -188,7 +179,7 @@
           "drawer_title": "My Wishlist",
           "drawer_empty_description": "Explore more and shortlist some items",
           "drawer_empty_msg": "Your wishlist is empty!",
-          "drawer_login_msg": "Wishlist is not saved permanently yet. Please <a class=\"link-text\" href=\"/account/login\">log in</a> or <a class=\"link-text\" href=\"/account/register\">Create Account</a> to save it.",
+          "drawer_login_msg": "Wishlist is not saved permanently yet. Please <a class=\"link-text\" href=\"\/account\/login\">log in<\/a> or <a class=\"link-text\" href=\"\/account\/register\">Create Account<\/a> to save it.",
           "add_to_cart_txt": "Add To Cart",
           "add_all_to_cart_txt": "Add All To Cart",
           "drawer_sold_out": "Sold Out",
@@ -197,14 +188,14 @@
         }
       },
       "6403324215520875301": {
-        "type": "shopify://apps/mst-wishlist-marketing-flow/blocks/v3-app-embed/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
+        "type": "shopify:\/\/apps\/mst-wishlist-marketing-flow\/blocks\/v3-app-embed\/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
         "disabled": false,
         "settings": {
           "multi_language": false,
           "drawer_title": "My Wishlist",
           "share_page_title": "Wishlist",
-          "login_msg": "Wishlist is not saved permanently yet. Please <a class=\"link-text\" href=\"/account/login\">log in</a> or <a class=\"link-text\" href=\"/account/register\">Create Account</a> to save it.",
-          "empty_msg": "<h4>Your wishlist is empty!</h4> \r\n<p>Explore more and shortlist some items</p>",
+          "login_msg": "Wishlist is not saved permanently yet. Please <a class=\"link-text\" href=\"\/account\/login\">log in<\/a> or <a class=\"link-text\" href=\"\/account\/register\">Create Account<\/a> to save it.",
+          "empty_msg": "<h4>Your wishlist is empty!<\/h4> \r\n<p>Explore more and shortlist some items<\/p>",
           "enable_drawer": true,
           "multi_category": false,
           "open_drawer_on": "1",
@@ -219,20 +210,20 @@
         }
       },
       "7584948915495707528": {
-        "type": "shopify://apps/joy-loyalty-program/blocks/app-embed/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+        "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/app-embed\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
         "disabled": true,
         "settings": {}
       },
       "18208872656243357035": {
-        "type": "shopify://apps/joy-loyalty-program/blocks/joy-points-calculator-embed/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+        "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/joy-points-calculator-embed\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
         "disabled": true,
         "settings": {
           "points_calculator_alignment": "left"
         }
       },
       "4291333794791649201": {
-        "type": "shopify://apps/loyalty-rewards-and-referrals/blocks/embed-sdk/6f172e67-4106-4ac0-89c5-b32a069b3101",
-        "disabled": false,
+        "type": "shopify:\/\/apps\/loyalty-rewards-and-referrals\/blocks\/embed-sdk\/6f172e67-4106-4ac0-89c5-b32a069b3101",
+        "disabled": true,
         "settings": {
           "disableBundledCSS": true,
           "disableBundledFonts": true,
@@ -240,7 +231,7 @@
         }
       },
       "11560147490181472608": {
-        "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/app-embed/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
+        "type": "shopify:\/\/apps\/rivo-loyalty-rewards-referrals\/blocks\/app-embed\/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
         "disabled": false,
         "settings": {}
       }
@@ -492,7 +483,7 @@
       "sale_badge_color_scheme": "scheme-4",
       "sold_out_badge_color_scheme": "scheme-3",
       "brand_headline": "",
-      "brand_description": "<p></p>",
+      "brand_description": "<p><\/p>",
       "brand_image_width": 100,
       "social_twitter_link": "",
       "social_facebook_link": "",

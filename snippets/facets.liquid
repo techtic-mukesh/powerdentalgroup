@@ -74,7 +74,11 @@
                   </facet-remove>
                 </div>
               {% endcomment %}
-              {%  render 'collection-filter' %}
+              {%- if is_search -%}
+      {%  render 'collection-filter', results: results %}
+    {%- else -%}
+      {%  render 'collection-filter', collection: results %}
+    {%- endif -%}
 
 
 
@@ -505,7 +509,11 @@
               id="FacetsWrapperMobile"
               class="mobile-facets__main has-submenu gradient"
             >
-                      {%  render 'collection-filter' %}
+                  {%- if is_search -%}
+                  {%  render 'collection-filter', results: results %}
+                {%- else -%}
+                  {%  render 'collection-filter', collection: results %}
+                {%- endif -%}
 
               {%- if enable_filtering -%}
                 {%- for filter in results.filters -%}
