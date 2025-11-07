@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -12,17 +21,6 @@
         "show_rating": false,
         "quick_add": "standard",
         "enable_filtering": true,
-        "filter_collection": [
-          "power-line",
-          "hygiene",
-          "diagnostic",
-          "surgical-implantology",
-          "restorative",
-          "endodontic",
-          "orthodontic",
-          "headlamps-loupes",
-          "cassette-accessories"
-        ],
         "filter_type": "vertical",
         "enable_sorting": true,
         "article_show_date": true,
@@ -35,7 +33,7 @@
       "type": "apps",
       "blocks": {
         "mst_wishlist_marketing_flow_v3_app_block_list_tgRnbV": {
-          "type": "shopify:\/\/apps\/mst-wishlist-marketing-flow\/blocks\/v3-app-block-list\/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
+          "type": "shopify://apps/mst-wishlist-marketing-flow/blocks/v3-app-block-list/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
           "settings": {
             "multi_language": false,
             "iwish_add_txt": "Add To Wishlist",
