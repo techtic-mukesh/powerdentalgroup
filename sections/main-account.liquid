@@ -47,7 +47,7 @@
     margin-bottom: 8px;
   }
 
-  .account-tabs button {
+  .account-tabs button,   .account-tabs a {
    width: 100%;
     text-align: left;
     background: unset;
@@ -64,13 +64,24 @@
     font-weight: 500;
     letter-spacing: -.16px;
      border-left: 3px solid transparent;
+     text-decoration: none;
   }
+
+  .account-tabs button a {
+    padding-left: 0;
+}
 
   .account-tabs button:hover {
       border-color:  #0033a0;
        font-weight: 700;
        opacity:1;
   }
+
+   .account-tabs  a:hover {
+border-color:  #0033a0;
+       font-weight: 700;
+       opacity:1;
+    }
 
   .account-tabs button.active {
          border-color:  #0033a0;
@@ -196,18 +207,19 @@
       <ul class="account-tabs">
         <li><button class="tab-btn active" data-tab="account">My Account</button></li>
         <li><button class="tab-btn" data-tab="orders">My Orders</button></li>
-        <li><button class="tab-btn" data-tab="address">Address Book</button></li>
-        <li><button class="tab-btn" data-tab="info">Account Information</button></li>
+        <li><a href="/account/addresses">Address Book</a></li>
+        {% comment %} <li><button class="tab-btn" data-tab="info">Account Information</button></li> {% endcomment %}
         <li><button class="tab-btn" data-tab="rewards">My Points and Rewards</button></li>
-        <li><button class="tab-btn" data-tab="transactions">Transactions</button></li>
-        <li><a href="{{ routes.account_logout_url }}" style="display: block; padding: 12px 16px; text-decoration: none; color: inherit;">Logout</a></li>
+        {% comment %} <li><button class="tab-btn" data-tab="transactions">Transactions</button></li> {% endcomment %}
+       
+        <li><a href="{{ routes.account_logout_url }}" style="display: block;padding: 12px 16px;text-decoration: none;color: inherit;font-size: 16px;">Logout</a></li>
       </ul>
     </aside>
 
     <main class="account-content">
       <!-- My Account Tab -->
       <div class="tab-content active" id="account-tab">
-        <h1>{{ 'customer.account.title' | t }}</h1>
+        {% comment %} <h1>{{ 'customer.account.title' | t }}</h1> {% endcomment %}
         <div style="margin-top: 30px;">
           <h2>{{ 'customer.account.details' | t }}</h2>
           {{ customer.default_address | format_address }}

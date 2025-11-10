@@ -454,6 +454,10 @@ a.jdgm-write-rev-link:hover {
         background-position: 100% 0 !important;
 }
 
+#rivo-account-dashboard {
+    display: none;
+}
+
 
 /* Globle Responsive */
 
