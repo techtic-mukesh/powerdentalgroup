@@ -47,7 +47,7 @@
             "text_font_size": 14,
             "text_color": "#000000",
             "text_color_hover": "",
-            "background_color": "#FFFFFF",
+            "background_color": "#ffffff",
             "z_index": 2,
             "qv_wrapper": "",
             "qv_button": "",
@@ -61,11 +61,18 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "17625236317d177e0e": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "cart-items",
     "cart-footer",
-    "1762258019b8055bf4"
+    "1762258019b8055bf4",
+    "17625236317d177e0e"
   ]
 }

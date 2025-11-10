@@ -120,9 +120,10 @@ text-transform: uppercase;
 }
 
 .multicolumn-list__item:hover {
-    box-shadow: 0 4px 24px rgba(25, 60, 160, 0.6);
+    /* box-shadow: 0 4px 24px rgba(25, 60, 160, 0.6); */
     border-radius: 10px;
     scale: 1.02;
+        scale: 1.01;
 }
 
 @media screen and (max-width: 749px) {

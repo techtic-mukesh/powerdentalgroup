@@ -355,37 +355,44 @@
             </div>
 
             <div class="quick-add no-js-hidden">
-              <product-form data-section-id="recently-viewed-${product.id}">
-                <form method="post" action="/cart/add" id="quick-add-${product.variants[0].id}" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate>
-                  <input type="hidden" name="form_type" value="product">
-                  <input type="hidden" name="utf8" value="✓">
-                  <input type="hidden" name="id" value="${product.variants[0].id}" class="product-variant-id">
+             <product-form data-section-id="recently-viewed-${product.id}">
+  <form method="post" action="/cart/add" id="quick-add-${product.variants[0].id}" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate>
+    <input type="hidden" name="form_type" value="product">
+    <input type="hidden" name="utf8" value="✓">
+    <input type="hidden" name="id" value="${product.variants[0].id}" class="product-variant-id">
 
-                  <button id="quick-add-${product.variants[0].id}-submit" type="submit" name="add" class="quick-add__submit button button--full-width button--secondary" aria-haspopup="dialog" aria-live="polite" data-sold-out-message="true">
-                    <span>Add to cart</span>
-                    <span class="sold-out-message hidden">Sold out</span>
-                    <div class="loading__spinner hidden">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66">
-                        <circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"></circle>
-                      </svg>
-                    </div>
-                  </button>
-                  <input type="hidden" name="product-id" value="${product.id}">
-                  <input type="hidden" name="section-id" value="recently-viewed-${product.id}">
-                </form>
-                <button class="whislist-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
-                    <g clip-path="url(#clip0_2941_355)">
-                      <path d="M12.5566 21.5002L3.75661 13.2002C3.17059 12.641 2.71285 11.9614 2.41495 11.2082C2.11706 10.455 1.9861 9.64613 2.03112 8.8374C2.07613 8.02867 2.29605 7.23933 2.6757 6.52384C3.05535 5.80834 3.58569 5.18372 4.23014 4.69305C4.8746 4.20239 5.61782 3.85737 6.40854 3.68179C7.19926 3.50621 8.01866 3.50425 8.81021 3.67604C9.60176 3.84784 10.3466 4.1893 10.9934 4.67687C11.6402 5.16445 12.1735 5.78652 12.5566 6.5002C12.9364 5.79103 13.4645 5.17201 14.105 4.68528C14.7455 4.19854 15.4834 3.85552 16.2683 3.67956C17.0533 3.50359 17.867 3.49882 18.654 3.66556C19.441 3.83229 20.1828 4.16663 20.829 4.64582C21.4751 5.125 22.0105 5.73777 22.3986 6.44243C22.7866 7.14709 23.0183 7.92709 23.0779 8.72934C23.1375 9.53159 23.0235 10.3373 22.7437 11.0915C22.4639 11.8457 22.0249 12.5308 21.4566 13.1002L12.5566 21.5002Z" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_2941_355">
-                        <rect width="24" height="24" fill="white" transform="translate(0.556641 0.5)"/>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </button>
-              </product-form>
+    <button id="quick-add-${product.variants[0].id}-submit" type="submit" name="add" class="quick-add__submit button button--full-width button--secondary" aria-haspopup="dialog" aria-live="polite" data-sold-out-message="true">
+      <span>Add to cart</span>
+      <span class="sold-out-message hidden">Sold out</span>
+      <div class="loading__spinner hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66">
+          <circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"></circle>
+        </svg>
+      </div>
+    </button>
+
+    <input type="hidden" name="product-id" value="${product.id}">
+    <input type="hidden" name="section-id" value="recently-viewed-${product.id}">
+  </form>
+
+  <button class="whislist-cart">
+    <a 
+      class="iWishAddColl" 
+      href="#" 
+      data-variant="${product.variants[0].id}" 
+      data-product="${product.id}" 
+      data-ptitle="${product.title}" 
+      data-manually-bound="true" 
+      data-iwclick="true"
+    >
+      <svg viewBox="0 0 256 256" width="20" class="iwishOutline" xmlns="http://www.w3.org/2000/svg">
+        <rect fill="none" height="256" width="256"></rect>
+        <path d="M128,216S28,160,28,92A52,52,0,0,1,128,72h0A52,52,0,0,1,228,92C228,160,128,216,128,216Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+      </svg>
+    </a>
+  </button>
+</product-form>
+
             </div>
 
             <div class="card__badge bottom left"></div>
@@ -475,18 +482,22 @@
                   <input type="hidden" name="product-id" value="${product.id}">
                   <input type="hidden" name="section-id" value="recently-viewed-${product.id}">
                 </form>
-                <button class="whislist-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
-                    <g clip-path="url(#clip0_2941_355)">
-                      <path d="M12.5566 21.5002L3.75661 13.2002C3.17059 12.641 2.71285 11.9614 2.41495 11.2082C2.11706 10.455 1.9861 9.64613 2.03112 8.8374C2.07613 8.02867 2.29605 7.23933 2.6757 6.52384C3.05535 5.80834 3.58569 5.18372 4.23014 4.69305C4.8746 4.20239 5.61782 3.85737 6.40854 3.68179C7.19926 3.50621 8.01866 3.50425 8.81021 3.67604C9.60176 3.84784 10.3466 4.1893 10.9934 4.67687C11.6402 5.16445 12.1735 5.78652 12.5566 6.5002C12.9364 5.79103 13.4645 5.17201 14.105 4.68528C14.7455 4.19854 15.4834 3.85552 16.2683 3.67956C17.0533 3.50359 17.867 3.49882 18.654 3.66556C19.441 3.83229 20.1828 4.16663 20.829 4.64582C21.4751 5.125 22.0105 5.73777 22.3986 6.44243C22.7866 7.14709 23.0183 7.92709 23.0779 8.72934C23.1375 9.53159 23.0235 10.3373 22.7437 11.0915C22.4639 11.8457 22.0249 12.5308 21.4566 13.1002L12.5566 21.5002Z" stroke="#818181" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_2941_355">
-                        <rect width="24" height="24" fill="white" transform="translate(0.556641 0.5)"/>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </button>
+                 <button class="whislist-cart">
+                    <a 
+                      class="iWishAddColl" 
+                      href="#" 
+                      data-variant="${product.variants[0].id}" 
+                      data-product="${product.id}" 
+                      data-ptitle="${product.title}" 
+                      data-manually-bound="true" 
+                      data-iwclick="true"
+                    >
+                      <svg viewBox="0 0 256 256" width="20" class="iwishOutline" xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="none" height="256" width="256"></rect>
+                        <path d="M128,216S28,160,28,92A52,52,0,0,1,128,72h0A52,52,0,0,1,228,92C228,160,128,216,128,216Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                      </svg>
+                    </a>
+                  </button>
               </product-form>
             </div>
 

@@ -106,7 +106,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/save-more-icon_7e0ebdf0-3ec3-4ced-bebc-91611a1b5618.png",
             "step_svg": "",
-            "title": "<p><strong>Work With <\/strong>The Best<\/p>",
+            "title": "<p><strong>Work with t<\/strong>he Best<\/p>",
             "content": "<p>We have serviced over 1.4 million instruments and counting. Work with the best in class where excellence is the standard.<\/p>"
           }
         }
@@ -304,6 +304,16 @@
         "padding_top": 56,
         "padding_bottom": 56
       }
+    },
+    "signup_contact_qAXwm7": {
+      "type": "signup-contact",
+      "name": "Contact Form",
+      "settings": {
+        "background_color": "#141132",
+        "heading": "Contact Our Team Today!",
+        "image": "shopify:\/\/shop_images\/image_31.png",
+        "form": "<script charset=\"utf-8\" type=\"text\/javascript\" src=\"\/\/js.hsforms.net\/forms\/embed\/v2.js\"><\/script>\n<script>\n  hbspt.forms.create({\n    portalId: \"39754023\",\n    formId: \"92cffa2f-5f86-4803-b5c3-0976d8432bc5\",\n    region: \"na1\"\n  });\n<\/script>"
+      }
     }
   },
   "order": [
@@ -314,6 +324,7 @@
     "multicolumn_bpPaPB",
     "power_servicing_process_e7PkYi",
     "video_single_7jCaae",
-    "rich_text_D3dQX9"
+    "rich_text_D3dQX9",
+    "signup_contact_qAXwm7"
   ]
 }
