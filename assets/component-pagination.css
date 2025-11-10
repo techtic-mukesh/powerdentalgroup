@@ -33,6 +33,9 @@
   width: 100%;
   padding: 0;
   text-decoration: none;
+  border-radius: 8px;
+border: 1px solid #E6E5E4;
+opacity: 1;
 }
 
 a.pagination__item:hover::after {
@@ -47,6 +50,13 @@ a.pagination__item:hover::after {
   height: 0.1rem;
 }
 
+.pagination__item--current {
+  border-radius: 8px;
+border: 1px solid #42C5EF;
+background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+color: #fff !important;
+}
+
 .pagination__item--current::after,
 .pagination__item:hover::after {
   content: '';
@@ -57,6 +67,7 @@ a.pagination__item:hover::after {
   left: 50%;
   transform: translateX(-50%);
   background-color: currentColor;
+  display: none;
 }
 
 .pagination__item--next .icon {
