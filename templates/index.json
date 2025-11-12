@@ -380,7 +380,7 @@
       "settings": {
         "background_color": "#f8f6f4",
         "subheading": "It Starts Here",
-        "heading": "Our SERVICES",
+        "heading": "<p>Our <strong>SERVICES</strong></p>",
         "content": "<p>All needs are not the same; that’s why we provide solutions for every dental professional at any point in their journey.</p>",
         "btnurl": "shopify://pages/services",
         "btntext": "view all services"
