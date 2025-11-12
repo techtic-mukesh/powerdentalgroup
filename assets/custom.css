@@ -19,11 +19,16 @@ h1 {
 }
 
 h2 {
-    font-size: 36px;
-    line-height: 40px;
+    font-size: 44px;
+    line-height: 48px;
     text-transform: uppercase;
     margin: 0 0 20px;
     letter-spacing: -.88px;
+        font-weight: 300;
+}
+
+h2 strong {
+    font-weight:700;
 }
 
 a.button.button--secondary {
