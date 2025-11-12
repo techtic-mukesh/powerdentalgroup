@@ -549,6 +549,99 @@
         "btntext": "View Upcoming Events"
       }
     },
+    "events_with_slider_kpFCkT": {
+      "type": "events-with-slider",
+      "blocks": {
+        "slide_Vdzrdb": {
+          "type": "slide",
+          "settings": {
+            "slide_title": "THE FUTURE OF DENTISTRY: MISCH INSTITUTE PARTNERSHIP",
+            "slide_text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit<a href=\"https:\/\/misch.com\/\" target=\"_blank\" title=\"https:\/\/misch.com\/\"> www.misch.com<\/a> to sign up.<\/p>",
+            "slide_link": "",
+            "slide_link_label": "Learn more"
+          }
+        },
+        "slide_tRJL4Q": {
+          "type": "slide",
+          "settings": {
+            "slide_title": "GOING GOVERNMENT - LOVELL GOVERNMENT SERVICES",
+            "slide_text": "<p>Power Dental has partnered with Lovell Government Services to get our products into the hands of those who serve our country. Visit <a href=\"https:\/\/www.lovell.com\" target=\"_blank\" title=\"https:\/\/www.lovell.com\">www.lovell.com<\/a> to learn more.<\/p>",
+            "slide_link": "",
+            "slide_link_label": "Learn more"
+          }
+        },
+        "slide_qjYdUf": {
+          "type": "slide",
+          "settings": {
+            "slide_title": "BEAUTY MEETS FUNCTION - STOGGLES PARTNERSHIP",
+            "slide_text": "<p>Stoggles Inc. and Power Dental Group have partnered together to provide stylish and functional safety goggles to all Power Dental customers. Use code PDG15 to get 15% off your first purchase. <a href=\"https:\/\/www.stoggles.com\" target=\"_blank\" title=\"https:\/\/www.stoggles.com\">www.stoggles.com<\/a><\/p>",
+            "slide_link": "",
+            "slide_link_label": "Learn more"
+          }
+        },
+        "menu_item_BEYf4C": {
+          "type": "menu_item",
+          "settings": {
+            "menu_label": "Servicing Order Form",
+            "menu_link": "shopify:\/\/pages\/servicing-order-form"
+          }
+        },
+        "menu_item_LtETH6": {
+          "type": "menu_item",
+          "settings": {
+            "menu_label": "Shipping label",
+            "menu_link": "https:\/\/returns.usps.com\/Label\/CreateSingle?Code=7AC6D5C59F5940EBA1D2A338C8F13E77&DisplayType=Customer"
+          }
+        },
+        "menu_item_GkfBF4": {
+          "type": "menu_item",
+          "settings": {
+            "menu_label": "Return order form",
+            "menu_link": "shopify:\/\/pages\/return-order-form"
+          }
+        },
+        "menu_item_eMyaBK": {
+          "type": "menu_item",
+          "settings": {
+            "menu_label": "Product training videos",
+            "menu_link": "shopify:\/\/pages\/product-training-videos"
+          }
+        },
+        "menu_item_fVtdBU": {
+          "type": "menu_item",
+          "settings": {
+            "menu_label": "E-catalog",
+            "menu_link": "shopify:\/\/pages\/e-catalog"
+          }
+        },
+        "menu_item_w7dVpk": {
+          "type": "menu_item",
+          "settings": {
+            "menu_label": "FAQ",
+            "menu_link": "shopify:\/\/pages\/frequently-asked-questions"
+          }
+        }
+      },
+      "block_order": [
+        "slide_Vdzrdb",
+        "slide_tRJL4Q",
+        "slide_qjYdUf",
+        "menu_item_BEYf4C",
+        "menu_item_LtETH6",
+        "menu_item_GkfBF4",
+        "menu_item_eMyaBK",
+        "menu_item_fVtdBU",
+        "menu_item_w7dVpk"
+      ],
+      "name": "Events with Slider & Menu",
+      "settings": {
+        "subtitle": "STAY IN THE KNOW",
+        "title": "<p>Find us at our <strong>next event<\/strong><\/p>",
+        "description": "Your opportunity to learn is here. Our goal is to give you and your patients the best possible outcomes, whether it’s a hands-on training course or trade show event. Our team is ready and committed to making your experience exceptional.",
+        "button_label": "View Upcoming Events",
+        "button_link": "shopify:\/\/pages\/shows-events"
+      }
+    },
     "multicolumn_NUkNgM": {
       "type": "multicolumn",
       "blocks": {
@@ -588,6 +681,7 @@
         "column_bXnpkN",
         "column_hmpVir"
       ],
+      "disabled": true,
       "custom_css": [
         ".multicolumn .title-wrapper-with-link {justify-content: center;}"
       ],
@@ -685,6 +779,7 @@
     "tab_collection_PXdCW4",
     "testimonial_f8fUmj",
     "explore_events_yqkRm7",
+    "events_with_slider_kpFCkT",
     "multicolumn_NUkNgM",
     "signup_email_WMCkrN",
     "meadia_logos_wtKeWD"
