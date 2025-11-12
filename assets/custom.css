@@ -27,6 +27,10 @@ h2 {
         font-weight: 300;
 }
 
+h2 p {
+    margin:0;
+}
+
 h2 strong {
     font-weight:700;
 }
