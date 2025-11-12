@@ -465,7 +465,7 @@
       ],
       "name": "Collection Tabs",
       "settings": {
-        "section_heading": "Customer Favorites",
+        "section_heading": "<p>Customer <strong>Favorites</strong></p>",
         "products_to_show": 8,
         "enable_swiper": true,
         "image_ratio": "square",
