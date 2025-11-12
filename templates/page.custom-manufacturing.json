@@ -121,8 +121,8 @@
       ],
       "name": "Kitting Process",
       "settings": {
-        "heading": "<h2>Our 3 Step Custom Kitting Process</h2>",
-        "subheading": "<p>Streamline your clinical workflow without spending hours sourcing parts. We simplify the process in 3 easy steps.</p>",
+        "heading": "<h2>Our 3 Step Custom <strong>Kitting Process</strong></h2>",
+        "subheading": "Streamline your clinical workflow without spending hours sourcing parts. We simplify the process in 3 easy steps.",
         "bg_color": "#f0eeee"
       }
     },
