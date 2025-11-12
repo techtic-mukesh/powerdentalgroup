@@ -553,7 +553,7 @@
       "settings": {
         "background_color": "#f8f6f4",
         "subheading": "Stay In The Know",
-        "heading": "Find us at our Next Event",
+        "heading": "<p>Find us at our <strong>Next Event</strong></p>",
         "content": "<p>Your opportunity to learn is here. Our goal is to give you and your patients the best possible outcomes, whether it’s a hands-on training course or trade show event. Our team is ready and committed to making your experience exceptional.</p>",
         "btnurl": "shopify://pages/shows-events",
         "btntext": "View Upcoming Events"
