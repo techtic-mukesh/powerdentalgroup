@@ -23,6 +23,7 @@ h2 {
     line-height: 40px;
     text-transform: uppercase;
     margin: 0 0 20px;
+        letter-spacing: -.88px;
 }
 
 a.button.button--secondary {
