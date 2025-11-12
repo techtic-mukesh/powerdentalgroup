@@ -340,7 +340,7 @@
       ],
       "name": "Category Slider",
       "settings": {
-        "heading": "Our Products"
+        "heading": "<p>Our <strong>Products</strong></p>"
       }
     },
     "our_services_HFXeCY": {
