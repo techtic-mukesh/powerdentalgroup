@@ -167,7 +167,15 @@ ul#tabs-nav li.tabs-li span.tab-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 20px;
+       min-width: 25px;
+    max-width: 25px;
+    height: 25px;
+}
+
+ul#tabs-nav li.tabs-li span.tab-icon svg {
+    min-width: 25px;
+    min-height: 25px;
+      height: 25px;
 }
 
 /* Mega Menu */
@@ -176,7 +184,7 @@ ul#tabs-nav {
     padding-left: 0;
     list-style: none;
     min-width: 421px;
-    padding-left: calc(50% - 1360px / 2);
+    padding-left: calc(50% - 1320px / 2);
     overflow: hidden;
 }
 
@@ -256,7 +264,7 @@ ul#tabs-nav li.tabs-li.active:after {
     display: inline-block;
     position: absolute;
     top: 0;
-    left: -200%;
+    /* left: -200%; */
     height: 100%;
     width: 500%;
     z-index: 0;
@@ -267,10 +275,10 @@ li.tabs-li.active:after {
     content: '';
     display: inline-block;
     position: absolute;
-    background: #0033A0;
+    /* background: #0033A0; */
     width: 100%;
     height: 100%;
-    left: -100%;
+    left: 0;
     top: 0;
     display: none;
 }
