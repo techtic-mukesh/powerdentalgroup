@@ -191,6 +191,10 @@ product-info {
   display: none !important;
 }
 
+.product__info-container> .shopify-block.shopify-app-block {
+    margin: 0 0 10px !important;
+}
+
 @media screen and (min-width: 750px) {
   .product__column-sticky {
     display: block;
