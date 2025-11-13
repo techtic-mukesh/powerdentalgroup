@@ -59,6 +59,9 @@
         "heading_9ni9td",
         "text_V9d4Ww"
       ],
+      "custom_css": [
+        ".media>img {object-position: 92% 38%;}"
+      ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/Vision_Philosophy_Banner.webp",
