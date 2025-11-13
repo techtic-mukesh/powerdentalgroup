@@ -2956,7 +2956,6 @@ details-disclosure > details {
   }
 }
 
-.overflow-hidden-mobile,
 .overflow-hidden-tablet,
 .overflow-hidden-desktop {
   overflow: hidden;
