@@ -2964,7 +2964,7 @@ details-disclosure > details {
 
 @media screen and (min-width: 750px) {
   .overflow-hidden-mobile {
-    overflow: hidden;
+    overflow: auto;
   }
 }
 
