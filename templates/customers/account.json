@@ -63,6 +63,7 @@
         "heading_ChTyNb",
         "text_3RBUGd"
       ],
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
