@@ -146,7 +146,7 @@
         "counter_yBG3DR": {
           "type": "counter",
           "settings": {
-            "number": "5500",
+            "number": "10000",
             "suffix": "+",
             "label": "Doctors Served Worldwide"
           }
