@@ -647,12 +647,11 @@ text-transform: math-auto;
 .product__info-container> .product-short-description {
     color: #01000A;
     font-family: Montserrat;
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: 20px; /* 142.857% */
             color: #01000a;
-        font-size: 14px;
         font-weight: 500 !important;
         line-height: 20px;
         letter-spacing: 0;
