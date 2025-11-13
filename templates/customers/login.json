@@ -1,5 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "rich_text_Nd3fji": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ffqwz7": {
+          "type": "heading",
+          "settings": {
+            "heading": "We’ve upgraded our website!",
+            "heading_size": "h1"
+          }
+        },
+        "text_aFcxJV": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>All existing customers will need to reactivate their account.</strong></p><p>Existing customers, please reactivate your account by clicking the link in the email from<strong> kyle@powerdentalgroup.com</strong>, Can’t find it? Email <a href=\"mailto:kyle@powerdentalgroup.com\" title=\"mailto:kyle@powerdentalgroup.com\">kyle@powerdentalgroup.com</a> and we’ll send another link to your email to reactivate your account</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ffqwz7",
+        "text_aFcxJV"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "main": {
       "type": "main-login",
       "settings": {
@@ -8,13 +48,14 @@
         "padding_bottom": 60,
         "main-title": "Customer Login",
         "register-text": "Registered Customers",
-        "register-content": "<p>If you have an account, sign in with your email address.<\/p>",
+        "register-content": "<p>If you have an account, sign in with your email address.</p>",
         "customer-title": "New Customer",
-        "content": "<p>Creating an account has many benefits: check out faster, keep more than one address, track orders and more.<\/p>"
+        "content": "<p>Creating an account has many benefits: check out faster, keep more than one address, track orders and more.</p>"
       }
     }
   },
   "order": [
+    "rich_text_Nd3fji",
     "main"
   ]
 }
