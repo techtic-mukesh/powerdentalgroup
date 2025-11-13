@@ -384,6 +384,14 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-
+<script>
+  (function(){
+    if (location.pathname.replace(/\/+$/,'') === '/services/sharpen-retip-repair') {
+      setTimeout(function(){
+        location.href = '/pages/sharpen-retip-repair' + location.search + location.hash;
+      }, 600); // 600ms delay
+    }
+  })();
+</script>
   </body>
 </html>
