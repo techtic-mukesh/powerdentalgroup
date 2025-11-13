@@ -1,57 +1,61 @@
 {% schema %}
-  {
-    "name": "Counter Section",
-    "settings": [
-      {
-        "type": "color_background",
-        "id": "background",
-        "label": "Background",
-        "default": "linear-gradient(90deg,#3db2ff,#0077ff)"
-      }, {
-        "type": "range",
-        "id": "duration",
-        "label": "Animation duration (ms)",
-        "min": 400,
-        "max": 3000,
-        "step": 100,
-        "default": 1200
-      }, {
-        "type": "checkbox",
-        "id": "animate",
-        "label": "Enable animation",
-        "default": true
-      }
-    ],
-    "blocks": [
-      {
-        "type": "counter",
-        "name": "Counter item",
-        "settings": [
-          {
-            "type": "text",
-            "id": "number",
-            "label": "Number",
-            "default": "20"
-          }, {
-            "type": "text",
-            "id": "suffix",
-            "label": "Suffix (+, %, etc.)",
-            "default": "+"
-          }, {
-            "type": "text",
-            "id": "label",
-            "label": "Label",
-            "default": "Years of Proven Experience"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Counter Section"
-      }
-    ]
-  }
+{
+  "name": "Counter Section",
+  "settings": [
+    {
+      "type": "color_background",
+      "id": "background",
+      "label": "Background",
+      "default": "linear-gradient(90deg,#3db2ff,#0077ff)"
+    },
+    {
+      "type": "range",
+      "id": "duration",
+      "label": "Animation duration (ms)",
+      "min": 400,
+      "max": 3000,
+      "step": 100,
+      "default": 1200
+    },
+    {
+      "type": "checkbox",
+      "id": "animate",
+      "label": "Enable animation",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "counter",
+      "name": "Counter item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "20"
+        },
+        {
+          "type": "text",
+          "id": "suffix",
+          "label": "Suffix (+, %, etc.)",
+          "default": "+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Years of Proven Experience"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Counter Section"
+    }
+  ]
+}
 {% endschema %}
 
 <section
@@ -61,184 +65,167 @@
   <div class="page-width">
     <div class="counter-wrapper">
       {% for block in section.blocks %}
-        {% if block.settings.number  !=  blank %}
+        {% if block.settings.number != blank %}
           <div class="counter-box" {{ block.shopify_attributes }}>
             <div class="counter-line">
               <span
                 class="counter-value"
                 data-counter
                 data-target="{{ block.settings.number | strip }}"
-                data-suffix="{{ block.settings.suffix | strip }}">{{ block.settings.number | strip }}{{ block.settings.suffix | strip }}</span>
+                data-suffix="{{ block.settings.suffix | strip }}">
+                {{ block.settings.number | strip }}{{ block.settings.suffix | strip }}
+              </span>
             </div>
             <p class="counter-label">{{ block.settings.label }}</p>
           </div>
-          {% endif %}
+        {% endif %}
       {% endfor %}
     </div>
   </div>
 </section>
 
 <style>
+#CounterSection-{{ section.id }} {
+  color: #fff;
+  padding: 31px 0;
+  background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%) !important;
+}
+#CounterSection-{{ section.id }} .counter-wrapper {
+  display: grid;
+  gap: 121px;
+  grid-template-columns: repeat({{ section.blocks.size }}, 1fr);
+}
+#CounterSection-{{ section.id }} .counter-box {
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+#CounterSection-{{ section.id }} .counter-box:after {
+  content: '';
+  background-color: #fff;
+  width: .5px;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: -60px;
+}
+#CounterSection-{{ section.id }} .counter-box:last-of-type:after {
+  display: none;
+}
+#CounterSection-{{ section.id }} .counter-line {
+  color: #FFF;
+  text-align: center;
+  font-family: Prompt;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1;
+  text-transform: uppercase;
+}
+#CounterSection-{{ section.id }} .counter-label {
+  color: #FFF;
+  text-align: center;
+  font-family: Prompt;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+  text-transform: uppercase;
+  margin: 4px 0 0 0;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 1024px) {
+  #CounterSection-{{ section.id }} .counter-wrapper {
+    row-gap: 40px;
+    gap: 50px;
+  }
+  #CounterSection-{{ section.id }} .counter-box:after {
+    right: -25px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
   #CounterSection-{{ section.id }} {
-    color: #fff;
-    padding: 31px 0;
-    background: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%) !important;
-  }
-  #CounterSection-{{ section.id }}
-  .counter-wrapper {
-    display: grid;
-   gap: 121px;
-   grid-template-columns: repeat({{ section.blocks.size }}, 1fr);
-  }
-  #CounterSection-{{ section.id }}
-  .counter-box {
-    text-align: center;
-    /* border-right: 1px solid #fff; */
     position: relative;
+  }
+  #CounterSection-{{ section.id }}:after {
+    content: '';
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    background-color: #fff;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #CounterSection-{{ section.id }} .counter-box:after {
+    display: none;
+  }
+  #CounterSection-{{ section.id }}:before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    background-color: #fff;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  #CounterSection-{{ section.id }} .counter-wrapper {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 37px;
+    column-gap: 30px;
+  }
+  #CounterSection-{{ section.id }} .counter-box {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-
-  #CounterSection-{{ section.id }} .counter-box:after {
-    content: '';
-    background-color: #fff;
-    width: .5px;
-    height: 100%;
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    right: -60px;
+  #CounterSection-{{ section.id }} .counter-line {
+    font-size: 24px;
+  }
+  #CounterSection-{{ section.id }} .counter-label {
+    font-size: 14px;
+  }
 }
-
-  #CounterSection-{{ section.id }} .counter-box:last-of-type:after {
-    display: none;
-  }
-  #CounterSection-{{ section.id }}
-  .counter-line {
-  color: #FFF;
-text-align: center;
-font-family: Prompt;
-font-size: 48px;
-font-style: normal;
-font-weight: 300;
-line-height: 1; /* 56.25% */
-    text-transform: uppercase;
-  }
-  #CounterSection-{{ section.id }}
-  .counter-label {
-    color: #FFF;
-text-align: center;
-font-family: Prompt;
-font-size: 14px;
-font-style: normal;
-font-weight: 600;
-line-height: 22px; /* 157.143% */
-text-transform: uppercase;
-    margin: 4px 0 0 0;
-    display: inline-block;
-  }
-
-    @media only screen and (max-width: 1024px) {
-    #CounterSection-{{ section.id }} .counter-wrapper {
-        row-gap: 40px;
-         gap: 50px
-    }
-
-    #CounterSection-{{ section.id }} .counter-box:after { 
-      right: -25px;
-    }
-    }
-
-  @media only screen and (max-width: 767px) {
-
-    #CounterSection-{{ section.id }} {
-      position: relative;
-    }
-
-    #CounterSection-{{ section.id }}:after {
-      content: '';
-      width: 1px;
-      height: 100%;
-      position: absolute;
-      background-color: #fff;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    #CounterSection-{{ section.id }} .counter-box:after {
-      display: none;
-    }
-
-    #CounterSection-{{ section.id }}:before {
-      content: '';
-      width: 100%;
-      height: 1px;
-      position: absolute;
-      background-color: #fff;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-    }
-    #CounterSection-{{ section.id }}
-    .counter-wrapper {
-      grid-template-columns: 1fr 1fr;
-      row-gap: 37px;
-              column-gap: 30px;
-    }
-
-    #CounterSection-{{ section.id }}.counter-box:after {
-    display: none;
-}
-
-    #CounterSection-{{ section.id }}
-    .counter-box {
-      border: unset;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #CounterSection-{{ section.id }}
-    .counter-line {
-      font-size: 24px;
-    }
-
-    #CounterSection-{{ section.id }}
-    .counter-label {
-      font-size: 14px;
-    }
-  }
 </style>
 
 <script>
-  (() => {
+(() => {
   const sectionId = 'CounterSection-{{ section.id }}';
-  
+
   function initCounterSection() {
     const root = document.getElementById(sectionId);
     if (!root) return;
-  
+
     const animateOn = {{ section.settings.animate | json }};
     const duration = {{ section.settings.duration | json }};
-  
+
     const counters = root.querySelectorAll('[data-counter]');
     if (!counters.length) return;
-  
-    const format = (n) => n.toString(); // keep ultra-light; add separators if you want
-  
+
+    // Format number with commas (Indian style)
+    const format = (n) => n.toLocaleString('en-IN');
+
     const animate = (el) => {
-      const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+      // Remove commas from target number and parse
+      const target = parseFloat(el.getAttribute('data-target').replace(/,/g, '')) || 0;
       const suffix = el.getAttribute('data-suffix') || '';
-      if (!animateOn) { el.textContent = format(target) + suffix; return; }
-  
+      if (!animateOn) {
+        el.textContent = format(target) + suffix;
+        return;
+      }
+
       if (el.dataset.done === 'true') return;
       el.dataset.done = 'true';
-  
+
       let start = null;
       const startVal = 0;
-   
+
       const step = (ts) => {
         if (!start) start = ts;
         const progress = Math.min((ts - start) / duration, 1);
@@ -248,36 +235,43 @@ text-transform: uppercase;
       };
       requestAnimationFrame(step);
     };
-  
+
     // Animate when each counter enters viewport
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          animate(e.target);
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.4 });
-  
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            animate(e.target);
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
     counters.forEach((el) => io.observe(el));
   }
-  
+
   // Initial load
   document.addEventListener('DOMContentLoaded', initCounterSection);
-  
+
   // Theme editor (section re-render)
   document.addEventListener('shopify:section:load', (e) => {
     if (e.detail.sectionId === '{{ section.id }}') initCounterSection();
   });
-  
+
   // Animate selected block in editor
   document.addEventListener('shopify:block:select', (e) => {
     if (e.detail.sectionId === '{{ section.id }}') {
-      const block = document.querySelector(`#shopify-section-{{ section.id }} [data-block-id="${e.detail.blockId}"] [data-counter]`)
-                  || document.querySelector(`#CounterSection-{{ section.id }} [data-counter]`);
-      if (block) { block.dataset.done = 'false'; block.textContent = '0' + (block.getAttribute('data-suffix') || ''); }
+      const block =
+        document.querySelector(`#shopify-section-{{ section.id }} [data-block-id="${e.detail.blockId}"] [data-counter]`) ||
+        document.querySelector(`#CounterSection-{{ section.id }} [data-counter]`);
+      if (block) {
+        block.dataset.done = 'false';
+        block.textContent = '0' + (block.getAttribute('data-suffix') || '');
+      }
       initCounterSection();
     }
   });
-  })();
+})();
 </script>
