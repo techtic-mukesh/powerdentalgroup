@@ -16,7 +16,7 @@
           "type": "breadcrumb_item",
           "settings": {
             "label": "About Us",
-            "link": "shopify:\/\/pages\/our-vision-philosophy"
+            "link": "shopify://pages/our-vision-philosophy"
           }
         }
       },
@@ -43,119 +43,119 @@
         "product_title_naRkeM": {
           "type": "product_title",
           "settings": {
-            "subtitle_title": "<p>HANDS-ON <strong>COURSES<\/strong><\/p>"
+            "subtitle_title": "<p>HANDS-ON <strong>COURSES</strong></p>"
           }
         },
         "event_card_mLRchp": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify:\/\/shop_images\/AAID_Maxicourse_Photo_BW_4_cb000433-54e2-419a-b3f4-ac37da967bc7.jpg",
+            "event_image": "shopify://shop_images/AAID_Maxicourse_Photo_BW_4_cb000433-54e2-419a-b3f4-ac37da967bc7.jpg",
             "event_title": "AAID Chicago Maxicourse",
             "event_subtitle": "Module 2",
-            "event_logo": "shopify:\/\/shop_images\/AAID_Logo_2_85c018ed-4426-4834-9191-64474d2e1bfe.png",
+            "event_logo": "shopify://shop_images/AAID_Logo_2_85c018ed-4426-4834-9191-64474d2e1bfe.png",
             "event_date": "October 17-19",
             "event_location": "Chicago, IL",
             "event_credits": "300 CE Credits",
             "button_label": "Register Now",
-            "button_link": "https:\/\/www.aaidmaxicourse.com\/maxicourse\/aaid-chicago-maxicourse\/"
+            "button_link": "https://www.aaidmaxicourse.com/maxicourse/aaid-chicago-maxicourse/"
           }
         },
         "event_card_BJRkdH": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify:\/\/shop_images\/The_Closing_Institute_Photo_BW_4.jpg",
+            "event_image": "shopify://shop_images/The_Closing_Institute_Photo_BW_4.jpg",
             "event_title": "The Closing Institute",
             "event_subtitle": "Full Arch Growth Conference",
-            "event_logo": "shopify:\/\/shop_images\/TCI_Logo.png",
+            "event_logo": "shopify://shop_images/TCI_Logo.png",
             "event_date": "October 24-25",
             "event_location": "Orlando, FL",
             "event_credits": "16 CE Credits",
             "button_label": "Register Now",
-            "button_link": "https:\/\/www.theclosinginstitute.com\/"
+            "button_link": "https://www.theclosinginstitute.com/"
           }
         },
         "event_card_3RaBDK": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify:\/\/shop_images\/AAID_Maxicourse_Photo_BW_4_fc8b10ab-1b36-487a-976b-65e1b843ac54.jpg",
+            "event_image": "shopify://shop_images/AAID_Maxicourse_Photo_BW_4_fc8b10ab-1b36-487a-976b-65e1b843ac54.jpg",
             "event_title": "AAID Chicago Maxicourse",
             "event_subtitle": "Module 3",
-            "event_logo": "shopify:\/\/shop_images\/AAID_Logo_2_85c018ed-4426-4834-9191-64474d2e1bfe.png",
+            "event_logo": "shopify://shop_images/AAID_Logo_2_85c018ed-4426-4834-9191-64474d2e1bfe.png",
             "event_date": "November 7-9",
             "event_location": "Chicago, IL",
             "event_credits": "300 CE Credits",
             "button_label": "Register Now",
-            "button_link": "https:\/\/www.aaidmaxicourse.com\/maxicourse\/aaid-chicago-maxicourse\/"
+            "button_link": "https://www.aaidmaxicourse.com/maxicourse/aaid-chicago-maxicourse/"
           }
         },
         "event_card_KK7Gyb": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify:\/\/shop_images\/Amplify_Photo_BW_1b484265-2581-4883-9871-882910cbe329.jpg",
+            "event_image": "shopify://shop_images/Amplify_Photo_BW_1b484265-2581-4883-9871-882910cbe329.jpg",
             "event_title": "PEAK - Model & Live Patient",
             "event_subtitle": "Implant Bootcamp",
-            "event_logo": "shopify:\/\/shop_images\/Peak_Logo_52886808-0eed-42b0-85cd-52ffca452326.png",
+            "event_logo": "shopify://shop_images/Peak_Logo_52886808-0eed-42b0-85cd-52ffca452326.png",
             "event_date": "November 13-15",
             "event_location": "Detroit, MI",
             "event_credits": "17 CE Credits",
             "button_label": "Register Now",
-            "button_link": "https:\/\/peakimplantinstitute.com\/"
+            "button_link": "https://peakimplantinstitute.com/"
           }
         },
         "event_card_Ykfifc": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify:\/\/shop_images\/Biotem_Photo_BW.jpg",
+            "event_image": "shopify://shop_images/Biotem_Photo_BW.jpg",
             "event_title": "Biotem",
             "event_subtitle": "Sticky Show",
-            "event_logo": "shopify:\/\/shop_images\/Biotem_Logo.png",
+            "event_logo": "shopify://shop_images/Biotem_Logo.png",
             "event_date": "November 15-16",
             "event_location": "Dallas, TX",
             "event_credits": "14 CE Credits",
             "button_label": "Register Now",
-            "button_link": "https:\/\/biotemusa.com\/products\/sticky-show-by-prof-dong-seok-sohn"
+            "button_link": "https://biotemusa.com/products/sticky-show-by-prof-dong-seok-sohn"
           }
         },
         "event_card_xhpaiN": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify:\/\/shop_images\/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
+            "event_image": "shopify://shop_images/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
             "event_title": "Misch Institute",
             "event_subtitle": "Implants with GBR & Sinus",
-            "event_logo": "shopify:\/\/shop_images\/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
+            "event_logo": "shopify://shop_images/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
             "event_date": "December 6-7",
             "event_location": "Miami, FL",
             "event_credits": "18 CE Credits",
             "button_label": "Register Now",
-            "button_link": "https:\/\/misch.com\/all-courses\/"
+            "button_link": "https://misch.com/all-courses/"
           }
         },
         "event_card_ajXXQ4": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify:\/\/shop_images\/AAID_Maxicourse_Photo_BW_4_fc8b10ab-1b36-487a-976b-65e1b843ac54.jpg",
+            "event_image": "shopify://shop_images/AAID_Maxicourse_Photo_BW_4_fc8b10ab-1b36-487a-976b-65e1b843ac54.jpg",
             "event_title": "AAID Chicago Maxicourse",
             "event_subtitle": "Module 4",
-            "event_logo": "shopify:\/\/shop_images\/AAID_Logo_2_85c018ed-4426-4834-9191-64474d2e1bfe.png",
+            "event_logo": "shopify://shop_images/AAID_Logo_2_85c018ed-4426-4834-9191-64474d2e1bfe.png",
             "event_date": "January 9-11",
             "event_location": "Chicago, IL",
             "event_credits": "300 CE Credits",
             "button_label": "Register Now",
-            "button_link": "https:\/\/www.aaidmaxicourse.com\/maxicourse\/aaid-chicago-maxicourse\/"
+            "button_link": "https://www.aaidmaxicourse.com/maxicourse/aaid-chicago-maxicourse/"
           }
         },
         "event_card_yChCpd": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify:\/\/shop_images\/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
+            "event_image": "shopify://shop_images/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
             "event_title": "Misch Institute",
             "event_subtitle": "Implants with GBR & Sinus",
-            "event_logo": "shopify:\/\/shop_images\/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
+            "event_logo": "shopify://shop_images/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
             "event_date": "February 7-8",
             "event_location": "Dallas, TX",
             "event_credits": "18 CE Credits",
             "button_label": "Register Now",
-            "button_link": "https:\/\/misch.com\/all-courses\/"
+            "button_link": "https://misch.com/all-courses/"
           }
         }
       },
@@ -181,53 +181,53 @@
         "faq_block_iATR48": {
           "type": "faq_block",
           "settings": {
-            "faq_question": "AAP Annual Meeting  | Toronto, ON | 10\/15\/25 - 10\/18\/25",
-            "faq_logo": "shopify:\/\/shop_images\/AAP_Logo_c38bd317-b917-45dc-a568-8170e5ac296a.png",
+            "faq_question": "AAP Annual Meeting  | Toronto, ON | 10/15/25 - 10/18/25",
+            "faq_logo": "shopify://shop_images/AAP_Logo_c38bd317-b917-45dc-a568-8170e5ac296a.png",
             "faq_title": "AAP Annual Meeting",
             "faq_subtitle": "Metro Toronto Convention Centre",
-            "faq_address": "<p>255 Front St. W<br\/>Toronto, ON, Canada<\/p>",
+            "faq_address": "<p>255 Front St. W<br/>Toronto, ON, Canada</p>",
             "website_text": "www.am2025.perio.org",
-            "faq_website": "https:\/\/am2025.perio.org\/",
-            "faq_link": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d5774.420857888169!2d-79.386673!3d43.643790100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d6785ffb55%3A0x4209e1f8fd986202!2sMetro%20Toronto%20Convention%20Centre!5e0!3m2!1sen!2sus!4v1749154958125!5m2!1sen!2sus"
+            "faq_website": "https://am2025.perio.org/",
+            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5774.420857888169!2d-79.386673!3d43.643790100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d6785ffb55%3A0x4209e1f8fd986202!2sMetro%20Toronto%20Convention%20Centre!5e0!3m2!1sen!2sus!4v1749154958125!5m2!1sen!2sus"
           }
         },
         "faq_block_J48X39": {
           "type": "faq_block",
           "settings": {
-            "faq_question": "ADA SmileCon | Washington, DC | 10\/23\/25 - 10\/25\/25",
-            "faq_logo": "shopify:\/\/shop_images\/ADA_Logo_0148abc8-44b5-426c-86c2-e120894c7f52.jpg",
+            "faq_question": "ADA SmileCon | Washington, DC | 10/23/25 - 10/25/25",
+            "faq_logo": "shopify://shop_images/ADA_Logo_0148abc8-44b5-426c-86c2-e120894c7f52.jpg",
             "faq_title": "SmileCon",
             "faq_subtitle": "Walter E. Washington Convention Center",
-            "faq_address": "<p>801 Allen Y. Lew Place NW<br\/>Washington, DC 20001<br\/>Booth# 560<\/p>",
+            "faq_address": "<p>801 Allen Y. Lew Place NW<br/>Washington, DC 20001<br/>Booth# 560</p>",
             "website_text": "www.ada.org",
-            "faq_website": "https:\/\/https\/\/www.ada.org\/education\/smilecon?campaignid=44025491942&adgroupid=179707836449&creative=757741916086&matchtype=p&network=g&device=c&keyword=dental%20conference&gad_source=1&gad_campaignid=44025491942&gbraid=0AAAAADimcFLeoNgMNaZjtlKzaYjbpOrtd&gclid=Cj0KCQjwyvfDBhDYARIsAItzbZHJNv1YtvPZydnuQDy2tPXOqu8LfBnDClkgzuxkHS1QuDEKGK4PE-8aAv5NEALw_wcB",
-            "faq_link": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3104.8351991411273!2d-77.02299339999999!3d38.9048838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7ed3715b137%3A0x32771de147fa5350!2sWalter%20E.%20Washington%20Convention%20Center!5e0!3m2!1sen!2sus!4v1753129129819!5m2!1sen!2sus"
+            "faq_website": "https://https//www.ada.org/education/smilecon?campaignid=44025491942&adgroupid=179707836449&creative=757741916086&matchtype=p&network=g&device=c&keyword=dental%20conference&gad_source=1&gad_campaignid=44025491942&gbraid=0AAAAADimcFLeoNgMNaZjtlKzaYjbpOrtd&gclid=Cj0KCQjwyvfDBhDYARIsAItzbZHJNv1YtvPZydnuQDy2tPXOqu8LfBnDClkgzuxkHS1QuDEKGK4PE-8aAv5NEALw_wcB",
+            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.8351991411273!2d-77.02299339999999!3d38.9048838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7ed3715b137%3A0x32771de147fa5350!2sWalter%20E.%20Washington%20Convention%20Center!5e0!3m2!1sen!2sus!4v1753129129819!5m2!1sen!2sus"
           }
         },
         "faq_block_Y8txGF": {
           "type": "faq_block",
           "settings": {
-            "faq_question": "KADA Scientific Congress | Los Angeles, CA | 11\/7\/25 - 11\/9\/25",
-            "faq_logo": "shopify:\/\/shop_images\/KADA-Logo-Blue.png",
+            "faq_question": "KADA Scientific Congress | Los Angeles, CA | 11/7/25 - 11/9/25",
+            "faq_logo": "shopify://shop_images/KADA-Logo-Blue.png",
             "faq_title": "KADA Scientific Congress",
             "faq_subtitle": "Conrad Los Angeles",
-            "faq_address": "<p>100 S. Grand Ave.<br\/>Los Angeles, CA 90012<\/p>",
+            "faq_address": "<p>100 S. Grand Ave.<br/>Los Angeles, CA 90012</p>",
             "website_text": "www.kadausa.org",
-            "faq_website": "https:\/\/www.kadausa.org\/2025-scientific-conference\/",
-            "faq_link": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3305.5591931731105!2d-118.25115862428339!3d34.055176873155894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c64d960506bb%3A0x92a0c80de77ecd4e!2sConrad%20Los%20Angeles!5e0!3m2!1sen!2sus!4v1759408621853!5m2!1sen!2sus"
+            "faq_website": "https://www.kadausa.org/2025-scientific-conference/",
+            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.5591931731105!2d-118.25115862428339!3d34.055176873155894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c64d960506bb%3A0x92a0c80de77ecd4e!2sConrad%20Los%20Angeles!5e0!3m2!1sen!2sus!4v1759408621853!5m2!1sen!2sus"
           }
         },
         "faq_block_hpynXX": {
           "type": "faq_block",
           "settings": {
-            "faq_question": "Greater New York Dental Meeting | New York, NY | 11\/28\/25 - 12\/3\/25",
-            "faq_logo": "shopify:\/\/shop_images\/logo-2025.jpg",
+            "faq_question": "Greater New York Dental Meeting | New York, NY | 11/28/25 - 12/3/25",
+            "faq_logo": "shopify://shop_images/logo-2025.jpg",
             "faq_title": "Greater New York Dental Meeting",
             "faq_subtitle": "Jacob K. Javits Convention Center",
-            "faq_address": "<p>429 11thh Ave.<br\/>New York, NY 10001<br\/>Booth# 1513<\/p>",
+            "faq_address": "<p>429 11thh Ave.<br/>New York, NY 10001<br/>Booth# 1513</p>",
             "website_text": "www.gnydm.com",
-            "faq_website": "https:\/\/www.gnydm.com\/",
-            "faq_link": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d3022.233901076225!2d-74.004239323972!3d40.756879971386915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2596b0b3394a7%3A0x8461e42130f7d0a6!2sJavits%20Center!5e0!3m2!1sen!2sus!4v1759408850239!5m2!1sen!2sus"
+            "faq_website": "https://www.gnydm.com/",
+            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.233901076225!2d-74.004239323972!3d40.756879971386915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2596b0b3394a7%3A0x8461e42130f7d0a6!2sJavits%20Center!5e0!3m2!1sen!2sus!4v1759408850239!5m2!1sen!2sus"
           }
         }
       },
@@ -239,17 +239,18 @@
       ],
       "name": "Shows FAQ Section",
       "settings": {
-        "faq_section_title": "<p>TRADE <strong>SHOWS<\/strong><\/p>"
+        "faq_section_title": "<p>TRADE <strong>SHOWS</strong></p>"
       }
     },
     "overlay_banner_BAbKiM": {
       "type": "overlay-banner",
+      "disabled": true,
       "name": "Overlay Banner",
       "settings": {
-        "banner_image": "shopify:\/\/shop_images\/lets-collaborate-banner-hd.jpg",
-        "heading": "<p>YOUR VISION,<br\/><strong>OUR EXPERTISE.<\/strong><\/p>",
+        "banner_image": "shopify://shop_images/lets-collaborate-banner-hd.jpg",
+        "heading": "<p>YOUR VISION,<br/><strong>OUR EXPERTISE.</strong></p>",
         "button_text": "LET'S COLLABORATE",
-        "button_link": "https:\/\/7y310y-hr.myshopify.com\/pages\/contact"
+        "button_link": "https://7y310y-hr.myshopify.com/pages/contact"
       }
     },
     "our_services_HFXeCY": {
@@ -258,25 +259,25 @@
         "service_Ybdqth": {
           "type": "service",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26115.png",
-            "label": "<p>Trade-In<br\/>Program<\/p>",
-            "srvurl": "shopify:\/\/pages\/trade-in-program"
+            "image": "shopify://shop_images/Rectangle_26115.png",
+            "label": "<p>Trade-In<br/>Program</p>",
+            "srvurl": "shopify://pages/trade-in-program"
           }
         },
         "service_jh77jG": {
           "type": "service",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26115_1.png",
-            "label": "<p>Sharpen,<br\/>Retip & Repair<\/p>",
-            "srvurl": "shopify:\/\/pages\/sharpen-retip-repair"
+            "image": "shopify://shop_images/Rectangle_26115_1.png",
+            "label": "<p>Sharpen,<br/>Retip & Repair</p>",
+            "srvurl": "shopify://pages/sharpen-retip-repair"
           }
         },
         "service_JkbdUB": {
           "type": "service",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26115_2.png",
-            "label": "<p>Custom Kitting<\/p>",
-            "srvurl": "shopify:\/\/pages\/custom-kitting"
+            "image": "shopify://shop_images/Rectangle_26115_2.png",
+            "label": "<p>Custom Kitting</p>",
+            "srvurl": "shopify://pages/custom-kitting"
           }
         }
       },
@@ -285,13 +286,14 @@
         "service_jh77jG",
         "service_JkbdUB"
       ],
+      "disabled": true,
       "name": "Our Service",
       "settings": {
         "background_color": "#f8f6f4",
         "subheading": "It Starts Here",
-        "heading": "Our SERVICES",
-        "content": "<p>All needs are not the same; that’s why we provide solutions for every dental professional at any point in their journey.<\/p>",
-        "btnurl": "shopify:\/\/pages\/services",
+        "heading": "<p>Our SERVICES</p>",
+        "content": "<p>All needs are not the same; that’s why we provide solutions for every dental professional at any point in their journey.</p>",
+        "btnurl": "shopify://pages/services",
         "btntext": "view all services"
       }
     },
@@ -301,7 +303,7 @@
         "resource_wAfiXh": {
           "type": "resource",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/customer-support-icon_2f65fc71-e3d4-4b03-b702-0604b06ff515.png",
+            "icon": "shopify://shop_images/customer-support-icon_2f65fc71-e3d4-4b03-b702-0604b06ff515.png",
             "label": "Customer Support",
             "link": "#",
             "highlighted": false
@@ -310,7 +312,7 @@
         "resource_7NXwfC": {
           "type": "resource",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/servicing-order-form_d6b91109-fd18-4d8a-b58a-868fa3773d79.png",
+            "icon": "shopify://shop_images/servicing-order-form_d6b91109-fd18-4d8a-b58a-868fa3773d79.png",
             "label": "",
             "link": "#",
             "highlighted": false
@@ -319,36 +321,36 @@
         "resource_nNeGGP": {
           "type": "resource",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/e-catalog-icon_b92867e0-aa19-4c03-84a1-5e7c2805cfde.png",
+            "icon": "shopify://shop_images/e-catalog-icon_b92867e0-aa19-4c03-84a1-5e7c2805cfde.png",
             "label": "E-Catalog",
-            "link": "https:\/\/7y310y-hr.myshopify.com\/pages\/e-catalog",
+            "link": "https://7y310y-hr.myshopify.com/pages/e-catalog",
             "highlighted": false
           }
         },
         "resource_XLwwXp": {
           "type": "resource",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/faq-icon_626d6742-93eb-4737-a059-6bc732a8edee.png",
+            "icon": "shopify://shop_images/faq-icon_626d6742-93eb-4737-a059-6bc732a8edee.png",
             "label": "FAQ",
-            "link": "https:\/\/7y310y-hr.myshopify.com\/pages\/frequently-asked-questions",
+            "link": "https://7y310y-hr.myshopify.com/pages/frequently-asked-questions",
             "highlighted": false
           }
         },
         "resource_VCfGxK": {
           "type": "resource",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/video-icon_d37c48d3-a95c-44b5-b3d4-1fa52ea7b38c.png",
+            "icon": "shopify://shop_images/video-icon_d37c48d3-a95c-44b5-b3d4-1fa52ea7b38c.png",
             "label": "Product Training Videos",
-            "link": "https:\/\/7y310y-hr.myshopify.com\/pages\/product-training-videos",
+            "link": "https://7y310y-hr.myshopify.com/pages/product-training-videos",
             "highlighted": false
           }
         },
         "resource_znD78e": {
           "type": "resource",
           "settings": {
-            "icon": "shopify:\/\/shop_images\/become-a-distributor-icon_ebf4e099-4dd6-41da-bd49-90ddfe41a494.png",
+            "icon": "shopify://shop_images/become-a-distributor-icon_ebf4e099-4dd6-41da-bd49-90ddfe41a494.png",
             "label": "Return Order Form",
-            "link": "https:\/\/7y310y-hr.myshopify.com\/pages\/return-order-form",
+            "link": "https://7y310y-hr.myshopify.com/pages/return-order-form",
             "highlighted": false
           }
         }
@@ -361,6 +363,7 @@
         "resource_VCfGxK",
         "resource_znD78e"
       ],
+      "disabled": true,
       "name": "Resources Cards",
       "settings": {
         "section_heading": "RESOURCES"
