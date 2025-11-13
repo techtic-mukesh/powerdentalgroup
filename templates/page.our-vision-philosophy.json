@@ -154,6 +154,7 @@
         },
         "step_e97ffP": {
           "type": "step",
+          "disabled": true,
           "settings": {
             "step_image": "shopify://shop_images/inspiring-icon_7c3292f3-fb6a-44e0-815e-ffd9af017c07.png",
             "step_svg": "",
