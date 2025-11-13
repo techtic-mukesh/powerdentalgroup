@@ -27,6 +27,7 @@
   flex-direction: column;
   transform: translateX(100%);
   transition: transform var(--duration-default) ease;
+  padding-right: 30px;
 }
 
 
