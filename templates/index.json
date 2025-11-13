@@ -643,6 +643,7 @@
         "menu_item_fVtdBU",
         "menu_item_w7dVpk"
       ],
+      "disabled": true,
       "name": "Events with Slider & Menu",
       "settings": {
         "subtitle": "STAY IN THE KNOW",
@@ -691,7 +692,6 @@
         "column_bXnpkN",
         "column_hmpVir"
       ],
-      "disabled": true,
       "custom_css": [
         ".multicolumn .title-wrapper-with-link {justify-content: center;}"
       ],
