@@ -60,7 +60,7 @@
         "text_V9d4Ww"
       ],
       "custom_css": [
-        ".media>img {object-position: 92% 38%;}"
+        ".media > img {object-position: 92% 38%;}"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -90,7 +90,7 @@
         "text_g9F9Xq": {
           "type": "text",
           "settings": {
-            "text": "<h3><em>EMPOWERING</em> DENTISTRY TO GO <em>FURTHER<br/></em></h3><p>We are driven by a clear mission ‒ to equip dental professionals</p><p>and innovation they need to overcome limitations, achieve lasting results, </p><p>and elevate dentistry to new heights once thought impossible.</p><p>We honor this mission every day by upholding our core principles ‒ </p><p>keeping them close to our hearts and at the forefront of everything we do.</p><p></p>"
+            "text": "<h3><em>EMPOWERING</em> DENTISTRY TO GO <em>FURTHER<br/></em></h3><p>We are driven by a clear mission ‒ to equip dental professionals with the tools, support, </p><p>and innovation they need to overcome limitations, achieve lasting results, </p><p>and elevate dentistry to new heights once thought impossible.</p><p>We honor this mission every day by upholding our core principles ‒</p><p>keeping them close to our hearts and at the forefront of everything we do.</p><p></p>"
           }
         }
       },
