@@ -22,7 +22,7 @@
         "text_aFcxJV": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>All existing customers will need to reactivate their account.</strong></p><p>Existing customers, please reactivate your account by clicking the link in the email from<strong> kyle@powerdentalgroup.com</strong>, Can’t find it? Email <a href=\"mailto:kyle@powerdentalgroup.com\" title=\"mailto:kyle@powerdentalgroup.com\">kyle@powerdentalgroup.com</a> and we’ll send another link to your email to reactivate your account</p>"
+            "text": "<p><strong>All existing customers will need to reactivate their account.</strong></p><p>Existing customers, please reactivate your account by clicking the link in the email from <strong>info@powerdentalgroup.com</strong>, Can’t find it? Email <a href=\"mailto:info@powerdentalgroup.com\" title=\"mailto:info@powerdentalgroup.com\">info@powerdentalgroup.com</a> and we’ll send another link to your email to reactivate your account</p>"
           }
         }
       },
@@ -31,7 +31,7 @@
         "text_aFcxJV"
       ],
       "custom_css": [
-        ".rich-text__text.rte a {background: linear-gradient(102deg, #42c5ef, #0033a0, #42c5ef, #0033a0); background-size: 200% 200%; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: color .2s ease-in-out; font-weight: 500;}"
+        ".rich-text__text.rte a {background: linear-gradient(102deg, #42c5ef, #0033a0, #42c5ef, #0033a0); background-size: 200% 200%; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: color 0.2s ease-in-out; font-weight: 500;}"
       ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
