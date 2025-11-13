@@ -210,7 +210,7 @@
         "counter_rmLJqR": {
           "type": "counter",
           "settings": {
-            "number": "10000",
+            "number": "10500",
             "suffix": "+",
             "label": "Doctors Served Worldwide"
           }
