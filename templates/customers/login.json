@@ -30,6 +30,9 @@
         "heading_ffqwz7",
         "text_aFcxJV"
       ],
+      "custom_css": [
+        ".rich-text__text.rte a {background: linear-gradient(102deg, #42c5ef, #0033a0, #42c5ef, #0033a0); background-size: 200% 200%; background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: color .2s ease-in-out; font-weight: 500;}"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
