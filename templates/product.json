@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "product_breadcrum_FQbJFE": {
@@ -39,20 +48,27 @@
           "settings": {}
         },
         "rivo_loyalty_rewards_referrals_potential_points_VKyHYM": {
-          "type": "shopify:\/\/apps\/rivo-loyalty-rewards-referrals\/blocks\/potential-points\/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
+          "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/potential-points/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
           "settings": {
             "panel_color": "#ffffff",
             "panel_padding": 2,
             "title": "[potential_points] points",
             "subtext": "",
             "show_icon": true,
-            "icon": "shopify:\/\/shop_images\/reward.svg",
+            "icon": "shopify://shop_images/reward.svg",
             "logged_out_only": false,
             "custom_css": "div#loy-potential-points {\n    border-radius: 20px;\n    border: 1px solid #ebebeb;\n    background: #fff;\n    display: inline-flex !important;\n    gap: 7px !important;\n    align-items: center;\n    height: 29px;\n    padding: 0 10px 0 5px;\n    color: #333;\n    font-size: 16px;\n    font-family: 'Prompt';\n    font-weight: 400;\n    justify-content: flex-start !important;\n    padding: 0 7px !important;\n}\n\ndiv#loy-potential-points div#potential-points-icon {\n    margin: 0 !IMPORTANT;\n    display: flex;\n}\n\ndiv#loy-potential-points div#potential-points-icon img.points-icon {\n    width: 22px;\n    height: 19px;\n}\n\ndiv#potential-points-text h3 {\n    font-size: 16px;\n    font-family: 'Prompt' !important;\n    font-weight: 400 !important;\n    margin: 0 !important;\n    display: flex;\n    gap: 3px;\n    align-items: center;\n    letter-spacing: -.16px;\n}\n\ndiv#potential-points-text h3 span.order-placed-potential-points-amount {\n    display: flex;\n    line-height: 16px;\n}\n\ndiv#potential-points-text {\n    display: flex;\n}"
           }
         },
+        "text_iQUNMY": {
+          "type": "text",
+          "settings": {
+            "text": "Applies only to registered customers, may vary when logged in",
+            "text_style": "body"
+          }
+        },
         "joy_loyalty_program_joy_points_calculator_block_Hzt3Qb": {
-          "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/joy-points-calculator-block\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
+          "type": "shopify://apps/joy-loyalty-program/blocks/joy-points-calculator-block/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
           "disabled": true,
           "settings": {
             "points_calculator_alignment": "left"
@@ -65,7 +81,7 @@
           }
         },
         "judge_me_reviews_preview_badge_DaBz33": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         },
         "variant_picker": {
@@ -104,10 +120,10 @@
           "settings": {
             "layout": "horizontal",
             "icon_1": "heart",
-            "image_1": "shopify:\/\/shop_images\/hugeicons_save-money-dollar.png",
+            "image_1": "shopify://shop_images/hugeicons_save-money-dollar.png",
             "heading_1": "45-day money-back guarantee",
             "icon_2": "return",
-            "image_2": "shopify:\/\/shop_images\/hugeicons_truck.png",
+            "image_2": "shopify://shop_images/hugeicons_truck.png",
             "heading_2": "Free shipping on $700",
             "icon_3": "truck",
             "heading_3": ""
@@ -127,6 +143,7 @@
         "sku_Gamq4J",
         "price",
         "rivo_loyalty_rewards_referrals_potential_points_VKyHYM",
+        "text_iQUNMY",
         "joy_loyalty_program_joy_points_calculator_block_Hzt3Qb",
         "custom_liquid_H8yKfr",
         "judge_me_reviews_preview_badge_DaBz33",
@@ -158,7 +175,7 @@
       "type": "apps",
       "blocks": {
         "judge_me_reviews_review_widget_KKn8y3": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "sample_data",
             "max_width": 1200,
@@ -182,8 +199,8 @@
       "settings": {
         "background_color": "#f9f9f9",
         "heading": "Key Features",
-        "content": "<ul><li>Removes crowns in seconds – Significantly reduces chair time, cutting procedures from minutes down to seconds.<\/li><li>Predictable outcomes - Push-pull mechanics create opposing forces to preserve the core and remove the crown in a single motion.<\/li><li>Universal use – Compatible with permanent or temporary crowns (zirconia, e.max, PFM) in any region: anterior or posterior, maxillary or mandibular.<\/li><li>Ergonomic handle design – Integrated butterfly spring minimizes hand fatigue and enhances grip control.<\/li><\/ul>",
-        "video": "shopify:\/\/files\/videos\/key-feature-video.mp4",
+        "content": "<ul><li>Removes crowns in seconds – Significantly reduces chair time, cutting procedures from minutes down to seconds.</li><li>Predictable outcomes - Push-pull mechanics create opposing forces to preserve the core and remove the crown in a single motion.</li><li>Universal use – Compatible with permanent or temporary crowns (zirconia, e.max, PFM) in any region: anterior or posterior, maxillary or mandibular.</li><li>Ergonomic handle design – Integrated butterfly spring minimizes hand fatigue and enhances grip control.</li></ul>",
+        "video": "shopify://files/videos/key-feature-video.mp4",
         "video_mp4": "",
         "video_webm": "",
         "video_autoplay": true,
@@ -197,13 +214,13 @@
         "video_block_7fiBk6": {
           "type": "video_block",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/Video_20250605_090556_307.mp4"
+            "video": "shopify://files/videos/Video_20250605_090556_307.mp4"
           }
         },
         "video_block_ThUwgA": {
           "type": "video_block",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/Video_20250605_090556_300.mp4"
+            "video": "shopify://files/videos/Video_20250605_090556_300.mp4"
           }
         }
       },
@@ -214,7 +231,7 @@
       "name": "Real Results Section",
       "settings": {
         "heading": "CLINICAL USAGE",
-        "content": "<p>{{ product.metafields.custom.clinical_sub_title.value }}<\/p>",
+        "content": "<p>{{ product.metafields.custom.clinical_sub_title.value }}</p>",
         "show_usage": true,
         "grid_columns": "2"
       }
@@ -227,15 +244,15 @@
         "heading_size": "h1",
         "enable_custom_height": true,
         "enable_video_looping": false,
-        "video_url": "https:\/\/www.youtube.com\/watch?v=rqhkBHfi2H4",
-        "cover_image": "shopify:\/\/shop_images\/1e598d714bca38dfad92dec408c9e302d9d51c56.png",
+        "video_url": "https://www.youtube.com/watch?v=rqhkBHfi2H4",
+        "cover_image": "shopify://shop_images/1e598d714bca38dfad92dec408c9e302d9d51c56.png",
         "description": "",
         "full_width": false,
         "color_scheme": "scheme-c2cb00ea-c497-4faa-9d8f-68b679e10b72",
         "padding_top": 60,
         "padding_bottom": 60,
         "btn_text": "IFU Power Crown Remover Kit",
-        "btn_link": "https:\/\/cdn.shopify.com\/s\/files\/1\/0697\/9538\/1398\/files\/IFU_Power_Crown_Remover_Kit.pdf?v=1757663876"
+        "btn_link": "https://cdn.shopify.com/s/files/1/0697/9538/1398/files/IFU_Power_Crown_Remover_Kit.pdf?v=1757663876"
       }
     },
     "pdp_testimonial_RjHiJz": {
@@ -252,19 +269,19 @@
         "video_block_h6Er7Q": {
           "type": "video_block",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/crown remover - brian olitsky Final Revision BGM.mp4"
+            "video": "shopify://files/videos/crown remover - brian olitsky Final Revision BGM.mp4"
           }
         },
         "video_block_pianY9": {
           "type": "video_block",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/power crown remover Dr Daniel Combine.mp4"
+            "video": "shopify://files/videos/power crown remover Dr Daniel Combine.mp4"
           }
         },
         "video_block_V6Kqfn": {
           "type": "video_block",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/crown remover - thomas hirch Final Revision with B (1).mp4"
+            "video": "shopify://files/videos/crown remover - thomas hirch Final Revision with B (1).mp4"
           }
         }
       },
@@ -332,7 +349,7 @@
       "type": "apps",
       "blocks": {
         "mst_wishlist_marketing_flow_v3_app_block_list_rKphM4": {
-          "type": "shopify:\/\/apps\/mst-wishlist-marketing-flow\/blocks\/v3-app-block-list\/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
+          "type": "shopify://apps/mst-wishlist-marketing-flow/blocks/v3-app-block-list/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
           "settings": {
             "multi_language": false,
             "iwish_add_txt": "Add To Wishlist",
