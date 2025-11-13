@@ -47,7 +47,7 @@
         "slide_7zX73H": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/dental-instrument-mainbanner-1.jpg",
+            "image": "shopify://shop_images/Main_Homepage_Banner.webp",
             "mobile-image": "shopify://shop_images/Main_Homepage_Banner_Mobile_7.jpg",
             "heading": "<p>COMMON PROBLEMS,<strong> DISRUPTIVE SOLUTIONS</strong></p>",
             "heading_color": "#ffffff",
@@ -61,7 +61,7 @@
         "slide_LVQGqF": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/power-dental-banner-2f.png",
+            "image": "shopify://shop_images/Shop_Banner.webp",
             "mobile-image": "shopify://shop_images/Shop_Banner_Mobile.jpg",
             "heading": "<p>Instruments for <strong>Every Indication</strong></p>",
             "heading_color": "#ffffff",
@@ -75,7 +75,7 @@
         "slide_wQxP98": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/fulcrum-forceps-mainbanner-3f.png",
+            "image": "shopify://shop_images/Fulcrum_Forceps_Highlight_Banner.webp",
             "mobile-image": "shopify://shop_images/Fulcrum_Forceps_Highlight_Banner_Mobile_7.jpg",
             "heading": "<p>Fulcrum <strong>Forceps</strong></p>",
             "heading_color": "#ffffff",
@@ -90,7 +90,7 @@
         "slide_HjUqUU": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/crown-removers-mainbanner-4.png",
+            "image": "shopify://shop_images/Crown_Removers_Highlight_Banner.webp",
             "mobile-image": "shopify://shop_images/Crown_Removers_Highlight_Banner_Mobile_2.jpg",
             "heading": "<p>Crown <strong>Removers</strong></p>",
             "heading_color": "#ffffff",
