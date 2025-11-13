@@ -2956,14 +2956,15 @@ details-disclosure > details {
   }
 }
 
-/* .overflow-hidden-tablet,
+.overflow-hidden-mobile,
+.overflow-hidden-tablet,
 .overflow-hidden-desktop {
   overflow: hidden;
-} */
+}
 
 @media screen and (min-width: 750px) {
   .overflow-hidden-mobile {
-    overflow: auto;
+    overflow: hidden;
   }
 }
 
