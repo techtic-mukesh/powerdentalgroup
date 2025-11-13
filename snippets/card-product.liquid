@@ -192,7 +192,7 @@
             {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
 
       <div class="catalog-points" style="margin-bottom:8px">
-  <img src="https://cdn.shopify.com/s/files/1/0697/9538/1398/files/point_1.png?v=1763015387" alt="Reward Points" style="height:15px; width:15px !important;">
+  <img src="https://powerdentalgroup.com/cdn/shop/files/reward.svg?v=1762431687&width=50" alt="Reward Points">
   <div class="mp-point-label" style="display:inline-block">
     {% assign raw_points = card_product.price | divided_by: 100 | times: 5 | round %}
     {% assign remainder = raw_points | modulo: 10 %}
@@ -203,8 +203,7 @@
       {% assign points = raw_points | plus: 2.5 | divided_by: 5 | floor | times: 5 %}
     {% endif %}
 
-    <span class="points" style="margin-left: 5px">
-      Earn 
+    <span class="points" style="margin-left: 0">
       <span class="mp-rw-highlight">{{ points }} points</span>
     </span>
   </div>

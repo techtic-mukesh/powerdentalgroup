@@ -572,6 +572,10 @@ form#create_customer {
      text-underline-offset: 4px; /* Adjust the space between text and underline */
 }
 
+:is(.account,.order) h2 {
+  font-weight: 700;
+}
+
 .customer:not(.account):not(.order).register {
     max-width: 70rem;
 }
