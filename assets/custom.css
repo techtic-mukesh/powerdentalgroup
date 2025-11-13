@@ -385,9 +385,9 @@ a.iwishDrawer.header__icon span.iwish-counter {
     cursor: not-allowed !important;
 }
 
-body.predictive-show {
+/* body.predictive-show {
     overflow: hidden;
-}
+} */
 
 .wishlist-drawer-container .login_msg {
     color: #000;
