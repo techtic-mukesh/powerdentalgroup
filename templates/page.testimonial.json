@@ -23,16 +23,18 @@
         "testimonial_GHrFJV": {
           "type": "testimonial",
           "settings": {
-            "quote": "Your testimonial text goes here...",
-            "photo": "shopify://shop_images/Shop_Banner.webp",
-            "name": "Dr. John Doe",
-            "location": "California, USA"
+            "quote": "Root tips out clean. No sweat. No trauma.",
+            "content": "<p>I used to dread root tip extractions and severely carious teeth. Too much bone loss, too much effort. With the Power Flex Periotome Kit, extractions became smooth and atraumatic, with minimal bleeding and intact soft tissue. The difference is night and day: easier for me, safer for the patient, and more predictable every time.</p>",
+            "photo": "shopify://shop_images/Jessica_Vitale.png",
+            "name": "Dr. Jessica Vitale, DDS, MPH, MS– NYU,",
+            "location": "New York, NY"
           }
         },
         "testimonial_xR48kg": {
           "type": "testimonial",
           "settings": {
             "quote": "Your testimonial text goes here...",
+            "content": "",
             "photo": "shopify://shop_images/7820_b644108f-bdf6-4792-8528-8d6cc28be489.jpg",
             "name": "Dr. John Doe",
             "location": "California, USA"
@@ -42,6 +44,7 @@
           "type": "testimonial",
           "settings": {
             "quote": "Your testimonial text goes here...",
+            "content": "",
             "photo": "shopify://shop_images/Crown_Removers_Highlight_Banner.webp",
             "name": "Dr. John Doe",
             "location": "California, USA"
@@ -51,6 +54,7 @@
           "type": "testimonial",
           "settings": {
             "quote": "Root tips out clean. No sweat. No trauma.",
+            "content": "",
             "photo": "shopify://shop_images/Shop_Banner.webp",
             "name": "Dr. John Doe",
             "location": "California, USA"
