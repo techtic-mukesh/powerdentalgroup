@@ -28,10 +28,40 @@
             "name": "Dr. John Doe",
             "location": "California, USA"
           }
+        },
+        "testimonial_xR48kg": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Your testimonial text goes here...",
+            "photo": "shopify://shop_images/7820_b644108f-bdf6-4792-8528-8d6cc28be489.jpg",
+            "name": "Dr. John Doe",
+            "location": "California, USA"
+          }
+        },
+        "testimonial_q3nWCp": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Your testimonial text goes here...",
+            "photo": "shopify://shop_images/Crown_Removers_Highlight_Banner.webp",
+            "name": "Dr. John Doe",
+            "location": "California, USA"
+          }
+        },
+        "testimonial_kJHBnb": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Your testimonial text goes here...",
+            "photo": "shopify://shop_images/Shop_Banner.webp",
+            "name": "Dr. John Doe",
+            "location": "California, USA"
+          }
         }
       },
       "block_order": [
-        "testimonial_GHrFJV"
+        "testimonial_GHrFJV",
+        "testimonial_xR48kg",
+        "testimonial_q3nWCp",
+        "testimonial_kJHBnb"
       ],
       "name": "Testimonials Cards",
       "settings": {
