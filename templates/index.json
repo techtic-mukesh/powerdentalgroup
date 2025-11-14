@@ -479,6 +479,28 @@
     "testimonial_f8fUmj": {
       "type": "testimonial",
       "blocks": {
+        "testimonial_djgk6X": {
+          "type": "testimonial",
+          "settings": {
+            "profile_image": "shopify://shop_images/Jessica_Vitale.png",
+            "testimonial_title": "Root tips out clean. No sweat. No trauma.",
+            "testimonial_text": "<p>I used to dread root tip extractions and severely carious teeth. Too much bone loss, too much effort. With the Power Flex Periotome Kit, extractions became smooth and atraumatic, with minimal bleeding and intact soft tissue. The difference is night and day: easier for me, safer for the patient, and more predictable every time.</p>",
+            "name": "Dr. Jessica Vitale, DDS, MPH, MS– NYU,",
+            "credentials": "New York, NY",
+            "date": "July 21, 2025"
+          }
+        },
+        "testimonial_bt3Liq": {
+          "type": "testimonial",
+          "settings": {
+            "profile_image": "shopify://shop_images/Alvin_Choi.jpg",
+            "testimonial_title": "Great add-on to my toolkit – very satisfied!",
+            "testimonial_text": "<p>The instrument works great. Had a really tough wisdom teeth case today where it came in handy for removing a very thick root inside the jaw bone. Didn’t have to cut more bone and hopefully it helps with healing. Hopefully we’ll do business again in the future. </p>",
+            "name": "Dr. Alvin Choi, DDS – Seafair Dental,",
+            "credentials": "Richmond, Canada",
+            "date": "April 1, 2023"
+          }
+        },
         "testimonial_mYgKF6": {
           "type": "testimonial",
           "settings": {
@@ -503,6 +525,8 @@
         }
       },
       "block_order": [
+        "testimonial_djgk6X",
+        "testimonial_bt3Liq",
         "testimonial_mYgKF6",
         "testimonial_dUdTKb"
       ],
