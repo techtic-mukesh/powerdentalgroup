@@ -558,6 +558,7 @@ form#create_customer {
 
 .customer-register {
     text-align: left;
+    padding-left: 30px;
 }
 
 .login a[href="#recover"] {
