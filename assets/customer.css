@@ -19,6 +19,16 @@
     letter-spacing: -.16px;
 }
 
+.login p {
+    color: #141132;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: -.16px;
+}
+
 @media screen and (min-width: 750px) {
   .customer:not(.account):not(.order) {
     max-width: 1320px;
