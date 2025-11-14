@@ -57,8 +57,7 @@
   
     <div class="swiper gallery-main">
       <div class="swiper-wrapper">
-       {%- if product.handle != 'power-flex-periotome-straight-single-ended' -%}
-         {%- if product.selected_or_first_available_variant.featured_media != null -%}
+       {%- if product.selected_or_first_available_variant.featured_media != null -%}
           <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
             {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
             <a href="{{ featured_media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ featured_media.preview_image | image_url: width: 120 }}">
@@ -72,10 +71,9 @@
             </a>
           </div>
         {%- endif -%}
-       {%- endif -%}
 
         {%- for media in product.media -%}
-          {%- if product.handle == 'power-flex-periotome-straight-single-ended' -%}
+          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
             <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
               <a href="{{ media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ media.preview_image | image_url: width: 120 }}">
                 <div class="gallery-media">
@@ -88,22 +86,7 @@
                 </div>
               </a>
             </div>
-          {%- else -%}
-            {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
-              <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
-                <a href="{{ media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ media.preview_image | image_url: width: 120 }}">
-                  <div class="gallery-media">
-                    <img
-                      srcset="{%- if media.preview_image.width >= 800 -%}{{ media.preview_image | image_url: width: 800 }} 800w{%- endif -%}"
-                      src="{{ media | image_url: width: 800 }}"
-                      alt="{{ media.alt | escape }}"
-                      loading="lazy"
-                    >
-                  </div>
-                </a>
-              </div>
-            {%- endunless -%}
-          {%- endif -%}
+          {%- endunless -%}
         {%- endfor -%}
       </div>
 
@@ -130,22 +113,20 @@
   <div class="slider__col">
     <div class="swiper gallery-thumbs  {{ thumbs_class }}">
       <div class="swiper-wrapper">
-        {%- if product.handle != 'power-flex-periotome-straight-single-ended' -%}
-          {%- if product.selected_or_first_available_variant.featured_media != null -%}
-            <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
-              {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
-              <img
-              srcset="{{ featured_media.preview_image | image_url }} 120w"
-              src="{{ featured_media | image_url }}"
-              alt="{{ featured_media.alt | escape }}"
-            />
-            
-            </div>
-          {%- endif -%}
+        {%- if product.selected_or_first_available_variant.featured_media != null -%}
+          <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
+            {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+            <img
+            srcset="{{ featured_media.preview_image | image_url }} 120w"
+            src="{{ featured_media | image_url }}"
+            alt="{{ featured_media.alt | escape }}"
+          />
+          
+          </div>
         {%- endif -%}
 
         {%- for media in product.media -%}
-          {%- if product.handle == 'power-flex-periotome-straight-single-ended' -%}
+          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
             <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
               <img
               srcset="{{ media.preview_image | image_url }} 120w"
@@ -155,19 +136,7 @@
             />
             
             </div>
-          {%- else -%}
-            {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
-              <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
-                <img
-                srcset="{{ media.preview_image | image_url }} 120w"
-                src="{{ media | image_url }}"
-                alt="{{ media.alt | escape }}"
-                loading="lazy"
-              />
-              
-              </div>
-            {%- endunless -%}
-          {%- endif -%}
+          {%- endunless -%}
         {%- endfor -%}
       </div>
     </div>
