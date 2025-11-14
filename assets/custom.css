@@ -485,6 +485,11 @@ a.jdgm-write-rev-link:hover {
     display: none;
 }
 
+.header__icon .icon.icon-cart {
+    width: 17px;
+    height: 21px;
+}
+
 
 
 /* Globle Responsive */
