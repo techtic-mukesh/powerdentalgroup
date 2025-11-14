@@ -411,7 +411,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries, obs) => {
       if (entries[0].isIntersecting) {
         new Swiper(".testimonial-swiper", {
-          loop: true,
+          loop: false,
           slidesPerView: 1,
           spaceBetween: 30,
           navigation: {
