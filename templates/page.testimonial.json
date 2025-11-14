@@ -79,6 +79,16 @@
             "name": "Shawn P. Lottier, DDS, MAG, DICOI",
             "location": "– Comfort Smiles Atlanta"
           }
+        },
+        "testimonial_eJ6ttN": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Effortless Crown Removal. One Piece, First Try",
+            "content": "<p>Total game changer. First use was a dream – drilled, gripped, and the zirconia crown popped off in one piece. Effortless.</p>",
+            "photo": "shopify://shop_images/Rectangle_26105_63e9be0b-d1bb-4559-bfba-488369aa2422.png",
+            "name": "Dr. Laurie A. Rosato, DMD",
+            "location": "– Concord, NH"
+          }
         }
       },
       "block_order": [
@@ -87,7 +97,8 @@
         "testimonial_q3nWCp",
         "testimonial_kJHBnb",
         "testimonial_mb99FR",
-        "testimonial_rmgTRd"
+        "testimonial_rmgTRd",
+        "testimonial_eJ6ttN"
       ],
       "name": "Testimonials Cards",
       "settings": {
