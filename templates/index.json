@@ -512,6 +512,17 @@
             "date": ""
           }
         },
+        "testimonial_9tgDwR": {
+          "type": "testimonial",
+          "settings": {
+            "profile_image": "shopify://shop_images/Jessica_Vitale.png",
+            "testimonial_title": "Less Bone Removal. Zero Bleeding. Happier Patients",
+            "testimonial_text": "<p>I used to struggle with root tip extractions, removing too much bone and sweating through procedures. After switching to Power Twist Elevators and Periotomes, extractions became clean, predictable, and atraumatic. Clinically, these instruments have completely transformed my workflow.</p>",
+            "name": "Dr. Jessica Vitale, DDS, MPH, MS  – NYU,",
+            "credentials": "New York, NY",
+            "date": "July 21, 2025"
+          }
+        },
         "testimonial_mYgKF6": {
           "type": "testimonial",
           "settings": {
@@ -539,6 +550,7 @@
         "testimonial_djgk6X",
         "testimonial_bt3Liq",
         "testimonial_wNE8Pb",
+        "testimonial_9tgDwR",
         "testimonial_mYgKF6",
         "testimonial_dUdTKb"
       ],
