@@ -53,11 +53,11 @@
         "testimonial_kJHBnb": {
           "type": "testimonial",
           "settings": {
-            "quote": "Root tips out clean. No sweat. No trauma.",
-            "content": "",
-            "photo": "shopify://shop_images/Shop_Banner.webp",
-            "name": "Dr. John Doe",
-            "location": "California, USA"
+            "quote": "Less Bone Removal. Zero Bleeding. Happier Patients",
+            "content": "<p>I used to struggle with root tip extractions, removing too much bone and sweating through procedures. After switching to Power Twist Elevators and Periotomes, extractions became clean, predictable, and atraumatic. Clinically, these instruments have completely transformed my workflow.</p>",
+            "photo": "shopify://shop_images/Jessica_Vitale.png",
+            "name": "Dr. Jessica Vitale, DDS, MPH, MS  – NYU,",
+            "location": "New York, NY"
           }
         }
       },
