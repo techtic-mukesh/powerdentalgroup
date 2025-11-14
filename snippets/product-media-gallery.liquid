@@ -117,35 +117,39 @@
   {%- assign thumbs_class = 'gallery-thumbs--arrowble' -%}
 {%- endif -%}
   <div class="slider__col">
-    <div class="swiper gallery-thumbs  {{ thumbs_class }}">
-      <div class="swiper-wrapper">
-        {%- if product.selected_or_first_available_variant.featured_media != null -%}
-          <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
-            {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
-            <img
+   <div class="swiper gallery-thumbs {{ thumbs_class }}">
+  <div class="swiper-wrapper">
+
+    {%- if product.selected_or_first_available_variant.featured_media != null -%}
+      {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+
+      {%- unless featured_media.alt == "grid-image" -%}
+        <div class="swiper-slide" data-media-id="{{ section.id }}-{{ featured_media.id }}">
+          <img
             srcset="{{ featured_media.preview_image | image_url }} 120w"
             src="{{ featured_media | image_url }}"
             alt="{{ featured_media.alt | escape }}"
           />
-          
-          </div>
-        {%- endif -%}
+        </div>
+      {%- endunless -%}
+    {%- endif -%}
 
-        {%- for media in product.media -%}
-          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
-            <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
-              <img
-              srcset="{{ media.preview_image | image_url }} 120w"
-              src="{{ media | image_url }}"
-              alt="{{ media.alt | escape }}"
-              loading="lazy"
-            />
-            
-            </div>
-          {%- endunless -%}
-        {%- endfor -%}
-      </div>
-    </div>
+    {%- for media in product.media -%}
+      {%- unless media.id == product.selected_or_first_available_variant.featured_media.id or media.alt == "grid-image" -%}
+        <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
+          <img
+            srcset="{{ media.preview_image | image_url }} 120w"
+            src="{{ media | image_url }}"
+            alt="{{ media.alt | escape }}"
+            loading="lazy"
+          />
+        </div>
+      {%- endunless -%}
+    {%- endfor -%}
+
+  </div>
+</div>
+
 
     <!-- Thumbnail navigation arrows (only show if more than 5 images) -->
     {%- if total_images > 6 -%}
