@@ -8,7 +8,7 @@
 
 .customer:not(.account):not(.order) .login-wrap {
     display: grid;
-    gap: 15px; /* gutter */
+    gap: 50px; /* gutter */
     grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
         margin-top: 50px;
 }
