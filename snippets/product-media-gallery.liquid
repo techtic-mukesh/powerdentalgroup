@@ -45,35 +45,32 @@
 
 {% if section.settings.gallery_layout == 'slider' %} 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
-{{ 'component-product-swiper.css' | asset_url | stylesheet_tag }}
+  {{ 'component-product-swiper.css' | asset_url | stylesheet_tag }}
 
-{%- assign total_images = product.media.size -%}
+  {%- assign total_images = product.media.size -%}
 
 <div class="product__gallery">
   <div class="slider__images">
   
     <div class="swiper gallery-main">
       <div class="swiper-wrapper">
-
-        {%- unless product.title == "Power Flex Periotome – Straight, Single-Ended" -%}
-          {%- if product.selected_or_first_available_variant.featured_media != null -%}
-            <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
-              {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
-              <a href="{{ featured_media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ featured_media.preview_image | image_url: width: 120 }}">
-                <div class="gallery-media">
-                  <img
-                    srcset="{%- if featured_media.preview_image.width >= 800 -%}{{ featured_media.preview_image | image_url: width: 800 }} 800w{%- endif -%}"
-                    src="{{ featured_media | image_url: width: 800 }}"
-                    alt="{{ featured_media.alt | escape }}"
-                  >
-                </div>
-              </a>
-            </div>
-          {%- endif -%}
-        {%- endunless -%}
+       {%- if product.selected_or_first_available_variant.featured_media != null -%}
+          <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
+            {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+            <a href="{{ featured_media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ featured_media.preview_image | image_url: width: 120 }}">
+              <div class="gallery-media">
+                <img
+                  srcset="{%- if featured_media.preview_image.width >= 800 -%}{{ featured_media.preview_image | image_url: width: 800 }} 800w{%- endif -%}"
+                  src="{{ featured_media | image_url: width: 800 }}"
+                  alt="{{ featured_media.alt | escape }}"
+                >
+              </div>
+            </a>
+          </div>
+        {%- endif -%}
 
         {%- for media in product.media -%}
           {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
@@ -91,9 +88,9 @@
             </div>
           {%- endunless -%}
         {%- endfor -%}
-
       </div>
 
+      <!-- Main gallery navigation arrows -->
       {%- if total_images > 1 -%}
         <div class="swiper-button-next gallery-main-next">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="34" viewBox="0 0 18 34" fill="none">
@@ -108,61 +105,58 @@
       {%- endif -%}
     </div>
   </div>
+ {%- if total_images > 1 -%}
+  {%- assign thumbs_class = '' -%}
+{%- if total_images > 6 -%}
+  {%- assign thumbs_class = 'gallery-thumbs--arrowble' -%}
+{%- endif -%}
+  <div class="slider__col">
+    <div class="swiper gallery-thumbs  {{ thumbs_class }}">
+      <div class="swiper-wrapper">
+        {%- if product.selected_or_first_available_variant.featured_media != null -%}
+          <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
+            {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+            <img
+            srcset="{{ featured_media.preview_image | image_url }} 120w"
+            src="{{ featured_media | image_url }}"
+            alt="{{ featured_media.alt | escape }}"
+          />
+          
+          </div>
+        {%- endif -%}
 
-  {%- if total_images > 1 -%}
-    {%- assign thumbs_class = '' -%}
-    {%- if total_images > 6 -%}
-      {%- assign thumbs_class = 'gallery-thumbs--arrowble' -%}
-    {%- endif -%}
-
-    <div class="slider__col">
-      <div class="swiper gallery-thumbs {{ thumbs_class }}">
-        <div class="swiper-wrapper">
-
-          {%- unless product.title == "Power Flex Periotome – Straight, Single-Ended" -%}
-            {%- if product.selected_or_first_available_variant.featured_media != null -%}
-              <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
-                {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
-                <img
-                  srcset="{{ featured_media.preview_image | image_url }} 120w"
-                  src="{{ featured_media | image_url }}"
-                  alt="{{ featured_media.alt | escape }}"
-                />
-              </div>
-            {%- endif -%}
+        {%- for media in product.media -%}
+          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+            <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
+              <img
+              srcset="{{ media.preview_image | image_url }} 120w"
+              src="{{ media | image_url }}"
+              alt="{{ media.alt | escape }}"
+              loading="lazy"
+            />
+            
+            </div>
           {%- endunless -%}
-
-          {%- for media in product.media -%}
-            {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
-              <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
-                <img
-                  srcset="{{ media.preview_image | image_url }} 120w"
-                  src="{{ media | image_url }}"
-                  alt="{{ media.alt | escape }}"
-                  loading="lazy"
-                />
-              </div>
-            {%- endunless -%}
-          {%- endfor -%}
-        </div>
+        {%- endfor -%}
       </div>
-
-      {%- if total_images > 6 -%}
-        <div class="swiper-button-next gallery-thumbs-next">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
-            <path d="M0.772461 1L6.77246 7L12.7725 1" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="swiper-button-prev gallery-thumbs-prev">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
-            <path d="M0.772461 1L6.77246 7L12.7725 1" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      {%- endif -%}
     </div>
-  {%- endif -%}
-</div>
 
+    <!-- Thumbnail navigation arrows (only show if more than 5 images) -->
+    {%- if total_images > 6 -%}
+      <div class="swiper-button-next gallery-thumbs-next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+        <path d="M0.772461 1L6.77246 7L12.7725 1" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+            </div>
+            <div class="swiper-button-prev gallery-thumbs-prev">
+       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+        <path d="M0.772461 1L6.77246 7L12.7725 1" stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      </div>
+    {%- endif -%}
+  </div>
+  {% endif %}
+</div>
 
 <script>
   $(document).ready(function() {
