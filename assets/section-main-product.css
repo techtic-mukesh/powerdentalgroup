@@ -199,7 +199,7 @@ product-info {
   .product__column-sticky {
     display: block;
     position: sticky;
-    top: 16rem;
+    top: 17rem;
     z-index: 2;
   }
 
