@@ -58,6 +58,7 @@
     <div class="swiper gallery-main">
       <div class="swiper-wrapper">
        {%- if product.selected_or_first_available_variant.featured_media != null -%}
+          {%- unless product.selected_or_first_available_variant.featured_media.alt == 'grid-image' -%}
           <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
             {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
             <a href="{{ featured_media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ featured_media.preview_image | image_url: width: 120 }}">
@@ -70,10 +71,11 @@
               </div>
             </a>
           </div>
+          {%- endunless -%}
         {%- endif -%}
 
         {%- for media in product.media -%}
-          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id or media.alt == 'grid-image' -%}
             <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
               <a href="{{ media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ media.preview_image | image_url: width: 120 }}">
                 <div class="gallery-media">
@@ -114,23 +116,25 @@
     <div class="swiper gallery-thumbs  {{ thumbs_class }}">
       <div class="swiper-wrapper">
         {%- if product.selected_or_first_available_variant.featured_media != null -%}
+          {%- unless product.selected_or_first_available_variant.featured_media.alt == 'grid-image' -%}
           <div class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
             {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
             <img
-            srcset="{{ featured_media.preview_image | image_url }} 120w"
-            src="{{ featured_media | image_url }}"
+            srcset="{{ featured_media.preview_image | image_url: width: 120 }} 120w"
+            src="{{ featured_media.preview_image | image_url: width: 120 }}"
             alt="{{ featured_media.alt | escape }}"
           />
           
           </div>
+          {%- endunless -%}
         {%- endif -%}
 
         {%- for media in product.media -%}
-          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id or media.alt == 'grid-image' -%}
             <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
               <img
-              srcset="{{ media.preview_image | image_url }} 120w"
-              src="{{ media | image_url }}"
+              srcset="{{ media.preview_image | image_url: width: 120 }} 120w"
+              src="{{ media.preview_image | image_url: width: 120 }}"
               alt="{{ media.alt | escape }}"
               loading="lazy"
             />
