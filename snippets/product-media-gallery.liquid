@@ -58,36 +58,42 @@
     <div class="swiper gallery-main">
       <div class="swiper-wrapper">
        {%- if product.selected_or_first_available_variant.featured_media != null -%}
-          <div alt="{{ featured_media.alt | escape }}" class="swiper-slide" data-media-id="{{ section.id }}-{{ product.selected_or_first_available_variant.featured_media.id }}">
-            {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
-            <a href="{{ featured_media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ featured_media.preview_image | image_url: width: 120 }}">
-              <div class="gallery-media">
-                <img
-                  srcset="{%- if featured_media.preview_image.width >= 800 -%}{{ featured_media.preview_image | image_url: width: 800 }} 800w{%- endif -%}"
-                  src="{{ featured_media | image_url: width: 800 }}"
-                  alt="{{ featured_media.alt | escape }}"
-                >
-              </div>
-            </a>
-          </div>
-        {%- endif -%}
+  {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+
+  {%- unless featured_media.alt == "grid-image" -%}
+    <div class="swiper-slide" data-media-id="{{ section.id }}-{{ featured_media.id }}">
+      <a href="{{ featured_media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ featured_media.preview_image | image_url: width: 120 }}">
+        <div class="gallery-media">
+          <img
+            srcset="{%- if featured_media.preview_image.width >= 800 -%}{{ featured_media.preview_image | image_url: width: 800 }} 800w{%- endif -%}"
+            src="{{ featured_media | image_url: width: 800 }}"
+            alt="{{ featured_media.alt | escape }}"
+          >
+        </div>
+      </a>
+    </div>
+  {%- endunless -%}
+
+{%- endif -%}
+
 
         {%- for media in product.media -%}
-          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
-            <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
-              <a href="{{ media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ media.preview_image | image_url: width: 120 }}">
-                <div class="gallery-media">
-                  <img
-                    srcset="{%- if media.preview_image.width >= 800 -%}{{ media.preview_image | image_url: width: 800 }} 800w{%- endif -%}"
-                    src="{{ media | image_url: width: 800 }}"
-                    alt="{{ media.alt | escape }}"
-                    loading="lazy"
-                  >
-                </div>
-              </a>
-            </div>
-          {%- endunless -%}
-        {%- endfor -%}
+  {%- unless media.id == product.selected_or_first_available_variant.featured_media.id or media.alt == "grid-image" -%}
+    <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
+      <a href="{{ media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ media.preview_image | image_url: width: 120 }}">
+        <div class="gallery-media">
+          <img
+            srcset="{%- if media.preview_image.width >= 800 -%}{{ media.preview_image | image_url: width: 800 }} 800w{%- endif -%}"
+            src="{{ media | image_url: width: 800 }}"
+            alt="{{ media.alt | escape }}"
+            loading="lazy"
+          >
+        </div>
+      </a>
+    </div>
+  {%- endunless -%}
+{%- endfor -%}
+
       </div>
 
       <!-- Main gallery navigation arrows -->
