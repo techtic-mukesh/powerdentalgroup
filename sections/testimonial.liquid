@@ -13,7 +13,7 @@
           <div class="testimonial__card">
               {% if block.settings.profile_image != blank %}
               <div class="testimonial__avatar">
-                <img src="{{ block.settings.profile_image | img_url: '120x120' }}" alt="{{ block.settings.name | escape }}">
+                <img src="{{ block.settings.profile_image | img_url: '' }}" alt="{{ block.settings.name | escape }}">
               </div>
               {% endif %}
 
