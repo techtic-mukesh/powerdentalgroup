@@ -501,6 +501,17 @@
             "date": "April 1, 2023"
           }
         },
+        "testimonial_wNE8Pb": {
+          "type": "testimonial",
+          "settings": {
+            "profile_image": "shopify://shop_images/Doctor_Avatar.png",
+            "testimonial_title": "Power Dental Group Has Been a Vital Partner to My Implant Practice",
+            "testimonial_text": "<p>They produce the finest and most durable dental and surgical instruments in the world. In addition to thousands of surgeries, many of our instruments have been through the rigors of hands-on courses, yet continue to perform flawlessly. For clinicians who demand the highest levels of innovation and quality, at unbeatable prices, do yourself a favor and make Power Dental Group part of your winning team.</p>",
+            "name": "Joseph Kim, DDS, JD, FAGD, FICOI, FPFA,",
+            "credentials": "Owner of Halcyon Dental & Modern Dentistry",
+            "date": ""
+          }
+        },
         "testimonial_mYgKF6": {
           "type": "testimonial",
           "settings": {
@@ -527,6 +538,7 @@
       "block_order": [
         "testimonial_djgk6X",
         "testimonial_bt3Liq",
+        "testimonial_wNE8Pb",
         "testimonial_mYgKF6",
         "testimonial_dUdTKb"
       ],
