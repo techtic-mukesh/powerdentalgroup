@@ -272,12 +272,13 @@ background: #FFF;
 }
 
 .multicolumn.color-scheme-2  .multicolumn-list p {
-    color: #141132;
+      color: #141132;
     font-family: Prompt;
     font-size: 16px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 22px;
+    letter-spacing: -.16px;
 }
 
 .multicolumn.color-scheme-2 .multicolumn-card__info {
