@@ -69,6 +69,16 @@
             "name": "Dr. Juan L. Rodriguez, DDS, MPH, MS",
             "location": "–  The Spring Modern Dentistry, Aurora, CO"
           }
+        },
+        "testimonial_rmgTRd": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Fastest and Most Reliable Repairs I’ve Seen",
+            "content": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in lab bills.</p>",
+            "photo": "shopify://shop_images/Rectangle_26105_1_e7835085-25d5-4291-a152-1d11480936af.png",
+            "name": "Shawn P. Lottier, DDS, MAG, DICOI",
+            "location": "– Comfort Smiles Atlanta"
+          }
         }
       },
       "block_order": [
@@ -76,7 +86,8 @@
         "testimonial_xR48kg",
         "testimonial_q3nWCp",
         "testimonial_kJHBnb",
-        "testimonial_mb99FR"
+        "testimonial_mb99FR",
+        "testimonial_rmgTRd"
       ],
       "name": "Testimonials Cards",
       "settings": {
