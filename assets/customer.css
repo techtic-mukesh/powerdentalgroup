@@ -608,6 +608,10 @@ form#create_customer {
     transition: all .4s ease-in-out;
 }
 
+.customer form[action="/account/recover"] a[href="#login"] {
+    display: none;
+}
+
 .activate button[name=decline], .addresses li>button, .addresses form button[type] {
   background-color: #0033a0;
   color: #fff;
