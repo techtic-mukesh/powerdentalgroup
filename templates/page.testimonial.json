@@ -89,6 +89,16 @@
             "name": "Dr. Laurie A. Rosato, DMD",
             "location": "– Concord, NH"
           }
+        },
+        "testimonial_Mk7Yit": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Strong build. Flexible tips. Zero stress extractions.",
+            "content": "<p>The Power Flex Periotome Kit does what others can’t. Wide ergonomic handles, flexible-yet-rigid tips that adapt to any tooth or angle, and screws that make even broken roots manageable. Extractions feel smoother, faster, and far less fatiguing.</p>",
+            "photo": "shopify://shop_images/Doctor_Avatar.png",
+            "name": "Steven K. Huh, DDS – Central Dental",
+            "location": "Group, Turlock, CA"
+          }
         }
       },
       "block_order": [
@@ -98,7 +108,8 @@
         "testimonial_kJHBnb",
         "testimonial_mb99FR",
         "testimonial_rmgTRd",
-        "testimonial_eJ6ttN"
+        "testimonial_eJ6ttN",
+        "testimonial_Mk7Yit"
       ],
       "name": "Testimonials Cards",
       "settings": {
