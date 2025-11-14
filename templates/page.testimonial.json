@@ -59,13 +59,24 @@
             "name": "Dr. Jessica Vitale, DDS, MPH, MS  – NYU,",
             "location": "New York, NY"
           }
+        },
+        "testimonial_mb99FR": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "My go-to elevator for surgical extractions",
+            "content": "<p>The Power Twist Elevator is my go-to for both simple and surgical extractions since I started using it. It helps preserve bone, reduces trauma, and gives me more confidence during procedures. I rely on it heavily.</p>",
+            "photo": "shopify://shop_images/Juan_Rodrigez.png",
+            "name": "Dr. Juan L. Rodriguez, DDS, MPH, MS",
+            "location": "–  The Spring Modern Dentistry, Aurora, CO"
+          }
         }
       },
       "block_order": [
         "testimonial_GHrFJV",
         "testimonial_xR48kg",
         "testimonial_q3nWCp",
-        "testimonial_kJHBnb"
+        "testimonial_kJHBnb",
+        "testimonial_mb99FR"
       ],
       "name": "Testimonials Cards",
       "settings": {
