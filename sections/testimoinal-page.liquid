@@ -1,0 +1,132 @@
+{% schema %}
+{
+  "name": "Testimonials Cards",
+  "tag": "section",
+  "class": "testimonial-cards-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What our Clients say"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Testimonial text",
+          "default": "Your testimonial text goes here..."
+        },
+        {
+          "type": "image_picker",
+          "id": "photo",
+          "label": "Client Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Client Name",
+          "default": "Dr. John Doe"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Client Location",
+          "default": "California, USA"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Testimonials Cards"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="testimonial-cards-wrapper">
+  <div class="page-width">
+    <h2 class="testimonial-heading">{{ section.settings.heading }}</h2>
+
+    <div class="testimonials-grid">
+      {% for block in section.blocks %}
+        <div class="testimonial-card">
+          <p class="testimonial-text">“{{ block.settings.quote }}”</p>
+
+          {% if block.settings.photo %}
+            <img class="testimonial-photo"
+                 src="{{ block.settings.photo | img_url: '150x150' }}"
+                 alt="Client photo">
+          {% endif %}
+
+          <h4 class="testimonial-name">{{ block.settings.name }}</h4>
+          <p class="testimonial-location">{{ block.settings.location }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+.testimonial-cards-wrapper {
+  padding: 60px 0;
+  background: #000; 
+}
+
+.testimonial-heading {
+  text-align: center;
+  color: #fff;
+  font-size: 36px;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.testimonial-card {
+  background: #2e2f34;
+  border-radius: 20px;
+  padding: 35px 30px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: #e5e5e5;
+}
+
+.testimonial-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 15px auto;
+  object-fit: cover;
+}
+
+.testimonial-name {
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.testimonial-location {
+  font-size: 14px;
+  color: #ccc;
+}
+</style>
