@@ -73,7 +73,11 @@
             {{- 'icon-close.svg' | inline_asset_content -}}
           </span>
         </button>
+
+              {% render 'cart-progress' %}
+
       </div>
+
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
@@ -475,7 +479,6 @@
         </form>
       </cart-drawer-items>
       <div class="drawer__footer">
-        {% render 'cart-progress' %}
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
             <summary>
