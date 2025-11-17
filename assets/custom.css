@@ -512,8 +512,12 @@ a.jdgm-write-rev-link:hover {
     font-size: 30px;
     line-height: 1.4;
 }
-html, body {
+html,body {
     overflow-x: clip;
+}
+
+.overflow-hidden-tablet {
+    overflow: unset;
 }
 
 .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.grid--3-col-tablet {
