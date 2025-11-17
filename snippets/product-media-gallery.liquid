@@ -169,238 +169,483 @@
 </div>
 
 <script>
-  $(document).ready(function() {
-    const galleryThumbs = new Swiper('.gallery-thumbs', {
-    direction: 'vertical',
-    spaceBetween: 10, 
-    slidesPerView: 6,
-    freeMode: true,
-    watchSlidesProgress: true,
-    loop: true,
-    navigation: {
-        nextEl: '.gallery-thumbs-next',
-        prevEl: '.gallery-thumbs-prev',
-    },
-    breakpoints: {
-        0: {
-            direction: 'horizontal',
-            slidesPerView: 4,
-        },
-         640: {
-            direction: 'horizontal',
-            slidesPerView: 5,
-        },
-        768: {
-            direction: 'horizontal',
-            slidesPerView: 4,
-        },
-        990: {
-            direction: 'vertical',
-            slidesPerView: 6,
-        }
-    }
-});
-
-const galleryMain = new Swiper('.gallery-main', {
-    spaceBetween: 10,
-    loop: true,
-    navigation: {
-        nextEl: '.gallery-main-next',
-        prevEl: '.gallery-main-prev',
-    },
-    thumbs: {
-        swiper: galleryThumbs,
-    },
-    effect: 'fade',
-    fadeEffect: {
-        crossFade: true
-    }
-});
-
-// Auto-scroll thumbs in both directions
-galleryMain.on('slideChange', function () {
-    let activeIndex = galleryMain.activeIndex;
-    let thumbsPerView = galleryThumbs.params.slidesPerView;
-    
-    // Center the active thumbnail within the visible area
-    let scrollToIndex = Math.max(activeIndex - Math.floor(thumbsPerView / 2), 0);
-    
-    galleryThumbs.slideTo(scrollToIndex);
-});
-
-// Enable keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-        galleryMain.slidePrev();
-    } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-        galleryMain.slideNext();
-    }
-});
-
-// Enhanced Fancybox configuration with zoom controls
-$('[data-fancybox="gallery"]').fancybox({
-  buttons: [
-    "zoom",
-    "slideShow",
-    "fullScreen",
-    "thumbs",
-    "close"
-  ],
-  loop: true,
-  protect: true,
-  animationEffect: "zoom",
-  transitionEffect: "slide",
-  thumbs: {
-    hideOnClose: true
-  },
-  // Enable zoom functionality
-  clickContent: "zoom",
-  clickSlide: "close",
-  dblclickContent: false,
-  dblclickSlide: false,
+// Ensure script runs after everything loads
+function initGalleryZoom() {
+  console.log('🔍 Initializing Gallery Zoom...');
   
-  // Zoom settings - allow up to 200% zoom
-  image: {
-    preload: true
-  },
+  // Check if jQuery is loaded
+  if (typeof jQuery === 'undefined') {
+    console.error('❌ jQuery not found!');
+    return;
+  }
   
-  // Custom zoom controls
-  beforeShow: function(instance, current) {
-    // Add custom zoom controls
-    if (!$('.fancybox-zoom-controls').length) {
-      var $controls = $('<div class="fancybox-zoom-controls">' +
-        '<button class="fancybox-button fancybox-zoom-in" title="Zoom In"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/></svg></button>' +
-        '<button class="fancybox-button fancybox-zoom-out" title="Zoom Out"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z"/></svg></button>' +
-        '<span class="fancybox-zoom-level">100%</span>' +
-        '</div>');
-      
-      $('.fancybox-toolbar').after($controls);
-      
-      // Zoom functionality
-      var currentZoom = 1;
-      var minZoom = 1;
-      var maxZoom = 2; // 200% zoom
-      var zoomStep = 0.25;
-      
-      $('.fancybox-zoom-in').on('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var $img = $('.fancybox-image');
-        if (currentZoom < maxZoom) {
-          currentZoom = Math.min(currentZoom + zoomStep, maxZoom);
-          $img.css({
-            'transform': 'scale(' + currentZoom + ')',
-            'cursor': currentZoom > 1 ? 'move' : 'zoom-in'
-          });
-          $('.fancybox-zoom-level').text(Math.round(currentZoom * 100) + '%');
-          
-          if (currentZoom > 1) {
-            enableImageDrag($img);
-          }
+  var $ = jQuery;
+  
+  // Check if Fancybox is loaded
+  if (typeof $.fancybox === 'undefined') {
+    console.error('❌ Fancybox not found!');
+    return;
+  }
+  
+  console.log('✅ jQuery and Fancybox loaded');
+  
+  // Find all gallery links
+  var $galleryLinks = $('[data-fancybox="gallery"]');
+  console.log('🔍 Gallery links found:', $galleryLinks.length);
+  
+  if ($galleryLinks.length === 0) {
+    console.warn('⚠️ No gallery links found! Checking alternate selectors...');
+    
+    // Try alternate selectors
+    var alternates = [
+      'a[href*=".jpg"][href*="cdn.shop"]',
+      'a[href*=".png"][href*="cdn.shop"]',
+      '.gallery-media a',
+      '.swiper-slide a'
+    ];
+    
+    alternates.forEach(function(selector) {
+      var $alt = $(selector);
+      if ($alt.length > 0) {
+        console.log('✅ Found ' + $alt.length + ' links with selector: ' + selector);
+        // Add data-fancybox attribute
+        $alt.attr('data-fancybox', 'gallery');
+        $galleryLinks = $alt;
+      }
+    });
+  }
+  
+  // Re-check after attempting to add attribute
+  $galleryLinks = $('[data-fancybox="gallery"]');
+  console.log('🔍 Final gallery links count:', $galleryLinks.length);
+  
+  if ($galleryLinks.length === 0) {
+    console.error('❌ Still no gallery links found. Aborting.');
+    return;
+  }
+
+  // GLOBAL VARIABLES for Swiper instances
+  var galleryThumbs = null;
+  var galleryMain = null;
+
+  // Swiper initialization (if exists)
+  if (typeof Swiper !== 'undefined') {
+    console.log('✅ Swiper library found');
+    
+    // Initialize thumbnails first
+    if ($('.gallery-thumbs').length > 0) {
+      console.log('📸 Initializing thumbnail swiper...');
+      galleryThumbs = new Swiper('.gallery-thumbs', {
+        direction: 'vertical',
+        spaceBetween: 10, 
+        slidesPerView: 6,
+        freeMode: true,
+        watchSlidesProgress: true,
+        loop: $galleryLinks.length > 1,
+        navigation: {
+            nextEl: '.gallery-thumbs-next',
+            prevEl: '.gallery-thumbs-prev',
+        },
+        breakpoints: {
+            0: {
+                direction: 'horizontal',
+                slidesPerView: 4,
+            },
+            640: {
+                direction: 'horizontal',
+                slidesPerView: 5,
+            },
+            768: {
+                direction: 'horizontal',
+                slidesPerView: 4,
+            },
+            990: {
+                direction: 'vertical',
+                slidesPerView: 6,
+            }
         }
       });
+      console.log('✅ Thumbnail swiper initialized');
+    }
+
+    // Initialize main gallery
+    if ($('.gallery-main').length > 0) {
+      console.log('🖼️ Initializing main gallery swiper...');
       
-      $('.fancybox-zoom-out').on('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        var $img = $('.fancybox-image');
-        if (currentZoom > minZoom) {
-          currentZoom = Math.max(currentZoom - zoomStep, minZoom);
-          $img.css({
-            'transform': 'scale(' + currentZoom + ')',
-            'cursor': currentZoom > 1 ? 'move' : 'zoom-in'
-          });
-          $('.fancybox-zoom-level').text(Math.round(currentZoom * 100) + '%');
-          
-          if (currentZoom === 1) {
-            $img.css({
-              'left': '0',
-              'top': '0'
-            });
-          }
+      var mainConfig = {
+        spaceBetween: 10,
+        loop: $galleryLinks.length > 1,
+        navigation: {
+            nextEl: '.gallery-main-next',
+            prevEl: '.gallery-main-prev',
+        },
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
         }
-      });
+      };
       
-      // Enable dragging when zoomed
-      function enableImageDrag($img) {
-        var isDragging = false;
-        var startX, startY, scrollLeft, scrollTop;
-        
-        $img.on('mousedown', function(e) {
-          if (currentZoom > 1) {
-            isDragging = true;
-            startX = e.pageX - $(this).offset().left;
-            startY = e.pageY - $(this).offset().top;
-            scrollLeft = parseInt($(this).css('left')) || 0;
-            scrollTop = parseInt($(this).css('top')) || 0;
-            $(this).css('cursor', 'grabbing');
-          }
+      // Add thumbs only if thumbnail swiper exists
+      if (galleryThumbs) {
+        mainConfig.thumbs = {
+          swiper: galleryThumbs
+        };
+      }
+      
+      galleryMain = new Swiper('.gallery-main', mainConfig);
+      
+      console.log('✅ Main swiper initialized');
+      
+      // Sync thumbnails with main gallery
+      if (galleryThumbs && galleryMain) {
+        galleryMain.on('slideChange', function () {
+          var activeIndex = galleryMain.realIndex; // Use realIndex for loop mode
+          var thumbsPerView = galleryThumbs.params.slidesPerView;
+          var scrollToIndex = Math.max(activeIndex - Math.floor(thumbsPerView / 2), 0);
+          
+          console.log('📍 Slide changed to index:', activeIndex);
+          galleryThumbs.slideTo(scrollToIndex);
         });
         
-        $(document).on('mousemove', function(e) {
-          if (!isDragging) return;
-          e.preventDefault();
-          var x = e.pageX - $img.offset().left;
-          var y = e.pageY - $img.offset().top;
-          var walkX = (x - startX);
-          var walkY = (y - startY);
-          $img.css({
-            'left': (scrollLeft + walkX) + 'px',
-            'top': (scrollTop + walkY) + 'px',
-            'position': 'relative'
-          });
-        });
-        
-        $(document).on('mouseup', function() {
-          if (isDragging) {
-            isDragging = false;
-            $img.css('cursor', 'move');
+        // Click thumbnail to change main slide
+        galleryThumbs.on('click', function(swiper, event) {
+          var clickedIndex = galleryThumbs.clickedIndex;
+          if (typeof clickedIndex !== 'undefined') {
+            console.log('👆 Thumbnail clicked:', clickedIndex);
+            galleryMain.slideTo(clickedIndex);
           }
         });
       }
-      
-      // Reset zoom on slide change
-      instance.$refs.container.on('beforeShow.fb', function() {
-        currentZoom = 1;
-        $('.fancybox-zoom-level').text('100%');
-        $('.fancybox-image').css({
-          'transform': 'scale(1)',
-          'cursor': 'zoom-in',
-          'left': '0',
-          'top': '0'
-        });
-      });
     }
-  },
+
+    // Keyboard navigation for swiper
+    document.addEventListener('keydown', (e) => {
+      if (!$('.fancybox-container').length && galleryMain) {
+        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          galleryMain.slidePrev();
+        } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+          galleryMain.slideNext();
+        }
+      }
+    });
+  } else {
+    console.warn('⚠️ Swiper library not found');
+  }
+
+  // Add CSS for zoom controls
+  if (!$('#fancybox-zoom-styles').length) {
+    $('head').append(
+      '<style id="fancybox-zoom-styles">' +
+        '.fancybox-zoom-controls {' +
+          'position: fixed !important;' +
+          'top: 32px !important;' +
+          'left: 50% !important;' +
+          'transform: translateX(-50%) !important;' +
+          'z-index: 99999 !important;' +
+          'display: flex !important;' +
+          'visibility: visible !important;' +
+          'opacity: 1 !important;' +
+          'align-items: center;' +
+          'gap: 10px;' +
+          'background: rgba(0,0,0,0.7);' +
+          'padding: 8px 15px;' +
+          'border-radius: 25px;' +
+          'pointer-events: auto !important;' +
+        '}' +
+        '.fancybox-zoom-in, .fancybox-zoom-out {' +
+          'background: transparent;' +
+          'border: none;' +
+          'cursor: pointer;' +
+          'padding: 5px;' +
+          'transition: all 0.2s;' +
+          'display: flex;' +
+          'align-items: center;' +
+          'justify-content: center;' +
+        '}' +
+        '.fancybox-zoom-in svg, .fancybox-zoom-out svg {' +
+          'fill: #fff;' +
+          'width: 24px;' +
+          'height: 24px;' +
+        '}' +
+        '.fancybox-zoom-in:hover, .fancybox-zoom-out:hover {' +
+          'transform: scale(1.1);' +
+        '}' +
+        '.fancybox-zoom-level {' +
+          'color: #fff;' +
+          'font-size: 14px;' +
+          'font-weight: 500;' +
+          'min-width: 50px;' +
+          'text-align: center;' +
+        '}' +
+        '.fancybox-image {' +
+          'transition: transform 0.3s ease, left 0.1s, top 0.1s;' +
+        '}' +
+      '</style>'
+    );
+    console.log('✅ CSS added');
+  }
+
+  // Global zoom state
+  var currentZoom = 1;
+  var minZoom = 1;
+  var maxZoom = 2;
+  var zoomStep = 0.25;
+
+  // Function to create zoom controls
+  function createZoomControls() {
+    console.log('🔧 Creating zoom controls in body...');
+    
+    $('.fancybox-zoom-controls').remove();
+    
+    var html = '<div class="fancybox-zoom-controls">' +
+      '<button class="fancybox-button fancybox-zoom-in" title="Zoom In">' +
+        '<svg viewBox="0 0 24 24" width="24" height="24">' +
+          '<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>' +
+          '<path d="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/>' +
+        '</svg>' +
+      '</button>' +
+      '<button class="fancybox-button fancybox-zoom-out" title="Zoom Out">' +
+        '<svg viewBox="0 0 24 24" width="24" height="24">' +
+          '<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z"/>' +
+        '</svg>' +
+      '</button>' +
+      '<span class="fancybox-zoom-level">100%</span>' +
+    '</div>';
+    
+    $('body').append(html);
+    console.log('✅ Controls added to body');
+    
+    setTimeout(function() {
+      var exists = $('.fancybox-zoom-controls').length > 0;
+      var visible = $('.fancybox-zoom-controls').is(':visible');
+      console.log('🔍 Controls exist:', exists);
+      console.log('👁️ Controls visible:', visible);
+      
+      if (exists) {
+        var controlsElement = $('.fancybox-zoom-controls')[0];
+        var rect = controlsElement.getBoundingClientRect();
+        console.log('📍 Position:', {
+          top: rect.top,
+          left: rect.left,
+          width: rect.width,
+          height: rect.height
+        });
+      }
+    }, 100);
+    
+    setupZoomHandlers();
+  }
+
+  function setupZoomHandlers() {
+    console.log('🎮 Setting up zoom handlers...');
+    
+    $(document).off('click.zoomIn click.zoomOut');
+    
+    $(document).on('click.zoomIn', '.fancybox-zoom-in', function(e) {
+      console.log('➕ Zoom In clicked');
+      e.preventDefault();
+      e.stopPropagation();
+      
+      var $img = $('.fancybox-image');
+      if ($img.length === 0) {
+        console.error('❌ No image found');
+        return;
+      }
+      
+      if (currentZoom < maxZoom) {
+        currentZoom = Math.min(currentZoom + zoomStep, maxZoom);
+        $img.css({
+          'transform': 'scale(' + currentZoom + ')',
+          'cursor': currentZoom > 1 ? 'move' : 'zoom-in'
+        });
+        $('.fancybox-zoom-level').text(Math.round(currentZoom * 100) + '%');
+        console.log('📈 Zoom:', currentZoom);
+        
+        if (currentZoom > 1) {
+          enableImageDrag($img);
+        }
+      }
+    });
+    
+    $(document).on('click.zoomOut', '.fancybox-zoom-out', function(e) {
+      console.log('➖ Zoom Out clicked');
+      e.preventDefault();
+      e.stopPropagation();
+      
+      var $img = $('.fancybox-image');
+      if ($img.length === 0) {
+        console.error('❌ No image found');
+        return;
+      }
+      
+      if (currentZoom > minZoom) {
+        currentZoom = Math.max(currentZoom - zoomStep, minZoom);
+        $img.css({
+          'transform': 'scale(' + currentZoom + ')',
+          'cursor': currentZoom > 1 ? 'move' : 'zoom-in'
+        });
+        $('.fancybox-zoom-level').text(Math.round(currentZoom * 100) + '%');
+        console.log('📉 Zoom:', currentZoom);
+        
+        if (currentZoom === 1) {
+          $img.css({
+            'left': '0',
+            'top': '0',
+            'position': 'relative'
+          });
+        }
+      }
+    });
+  }
+
+  function enableImageDrag($img) {
+    var isDragging = false;
+    var startX, startY, scrollLeft, scrollTop;
+    
+    $img.off('mousedown.drag').on('mousedown.drag', function(e) {
+      if (currentZoom > 1) {
+        isDragging = true;
+        startX = e.pageX - $(this).offset().left;
+        startY = e.pageY - $(this).offset().top;
+        scrollLeft = parseInt($(this).css('left')) || 0;
+        scrollTop = parseInt($(this).css('top')) || 0;
+        $(this).css('cursor', 'grabbing');
+      }
+    });
+    
+    $(document).off('mousemove.drag').on('mousemove.drag', function(e) {
+      if (!isDragging) return;
+      e.preventDefault();
+      var x = e.pageX - $img.offset().left;
+      var y = e.pageY - $img.offset().top;
+      var walkX = (x - startX);
+      var walkY = (y - startY);
+      $img.css({
+        'left': (scrollLeft + walkX) + 'px',
+        'top': (scrollTop + walkY) + 'px',
+        'position': 'relative'
+      });
+    });
+    
+    $(document).off('mouseup.drag').on('mouseup.drag', function() {
+      if (isDragging) {
+        isDragging = false;
+        $img.css('cursor', 'move');
+      }
+    });
+  }
+
+  function resetZoom() {
+    console.log('🔄 Reset zoom');
+    currentZoom = 1;
+    $('.fancybox-zoom-level').text('100%');
+    $('.fancybox-image').css({
+      'transform': 'scale(1)',
+      'cursor': 'zoom-in',
+      'left': '0',
+      'top': '0',
+      'position': 'relative'
+    });
+  }
+
+  // Initialize Fancybox
+  console.log('🎬 Initializing Fancybox...');
   
-  // Keyboard shortcuts for zoom
-  keyboard: {
-    ESCAPE: "close",
-    DELETE: "close",
-    LEFT: "previousSlide",
-    RIGHT: "nextSlide",
-    UP: function() {
-      $('.fancybox-zoom-in').click();
+  $('[data-fancybox="gallery"]').fancybox({
+    buttons: [
+      "zoom",
+      "slideShow",
+      "fullScreen",
+      "thumbs",
+      "close"
+    ],
+    loop: true,
+    protect: true,
+    animationEffect: "zoom",
+    transitionEffect: "slide",
+    thumbs: {
+      hideOnClose: true
     },
-    DOWN: function() {
-      $('.fancybox-zoom-out').click();
+    clickContent: "zoom",
+    clickSlide: "close",
+    dblclickContent: false,
+    dblclickSlide: false,
+    image: {
+      preload: true
+    },
+    
+    beforeLoad: function(instance, current) {
+      console.log('📸 beforeLoad triggered');
+    },
+    
+    beforeShow: function(instance, current) {
+      console.log('👁️ beforeShow triggered');
+      console.log('📊 Image count:', instance.group.length);
+      console.log('🖼️ Current slide:', current.index + 1);
+      
+      setTimeout(function() {
+        createZoomControls();
+      }, 150);
+    },
+    
+    afterShow: function(instance, current) {
+      console.log('✨ afterShow triggered');
+      
+      var controlsExist = $('.fancybox-zoom-controls').length > 0;
+      console.log('🔍 Controls check:', controlsExist);
+      
+      if (!controlsExist) {
+        console.warn('⚠️ Controls missing! Recreating...');
+        createZoomControls();
+      } else {
+        console.log('✅ Controls confirmed');
+      }
+    },
+    
+    beforeClose: function(instance, current) {
+      console.log('👋 Closing - cleanup');
+      resetZoom();
+      $('.fancybox-zoom-controls').remove();
+    },
+    
+    keyboard: {
+      ESCAPE: "close",
+      DELETE: "close",
+      LEFT: "previousSlide",
+      RIGHT: "nextSlide",
+      UP: function() {
+        console.log('⌨️ UP');
+        $('.fancybox-zoom-in').trigger('click');
+      },
+      DOWN: function() {
+        console.log('⌨️ DOWN');
+        $('.fancybox-zoom-out').trigger('click');
+      }
+    }
+  });
+
+  console.log('✅ Fancybox initialized');
+  console.log('🔍 Final gallery links:', $('[data-fancybox="gallery"]').length);
+}
+
+// Run on DOM ready AND on window load (for maximum compatibility)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initGalleryZoom);
+} else {
+  initGalleryZoom();
+}
+
+// Also try on window load as backup
+window.addEventListener('load', function() {
+  // Only re-init if Fancybox wasn't initialized
+  if (typeof jQuery !== 'undefined' && jQuery('[data-fancybox="gallery"]').length > 0) {
+    var $links = jQuery('[data-fancybox="gallery"]');
+    if (!jQuery.fancybox || !$links.data('fancybox')) {
+      console.log('🔄 Re-initializing on window.load');
+      initGalleryZoom();
     }
   }
 });
-
-// Add CSS for zoom controls
-if (!$('#fancybox-zoom-styles').length) {
-  $('head').append('<style id="fancybox-zoom-styles">' +
-    '.fancybox-zoom-controls { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 99999; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.7); padding: 8px 15px; border-radius: 25px; }' +
-    '.fancybox-zoom-in, .fancybox-zoom-out { background: transparent; border: none; cursor: pointer; padding: 5px; transition: all 0.2s; }' +
-    '.fancybox-zoom-in svg, .fancybox-zoom-out svg { fill: #fff; width: 24px; height: 24px; }' +
-    '.fancybox-zoom-in:hover, .fancybox-zoom-out:hover { transform: scale(1.1); }' +
-    '.fancybox-zoom-level { color: #fff; font-size: 14px; font-weight: 500; min-width: 50px; text-align: center; }' +
-    '.fancybox-image { transition: transform 0.3s ease, left 0.1s, top 0.1s; }' +
-    '</style>');
-}
-
-  })
 </script>
 
 {% else %}
