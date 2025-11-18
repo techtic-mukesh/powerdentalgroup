@@ -583,19 +583,19 @@
         "event_PbfFjd": {
           "type": "event",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_26122.png",
-            "label": "Misch Institute",
+            "image": "shopify://shop_images/3D_Implant_Institute_Photo_BW.jpg",
+            "label": "3D Implant Institute",
             "info": "<p>Extract, Preserve & Place</p>",
-            "rgsurl": "https://misch.com/all-courses/"
+            "rgsurl": "https://3dimplantinstitute.com/live-surgical-course/"
           }
         },
         "event_wHcKXG": {
           "type": "event",
           "settings": {
-            "image": "shopify://shop_images/768aa0412bccf36ca036890fc0112af14d31ac2e.png",
-            "label": "PEAK - Model & Pig Jaw",
-            "info": "<p>Bone Foundations</p>",
-            "rgsurl": "https://www.pikosinstitute.com/live-courses/pikos-symposium-live-implant-course"
+            "image": "shopify://shop_images/Misch_Photo_BW.jpg",
+            "label": "Misch Institute",
+            "info": "<p>Implants With GBR & Sinus</p>",
+            "rgsurl": "https://misch.com/all-courses/"
           }
         },
         "event_EE3yfU": {
@@ -617,7 +617,7 @@
       "settings": {
         "background_color": "#f8f6f4",
         "subheading": "Stay In The Know",
-        "heading": "<p>Find us at our <strong>Next Event</strong></p>",
+        "heading": "Find us at our Next Event",
         "content": "<p>Your opportunity to learn is here. Our goal is to give you and your patients the best possible outcomes, whether it’s a hands-on training course or trade show event. Our team is ready and committed to making your experience exceptional.</p>",
         "btnurl": "shopify://pages/shows-events",
         "btntext": "View Upcoming Events"
