@@ -144,18 +144,18 @@
             "button_link": "https://www.aaidmaxicourse.com/maxicourse/aaid-chicago-maxicourse/"
           }
         },
-        "event_card_BJRkdH": {
+        "event_card_xChDXF": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify://shop_images/The_Closing_Institute_Photo_BW_4.jpg",
-            "event_title": "The Closing Institute",
-            "event_subtitle": "Full Arch Growth Conference",
-            "event_logo": "shopify://shop_images/TCI_Logo.png",
-            "event_date": "October 24-25",
-            "event_location": "Orlando, FL",
-            "event_credits": "16 CE Credits",
+            "event_image": "shopify://shop_images/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
+            "event_title": "Misch Institute",
+            "event_subtitle": "Immediate Implants",
+            "event_logo": "shopify://shop_images/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
+            "event_date": "June 6-7",
+            "event_location": "Dallas, TX",
+            "event_credits": "18 CE Credits",
             "button_label": "Register Now",
-            "button_link": "https://www.theclosinginstitute.com/"
+            "button_link": "https://misch.com/all-courses/"
           }
         }
       },
@@ -168,7 +168,7 @@
         "event_card_3RaBDK",
         "event_card_Hf8Jak",
         "event_card_8rGD4L",
-        "event_card_BJRkdH"
+        "event_card_xChDXF"
       ],
       "name": "Events Grid",
       "settings": {
