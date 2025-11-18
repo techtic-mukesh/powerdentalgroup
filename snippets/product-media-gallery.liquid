@@ -41,6 +41,8 @@
   if is_duplicate
     assign id_append = '-duplicate'
   endif
+  
+  assign hide_first_image = product.metafields.custom.hide_first_image_from_pdp
 -%}
 
 {% if section.settings.gallery_layout == 'slider' %} 
@@ -51,6 +53,9 @@
   {{ 'component-product-swiper.css' | asset_url | stylesheet_tag }}
 
   {%- assign total_images = product.media.size -%}
+  {%- if hide_first_image == true -%}
+    {%- assign total_images = total_images | minus: 1 -%}
+  {%- endif -%}
 
 <div class="product__gallery">
   <div class="slider__images">
@@ -60,7 +65,7 @@
        {%- if product.selected_or_first_available_variant.featured_media != null -%}
   {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
 
-  {%- unless featured_media.alt == "grid-image" -%}
+  {%- unless hide_first_image == true and forloop.first -%}
     <div class="swiper-slide" data-media-id="{{ section.id }}-{{ featured_media.id }}">
       <a href="{{ featured_media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ featured_media.preview_image | image_url: width: 120 }}">
         <div class="gallery-media">
@@ -78,7 +83,12 @@
 
 
         {%- for media in product.media -%}
-  {%- unless media.id == product.selected_or_first_available_variant.featured_media.id or media.alt == "grid-image" -%}
+  {%- assign skip_media = false -%}
+  {%- if hide_first_image == true and forloop.first -%}
+    {%- assign skip_media = true -%}
+  {%- endif -%}
+  
+  {%- unless skip_media or media.id == product.selected_or_first_available_variant.featured_media.id -%}
     <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
       <a href="{{ media | image_url: width: 1600 }}" data-fancybox="gallery" data-thumb="{{ media.preview_image | image_url: width: 120 }}">
         <div class="gallery-media">
@@ -123,7 +133,7 @@
     {%- if product.selected_or_first_available_variant.featured_media != null -%}
       {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
 
-      {%- unless featured_media.alt == "grid-image" -%}
+      {%- unless hide_first_image == true and forloop.first -%}
         <div class="swiper-slide" data-media-id="{{ section.id }}-{{ featured_media.id }}">
           <img
             srcset="{{ featured_media.preview_image | image_url }} 120w"
@@ -135,7 +145,12 @@
     {%- endif -%}
 
     {%- for media in product.media -%}
-      {%- unless media.id == product.selected_or_first_available_variant.featured_media.id or media.alt == "grid-image" -%}
+      {%- assign skip_thumb = false -%}
+      {%- if hide_first_image == true and forloop.first -%}
+        {%- assign skip_thumb = true -%}
+      {%- endif -%}
+      
+      {%- unless skip_thumb or media.id == product.selected_or_first_available_variant.featured_media.id -%}
         <div class="swiper-slide" data-media-id="{{ section.id }}-{{ media.id }}">
           <img
             srcset="{{ media.preview_image | image_url }} 120w"
