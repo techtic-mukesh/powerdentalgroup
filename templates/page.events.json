@@ -207,12 +207,12 @@
         "faq_block_J48X39": {
           "type": "faq_block",
           "settings": {
-            "faq_question": "ADA SmileCon | Washington, DC | 10/23/25 - 10/25/25",
-            "faq_logo": "shopify://shop_images/ADA_Logo_0148abc8-44b5-426c-86c2-e120894c7f52.jpg",
-            "faq_title": "SmileCon",
-            "faq_subtitle": "Walter E. Washington Convention Center",
-            "faq_address": "<p>801 Allen Y. Lew Place NW<br/>Washington, DC 20001<br/>Booth# 560</p>",
-            "website_text": "www.ada.org",
+            "faq_question": "ADSA General Anesthesia | Chicago, IL | 12/7/25 - 12/8/25",
+            "faq_logo": "shopify://shop_images/ADSA.jpg",
+            "faq_title": "ADSA General Anesthesia",
+            "faq_subtitle": "Swissotel Chicago",
+            "faq_address": "<p>323E. Wacker Dr.<br/>Chicago, IL 60601</p>",
+            "website_text": "www.adsa.org",
             "faq_website": "https://https//www.ada.org/education/smilecon?campaignid=44025491942&adgroupid=179707836449&creative=757741916086&matchtype=p&network=g&device=c&keyword=dental%20conference&gad_source=1&gad_campaignid=44025491942&gbraid=0AAAAADimcFLeoNgMNaZjtlKzaYjbpOrtd&gclid=Cj0KCQjwyvfDBhDYARIsAItzbZHJNv1YtvPZydnuQDy2tPXOqu8LfBnDClkgzuxkHS1QuDEKGK4PE-8aAv5NEALw_wcB",
             "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.8351991411273!2d-77.02299339999999!3d38.9048838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7ed3715b137%3A0x32771de147fa5350!2sWalter%20E.%20Washington%20Convention%20Center!5e0!3m2!1sen!2sus!4v1753129129819!5m2!1sen!2sus"
           }
