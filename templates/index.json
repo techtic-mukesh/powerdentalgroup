@@ -601,10 +601,10 @@
         "event_EE3yfU": {
           "type": "event",
           "settings": {
-            "image": "shopify://shop_images/Pikos_Photo_BW_3afa5292-1448-4efa-8ef0-b99e2a52cfb3.jpg",
-            "label": "Pikos Institute",
-            "info": "<p>Full Arch Symposium</p>",
-            "rgsurl": "https://www.pikosinstitute.com/live-courses/pikos-symposium-live-implant-course"
+            "image": "shopify://shop_images/AAID_Maxicourse_Photo_BW.jpg",
+            "label": "AAID Chicago Maxicourse",
+            "info": "<p>Module 4</p>",
+            "rgsurl": "https://aaidchicagomaxicourse.com/"
           }
         }
       },
