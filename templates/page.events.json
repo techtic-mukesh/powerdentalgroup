@@ -194,12 +194,12 @@
         "faq_block_iATR48": {
           "type": "faq_block",
           "settings": {
-            "faq_question": "AAP Annual Meeting  | Toronto, ON | 10/15/25 - 10/18/25",
-            "faq_logo": "shopify://shop_images/AAP_Logo_c38bd317-b917-45dc-a568-8170e5ac296a.png",
-            "faq_title": "AAP Annual Meeting",
-            "faq_subtitle": "Metro Toronto Convention Centre",
-            "faq_address": "<p>255 Front St. W<br/>Toronto, ON, Canada</p>",
-            "website_text": "www.am2025.perio.org",
+            "faq_question": "AAOMS Dental Implant Conference  | Chicago, IL | 12/4/25 - 12/6/25",
+            "faq_logo": "shopify://shop_images/AAOMS.jpg",
+            "faq_title": "AAOMS Dental Implant Conference",
+            "faq_subtitle": "Sheraton Grand Chicago Riverwalk",
+            "faq_address": "<p>301 E. North Water St.<br/>Chicago, IL 60611<br/>Booth # 711</p>",
+            "website_text": "www.aaoms.org",
             "faq_website": "https://am2025.perio.org/",
             "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5774.420857888169!2d-79.386673!3d43.643790100000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d6785ffb55%3A0x4209e1f8fd986202!2sMetro%20Toronto%20Convention%20Centre!5e0!3m2!1sen!2sus!4v1749154958125!5m2!1sen!2sus"
           }
