@@ -49,15 +49,57 @@
         "event_card_mLRchp": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify://shop_images/AAID_Maxicourse_Photo_BW_4_cb000433-54e2-419a-b3f4-ac37da967bc7.jpg",
+            "event_image": "shopify://shop_images/3D_Implant_Institute_Photo_BW.jpg",
+            "event_title": "3D Implant Institute",
+            "event_subtitle": "Live Patient Surgical",
+            "event_logo": "shopify://shop_images/3D_Implant_Institute.jpg",
+            "event_date": "December 3-5",
+            "event_location": "Tijuana, Mexico",
+            "event_credits": "32 CE Credits",
+            "button_label": "Register Now",
+            "button_link": "https://www.aaidmaxicourse.com/maxicourse/aaid-chicago-maxicourse/"
+          }
+        },
+        "event_card_xhpaiN": {
+          "type": "event_card",
+          "settings": {
+            "event_image": "shopify://shop_images/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
+            "event_title": "Misch Institute",
+            "event_subtitle": "Implants with GBR & Sinus",
+            "event_logo": "shopify://shop_images/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
+            "event_date": "December 6-7",
+            "event_location": "Miami, FL",
+            "event_credits": "18 CE Credits",
+            "button_label": "Register Now",
+            "button_link": "https://misch.com/all-courses/"
+          }
+        },
+        "event_card_ajXXQ4": {
+          "type": "event_card",
+          "settings": {
+            "event_image": "shopify://shop_images/AAID_Maxicourse_Photo_BW_4_fc8b10ab-1b36-487a-976b-65e1b843ac54.jpg",
             "event_title": "AAID Chicago Maxicourse",
-            "event_subtitle": "Module 2",
+            "event_subtitle": "Module 4",
             "event_logo": "shopify://shop_images/AAID_Logo_2_85c018ed-4426-4834-9191-64474d2e1bfe.png",
-            "event_date": "October 17-19",
+            "event_date": "January 9-11",
             "event_location": "Chicago, IL",
             "event_credits": "300 CE Credits",
             "button_label": "Register Now",
             "button_link": "https://www.aaidmaxicourse.com/maxicourse/aaid-chicago-maxicourse/"
+          }
+        },
+        "event_card_yChCpd": {
+          "type": "event_card",
+          "settings": {
+            "event_image": "shopify://shop_images/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
+            "event_title": "Misch Institute",
+            "event_subtitle": "Implants with GBR & Sinus",
+            "event_logo": "shopify://shop_images/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
+            "event_date": "February 7-8",
+            "event_location": "Dallas, TX",
+            "event_credits": "18 CE Credits",
+            "button_label": "Register Now",
+            "button_link": "https://misch.com/all-courses/"
           }
         },
         "event_card_BJRkdH": {
@@ -115,60 +157,18 @@
             "button_label": "Register Now",
             "button_link": "https://biotemusa.com/products/sticky-show-by-prof-dong-seok-sohn"
           }
-        },
-        "event_card_xhpaiN": {
-          "type": "event_card",
-          "settings": {
-            "event_image": "shopify://shop_images/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
-            "event_title": "Misch Institute",
-            "event_subtitle": "Implants with GBR & Sinus",
-            "event_logo": "shopify://shop_images/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
-            "event_date": "December 6-7",
-            "event_location": "Miami, FL",
-            "event_credits": "18 CE Credits",
-            "button_label": "Register Now",
-            "button_link": "https://misch.com/all-courses/"
-          }
-        },
-        "event_card_ajXXQ4": {
-          "type": "event_card",
-          "settings": {
-            "event_image": "shopify://shop_images/AAID_Maxicourse_Photo_BW_4_fc8b10ab-1b36-487a-976b-65e1b843ac54.jpg",
-            "event_title": "AAID Chicago Maxicourse",
-            "event_subtitle": "Module 4",
-            "event_logo": "shopify://shop_images/AAID_Logo_2_85c018ed-4426-4834-9191-64474d2e1bfe.png",
-            "event_date": "January 9-11",
-            "event_location": "Chicago, IL",
-            "event_credits": "300 CE Credits",
-            "button_label": "Register Now",
-            "button_link": "https://www.aaidmaxicourse.com/maxicourse/aaid-chicago-maxicourse/"
-          }
-        },
-        "event_card_yChCpd": {
-          "type": "event_card",
-          "settings": {
-            "event_image": "shopify://shop_images/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
-            "event_title": "Misch Institute",
-            "event_subtitle": "Implants with GBR & Sinus",
-            "event_logo": "shopify://shop_images/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
-            "event_date": "February 7-8",
-            "event_location": "Dallas, TX",
-            "event_credits": "18 CE Credits",
-            "button_label": "Register Now",
-            "button_link": "https://misch.com/all-courses/"
-          }
         }
       },
       "block_order": [
         "product_title_naRkeM",
         "event_card_mLRchp",
+        "event_card_xhpaiN",
+        "event_card_ajXXQ4",
+        "event_card_yChCpd",
         "event_card_BJRkdH",
         "event_card_3RaBDK",
         "event_card_KK7Gyb",
-        "event_card_Ykfifc",
-        "event_card_xhpaiN",
-        "event_card_ajXXQ4",
-        "event_card_yChCpd"
+        "event_card_Ykfifc"
       ],
       "name": "Events Grid",
       "settings": {
