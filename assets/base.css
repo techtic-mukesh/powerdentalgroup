@@ -1621,6 +1621,7 @@ details[open] > .share-button__fallback {
           border: 1px solid #d3d4d8;
   transition: box-shadow var(--duration-short) ease;
   z-index: 1;
+      border-radius: 4px;
 }
 
 .select__select {
