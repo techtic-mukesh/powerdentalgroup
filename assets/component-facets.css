@@ -1389,7 +1389,7 @@ input.mobile-facets__checkbox {
 }
 
 .facets-vertical-form .facet-filters.sorting.caption .select {
-    border-radius: 4px;
+    border-radius: 7px;
     border: 1.2px solid rgba(0, 0, 0, 0.10);
     background: #FFF;
     min-height: 40px;
