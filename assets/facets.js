@@ -611,7 +611,7 @@ window.CategoryFilterManager = (function() {
     }
   }
 
- function init() {
+function init() {
   if (!document.querySelector('.category-filter')) return;
 
   // Handle clicks on category filters
@@ -620,13 +620,11 @@ window.CategoryFilterManager = (function() {
     const categoryFilter = e.target.closest('.category-filter');
     if (!categoryFilter) return;
 
-    // Stop propagation to prevent drawer from closing
-    e.stopPropagation();
-    
     // Toggle open/close for items
     const toggleBtn = e.target.closest('.category-filter__toggle');
     if (toggleBtn) {
       e.preventDefault();
+      e.stopPropagation(); // ✅ Stop propagation ONLY for toggle
       const li = toggleBtn.closest('.category-filter__item');
       const childList = li.querySelector('.category-filter__list');
       if (!childList) return;
@@ -644,6 +642,7 @@ window.CategoryFilterManager = (function() {
 
     // Checkbox click
     if (e.target.classList.contains('category-filter__checkbox')) {
+      e.stopPropagation(); // ✅ Stop propagation for checkbox
       const checkbox = e.target;
 
       // Uncheck all others
@@ -665,6 +664,7 @@ window.CategoryFilterManager = (function() {
     // Label click
     const label = e.target.closest('.category-filter__label');
     if (label && e.target.tagName !== 'INPUT') {
+      e.stopPropagation(); // ✅ Stop propagation for label
       const li = label.closest('.category-filter__item');
       const childList = li && li.querySelector('.category-filter__list');
 
