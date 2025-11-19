@@ -267,9 +267,16 @@
     line-height: 1.4;
 }
 
+
+.customer-register {
+  padding-left: 0 !important;
+}
+
 .customer:not(.account):not(.order) .login-wrap {
   margin-top: 30px;
+          grid-template-columns: 1fr;
 }
+
 
 .login a[href="#recover"] {
     margin-top: 14px;
