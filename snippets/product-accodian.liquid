@@ -69,54 +69,89 @@
 
 
 <script>
-  (function () {
-    function initAccordion() {
-      if (typeof jQuery === 'undefined') {
-        console.error('Accordion: jQuery not found. Use the vanilla fallback.');
-        return;
-      }
-      var $ = jQuery;
+ (function () {
+  function initAccordion(selector) {
+    if (typeof jQuery === 'undefined') {
+      console.error('Accordion: jQuery not found.');
+      return;
+    }
+    
+    var $ = jQuery;
+    var $container = $(selector);
 
-      // Remove any previous bindings
-      $(document).off('click.myAccordion');
+    if ($container.length === 0) {
+      console.warn('Accordion container not found:', selector);
+      return;
+    }
 
-      // Open the first accordion by default
-      var $firstTitle = $('.Accordions .Accordion_item:first .title_tab');
-      var $firstContent = $firstTitle.next('.inner_content');
+    // Open the first accordion by default
+    var $firstItem = $container.find('.Accordion_item:first');
+    var $firstTitle = $firstItem.find('.title_tab:first');
+    var $firstContent = $firstTitle.next('.inner_content');
+
+    if ($firstTitle.length && $firstContent.length) {
       $firstTitle.addClass('active');
       $firstContent.show().find('p').addClass('show');
-
-      // Independent open/close for all accordions
-      $(document).on('click.myAccordion', '.Accordions .title_tab', function (e) {
-        e.preventDefault();
-        var $this = $(this);
-        var $content = $this.next('.inner_content');
-
-        if (!$content.length) {
-          console.warn('Accordion: .inner_content not found next to', $this);
-          return;
-        }
-
-        if ($this.hasClass('active')) {
-          // Close this one
-          $this.removeClass('active');
-          $content.stop(true, true).slideUp(400).find('p').removeClass('show');
-        } else {
-          // Open this one (don’t close others)
-          $this.addClass('active');
-          $content.stop(true, true).slideDown(400).find('p').addClass('show');
-        }
-      });
-
-      console.log('Accordion initialized');
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initAccordion);
-    } else {
-      initAccordion();
-    }
-  })();
+    // Remove any previous bindings to avoid duplicates
+    $container.off('click.accordion');
+
+    // Click handler for accordion items
+    $container.on('click.accordion', '.title_tab', function (e) {
+      e.preventDefault();
+      
+      var $this = $(this);
+      var $content = $this.next('.inner_content');
+
+      if (!$content.length) {
+        console.warn('Accordion: .inner_content not found next to', $this);
+        return;
+      }
+
+      if ($this.hasClass('active')) {
+        // Close this accordion
+        $this.removeClass('active');
+        $content.stop(true, true).slideUp(400, function() {
+          $content.find('p').removeClass('show');
+        });
+      } else {
+        // Open this accordion (independent - don't close others)
+        $this.addClass('active');
+        $content.stop(true, true).slideDown(400, function() {
+          $content.find('p').addClass('show');
+        });
+      }
+    });
+
+    console.log('Accordion initialized for selector:', selector);
+  }
+
+  // Initialize on DOM ready
+  function initializeAccordions() {
+    // Initialize desktop accordion
+    initAccordion('.product__media-wrapper .Accordions');
+    
+    // Initialize mobile accordion
+    initAccordion('.mobile-accodian .Accordions');
+  }
+
+  // Wait for DOM to be ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeAccordions);
+  } else {
+    initializeAccordions();
+  }
+
+  // Re-initialize on window resize (useful for responsive behavior)
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      initializeAccordions();
+    }, 500);
+  });
+})();
 </script>
 
 
