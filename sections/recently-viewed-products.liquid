@@ -273,6 +273,29 @@
   let isInitialized = false;
   let loadedProductHandles = new Set(); // Track loaded products to prevent duplicates
 
+  // Calculate rewards points based on price
+  function calculateRewardPoints(price) {
+    // Convert price to number if it's a string
+    const numPrice = parseFloat(price);
+    
+    // Calculate raw points: price / 100 * 5
+    const rawPoints = Math.round(numPrice / 100 * 5);
+    
+    // Get remainder when divided by 10
+    const remainder = rawPoints % 10;
+    
+    let points;
+    if (remainder === 5) {
+      // If remainder is 5, add 5
+      points = rawPoints + 5;
+    } else {
+      // Otherwise: add 2.5, divide by 5, floor, multiply by 5
+      points = Math.floor((rawPoints + 2.5) / 5) * 5;
+    }
+    
+    return points;
+  }
+
   // Get recently viewed from localStorage
   function getRecentlyViewed() {
     try {
@@ -300,6 +323,8 @@
     const li = document.createElement('li');
     li.className = 'grid__item';
     li.dataset.productHandle = product.handle; // Add identifier
+
+    const points = calculateRewardPoints(product.price);
 
     li.innerHTML = `
       <div class="card-wrapper product-card-wrapper underline-links-hover">
@@ -351,6 +376,17 @@
                 <span class="product-stock in-stock">
                   <span class="stock-dot"></span> In Stock
                 </span>
+              </div>
+
+              <!-- Rewards Points Section -->
+              <div class="catalog-points" style="margin-bottom:8px; margin-top: 12px;">
+                <img src="https://powerdentalgroup.com/cdn/shop/files/reward.svg?v=1762431687&width=50" alt="Reward Points">
+                <div class="mp-point-label" style="display:inline-block">
+                  <span class="points" style="margin-left: 0">
+                    <span class="mp-rw-highlight">${points} points</span>
+                  </span>
+                </div>
+                <div class="clr"></div>
               </div>
             </div>
 
@@ -410,6 +446,8 @@
     slide.className = 'swiper-slide';
     slide.dataset.productHandle = product.handle; // Add identifier
 
+    const points = calculateRewardPoints(product.price);
+
     slide.innerHTML = `
       <div class="card-wrapper product-card-wrapper underline-links-hover">
         <div class="card card--standard card--media" style="--ratio-percent: 100%;">
@@ -460,6 +498,17 @@
                 <span class="product-stock in-stock">
                   <span class="stock-dot"></span> In Stock
                 </span>
+              </div>
+
+              <!-- Rewards Points Section -->
+              <div class="catalog-points" style="margin-bottom:8px; margin-top: 12px;">
+                <img src="https://powerdentalgroup.com/cdn/shop/files/reward.svg?v=1762431687&width=50" alt="Reward Points">
+                <div class="mp-point-label" style="display:inline-block">
+                  <span class="points" style="margin-left: 0">
+                    <span class="mp-rw-highlight">${points} points</span>
+                  </span>
+                </div>
+                <div class="clr"></div>
               </div>
             </div>
 
