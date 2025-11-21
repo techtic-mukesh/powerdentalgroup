@@ -6,6 +6,12 @@
   position: relative;
 }
 
+.multirow__inner h2.image-with-text__heading.h1.rte {
+    font-weight: 300;
+    font-size: 44px;
+    line-height: 1.1;
+}
+
 @media screen and (min-width: 750px) {
   .image-with-text__grid--reverse {
     flex-direction: row-reverse;

@@ -553,7 +553,7 @@ form#create_customer {
 
 .login-left {
     text-align: left;
-        padding-right: 30px;
+        padding-right: 50px;
     border-right: 1px solid #dadada;
 }
 
@@ -581,7 +581,7 @@ form#create_customer {
 
 .customer-register {
     text-align: left;
-    padding-left: 30px;
+    padding-left: 50px;
 }
 
 .login a[href="#recover"] {

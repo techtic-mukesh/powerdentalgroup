@@ -3654,3 +3654,23 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+.field__label, .customer .field label {
+    font-style: normal;
+    color: #5b5b5b;
+    font-weight: 500;
+    font-family: Montserrat;
+    font-size: 15px;
+    border-radius: 8px;
+    text-transform: capitalize;
+    letter-spacing: -.16px;
+}
+
+
+
+
+.header__icon--account shop-user-avatar {
+     --shop-avatar-size: 1.8rem;
+    margin-top: -6px;
+    margin-bottom: -3px;
+}

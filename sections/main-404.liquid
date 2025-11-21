@@ -1,23 +1,154 @@
 <style type="text/css">
-  .template-404 .title + * {
-    margin-top: 1rem;
+  .template-404 {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
-  @media screen and (min-width: 750px) {
-    .template-404 .title + * {
-      margin-top: 2rem;
+  .error-404-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin: 0 auto;
+  }
+
+  .error-404-content {
+    max-width: 600px;
+  }
+
+  .error-404-title strong {
+    font-weight: 700;
+}
+
+  .error-404-image {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    max-width: 701px;
+    padding-top: 50px;
+  }
+
+  .error-404-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .error-404-title {
+        margin: 0 0 20px;
+    position: relative;
+    font-size: 44px;
+    line-height: 56px;
+    text-transform: uppercase;
+    font-family: Montserrat;
+    text-align: left;
+    font-weight: 300;
+  }
+
+  .error-404-subtext {
+   color: #141132;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: -.16px;
+  }
+
+  .error-404-cta {
+    box-sizing: border-box;
+    background: linear-gradient(102deg, #42c5ef, #0033a0 50% 50%, #42c5ef) !important;
+    background-size: 200% 100% !important;
+    background-position: 200% 100% !important;
+    transition: background-position .7s !important;
+    line-height: 110%;
+    text-decoration: none;
+    margin: 0;
+    padding: 0 20px;
+    border-radius: 10px;
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    min-height: calc(4.5rem + var(--buttons-border-width) * 2);
+    display: inline-flex;
+    align-items: center;
+}
+
+  .error-404-cta:hover {
+        background-position: 100% 0 !important;
+  }
+
+  .error-404-link {
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 14px;
+    color: #0033a0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .error-404-link:hover {
+    color: #764ba2;
+    text-decoration: underline;
+  }
+
+  /* Mobile responsive */
+  @media screen and (max-width: 768px) {
+    .error-404-container {
+      flex-direction: column-reverse;
+      text-align: center;
+      padding: 0 0;
+    }
+
+    .error-404-content {
+      max-width: 100%;
+      padding-bottom: 40px;
+    }
+
+    .error-404-title {
+           font-size: 27px;
+        line-height: 37px;
+        text-align: center;
+    }
+
+    
+
+    .error-404-link {
+      display: block;
+      margin-left: 0;
+      margin-top: 1rem;
     }
   }
+
+
 </style>
 
-<div class="template-404 page-width page-margin center">
-  <p>
-    {{ 'templates.404.subtext' | t }}
-  </p>
-  <h1 class="title">
-    {{ 'templates.404.title' | t }}
-  </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
-    {{ 'general.continue_shopping' | t }}
-  </a>
+<div class="template-404 page-width">
+  <div class="error-404-container">
+    <div class="error-404-content">
+      <h1 class="error-404-title">
+        Oops! The page you <strong>were looking for doesn't exist</strong>
+      </h1>
+      <p class="error-404-subtext">
+        You may have mistyped the address or the page may have moved.
+      </p>
+      <div>
+        <a href="{{ routes.all_products_collection_url }}" class="error-404-cta">
+          CONTINUE SHOPPING
+        </a>
+        <a href="{{ routes.root_url }}" class="error-404-link">
+          Back to Home
+        </a>
+      </div>
+    </div>
+    <div class="error-404-image">
+      <!-- Replace this placeholder with your actual image -->
+      <!-- Upload your image to Shopify Files and replace the src below -->
+      <img src="https://cdn.shopify.com/s/files/1/0697/9538/1398/files/404_png.png?v=1763712444" alt="404 Error" />
+      
+    </div>
+  </div>
 </div>
