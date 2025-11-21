@@ -1,0 +1,130 @@
+body.gradient.customers\/account .shopify-section {
+    background: #F7F9FF;
+}
+
+.account-sidebar ul.account-tabs {
+    padding: 20px 0;
+    border-radius: 10px;
+    background: #FFF;
+}
+
+.account-content h2{
+    color: #01000A;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 100% */
+    text-transform: uppercase;
+}
+
+.ac-info h2 {
+    text-transform: capitalize;
+}
+
+.account-sidebar ul.account-tabs li svg {
+    margin-left: auto;
+}
+
+.ac-info a {
+ background: linear-gradient(90deg, #42c5ef, #0033a0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #010005;
+    font-family: Montserrat;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: -.16px;
+}
+
+div#orders-tab h1 {
+    color: #01000A;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 100% */
+    text-transform: uppercase;
+}
+
+div#orders-tab table.order-history {
+    border-radius: 10px;
+    background: #FFF;
+}
+
+div#orders-tab table.order-history th {
+    color: #01000A;
+    font-family: Prompt;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+
+.account-tabs button.active svg path {
+    fill: linear-gradient(90deg, #42C5EF 0%, #0033A0 100%);
+stroke-width: 0.3px;
+stroke: #42C5EF;
+}
+
+.points-header .exange-rent strong {
+    background: linear-gradient(90deg, #42c5ef, #0033a0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #010005;
+    font-family: Montserrat;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: -.16px;
+    margin: 0 0 9px;
+}
+
+.points-header .exange-rent p {
+    margin: 0;
+    color: #01000A;
+    font-family: Prompt;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 20px;
+}
+
+.points-header .exange-rent {
+    padding: 25px;
+    border-radius: 25px;
+    background: #FFF !important;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.points-header .exange-rent p b {
+    font-weight: 500;
+}
+
+
+.points-header > h3 {
+    color: #01000A;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 100% */
+    text-transform: uppercase;
+    margin: 0 0 20px;
+}
+
+.rivo-account-activity-block {
+    border-radius: 25px !important;
+    background: #FFF !important;
+    border: unset !important;
+}

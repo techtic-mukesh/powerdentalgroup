@@ -66,6 +66,7 @@
   circle.style.strokeDashoffset = circumference;
 
   // Hover functionality
+   if (window.innerWidth > 767) {
   wrapper.addEventListener('mouseenter', function() {
     wrapper.classList.add('open');
     clearTimeout(autoCloseTimeout);
@@ -74,6 +75,14 @@
   wrapper.addEventListener('mouseleave', function() {
     wrapper.classList.remove('open');
   });
+  }
+
+   // Click to toggle on mobile
+  if (window.innerWidth <= 767) {
+    wrapper.addEventListener('click', function() {
+      wrapper.classList.toggle('open');
+    });
+  }
 
   // Function to temporarily open widget
   function temporarilyOpen() {
@@ -253,17 +262,16 @@
   right: auto;
   z-index: 999;
   background: white;
-  /* animation: slideDown 0.3s ease-out; */
   width: max-content;
   border-radius: 0 8px 8px 0;
   overflow: hidden;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   left: -31px;
-    transition: all .4s ease;
+  transition: all .4s ease;
 }
 
 .shipping-threshold-wrapper.open {
-    left: 0;
+  left: 0;
 }
 
 .shipping-threshold-wrapper::before {
@@ -283,31 +291,18 @@
   opacity: 1;
 }
 
-.shipping-threshold-wrapper.open {
-  /* Open state handled by content animation */
-}
-
 .shipping-threshold-wrapper.threshold-reached {
   background: linear-gradient(135deg, #f0fff4 0%, #e6f9ed 100%);
 }
 
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
 .shipping-threshold-container {
-    max-width: 420px;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    position: relative;
+  max-width: 420px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  position: relative;
 }
 
 .shipping-threshold-content {
@@ -320,29 +315,22 @@
   width: 0;
   overflow: hidden;
   opacity: 0;
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              opacity 0.3s ease 0.1s;
-}
-
-.shipping-threshold-wrapper:hover .shipping-threshold-content,
-.shipping-threshold-wrapper.open .shipping-threshold-content {
-  width: 350px;
-  opacity: 1;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease 0.1s;
 }
 
 .shipping-threshold-text {
   margin: 0;
-    font-size: 14px;
-    line-height: 1.4;
-    flex: 1;
-    min-width: 200px;
-    color: #141132;
-    font-family: Prompt;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-    letter-spacing: -.16px;
+  font-size: 14px;
+  line-height: 1.4;
+  flex: 1;
+  min-width: 200px;
+  color: #141132;
+  font-family: Prompt;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -.16px;
 }
 
 .shipping-threshold-text strong {
@@ -373,12 +361,12 @@
   transform: translate(-50%, -50%);
   font-size: 18px;
   font-weight: bold;
-      color: #141132;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    line-height: 22px;
-    letter-spacing: -.16px;
+  color: #141132;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: -.16px;
 }
 
 .progress-bar-container {
@@ -398,31 +386,22 @@
   border-radius: 4px;
 }
 
-
-
 .shipping-threshold-container .threshold-cart {
-    background: linear-gradient(102deg, #42c5ef, #0033a0 50% 50%, #42c5ef) !important;
-    background-size: 200% 100% !important;
-    padding: 16px 12px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    min-width: 56px;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 2;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden;
-}
-
-.shipping-threshold-wrapper:hover .threshold-cart,
-.shipping-threshold-wrapper.open .threshold-cart {
-  min-width: 4px;
-  padding: 0;
   background: linear-gradient(102deg, #42c5ef, #0033a0 50% 50%, #42c5ef) !important;
+  background-size: 200% 100% !important;
+  padding: 16px 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 56px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
 .shipping-threshold-container .threshold-cart svg,
@@ -432,62 +411,109 @@
   transform: scale(1);
 }
 
-.shipping-threshold-wrapper:hover .threshold-cart svg,
-.shipping-threshold-wrapper:hover .threshold-cart .cart-progress-percentage,
-.shipping-threshold-wrapper.open .threshold-cart svg,
-.shipping-threshold-wrapper.open .threshold-cart .cart-progress-percentage {
-  opacity: 0;
-  transform: scale(0.8);
-}
-
 .shipping-threshold-container .threshold-cart svg {
-    fill: #fff;
-    min-width: 30px;
-    width: 32px;
+  fill: #fff;
+  min-width: 30px;
+  width: 32px;
 }
 
 .shipping-threshold-container .threshold-cart .cart-progress-percentage {
-    margin: 0;
-    color: #fff;
-    font-family: 'Montserrat';
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 22px;
-    letter-spacing: -.16px;
+  margin: 0;
+  color: #fff;
+  font-family: 'Montserrat';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -.16px;
 }
 
+/* Desktop styles */
+@media (min-width: 769px) {
+  .shipping-threshold-wrapper:hover .threshold-cart svg,
+  .shipping-threshold-wrapper:hover .threshold-cart .cart-progress-percentage,
+  .shipping-threshold-wrapper.open .threshold-cart svg,
+  .shipping-threshold-wrapper.open .threshold-cart .cart-progress-percentage {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  
+  .shipping-threshold-wrapper:hover .threshold-cart,
+  .shipping-threshold-wrapper.open .threshold-cart {
+    min-width: 4px;
+    padding: 0;
+    background: linear-gradient(102deg, #42c5ef, #0033a0 50% 50%, #42c5ef) !important;
+  }
 
+  .shipping-threshold-wrapper:hover .shipping-threshold-content,
+  .shipping-threshold-wrapper.open .shipping-threshold-content {
+    width: 350px;
+    opacity: 1;
+  }
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
-  /* .shipping-threshold-content {
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .progress-circle {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .progress-ring {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .progress-percentage {
-    font-size: 16px;
-  }
-  
-  .shipping-threshold-text {
-    font-size: 14px;
-  } */
-
   .shipping-threshold-wrapper {
     bottom: 50px;
+  }
+
+  /* Default closed state - show cart icon and percentage */
+  .shipping-threshold-container .threshold-cart svg,
+  .shipping-threshold-container .threshold-cart .cart-progress-percentage {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Open state - hide cart icon/percentage and show content */
+  .shipping-threshold-wrapper.open .threshold-cart {
+    min-width: 4px;
+    padding: 0;
+  }
+
+  .shipping-threshold-wrapper.open .threshold-cart svg,
+  .shipping-threshold-wrapper.open .threshold-cart .cart-progress-percentage {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .shipping-threshold-wrapper.open .shipping-threshold-content {
+    width: 350px;
+    opacity: 1;
+  }
+
+  /* Remove hover effects on mobile */
+  .shipping-threshold-wrapper:hover .threshold-cart {
+    min-width: 56px;
+    padding: 16px 12px;
+  }
+
+  .shipping-threshold-wrapper:hover .threshold-cart svg,
+  .shipping-threshold-wrapper:hover .threshold-cart .cart-progress-percentage {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .shipping-threshold-wrapper:hover .shipping-threshold-content {
+    width: 0;
+    opacity: 0;
+  }
+
+  /* Override hover when open */
+  .shipping-threshold-wrapper.open:hover .threshold-cart {
+    min-width: 4px;
+    padding: 0;
+  }
+
+  .shipping-threshold-wrapper.open:hover .threshold-cart svg,
+  .shipping-threshold-wrapper.open:hover .threshold-cart .cart-progress-percentage {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .shipping-threshold-wrapper.open:hover .shipping-threshold-content {
+    width: 350px;
+    opacity: 1;
+  }
 }
-
-
-}
-
-
 {% endstylesheet %}
