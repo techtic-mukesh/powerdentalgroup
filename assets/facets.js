@@ -611,7 +611,7 @@ window.CategoryFilterManager = (function() {
     }
   }
 
- function init() {
+function init() {
   if (!document.querySelector('.category-filter')) return;
 
   // Handle clicks on category filters
@@ -620,30 +620,28 @@ window.CategoryFilterManager = (function() {
     const categoryFilter = e.target.closest('.category-filter');
     if (!categoryFilter) return;
 
-    // Stop propagation to prevent drawer from closing
-    e.stopPropagation();
-    
-    // Toggle open/close for items
+    // Toggle open/close for items - TARGET THE ARROW/TOGGLE BUTTON
     const toggleBtn = e.target.closest('.category-filter__toggle');
     if (toggleBtn) {
       e.preventDefault();
+      e.stopPropagation(); // Prevent drawer from closing
+      
       const li = toggleBtn.closest('.category-filter__item');
+      if (!li) return;
+      
       const childList = li.querySelector('.category-filter__list');
       if (!childList) return;
 
       const isOpen = li.classList.contains('open');
-      if (isOpen) {
-        childList.style.display = 'none';
-        li.classList.remove('open');
-      } else {
-        childList.style.display = 'block';
-        li.classList.add('open');
-      }
+      li.classList.toggle('open');
+      childList.style.display = isOpen ? 'none' : 'block';
       return;
     }
 
     // Checkbox click
     if (e.target.classList.contains('category-filter__checkbox')) {
+      e.stopPropagation();
+      
       const checkbox = e.target;
 
       // Uncheck all others
@@ -662,38 +660,39 @@ window.CategoryFilterManager = (function() {
       return;
     }
 
-    // Label click
+    // Label click - handle expansion of categories
     const label = e.target.closest('.category-filter__label');
-    if (label && e.target.tagName !== 'INPUT') {
+    if (label) {
+      e.stopPropagation();
+      
       const li = label.closest('.category-filter__item');
-      const childList = li && li.querySelector('.category-filter__list');
+      if (!li) return;
+      
+      const childList = li.querySelector('.category-filter__list');
 
-      if (!childList) {
+      // If it has children, toggle expansion (don't navigate)
+      if (childList) {
         e.preventDefault();
-        const checkbox = label.querySelector('.category-filter__checkbox');
-        if (checkbox && checkbox.dataset.url) {
-          const drawer = document.querySelector('menu-drawer');
-          if (drawer && typeof drawer.hide === 'function') drawer.hide();
-
-          document.querySelectorAll('.category-filter__checkbox').forEach(chk => chk.checked = false);
-          checkbox.checked = true;
-          saveState({ selectedItem: checkbox.dataset.handle });
-          window.location.href = checkbox.dataset.url;
-        }
+        const isOpen = li.classList.contains('open');
+        li.classList.toggle('open');
+        childList.style.display = isOpen ? 'none' : 'block';
         return;
       }
 
-      e.preventDefault();
-      const isOpen = li.classList.contains('open');
-      if (isOpen) {
-        childList.style.display = 'none';
-        li.classList.remove('open');
-      } else {
-        childList.style.display = 'block';
-        li.classList.add('open');
+      // If it has no children, it's a selectable category
+      const checkbox = label.querySelector('.category-filter__checkbox');
+      if (checkbox && checkbox.dataset.url) {
+        e.preventDefault();
+        const drawer = document.querySelector('menu-drawer');
+        if (drawer && typeof drawer.hide === 'function') drawer.hide();
+
+        document.querySelectorAll('.category-filter__checkbox').forEach(chk => chk.checked = false);
+        checkbox.checked = true;
+        saveState({ selectedItem: checkbox.dataset.handle });
+        window.location.href = checkbox.dataset.url;
       }
     }
-  });
+  }, true); // ✅ Use CAPTURE phase to intercept before drawer handlers
 
   // Restore saved state on initial load
   restoreState(loadState());

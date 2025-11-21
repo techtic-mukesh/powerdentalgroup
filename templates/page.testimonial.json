@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -24,8 +15,8 @@
           "type": "testimonial",
           "settings": {
             "quote": "Root tips out clean. No sweat. No trauma.",
-            "content": "<p>I used to dread root tip extractions and severely carious teeth. Too much bone loss, too much effort. With the Power Flex Periotome Kit, extractions became smooth and atraumatic, with minimal bleeding and intact soft tissue. The difference is night and day: easier for me, safer for the patient, and more predictable every time.</p>",
-            "photo": "shopify://shop_images/Jessica_Vitale.png",
+            "content": "<p>I used to dread root tip extractions and severely carious teeth. Too much bone loss, too much effort. With the Power Flex Periotome Kit, extractions became smooth and atraumatic, with minimal bleeding and intact soft tissue. The difference is night and day: easier for me, safer for the patient, and more predictable every time.<\/p>",
+            "photo": "shopify:\/\/shop_images\/Jessica_Vitale.png",
             "name": "Dr. Jessica Vitale, DDS, MPH, MS– NYU,",
             "location": "New York, NY"
           }
@@ -34,8 +25,8 @@
           "type": "testimonial",
           "settings": {
             "quote": "Great add-on to my toolkit – very satisfied!",
-            "content": "<p>The instrument works great. Had a really tough wisdom teeth case today where it came in handy for removing a very thick root inside the jaw bone. Didn’t have to cut more bone and hopefully it helps with healing. Hopefully we’ll do business again in the future. </p>",
-            "photo": "shopify://shop_images/Alvin_Choi.jpg",
+            "content": "<p>The instrument works great. Had a really tough wisdom teeth case today where it came in handy for removing a very thick root inside the jaw bone. Didn’t have to cut more bone and hopefully it helps with healing. Hopefully we’ll do business again in the future. <\/p>",
+            "photo": "shopify:\/\/shop_images\/Alvin_Choi.jpg",
             "name": "Dr. Alvin Choi, DDS – Seafair Dental,",
             "location": "Richmond, Canada"
           }
@@ -44,8 +35,8 @@
           "type": "testimonial",
           "settings": {
             "quote": "Power Dental Group Has Been a Vital Partner to My Implant Practice",
-            "content": "<p>They produce the finest and most durable dental and surgical instruments in the world. In addition to thousands of surgeries, many of our instruments have been through the rigors of hands-on courses, yet continue to perform flawlessly. For clinicians who demand the highest levels of innovation and quality, at unbeatable prices, do yourself a favor and make Power Dental Group part of your winning team.</p>",
-            "photo": "shopify://shop_images/Doctor_Avatar.png",
+            "content": "<p>They produce the finest and most durable dental and surgical instruments in the world. In addition to thousands of surgeries, many of our instruments have been through the rigors of hands-on courses, yet continue to perform flawlessly. For clinicians who demand the highest levels of innovation and quality, at unbeatable prices, do yourself a favor and make Power Dental Group part of your winning team.<\/p>",
+            "photo": "shopify:\/\/shop_images\/Doctor_Avatar.png",
             "name": "Joseph Kim, DDS, JD, FAGD, FICOI, FPFA,",
             "location": "Owner of Halcyon Dental & Modern Dentistry"
           }
@@ -54,8 +45,8 @@
           "type": "testimonial",
           "settings": {
             "quote": "Less Bone Removal. Zero Bleeding. Happier Patients",
-            "content": "<p>I used to struggle with root tip extractions, removing too much bone and sweating through procedures. After switching to Power Twist Elevators and Periotomes, extractions became clean, predictable, and atraumatic. Clinically, these instruments have completely transformed my workflow.</p>",
-            "photo": "shopify://shop_images/Jessica_Vitale.png",
+            "content": "<p>I used to struggle with root tip extractions, removing too much bone and sweating through procedures. After switching to Power Twist Elevators and Periotomes, extractions became clean, predictable, and atraumatic. Clinically, these instruments have completely transformed my workflow.<\/p>",
+            "photo": "shopify:\/\/shop_images\/Jessica_Vitale.png",
             "name": "Dr. Jessica Vitale, DDS, MPH, MS  – NYU,",
             "location": "New York, NY"
           }
@@ -64,8 +55,8 @@
           "type": "testimonial",
           "settings": {
             "quote": "My go-to elevator for surgical extractions",
-            "content": "<p>The Power Twist Elevator is my go-to for both simple and surgical extractions since I started using it. It helps preserve bone, reduces trauma, and gives me more confidence during procedures. I rely on it heavily.</p>",
-            "photo": "shopify://shop_images/Juan_Rodrigez.png",
+            "content": "<p>The Power Twist Elevator is my go-to for both simple and surgical extractions since I started using it. It helps preserve bone, reduces trauma, and gives me more confidence during procedures. I rely on it heavily.<\/p>",
+            "photo": "shopify:\/\/shop_images\/Juan_Rodrigez.png",
             "name": "Dr. Juan L. Rodriguez, DDS, MPH, MS",
             "location": "–  The Spring Modern Dentistry, Aurora, CO"
           }
@@ -74,8 +65,8 @@
           "type": "testimonial",
           "settings": {
             "quote": "Fastest and Most Reliable Repairs I’ve Seen",
-            "content": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in lab bills.</p>",
-            "photo": "shopify://shop_images/Rectangle_26105_1_e7835085-25d5-4291-a152-1d11480936af.png",
+            "content": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in lab bills.<\/p>",
+            "photo": "shopify:\/\/shop_images\/Rectangle_26105_1_e7835085-25d5-4291-a152-1d11480936af.png",
             "name": "Shawn P. Lottier, DDS, MAG, DICOI",
             "location": "– Comfort Smiles Atlanta"
           }
@@ -84,8 +75,8 @@
           "type": "testimonial",
           "settings": {
             "quote": "Effortless Crown Removal. One Piece, First Try",
-            "content": "<p>Total game changer. First use was a dream – drilled, gripped, and the zirconia crown popped off in one piece. Effortless.</p>",
-            "photo": "shopify://shop_images/Rectangle_26105_63e9be0b-d1bb-4559-bfba-488369aa2422.png",
+            "content": "<p>Total game changer. First use was a dream – drilled, gripped, and the zirconia crown popped off in one piece. Effortless.<\/p>",
+            "photo": "shopify:\/\/shop_images\/Rectangle_26105_63e9be0b-d1bb-4559-bfba-488369aa2422.png",
             "name": "Dr. Laurie A. Rosato, DMD",
             "location": "– Concord, NH"
           }
@@ -94,8 +85,8 @@
           "type": "testimonial",
           "settings": {
             "quote": "Strong build. Flexible tips. Zero stress extractions.",
-            "content": "<p>The Power Flex Periotome Kit does what others can’t. Wide ergonomic handles, flexible-yet-rigid tips that adapt to any tooth or angle, and screws that make even broken roots manageable. Extractions feel smoother, faster, and far less fatiguing.</p>",
-            "photo": "shopify://shop_images/Doctor_Avatar.png",
+            "content": "<p>The Power Flex Periotome Kit does what others can’t. Wide ergonomic handles, flexible-yet-rigid tips that adapt to any tooth or angle, and screws that make even broken roots manageable. Extractions feel smoother, faster, and far less fatiguing.<\/p>",
+            "photo": "shopify:\/\/shop_images\/Doctor_Avatar.png",
             "name": "Steven K. Huh, DDS – Central Dental",
             "location": "Group, Turlock, CA"
           }

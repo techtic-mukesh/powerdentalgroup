@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "current": {
     "logo": "shopify:\/\/shop_images\/power-dental-logo_2.png",
@@ -218,31 +209,39 @@
           "custom_settings": "{\"show_price_on_login\": \"false\", \"show_vendor\": \"false\", \"cart_counter\": \".cart-count-bubble span:first-of-type\", \"custom_filters\": \"facet-filters-form, .facet-filters__sort\", \"custom_delay\": \"500\", \"remove_all_wishlist\": \"false\",\"hide_cart_btn\": \"false\"}"
         }
       },
-      "7584948915495707528": {
-        "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/app-embed\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
-        "disabled": true,
-        "settings": {}
-      },
-      "18208872656243357035": {
-        "type": "shopify:\/\/apps\/joy-loyalty-program\/blocks\/joy-points-calculator-embed\/555c55c9-9a3d-4fe0-a7a8-2c256984a371",
-        "disabled": true,
-        "settings": {
-          "points_calculator_alignment": "left"
-        }
-      },
-      "4291333794791649201": {
-        "type": "shopify:\/\/apps\/loyalty-rewards-and-referrals\/blocks\/embed-sdk\/6f172e67-4106-4ac0-89c5-b32a069b3101",
-        "disabled": true,
-        "settings": {
-          "disableBundledCSS": true,
-          "disableBundledFonts": true,
-          "useClassIsolator": true
-        }
-      },
       "11560147490181472608": {
         "type": "shopify:\/\/apps\/rivo-loyalty-rewards-referrals\/blocks\/app-embed\/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
         "disabled": false,
         "settings": {}
+      },
+      "7322671195855991875": {
+        "type": "shopify:\/\/apps\/discount-mixer\/blocks\/discount-view\/791c666a-e939-4fd3-bdd3-b122066bb588",
+        "disabled": false,
+        "settings": {
+          "discounted-price-background-color": "#000000",
+          "card-discounted-price-font-size": 16,
+          "product-discounted-price-font-size": 18,
+          "home-badge": true,
+          "collection-badge": true,
+          "product-badge": true,
+          "round-price-to-whole-number": false,
+          "trailing-zero": false,
+          "sale-badge-text": "",
+          "sale-badge-background-color": "#000000",
+          "sale-badge-text-color": "#ffffff",
+          "sale-badge-font-size": 12,
+          "sale-badge-border-radius": 12,
+          "timeout": 500,
+          "show-tier-table": false,
+          "tier-quantity-header-text": "",
+          "tier-discount-header-text": "",
+          "tier-table-background-color": "transparent",
+          "tier-table-text-color": "#000000",
+          "tier-table-border-color": "#cccccc",
+          "tier-table-border-width": 1,
+          "tier-table-border-radius": 5,
+          "tier-table-font-size": 14
+        }
       }
     },
     "color_schemes": {
