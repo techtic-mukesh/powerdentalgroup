@@ -1,19 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "17625235591bbf692f": {
       "type": "apps",
       "blocks": {
         "rivo_loyalty_rewards_referrals_lp_customer_account_7pcyfY": {
-          "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/lp-customer-account/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
+          "type": "shopify:\/\/apps\/rivo-loyalty-rewards-referrals\/blocks\/lp-customer-account\/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
           "settings": {
             "account_card_enabled": true,
             "account_card_background_color": "",
@@ -55,7 +46,7 @@
         "text_3RBUGd": {
           "type": "text",
           "settings": {
-            "text": "<p>All existing customers will need to reactivate their account.</p><p>Existing customers, please reactivate your account by clicking the link in the email from <strong>kyle@powerdentalgroup.com</strong>, Can’t find it? Email<strong> </strong><a href=\"mailto:kyle@powerdentalgroup.com\" title=\"mailto:kyle@powerdentalgroup.com\"><strong>kyle@powerdentalgroup.com</strong></a> and we’ll send another link to your email to reactivate your account</p>"
+            "text": "<p>All existing customers will need to reactivate their account.<\/p><p>Existing customers, please reactivate your account by clicking the link in the email from <strong>kyle@powerdentalgroup.com<\/strong>, Can’t find it? Email<strong> <\/strong><a href=\"mailto:kyle@powerdentalgroup.com\" title=\"mailto:kyle@powerdentalgroup.com\"><strong>kyle@powerdentalgroup.com<\/strong><\/a> and we’ll send another link to your email to reactivate your account<\/p>"
           }
         }
       },

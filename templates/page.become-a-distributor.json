@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -24,7 +15,7 @@
           "type": "breadcrumb_item",
           "settings": {
             "label": "About Us",
-            "link": "shopify://pages/our-vision-philosophy"
+            "link": "shopify:\/\/pages\/our-vision-philosophy"
           }
         }
       },
@@ -43,14 +34,14 @@
         "heading_866pQh": {
           "type": "heading",
           "settings": {
-            "heading": "become a <strong>power dental partner</strong>",
+            "heading": "become a <strong>power dental partner<\/strong>",
             "heading_size": "h1"
           }
         },
         "text_QQQT6G": {
           "type": "text",
           "settings": {
-            "text": "<p>Join our network as a distributing partner. We actively look for key to distribute our highly innovative and essential dental products and services.</p>",
+            "text": "<p>Join our network as a distributing partner. We actively look for key to distribute our highly innovative and essential dental products and services.<\/p>",
             "text_style": "body"
           }
         },
@@ -58,7 +49,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "START THE CONVERSATION",
-            "button_link_1": "/pages/contact",
+            "button_link_1": "\/pages\/contact",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -73,7 +64,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/become-distributor-banner.jpg",
+        "image": "shopify:\/\/shop_images\/become-distributor-banner.jpg",
         "image_overlay_opacity": 0,
         "image_height": "small",
         "image_behavior": "none",
@@ -159,9 +150,9 @@
       ],
       "name": "Benefit Section",
       "settings": {
-        "shows_faq_section_title": "<p>Access benefits<strong> designed for you</strong></p>",
-        "shows_faq_section_content": "<p>We partner with those who consistently embrace and uphold our fundamental core values. We believe these individuals will thrive and reap the rewards that come with being a part of the Power Dental Group family.</p>",
-        "right_image": "shopify://shop_images/distributor-temp_c6d31abb-42c0-4d87-b3b3-8020b1cce649.jpg"
+        "shows_faq_section_title": "<p>Access benefits<strong> designed for you<\/strong><\/p>",
+        "shows_faq_section_content": "<p>We partner with those who consistently embrace and uphold our fundamental core values. We believe these individuals will thrive and reap the rewards that come with being a part of the Power Dental Group family.<\/p>",
+        "right_image": "shopify:\/\/shop_images\/distributor-temp_c6d31abb-42c0-4d87-b3b3-8020b1cce649.jpg"
       }
     },
     "rich_text_fnrnCk": {
@@ -170,13 +161,13 @@
         "text_mBaxNQ": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>We also look at the following criteria:</strong></p><ul><li>Strategically located in areas where our products are underutilized.</li><li>No conflict with existing partners.</li><li>Year-over-year growth.</li></ul>"
+            "text": "<p><strong>We also look at the following criteria:<\/strong><\/p><ul><li>Strategically located in areas where our products are underutilized.<\/li><li>No conflict with existing partners.<\/li><li>Year-over-year growth.<\/li><\/ul>"
           }
         },
         "text_NzMtVU": {
           "type": "text",
           "settings": {
-            "text": "<h2>Why Power <strong>Dental Group?</strong></h2><p>Build upon our experience and global presence.</p><p>We offer an extensive range of dental solutions. Backed by a strong reputation in the dental community and a growing core team, we are well-equipped to support your needs as a partner. We maintain a hands-on approach with our distributors, committed to ensuring your success.</p><p></p>"
+            "text": "<h2>Why Power <strong>Dental Group?<\/strong><\/h2><p>Build upon our experience and global presence.<\/p><p>We offer an extensive range of dental solutions. Backed by a strong reputation in the dental community and a growing core team, we are well-equipped to support your needs as a partner. We maintain a hands-on approach with our distributors, committed to ensuring your success.<\/p><p><\/p>"
           }
         }
       },
@@ -186,7 +177,7 @@
       ],
       "custom_css": [
         ".rich-text__blocks.left {max-width: 100%; display: flex; align-items: flex-start; gap: 60px;}",
-        ".rich-text__text.rte {width: calc(100% / 2);}",
+        ".rich-text__text.rte {width: calc(100% \/ 2);}",
         ".rich-text__text.rte p {font-family: \"Montserrat\" !important; font-size: 16px; font-style: normal; font-weight: 300; line-height: 22px; letter-spacing: -0.16px;}",
         ".rte li {list-style: inherit; color: #010005; font-size: 15px; font-style: normal; font-weight: 300; line-height: 22px; letter-spacing: -0.16px;}",
         "@media (max-width: 991px) {.rich-text__blocks.left {gap: 20px; flex-direction: column; }}"
