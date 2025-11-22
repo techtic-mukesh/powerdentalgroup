@@ -14,7 +14,10 @@
 .drawer.active {
   visibility: visible;
 }
-
+.cart__empty-text {
+    font-weight: 700;
+    text-transform: uppercase !important;
+} 
 .drawer__inner {
   height: 100%;
   width: 46rem;

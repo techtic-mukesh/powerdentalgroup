@@ -551,6 +551,7 @@
       display: flex
 ;
     flex-direction: column;
+        align-items: flex-start;
 }
 
 .card--card.card--media .card__inner .card__information,
@@ -601,7 +602,7 @@
 
 .card-information > .price {
   color: rgb(var(--color-foreground));
-  margin: 0 0 13px !important;
+  margin: 0 0 -2px !important;
 }
 
 .card__heading .full-unstyled-link {

@@ -296,219 +296,262 @@
   {% endif %}
 
   // Build Dawn card HTML for grid
-  function createCardHTML(product) {
-    const li = document.createElement('li');
-    li.className = 'grid__item';
-    li.dataset.productHandle = product.handle; // Add identifier
+ function createCardHTML(product) {
+  const li = document.createElement('li');
+  li.className = 'grid__item';
+  li.dataset.productHandle = product.handle;
 
-    li.innerHTML = `
-      <div class="card-wrapper product-card-wrapper underline-links-hover">
-        <div class="card card--standard card--media" style="--ratio-percent: 100%;">
-          <div class="card__inner color-scheme-2 gradient ratio" style="--ratio-percent: 100%;">
-            <div class="card__media">
-              <div class="media media--transparent media--hover-effect">
-                <img src="${product.featured_image}" alt="${product.title}" class="motion-reduce" loading="lazy" width="700" height="700">
-              </div>
-            </div>
+  // Calculate catalog points
+  const rawPrice = parseFloat(product.price.replace('$', ''));
+  const rawPoints = Math.round((rawPrice * 5));
+  const remainder = rawPoints % 10;
+  let points;
+  
+  if (remainder === 5) {
+    points = rawPoints + 5;
+  } else {
+    points = Math.floor((rawPoints + 2.5) / 5) * 5;
+  }
 
-            <div class="card__content">
-              <div class="card__information">
-                <h3 class="card__heading">
-                  <a href="${product.url}" class="full-unstyled-link">
-                    ${product.title}
-                  </a>
-                </h3>
-              </div>
-              <div class="card__badge bottom left"></div>
+  li.innerHTML = `
+    <div class="card-wrapper product-card-wrapper underline-links-hover">
+      <div class="card card--standard card--media" style="--ratio-percent: 100%;">
+        <div class="card__inner color-scheme-2 gradient ratio" style="--ratio-percent: 100%;">
+          <div class="card__media">
+            <div class="media media--transparent media--hover-effect">
+              <img src="${product.featured_image}" alt="${product.title}" class="motion-reduce" loading="lazy" width="700" height="700">
             </div>
           </div>
 
           <div class="card__content">
             <div class="card__information">
-              <div class="card-information">
-                <span class="caption-large light"></span>
-                <div class="price">
-                  <div class="price__container">
-                    <div class="price__regular">
-                      <span class="price-item price-item--regular">
-                        ${product.price}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <h3 class="card__heading h5">
+              <h3 class="card__heading">
                 <a href="${product.url}" class="full-unstyled-link">
                   ${product.title}
                 </a>
               </h3>
-
-              <div class="product-sku-stock">
-                <span class="product-sku">
-                  SKU: <strong>${product.variants[0].sku || ''}</strong>
-                </span>
-                <span class="product-stock in-stock">
-                  <span class="stock-dot"></span> In Stock
-                </span>
-              </div>
             </div>
-
-            <div class="quick-add no-js-hidden">
-             <product-form data-section-id="recently-viewed-${product.id}">
-  <form method="post" action="/cart/add" id="quick-add-${product.variants[0].id}" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate>
-    <input type="hidden" name="form_type" value="product">
-    <input type="hidden" name="utf8" value="✓">
-    <input type="hidden" name="id" value="${product.variants[0].id}" class="product-variant-id">
-
-    <button id="quick-add-${product.variants[0].id}-submit" type="submit" name="add" class="quick-add__submit button button--full-width button--secondary" aria-haspopup="dialog" aria-live="polite" data-sold-out-message="true">
-      <span>Add to cart</span>
-      <span class="sold-out-message hidden">Sold out</span>
-      <div class="loading__spinner hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66">
-          <circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"></circle>
-        </svg>
-      </div>
-    </button>
-
-    <input type="hidden" name="product-id" value="${product.id}">
-    <input type="hidden" name="section-id" value="recently-viewed-${product.id}">
-  </form>
-
-  <button class="whislist-cart">
-    <a 
-      class="iWishAddColl" 
-      href="#" 
-      data-variant="${product.variants[0].id}" 
-      data-product="${product.id}" 
-      data-ptitle="${product.title}" 
-      data-manually-bound="true" 
-      data-iwclick="true"
-    >
-      <svg viewBox="0 0 256 256" width="20" class="iwishOutline" xmlns="http://www.w3.org/2000/svg">
-        <rect fill="none" height="256" width="256"></rect>
-        <path d="M128,216S28,160,28,92A52,52,0,0,1,128,72h0A52,52,0,0,1,228,92C228,160,128,216,128,216Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
-      </svg>
-    </a>
-  </button>
-</product-form>
-
-            </div>
-
             <div class="card__badge bottom left"></div>
           </div>
         </div>
-      </div>
-    `;
 
-    return li;
-  }
+        <div class="card__content">
+          <div class="card__information">
+            <div class="card-information">
+              <span class="caption-large light"></span>
+              <div class="price">
+                <div class="price__container">
+                  <div class="price__regular">
+                    <span class="price-item price-item--regular">
+                      ${product.price}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="catalog-points" style="margin-bottom:8px">
+              <img src="https://powerdentalgroup.com/cdn/shop/files/reward.svg?v=1762431687&width=50" alt="Reward Points">
+              <div class="mp-point-label" style="display:inline-block">
+                <span class="points" style="margin-left: 0">
+                  <span class="mp-rw-highlight">${points} points</span>
+                </span>
+              </div>
+              <div class="clr"></div>
+            </div>
+
+            <h3 class="card__heading h5">
+              <a href="${product.url}" class="full-unstyled-link">
+                ${product.title}
+              </a>
+            </h3>
+
+            <div class="product-sku-stock">
+              <span class="product-sku">
+                SKU: <strong>${product.variants[0].sku || ''}</strong>
+              </span>
+              <span class="product-stock in-stock">
+                <span class="stock-dot"></span> In Stock
+              </span>
+            </div>
+          </div>
+
+          <div class="quick-add no-js-hidden">
+            <product-form data-section-id="recently-viewed-${product.id}">
+              <form method="post" action="/cart/add" id="quick-add-${product.variants[0].id}" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate>
+                <input type="hidden" name="form_type" value="product">
+                <input type="hidden" name="utf8" value="✓">
+                <input type="hidden" name="id" value="${product.variants[0].id}" class="product-variant-id">
+
+                <button id="quick-add-${product.variants[0].id}-submit" type="submit" name="add" class="quick-add__submit button button--full-width button--secondary" aria-haspopup="dialog" aria-live="polite" data-sold-out-message="true">
+                  <span>Add to cart</span>
+                  <span class="sold-out-message hidden">Sold out</span>
+                  <div class="loading__spinner hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66">
+                      <circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"></circle>
+                    </svg>
+                  </div>
+                </button>
+
+                <input type="hidden" name="product-id" value="${product.id}">
+                <input type="hidden" name="section-id" value="recently-viewed-${product.id}">
+              </form>
+
+              <button class="whislist-cart">
+                <a 
+                  class="iWishAddColl" 
+                  href="#" 
+                  data-variant="${product.variants[0].id}" 
+                  data-product="${product.id}" 
+                  data-ptitle="${product.title}" 
+                  data-manually-bound="true" 
+                  data-iwclick="true"
+                >
+                  <svg viewBox="0 0 256 256" width="20" class="iwishOutline" xmlns="http://www.w3.org/2000/svg">
+                    <rect fill="none" height="256" width="256"></rect>
+                    <path d="M128,216S28,160,28,92A52,52,0,0,1,128,72h0A52,52,0,0,1,228,92C228,160,128,216,128,216Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                  </svg>
+                </a>
+              </button>
+            </product-form>
+          </div>
+
+          <div class="card__badge bottom left"></div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  return li;
+}
 
   // Build card HTML for swiper slide
   function createSwiperSlideHTML(product) {
-    const slide = document.createElement('div');
-    slide.className = 'swiper-slide';
-    slide.dataset.productHandle = product.handle; // Add identifier
+  const slide = document.createElement('div');
+  slide.className = 'swiper-slide';
+  slide.dataset.productHandle = product.handle;
 
-    slide.innerHTML = `
-      <div class="card-wrapper product-card-wrapper underline-links-hover">
-        <div class="card card--standard card--media" style="--ratio-percent: 100%;">
-          <div class="card__inner color-scheme-2 gradient ratio" style="--ratio-percent: 100%;">
-            <div class="card__media">
-              <div class="media media--transparent media--hover-effect">
-                <img src="${product.featured_image}" alt="${product.title}" class="motion-reduce" loading="lazy" width="700" height="700">
-              </div>
-            </div>
+  // Calculate catalog points
+  const rawPrice = parseFloat(product.price.replace('$', ''));
+  const rawPoints = Math.round((rawPrice * 5));
+  const remainder = rawPoints % 10;
+  let points;
+  
+  if (remainder === 5) {
+    points = rawPoints + 5;
+  } else {
+    points = Math.floor((rawPoints + 2.5) / 5) * 5;
+  }
 
-            <div class="card__content">
-              <div class="card__information">
-                <h3 class="card__heading">
-                  <a href="${product.url}" class="full-unstyled-link">
-                    ${product.title}
-                  </a>
-                </h3>
-              </div>
-              <div class="card__badge bottom left"></div>
+  slide.innerHTML = `
+    <div class="card-wrapper product-card-wrapper underline-links-hover">
+      <div class="card card--standard card--media" style="--ratio-percent: 100%;">
+        <div class="card__inner color-scheme-2 gradient ratio" style="--ratio-percent: 100%;">
+          <div class="card__media">
+            <div class="media media--transparent media--hover-effect">
+              <img src="${product.featured_image}" alt="${product.title}" class="motion-reduce" loading="lazy" width="700" height="700">
             </div>
           </div>
 
           <div class="card__content">
             <div class="card__information">
-              <div class="card-information">
-                <span class="caption-large light"></span>
-                <div class="price">
-                  <div class="price__container">
-                    <div class="price__regular">
-                      <span class="price-item price-item--regular">
-                        ${product.price}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <h3 class="card__heading h5">
+              <h3 class="card__heading">
                 <a href="${product.url}" class="full-unstyled-link">
                   ${product.title}
                 </a>
               </h3>
-
-              <div class="product-sku-stock">
-                <span class="product-sku">
-                  SKU: <strong>${product.variants[0].sku || ''}</strong>
-                </span>
-                <span class="product-stock in-stock">
-                  <span class="stock-dot"></span> In Stock
-                </span>
-              </div>
             </div>
-
-            <div class="quick-add no-js-hidden">
-              <product-form data-section-id="recently-viewed-${product.id}">
-                <form method="post" action="/cart/add" id="quick-add-${product.variants[0].id}" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate>
-                  <input type="hidden" name="form_type" value="product">
-                  <input type="hidden" name="utf8" value="✓">
-                  <input type="hidden" name="id" value="${product.variants[0].id}" class="product-variant-id">
-
-                  <button id="quick-add-${product.variants[0].id}-submit" type="submit" name="add" class="quick-add__submit button button--full-width button--secondary" aria-haspopup="dialog" aria-live="polite" data-sold-out-message="true">
-                    <span>Add to cart</span>
-                    <span class="sold-out-message hidden">Sold out</span>
-                    <div class="loading__spinner hidden">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66">
-                        <circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"></circle>
-                      </svg>
-                    </div>
-                  </button>
-                  <input type="hidden" name="product-id" value="${product.id}">
-                  <input type="hidden" name="section-id" value="recently-viewed-${product.id}">
-                </form>
-                 <button class="whislist-cart">
-                    <a 
-                      class="iWishAddColl" 
-                      href="#" 
-                      data-variant="${product.variants[0].id}" 
-                      data-product="${product.id}" 
-                      data-ptitle="${product.title}" 
-                      data-manually-bound="true" 
-                      data-iwclick="true"
-                    >
-                      <svg viewBox="0 0 256 256" width="20" class="iwishOutline" xmlns="http://www.w3.org/2000/svg">
-                        <rect fill="none" height="256" width="256"></rect>
-                        <path d="M128,216S28,160,28,92A52,52,0,0,1,128,72h0A52,52,0,0,1,228,92C228,160,128,216,128,216Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
-                      </svg>
-                    </a>
-                  </button>
-              </product-form>
-            </div>
-
             <div class="card__badge bottom left"></div>
           </div>
         </div>
-      </div>
-    `;
 
-    return slide;
-  }
+        <div class="card__content">
+          <div class="card__information">
+            <div class="card-information">
+              <span class="caption-large light"></span>
+              <div class="price">
+                <div class="price__container">
+                  <div class="price__regular">
+                    <span class="price-item price-item--regular">
+                      ${product.price}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="catalog-points" style="margin-bottom:8px">
+              <img src="https://powerdentalgroup.com/cdn/shop/files/reward.svg?v=1762431687&width=50" alt="Reward Points">
+              <div class="mp-point-label" style="display:inline-block">
+                <span class="points" style="margin-left: 0">
+                  <span class="mp-rw-highlight">${points} points</span>
+                </span>
+              </div>
+              <div class="clr"></div>
+            </div>
+
+            <h3 class="card__heading h5">
+              <a href="${product.url}" class="full-unstyled-link">
+                ${product.title}
+              </a>
+            </h3>
+
+            <div class="product-sku-stock">
+              <span class="product-sku">
+                SKU: <strong>${product.variants[0].sku || ''}</strong>
+              </span>
+              <span class="product-stock in-stock">
+                <span class="stock-dot"></span> In Stock
+              </span>
+            </div>
+          </div>
+
+          <div class="quick-add no-js-hidden">
+            <product-form data-section-id="recently-viewed-${product.id}">
+              <form method="post" action="/cart/add" id="quick-add-${product.variants[0].id}" accept-charset="UTF-8" class="form" enctype="multipart/form-data" novalidate>
+                <input type="hidden" name="form_type" value="product">
+                <input type="hidden" name="utf8" value="✓">
+                <input type="hidden" name="id" value="${product.variants[0].id}" class="product-variant-id">
+
+                <button id="quick-add-${product.variants[0].id}-submit" type="submit" name="add" class="quick-add__submit button button--full-width button--secondary" aria-haspopup="dialog" aria-live="polite" data-sold-out-message="true">
+                  <span>Add to cart</span>
+                  <span class="sold-out-message hidden">Sold out</span>
+                  <div class="loading__spinner hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66">
+                      <circle stroke-width="6" cx="33" cy="33" r="30" fill="none" class="path"></circle>
+                    </svg>
+                  </div>
+                </button>
+                <input type="hidden" name="product-id" value="${product.id}">
+                <input type="hidden" name="section-id" value="recently-viewed-${product.id}">
+              </form>
+              <button class="whislist-cart">
+                <a 
+                  class="iWishAddColl" 
+                  href="#" 
+                  data-variant="${product.variants[0].id}" 
+                  data-product="${product.id}" 
+                  data-ptitle="${product.title}" 
+                  data-manually-bound="true" 
+                  data-iwclick="true"
+                >
+                  <svg viewBox="0 0 256 256" width="20" class="iwishOutline" xmlns="http://www.w3.org/2000/svg">
+                    <rect fill="none" height="256" width="256"></rect>
+                    <path d="M128,216S28,160,28,92A52,52,0,0,1,128,72h0A52,52,0,0,1,228,92C228,160,128,216,128,216Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                  </svg>
+                </a>
+              </button>
+            </product-form>
+          </div>
+
+          <div class="card__badge bottom left"></div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  return slide;
+}
 
   // Initialize Swiper - only once
   function initRecentlyViewedSwiper() {

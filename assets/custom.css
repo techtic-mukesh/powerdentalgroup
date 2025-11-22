@@ -490,6 +490,11 @@ a.jdgm-write-rev-link:hover {
     height: 21px;
 }
 
+.recently-viewed-products .catalog-points {
+    margin-top: 7px;
+    display: inline-flex;
+    width: auto;
+}
 
 
 /* Globle Responsive */
