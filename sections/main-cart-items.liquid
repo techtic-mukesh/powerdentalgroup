@@ -514,3 +514,320 @@
   ]
 }
 {% endschema %}
+
+
+{% if template.name == 'cart' %}
+
+<script>
+//  /* === Force iWish to work in Cart after updates === */
+/* Add this AFTER your existing IWishButtonManager code */
+
+(function() {
+  'use strict';
+  
+  console.log('🛒 iWish Cart Force Loader started...');
+
+  // Function to force iWish app to scan and inject buttons
+  function forceIWishInCart() {
+    console.log('🔧 Forcing iWish to work in cart...');
+    
+    const cartContainer = document.querySelector('.cart-items, #main-cart-items, form[action="/cart"]');
+    if (!cartContainer) {
+      console.warn('⚠️ Cart container not found');
+      return;
+    }
+
+    // Check if buttons exist in cart
+    let existingButtons = cartContainer.querySelectorAll('.iWishAddColl');
+    console.log(`Found ${existingButtons.length} existing iWish buttons in cart`);
+
+    // If no buttons, we need to wait for iWish app to inject them
+    if (existingButtons.length === 0) {
+      console.log('⚠️ No buttons found, waiting for iWish app...');
+      
+      // Try multiple initialization methods
+      const initMethods = [
+        () => typeof window.iWishInit === 'function' && window.iWishInit(),
+        () => typeof jQuery !== 'undefined' && jQuery.fn.iWish && jQuery('.iWishAddColl').iWish(),
+        () => window.iWish?.init && window.iWish.init(),
+        () => window.iWish?.refresh && window.iWish.refresh(),
+        () => typeof jQuery !== 'undefined' && jQuery(document).trigger('iwish:init')
+      ];
+
+      let initialized = false;
+      for (const method of initMethods) {
+        try {
+          if (method()) {
+            console.log('✅ iWish initialization method succeeded');
+            initialized = true;
+            break;
+          }
+        } catch (e) {
+          // Continue to next method
+        }
+      }
+
+      // Wait and check again
+      setTimeout(() => {
+        existingButtons = cartContainer.querySelectorAll('.iWishAddColl');
+        console.log(`After init: ${existingButtons.length} buttons found`);
+        
+        if (existingButtons.length > 0) {
+          initializeButtons(existingButtons);
+        }
+      }, 800);
+    } else {
+      // Buttons exist, just need to reinitialize them
+      initializeButtons(existingButtons);
+    }
+  }
+
+  // Initialize button click handlers
+  function initializeButtons(buttons) {
+    console.log(`🔧 Initializing ${buttons.length} cart buttons...`);
+    
+    buttons.forEach((button, i) => {
+      // Check if already has handler
+      if (button.onclick || button.getAttribute('data-cart-iwish-bound') === 'true') {
+        console.log(`Button ${i + 1} already initialized`);
+        return;
+      }
+
+      // Get button data
+      const productId = button.getAttribute('data-product');
+      const variantId = button.getAttribute('data-variant');
+      const productTitle = button.getAttribute('data-ptitle');
+
+      console.log(`Binding button ${i + 1}:`, { productId, variantId });
+
+      // Add click handler
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        console.log('❤️ Wishlist button clicked:', { productId, variantId });
+
+        // Try iWish API methods
+        let added = false;
+
+        // Method 1: window.iWish
+        if (window.iWish) {
+          if (typeof window.iWish.addToWishlist === 'function') {
+            window.iWish.addToWishlist(productId, variantId);
+            console.log('✅ Added via window.iWish.addToWishlist');
+            added = true;
+          } else if (typeof window.iWish.add === 'function') {
+            window.iWish.add(productId, variantId);
+            console.log('✅ Added via window.iWish.add');
+            added = true;
+          }
+        }
+
+        // Method 2: jQuery iWish
+        if (!added && typeof jQuery !== 'undefined' && jQuery.iWish) {
+          if (typeof jQuery.iWish.add === 'function') {
+            jQuery.iWish.add(productId, variantId);
+            console.log('✅ Added via jQuery.iWish.add');
+            added = true;
+          }
+        }
+
+        // Method 3: Trigger the button's natural iWish handler
+        if (!added) {
+          console.log('⚠️ Trying to trigger iWish app handler...');
+          
+          // Dispatch a native click event
+          const clickEvent = new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true,
+            view: window
+          });
+          
+          // Try to find and copy handler from a working button
+          const workingButton = document.querySelector('.product-card-wrapper .iWishAddColl, .card-wrapper .iWishAddColl');
+          if (workingButton && workingButton.onclick) {
+            button.onclick = workingButton.onclick;
+            console.log('✅ Copied handler from working button');
+          }
+        }
+
+        if (!added) {
+          console.error('❌ Could not add to wishlist');
+        }
+
+        // Visual feedback
+        button.classList.add('iwish-adding');
+        setTimeout(() => button.classList.remove('iwish-adding'), 500);
+      });
+
+      button.setAttribute('data-cart-iwish-bound', 'true');
+      console.log(`✅ Button ${i + 1} bound successfully`);
+    });
+  }
+
+  // === Event Listeners for Cart Updates ===
+
+  // 1. Observe cart DOM changes
+  function setupCartObserver() {
+    const cartContainer = document.querySelector('.cart-items, #main-cart-items, form[action="/cart"]');
+    
+    if (!cartContainer) {
+      setTimeout(setupCartObserver, 1000);
+      return;
+    }
+
+    if (cartContainer.hasAttribute('data-force-iwish-watching')) {
+      return;
+    }
+
+    console.log('👁️ Setting up cart DOM observer...');
+
+    const observer = new MutationObserver((mutations) => {
+      let hasChanges = false;
+
+      for (const mutation of mutations) {
+        if (mutation.type === 'childList' && (mutation.addedNodes.length > 0 || mutation.removedNodes.length > 0)) {
+          hasChanges = true;
+          break;
+        }
+      }
+
+      if (hasChanges) {
+        console.log('🔄 Cart DOM changed');
+        clearTimeout(observer.timer);
+        observer.timer = setTimeout(() => {
+          forceIWishInCart();
+        }, 500);
+      }
+    });
+
+    observer.observe(cartContainer, {
+      childList: true,
+      subtree: true
+    });
+
+    cartContainer.setAttribute('data-force-iwish-watching', 'true');
+    console.log('✅ Cart observer active');
+  }
+
+  // 2. Intercept cart AJAX
+  const originalFetch = window.fetch;
+  window.fetch = function(...args) {
+    return originalFetch.apply(this, args).then(response => {
+      const url = args[0];
+      
+      if (url && typeof url === 'string' && (
+        url.includes('/cart/change') ||
+        url.includes('/cart/update') ||
+        url.includes('change.js') ||
+        url.includes('update.js')
+      )) {
+        console.log('🌐 Cart AJAX detected:', url);
+        
+        setTimeout(() => forceIWishInCart(), 700);
+        setTimeout(() => forceIWishInCart(), 1400); // Backup
+      }
+      
+      return response;
+    });
+  };
+
+  // 3. jQuery AJAX
+  if (typeof jQuery !== 'undefined') {
+    jQuery(document).ajaxComplete(function(event, xhr, settings) {
+      if (settings.url && (
+        settings.url.includes('/cart/') ||
+        settings.url.includes('change.js') ||
+        settings.url.includes('update.js')
+      )) {
+        console.log('🌐 jQuery cart AJAX detected');
+        setTimeout(() => forceIWishInCart(), 700);
+      }
+    });
+  }
+
+  // 4. Quantity button clicks
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.quantity__button, button[name="plus"], button[name="minus"]');
+    if (btn && btn.closest('.cart-items, form[action="/cart"]')) {
+      console.log('➕➖ Quantity button clicked');
+      setTimeout(() => forceIWishInCart(), 1000);
+    }
+  });
+
+  // 5. Remove button clicks
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.cart-item__remove, [href*="/cart/change"]');
+    if (btn) {
+      console.log('🗑️ Remove button clicked');
+      setTimeout(() => forceIWishInCart(), 1200);
+    }
+  });
+
+  // 6. Shopify events
+  ['cart:updated', 'cart:refresh', 'cart:change'].forEach(eventName => {
+    document.addEventListener(eventName, () => {
+      console.log(`📣 ${eventName}`);
+      setTimeout(() => forceIWishInCart(), 600);
+    });
+  });
+
+  // 7. Periodic checker (cart page only)
+  if (window.location.pathname.includes('/cart')) {
+    setInterval(() => {
+      const cart = document.querySelector('.cart-items, form[action="/cart"]');
+      if (!cart) return;
+
+      const buttons = cart.querySelectorAll('.iWishAddColl');
+      const unbound = Array.from(buttons).filter(
+        btn => !btn.onclick && btn.getAttribute('data-cart-iwish-bound') !== 'true'
+      );
+
+      if (unbound.length > 0) {
+        console.log(`⚠️ Found ${unbound.length} unbound cart buttons`);
+        forceIWishInCart();
+      }
+    }, 3000);
+
+    console.log('✅ Cart periodic checker started');
+  }
+
+  // === Initialize ===
+  
+  function initialize() {
+    setupCartObserver();
+    
+    // Initial check
+    if (window.location.pathname.includes('/cart')) {
+      setTimeout(() => {
+        console.log('🔍 Initial cart check...');
+        forceIWishInCart();
+      }, 2000);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    initialize();
+  }
+
+  // Add CSS for visual feedback
+  const style = document.createElement('style');
+  style.textContent = `
+    .iWishAddColl.iwish-adding {
+      animation: iwish-pulse 0.5s ease;
+    }
+    @keyframes iwish-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+  `;
+  document.head.appendChild(style);
+
+  console.log('✅ iWish Cart Force Loader initialized');
+  
+})();
+</script>
+
+{% endif %}
