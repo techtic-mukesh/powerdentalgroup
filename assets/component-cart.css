@@ -31,6 +31,28 @@ cart-items.is-empty .title-wrapper-with-link,
 
 .cart__login-title {
   margin: 5.5rem 0 0.5rem;
+  position: relative;
+    font-size: 18px;
+    letter-spacing: -.16px;
+    line-height: 27px;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-family: Prompt;
+    background: linear-gradient(90deg, #42c5ef, #0033a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    display: inline-block;
+    background: linear-gradient(102deg, #42c5ef, #0033a0, #42c5ef, #0033a0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    font-weight: 600;
+    transition: color .2s 
+ease-in-out;
+    display: inline-block;
+    width: 100%;
 }
 
 .cart__login-paragraph {

@@ -85,7 +85,9 @@ text-transform: uppercase;
     line-height: normal;
     min-height: 50px;
     text-transform: capitalize;
-}
+    padding-top: 10px;
+      padding-bottom: 10px;
+  }
 
 .video-section a.custom-button.button.button--secondary i {
     min-width: 36px;
@@ -111,8 +113,15 @@ text-transform: uppercase;
     padding-bottom: 30px !important;
 }
 
+.video-section__media {
+    --ratio-percent: 71.25%;
+}
 .video-section h2.title.inline-richtext.h1 {
     font-size: 24px;
     margin: 0 0 20px;
+}
+
+.video-section  a.custom-button.button.button--secondary { 
+  font-size: 14px;
 }
 }

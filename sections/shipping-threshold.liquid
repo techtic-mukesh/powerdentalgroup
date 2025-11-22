@@ -60,33 +60,38 @@
   const circumference = radius * 2 * Math.PI;
   
   let autoCloseTimeout = null;
-  let isInitialLoad = true;
+  let hasOpenedOnce = false; // Track if popup has opened once
+  let isFirstProductAdd = true; // Track first product addition
   
   circle.style.strokeDasharray = `${circumference} ${circumference}`;
   circle.style.strokeDashoffset = circumference;
 
-  // Hover functionality
-   if (window.innerWidth > 767) {
-  wrapper.addEventListener('mouseenter', function() {
-    wrapper.classList.add('open');
-    clearTimeout(autoCloseTimeout);
-  });
+  // Hover functionality for desktop
+  if (window.innerWidth > 767) {
+    wrapper.addEventListener('mouseenter', function() {
+      wrapper.classList.add('open');
+      clearTimeout(autoCloseTimeout);
+    });
 
-  wrapper.addEventListener('mouseleave', function() {
-    wrapper.classList.remove('open');
-  });
+    wrapper.addEventListener('mouseleave', function() {
+      wrapper.classList.remove('open');
+    });
   }
 
-   // Click to toggle on mobile
+  // Click to toggle on mobile
   if (window.innerWidth <= 767) {
     wrapper.addEventListener('click', function() {
       wrapper.classList.toggle('open');
     });
   }
 
-  // Function to temporarily open widget
+  // Function to temporarily open widget (only once)
   function temporarilyOpen() {
+    if (hasOpenedOnce) return; // Don't open if already opened once
+    
     wrapper.classList.add('open');
+    hasOpenedOnce = true; // Mark as opened
+    
     clearTimeout(autoCloseTimeout);
     autoCloseTimeout = setTimeout(function() {
       wrapper.classList.remove('open');
@@ -94,10 +99,10 @@
   }
 
   function formatMoney(cents) {
-    return '$' + (cents / 100).toFixed(2);
+    return '$' + Math.round(cents / 100);
   }
 
-  function updateProgress() {
+  function updateProgress(shouldOpenPopup = false) {
     fetch('/cart.js')
       .then(res => res.json())
       .then(cart => {
@@ -110,7 +115,8 @@
           messageEl.innerHTML = `<strong style="color: #0033a0;">🎉 Congratulations!</strong><br><span style="color: #010005;">You've unlocked free shipping!</span>`;
           wrapper.classList.add('threshold-reached');
         } else {
-          messageEl.innerHTML = `Spend <strong>${formatMoney(remaining * 100)}</strong> more to get<br>free shipping!`;
+          messageEl.innerHTML = `Spend <strong>${formatMoney((remaining + 1) * 100)}</strong> more to get<br>free shipping!`;
+
           wrapper.classList.remove('threshold-reached');
         }
         
@@ -136,27 +142,32 @@
           progressBar.style.backgroundColor = '{{ section.settings.bar_color }}';
         }
         
-        // Temporarily open on cart update (but not on initial load)
-        if (!isInitialLoad) {
+        // Open popup only on first product add
+        if (shouldOpenPopup && isFirstProductAdd && cartTotal > 0) {
           temporarilyOpen();
+          isFirstProductAdd = false; // Mark first add as done
         }
-        isInitialLoad = false;
       })
       .catch(err => console.error('Shipping threshold error:', err));
   }
 
-  // Initial update
-  updateProgress();
+  // Initial update (no popup)
+  updateProgress(false);
   
-  // Listen for all possible cart update events
-  document.addEventListener('cart:updated', updateProgress);
-  document.addEventListener('cart:refresh', updateProgress);
+  // Listen for cart events (no popup)
+  document.addEventListener('cart:updated', function() {
+    updateProgress(false);
+  });
   
-  // Dawn theme specific - cart drawer updates
+  document.addEventListener('cart:refresh', function() {
+    updateProgress(false);
+  });
+  
+  // Dawn theme specific - cart drawer updates (no popup)
   const cartDrawer = document.querySelector('cart-drawer');
   if (cartDrawer) {
     const observer = new MutationObserver(function(mutations) {
-      updateProgress();
+      updateProgress(false);
     });
     observer.observe(cartDrawer, { 
       childList: true, 
@@ -164,23 +175,26 @@
     });
   }
   
-  // Listen for quantity changes in cart
+  // Listen for quantity changes in cart (no popup)
   document.addEventListener('change', function(e) {
     if (e.target.name && (e.target.name.includes('quantity') || e.target.name.includes('updates'))) {
-      setTimeout(updateProgress, 500);
+      setTimeout(function() {
+        updateProgress(false);
+      }, 500);
     }
   });
   
-  // Listen for click events (add to cart, remove buttons)
+  // Listen for click events - remove buttons (no popup)
   document.addEventListener('click', function(e) {
     const target = e.target.closest('button, a');
     if (target && (
-      target.name === 'add' ||
       target.classList.contains('cart-item__remove') ||
       target.classList.contains('remove-item') ||
       target.textContent.toLowerCase().includes('remove')
     )) {
-      setTimeout(updateProgress, 500);
+      setTimeout(function() {
+        updateProgress(false);
+      }, 500);
     }
   });
   
@@ -190,13 +204,21 @@
     const promise = originalFetch.apply(this, args);
     const url = args[0];
     
-    if (typeof url === 'string' && (
-      url.includes('/cart/add') ||
-      url.includes('/cart/update') ||
-      url.includes('/cart/change') ||
-      url.includes('/cart/clear')
-    )) {
-      promise.then(() => setTimeout(updateProgress, 300));
+    if (typeof url === 'string') {
+      // Only open popup for add to cart
+      if (url.includes('/cart/add')) {
+        promise.then(() => setTimeout(function() {
+          updateProgress(true); // Pass true to open popup
+        }, 300));
+      }
+      // Update without popup for other cart actions
+      else if (url.includes('/cart/update') || 
+               url.includes('/cart/change') || 
+               url.includes('/cart/clear')) {
+        promise.then(() => setTimeout(function() {
+          updateProgress(false);
+        }, 300));
+      }
     }
     
     return promise;
