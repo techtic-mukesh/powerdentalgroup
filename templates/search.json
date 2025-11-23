@@ -12,6 +12,7 @@
         "show_rating": false,
         "quick_add": "standard",
         "enable_filtering": true,
+        "filter_collection": [],
         "filter_type": "vertical",
         "enable_sorting": true,
         "article_show_date": true,

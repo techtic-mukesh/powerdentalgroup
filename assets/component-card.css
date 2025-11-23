@@ -204,6 +204,7 @@
     justify-content: space-between;
     margin-top: 15.5px;
     flex: 1;
+    width: 100%;
 }
 
 .card__information .product-sku-stock span.product-sku {

@@ -584,3 +584,15 @@
 
 
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  // check search page
+  if (window.location.pathname === "/search") {
+    const target = document.querySelector('details[data-index="2"]');
+    if (target) {
+      target.setAttribute("open", "");
+    }
+  }
+});
+
+</script>

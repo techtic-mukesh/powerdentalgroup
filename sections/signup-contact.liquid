@@ -94,6 +94,7 @@ section.contact-mail .contact-wrap .left-title h2 {
     font-weight: 500;
     min-height: 50px;
     cursor: pointer;
+    text-transform: capitalize;
 }
 
 .right-form .hs_select_inquiry_type select.is-placeholder,
@@ -325,13 +326,17 @@ section.contact-mail .contact-wrap .left-title h2 {
 }
 
 .right-form .legal-consent-container .hs-richtext {
-    color: #FFF;
-    font-family: Prompt;
-    font-size: 14px;
+        color: #fff;
+    font-family: Montserrat;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    line-height: 1.4;
+    letter-spacing: -.16px;
+}
+
+.right-form .hs_email label {
+    margin: 0;
 }
 
 .right-form .legal-consent-container .hs-richtext a {
@@ -456,7 +461,7 @@ label.hs-error-msg.hs-main-font-element {
     font-style: normal;
     font-weight: 300 !important;
     line-height: normal !important;
-        margin-top: 0px !important;
+        margin-top: -3px !important;
 }
 
 /* Success Message */
@@ -487,6 +492,20 @@ label.hs-error-msg.hs-main-font-element {
 
 section.signup-mail {
     display: none !important;
+}
+
+.right-form ul.inputs-list .hs-form-booleancheckbox label span {
+    font-family: Montserrat !important;
+    font-size: 16px !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    line-height: 20px !important;
+    margin: 0;
+    display: flex;
+}
+
+.right-form ul.inputs-list .hs-form-booleancheckbox label {
+    margin-bottom: 10px;
 }
 
 /* Responsive Styles */

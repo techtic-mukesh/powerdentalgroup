@@ -1,0 +1,327 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_breadcrumb_QEE3cJ": {
+      "type": "custom-breadcrumb",
+      "blocks": {
+        "breadcrumb_item_m9KdCF": {
+          "type": "breadcrumb_item",
+          "settings": {
+            "label": "Resources",
+            "link": "shopify:\/\/pages\/resources"
+          }
+        }
+      },
+      "block_order": [
+        "breadcrumb_item_m9KdCF"
+      ],
+      "name": "Custom Breadcrumb Section",
+      "settings": {
+        "background_gradient": "",
+        "page_title": "Servicing Order Form"
+      }
+    },
+    "product_training_videos_block_W8E6jR": {
+      "type": "product-training-videos-block",
+      "blocks": {
+        "product_title_gNpVjc": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "Power Crown Removers"
+          }
+        },
+        "product_videos_card_XpakpH": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/DNhsgeyZUmQ",
+            "card_title": "Power Dental USA Crown Removers - Dr. Daniel"
+          }
+        }
+      },
+      "block_order": [
+        "product_title_gNpVjc",
+        "product_videos_card_XpakpH"
+      ],
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": "Product Training Videos"
+      }
+    },
+    "product_training_videos_block_qEfyJ8": {
+      "type": "product-training-videos-block",
+      "blocks": {
+        "product_title_qJyxNq": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "Fish Bone Tray"
+          }
+        },
+        "product_videos_card_z7VKY8": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/Cf432L2bdJQ",
+            "card_title": "7314-Disposable Fish Bone Tray"
+          }
+        }
+      },
+      "block_order": [
+        "product_title_qJyxNq",
+        "product_videos_card_z7VKY8"
+      ],
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": ""
+      }
+    },
+    "product_training_videos_block_LNpriF": {
+      "type": "product-training-videos-block",
+      "blocks": {
+        "product_title_hMmYXr": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "Power Bone Crusher"
+          }
+        },
+        "product_videos_card_WmKTtt": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/gfqjSA6YvCI",
+            "card_title": "Power Bone Mill With Crusher"
+          }
+        }
+      },
+      "block_order": [
+        "product_title_hMmYXr",
+        "product_videos_card_WmKTtt"
+      ],
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": ""
+      }
+    },
+    "product_training_videos_block_nMLLUA": {
+      "type": "product-training-videos-block",
+      "blocks": {
+        "product_title_mCyfyV": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "Implant Systems"
+          }
+        },
+        "product_videos_card_Gy88he": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/ClYrKu0i8ic",
+            "card_title": "1984 Torque"
+          }
+        },
+        "product_videos_card_RpbHXp": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/SZpDKLkuGjI",
+            "card_title": "1985 Bone Mill"
+          }
+        },
+        "product_videos_card_pjwT73": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/DFJ5VAtLSck",
+            "card_title": "7801 Aqua Sinus"
+          }
+        },
+        "product_videos_card_n4PQMG": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/JCDk_mOyXPI",
+            "card_title": "7802 Crestal Approach"
+          }
+        },
+        "product_videos_card_qjm398": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/uZvLFIpLVH0",
+            "card_title": "7803 Lateral Approach"
+          }
+        },
+        "product_videos_card_Jqn8n9": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/NbQSAFSn28I",
+            "card_title": "7804 Bone Expander"
+          }
+        },
+        "product_videos_card_rXCgeX": {
+          "type": "product_videos_card",
+          "disabled": true,
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/NbQSAFSn28I",
+            "card_title": "7804 Bone Expander"
+          }
+        },
+        "product_videos_card_inqDX4": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/pj043DJdVJ8",
+            "card_title": "7806 Bur"
+          }
+        },
+        "product_videos_card_ntXV8K": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/9R3327764vo",
+            "card_title": "7808 Bone Spreading"
+          }
+        },
+        "product_videos_card_qcTFNQ": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/gQ42Dl8NfDA",
+            "card_title": "7809 Bone Expander Spreading"
+          }
+        },
+        "product_videos_card_eDCkbR": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/nhfXc3EXIc0",
+            "card_title": "7810 Bone Collector"
+          }
+        },
+        "product_videos_card_JRgLnA": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/UuTOjKXPe48",
+            "card_title": "7822 Screw And Fixture Remover"
+          }
+        }
+      },
+      "block_order": [
+        "product_title_mCyfyV",
+        "product_videos_card_Gy88he",
+        "product_videos_card_RpbHXp",
+        "product_videos_card_pjwT73",
+        "product_videos_card_n4PQMG",
+        "product_videos_card_qjm398",
+        "product_videos_card_Jqn8n9",
+        "product_videos_card_rXCgeX",
+        "product_videos_card_inqDX4",
+        "product_videos_card_ntXV8K",
+        "product_videos_card_qcTFNQ",
+        "product_videos_card_eDCkbR",
+        "product_videos_card_JRgLnA"
+      ],
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": ""
+      }
+    },
+    "product_training_videos_block_F8DUpR": {
+      "type": "product-training-videos-block",
+      "blocks": {
+        "product_title_8AtAfL": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "Implant Guide Set"
+          }
+        },
+        "product_videos_card_NpkgxQ": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/dMO2L72ibOs",
+            "card_title": "Centering Guide"
+          }
+        },
+        "product_videos_card_f7jGh6": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/4lS2F97bs58",
+            "card_title": "Centering Guide"
+          }
+        },
+        "product_videos_card_hDrA8m": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/4iPDRF-DHXw",
+            "card_title": "Mutiple Guide"
+          }
+        },
+        "product_videos_card_RhnLy8": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/T2jc3sZF_Sk",
+            "card_title": "Multiple Guide"
+          }
+        },
+        "product_videos_card_hbaJLQ": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/B_KQruRpL6k",
+            "card_title": "Multiple Guide"
+          }
+        }
+      },
+      "block_order": [
+        "product_title_8AtAfL",
+        "product_videos_card_NpkgxQ",
+        "product_videos_card_f7jGh6",
+        "product_videos_card_hDrA8m",
+        "product_videos_card_RhnLy8",
+        "product_videos_card_hbaJLQ"
+      ],
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": ""
+      }
+    },
+    "product_training_videos_block_iaVWLH": {
+      "type": "product-training-videos-block",
+      "blocks": {
+        "product_title_p3dRFP": {
+          "type": "product_title",
+          "settings": {
+            "subtitle_title": "Harvesting of Palatal Double Blade Scalpel Retipping Information"
+          }
+        },
+        "product_videos_card_pXTxmb": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/TNvHeqQrrVU",
+            "card_title": "Harvesting of Palatial Scalpel Blade Holder and VT Tunneling"
+          }
+        },
+        "product_videos_card_qc937z": {
+          "type": "product_videos_card",
+          "settings": {
+            "video_link": "https:\/\/www.youtube.com\/embed\/xPcwarDAlEE",
+            "card_title": "Retipping Information"
+          }
+        }
+      },
+      "block_order": [
+        "product_title_p3dRFP",
+        "product_videos_card_pXTxmb",
+        "product_videos_card_qc937z"
+      ],
+      "name": "Product Videos Grid",
+      "settings": {
+        "section_title": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_breadcrumb_QEE3cJ",
+    "product_training_videos_block_W8E6jR",
+    "product_training_videos_block_qEfyJ8",
+    "product_training_videos_block_LNpriF",
+    "product_training_videos_block_nMLLUA",
+    "product_training_videos_block_F8DUpR",
+    "product_training_videos_block_iaVWLH"
+  ]
+}
