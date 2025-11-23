@@ -207,7 +207,22 @@
             {%- endif -%}
           </div>
         {%- endif -%}
+
+       {% if collection.description != blank %}
+  <div class="collection-description-wrapper">
+    <div class="collection-description" id="collectionDesc">
+      {{ collection.description }}
+    </div>
+
+    <button id="readMoreBtn" class="read-more-btn" style="display:none;">
+      Read more &gt;&gt;
+    </button>
+  </div>
+{% endif %}
+
       </div>
+
+      
     </div>
   {%- endpaginate -%}
   {% if section.settings.image_shape == 'arch' %}
@@ -437,3 +452,87 @@
   ]
 }
 {% endschema %}
+
+
+<style>
+  .collection-description {
+    width: 100%;
+        padding-top: 30px;
+}
+
+.collection-description * {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+    font-size: 16px;
+    color: #010005;
+    letter-spacing: -.16px;
+}
+
+.collection-description strong {
+    font-weight: 700;
+}
+
+.collection-description {
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  position: relative;
+}
+
+.collection-description-wrapper button#readMoreBtn {
+    background: url();
+    border: unset;
+    padding: 12px 0 0;
+    font-size: 15px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    color: #0033a0;
+    cursor: pointer;
+}
+
+.collection-description::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, white);
+}
+
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const desc = document.getElementById("collectionDesc");
+  const btn = document.getElementById("readMoreBtn");
+
+  if (!desc || !btn) return;
+
+  // Create hidden clone to measure height of 5 lines
+  const lineHeight = parseFloat(window.getComputedStyle(desc).lineHeight);
+  const maxLines = 6;
+  const maxHeight = lineHeight * maxLines;
+
+  // Measure actual height
+  const fullHeight = desc.scrollHeight;
+
+  // If description is more than 5 lines
+  if (fullHeight > maxHeight) {
+    btn.style.display = "inline-block";
+    desc.style.maxHeight = maxHeight + "px";
+
+    btn.addEventListener("click", function () {
+      if (desc.style.maxHeight === maxHeight + "px") {
+        desc.style.maxHeight = fullHeight + "px";
+        btn.innerText = "<< Collapse";
+      } else {
+        desc.style.maxHeight = maxHeight + "px";
+        btn.innerText = "Read More >>";
+      }
+    });
+  }
+});
+</script>

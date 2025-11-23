@@ -88,7 +88,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/save-time-icon_d3d7bf17-e250-445c-8e37-9b313e030741.png",
             "step_svg": "",
-            "title": "<p>Save Time <strong>and<\/strong> Money<\/p>",
+            "title": "<p>Save Time <strong>and <\/strong>Money<\/p>",
             "content": "<p>Ensure the integrity of your instruments. Your time is valuable. Rely on our experts to extend the life of your instruments while you focus on the practice.<\/p>"
           }
         },
@@ -106,7 +106,7 @@
           "settings": {
             "step_image": "shopify:\/\/shop_images\/save-more-icon_7e0ebdf0-3ec3-4ced-bebc-91611a1b5618.png",
             "step_svg": "",
-            "title": "<p><strong>Work with t<\/strong>he Best<\/p>",
+            "title": "<p>Work <strong>with the<\/strong> Best<\/p>",
             "content": "<p>We have serviced over 1.4 million instruments and counting. Work with the best in class where excellence is the standard.<\/p>"
           }
         }
@@ -292,7 +292,7 @@
       "custom_css": [
         "h2.rich-text__heading.rte.inline-richtext.h1 {font-weight: 300;}",
         "h2.rich-text__heading.rte.inline-richtext.h1 strong {font-weight: 700;}",
-        ".rich-text__text.rte p {color: #5b5b5b; font-family: \"Montserrat\" !important; font-weight: 400; font-size: 16px; font-style: normal; line-height: 22px; letter-spacing: -0.16px;}",
+        ".rich-text__text.rte p {font-family: \"Montserrat\" !important; font-weight: 400; color: #01000a; text-align: center; font-size: 16px; font-style: normal; line-height: 1.4; letter-spacing: -0.16px;}",
         "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 120rem; }}"
       ],
       "name": "t:sections.rich-text.presets.name",

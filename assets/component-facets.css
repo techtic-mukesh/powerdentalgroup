@@ -1478,3 +1478,23 @@ ul.category-filter__list.category-filter__list--level-0 li.category-filter__item
 .facets-vertical-form .facet-filters.sorting.caption .select select option[value="created-descending"] {
     display: none;
 }
+
+.facets-vertical .facet-checkbox input[type=checkbox] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    min-width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: unset;
+    background: #fff;
+    display: inline-block;
+    position: unset;
+    cursor: pointer;
+    transition: all 0.3s 
+ease;
+    border: 1px solid #DCDCDC;
+    background: #FFF;
+    border-radius: 4px;
+        margin: 0 0 0 3px;
+}
