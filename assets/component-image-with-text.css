@@ -385,8 +385,28 @@ font-size: 16px;
 font-style: normal;
 font-weight: 300;
 line-height: 22px; /* 137.5% */
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+    line-height: 22px;
+    font-family: Prompt;
+    white-space: pre-wrap;
+    text-align: left;
+    display: inline-block;
+    font-weight: 400;
+    font-family: 'Montserrat';
+    letter-spacing: -.16px;
 }
 
+.image-with-text__heading {
+    font-size: 44px;
+    line-height: 48px;
+    text-transform: uppercase;
+    margin: 0 0 0;
+    letter-spacing: -.88px;
+    font-weight: 300;
+        max-width: 90%;
+}
 .image-with-text__media.image-with-text__media--adapt.global-media-settings.background-transparent.media {
     border-radius: 20px;
     border: 1px solid rgba(240, 238, 238, 0.93);

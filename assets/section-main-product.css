@@ -1761,6 +1761,13 @@ letter-spacing: -.16px;
     min-height: auto;
 }
 
+
+@media screen and (max-width: 1390px) {
+  .icon-with-text--horizontal .icon-with-text__item:first-of-type:after { 
+    display: none;
+  }
+ }
+
 @media screen and (max-width: 749px) {
   .product-media-container.media-fit-cover {
     display: flex;

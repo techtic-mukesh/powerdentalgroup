@@ -15,6 +15,8 @@ quantity-popover volume-pricing li {
   justify-content: space-between;
 }
 
+
+
 .quantity-popover__info.global-settings-popup {
   width: 100%;
   z-index: 3;
@@ -142,6 +144,10 @@ quantity-popover .quantity__rules span:first-of-type {
   .quantity-popover-container {
     width: auto;
     max-width: 20rem;
+  }
+
+  body.gradient.cart  .quantity-popover-container { 
+    padding: 0;
   }
 
   .quantity-popover__info.global-settings-popup {
