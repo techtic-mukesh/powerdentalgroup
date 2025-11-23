@@ -333,12 +333,21 @@ body.gradient.cart  .price--end {
 }
 
 body.gradient.cart  .quantity {
-        width: 120px;
+        width: 132px;
     overflow: hidden;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, .3);
     background: #fff;
     min-height: 36px;
+}
+
+.cart-items td button.whislist-cart {
+    background: url();
+    border: unset;
+    padding: 0;
+}
+.cart-items a.iWishAddColl {
+    position: unset;
 }
 
 body.gradient.cart  .quantity:after {
@@ -493,8 +502,7 @@ a.jdgm-write-rev-link:hover {
 .recently-viewed-products .catalog-points {
     margin-top: 7px;
     display: inline-flex;
-    width: auto;
-}
+    width: auto;32
 
 
 /* Globle Responsive */

@@ -159,8 +159,8 @@ cart-remove-button .button:not([disabled]):hover {
 }
 
 cart-remove-button .icon-remove {
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 20px;
+  width: 20px;
 }
 
 .cart-item .loading__spinner {
