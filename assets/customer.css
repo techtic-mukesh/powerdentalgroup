@@ -584,6 +584,10 @@ form#create_customer {
     padding-left: 50px;
 }
 
+.customer .field {
+  flex-flow: row wrap;
+}
+
 .login a[href="#recover"] {
     text-decoration: none;
     color: #141132;

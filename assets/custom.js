@@ -188,3 +188,12 @@ document.addEventListener("click", function(e) {
     document.dispatchEvent(new CustomEvent("cart:refresh"));
   }, 800);
 });
+
+
+  // Back/forward cache se return par page reload kare
+  window.onpageshow = function(event) {
+    if (event.persisted || window.performance && window.performance.getEntriesByType("navigation")[0].type === "back_forward") {
+      window.location.reload();
+    }
+  };
+fetch(`${routes.cart_add_url}`, config)
