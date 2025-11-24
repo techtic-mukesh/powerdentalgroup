@@ -98,7 +98,7 @@
           "settings": {
             "tab_id": "general-questions",
             "question": "Do You Take On Custom Manufacturing Requests?",
-            "answer": "<p>Absolutely. If you have a great idea for a custom instrument or kit, visit <a href=\"#\" title=\"#\"><strong>our custom manufacturing page<\/strong><\/a> to review our guidelines. You can schedule a consultation with us <a href=\"https:\/\/7y310y-hr.myshopify.com\/pages\/contact\" title=\"https:\/\/7y310y-hr.myshopify.com\/pages\/contact\"><strong>here<\/strong><\/a>.<\/p>"
+            "answer": "<p>Absolutely. If you have a great idea for a custom instrument or kit, visit <a href=\"\/pages\/custom-kitting\" title=\"Custom Kitting\"><strong>our custom manufacturing page<\/strong><\/a> to review our guidelines. You can schedule a consultation with us <a href=\"https:\/\/7y310y-hr.myshopify.com\/pages\/contact\" title=\"https:\/\/7y310y-hr.myshopify.com\/pages\/contact\"><strong>here<\/strong><\/a>.<\/p>"
           }
         },
         "tab_RBV4pH": {
@@ -246,7 +246,8 @@
         "faq_XJ4agE"
       ],
       "settings": {
-        "main_title": "FAQS"
+        "main_title": "FAQS",
+        "main_content": "<p>Click on a question to reveal the answer. If you don’t find what you’re looking for, contact our team below.<\/p>"
       }
     },
     "our_services_HFXeCY": {
@@ -282,6 +283,7 @@
         "service_jh77jG",
         "service_JkbdUB"
       ],
+      "disabled": true,
       "settings": {
         "background_color": "#f8f6f4",
         "subheading": "It Starts Here",
@@ -290,12 +292,24 @@
         "btnurl": "shopify:\/\/pages\/services",
         "btntext": "view all services"
       }
+    },
+    "signup_contact_CVKCR8": {
+      "type": "signup-contact",
+      "name": "Contact Form",
+      "settings": {
+        "background_color": "#141132",
+        "subheading": "HAVE QUESTIONS?",
+        "heading": "Contact Our Team Today!",
+        "image": "shopify:\/\/shop_images\/image_31.png",
+        "form": "<script charset=\"utf-8\" type=\"text\/javascript\" src=\"\/\/js.hsforms.net\/forms\/embed\/v2.js\"><\/script>\n<script>\n  hbspt.forms.create({\n    portalId: \"39754023\",\n    formId: \"92cffa2f-5f86-4803-b5c3-0976d8432bc5\",\n    region: \"na1\"\n  });\n<\/script>"
+      }
     }
   },
   "order": [
     "main",
     "custom_breadcrumb_8rKEjU",
     "faq_tabs_xpzDTP",
-    "our_services_HFXeCY"
+    "our_services_HFXeCY",
+    "signup_contact_CVKCR8"
   ]
 }
