@@ -1,6 +1,8 @@
 <section class="faq-tabs-section">
   <div class="container">
-    {% if section.index == 1 %}
+    <div class="faq-tab-header">
+
+     {% if section.index == 1 %}
   {% if section.settings.main_title %}
         <h1 class="faq-title">{{ section.settings.main_title }}</h1>
     {% endif %}
@@ -9,6 +11,11 @@
         <h2 class="faq-title h2">{{ section.settings.main_title }}</h2>
     {% endif %}
 {% endif %}
+
+{{ section.settings.main_content }}
+
+    </div>
+   
     {% assign tabs = section.blocks | where: 'type', 'tab' %}
     {% assign faqs = section.blocks | where: 'type', 'faq' %}
 
@@ -54,8 +61,23 @@
 .faq-title.h2 {
     font-size: 44px;
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 0;
     line-height: 1.3;
+}
+
+.faq-tab-header {
+  margin-bottom: 40px;
+}
+
+.faq-tab-header p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    line-height: 22px;
+    white-space: pre-wrap;
+    display: inline-block;
+    font-weight: 400;
+    font-family: 'Montserrat';
+    letter-spacing: -.16px;
 }
 
 
@@ -80,6 +102,12 @@
     border-bottom: none;
     transition: all 0.3s ease;
     text-transform: uppercase;
+    align-content: center;
+    line-height: 1.4;
+}
+
+.faq-tab-title[data-tab="tab-shipping-warranty-return"] {
+    padding: 15px 78px;
 }
 
 .faq-tab-title.active {
@@ -147,7 +175,7 @@
     color: #5b5b5b;
     font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 22px;
     letter-spacing: -.16px;
     font-family: 'Montserrat';
@@ -273,6 +301,11 @@ document.addEventListener('DOMContentLoaded', function() {
       "id": "main_title",
       "label": "Main Title",
       "default": "FAQS"
+    },
+    {
+      "type": "richtext",
+      "id": "main_content",
+      "label": "Main Content"
     }
   ],
   "blocks": [

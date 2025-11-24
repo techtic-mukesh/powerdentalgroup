@@ -3670,7 +3670,20 @@ details-disclosure > details {
 
 
 .header__icon--account shop-user-avatar {
-     --shop-avatar-size: 1.8rem;
-    margin-top: -6px;
-    margin-bottom: -3px;
+       --shop-avatar-size: 1.4rem;
+    margin-top: -5px;
+    margin-bottom: 6px;
+    width: 29px;
+    height: 20px;
+    scale: .9;
 }
+
+#iwish-drawer-root .iwish-drawer-menu .iwish-row.gap-15 {
+    display: none;
+}
+
+#iwish-drawer-root .iwish-drawer-menu .iwish-row.social-media {
+    display: none !important;
+}
+
+  

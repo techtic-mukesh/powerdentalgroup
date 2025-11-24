@@ -6,7 +6,10 @@
         <span class="bg-image">
           <img src="{{ section.settings.image |  img_url: '' }}" alt="">
         </span>
+        <p class="subheading">{{ section.settings.subheading }}</p>
         <h2>{{ section.settings.heading }}</h2>
+
+        <small>*required fields</small>
       </div>
       <div class="right-form">
         {{ section.settings.form }}
@@ -36,6 +39,29 @@ section.contact-mail .contact-wrap span.bg-image {
     left: 0;
     bottom: -2px;
     display: flex;
+}
+
+.left-title {}
+
+section.contact-mail .contact-wrap p.subheading {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 3.6px;
+    color: #fff;
+    margin: 0 0 5px;
+    font-family: 'Montserrat';
+    background: linear-gradient(102deg, #42c5ef, #0033a0, #42c5ef, #0033a0);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: color .2s 
+ease-in-out;
+}
+
+section.contact-mail .contact-wrap p.subheading:hover {
+        animation: rainbow 1.25s ease-in-out infinite;
 }
 
 section.contact-mail .contact-wrap span.bg-image img {
@@ -626,6 +652,11 @@ section.signup-mail {
         "id": "background_color",
         "label": "Background Color",
         "default": "#ffffff"
+      }, 
+       {
+        "type": "text",
+        "id": "subheading",
+        "label": "Subheading"
       }, 
       {
         "type": "text",

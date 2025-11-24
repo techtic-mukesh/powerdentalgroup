@@ -132,3 +132,59 @@ $(document).ready(function () {
   }
 });
 
+document.addEventListener("click", function(e) {
+  const btn = e.target.closest(".add_to_cart, .addToCart-btn");
+  if (!btn) return;
+  
+  setTimeout(() => {
+    const cartDrawer = document.querySelector("cart-drawer");
+    
+    // Fetch cart data
+    fetch('/cart.js')
+      .then(response => response.json())
+      .then(cartData => {
+        const itemCount = cartData.item_count;
+        
+        // Update header cart count
+        const cartCountBubble = document.querySelector('#cart-icon-bubble .cart-count-bubble');
+        if (cartCountBubble) {
+          if (itemCount > 0) {
+            cartCountBubble.innerHTML = `<span aria-hidden="true">${itemCount}</span><span class="visually-hidden">${itemCount} item${itemCount > 1 ? 's' : ''}</span>`;
+            cartCountBubble.style.display = '';
+          }
+        } else if (itemCount > 0) {
+          // Create count bubble if it doesn't exist
+          const cartIcon = document.querySelector('#cart-icon-bubble');
+          const bubble = document.createElement('div');
+          bubble.className = 'cart-count-bubble';
+          bubble.innerHTML = `<span aria-hidden="true">${itemCount}</span><span class="visually-hidden">${itemCount} item${itemCount > 1 ? 's' : ''}</span>`;
+          cartIcon.appendChild(bubble);
+        }
+        
+        // Update cart drawer
+        if (cartDrawer) {
+          if (cartDrawer.classList.contains('is-empty')) {
+            cartDrawer.classList.remove('is-empty');
+          }
+          
+          fetch('/?sections=cart-drawer')
+            .then(response => response.json())
+            .then(data => {
+              const html = data['cart-drawer'];
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(html, 'text/html');
+              const newContent = doc.querySelector('.drawer__inner');
+              
+              const currentInner = cartDrawer.querySelector('.drawer__inner');
+              if (currentInner && newContent) {
+                currentInner.innerHTML = newContent.innerHTML;
+              }
+            });
+        }
+      })
+      .catch(error => console.error('Cart refresh error:', error));
+    
+    document.dispatchEvent(new CustomEvent("cart:updated"));
+    document.dispatchEvent(new CustomEvent("cart:refresh"));
+  }, 800);
+});
