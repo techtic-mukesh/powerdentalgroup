@@ -18,6 +18,18 @@
     position: relative;
   }
 
+  .slider__images .swiper-button-next.gallery-main-next {
+    right: 20px;
+}
+
+ .slider__images .swiper-button-prev.gallery-main-prev {
+  left: 20px;
+}
+
+.gallery-media {
+    padding:0  40px;
+}
+
   .product__gallery button.wishlist_button {
     background-color: #fff;
     border: unset;

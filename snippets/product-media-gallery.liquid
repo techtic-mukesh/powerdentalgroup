@@ -252,7 +252,7 @@ function initGalleryZoom() {
       console.log('📸 Initializing thumbnail swiper...');
       galleryThumbs = new Swiper('.gallery-thumbs', {
         direction: 'vertical',
-        spaceBetween: 10, 
+        spaceBetween: 5, 
         slidesPerView: 6,
         freeMode: true,
         watchSlidesProgress: true,
@@ -288,7 +288,7 @@ function initGalleryZoom() {
       console.log('🖼️ Initializing main gallery swiper...');
       
       var mainConfig = {
-        spaceBetween: 10,
+        spaceBetween: 5,
         loop: $galleryLinks.length > 1,
         navigation: {
             nextEl: '.gallery-main-next',
