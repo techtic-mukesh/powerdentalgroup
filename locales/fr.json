@@ -110,6 +110,9 @@
       "add_to_cart": "Ajouter au panier",
       "description": "Description",
       "on_sale": "Promotion",
+      "in_stock": "En stock",
+      "points": "points",
+      "sku": "SKU",
       "product_variants": "Variantes de produits",
       "quantity": {
         "label": "Quantité",
@@ -168,7 +171,6 @@
       "inventory_in_stock_show_count": "{{ quantity }} en stock",
       "inventory_low_stock": "Stock bas",
       "inventory_low_stock_show_count": "Stock bas : {{ quantity }} restant(s)",
-      "sku": "SKU",
       "inventory_out_of_stock": "En rupture de stock",
       "inventory_out_of_stock_continue_selling": "En stock",
       "volume_pricing": {

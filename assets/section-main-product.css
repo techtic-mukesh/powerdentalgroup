@@ -1615,6 +1615,11 @@ product-info .page-width {
     padding: 16px;
 }
 
+html.js[lang=fr] .icon-with-text--horizontal, html.js[lang=es] .icon-with-text--horizontal {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
 .icon-with-text--vertical {
   --icon-size: calc(var(--font-heading-scale) * 2rem);
 }

@@ -587,6 +587,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Enhanced form submission handling for default address
+  document.querySelectorAll('form[action*="customer_address"]').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      // Ensure the default checkbox value is properly included
+      const defaultCheckbox = this.querySelector('input[name="address[default]"]');
+      if (defaultCheckbox) {
+        // Ensure checkbox state is preserved
+        if (!defaultCheckbox.checked) {
+          // Add hidden input to explicitly send false value
+          const hiddenInput = document.createElement('input');
+          hiddenInput.type = 'hidden';
+          hiddenInput.name = 'address[default]';
+          hiddenInput.value = '0';
+          this.appendChild(hiddenInput);
+        }
+      }
+      
+      // Let the form submit naturally
+      return true;
+    });
+  });
+
   // Handle delete button with confirmation
   document.querySelectorAll('.delete-address-btn').forEach(button => {
     button.addEventListener('click', e => {
