@@ -134,6 +134,18 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "blocks": {
+        "category_ATWL9x": {
+          "type": "category",
+          "settings": {
+            "filter_single": "power-line",
+            "hide_list": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_ATWL9x"
+      ],
       "settings": {
         "products_per_page": 12,
         "columns_desktop": 3,
