@@ -302,3 +302,13 @@ background: #FFF;
     color: #0033a0;
     text-decoration: none;
 } 
+
+.multicolumn.color-scheme-2 .multicolumn-list p strong {
+    font-weight: 600;
+}
+
+.mp-point-label {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    letter-spacing: -.16px;
+}

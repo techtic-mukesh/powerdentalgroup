@@ -87,6 +87,12 @@
             "show_gift_card_recipient": false
           }
         },
+        "fabgnote_3qxPJf": {
+          "type": "fabgnote",
+          "settings": {
+            "ftitle": "<p>FABG Discount Applied at Checkout<\/p>"
+          }
+        },
         "description": {
           "type": "description",
           "disabled": true,
@@ -133,6 +139,7 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "fabgnote_3qxPJf",
         "description",
         "info_secured_aRwqzg",
         "icon_with_text_7qDcyz",
