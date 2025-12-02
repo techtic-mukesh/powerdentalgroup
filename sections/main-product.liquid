@@ -112,7 +112,17 @@
   <div class="product-short-description">
     {{ product.metafields.custom.short_description | strip_html | newline_to_br }}
   </div>
-{% endif %} 
+{% endif %}
+
+
+  {%- when 'fabgnote' -%}
+      {% if customer and customer.tags contains 'FABG Subscribers' %}
+        <div class="fabg-note">
+        <span class="icon-pr">%</span> {{ block.settings.ftitle }}
+        </div>
+      {% endif %}
+
+
               {%- when 'price' -%}
 
         
@@ -861,6 +871,18 @@
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
       "limit": 1
+    },
+     {
+      "type": "fabgnote",
+      "name": "Fabg Note",
+      "limit": 1,
+       "settings": [ 
+          {
+          "type": "richtext",
+          "id": "ftitle",
+          "label": "Title"
+        }
+       ]
     },
     {
       "type": "price",

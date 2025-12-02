@@ -1629,6 +1629,33 @@ html.js[lang=fr] .icon-with-text--horizontal, html.js[lang=es] .icon-with-text--
   height: var(--icon-size);
   width: var(--icon-size);
 }
+.product__info-wrapper .fabg-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 20px;
+    letter-spacing: -.16px;
+    color: #01000a;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.product__info-wrapper .fabg-note p {
+    margin: 0;
+}
+
+.product__info-wrapper .fabg-note span.icon-pr {
+    display: inline-flex;
+    min-width: 20px;
+    height: 20px;
+    background-color: #e43535;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+}
 
 .icon-with-text--horizontal .svg-wrapper,
 .icon-with-text--horizontal img {
