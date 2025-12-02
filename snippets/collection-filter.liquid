@@ -3,11 +3,228 @@
   <div class="category-filter">
     <h3 class="category-filter__title">Category</h3>
 
-   <ul class="category-filter__list category-filter__list--level-0">
-      {% render 'powerline' %}
-      {% render 'surgical' %}
-      {% render 'restorative' %}
-   </ul>
+    <ul class="category-filter__list category-filter__list--level-0">
+      {%- for collection in section.settings.filter_collection -%}
+
+        {%- assign is_active = false -%}
+        {%- if collection.handle == current_collection.handle -%}
+          {%- assign is_active = true -%}
+        {%- endif -%}
+
+        {%- assign subcategories = collection.metafields.custom.subcategory.value -%}
+        {%- if subcategories != blank -%}
+          {%- for sub1_check in subcategories -%}
+            {%- if sub1_check.handle == current_collection.handle -%}
+              {%- assign is_active = true -%}
+            {%- endif -%}
+            {%- assign sub2_check = sub1_check.metafields.custom.subcategory.value -%}
+            {%- if sub2_check != blank -%}
+              {%- for sub2_check_item in sub2_check -%}
+                {%- if sub2_check_item.handle == current_collection.handle -%}
+                  {%- assign is_active = true -%}
+                {%- endif -%}
+                {%- assign sub3_check = sub2_check_item.metafields.custom.subcategory.value -%}
+                {%- if sub3_check != blank -%}
+                  {%- for sub3_check_item in sub3_check -%}
+                    {%- if sub3_check_item.handle == current_collection.handle -%}
+                      {%- assign is_active = true -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+
+        <li class="category-filter__item category-filter__item--level-0 {% if is_active %}open{% endif %}">
+          <div class="category-filter__row">
+            <label class="category-filter__label">
+              <input
+                type="checkbox"
+                class="category-filter__checkbox"
+                data-url="{{ collection.url }}"
+                data-handle="{{ collection.handle }}"
+                {% if is_active %}checked{% endif %}
+              >
+              <span class="category-filter__name">{{ collection.title }}</span>
+            </label>
+
+            {%- if subcategories != blank -%}
+              <button class="category-filter__toggle" aria-label="Toggle {{ collection.title }}">
+                <span class="category-filter__arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M8 11.7178C8.08785 11.7177 8.1751 11.6996 8.25586 11.665C8.33661 11.6304 8.4091 11.5792 8.46973 11.5156L13.7803 5.94238C13.8953 5.82153 13.96 5.66102 13.96 5.49414C13.9599 5.32724 13.8954 5.16673 13.7803 5.0459L13.7715 5.03711L13.7705 5.03809C13.7141 4.97945 13.6471 4.93153 13.5723 4.89941C13.4964 4.86689 13.4146 4.85059 13.332 4.85059C13.2494 4.85059 13.1677 4.86689 13.0918 4.89941C13.0158 4.93205 12.9466 4.98005 12.8896 5.04004L8 10.1738L3.10938 5.04004C3.05239 4.98005 2.98325 4.93205 2.90723 4.89941C2.83133 4.8669 2.74957 4.85059 2.66699 4.85059C2.5844 4.85059 2.50267 4.86688 2.42676 4.89941C2.35173 4.93163 2.28408 4.9792 2.22754 5.03809V5.03711L2.21875 5.0459C2.10365 5.16673 2.0391 5.32726 2.03906 5.49414C2.03906 5.661 2.1037 5.82154 2.21875 5.94238L7.5293 11.5156C7.58992 11.5792 7.66242 11.6304 7.74316 11.665C7.82406 11.6997 7.91199 11.7178 8 11.7178Z" fill="#141132" stroke="#141132" stroke-width="0.3"/>
+</svg></span>
+              </button>
+            {%- endif -%}
+          </div>
+
+          {%- if subcategories != blank -%}
+            <ul class="category-filter__list category-filter__list--level-1" {% unless is_active %}style="display:none"{% endunless %}>
+              {%- for sub1 in subcategories -%}
+
+                {%- assign is_active_sub1 = false -%}
+                {%- if sub1.handle == current_collection.handle -%}
+                  {%- assign is_active_sub1 = true -%}
+                {%- endif -%}
+
+                {%- assign sub2categories = sub1.metafields.custom.subcategory.value -%}
+                {%- if sub2categories != blank -%}
+                  {%- for sub2_check in sub2categories -%}
+                    {%- if sub2_check.handle == current_collection.handle -%}
+                      {%- assign is_active_sub1 = true -%}
+                    {%- endif -%}
+                    {%- assign sub3_check = sub2_check.metafields.custom.subcategory.value -%}
+                    {%- if sub3_check != blank -%}
+                      {%- for sub3_check_item in sub3_check -%}
+                        {%- if sub3_check_item.handle == current_collection.handle -%}
+                          {%- assign is_active_sub1 = true -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endif -%}
+
+                <li class="category-filter__item category-filter__item--level-1 {% if is_active_sub1 %}open{% endif %}">
+                  <div class="category-filter__row">
+                    <label class="category-filter__label">
+                      <input
+                        type="checkbox"
+                        class="category-filter__checkbox"
+                        data-url="{{ sub1.url }}"
+                        data-handle="{{ sub1.handle }}"
+                        {% if is_active_sub1 %}checked{% endif %}
+                      >
+                      <span class="category-filter__name">{{ sub1.title }}</span>
+                    </label>
+
+                    {%- if sub2categories != blank -%}
+                      <button class="category-filter__toggle" aria-label="Toggle {{ sub1.title }}">
+                        <span class="category-filter__arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M8 11.7178C8.08785 11.7177 8.1751 11.6996 8.25586 11.665C8.33661 11.6304 8.4091 11.5792 8.46973 11.5156L13.7803 5.94238C13.8953 5.82153 13.96 5.66102 13.96 5.49414C13.9599 5.32724 13.8954 5.16673 13.7803 5.0459L13.7715 5.03711L13.7705 5.03809C13.7141 4.97945 13.6471 4.93153 13.5723 4.89941C13.4964 4.86689 13.4146 4.85059 13.332 4.85059C13.2494 4.85059 13.1677 4.86689 13.0918 4.89941C13.0158 4.93205 12.9466 4.98005 12.8896 5.04004L8 10.1738L3.10938 5.04004C3.05239 4.98005 2.98325 4.93205 2.90723 4.89941C2.83133 4.8669 2.74957 4.85059 2.66699 4.85059C2.5844 4.85059 2.50267 4.86688 2.42676 4.89941C2.35173 4.93163 2.28408 4.9792 2.22754 5.03809V5.03711L2.21875 5.0459C2.10365 5.16673 2.0391 5.32726 2.03906 5.49414C2.03906 5.661 2.1037 5.82154 2.21875 5.94238L7.5293 11.5156C7.58992 11.5792 7.66242 11.6304 7.74316 11.665C7.82406 11.6997 7.91199 11.7178 8 11.7178Z" fill="#141132" stroke="#141132" stroke-width="0.3"/>
+</svg></span>
+                      </button>
+                    {%- endif -%}
+                  </div>
+
+                  {%- if sub2categories != blank -%}
+                    <ul class="category-filter__list category-filter__list--level-2" {% unless is_active_sub1 %}style="display:none"{% endunless %}>
+                      {%- for sub2 in sub2categories -%}
+
+                        {%- assign is_active_sub2 = false -%}
+                        {%- if sub2.handle == current_collection.handle -%}
+                          {%- assign is_active_sub2 = true -%}
+                        {%- endif -%}
+
+                        {%- assign sub3categories = sub2.metafields.custom.subcategory.value -%}
+                        {%- if sub3categories != blank -%}
+                          {%- for sub3_check in sub3categories -%}
+                            {%- if sub3_check.handle == current_collection.handle -%}
+                              {%- assign is_active_sub2 = true -%}
+                            {%- endif -%}
+                          {%- endfor -%}
+                        {%- endif -%}
+
+                        <li class="category-filter__item category-filter__item--level-2 {% if is_active_sub2 %}open{% endif %}">
+                          <div class="category-filter__row">
+                            <label class="category-filter__label">
+                              <input
+                                type="checkbox"
+                                class="category-filter__checkbox"
+                                data-url="{{ sub2.url }}"
+                                data-handle="{{ sub2.handle }}"
+                                {% if is_active_sub2 %}checked{% endif %}
+                              >
+                              <span class="category-filter__name">{{ sub2.title }}</span>
+                            </label>
+
+                            {%- if sub3categories != blank -%}
+                              <button class="category-filter__toggle" aria-label="Toggle {{ sub2.title }}">
+                                <span class="category-filter__arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M8 11.7178C8.08785 11.7177 8.1751 11.6996 8.25586 11.665C8.33661 11.6304 8.4091 11.5792 8.46973 11.5156L13.7803 5.94238C13.8953 5.82153 13.96 5.66102 13.96 5.49414C13.9599 5.32724 13.8954 5.16673 13.7803 5.0459L13.7715 5.03711L13.7705 5.03809C13.7141 4.97945 13.6471 4.93153 13.5723 4.89941C13.4964 4.86689 13.4146 4.85059 13.332 4.85059C13.2494 4.85059 13.1677 4.86689 13.0918 4.89941C13.0158 4.93205 12.9466 4.98005 12.8896 5.04004L8 10.1738L3.10938 5.04004C3.05239 4.98005 2.98325 4.93205 2.90723 4.89941C2.83133 4.8669 2.74957 4.85059 2.66699 4.85059C2.5844 4.85059 2.50267 4.86688 2.42676 4.89941C2.35173 4.93163 2.28408 4.9792 2.22754 5.03809V5.03711L2.21875 5.0459C2.10365 5.16673 2.0391 5.32726 2.03906 5.49414C2.03906 5.661 2.1037 5.82154 2.21875 5.94238L7.5293 11.5156C7.58992 11.5792 7.66242 11.6304 7.74316 11.665C7.82406 11.6997 7.91199 11.7178 8 11.7178Z" fill="#141132" stroke="#141132" stroke-width="0.3"/>
+</svg></span>
+                              </button>
+                            {%- endif -%}
+                          </div>
+
+                          {%- if sub3categories != blank -%}
+                            <ul class="category-filter__list category-filter__list--level-3" {% unless is_active_sub2 %}style="display:none"{% endunless %}>
+                              {%- for sub3 in sub3categories -%}
+
+                                {%- assign is_active_sub3 = false -%}
+                                {%- if sub3.handle == current_collection.handle -%}
+                                  {%- assign is_active_sub3 = true -%}
+                                {%- endif -%}
+
+                                {%- assign sub4categories = sub3.metafields.custom.subcategory.value -%}
+
+                                <li class="category-filter__item category-filter__item--level-3 {% if is_active_sub3 %}open{% endif %}">
+                                  <div class="category-filter__row">
+                                    <label class="category-filter__label">
+                                      <input
+                                        type="checkbox"
+                                        class="category-filter__checkbox"
+                                        data-url="{{ sub3.url }}"
+                                        data-handle="{{ sub3.handle }}"
+                                        {% if is_active_sub3 %}checked{% endif %}
+                                      >
+                                      <span class="category-filter__name">{{ sub3.title }}</span>
+                                    </label>
+
+                                    {%- if sub4categories != blank -%}
+                                      <button class="category-filter__toggle" aria-label="Toggle {{ sub3.title }}">
+                                        <span class="category-filter__arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M8 11.7178C8.08785 11.7177 8.1751 11.6996 8.25586 11.665C8.33661 11.6304 8.4091 11.5792 8.46973 11.5156L13.7803 5.94238C13.8953 5.82153 13.96 5.66102 13.96 5.49414C13.9599 5.32724 13.8954 5.16673 13.7803 5.0459L13.7715 5.03711L13.7705 5.03809C13.7141 4.97945 13.6471 4.93153 13.5723 4.89941C13.4964 4.86689 13.4146 4.85059 13.332 4.85059C13.2494 4.85059 13.1677 4.86689 13.0918 4.89941C13.0158 4.93205 12.9466 4.98005 12.8896 5.04004L8 10.1738L3.10938 5.04004C3.05239 4.98005 2.98325 4.93205 2.90723 4.89941C2.83133 4.8669 2.74957 4.85059 2.66699 4.85059C2.5844 4.85059 2.50267 4.86688 2.42676 4.89941C2.35173 4.93163 2.28408 4.9792 2.22754 5.03809V5.03711L2.21875 5.0459C2.10365 5.16673 2.0391 5.32726 2.03906 5.49414C2.03906 5.661 2.1037 5.82154 2.21875 5.94238L7.5293 11.5156C7.58992 11.5792 7.66242 11.6304 7.74316 11.665C7.82406 11.6997 7.91199 11.7178 8 11.7178Z" fill="#141132" stroke="#141132" stroke-width="0.3"/>
+</svg></span>
+                                      </button>
+                                    {%- endif -%}
+                                  </div>
+
+                                  {%- if sub4categories != blank -%}
+                                    <ul class="category-filter__list category-filter__list--level-4" {% unless is_active_sub3 %}style="display:none"{% endunless %}>
+                                      {%- for sub4 in sub4categories -%}
+
+                                        {%- assign is_active_sub4 = false -%}
+                                        {%- if sub4.handle == current_collection.handle -%}
+                                          {%- assign is_active_sub4 = true -%}
+                                        {%- endif -%}
+
+                                        <li class="category-filter__item category-filter__item--level-4 {% if is_active_sub4 %}open{% endif %}">
+                                          <div class="category-filter__row">
+                                            <label class="category-filter__label">
+                                              <input
+                                                type="checkbox"
+                                                class="category-filter__checkbox"
+                                                data-url="{{ sub4.url }}"
+                                                data-handle="{{ sub4.handle }}"
+                                                {% if is_active_sub4 %}checked{% endif %}
+                                              >
+                                              <span class="category-filter__name">{{ sub4.title }}</span>
+                                            </label>
+                                          </div>
+                                        </li>
+
+                                      {%- endfor -%}
+                                    </ul>
+                                  {%- endif -%}
+                                </li>
+
+                              {%- endfor -%}
+                            </ul>
+                          {%- endif -%}
+                        </li>
+
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </li>
+
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </li>
+
+      {%- endfor -%}
+    </ul>
   </div>
 
   

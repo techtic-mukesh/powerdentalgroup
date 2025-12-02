@@ -449,7 +449,27 @@
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
     }
-  ]
+  ],
+  "blocks": [
+  {
+    "type": "category",
+    "name": "Category",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "filter_single",
+        "label": "Select Collection"
+      },
+      {
+        "type": "text",
+        "id": "hide_list",
+        "label": "Hide Subcategories (comma separated)",
+        "info": "Example: accessories,jackets,kids"
+      }
+    ]
+  }
+],
+"max_blocks": 50
 }
 {% endschema %}
 

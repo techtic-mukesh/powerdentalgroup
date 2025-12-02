@@ -79,6 +79,94 @@
                             </span>
                             {{ link.title | escape }}
                           </button>
+                          {% if link.title == 'Products' %}
+<ul class="menu-drawer__menu list-menu">
+
+  {% for block in section.blocks %}
+    {% if block.type == 'menu' %}
+
+      <li>
+        <details>
+          <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
+            {{ block.settings.menu_title }}
+            <span class="svg-wrapper">
+              {{- 'icon-arrow.svg' | inline_asset_content -}}
+          </summary>
+
+          <div class="menu-drawer__submenu has-submenu gradient motion-reduce" tabindex="-1">
+            <div class="menu-drawer__inner-submenu">
+              <button class="menu-drawer__close-button link link--text focus-inset">
+                {% render 'icon-left' %}
+                {{ block.settings.menu_title }}
+              </button>
+
+              <ul class="menu-drawer__menu list-menu">
+                
+                {%- assign coll_list = block.settings.menu_collection -%}
+
+                {%- if coll_list != blank -%}
+                  {%- for coll in coll_list -%}
+                    <li>
+                      <a href="{{ coll.url }}"
+                         class="menu-drawer__menu-item list-menu__item link link--text">
+                        {{ coll.title }}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+
+                  <li class="view-all-link">
+                    <a href="{{ coll_list.first.url }}" class="link link--text">
+                      View All
+                      <span> {{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+                    </a>
+                  </li>
+
+                {%- else -%}
+                  {%- assign main_handle = block.settings.menu_link | split: '/' | last -%}
+                  {%- assign main_collection = collections[main_handle] -%}
+
+                  {%- if main_collection != blank and main_collection.products_count > 0 -%}
+                    {%- for product in main_collection.products limit: 8 -%}
+                      <li>
+                        <a href="{{ product.url }}"
+                           class="menu-drawer__menu-item list-menu__item link link--text">
+                          {{ product.title }}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+
+                    <li class="view-all-link">
+                      <a href="{{ main_collection.url }}" class="link link--text">
+                        View All
+                            <span> {{- 'icon-arrow.svg' | inline_asset_content -}}</span>
+                      </a>
+                    </li>
+                  {%- endif -%}
+                {%- endif -%}
+
+                {%- if block.settings.featured_product != blank -%}
+                  {%- assign product = all_products[block.settings.featured_product] -%}
+                  <div class="mobile-featured-product">
+                    <a href="{{ product.url }}">
+                      <img src="{{ product.featured_image | img_url: '250x' }}" alt="{{ product.title }}">
+                      <p>{{ product.title }}</p>
+                      <p>{{ product.variants.first.price | money }}</p>
+                    </a>
+                  </div>
+                {%- endif -%}
+
+              </ul>
+            </div>
+          </div>
+
+        </details>
+      </li>
+
+    {% endif %}
+  {% endfor %}
+</ul>
+
+                            {% else %}
                           <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                             {%- for childlink in link.links -%}
                               <li>
@@ -146,6 +234,7 @@
                               </li>
                             {%- endfor -%}
                           </ul>
+                          {% endif %}
                         </div>
                       </div>
                     </details>
