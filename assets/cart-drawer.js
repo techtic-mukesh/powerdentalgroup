@@ -4,26 +4,13 @@ class CartDrawer extends HTMLElement {
 
     this.addEventListener('keyup', (evt) => evt.code === 'Escape' && this.close());
     this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
-    this.setHeaderCartIconAccessibility();
+    // Remove the cart icon accessibility setup that was preventing default behavior
+    // this.setHeaderCartIconAccessibility();
   }
 
-  setHeaderCartIconAccessibility() {
-    const cartLink = document.querySelector('#cart-icon-bubble');
-    if (!cartLink) return;
-
-    cartLink.setAttribute('role', 'button');
-    cartLink.setAttribute('aria-haspopup', 'dialog');
-    cartLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      this.open(cartLink);
-    });
-    cartLink.addEventListener('keydown', (event) => {
-      if (event.code.toUpperCase() === 'SPACE') {
-        event.preventDefault();
-        this.open(cartLink);
-      }
-    });
-  }
+  // REMOVED: setHeaderCartIconAccessibility() method
+  // This was preventing the cart icon from navigating to the cart page
+  // The cart icon should now work as a normal link to /cart
 
   open(triggeredBy) {
     if (triggeredBy) this.setActiveElement(triggeredBy);

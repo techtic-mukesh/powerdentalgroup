@@ -3686,4 +3686,10 @@ details-disclosure > details {
     display: none !important;
 }
 
-  
+#launcher-wrapper {
+    z-index: 11 !important;
+}
+
+body.gradient.cart cart-items.gradient.color-scheme-1.isolate.is-empty {
+    padding-bottom: 50px !important;
+}  
