@@ -222,100 +222,169 @@ class FacetFiltersForm extends HTMLElement {
     FacetFiltersForm.moveActiveFacetsToFilterContainer();
   }
 
-  static moveActiveFacetsToFilterContainer() {
-    const filterContainer = document.querySelector('.filter-cr');
-    if (!filterContainer) {
-      console.log('Filter container .filter-cr not found');
-      return;
-    }
+ // Replace this function in your FacetFiltersForm class
 
-    // Clear existing content
-    filterContainer.innerHTML = '';
+static moveActiveFacetsToFilterContainer() {
+  const filterContainer = document.querySelector('.filter-cr');
+  if (!filterContainer) {
+    console.log('Filter container .filter-cr not found');
+    return;
+  }
 
-    let hasFilters = false;
+  // Clear existing content
+  filterContainer.innerHTML = '';
 
-    // ✅ Add selected category first
-    const selectedCategoryCheckbox = document.querySelector('.category-filter__checkbox:checked');
-    if (selectedCategoryCheckbox) {
-      const categoryNameSpan = selectedCategoryCheckbox.parentElement.querySelector('.category-filter__name');
-      const categoryName = categoryNameSpan ? categoryNameSpan.textContent.trim() : '';
+  let hasFilters = false;
+
+  // Get URL data to determine what's actually filtered
+  const path = window.location.pathname;
+  const match = path.match(/\/collections\/([^\/]+)(?:\/(.+))?/);
+  
+  if (match) {
+    const parentHandle = match[1];
+    const subcategoriesStr = match[2];
+    
+    // Add parent collection pill
+    const parentCheckbox = document.querySelector(`.category-filter__checkbox[data-handle="${parentHandle}"]`);
+    if (parentCheckbox) {
+      const parentNameSpan = parentCheckbox.parentElement.querySelector('.category-filter__name');
+      const parentName = parentNameSpan ? parentNameSpan.textContent.trim() : parentHandle;
       
-      if (categoryName) {
-        hasFilters = true;
-        const categoryPill = document.createElement('facet-remove');
-        categoryPill.innerHTML = `
-          <a href="/collections/all" class="active-facets__button active-facets__button--light">
-            <span class="active-facets__button-inner button button--tertiary">
-              ${categoryName}
-              <span class="svg-wrapper">
-                <svg class="icon icon-close-small" aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 12 12">
-                  <path d="M9.5 2.5L2.5 9.5M2.5 2.5L9.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </span>
-              <span class="visually-hidden">Remove category filter</span>
+      hasFilters = true;
+      const parentPill = document.createElement('facet-remove');
+      parentPill.innerHTML = `
+        <a href="/collections/all" class="active-facets__button active-facets__button--light">
+          <span class="active-facets__button-inner button button--tertiary">
+            ${parentName}
+            <span class="svg-wrapper">
+              <svg class="icon icon-close-small" aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 12 12">
+                <path d="M9.5 2.5L2.5 9.5M2.5 2.5L9.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
             </span>
-          </a>
-        `;
-        
-        const link = categoryPill.querySelector('a');
-        link.addEventListener('click', (event) => {
-          event.preventDefault();
-          // Clear category selection
-          if (window.CategoryFilterManager) {
-            localStorage.removeItem('categoryFilterState');
-          }
-          window.location.href = '/collections/all';
-        });
-        
-        filterContainer.appendChild(categoryPill);
-      }
-    }
-
-    // Get all active facet buttons from desktop view
-    const activeFacetsDesktop = document.querySelector('.active-facets-desktop');
-    if (activeFacetsDesktop) {
-      const allActiveFacets = activeFacetsDesktop.querySelectorAll('facet-remove');
-
-      // Clone and append each active facet
-      allActiveFacets.forEach(facet => {
-        hasFilters = true;
-        const clone = facet.cloneNode(true);
-        // Re-bind click events
-        const link = clone.querySelector('a');
-        if (link) {
-          link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const form = document.querySelector('facet-filters-form');
-            if (form) form.onActiveFilterClick(event);
-          });
-        }
-        filterContainer.appendChild(clone);
-      });
-    }
-
-    // Add clear all button if there are any filters
-    if (hasFilters) {
-      const clearAllWrapper = document.createElement('facet-remove');
-      clearAllWrapper.className = 'active-facets__button-wrapper';
-      clearAllWrapper.innerHTML = `
-        <a href="/collections/all" class="active-facets__button-remove underlined-link">
-          <span>Clear all</span>
+            <span class="visually-hidden">Remove category filter</span>
+          </span>
         </a>
       `;
       
-      const clearLink = clearAllWrapper.querySelector('a');
-      clearLink.addEventListener('click', (event) => {
+      const link = parentPill.querySelector('a');
+      link.addEventListener('click', (event) => {
         event.preventDefault();
-        // Clear category selection
         if (window.CategoryFilterManager) {
           localStorage.removeItem('categoryFilterState');
         }
         window.location.href = '/collections/all';
       });
       
-      filterContainer.appendChild(clearAllWrapper);
+      filterContainer.appendChild(parentPill);
+    }
+    
+    // Add subcategory pills if they exist
+    if (subcategoriesStr) {
+      const subcategoryHandles = subcategoriesStr.split(',').map(s => s.trim());
+      
+      subcategoryHandles.forEach(handle => {
+        // Find this subcategory within the parent's tree
+        const parentItem = parentCheckbox?.closest('.category-filter__item');
+        if (parentItem) {
+          const subCheckbox = parentItem.querySelector(`.category-filter__checkbox[data-handle="${handle}"]`);
+          if (subCheckbox) {
+            const subNameSpan = subCheckbox.parentElement.querySelector('.category-filter__name');
+            const subName = subNameSpan ? subNameSpan.textContent.trim() : handle;
+            
+            hasFilters = true;
+            const subPill = document.createElement('facet-remove');
+            subPill.innerHTML = `
+              <a href="/collections/${parentHandle}" class="active-facets__button active-facets__button--light">
+                <span class="active-facets__button-inner button button--tertiary">
+                  ${subName}
+                  <span class="svg-wrapper">
+                    <svg class="icon icon-close-small" aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 12 12">
+                      <path d="M9.5 2.5L2.5 9.5M2.5 2.5L9.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span class="visually-hidden">Remove ${subName} filter</span>
+                </span>
+              </a>
+            `;
+            
+            const link = subPill.querySelector('a');
+            link.addEventListener('click', (event) => {
+              event.preventDefault();
+              
+              // Remove this subcategory from the URL
+              const remainingSubcategories = subcategoryHandles.filter(h => h !== handle);
+              
+              let newUrl;
+              if (remainingSubcategories.length === 0) {
+                newUrl = `/collections/${parentHandle}`;
+              } else {
+                newUrl = `/collections/${parentHandle}/${remainingSubcategories.join(',')}`;
+              }
+              
+              if (window.CategoryFilterManager) {
+                localStorage.setItem('categoryFilterState', JSON.stringify({
+                  selectedItems: [parentHandle, ...remainingSubcategories],
+                  openItems: [parentHandle]
+                }));
+              }
+              
+              window.location.href = newUrl;
+            });
+            
+            filterContainer.appendChild(subPill);
+          }
+        }
+      });
     }
   }
+
+  // Get all active facet buttons from desktop view (for other filters like price, etc)
+  const activeFacetsDesktop = document.querySelector('.active-facets-desktop');
+  if (activeFacetsDesktop) {
+    const allActiveFacets = activeFacetsDesktop.querySelectorAll('facet-remove');
+
+    // Clone and append each active facet (skip category-related ones as we've handled them above)
+    allActiveFacets.forEach(facet => {
+      const link = facet.querySelector('a');
+      if (link && !link.textContent.includes('Category')) {
+        hasFilters = true;
+        const clone = facet.cloneNode(true);
+        // Re-bind click events
+        const cloneLink = clone.querySelector('a');
+        if (cloneLink) {
+          cloneLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            const form = document.querySelector('facet-filters-form');
+            if (form) form.onActiveFilterClick(event);
+          });
+        }
+        filterContainer.appendChild(clone);
+      }
+    });
+  }
+
+  // Add clear all button if there are any filters
+  if (hasFilters) {
+    const clearAllWrapper = document.createElement('facet-remove');
+    clearAllWrapper.className = 'active-facets__button-wrapper';
+    clearAllWrapper.innerHTML = `
+      <a href="/collections/all" class="active-facets__button-remove underlined-link">
+        <span>Clear all</span>
+      </a>
+    `;
+    
+    const clearLink = clearAllWrapper.querySelector('a');
+    clearLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (window.CategoryFilterManager) {
+        localStorage.removeItem('categoryFilterState');
+      }
+      window.location.href = '/collections/all';
+    });
+    
+    filterContainer.appendChild(clearAllWrapper);
+  }
+}
 
   static renderAdditionalElements(html) {
     const mobileElementSelectors = ['.mobile-facets__open', '.mobile-facets__count', '.sorting'];
@@ -499,6 +568,9 @@ customElements.define('facet-remove', FacetRemove);
 // ============================================
 // CATEGORY FILTER MANAGER
 // ============================================
+// ============================================
+// MULTI-SELECT CATEGORY FILTER MANAGER
+// ============================================
 window.CategoryFilterManager = (function() {
   const STORAGE_KEY = 'categoryFilterState';
 
@@ -508,12 +580,26 @@ window.CategoryFilterManager = (function() {
     return match ? match[1] : null;
   }
 
+  // Parse URL to get parent and selected subcategories
+  function parseURLCategories() {
+    const path = window.location.pathname;
+    // Match pattern: /collections/parent/cat1,cat2,cat3
+    const match = path.match(/\/collections\/([^\/]+)(?:\/(.+))?/);
+    
+    if (match) {
+      const parent = match[1];
+      const subcategories = match[2] ? match[2].split(',').map(s => s.trim()) : [];
+      return { parent, subcategories };
+    }
+    return { parent: null, subcategories: [] };
+  }
+
   function loadState() {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      return saved ? JSON.parse(saved) : { selectedItem: null };
+      return saved ? JSON.parse(saved) : { selectedItems: [], openItems: [] };
     } catch (e) {
-      return { selectedItem: null };
+      return { selectedItems: [], openItems: [] };
     }
   }
 
@@ -525,9 +611,10 @@ window.CategoryFilterManager = (function() {
     }
   }
 
-  function findParentHandles(handle) {
+  function findParentHandles(handle, checkboxElement = null) {
     const parents = [];
-    const checkbox = document.querySelector(`.category-filter__checkbox[data-handle="${handle}"]`);
+    // Use the provided checkbox element or find it
+    const checkbox = checkboxElement || document.querySelector(`.category-filter__checkbox[data-handle="${handle}"]`);
 
     if (checkbox) {
       let parent = checkbox.closest('.category-filter__item').parentElement;
@@ -543,6 +630,31 @@ window.CategoryFilterManager = (function() {
       }
     }
     return parents;
+  }
+
+  // Get the actual parent of the clicked checkbox (DOM hierarchy based)
+  function getDirectParentHandle(checkboxElement) {
+    if (!checkboxElement) return null;
+    
+    let parent = checkboxElement.closest('.category-filter__item').parentElement;
+    while (parent) {
+      if (parent.classList.contains('category-filter__list')) {
+        const parentItem = parent.closest('.category-filter__item');
+        if (parentItem) {
+          const parentCheckbox = parentItem.querySelector(':scope > .category-filter__row .category-filter__checkbox');
+          if (parentCheckbox) {
+            // Check if this is a level-0 parent
+            if (parentItem.classList.contains('category-filter__item--level-0')) {
+              return parentCheckbox.dataset.handle;
+            }
+            // Otherwise, continue looking for level-0 parent
+            return getDirectParentHandle(parentCheckbox);
+          }
+        }
+      }
+      parent = parent.parentElement;
+    }
+    return null;
   }
 
   function closeAllItems() {
@@ -567,6 +679,15 @@ window.CategoryFilterManager = (function() {
     });
   }
 
+  function isLevel0Category(handle) {
+    const checkbox = document.querySelector(`.category-filter__checkbox[data-handle="${handle}"]`);
+    if (checkbox) {
+      const item = checkbox.closest('.category-filter__item');
+      return item && item.classList.contains('category-filter__item--level-0');
+    }
+    return false;
+  }
+
   function getCurrentState() {
     const openItems = [];
     document.querySelectorAll('.category-filter__item.open').forEach(item => {
@@ -574,136 +695,269 @@ window.CategoryFilterManager = (function() {
       if (checkbox) openItems.push(checkbox.dataset.handle);
     });
 
-    let selectedHandle = null;
-    const selectedCheckbox = document.querySelector('.category-filter__checkbox:checked');
-    if (selectedCheckbox) selectedHandle = selectedCheckbox.dataset.handle;
+    const selectedItems = [];
+    document.querySelectorAll('.category-filter__checkbox:checked').forEach(chk => {
+      selectedItems.push(chk.dataset.handle);
+    });
 
-    return { openItems, selectedHandle };
+    return { openItems, selectedItems };
   }
 
   function restoreState(state) {
     if (!document.querySelector('.category-filter')) return;
 
+    // Uncheck all first
     document.querySelectorAll('.category-filter__checkbox').forEach(chk => chk.checked = false);
     closeAllItems();
 
-    if (state && state.selectedHandle) {
-      const checkbox = document.querySelector(`.category-filter__checkbox[data-handle="${state.selectedHandle}"]`);
-      if (checkbox) checkbox.checked = true;
+    // Parse URL to get parent and subcategories
+    const urlData = parseURLCategories();
+    
+    if (urlData.parent) {
+      // Find the checkbox for this parent handle
+      const parentCheckbox = document.querySelector(`.category-filter__checkbox[data-handle="${urlData.parent}"]`);
+      
+      if (parentCheckbox) {
+        // Check parent (level-0)
+        parentCheckbox.checked = true;
+        
+        // Check all subcategories
+        urlData.subcategories.forEach(handle => {
+          // Find subcategory checkbox WITHIN this parent's tree only
+          const parentItem = parentCheckbox.closest('.category-filter__item');
+          if (parentItem) {
+            const subCheckbox = parentItem.querySelector(`.category-filter__checkbox[data-handle="${handle}"]`);
+            if (subCheckbox) subCheckbox.checked = true;
+          }
+        });
 
-      if (state.openItems && state.openItems.length > 0) {
-        openItemsByHandles(state.openItems);
-      } else {
-        const parents = findParentHandles(state.selectedHandle);
-        openItemsByHandles(parents);
-      }
-    } else {
-      const currentHandle = getCurrentCollectionHandle();
-      if (currentHandle) {
-        const currentCheckbox = document.querySelector(`.category-filter__checkbox[data-handle="${currentHandle}"]`);
-        if (currentCheckbox) currentCheckbox.checked = true;
+        // Open parent items
+        const allParents = new Set();
+        allParents.add(urlData.parent); // Open the main parent
+        
+        // Get the parent item to open its tree
+        const parentItem = parentCheckbox.closest('.category-filter__item');
+        if (parentItem) {
+          parentItem.classList.add('open');
+          const childList = parentItem.querySelector(':scope > .category-filter__list');
+          if (childList) childList.style.display = 'block';
+        }
+        
+        // Open parent items for all subcategories within this tree
+        urlData.subcategories.forEach(handle => {
+          const parentItem = parentCheckbox.closest('.category-filter__item');
+          if (parentItem) {
+            const subCheckbox = parentItem.querySelector(`.category-filter__checkbox[data-handle="${handle}"]`);
+            if (subCheckbox) {
+              const parents = findParentHandles(handle, subCheckbox);
+              parents.forEach(p => allParents.add(p));
+            }
+          }
+        });
 
-        const parents = findParentHandles(currentHandle);
-        openItemsByHandles(parents);
-
-        saveState({ selectedItem: currentHandle });
+        openItemsByHandles(Array.from(allParents));
       }
     }
   }
 
-function init() {
-  if (!document.querySelector('.category-filter')) return;
-
-  // Handle clicks on category filters
-  document.addEventListener('click', function(e) {
-    // Only handle if click is within category filter
-    const categoryFilter = e.target.closest('.category-filter');
-    if (!categoryFilter) return;
-
-    // Toggle open/close for items - TARGET THE ARROW/TOGGLE BUTTON
-    const toggleBtn = e.target.closest('.category-filter__toggle');
-    if (toggleBtn) {
-      e.preventDefault();
-      e.stopPropagation(); // Prevent drawer from closing
-      
-      const li = toggleBtn.closest('.category-filter__item');
-      if (!li) return;
-      
-      const childList = li.querySelector('.category-filter__list');
-      if (!childList) return;
-
-      const isOpen = li.classList.contains('open');
-      li.classList.toggle('open');
-      childList.style.display = isOpen ? 'none' : 'block';
-      return;
+  function generateMultiSelectURL(selectedHandles, clickedCheckbox) {
+    if (selectedHandles.length === 0) {
+      return '/collections/all';
     }
 
-    // Checkbox click
-    if (e.target.classList.contains('category-filter__checkbox')) {
-      e.stopPropagation();
-      
-      const checkbox = e.target;
+    // Get the clicked checkbox element to find its actual parent
+    let clickedHandle = clickedCheckbox ? clickedCheckbox.dataset.handle : selectedHandles[0];
 
-      // Uncheck all others
-      document.querySelectorAll('.category-filter__checkbox').forEach(otherChk => {
-        if (otherChk !== checkbox) otherChk.checked = false;
+    // If clicked item is level-0, redirect to just that collection
+    if (clickedCheckbox && isLevel0Category(clickedHandle)) {
+      return `/collections/${clickedHandle}`;
+    }
+
+    // Find the ACTUAL parent from DOM hierarchy (not just searching all checkboxes)
+    let parentHandle = null;
+    
+    if (clickedCheckbox) {
+      // Get direct parent from the clicked checkbox's DOM position
+      parentHandle = getDirectParentHandle(clickedCheckbox);
+    }
+
+    // Fallback: try to find parent from URL or first selected item
+    if (!parentHandle) {
+      const urlData = parseURLCategories();
+      parentHandle = urlData.parent;
+    }
+
+    if (!parentHandle) {
+      // Last fallback
+      return `/collections/${selectedHandles[0]}`;
+    }
+
+    // Get all currently checked subcategories under this specific parent
+    const subcategories = [];
+    const parentItem = document.querySelector(`.category-filter__checkbox[data-handle="${parentHandle}"]`)?.closest('.category-filter__item');
+    
+    if (parentItem) {
+      // Find all checked subcategories within this parent's tree only
+      const checkedInThisTree = parentItem.querySelectorAll('.category-filter__checkbox:checked');
+      checkedInThisTree.forEach(chk => {
+        const handle = chk.dataset.handle;
+        // Don't include the parent itself or other level-0 categories
+        if (handle !== parentHandle && !isLevel0Category(handle)) {
+          subcategories.push(handle);
+        }
       });
-
-      checkbox.checked = true;
-      saveState({ selectedItem: checkbox.dataset.handle });
-
-      if (checkbox.dataset.url) {
-        const drawer = document.querySelector('menu-drawer');
-        if (drawer && typeof drawer.hide === 'function') drawer.hide();
-        setTimeout(() => { window.location.href = checkbox.dataset.url; }, 50);
-      }
-      return;
     }
 
-    // Label click - handle expansion of categories
-    const label = e.target.closest('.category-filter__label');
-    if (label) {
-      e.stopPropagation();
-      
-      const li = label.closest('.category-filter__item');
-      if (!li) return;
-      
-      const childList = li.querySelector('.category-filter__list');
+    if (subcategories.length === 0) {
+      return `/collections/${parentHandle}`;
+    } else if (subcategories.length === 1) {
+      return `/collections/${parentHandle}/${subcategories[0]}`;
+    } else {
+      return `/collections/${parentHandle}/${subcategories.join(',')}`;
+    }
+  }
 
-      // If it has children, toggle expansion (don't navigate)
-      if (childList) {
+  function navigateToMultiSelect(clickedCheckbox) {
+    const state = getCurrentState();
+    const url = generateMultiSelectURL(state.selectedItems, clickedCheckbox);
+    
+    saveState(state);
+    
+    const drawer = document.querySelector('menu-drawer');
+    if (drawer && typeof drawer.hide === 'function') drawer.hide();
+    
+    setTimeout(() => { window.location.href = url; }, 50);
+  }
+
+  function init() {
+    if (!document.querySelector('.category-filter')) return;
+
+    // Handle clicks on category filters
+    document.addEventListener('click', function(e) {
+      const categoryFilter = e.target.closest('.category-filter');
+      if (!categoryFilter) return;
+
+      // Toggle open/close for items
+      const toggleBtn = e.target.closest('.category-filter__toggle');
+      if (toggleBtn) {
         e.preventDefault();
+        e.stopPropagation();
+        
+        const li = toggleBtn.closest('.category-filter__item');
+        if (!li) return;
+        
+        const childList = li.querySelector('.category-filter__list');
+        if (!childList) return;
+
         const isOpen = li.classList.contains('open');
         li.classList.toggle('open');
         childList.style.display = isOpen ? 'none' : 'block';
         return;
       }
 
-      // If it has no children, it's a selectable category
-      const checkbox = label.querySelector('.category-filter__checkbox');
-      if (checkbox && checkbox.dataset.url) {
-        e.preventDefault();
-        const drawer = document.querySelector('menu-drawer');
-        if (drawer && typeof drawer.hide === 'function') drawer.hide();
+      // Checkbox click
+      if (e.target.classList.contains('category-filter__checkbox')) {
+        e.stopPropagation();
+        
+        const clickedCheckbox = e.target;
+        const clickedHandle = clickedCheckbox.dataset.handle;
 
-        document.querySelectorAll('.category-filter__checkbox').forEach(chk => chk.checked = false);
-        checkbox.checked = true;
-        saveState({ selectedItem: checkbox.dataset.handle });
-        window.location.href = checkbox.dataset.url;
+        // If it's a level-0 category, clear all subcategories and navigate
+        if (isLevel0Category(clickedHandle)) {
+          // Uncheck all others
+          document.querySelectorAll('.category-filter__checkbox').forEach(chk => {
+            if (chk !== clickedCheckbox) chk.checked = false;
+          });
+          clickedCheckbox.checked = true;
+          
+          setTimeout(() => {
+            navigateToMultiSelect(clickedCheckbox);
+          }, 100);
+          return;
+        }
+
+        // For subcategories: allow multi-select within the same parent tree
+        // Find the actual parent and keep it checked
+        const actualParentHandle = getDirectParentHandle(clickedCheckbox);
+        if (actualParentHandle) {
+          const parentCheckbox = document.querySelector(`.category-filter__checkbox[data-handle="${actualParentHandle}"]`);
+          if (parentCheckbox) {
+            parentCheckbox.checked = true;
+          }
+
+          // Uncheck all level-0 categories except the actual parent
+          document.querySelectorAll('.category-filter__checkbox').forEach(chk => {
+            if (isLevel0Category(chk.dataset.handle) && chk.dataset.handle !== actualParentHandle) {
+              chk.checked = false;
+            }
+          });
+        }
+
+        setTimeout(() => {
+          navigateToMultiSelect(clickedCheckbox);
+        }, 200);
+        return;
       }
-    }
-  }, true); // ✅ Use CAPTURE phase to intercept before drawer handlers
 
-  // Restore saved state on initial load
-  restoreState(loadState());
-  
-  // After restoring category state, trigger the filter container update
-  setTimeout(() => {
-    if (typeof FacetFiltersForm !== 'undefined' && FacetFiltersForm.moveActiveFacetsToFilterContainer) {
-      FacetFiltersForm.moveActiveFacetsToFilterContainer();
-    }
-  }, 100);
-}
+      // Label click
+      const label = e.target.closest('.category-filter__label');
+      if (label) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const checkbox = label.querySelector('.category-filter__checkbox');
+        if (checkbox) {
+          const clickedHandle = checkbox.dataset.handle;
+          
+          // If it's level-0, clear everything and select only this
+          if (isLevel0Category(clickedHandle)) {
+            document.querySelectorAll('.category-filter__checkbox').forEach(chk => {
+              chk.checked = false;
+            });
+            checkbox.checked = true;
+            
+            setTimeout(() => {
+              navigateToMultiSelect(checkbox);
+            }, 100);
+            return;
+          }
+
+          // For subcategories
+          checkbox.checked = !checkbox.checked;
+          
+          // Find actual parent and keep it checked
+          const actualParentHandle = getDirectParentHandle(checkbox);
+          if (actualParentHandle) {
+            const parentCheckbox = document.querySelector(`.category-filter__checkbox[data-handle="${actualParentHandle}"]`);
+            if (parentCheckbox) {
+              parentCheckbox.checked = true;
+            }
+
+            // Uncheck all other level-0 categories
+            document.querySelectorAll('.category-filter__checkbox').forEach(chk => {
+              if (isLevel0Category(chk.dataset.handle) && chk.dataset.handle !== actualParentHandle) {
+                chk.checked = false;
+              }
+            });
+          }
+
+          setTimeout(() => {
+            navigateToMultiSelect(checkbox);
+          }, 200);
+        }
+      }
+    }, true);
+
+    // Restore saved state on initial load
+    restoreState(loadState());
+    
+    // Update filter container after restoring state
+    setTimeout(() => {
+      if (typeof FacetFiltersForm !== 'undefined' && FacetFiltersForm.moveActiveFacetsToFilterContainer) {
+        FacetFiltersForm.moveActiveFacetsToFilterContainer();
+      }
+    }, 100);
+  }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
@@ -714,6 +968,7 @@ function init() {
   return {
     getCurrentState,
     restoreState,
-    init
+    init,
+    generateMultiSelectURL
   };
 })();
