@@ -703,7 +703,7 @@ window.CategoryFilterManager = (function() {
     return { openItems, selectedItems };
   }
 
-  function restoreState(state) {
+ function restoreState(state) {
     if (!document.querySelector('.category-filter')) return;
 
     // Uncheck all first
@@ -721,41 +721,56 @@ window.CategoryFilterManager = (function() {
         // Check parent (level-0)
         parentCheckbox.checked = true;
         
-        // Check all subcategories
+        // Set to store ALL ancestors that need to be opened
+        const allItemsToOpen = [];
+        
+        // First, always open the main parent
+        const mainParentItem = parentCheckbox.closest('.category-filter__item');
+        if (mainParentItem) {
+          allItemsToOpen.push(mainParentItem);
+        }
+        
+        // Check all subcategories and collect ALL their ancestor items
         urlData.subcategories.forEach(handle => {
           // Find subcategory checkbox WITHIN this parent's tree only
           const parentItem = parentCheckbox.closest('.category-filter__item');
           if (parentItem) {
             const subCheckbox = parentItem.querySelector(`.category-filter__checkbox[data-handle="${handle}"]`);
-            if (subCheckbox) subCheckbox.checked = true;
-          }
-        });
-
-        // Open parent items
-        const allParents = new Set();
-        allParents.add(urlData.parent); // Open the main parent
-        
-        // Get the parent item to open its tree
-        const parentItem = parentCheckbox.closest('.category-filter__item');
-        if (parentItem) {
-          parentItem.classList.add('open');
-          const childList = parentItem.querySelector(':scope > .category-filter__list');
-          if (childList) childList.style.display = 'block';
-        }
-        
-        // Open parent items for all subcategories within this tree
-        urlData.subcategories.forEach(handle => {
-          const parentItem = parentCheckbox.closest('.category-filter__item');
-          if (parentItem) {
-            const subCheckbox = parentItem.querySelector(`.category-filter__checkbox[data-handle="${handle}"]`);
             if (subCheckbox) {
-              const parents = findParentHandles(handle, subCheckbox);
-              parents.forEach(p => allParents.add(p));
+              // Check this subcategory
+              subCheckbox.checked = true;
+              
+              // Traverse up the DOM tree and collect ALL parent items
+              let currentElement = subCheckbox.closest('.category-filter__item');
+              
+              while (currentElement) {
+                // Add this item to the list to open
+                if (!allItemsToOpen.includes(currentElement)) {
+                  allItemsToOpen.push(currentElement);
+                }
+                
+                // Move up to the parent list
+                let parentList = currentElement.parentElement;
+                
+                // Keep going up until we find the next parent item
+                while (parentList && !parentList.classList.contains('category-filter__item')) {
+                  parentList = parentList.parentElement;
+                }
+                
+                currentElement = parentList;
+              }
             }
           }
         });
 
-        openItemsByHandles(Array.from(allParents));
+        // Now open all collected items
+        allItemsToOpen.forEach(item => {
+          item.classList.add('open');
+          const childList = item.querySelector(':scope > .category-filter__list');
+          if (childList) {
+            childList.style.display = 'block';
+          }
+        });
       }
     }
   }
