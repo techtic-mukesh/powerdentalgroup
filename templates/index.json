@@ -716,7 +716,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/image_30.png",
             "title": "MISCH PARTNERSHIP – THE FUTURE OF DENTISTRY",
-            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit<a href=\"https:\/\/misch.com\/\" target=\"_blank\" title=\"https:\/\/misch.com\/\"> www.misch.com<\/a> to sign up.<\/p>",
+            "text": "<p>Power Dental has <strong>partnered <\/strong>with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit<a href=\"https:\/\/misch.com\/\" target=\"_blank\" title=\"https:\/\/misch.com\/\"> www.misch.com<\/a> to sign up.<\/p>",
             "link_label": "",
             "link": ""
           }

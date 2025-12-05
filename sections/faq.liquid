@@ -29,9 +29,8 @@
 
   </div>
 </section>
-
 <script>
- $(document).ready(function () {
+$(document).ready(function () {
   const $accordionItems = $(".faq-heading");
 
   // Open the first item by default
@@ -40,19 +39,20 @@
   $accordionItems.on("click", function () {
     const $this = $(this);
 
-    // If this is already active, do nothing
-    if ($this.hasClass("active")) return;
+    if ($this.hasClass("active")) {
+      // If clicked active item, close it
+      $this.removeClass("active").next().slideUp();
+    } else {
+      // Close any active item
+      $accordionItems.filter(".active").removeClass("active").next().slideUp();
 
-    // Close any currently active item
-    $accordionItems.filter(".active").removeClass("active").next().slideUp();
-
-    // Open the clicked one
-    $this.addClass("active").next().slideDown();
+      // Open the clicked item
+      $this.addClass("active").next().slideDown();
+    }
   });
 });
-
-
 </script>
+
 
 
 <style>
@@ -206,12 +206,13 @@ section.faq-section .faq-grid .faq-text {
 }
 
 section.faq-section .faq-grid .faq-text * {
-   color: #01000A;
-font-family: Prompt;
-font-size: 16px;
-font-style: normal;
-font-weight: 300;
-line-height: 22px; /* 137.5% */
+    color: #01000A;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: -.16px;
 }
 
 section.faq-section .faq-grid .faq-text p {
