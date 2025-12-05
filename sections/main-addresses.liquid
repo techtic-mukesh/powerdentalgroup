@@ -37,6 +37,24 @@
     overflow: hidden;
   }
 
+  .customer.addresses .address-grid li[data-address] {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.customer.addresses .address-grid li[data-address] .button-wrap {
+       padding-top: 30px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 19px;  
+}
+
+.customer.addresses .address-grid li[data-address] .button-wrap button {
+    margin: 0;
+}
+
   .customer.addresses .address-grid li[data-address] > h2 {
     font-size: 14px;
     position: absolute;
@@ -290,6 +308,8 @@
             <h2>{{ 'customer.addresses.default' | t }}</h2>
           {%- endif -%}
           {{ address | format_address }}
+          <div class="button-wrap">
+
           <button
             type="button"
             id="EditFormButton_{{ address.id }}"
@@ -310,6 +330,9 @@
           >
             {{ 'customer.addresses.delete' | t }}
           </button>
+
+          </div>
+          
           
           <!-- Edit Form (hidden by default) -->
           <div id="EditAddress_{{ address.id }}" class="edit_addresses">
