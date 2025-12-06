@@ -83,7 +83,7 @@
             "description_color": "#ffffff",
             "auth_image": "shopify://shop_images/power-logo.png",
             "button_label": "Find out more",
-            "button_link": "shopify:\/\/products\/power-fulcrum-forceps-kit-5-piece-atraumatic-extraction",
+            "button_link": "shopify://products/temp-fulcrum-123",
             "position": false
           }
         },
@@ -544,8 +544,8 @@
         "background_color": "#f8f6f4",
         "subheading": "Stay In The Know",
         "heading": "Find us at our Next Event",
-        "content": "<p>Your opportunity to learn is here. Our goal is to give you and your patients the best possible outcomes, whether it’s a hands-on training course or trade show event. Our team is ready and committed to making your experience exceptional.<\/p>",
-        "btnurl": "shopify:\/\/pages\/shows-events",
+        "content": "<p>Your opportunity to learn is here. Our goal is to give you and your patients the best possible outcomes, whether it’s a hands-on training course or trade show event. Our team is ready and committed to making your experience exceptional.</p>",
+        "btnurl": "shopify://pages/shows-events",
         "btntext": "View Upcoming Events"
       }
     },
