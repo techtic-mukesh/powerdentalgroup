@@ -1,19 +1,10 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "175826572319c72e33": {
       "type": "apps",
       "blocks": {
         "mst_wishlist_marketing_flow_v3_app_block_list_dWtje8": {
-          "type": "shopify://apps/mst-wishlist-marketing-flow/blocks/v3-app-block-list/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
+          "type": "shopify:\/\/apps\/mst-wishlist-marketing-flow\/blocks\/v3-app-block-list\/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
           "settings": {
             "multi_language": false,
             "iwish_add_txt": "Add To Wishlist",
@@ -47,58 +38,58 @@
         "slide_7zX73H": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Main_Homepage_Banner.webp",
-            "mobile-image": "shopify://shop_images/Main_Homepage_Banner_Mobile_7.jpg",
-            "heading": "<p>COMMON PROBLEMS,<strong> DISRUPTIVE SOLUTIONS</strong></p>",
+            "image": "shopify:\/\/shop_images\/Main_Homepage_Banner.webp",
+            "mobile-image": "shopify:\/\/shop_images\/Main_Homepage_Banner_Mobile_7.jpg",
+            "heading": "<p>COMMON PROBLEMS,<strong> DISRUPTIVE SOLUTIONS<\/strong><\/p>",
             "heading_color": "#ffffff",
-            "subheading": "<p>With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.</p>",
+            "subheading": "<p>With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.<\/p>",
             "description_color": "#ffffff",
             "button_label": "Who We Are",
-            "button_link": "shopify://pages/our-vision-philosophy",
+            "button_link": "shopify:\/\/pages\/our-vision-philosophy",
             "position": true
           }
         },
         "slide_LVQGqF": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Shop_Banner.webp",
-            "mobile-image": "shopify://shop_images/Shop_Banner_Mobile.jpg",
-            "heading": "<p>Instruments for <strong>Every Indication</strong></p>",
+            "image": "shopify:\/\/shop_images\/Shop_Banner.webp",
+            "mobile-image": "shopify:\/\/shop_images\/Shop_Banner_Mobile.jpg",
+            "heading": "<p>Instruments for <strong>Every Indication<\/strong><\/p>",
             "heading_color": "#ffffff",
-            "subheading": "<p>Thoughtful attention to detail. Power in every build.<br/>Make every moment count with the best instruments in class.</p>",
+            "subheading": "<p>Thoughtful attention to detail. Power in every build.<br\/>Make every moment count with the best instruments in class.<\/p>",
             "description_color": "#ffffff",
             "button_label": "Shop Now",
-            "button_link": "shopify://collections/all",
+            "button_link": "shopify:\/\/collections\/all",
             "position": true
           }
         },
         "slide_wQxP98": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Fulcrum_Forceps_Highlight_Banner.webp",
-            "mobile-image": "shopify://shop_images/Fulcrum_Forceps_Highlight_Banner_Mobile_7.jpg",
-            "heading": "<p>Fulcrum <strong>Forceps</strong></p>",
+            "image": "shopify:\/\/shop_images\/Fulcrum_Forceps_Highlight_Banner.webp",
+            "mobile-image": "shopify:\/\/shop_images\/Fulcrum_Forceps_Highlight_Banner_Mobile_7.jpg",
+            "heading": "<p>Fulcrum <strong>Forceps<\/strong><\/p>",
             "heading_color": "#ffffff",
-            "subheading": "<p>The Fulcrum Forceps utilize lever mechanics and light rotational pressure to create constant stress on the periodontal fibers for atraumatic extractions. The 360° rotational pad offers adaptable positioning within the oral cavity to form any ridge and provides alternatives in angulation for certain tooth extraction cases. </p>",
+            "subheading": "<p>The Fulcrum Forceps utilize lever mechanics and light rotational pressure to create constant stress on the periodontal fibers for atraumatic extractions. The 360° rotational pad offers adaptable positioning within the oral cavity to form any ridge and provides alternatives in angulation for certain tooth extraction cases. <\/p>",
             "description_color": "#ffffff",
-            "auth_image": "shopify://shop_images/power-logo.png",
+            "auth_image": "shopify:\/\/shop_images\/power-logo.png",
             "button_label": "Find out more",
-            "button_link": "shopify://products/power-fulcrum-forceps-kit-5-piece-atraumatic-extraction",
+            "button_link": "shopify:\/\/products\/power-fulcrum-forceps-kit-5-piece-atraumatic-extraction",
             "position": false
           }
         },
         "slide_HjUqUU": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Crown_Removers_Highlight_Banner.webp",
-            "mobile-image": "shopify://shop_images/Crown_Removers_Highlight_Banner_Mobile_2.jpg",
-            "heading": "<p>Crown <strong>Removers</strong></p>",
+            "image": "shopify:\/\/shop_images\/Crown_Removers_Highlight_Banner.webp",
+            "mobile-image": "shopify:\/\/shop_images\/Crown_Removers_Highlight_Banner_Mobile_2.jpg",
+            "heading": "<p>Crown <strong>Removers<\/strong><\/p>",
             "heading_color": "#ffffff",
-            "subheading": "<p>Traditional methods for removing crowns require sectioning and piece removal. The Power Crown Removers utilize push and pull mechanics in conjunction with pre-drilled holes to remove crowns fully intact, streamlining the removal process altogether. </p>",
+            "subheading": "<p>Traditional methods for removing crowns require sectioning and piece removal. The Power Crown Removers utilize push and pull mechanics in conjunction with pre-drilled holes to remove crowns fully intact, streamlining the removal process altogether. <\/p>",
             "description_color": "#ffffff",
-            "auth_image": "shopify://shop_images/power-logo.png",
+            "auth_image": "shopify:\/\/shop_images\/power-logo.png",
             "button_label": "Our Solution",
-            "button_link": "shopify://products/power-crown-remover-kit-set-of-3",
+            "button_link": "shopify:\/\/products\/power-crown-remover-kit-set-of-3",
             "position": true
           }
         }
@@ -171,13 +162,13 @@
         "slide_YmP8qh": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner-first-img.png",
+            "image": "shopify:\/\/shop_images\/banner-first-img.png",
             "image_overlay_opacity": 0,
             "heading": "COMMON PROBLEMS, DISRUPTIVE SOLUTIONS",
             "heading_size": "h1",
             "subheading": "With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.",
             "button_label": "Who We Are",
-            "link": "shopify://collections",
+            "link": "shopify:\/\/collections",
             "button_style_secondary": false,
             "show_text_box": false,
             "box_align": "middle-right",
@@ -189,13 +180,13 @@
         "slide_7VjE6K": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner-first-img.png",
+            "image": "shopify:\/\/shop_images\/banner-first-img.png",
             "image_overlay_opacity": 0,
             "heading": "COMMON PROBLEMS, DISRUPTIVE SOLUTIONS",
             "heading_size": "h1",
             "subheading": "With access to essential instrumentation, servicing, and highly specialized solutions, Power Dental is the dental instrument partner you've been looking for.",
             "button_label": "Who We Are",
-            "link": "shopify://collections",
+            "link": "shopify:\/\/collections",
             "button_style_secondary": false,
             "show_text_box": false,
             "box_align": "middle-right",
@@ -257,73 +248,73 @@
         "category_HrVRA7": {
           "type": "category",
           "settings": {
-            "icon": "shopify://shop_images/Power-Line_1_1_af56122e-2f04-4518-ac35-425eebc195d7.jpg",
+            "icon": "shopify:\/\/shop_images\/Power-Line_1_1_af56122e-2f04-4518-ac35-425eebc195d7.jpg",
             "label": "Power Line",
-            "urllabel": "shopify://collections/power-line"
+            "urllabel": "shopify:\/\/collections\/power-line"
           }
         },
         "category_CCxDmL": {
           "type": "category",
           "settings": {
-            "icon": "shopify://shop_images/Periodontal.jpg",
+            "icon": "shopify:\/\/shop_images\/Periodontal.jpg",
             "label": "Hygiene",
-            "urllabel": "shopify://collections/hygiene"
+            "urllabel": "shopify:\/\/collections\/hygiene"
           }
         },
         "category_FYVXaq": {
           "type": "category",
           "settings": {
-            "icon": "shopify://shop_images/Diagnostic.jpg",
+            "icon": "shopify:\/\/shop_images\/Diagnostic.jpg",
             "label": "Diagnostic",
-            "urllabel": "shopify://collections/diagnostic"
+            "urllabel": "shopify:\/\/collections\/diagnostic"
           }
         },
         "category_3k7xg9": {
           "type": "category",
           "settings": {
-            "icon": "shopify://shop_images/Implant_Surgical.jpg",
+            "icon": "shopify:\/\/shop_images\/Implant_Surgical.jpg",
             "label": "Surgical & Implantology",
-            "urllabel": "shopify://collections/surgical-implantology"
+            "urllabel": "shopify:\/\/collections\/surgical-implantology"
           }
         },
         "category_9pcEjR": {
           "type": "category",
           "settings": {
-            "icon": "shopify://shop_images/restorative-new.jpg",
+            "icon": "shopify:\/\/shop_images\/restorative-new.jpg",
             "label": "Restorative",
-            "urllabel": "shopify://collections/restorative"
+            "urllabel": "shopify:\/\/collections\/restorative"
           }
         },
         "category_PEJRcf": {
           "type": "category",
           "settings": {
-            "icon": "shopify://shop_images/endodontic-cat-2024.jpg",
+            "icon": "shopify:\/\/shop_images\/endodontic-cat-2024.jpg",
             "label": "Endodontic",
-            "urllabel": "shopify://collections/endodontic"
+            "urllabel": "shopify:\/\/collections\/endodontic"
           }
         },
         "category_H6bwqD": {
           "type": "category",
           "settings": {
-            "icon": "shopify://shop_images/Orthodontic_V2.jpg",
+            "icon": "shopify:\/\/shop_images\/Orthodontic_V2.jpg",
             "label": "Orthodontic",
-            "urllabel": "shopify://collections/orthodontic"
+            "urllabel": "shopify:\/\/collections\/orthodontic"
           }
         },
         "category_NyJVcy": {
           "type": "category",
           "settings": {
-            "icon": "shopify://shop_images/6daf287d24246982448de0ee1b089d94b62f5246.png",
+            "icon": "shopify:\/\/shop_images\/6daf287d24246982448de0ee1b089d94b62f5246.png",
             "label": "Headlamps & Loupes",
-            "urllabel": "shopify://collections/headlamps-loupes"
+            "urllabel": "shopify:\/\/collections\/headlamps-loupes"
           }
         },
         "category_7DUUdj": {
           "type": "category",
           "settings": {
-            "icon": "shopify://shop_images/Cassettes_Accessories.jpg",
+            "icon": "shopify:\/\/shop_images\/Cassettes_Accessories.jpg",
             "label": "Cassettes & Accessories",
-            "urllabel": "shopify://collections/cassettes-accessories"
+            "urllabel": "shopify:\/\/collections\/cassettes-accessories"
           }
         }
       },
@@ -340,7 +331,7 @@
       ],
       "name": "Category Slider",
       "settings": {
-        "heading": "<p>Our <strong>Products</strong></p>"
+        "heading": "<p>Our <strong>Products<\/strong><\/p>"
       }
     },
     "our_services_HFXeCY": {
@@ -349,25 +340,25 @@
         "service_Ybdqth": {
           "type": "service",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_26115.png",
-            "label": "<p>Trade-In<br/>Program</p>",
-            "srvurl": "shopify://pages/trade-in-program"
+            "image": "shopify:\/\/shop_images\/Rectangle_26115.png",
+            "label": "<p>Trade-In<br\/>Program<\/p>",
+            "srvurl": "shopify:\/\/pages\/trade-in-program"
           }
         },
         "service_jh77jG": {
           "type": "service",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_26115_1.png",
-            "label": "<p>Sharpen,<br/>Retip & Repair</p>",
-            "srvurl": "shopify://pages/sharpen-retip-repair"
+            "image": "shopify:\/\/shop_images\/Rectangle_26115_1.png",
+            "label": "<p>Sharpen,<br\/>Retip & Repair<\/p>",
+            "srvurl": "shopify:\/\/pages\/sharpen-retip-repair"
           }
         },
         "service_JkbdUB": {
           "type": "service",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_26115_2.png",
-            "label": "<p>Custom Kitting</p>",
-            "srvurl": "shopify://pages/custom-kitting"
+            "image": "shopify:\/\/shop_images\/Rectangle_26115_2.png",
+            "label": "<p>Custom Kitting<\/p>",
+            "srvurl": "shopify:\/\/pages\/custom-kitting"
           }
         }
       },
@@ -380,9 +371,9 @@
       "settings": {
         "background_color": "#f8f6f4",
         "subheading": "It Starts Here",
-        "heading": "<p>Our <strong>SERVICES</strong></p>",
-        "content": "<p>All needs are not the same; that’s why we provide solutions for every dental professional at any point in their journey.</p>",
-        "btnurl": "shopify://pages/services",
+        "heading": "<p>Our <strong>SERVICES<\/strong><\/p>",
+        "content": "<p>All needs are not the same; that’s why we provide solutions for every dental professional at any point in their journey.<\/p>",
+        "btnurl": "shopify:\/\/pages\/services",
         "btntext": "view all services"
       }
     },
@@ -392,29 +383,29 @@
         "slide_XQEiqj": {
           "type": "slide",
           "settings": {
-            "title": "<p>customer<br/><strong>centered</strong></p>",
-            "label": "<p>We love our customers as they are the heartbeat of our business. You drive us to be the best we can be.</p>"
+            "title": "<p>customer<br\/><strong>centered<\/strong><\/p>",
+            "label": "<p>We love our customers as they are the heartbeat of our business. You drive us to be the best we can be.<\/p>"
           }
         },
         "slide_Ca66Yh": {
           "type": "slide",
           "settings": {
-            "title": "<p>Relentless<br/><strong>improvement</strong></p>",
-            "label": "<p>We embrace change and push the boundaries. We set the bar, then raise it higher.</p>"
+            "title": "<p>Relentless<br\/><strong>improvement<\/strong><\/p>",
+            "label": "<p>We embrace change and push the boundaries. We set the bar, then raise it higher.<\/p>"
           }
         },
         "slide_9NV4Tk": {
           "type": "slide",
           "settings": {
-            "title": "<p>Outcome<br/><strong>Driven</strong></p>",
-            "label": "<p>Results matter. We hold our products and services accountable to ensure they meet our standards of excellence.</p>"
+            "title": "<p>Outcome<br\/><strong>Driven<\/strong><\/p>",
+            "label": "<p>Results matter. We hold our products and services accountable to ensure they meet our standards of excellence.<\/p>"
           }
         },
         "slide_jXrCcN": {
           "type": "slide",
           "settings": {
-            "title": "<p>We do<br/><strong>more</strong></p>",
-            "label": "<p>Every practice is different. You have diverse needs, we have tailored solutions. Your impact is important to us.</p>"
+            "title": "<p>We do<br\/><strong>more<\/strong><\/p>",
+            "label": "<p>Every practice is different. You have diverse needs, we have tailored solutions. Your impact is important to us.<\/p>"
           }
         }
       },
@@ -428,9 +419,9 @@
       "settings": {
         "background_color": "#ffffff",
         "subheading": "details make the difference",
-        "heading": "<h2>Why Choose <strong>Power Dental?</strong></h2>",
+        "heading": "<h2>Why Choose <strong>Power Dental?<\/strong><\/h2>",
         "content": "",
-        "image": "shopify://shop_images/image_31.png"
+        "image": "shopify:\/\/shop_images\/image_31.png"
       }
     },
     "tab_collection_PXdCW4": {
@@ -465,7 +456,7 @@
       ],
       "name": "Collection Tabs",
       "settings": {
-        "section_heading": "<p>Customer <strong>Favorites</strong></p>",
+        "section_heading": "<p>Customer <strong>Favorites<\/strong><\/p>",
         "products_to_show": 8,
         "enable_swiper": true,
         "image_ratio": "square",
@@ -483,7 +474,7 @@
           "type": "testimonial",
           "settings": {
             "testimonial_title": "Root tips out clean. No sweat. No trauma.",
-            "testimonial_text": "<p>I used to dread root tip extractions and severely carious teeth. Too much bone loss, too much effort. With the Power Flex Periotome Kit, extractions became smooth and atraumatic, with minimal bleeding and intact soft tissue. The difference is night and day: easier for me, safer for the patient, and more predictable every time.</p>",
+            "testimonial_text": "<p>I used to dread root tip extractions and severely carious teeth. Too much bone loss, too much effort. With the Power Flex Periotome Kit, extractions became smooth and atraumatic, with minimal bleeding and intact soft tissue. The difference is night and day: easier for me, safer for the patient, and more predictable every time.<\/p>",
             "name": "Dr. Jessica Vitale, DDS, MPH, MS– NYU,",
             "credentials": "New York, NY",
             "date": "July 21, 2025"
@@ -493,7 +484,7 @@
           "type": "testimonial",
           "settings": {
             "testimonial_title": "Great add-on to my toolkit – very satisfied!",
-            "testimonial_text": "<p>The instrument works great. Had a really tough wisdom teeth case today where it came in handy for removing a very thick root inside the jaw bone. Didn’t have to cut more bone and hopefully it helps with healing. Hopefully we’ll do business again in the future. </p>",
+            "testimonial_text": "<p>The instrument works great. Had a really tough wisdom teeth case today where it came in handy for removing a very thick root inside the jaw bone. Didn’t have to cut more bone and hopefully it helps with healing. Hopefully we’ll do business again in the future. <\/p>",
             "name": "Dr. Alvin Choi, DDS – Seafair Dental,",
             "credentials": "Richmond, Canada",
             "date": "April 1, 2023"
@@ -503,7 +494,7 @@
           "type": "testimonial",
           "settings": {
             "testimonial_title": "Power Dental Group Has Been a Vital Partner to My Implant Practice",
-            "testimonial_text": "<p>They produce the finest and most durable dental and surgical instruments in the world. In addition to thousands of surgeries, many of our instruments have been through the rigors of hands-on courses, yet continue to perform flawlessly. For clinicians who demand the highest levels of innovation and quality, at unbeatable prices, do yourself a favor and make Power Dental Group part of your winning team.</p>",
+            "testimonial_text": "<p>They produce the finest and most durable dental and surgical instruments in the world. In addition to thousands of surgeries, many of our instruments have been through the rigors of hands-on courses, yet continue to perform flawlessly. For clinicians who demand the highest levels of innovation and quality, at unbeatable prices, do yourself a favor and make Power Dental Group part of your winning team.<\/p>",
             "name": "Joseph Kim, DDS, JD, FAGD, FICOI, FPFA,",
             "credentials": "Owner of Halcyon Dental & Modern Dentistry",
             "date": ""
@@ -513,7 +504,7 @@
           "type": "testimonial",
           "settings": {
             "testimonial_title": "Less Bone Removal. Zero Bleeding. Happier Patients",
-            "testimonial_text": "<p>I used to struggle with root tip extractions, removing too much bone and sweating through procedures. After switching to Power Twist Elevators and Periotomes, extractions became clean, predictable, and atraumatic. Clinically, these instruments have completely transformed my workflow.</p>",
+            "testimonial_text": "<p>I used to struggle with root tip extractions, removing too much bone and sweating through procedures. After switching to Power Twist Elevators and Periotomes, extractions became clean, predictable, and atraumatic. Clinically, these instruments have completely transformed my workflow.<\/p>",
             "name": "Dr. Jessica Vitale, DDS, MPH, MS  – NYU,",
             "credentials": "New York, NY",
             "date": "July 21, 2025"
@@ -523,7 +514,7 @@
           "type": "testimonial",
           "settings": {
             "testimonial_title": "My go-to elevator for surgical extractions",
-            "testimonial_text": "<p>The Power Twist Elevator is my go-to for both simple and surgical extractions since I started using it. It helps preserve bone, reduces trauma, and gives me more confidence during procedures. I rely on it heavily.</p>",
+            "testimonial_text": "<p>The Power Twist Elevator is my go-to for both simple and surgical extractions since I started using it. It helps preserve bone, reduces trauma, and gives me more confidence during procedures. I rely on it heavily.<\/p>",
             "name": "Dr. Juan L. Rodriguez, DDS, MPH, MS",
             "credentials": "–  The Spring Modern Dentistry, Aurora, CO",
             "date": "July 16, 2025"
@@ -533,7 +524,7 @@
           "type": "testimonial",
           "settings": {
             "testimonial_title": "Fastest and Most Reliable Repairs I’ve Seen",
-            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in lab bills.</p>",
+            "testimonial_text": "<p>I used your Crown Removers to remove a zirconia crown on 19 to do an endodontic retreat. It worked so well that it surprised me and my assistant. Thanks for making it. This saves me valuable chair time and hundreds of dollars in lab bills.<\/p>",
             "name": "Shawn P. Lottier, DDS, MAG, DICOI",
             "credentials": "– Comfort Smiles Atlanta",
             "date": "May 15, 2024"
@@ -543,7 +534,7 @@
           "type": "testimonial",
           "settings": {
             "testimonial_title": "Effortless Crown Removal. One Piece, First Try",
-            "testimonial_text": "<p>Total game changer. First use was a dream – drilled, gripped, and the zirconia crown popped off in one piece. Effortless.<br/><br/></p>",
+            "testimonial_text": "<p>Total game changer. First use was a dream – drilled, gripped, and the zirconia crown popped off in one piece. Effortless.<br\/><br\/><\/p>",
             "name": "Dr. Laurie A. Rosato, DMD",
             "credentials": "– Concord, NH",
             "date": "February 20, 2024"
@@ -553,7 +544,7 @@
           "type": "testimonial",
           "settings": {
             "testimonial_title": "Strong build. Flexible tips. Zero stress extractions.",
-            "testimonial_text": "<p>The Power Flex Periotome Kit does what others can’t. Wide ergonomic handles, flexible-yet-rigid tips that adapt to any tooth or angle, and screws that make even broken roots manageable. Extractions feel smoother, faster, and far less fatiguing.</p>",
+            "testimonial_text": "<p>The Power Flex Periotome Kit does what others can’t. Wide ergonomic handles, flexible-yet-rigid tips that adapt to any tooth or angle, and screws that make even broken roots manageable. Extractions feel smoother, faster, and far less fatiguing.<\/p>",
             "name": "Steven K. Huh, DDS – Central Dental",
             "credentials": "Group, Turlock, CA",
             "date": "January 30, 2024"
@@ -574,7 +565,7 @@
       "settings": {
         "background_color": "#ffffff",
         "section_sub": "What Clients Say",
-        "section_title": "<p>Trusted By <strong>Doctors Nationwide</strong></p>"
+        "section_title": "<p>Trusted By <strong>Doctors Nationwide<\/strong><\/p>"
       }
     },
     "explore_events_yqkRm7": {
@@ -583,28 +574,28 @@
         "event_PbfFjd": {
           "type": "event",
           "settings": {
-            "image": "shopify://shop_images/3D_Implant_Institute_Photo_BW.jpg",
+            "image": "shopify:\/\/shop_images\/3D_Implant_Institute_Photo_BW.jpg",
             "label": "3D Implant Institute",
-            "info": "<p>Extract, Preserve & Place</p>",
-            "rgsurl": "https://3dimplantinstitute.com/live-surgical-course/"
+            "info": "<p>Extract, Preserve & Place<\/p>",
+            "rgsurl": "https:\/\/3dimplantinstitute.com\/live-surgical-course\/"
           }
         },
         "event_wHcKXG": {
           "type": "event",
           "settings": {
-            "image": "shopify://shop_images/Misch_Photo_BW.jpg",
+            "image": "shopify:\/\/shop_images\/Misch_Photo_BW.jpg",
             "label": "Misch Institute",
-            "info": "<p>Implants With GBR & Sinus</p>",
-            "rgsurl": "https://misch.com/all-courses/"
+            "info": "<p>Implants With GBR & Sinus<\/p>",
+            "rgsurl": "https:\/\/misch.com\/all-courses\/"
           }
         },
         "event_EE3yfU": {
           "type": "event",
           "settings": {
-            "image": "shopify://shop_images/AAID_Maxicourse_Photo_BW.jpg",
+            "image": "shopify:\/\/shop_images\/AAID_Maxicourse_Photo_BW.jpg",
             "label": "AAID Chicago Maxicourse",
-            "info": "<p>Module 4</p>",
-            "rgsurl": "https://aaidchicagomaxicourse.com/"
+            "info": "<p>Module 4<\/p>",
+            "rgsurl": "https:\/\/aaidchicagomaxicourse.com\/"
           }
         }
       },
@@ -617,9 +608,9 @@
       "settings": {
         "background_color": "#f8f6f4",
         "subheading": "Stay In The Know",
-        "heading": "<p>Find us at <strong>our Next Event</strong></p>",
-        "content": "<p>Your opportunity to learn is here. Our goal is to give you and your patients the best possible outcomes, whether it’s a hands-on training course or trade show event. Our team is ready and committed to making your experience exceptional.</p>",
-        "btnurl": "shopify://pages/shows-events",
+        "heading": "<p>Find us at <strong>our Next Event<\/strong><\/p>",
+        "content": "<p>Your opportunity to learn is here. Our goal is to give you and your patients the best possible outcomes, whether it’s a hands-on training course or trade show event. Our team is ready and committed to making your experience exceptional.<\/p>",
+        "btnurl": "shopify:\/\/pages\/shows-events",
         "btntext": "View Upcoming Events"
       }
     },
@@ -630,7 +621,7 @@
           "type": "slide",
           "settings": {
             "slide_title": "THE FUTURE OF DENTISTRY: MISCH INSTITUTE PARTNERSHIP",
-            "slide_text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit<a href=\"https://misch.com/\" target=\"_blank\" title=\"https://misch.com/\"> www.misch.com</a> to sign up.</p>",
+            "slide_text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit<a href=\"https:\/\/misch.com\/\" target=\"_blank\" title=\"https:\/\/misch.com\/\"> www.misch.com<\/a> to sign up.<\/p>",
             "slide_link": "",
             "slide_link_label": "Learn more"
           }
@@ -639,7 +630,7 @@
           "type": "slide",
           "settings": {
             "slide_title": "GOING GOVERNMENT - LOVELL GOVERNMENT SERVICES",
-            "slide_text": "<p>Power Dental has partnered with Lovell Government Services to get our products into the hands of those who serve our country. Visit <a href=\"https://www.lovell.com\" target=\"_blank\" title=\"https://www.lovell.com\">www.lovell.com</a> to learn more.</p>",
+            "slide_text": "<p>Power Dental has partnered with Lovell Government Services to get our products into the hands of those who serve our country. Visit <a href=\"https:\/\/www.lovell.com\" target=\"_blank\" title=\"https:\/\/www.lovell.com\">www.lovell.com<\/a> to learn more.<\/p>",
             "slide_link": "",
             "slide_link_label": "Learn more"
           }
@@ -648,7 +639,7 @@
           "type": "slide",
           "settings": {
             "slide_title": "BEAUTY MEETS FUNCTION - STOGGLES PARTNERSHIP",
-            "slide_text": "<p>Stoggles Inc. and Power Dental Group have partnered together to provide stylish and functional safety goggles to all Power Dental customers. Use code PDG15 to get 15% off your first purchase. <a href=\"https://www.stoggles.com\" target=\"_blank\" title=\"https://www.stoggles.com\">www.stoggles.com</a></p>",
+            "slide_text": "<p>Stoggles Inc. and Power Dental Group have partnered together to provide stylish and functional safety goggles to all Power Dental customers. Use code PDG15 to get 15% off your first purchase. <a href=\"https:\/\/www.stoggles.com\" target=\"_blank\" title=\"https:\/\/www.stoggles.com\">www.stoggles.com<\/a><\/p>",
             "slide_link": "",
             "slide_link_label": "Learn more"
           }
@@ -657,42 +648,42 @@
           "type": "menu_item",
           "settings": {
             "menu_label": "Servicing Order Form",
-            "menu_link": "shopify://pages/servicing-order-form"
+            "menu_link": "shopify:\/\/pages\/servicing-order-form"
           }
         },
         "menu_item_LtETH6": {
           "type": "menu_item",
           "settings": {
             "menu_label": "Shipping label",
-            "menu_link": "https://returns.usps.com/Label/CreateSingle?Code=7AC6D5C59F5940EBA1D2A338C8F13E77&DisplayType=Customer"
+            "menu_link": "https:\/\/returns.usps.com\/Label\/CreateSingle?Code=7AC6D5C59F5940EBA1D2A338C8F13E77&DisplayType=Customer"
           }
         },
         "menu_item_GkfBF4": {
           "type": "menu_item",
           "settings": {
             "menu_label": "Return order form",
-            "menu_link": "shopify://pages/return-order-form"
+            "menu_link": "shopify:\/\/pages\/return-order-form"
           }
         },
         "menu_item_eMyaBK": {
           "type": "menu_item",
           "settings": {
             "menu_label": "Product training videos",
-            "menu_link": "shopify://pages/product-training-videos"
+            "menu_link": "shopify:\/\/pages\/product-training-videos"
           }
         },
         "menu_item_fVtdBU": {
           "type": "menu_item",
           "settings": {
             "menu_label": "E-catalog",
-            "menu_link": "shopify://pages/e-catalog"
+            "menu_link": "shopify:\/\/pages\/e-catalog"
           }
         },
         "menu_item_w7dVpk": {
           "type": "menu_item",
           "settings": {
             "menu_label": "FAQ",
-            "menu_link": "shopify://pages/frequently-asked-questions"
+            "menu_link": "shopify:\/\/pages\/frequently-asked-questions"
           }
         }
       },
@@ -711,10 +702,10 @@
       "name": "Events with Slider & Menu",
       "settings": {
         "subtitle": "STAY IN THE KNOW",
-        "title": "<p>Find us at our <strong>next event</strong></p>",
+        "title": "<p>Find us at our <strong>next event<\/strong><\/p>",
         "description": "Your opportunity to learn is here. Our goal is to give you and your patients the best possible outcomes, whether it’s a hands-on training course or trade show event. Our team is ready and committed to making your experience exceptional.",
         "button_label": "View Upcoming Events",
-        "button_link": "shopify://pages/shows-events"
+        "button_link": "shopify:\/\/pages\/shows-events"
       }
     },
     "multicolumn_NUkNgM": {
@@ -723,9 +714,9 @@
         "column_nGiUXp": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/image_30.png",
+            "image": "shopify:\/\/shop_images\/image_30.png",
             "title": "MISCH PARTNERSHIP – THE FUTURE OF DENTISTRY",
-            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit<a href=\"https://misch.com/\" target=\"_blank\" title=\"https://misch.com/\"> www.misch.com</a> to sign up.</p>",
+            "text": "<p>Power Dental has partnered with the Misch Institute to become the sole instrumentation provider for all MII courses. To get involved, visit<a href=\"https:\/\/misch.com\/\" target=\"_blank\" title=\"https:\/\/misch.com\/\"> www.misch.com<\/a> to sign up.<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -733,9 +724,9 @@
         "column_bXnpkN": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/image_30_1.png",
+            "image": "shopify:\/\/shop_images\/image_30_1.png",
             "title": "LOVELL PARTNERSHIP – GOVERNMENT ACCESS EXPANDED",
-            "text": "<p>Power Dental has partnered with Lovell Government Services to get our products into the hands of those who serve our country. Visit <a href=\"https://www.lovell.com\" target=\"_blank\" title=\"https://www.lovell.com\">www.lovell.com</a> to learn more.</p>",
+            "text": "<p>Power Dental has partnered with Lovell Government Services to get our products into the hands of those who serve our country. Visit <a href=\"https:\/\/www.lovell.com\" target=\"_blank\" title=\"https:\/\/www.lovell.com\">www.lovell.com<\/a> to learn more.<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -743,9 +734,9 @@
         "column_hmpVir": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/image_30_2.png",
+            "image": "shopify:\/\/shop_images\/image_30_2.png",
             "title": "STOGGLES PARTNERSHIP – SAFETY GOGGLES DISCOUNT",
-            "text": "<p>Stoggles Inc. and Power Dental Group have partnered together to provide stylish and functional safety goggles to all Power Dental customers. Use code PDG15 at <a href=\"http://stoggles.com\" target=\"_blank\">stoggles.com</a> to get 15% off your first purchase.</p>",
+            "text": "<p>Stoggles Inc. and Power Dental Group have partnered together to provide stylish and functional safety goggles to all Power Dental customers. Use code PDG15 at <a href=\"http:\/\/stoggles.com\" target=\"_blank\">stoggles.com<\/a> to get 15% off your first purchase.<\/p>",
             "link_label": "",
             "link": ""
           }
@@ -784,8 +775,8 @@
       "settings": {
         "background_color": "#141132",
         "heading": "Sign Up for Email Updates",
-        "image": "shopify://shop_images/image_31.png",
-        "form": "<script charset=\"utf-8\" type=\"text/javascript\" src=\"//js.hsforms.net/forms/embed/v2.js\"></script>\n<script>\n  hbspt.forms.create({\n    portalId: \"39754023\",\n    formId: \"df0ba392-d720-4cb4-8d9f-6e7fc47edfb9\",\n    region: \"na1\"\n  });\n</script>"
+        "image": "shopify:\/\/shop_images\/image_31.png",
+        "form": "<script charset=\"utf-8\" type=\"text\/javascript\" src=\"\/\/js.hsforms.net\/forms\/embed\/v2.js\"><\/script>\n<script>\n  hbspt.forms.create({\n    portalId: \"39754023\",\n    formId: \"df0ba392-d720-4cb4-8d9f-6e7fc47edfb9\",\n    region: \"na1\"\n  });\n<\/script>"
       }
     },
     "meadia_logos_wtKeWD": {
@@ -794,35 +785,35 @@
         "logo_bd3iVA": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify://shop_images/image_25.png",
+            "logo_image": "shopify:\/\/shop_images\/image_25.png",
             "logo_link": ""
           }
         },
         "logo_3CG7x9": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify://shop_images/image_26.png",
+            "logo_image": "shopify:\/\/shop_images\/image_26.png",
             "logo_link": ""
           }
         },
         "logo_dkkaXz": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify://shop_images/image_27.png",
+            "logo_image": "shopify:\/\/shop_images\/image_27.png",
             "logo_link": ""
           }
         },
         "logo_j3QXEG": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify://shop_images/image_28.png",
+            "logo_image": "shopify:\/\/shop_images\/image_28.png",
             "logo_link": ""
           }
         },
         "logo_D3fWai": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify://shop_images/image_29.png",
+            "logo_image": "shopify:\/\/shop_images\/image_29.png",
             "logo_link": ""
           }
         }
