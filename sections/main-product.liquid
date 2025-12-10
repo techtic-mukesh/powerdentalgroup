@@ -118,11 +118,11 @@
   {%- when 'fabgnote' -%}
      {% assign first_variant = product.selected_or_first_available_variant %}
 
-{% if customer and customer.tags contains 'FABG Subscribers' and first_variant.compare_at_price == nil %}
-  <div class="fabg-note">
-    <span class="icon-pr">%</span> {{ block.settings.ftitle }}
-  </div>
-{% endif %}
+      {% if customer and customer.tags contains 'FABG Subscribers' and first_variant.compare_at_price == nil %}
+        <div class="fabg-note">
+          <span class="icon-pr">%</span> {{ block.settings.ftitle }}
+        </div>
+      {% endif %}
 
 
 
