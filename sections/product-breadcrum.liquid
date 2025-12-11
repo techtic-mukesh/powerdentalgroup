@@ -8,7 +8,9 @@
       {% if product %}
         {%- assign filtered_collections = product.collections | where: "handle", "all" | size -%}
         {% if filtered_collections == 0 %}
-          {% assign visible_collections = product.collections | reject: "handle", "all" %}
+          {% assign visible_collections = product.collections 
+  | reject: "handle", "all" 
+  | reject: "handle", "fabg-eligible-products" %}
           {% for collection in visible_collections limit: 2 %}
             <span class="breadcrumb-separator">›</span>
             <a href="{{ collection.url }}" class="breadcrumb-link">{{ collection.title }}</a>
