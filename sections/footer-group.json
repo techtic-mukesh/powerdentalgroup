@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -18,51 +27,43 @@
       "settings": {
         "background_color": "#141132",
         "heading": "Sign Up for Email Updates",
-        "image": "shopify:\/\/shop_images\/image_31.png",
-        "form": "<script charset=\"utf-8\" type=\"text\/javascript\" src=\"\/\/js.hsforms.net\/forms\/embed\/v2.js\"><\/script>\n<script>\n  hbspt.forms.create({\n    portalId: \"39754023\",\n    formId: \"df0ba392-d720-4cb4-8d9f-6e7fc47edfb9\",\n    region: \"na1\",\n    onFormReady: function($form) {\n      \/\/ Normalize to a DOM element (HubSpot may pass jQuery-like or raw element)\n      let formEl = $form;\n      try {\n        if (formEl && typeof formEl.get === 'function') { \/\/ jQuery-like\n          formEl = formEl.get(0);\n        } else if (Array.isArray(formEl) && formEl[0]) {\n          formEl = formEl[0];\n        }\n      } catch (e) { \/* ignore *\/ }\n\n      if (!formEl || !(formEl instanceof Element)) {\n        console.warn('HubSpot form element not found in onFormReady.');\n        return;\n      }\n\n      \/\/ Names used in your markup\n      const name1 = \"i_agree_to_receive_informational_and_promotional_emails_from_power_dental_group\";\n      const name2 = \"i_agree_to_the_processing_of_my_personal_data\";\n\n      \/\/ Helper: find elements safely\n      function findCheckboxes() {\n        const cb1 = formEl.querySelector(`input[name=\"${name1}\"]`);\n        const cb2 = formEl.querySelector(`input[name=\"${name2}\"]`);\n        return { cb1, cb2 };\n      }\n\n      function findSubmit() {\n        \/\/ HubSpot uses input.hs-button, but we look for any submit\/input button\n        return formEl.querySelector('input[type=\"submit\"].hs-button, button[type=\"submit\"].hs-button, input.hs-button, .hs-submit input[type=\"submit\"]');\n      }\n\n      \/\/ Style for disabled look (optional)\n      const disabledStyleId = 'hs-disabled-submit-style';\n      if (!document.getElementById(disabledStyleId)) {\n        const style = document.createElement('style');\n        style.id = disabledStyleId;\n        style.innerHTML = `\n          .hs-btn-disabled { opacity: 0.5 !important; cursor: not-allowed !important; pointer-events: auto !important; }\n          .hs-checkbox-error { color: #c00; font-size: 13px; margin-top: 8px; display:block; }\n        `;\n        document.head.appendChild(style);\n      }\n\n      \/\/ core logic to enable\/disable submit\n      function applyLogic(submitEl, cb1, cb2) {\n        if (!submitEl) return;\n        \/\/ disable initially\n        submitEl.disabled = true;\n        submitEl.classList.add('hs-btn-disabled');\n\n        function update() {\n          const ok = !!(cb1 && cb1.checked) && !!(cb2 && cb2.checked);\n          submitEl.disabled = !ok;\n          submitEl.classList.toggle('hs-btn-disabled', !ok);\n        }\n\n        \/\/ attach listeners safely (if cb doesn't exist, we will wait)\n        if (cb1) cb1.addEventListener('change', update);\n        if (cb2) cb2.addEventListener('change', update);\n\n        \/\/ protect against direct submit attempts\n        formEl.addEventListener('submit', function(ev) {\n          const okNow = !!( (cb1 && cb1.checked) && (cb2 && cb2.checked) );\n          if (!okNow) {\n            ev.preventDefault();\n            ev.stopImmediatePropagation();\n            \/\/ show small inline message\n            let msg = formEl.querySelector('.hs-checkbox-error');\n            if (!msg) {\n              msg = document.createElement('div');\n              msg.className = 'hs-checkbox-error';\n              msg.textContent = 'Please agree to both checkboxes before subscribing.';\n              \/\/ append near the submit\n              submitEl.closest('.actions')?.appendChild(msg) || submitEl.parentElement.appendChild(msg);\n            }\n            \/\/ briefly shake the button to indicate requirement (non-intrusive)\n            submitEl.animate([{ transform: 'translateX(-4px)' }, { transform: 'translateX(4px)' }, { transform: 'translateX(0)' }], { duration: 250, iterations: 1 });\n            return false;\n          }\n          \/\/ else allow submission\n        });\n\n        \/\/ initial check in case checkboxes pre-checked\n        update();\n      }\n\n      \/\/ Try to find immediately\n      let { cb1, cb2 } = findCheckboxes();\n      let submitEl = findSubmit();\n\n      \/\/ If everything present, just apply logic\n      if (submitEl && cb1 && cb2) {\n        applyLogic(submitEl, cb1, cb2);\n        return;\n      }\n\n      \/\/ Otherwise, watch the form until both checkboxes and submit appear (timeout after ~8s)\n      const observer = new MutationObserver((mutations, obs) => {\n        const found = findCheckboxes();\n        submitEl = findSubmit();\n        if (!cb1 && found.cb1) cb1 = found.cb1;\n        if (!cb2 && found.cb2) cb2 = found.cb2;\n\n        if (submitEl && cb1 && cb2) {\n          applyLogic(submitEl, cb1, cb2);\n          obs.disconnect();\n        }\n      });\n\n      observer.observe(formEl, { childList: true, subtree: true });\n\n      \/\/ safety timeout to disconnect observer after 8 seconds to avoid permanent observers\n      setTimeout(() => {\n        observer.disconnect();\n        \/\/ Do a final attempt to apply logic if possible\n        submitEl = findSubmit();\n        const finalFound = findCheckboxes();\n        if (!cb1) cb1 = finalFound.cb1;\n        if (!cb2) cb2 = finalFound.cb2;\n        if (submitEl && cb1 && cb2) applyLogic(submitEl, cb1, cb2);\n      }, 8000);\n    }\n  });\n<\/script>"
+        "image": "shopify://shop_images/image_31.png",
+        "form": "<script charset=\"utf-8\" type=\"text/javascript\" src=\"//js.hsforms.net/forms/embed/v2.js\"></script>\n<script>\n  hbspt.forms.create({\n    portalId: \"39754023\",\n    formId: \"df0ba392-d720-4cb4-8d9f-6e7fc47edfb9\",\n    region: \"na1\",\n    onFormReady: function($form) {\n      // Normalize to a DOM element (HubSpot may pass jQuery-like or raw element)\n      let formEl = $form;\n      try {\n        if (formEl && typeof formEl.get === 'function') { // jQuery-like\n          formEl = formEl.get(0);\n        } else if (Array.isArray(formEl) && formEl[0]) {\n          formEl = formEl[0];\n        }\n      } catch (e) { /* ignore */ }\n\n      if (!formEl || !(formEl instanceof Element)) {\n        console.warn('HubSpot form element not found in onFormReady.');\n        return;\n      }\n\n      // Names used in your markup\n      const name1 = \"i_agree_to_receive_informational_and_promotional_emails_from_power_dental_group\";\n      const name2 = \"i_agree_to_the_processing_of_my_personal_data\";\n\n      // Helper: find elements safely\n      function findCheckboxes() {\n        const cb1 = formEl.querySelector(`input[name=\"${name1}\"]`);\n        const cb2 = formEl.querySelector(`input[name=\"${name2}\"]`);\n        return { cb1, cb2 };\n      }\n\n      function findSubmit() {\n        // HubSpot uses input.hs-button, but we look for any submit/input button\n        return formEl.querySelector('input[type=\"submit\"].hs-button, button[type=\"submit\"].hs-button, input.hs-button, .hs-submit input[type=\"submit\"]');\n      }\n\n      // Style for disabled look (optional)\n      const disabledStyleId = 'hs-disabled-submit-style';\n      if (!document.getElementById(disabledStyleId)) {\n        const style = document.createElement('style');\n        style.id = disabledStyleId;\n        style.innerHTML = `\n          .hs-btn-disabled { opacity: 0.5 !important; cursor: not-allowed !important; pointer-events: auto !important; }\n          .hs-checkbox-error { color: #c00; font-size: 13px; margin-top: 8px; display:block; }\n        `;\n        document.head.appendChild(style);\n      }\n\n      // core logic to enable/disable submit\n      function applyLogic(submitEl, cb1, cb2) {\n        if (!submitEl) return;\n        // disable initially\n        submitEl.disabled = true;\n        submitEl.classList.add('hs-btn-disabled');\n\n        function update() {\n          const ok = !!(cb1 && cb1.checked) && !!(cb2 && cb2.checked);\n          submitEl.disabled = !ok;\n          submitEl.classList.toggle('hs-btn-disabled', !ok);\n        }\n\n        // attach listeners safely (if cb doesn't exist, we will wait)\n        if (cb1) cb1.addEventListener('change', update);\n        if (cb2) cb2.addEventListener('change', update);\n\n        // protect against direct submit attempts\n        formEl.addEventListener('submit', function(ev) {\n          const okNow = !!( (cb1 && cb1.checked) && (cb2 && cb2.checked) );\n          if (!okNow) {\n            ev.preventDefault();\n            ev.stopImmediatePropagation();\n            // show small inline message\n            let msg = formEl.querySelector('.hs-checkbox-error');\n            if (!msg) {\n              msg = document.createElement('div');\n              msg.className = 'hs-checkbox-error';\n              msg.textContent = 'Please agree to both checkboxes before subscribing.';\n              // append near the submit\n              submitEl.closest('.actions')?.appendChild(msg) || submitEl.parentElement.appendChild(msg);\n            }\n            // briefly shake the button to indicate requirement (non-intrusive)\n            submitEl.animate([{ transform: 'translateX(-4px)' }, { transform: 'translateX(4px)' }, { transform: 'translateX(0)' }], { duration: 250, iterations: 1 });\n            return false;\n          }\n          // else allow submission\n        });\n\n        // initial check in case checkboxes pre-checked\n        update();\n      }\n\n      // Try to find immediately\n      let { cb1, cb2 } = findCheckboxes();\n      let submitEl = findSubmit();\n\n      // If everything present, just apply logic\n      if (submitEl && cb1 && cb2) {\n        applyLogic(submitEl, cb1, cb2);\n        return;\n      }\n\n      // Otherwise, watch the form until both checkboxes and submit appear (timeout after ~8s)\n      const observer = new MutationObserver((mutations, obs) => {\n        const found = findCheckboxes();\n        submitEl = findSubmit();\n        if (!cb1 && found.cb1) cb1 = found.cb1;\n        if (!cb2 && found.cb2) cb2 = found.cb2;\n\n        if (submitEl && cb1 && cb2) {\n          applyLogic(submitEl, cb1, cb2);\n          obs.disconnect();\n        }\n      });\n\n      observer.observe(formEl, { childList: true, subtree: true });\n\n      // safety timeout to disconnect observer after 8 seconds to avoid permanent observers\n      setTimeout(() => {\n        observer.disconnect();\n        // Do a final attempt to apply logic if possible\n        submitEl = findSubmit();\n        const finalFound = findCheckboxes();\n        if (!cb1) cb1 = finalFound.cb1;\n        if (!cb2) cb2 = finalFound.cb2;\n        if (submitEl && cb1 && cb2) applyLogic(submitEl, cb1, cb2);\n      }, 8000);\n    }\n  });\n</script>"
       }
     },
     "meadia_logos_AGV4g7": {
       "type": "meadia-logos",
       "blocks": {
-        "logo_eziNrN": {
-          "type": "logo",
-          "settings": {
-            "logo_image": "shopify:\/\/shop_images\/image_25.png",
-            "logo_link": ""
-          }
-        },
         "logo_AkRKMP": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify:\/\/shop_images\/image_26.png",
+            "logo_image": "shopify://shop_images/image_26.png",
             "logo_link": ""
           }
         },
         "logo_Yj9cEN": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify:\/\/shop_images\/image_27.png",
+            "logo_image": "shopify://shop_images/image_27.png",
             "logo_link": ""
           }
         },
         "logo_cwPYqR": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify:\/\/shop_images\/image_28.png",
+            "logo_image": "shopify://shop_images/image_28.png",
             "logo_link": ""
           }
         },
         "logo_XQ3rqf": {
           "type": "logo",
           "settings": {
-            "logo_image": "shopify:\/\/shop_images\/image_29.png",
+            "logo_image": "shopify://shop_images/image_29.png",
             "logo_link": ""
           }
         }
       },
       "block_order": [
-        "logo_eziNrN",
         "logo_AkRKMP",
         "logo_Yj9cEN",
         "logo_cwPYqR",
