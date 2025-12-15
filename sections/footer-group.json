@@ -48,13 +48,6 @@
             "logo_link": ""
           }
         },
-        "logo_cwPYqR": {
-          "type": "logo",
-          "settings": {
-            "logo_image": "shopify://shop_images/image_28.png",
-            "logo_link": ""
-          }
-        },
         "logo_XQ3rqf": {
           "type": "logo",
           "settings": {
@@ -66,7 +59,6 @@
       "block_order": [
         "logo_AkRKMP",
         "logo_Yj9cEN",
-        "logo_cwPYqR",
         "logo_XQ3rqf"
       ],
       "name": "Media Logos",
