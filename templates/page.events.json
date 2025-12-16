@@ -178,17 +178,30 @@
     "custom_faq_AQTphj": {
       "type": "custom-faq",
       "blocks": {
+        "faq_block_Y8txGF": {
+          "type": "faq_block",
+          "settings": {
+            "faq_question": "ORCAA Full Arch Symposium | Las Vegas, NV | 1/15/26 - 1/17/26",
+            "faq_logo": "shopify://shop_images/ORCAA.png",
+            "faq_title": "ORCAA Full Arch Symposium",
+            "faq_subtitle": "Four Seasons Hotel Las Vegas",
+            "faq_address": "<p>3960 S. Las Vegas Blvd.<br/>Las Vegas, NV 89119</p>",
+            "website_text": "www.orcaaglobal.com",
+            "faq_website": "https://orcaa.zohobackstage.com/ORCAAsFullArchSymposium2026",
+            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.10053750354!2d-115.17688382419388!3d36.091037172457725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c5c5a19b6a6b%3A0xf4237071b587e1c!2sFour%20Seasons%20Hotel%20Las%20Vegas!5e0!3m2!1sen!2sus!4v1763497254802!5m2!1sen!2sus\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade"
+          }
+        },
         "faq_block_hpynXX": {
           "type": "faq_block",
           "settings": {
-            "faq_question": "Greater New York Dental Meeting | New York, NY | 11/28/25 - 12/3/25",
-            "faq_logo": "shopify://shop_images/logo-2025.jpg",
-            "faq_title": "Greater New York Dental Meeting",
-            "faq_subtitle": "Jacob K. Javits Convention Center",
-            "faq_address": "<p>429 11th Ave.<br/>New York, NY 10001<br/>Booth# 1513</p>",
-            "website_text": "www.gnydm.com",
-            "faq_website": "https://www.gnydm.com/",
-            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.233901076225!2d-74.004239323972!3d40.756879971386915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2596b0b3394a7%3A0x8461e42130f7d0a6!2sJavits%20Center!5e0!3m2!1sen!2sus!4v1759408850239!5m2!1sen!2sus"
+            "faq_question": "Rocky Mountain Dental Convention | Denver, CO | 1/22/26 - 1/24/26",
+            "faq_logo": "shopify://shop_images/RMDC.png",
+            "faq_title": "Rocky Mountain Dental Convention",
+            "faq_subtitle": "Colorado Convention Center",
+            "faq_address": "<p>700 14th St.<br/>Denver, CO 80202<br/></p>",
+            "website_text": "www.rmdconline.com",
+            "faq_website": "https://rmdconline.com/",
+            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.844857335561!2d-104.99813192402218!3d39.743135671555834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c78d17bd9d871%3A0x580ecf50af57c3cf!2sColorado%20Convention%20Center!5e0!3m2!1sen!2sus!4v1765903626334!5m2!1sen!2sus\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade"
           }
         },
         "faq_block_iATR48": {
@@ -216,26 +229,13 @@
             "faq_website": "https://www.adsahome.org/chicago-ga",
             "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.254068348251!2d-87.62205902391496!3d41.8873927712408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2ca829125f79%3A0xa380b14ac9a102d0!2sSwissotel%20Chicago!5e0!3m2!1sen!2sus!4v1763570915259!5m2!1sen!2sus\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade"
           }
-        },
-        "faq_block_Y8txGF": {
-          "type": "faq_block",
-          "settings": {
-            "faq_question": "ORCAA Full Arch Symposium | Las Vegas, NV | 1/15/26 - 1/17/26",
-            "faq_logo": "shopify://shop_images/ORCAA.png",
-            "faq_title": "ORCAA Full Arch Symposium",
-            "faq_subtitle": "Four Seasons Hotel Las Vegas",
-            "faq_address": "<p>3960 S. Las Vegas Blvd.<br/>Las Vegas, NV 89119</p>",
-            "website_text": "www.orcaaglobal.com",
-            "faq_website": "https://orcaa.zohobackstage.com/ORCAAsFullArchSymposium2026",
-            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.10053750354!2d-115.17688382419388!3d36.091037172457725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c5c5a19b6a6b%3A0xf4237071b587e1c!2sFour%20Seasons%20Hotel%20Las%20Vegas!5e0!3m2!1sen!2sus!4v1763497254802!5m2!1sen!2sus\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade"
-          }
         }
       },
       "block_order": [
+        "faq_block_Y8txGF",
         "faq_block_hpynXX",
         "faq_block_iATR48",
-        "faq_block_J48X39",
-        "faq_block_Y8txGF"
+        "faq_block_J48X39"
       ],
       "name": "Shows FAQ Section",
       "settings": {
