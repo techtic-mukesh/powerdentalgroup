@@ -220,14 +220,14 @@
         "faq_block_J48X39": {
           "type": "faq_block",
           "settings": {
-            "faq_question": "ADSA General Anesthesia Meeting | Chicago, IL | 12/7/25 - 12/8/25",
-            "faq_logo": "shopify://shop_images/ADSA.jpg",
-            "faq_title": "ADSA General Anesthesia Meeting",
-            "faq_subtitle": "Swissotel Chicago",
-            "faq_address": "<p>323 E. Wacker Dr.<br/>Chicago, IL 60601</p>",
-            "website_text": "www.adsahome.org",
-            "faq_website": "https://www.adsahome.org/chicago-ga",
-            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.254068348251!2d-87.62205902391496!3d41.8873927712408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2ca829125f79%3A0xa380b14ac9a102d0!2sSwissotel%20Chicago!5e0!3m2!1sen!2sus!4v1763570915259!5m2!1sen!2sus\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade"
+            "faq_question": "Chicago Dental Society Midwinter Meeting | Chicago, IL | 2/19/26 - 2/21/26",
+            "faq_logo": "shopify://shop_images/Chicago_Dental_Society_Logo.jpg",
+            "faq_title": "Chicago Dental Society Midwinter Meeting",
+            "faq_subtitle": "McCormick Place West",
+            "faq_address": "<p>2317 S. Indiana Ave.<br/>Chicago, IL 60616</p>",
+            "website_text": "www.cds.org",
+            "faq_website": "https://midwintermeeting.eventscribe.net/",
+            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5943.829181944233!2d-87.62392795435736!3d41.85166513497808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2c7f2fffffff%3A0xb4c8efcdd6f8000a!2sMcCormick%20Place%20-%20West%20Building!5e0!3m2!1sen!2sus!4v1765904416309!5m2!1sen!2sus\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade"
           }
         }
       },
