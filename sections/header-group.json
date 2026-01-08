@@ -17,8 +17,8 @@
         "announcement_GWqqgT": {
           "type": "announcement",
           "settings": {
-            "text": "<p><strong>🎉 </strong>This January only: <strong>Log in & enjoy 10% off sitewide</strong> – member savings start now!</p>",
-            "link": ""
+            "text": "<p><strong>🎉 This January only: Log in & enjoy 10% off sitewide – member savings start now!</strong></p>",
+            "link": "https://powerdentalgroup.com/collections/"
           }
         },
         "announcement-bar-0": {
