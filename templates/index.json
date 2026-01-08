@@ -48,7 +48,7 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/10_Promo_Banner_Main_v5.png",
-            "mobile-image": "shopify://shop_images/January_Promo_10_Hero_Banner_Mobile.webp",
+            "mobile-image": "shopify://shop_images/10_Promo_Banner_Mobile_v2.png",
             "heading": "<p>Members <strong>Save 10%</strong> –</p><p>All January</p>",
             "heading_color": "#ffffff",
             "subheading": "<p>Log in or sign up to unlock your exclusive</p><p>sitewide discount at checkout.</p>",
