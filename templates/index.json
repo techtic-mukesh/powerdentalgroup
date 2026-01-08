@@ -48,13 +48,13 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/January_Promo_10_Hero_Banner_1.webp",
-            "heading": "<p><strong>Members Save 10% </strong>–<strong> All January</strong></p>",
+            "heading": "<p><strong>Members Save 10%</strong> –</p><p>All January</p>",
             "heading_color": "#ffffff",
-            "subheading": "",
+            "subheading": "<p>Log in or sign up to unlock your exclusive</p><p>sitewide discount at checkout.</p>",
             "description_color": "#ffffff",
             "button_label": "",
             "button_link": "",
-            "position": false
+            "position": true
           }
         },
         "slide_7zX73H": {
