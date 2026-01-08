@@ -44,6 +44,19 @@
     "banner_swiper_aXUMTh": {
       "type": "banner-swiper",
       "blocks": {
+        "slide_t7gznw": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/January_Promo_10_Hero_Banner_1.webp",
+            "heading": "<p><strong>Members Save 10% </strong>–<strong> All January</strong></p>",
+            "heading_color": "#ffffff",
+            "subheading": "",
+            "description_color": "#ffffff",
+            "button_label": "",
+            "button_link": "",
+            "position": false
+          }
+        },
         "slide_7zX73H": {
           "type": "slide",
           "settings": {
@@ -104,6 +117,7 @@
         }
       },
       "block_order": [
+        "slide_t7gznw",
         "slide_7zX73H",
         "slide_LVQGqF",
         "slide_wQxP98",
