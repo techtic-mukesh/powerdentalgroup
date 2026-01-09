@@ -54,7 +54,7 @@
             "subheading": "<p>Log in or sign up to unlock your exclusive</p><p>sitewide discount at checkout.</p>",
             "description_color": "#ffffff",
             "button_label": "Log in & save 10%",
-            "button_link": "",
+            "button_link": "/account/login",
             "position": true
           }
         },
