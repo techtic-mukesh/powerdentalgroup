@@ -117,6 +117,10 @@ a.button.button--secondary svg path {
 a.button.button--secondary:after {
     display: none;
 }
+.custom_category_filter__toggle {
+    max-width: 32px;
+    width: 100%;
+}
 
 /* End Globle CSS */
 
@@ -502,9 +506,46 @@ a.jdgm-write-rev-link:hover {
 .recently-viewed-products .catalog-points {
     margin-top: 7px;
     display: inline-flex;
-    width: auto;32
-
-
+    width: auto;
+}
+.catalog-points{
+    margin: 6px 0 10px!important;
+    border-radius: 20px;
+    border: 1px solid #ebebeb;
+    background: #fff;
+    display: inline-flex ;
+    gap: 7px ;
+    align-items: center;
+    height: 29px;
+    padding: 0 10px 0 5px;
+    color: #333;
+    font-size: 16px;
+    font-family: 'Prompt';
+    font-weight: 400;
+    justify-content: flex-start ;
+    padding: 0 7px;
+}
+.catalog-points img{
+    width: 22px;
+    height: 19px;
+}
+.mp-point-label{
+    display:flex;
+}
+.mp-point-label .mp-rw-highlight{
+    font-size: 16px;
+    font-family: 'Prompt' ;
+    font-weight: 400;
+    margin: 0;
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    letter-spacing: -.16px;
+    color: rgb(var(--color-foreground));
+}
+#AddressEditModal .svg-wrapper{
+    right:10px;
+}
 /* Globle Responsive */
 
 @media only screen and (max-width: 1240px) {
@@ -533,14 +574,19 @@ html,body {
     overflow: unset;
 }
 
-.footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.grid--3-col-tablet {
+
+}
+
+
+@media only screen and (max-width: 767px) {
+    .footer__blocks-wrapper.grid.grid--1-col.grid--2-col.grid--4-col-tablet.grid--3-col-tablet {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
 
    .footer-block.grid__item.footer-block--menu   .footer-block__details-content {
-    display: none; /* hidden by default */
+    display: none; 
     margin-top: 20px;
   }
 
@@ -574,10 +620,6 @@ html,body {
   .footer-block.grid__item.footer-block--menu .footer-block__heading.active::after {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 12L18 12' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
-}
-
-
-@media only screen and (max-width: 767px) {
   h2 {
     font-size: 24px;
     line-height: 1.4;
@@ -626,3 +668,28 @@ td.cart-item__quantity button.whislist-cart {
 }
 
 
+/* 1) Lock page scroll while the drawer is open */
+html:has(.mobile-facets__disclosure[open]),
+body:has(.mobile-facets__disclosure[open]) {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+/* 2) Make the overlay cover the viewport and swallow touch/scroll */
+.mobile-facets__disclosure[open] > .mobile-facets__open-wrapper {
+  position: fixed;
+  inset: 0;
+  touch-action: none; /* prevents background scrolling on touch */
+}
+.mobile-facets__disclosure[open] > .mobile-facets__open-wrapper  .mobile-facets__open{
+    display:none;
+}
+/* 3) Prevent scroll chaining inside the drawer (add to your rule) */
+.mobile-facets__inner {
+  overscroll-behavior: contain; /* add this line */
+}
+
+.cancle_close_grid{
+    display:flex;
+}
