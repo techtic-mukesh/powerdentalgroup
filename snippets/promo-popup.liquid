@@ -1,0 +1,905 @@
+<style>
+/* Base Overlay */
+.promo-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999999;
+  backdrop-filter: blur(2px);
+}
+
+.promo-popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.promo-popup-overlay.closing {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Desktop Popup Container */
+.promo-popup-container {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.9) translateY(-20px);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              opacity 0.3s ease;
+  overflow-y: auto;
+}
+
+.promo-popup-overlay.active .promo-popup-container {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.promo-popup-overlay.closing .promo-popup-container {
+  transform: scale(0.95) translateY(-10px);
+  opacity: 0;
+}
+
+/* Close Button */
+.promo-popup-container .promo-popup-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 36px;
+  height: 36px;
+  background: #0033a0;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 51, 160, 0.3);
+}
+
+.promo-popup-container .promo-popup-close:hover {
+  background: #002880;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.promo-popup-container .promo-popup-close:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* Form Styling */
+.promo-hubspot-form {
+  padding: 20px;
+}
+
+.cm-header h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2D3748;
+  margin-bottom: 12px;
+}
+
+.cm-header p {
+  font-size: 15px;
+  color: #4A5568;
+  margin-bottom: 16px;
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: -.16px;
+}
+
+.cm-header strong {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #2D3748;
+  font-weight: 500;
+  letter-spacing: -.16px;
+}
+
+.cm-header a {
+  color: #0033a0;
+  text-decoration: none;
+}
+
+.cm-header a:hover {
+  text-decoration: underline;
+}
+
+#myCustomForm input {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border: 1px solid #CBD5E0;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.2s ease;
+  letter-spacing: -.16px;
+}
+
+#myCustomForm input:focus {
+  outline: none;
+  border-color: #0033a0;
+  box-shadow: 0 0 0 3px rgba(0, 51, 160, 0.1);
+}
+
+#myCustomForm button {
+  width: 100%;
+  padding: 14px;
+  background: #0033a0;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-top: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: 'Montserrat';
+  letter-spacing: -.16px;
+}
+
+#myCustomForm button:hover {
+  background: #002880;
+}
+
+/* Success Message Styling */
+.promo-success-message {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.promo-success-message.show {
+  display: block;
+  animation: successFadeIn 0.4s ease;
+}
+
+.promo-success-icon {
+  font-size: 64px;
+  color: #48BB78;
+  margin-bottom: 16px;
+  animation: successCheck 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.promo-success-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 12px;
+  letter-spacing: -.16px;
+}
+
+.promo-success-text {
+  font-size: 16px;
+  color: #4A5568;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  letter-spacing: -.16px;
+  font-weight: 300;
+}
+
+.promo-success-button {
+  background: linear-gradient(102deg, #42c5ef 0%, #0033a0 50%, #0033a0 50%, #42c5ef 100%) !important;
+  background-size: 200% 100% !important;
+  background-position: 200% 100% !important;
+  transition: background-position .7s !important;
+  line-height: 110%;
+  text-decoration: none;
+  margin: 0;
+  padding: 17px 30px;
+  border-radius: 10px;
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -.16px;
+  display: inline-block;
+}
+   
+.promo-success-button:hover {
+  color: #fff;
+  background-position: 100% 0 !important;
+}
+
+.promo-success-icon {
+  display: none;
+}
+
+@keyframes successFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes successCheck {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .promo-popup-overlay {
+    align-items: flex-end;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+  }
+
+  .promo-popup-container {
+    width: 100%;
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 20px 20px 0 0;
+    padding: 20px 15px 30px;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(100%);
+    opacity: 1;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .promo-hubspot-form {
+    padding: 20px 9px;
+  }
+
+  .promo-popup-overlay.active .promo-popup-container {
+    transform: translateY(0);
+  }
+
+  .promo-popup-overlay.closing .promo-popup-container {
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(0.32, 0, 0.67, 0);
+  }
+
+  .promo-popup-container .promo-popup-close {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    background: rgba(0, 51, 160, 0.95);
+    backdrop-filter: blur(10px);
+  }
+
+  .promo-popup-container .promo-popup-close:active {
+    transform: scale(0.9);
+  }
+
+  .promo-popup-container::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+  }
+
+  .promo-success-message {
+    padding: 20px 10px;
+  }
+
+  .promo-success-icon {
+    font-size: 56px;
+  }
+
+  .promo-success-title {
+    font-size: 20px;
+  }
+
+  .promo-success-text {
+    font-size: 14px;
+  }
+
+  .cm-header h3 {
+    font-size: 16px;
+  }
+
+  .cm-header p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .promo-popup-container {
+    padding: 18px 12px 25px;
+  }
+
+  .promo-popup-container .promo-popup-close {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+}
+
+body.popup-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .promo-popup-container {
+    max-height: 85vh;
+  }
+}
+</style>
+
+{% if customer %}
+<!-- LOGGED IN USER: Mark as permanently hidden -->
+<script>
+(function() {
+  'use strict';
+  
+  // ✅ ONLY SET PERMANENT HIDE WHEN USER IS ACTUALLY LOGGED IN
+  const STORAGE_KEY = 'january_promo_popup';
+  const PERMANENT_VALUE = 'user_authenticated';
+  
+  function setAuthStorage() {
+    // Set cookie (10 years)
+    const date = new Date();
+    date.setTime(date.getTime() + (365 * 10 * 86400000));
+    document.cookie = `${STORAGE_KEY}=${PERMANENT_VALUE};expires=${date.toUTCString()};path=/;SameSite=Lax`;
+    
+    // Set localStorage
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        value: PERMANENT_VALUE,
+        timestamp: Date.now(),
+        authenticated: true
+      }));
+    } catch (e) {
+      console.error('Storage error:', e);
+    }
+    
+    console.log('✓ User logged in - popup permanently disabled');
+  }
+  
+  // Mark as authenticated
+  setAuthStorage();
+})();
+</script>
+{% else %}
+
+<!-- Popup HTML -->
+<div class="promo-popup-overlay" id="promoPopup">
+  <div class="promo-popup-container">
+    <button class="promo-popup-close" id="closePopup" aria-label="Close popup">&times;</button>
+    
+    <div id="popupContent">
+      <div class="promo-hubspot-form">
+        <form id="myCustomForm">
+          <div class="cm-header">
+            <h3>✨ JANUARY MEMBER PERK: SAVE 10% ON EVERY ORDER</h3>
+            <p>Log in or create an account to unlock your exclusive 10% discount – applied automatically at checkout.</p>
+            <strong>Already have an account? <a href="/account/login">Log in</a></strong>
+          </div>
+          <input type="text" name="firstname" placeholder="First Name" required>
+          <input type="text" name="lastname" placeholder="Last Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <button type="submit">Continue & save 10%</button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="promo-success-message" id="successMessage">
+      <div class="promo-success-icon">✓</div>
+      <div class="promo-success-title">Almost there! 🎉</div>
+      <div class="promo-success-text">
+        Create your account to unlock your 10% January discount. Your savings will be applied automatically at checkout.
+        <br><br>
+        Click below to complete your registration:
+      </div>
+      <a href="#" class="promo-success-button" id="registerButton">Set Account Password</a>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ========================================
+   POPUP MANAGER - FIXED VERSION
+   Only hides permanently AFTER login
+======================================== */
+(function() {
+  'use strict';
+
+  const CONFIG = {
+    STORAGE_KEY: 'january_promo_popup',
+    TIME_DELAY: 12000,
+    SCROLL_THRESHOLD: 50,
+    DISMISS_DAYS: 7,
+    ANIMATION_DURATION: 450,
+    DEBUG: true
+  };
+
+  const STATES = {
+    DISMISSED: 'dismissed',
+    PENDING_REGISTRATION: 'pending_registration', // NEW: Form submitted, waiting for login
+    AUTHENTICATED: 'user_authenticated'            // Only set when actually logged in
+  };
+
+  /* ========================================
+     STORAGE MANAGER
+  ======================================== */
+  const Storage = {
+    set(value, days) {
+      const expiryDate = new Date();
+      expiryDate.setTime(expiryDate.getTime() + days * 86400000);
+      
+      // Set cookie
+      document.cookie = `${CONFIG.STORAGE_KEY}=${value};expires=${expiryDate.toUTCString()};path=/;SameSite=Lax`;
+      
+      // Set localStorage
+      try {
+        localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify({
+          value: value,
+          timestamp: Date.now(),
+          expires: expiryDate.getTime()
+        }));
+      } catch (e) {
+        console.error('LocalStorage error:', e);
+      }
+      
+      if (CONFIG.DEBUG) console.log(`✓ Storage set: ${value} (expires in ${days} days)`);
+    },
+
+    get() {
+      // Try cookie first
+      const cookieMatch = document.cookie.split('; ').find(r => r.startsWith(CONFIG.STORAGE_KEY + '='));
+      if (cookieMatch) {
+        const value = cookieMatch.split('=')[1];
+        if (CONFIG.DEBUG) console.log(`📖 Cookie found: ${value}`);
+        return value;
+      }
+
+      // Fallback to localStorage
+      try {
+        const stored = localStorage.getItem(CONFIG.STORAGE_KEY);
+        if (!stored) return null;
+
+        const data = JSON.parse(stored);
+        
+        // Check if expired
+        if (data.expires && data.expires < Date.now()) {
+          localStorage.removeItem(CONFIG.STORAGE_KEY);
+          if (CONFIG.DEBUG) console.log('⏱️  LocalStorage expired');
+          return null;
+        }
+
+        if (CONFIG.DEBUG) console.log(`📖 LocalStorage found: ${data.value}`);
+        return data.value;
+      } catch (e) {
+        console.error('LocalStorage read error:', e);
+      }
+
+      return null;
+    },
+
+    markPendingRegistration() {
+      // ✅ DON'T set permanent - just mark as pending
+      this.set(STATES.PENDING_REGISTRATION, 30); // 30 days to complete registration
+      if (CONFIG.DEBUG) console.log('⏳ Form submitted - waiting for registration completion');
+    },
+
+    markAuthenticated() {
+      // ✅ ONLY THIS makes it permanent
+      this.set(STATES.AUTHENTICATED, 365 * 10); // 10 years
+      if (CONFIG.DEBUG) console.log('🔐 User authenticated - popup PERMANENTLY hidden');
+    },
+
+    markDismissed() {
+      this.set(STATES.DISMISSED, CONFIG.DISMISS_DAYS);
+      if (CONFIG.DEBUG) console.log(`🔒 Popup dismissed - hidden for ${CONFIG.DISMISS_DAYS} days`);
+    },
+
+    shouldShowPopup() {
+      const state = this.get();
+      
+      // ✅ FIRST check: If dismissed, NEVER show (takes priority)
+      if (state === STATES.DISMISSED) {
+        if (CONFIG.DEBUG) console.log('⏳ Blocked: Recently dismissed (7-day cooldown)');
+        return false;
+      }
+      
+      // ✅ SECOND check: If authenticated, NEVER show
+      if (state === STATES.AUTHENTICATED) {
+        if (CONFIG.DEBUG) console.log('🚫 Blocked: User authenticated');
+        return false;
+      }
+      
+      // ✅ Allow showing if pending registration OR no state
+      if (state === STATES.PENDING_REGISTRATION) {
+        if (CONFIG.DEBUG) console.log('📝 Pending registration - can show success message');
+        return true;
+      }
+
+      return true; // No state - first time visitor
+    },
+
+    isPendingRegistration() {
+      return this.get() === STATES.PENDING_REGISTRATION;
+    }
+  };
+
+  /* ========================================
+     USER DATA MANAGER
+  ======================================== */
+  const UserData = {
+    store(email, firstname, lastname) {
+      try {
+        sessionStorage.setItem('user_email', email);
+        sessionStorage.setItem('user_firstname', firstname);
+        sessionStorage.setItem('user_lastname', lastname);
+      } catch (e) {
+        console.error('SessionStorage error:', e);
+      }
+    },
+
+    get() {
+      try {
+        return {
+          email: sessionStorage.getItem('user_email'),
+          firstname: sessionStorage.getItem('user_firstname'),
+          lastname: sessionStorage.getItem('user_lastname')
+        };
+      } catch (e) {
+        return { email: null, firstname: null, lastname: null };
+      }
+    }
+  };
+
+  /* ========================================
+     POPUP DISPLAY CONTROLLER
+  ======================================== */
+  const Popup = {
+    element: null,
+    isShowing: false,
+
+    init() {
+      this.element = document.getElementById('promoPopup');
+      if (!this.element) {
+        console.error('Popup element not found');
+        return false;
+      }
+      return true;
+    },
+
+    show() {
+      if (!this.element || this.isShowing) return;
+      
+      this.isShowing = true;
+      document.body.classList.add('popup-open');
+      
+      requestAnimationFrame(() => {
+        this.element.classList.add('active');
+      });
+
+      if (CONFIG.DEBUG) console.log('👀 Popup displayed');
+    },
+
+    hide() {
+      if (!this.element) return;
+
+      this.element.classList.remove('active');
+      this.element.classList.add('closing');
+      
+      setTimeout(() => {
+        this.element.classList.remove('closing');
+        document.body.classList.remove('popup-open');
+        this.isShowing = false;
+      }, CONFIG.ANIMATION_DURATION);
+
+      if (CONFIG.DEBUG) console.log('❌ Popup closed');
+    },
+
+    showSuccessMessage() {
+      document.getElementById('popupContent').style.display = 'none';
+      const successMsg = document.getElementById('successMessage');
+      const registerBtn = document.getElementById('registerButton');
+      
+      if (registerBtn) {
+        registerBtn.href = 'https://powerdentalgroup.com/account/register';
+      }
+      
+      if (successMsg) {
+        successMsg.classList.add('show');
+      }
+
+      if (CONFIG.DEBUG) console.log('✨ Success message shown');
+    }
+  };
+
+  /* ========================================
+     FORM SUBMISSION HANDLER
+  ======================================== */
+  function initFormHandler() {
+    const form = document.getElementById('myCustomForm');
+    if (!form) return;
+
+    function getHubSpotCookie() {
+      const match = document.cookie.split('; ').find(r => r.startsWith('hubspotutk='));
+      return match ? match.split('=')[1] : null;
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const email = formData.get('email');
+      const firstname = formData.get('firstname');
+      const lastname = formData.get('lastname');
+
+      // Store user data for registration page
+      UserData.store(email, firstname, lastname);
+
+      // Prepare HubSpot submission
+      const hutk = getHubSpotCookie();
+      const data = {
+        fields: [],
+        context: {
+          pageUri: window.location.href,
+          pageName: document.title,
+          hutk: hutk
+        }
+      };
+
+      for (let [key, value] of formData.entries()) {
+        data.fields.push({ name: key, value });
+      }
+
+      // Submit to HubSpot
+      fetch('https://api.hsforms.com/submissions/v3/integration/submit/39754023/3ab00667-9f23-4cc5-8980-8cc81f002019', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(() => {
+        // ✅ Mark as PENDING (not permanent yet)
+        Storage.markPendingRegistration();
+        
+        // Show success message (popup stays visible)
+        Popup.showSuccessMessage();
+
+        // ✅ DON'T auto-close - let user click the button
+      })
+      .catch(err => {
+        console.error('Form submission error:', err);
+        alert('There was an error submitting the form. Please try again.');
+      });
+    });
+  }
+
+  /* ========================================
+     SCROLL TRIGGER
+  ======================================== */
+  let scrollTriggered = false;
+
+  function checkScrollTrigger() {
+    if (scrollTriggered || !Storage.shouldShowPopup()) return;
+
+    const scrollPercent = 
+      (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+
+    if (scrollPercent >= CONFIG.SCROLL_THRESHOLD) {
+      scrollTriggered = true;
+      
+      // ✅ If pending registration, show success message
+      if (Storage.isPendingRegistration()) {
+        Popup.show();
+        Popup.showSuccessMessage();
+      } else {
+        Popup.show();
+      }
+      
+      window.removeEventListener('scroll', checkScrollTrigger);
+      if (CONFIG.DEBUG) console.log(`📜 Scroll trigger at ${Math.round(scrollPercent)}%`);
+    }
+  }
+
+  /* ========================================
+     EVENT HANDLERS
+  ======================================== */
+  function initEvents() {
+    // Close button
+    const closeBtn = document.getElementById('closePopup');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        // ✅ ALWAYS dismiss for 7 days when user closes
+        Storage.markDismissed();
+        Popup.hide();
+      });
+    }
+
+    // Click outside
+    const overlay = document.getElementById('promoPopup');
+    if (overlay) {
+      overlay.addEventListener('click', (e) => {
+        if (e.target.id === 'promoPopup') {
+          // ✅ ALWAYS dismiss for 7 days when user closes
+          Storage.markDismissed();
+          Popup.hide();
+        }
+      });
+    }
+
+    // ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && Popup.isShowing) {
+        // ✅ ALWAYS dismiss for 7 days when user closes
+        Storage.markDismissed();
+        Popup.hide();
+      }
+    });
+
+    // Scroll listener
+    window.addEventListener('scroll', checkScrollTrigger, { passive: true });
+  }
+
+  /* ========================================
+     MOBILE SWIPE TO CLOSE
+  ======================================== */
+  function initMobileSwipe() {
+    const container = document.querySelector('.promo-popup-container');
+    if (!container || window.innerWidth > 768) return;
+
+    let startY = 0;
+    let currentY = 0;
+
+    container.addEventListener('touchstart', (e) => {
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+
+    container.addEventListener('touchmove', (e) => {
+      currentY = e.touches[0].clientY;
+      const diff = currentY - startY;
+
+      if (diff > 0) {
+        container.style.transform = `translateY(${diff}px)`;
+      }
+    }, { passive: true });
+
+    container.addEventListener('touchend', () => {
+      const diff = currentY - startY;
+
+      if (diff > 100) {
+        container.style.transition = 'transform 0.45s cubic-bezier(0.32, 0, 0.67, 0)';
+        container.style.transform = 'translateY(100%)';
+        setTimeout(() => {
+          // ✅ ALWAYS dismiss for 7 days on swipe close
+          Storage.markDismissed();
+          Popup.hide();
+        }, 450);
+      } else {
+        container.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        container.style.transform = 'translateY(0)';
+      }
+      
+      setTimeout(() => {
+        container.style.transition = '';
+      }, 500);
+    });
+  }
+
+  /* ========================================
+     INITIALIZATION
+  ======================================== */
+  function init() {
+    // ✅ BLOCK popup on login and register pages
+    const currentPath = window.location.pathname;
+    const isAuthPage = currentPath.includes('/account/login') || 
+                       currentPath.includes('/account/register') ||
+                       currentPath.includes('/account');
+    
+    if (isAuthPage) {
+      if (CONFIG.DEBUG) console.log('🚫 Popup blocked: On authentication page');
+      return;
+    }
+
+    // Check if popup should show
+    if (!Storage.shouldShowPopup()) {
+      if (CONFIG.DEBUG) console.log('ℹ️  Popup initialization skipped');
+      return;
+    }
+
+    // Initialize popup
+    if (!Popup.init()) return;
+
+    if (CONFIG.DEBUG) console.log('🚀 Popup initialized');
+
+    // Setup
+    initEvents();
+    initFormHandler();
+    initMobileSwipe();
+
+    // ✅ If pending registration, show success message immediately
+    if (Storage.isPendingRegistration()) {
+      Popup.show();
+      Popup.showSuccessMessage();
+      if (CONFIG.DEBUG) console.log('📝 Showing success message for pending registration');
+      return; // Don't set time/scroll triggers
+    }
+
+    // Time-based trigger (only for new visitors)
+    setTimeout(() => {
+      if (!scrollTriggered && Storage.shouldShowPopup()) {
+        Popup.show();
+        if (CONFIG.DEBUG) console.log('⏰ Time trigger activated');
+      }
+    }, CONFIG.TIME_DELAY);
+  }
+
+  // Start when ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+<!-- REGISTRATION PAGE AUTO-FILL -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const registerForm = document.getElementById('create_customer');
+  
+  if (registerForm) {
+    try {
+      const email = sessionStorage.getItem('user_email');
+      const firstname = sessionStorage.getItem('user_firstname');
+      const lastname = sessionStorage.getItem('user_lastname');
+      
+      if (email) {
+        const emailField = document.getElementById('RegisterForm-email');
+        if (emailField) emailField.value = email;
+      }
+      
+      if (firstname) {
+        const firstnameField = document.getElementById('RegisterForm-FirstName');
+        if (firstnameField) firstnameField.value = firstname;
+      }
+      
+      if (lastname) {
+        const lastnameField = document.getElementById('RegisterForm-LastName');
+        if (lastnameField) lastnameField.value = lastname;
+      }
+    } catch (e) {
+      console.error('Auto-fill error:', e);
+    }
+  }
+});
+</script>
+
+{% endif %}
