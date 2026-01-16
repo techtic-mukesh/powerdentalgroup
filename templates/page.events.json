@@ -63,13 +63,13 @@
         "event_card_yChCpd": {
           "type": "event_card",
           "settings": {
-            "event_image": "shopify://shop_images/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
-            "event_title": "Misch Institute",
-            "event_subtitle": "Implants with GBR & Sinus",
-            "event_logo": "shopify://shop_images/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
-            "event_date": "February 7-8",
-            "event_location": "Dallas, TX",
-            "event_credits": "18 CE Credits",
+            "event_image": "shopify://shop_images/SIN360_B_W_05652966-134d-490c-b73b-49b89fac72fa.jpg",
+            "event_title": "S.I.N. 360",
+            "event_subtitle": "Full Arch Full Auto",
+            "event_logo": "shopify://shop_images/SIN_360_Logo_59363ecd-7138-451f-b57e-ad8f0ab85b39.png",
+            "event_date": "February 6-8",
+            "event_location": "Austin, TX",
+            "event_credits": "16 CE Credits",
             "button_label": "Register Now",
             "button_link": "https://misch.com/all-courses/"
           }
