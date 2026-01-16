@@ -64,14 +64,14 @@
           "type": "event_card",
           "settings": {
             "event_image": "shopify://shop_images/SIN360_B_W_05652966-134d-490c-b73b-49b89fac72fa.jpg",
-            "event_title": "S.I.N. 360",
+            "event_title": "ARCH ED",
             "event_subtitle": "Full Arch Full Auto",
-            "event_logo": "shopify://shop_images/SIN_360_Logo_59363ecd-7138-451f-b57e-ad8f0ab85b39.png",
+            "event_logo": "shopify://shop_images/ARCHED.png",
             "event_date": "February 6-8",
             "event_location": "Austin, TX",
-            "event_credits": "16 CE Credits",
+            "event_credits": "24 CE Credits",
             "button_label": "Register Now",
-            "button_link": "https://sin360.us/ce-course/full-arch-full-auto-2025-10/"
+            "button_link": "https://fullarched.com/courses/full-arches-full-auto-course/#fullarchesfullautocourseregistrationform"
           }
         },
         "event_card_3RaBDK": {
