@@ -121,7 +121,7 @@
           "settings": {
             "image": "shopify://shop_images/Banner_5_1_V1.webp",
             "mobile-image": "shopify://shop_images/Hygiene_5_1_Promo_Banner_Mobile.png",
-            "heading": "<p><strong>BUY 5, GET 1 FREE</strong></p>",
+            "heading": "<p>BUY 5,<strong> GET 1 FREE </strong>–</p><p>All February</p>",
             "heading_color": "#ffffff",
             "subheading": "<p>Add any 6 Hygiene instruments to your cart – the lowest-priced item is automatically free at checkout.</p>",
             "description_color": "#ffffff",
