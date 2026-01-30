@@ -115,6 +115,20 @@
             "button_link": "shopify://products/power-crown-remover-kit-set-of-3",
             "position": true
           }
+        },
+        "slide_8LHLae": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Banner_5_1_V1.webp",
+            "mobile-image": "shopify://shop_images/Hygiene_5_1_Promo_Banner_Mobile.png",
+            "heading": "<p><strong>BUY 5, GET 1 FREE</strong></p>",
+            "heading_color": "#ffffff",
+            "subheading": "<p>Add any 6 Hygiene instruments to your cart – the lowest-priced item is automatically free at checkout.</p>",
+            "description_color": "#ffffff",
+            "button_label": "EXPLORE HYGIENE COLLECTION",
+            "button_link": "https://powerdentalgroup.com/collections/hygiene",
+            "position": true
+          }
         }
       },
       "block_order": [
@@ -122,7 +136,8 @@
         "slide_7zX73H",
         "slide_LVQGqF",
         "slide_wQxP98",
-        "slide_HjUqUU"
+        "slide_HjUqUU",
+        "slide_8LHLae"
       ],
       "name": "Banner Swiper",
       "settings": {
