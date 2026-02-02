@@ -73,6 +73,24 @@
         max-width: 604px;
 }
 
+.collection-hero__subhead {
+  margin-bottom: 12px;
+}
+.collection-hero__subhead-line1,
+.collection-hero__subhead-line2 {
+  color: #FFF;
+  font-family: Prompt, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 0 4px;
+  text-align: center;
+}
+.collection-hero__subhead-line2 {
+  font-size: 14px;
+  opacity: 0.95;
+}
+
 .breadcrumb a, .breadcrumb span {
     color: #FFF;
     font-family: Prompt;
@@ -82,6 +100,22 @@
     line-height: 14px;
     text-transform: capitalize;
 }
+
+  /* Desktop: overlay and inner positioning only for selected (promo) collection */
+  @media (min-width: 750px) {
+    .collection-hero.collection-hero--promo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    .collection-hero.collection-hero--promo .collection-hero__inner {
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+    }
+  }
 
   @media (max-width: 749px) {
     .collection-hero {
@@ -112,9 +146,19 @@
   }
 </style>
 
-<div class="collection-hero color-{{ section.settings.color_scheme }} gradient">
+{%- assign is_promo_collection = false -%}
+{%- if settings.buy_x_get_y_enabled and settings.buy_x_get_y_collection != blank and collection.id == settings.buy_x_get_y_collection.id -%}
+  {%- assign is_promo_collection = true -%}
+{%- endif -%}
+<div class="collection-hero color-{{ section.settings.color_scheme }} gradient{% if is_promo_collection %} collection-hero--promo{% endif %}">
   <div class="collection-hero__inner page-width">
     <h1 class="collection-hero__title">{{ collection.title | escape }}</h1>
+    {%- if settings.buy_x_get_y_enabled and settings.buy_x_get_y_collection != blank and collection.id == settings.buy_x_get_y_collection.id -%}
+      <div class="collection-hero__subhead">
+        <p class="collection-hero__subhead-line1">{{ settings.buy_x_get_y_collection_message | default: 'Buy any 5 Hygiene instruments – get 1 FREE' }}</p>
+       
+      </div>
+    {%- endif -%}
 
     <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
       <a href="{{ routes.root_url }}">Home</a>
