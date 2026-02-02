@@ -412,6 +412,10 @@
   })();
 </script>
 
-{% render 'promo-popup' %}
+{%- if settings.promo_popup_type == 'february' -%}
+  {% render 'february-promo-popup' %}
+{%- elsif settings.promo_popup_type == 'january' -%}
+  {% render 'promo-popup' %}
+{%- endif -%}
   </body>
 </html>

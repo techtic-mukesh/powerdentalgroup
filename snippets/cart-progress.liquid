@@ -1,8 +1,36 @@
-<div class="progress-bar__wrapper">
+{%- assign promo_count = 0 -%}
+{%- assign hygiene_promo_applied = false -%}
+{%- assign discount_title_match = settings.buy_x_get_y_discount_title | strip -%}
+{%- if settings.buy_x_get_y_enabled and settings.buy_x_get_y_collection != blank -%}
+  {%- assign promo_handle = settings.buy_x_get_y_collection.handle -%}
+  {%- for item in cart.items -%}
+    {%- assign in_promo = item.product.collections | where: 'handle', promo_handle | size -%}
+    {%- if in_promo > 0 -%}
+      {%- assign promo_count = promo_count | plus: item.quantity -%}
+    {%- endif -%}
+    {%- for alloc in item.line_level_discount_allocations -%}
+      {%- if alloc.discount_application.title contains discount_title_match -%}
+        {%- assign hygiene_promo_applied = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if hygiene_promo_applied -%}{%- break -%}{%- endif -%}
+  {%- endfor -%}
+  {%- unless hygiene_promo_applied -%}
+    {%- for app in cart.cart_level_discount_applications -%}
+      {%- if app.title contains discount_title_match -%}
+        {%- assign hygiene_promo_applied = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endunless -%}
+{%- endif -%}
+
+<div class="progress-bar__wrapper main_progressbar">
   {% assign goal = 700 %}
   {% assign progress = cart.total_price | divided_by: 100 %}
   {% assign remaining = goal | minus: progress %}
-
+  <div class=" main_progress_bar_left">
   <div class="progress-text">
     {% if progress >= goal %}
     <p class="progress-message success">🎉 You’ve unlocked free shipping!</p>
@@ -15,8 +43,41 @@
   <div class="progress-container">
     <div class="progress-fill" style="width: {{ progress | times: 100.0 | divided_by: goal | at_most: 100 }}%;"></div>
   </div>
-
- 
+  </div>
+  {%- if settings.buy_x_get_y_enabled and settings.buy_x_get_y_collection != blank -%}
+    {%- assign promo_goal = settings.buy_x_get_y_x | at_least: 1 -%}
+    {%- assign promo_y_val = settings.buy_x_get_y_y | append: '' -%}
+    {%- comment -%} Progress bar: full (100%%) only when discount is applied; otherwise based on count {%- endcomment -%}
+    {%- if hygiene_promo_applied -%}
+      {%- assign promo_progress_pct = 100 -%}
+    {%- else -%}
+      {%- assign promo_progress_pct = promo_count | times: 100 | divided_by: promo_goal | at_most: 100 -%}
+    {%- endif -%}
+    <div class="progress-bar__wrapper hygiene-progress" data-promo-count="{{ promo_count }}" data-promo-goal="{{ promo_goal }}" data-promo-applied="{{ hygiene_promo_applied }}">
+      <div class="progress-text hygiene-progress-text">
+        <p class="progress-message hygiene-progress-message{% if hygiene_promo_applied %} progress-message--success{% endif %}">
+          {%- if hygiene_promo_applied -%}
+            {{ settings.buy_x_get_y_cart_after_message }}
+          {%- elsif promo_count >= promo_goal -%}
+            {{ settings.buy_x_get_y_cart_5of5_not_unlocked_message }}
+          {%- else -%}
+            {%- assign needed = promo_goal | minus: promo_count | append: '' -%}
+            {%- assign cart_before_msg = settings.buy_x_get_y_cart_before_message -%}
+            {%- capture x_ph -%}{X}{%- endcapture -%}
+            {%- capture y_ph -%}{Y}{%- endcapture -%}
+            {{ cart_before_msg | replace: x_ph, needed | replace: y_ph, promo_y_val }}
+          {%- endif -%}
+        </p>
+        {%- comment -%} Hide count when unlocked (success msg) or when at threshold but not unlocked ("Add 1 more" msg) {%- endcomment -%}
+        {%- unless hygiene_promo_applied or promo_count >= promo_goal -%}
+          <span class="end-amount hygiene-progress-count">{{ promo_count }}/{{ promo_goal }}</span>
+        {%- endunless -%}
+      </div>
+      <div class="progress-container progress-container--hygiene">
+        <div class="progress-fill progress-fill--hygiene" style="width: {{ promo_progress_pct }}%;"></div>
+      </div>
+    </div>
+  {%- endif -%}
 </div>
 
 
@@ -24,7 +85,7 @@
 .progress-bar__wrapper {
      text-align: center;
     font-family: sans-serif;
-    margin: 0 0 0;
+    margin: 10px 0 0;
     max-width: 100%;
     position: relative;
     padding-top: 25px;
@@ -143,6 +204,23 @@
     opacity: 0;
   }
 }
+
+  .hygiene-progress {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .hygiene-progress .progress-container--hygiene {
+    margin-top: 8px;
+  }
+  
+  .hygiene-progress .progress-message--success {
+    color: #0033a0;
+    font-weight: 600;
+  }
+  .hygiene-progress .hygiene-progress-count {
+    font-size: 14px;
+  }
 
   @media screen and (max-width: 989px) {
     .progress-container {

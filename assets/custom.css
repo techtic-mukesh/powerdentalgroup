@@ -329,6 +329,10 @@ body.gradient.cart  .price--end {
     font-weight: 600;
     line-height: normal;
     text-transform: uppercase;
+    text-align: left;
+}
+.cart-item__discounted-prices dd{
+    text-align:left;
 }
 
 .is-empty .cart__empty-text, .cart__login-title {
@@ -692,4 +696,70 @@ body:has(.mobile-facets__disclosure[open]) {
 
 .cancle_close_grid{
     display:flex;
+}
+.main_cart_items .main_progressbar{
+    display: flex;
+    gap: 20px;
+}
+.main_cart_items .main_progress_bar_left{
+    width: 50%;
+    padding: 10px;
+    background-color: #9a999c12;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 5px;
+}
+.main_cart_items .hygiene-progress{
+    margin: 0;
+    width: 50%;
+}
+.hygiene-progress .hygiene-progress-message{
+    font-size: 15px;
+    line-height: normal;
+    letter-spacing: -.16px;
+}
+.product__hygiene-promo.caption {
+    margin: 10px 0 15px;
+    background-color: #9a999c12;
+    font-weight: 600;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 10px 20px;
+    border-radius: 5px;
+    max-width: max-content;
+    width: 100%;
+    color: #D32F2F;
+    font-size: 16px;
+    letter-spacing: -.05px;
+}
+.product__hygiene-promo.caption p {
+    margin: 0;
+}
+.product__hygiene-promo.caption p strong{
+    font-weight: 600;
+}
+.product__hygiene-promo.caption p em{
+    font-weight: 400;
+}
+@media only screen and (max-width: 800px) {
+    .main_cart_items .main_progressbar{
+        flex-direction: column;
+    }
+    .main_cart_items .main_progress_bar_left , .main_cart_items .hygiene-progress{
+        width: 100%;
+    }
+    .product__hygiene-promo.caption{
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .main_cart_items .main_progressbar{
+        gap: 10px;
+    }
+   .hygiene-progress .progress-message--success{
+        font-size: 13px;
+        line-height: normal;
+    }
+     .progress-message.success{
+        font-size: 13px;
+    }
 }

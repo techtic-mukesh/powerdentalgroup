@@ -168,6 +168,13 @@
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
+                {%- if settings.buy_x_get_y_enabled and settings.buy_x_get_y_collection != blank -%}
+                  {%- assign promo_handle = settings.buy_x_get_y_collection.handle -%}
+                  {%- assign product_in_promo = product.collections | where: 'handle', promo_handle | size -%}
+                  {%- if product_in_promo > 0 -%}
+                    <div class="product__hygiene-promo caption">{{ settings.buy_x_get_y_product_message }}</div>
+                  {%- endif -%}
+                {%- endif -%}
 
               {%- when 'inventory' -%}
                 <p

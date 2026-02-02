@@ -1457,5 +1457,131 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Buy X Get Y Promotion",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Promotion Settings"
+      },
+      {
+        "type": "paragraph",
+        "content": "Theme shows promo messaging only. The discount (who gets free, which collection) is managed only in Shopify Admin → Discounts. Select the SAME collection here so the theme message matches your discount."
+      },
+      {
+        "type": "checkbox",
+        "id": "buy_x_get_y_enabled",
+        "label": "Enable Buy X Get Y promo messaging",
+        "default": false,
+        "info": "Shows promo copy on the selected collection page, product pages, and cart."
+      },
+      {
+        "type": "collection",
+        "id": "buy_x_get_y_collection",
+        "label": "Promotion collection",
+        "info": "Collection used for promo (e.g. Hygiene). Must match the collection in your Shopify Automatic Discount."
+      },
+      {
+        "type": "text",
+        "id": "buy_x_get_y_discount_title",
+        "label": "Discount title to match",
+        "default": "Hygiene Promo",
+        "info": "Success message and progress unlock only show when a discount with this title is applied. Must match your discount name in Shopify Admin."
+      },
+      {
+        "type": "range",
+        "id": "buy_x_get_y_x",
+        "min": 2,
+        "max": 20,
+        "step": 1,
+        "default": 5,
+        "label": "Buy X (quantity required)",
+        "info": "Number of items needed to qualify (e.g. 5 now, 10 in March). Update your Shopify discount to match."
+      },
+      {
+        "type": "range",
+        "id": "buy_x_get_y_y",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "default": 1,
+        "label": "Get Y FREE (quantity free)",
+        "info": "Number of free items (e.g. 1 now, 2 in March). Update your Shopify discount to match."
+      },
+      {
+        "type": "header",
+        "content": "Promotion Messages"
+      },
+      {
+        "type": "text",
+        "id": "buy_x_get_y_collection_message",
+        "label": "Collection Page Message",
+        "default": "Buy any 5 Hygiene instruments – get 1 FREE",
+        "info": "Message shown on collection page"
+      },
+      {
+        "type": "richtext",
+        "id": "buy_x_get_y_product_message",
+        "label": "Product Page Message",
+        "info": "Message shown on product pages"
+      },
+      {
+        "type": "text",
+        "id": "buy_x_get_y_cart_before_message",
+        "label": "Cart Message (Before Threshold)",
+        "default": "Add {X} more Hygiene items to get {Y} FREE",
+        "info": "Use {X} = items needed, {Y} = free quantity."
+      },
+      {
+        "type": "text",
+        "id": "buy_x_get_y_cart_after_message",
+        "label": "Cart Message (After Threshold)",
+        "default": "🎉 Promotion applied – lowest-priced Hygiene item is FREE",
+        "info": "Message when promotion is active. Use a Shopify Automatic Discount (Buy X Get Y) so the lowest-priced eligible item is discounted."
+      },
+      {
+        "type": "text",
+        "id": "buy_x_get_y_cart_5of5_not_unlocked_message",
+        "label": "Cart Message (at threshold but discount not applied)",
+        "default": "Add 1 more and get lowest price as a free gift",
+        "info": "Shown when cart has X Hygiene items (from setting above) but discount not yet applied. Hidden when promo is unlocked."
+      },
+      {
+        "type": "header",
+        "content": "Popup Settings"
+      },
+      {
+        "type": "select",
+        "id": "promo_popup_type",
+        "label": "Select Popup to Display",
+        "options": [
+          { "value": "january", "label": "January Member Perk Popup" },
+          { "value": "february", "label": "February Hygiene Promo Popup" },
+          { "value": "none", "label": "No Popup" }
+        ],
+        "default": "february",
+        "info": "Choose which popup to display on the site"
+      },
+      {
+        "type": "text",
+        "id": "february_popup_heading",
+        "label": "February popup heading (e.g. h3)",
+        "default": "🦷 Hygiene Promo [February 2026]"
+      },
+      {
+        "type": "text",
+        "id": "february_popup_subheading",
+        "label": "February popup subheading (e.g. h2)",
+        "default": "Buy 5 Get 1 FREE"
+      },
+      {
+        "type": "text",
+        "id": "february_popup_cta_label",
+        "label": "February popup button label",
+        "default": "Shop Hygiene Collection"
+      }
+    ]
   }
+
 ]

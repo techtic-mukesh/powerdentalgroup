@@ -129,6 +129,14 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
+    "buy_x_get_y_enabled": true,
+    "buy_x_get_y_collection": "hygiene",
+    "buy_x_get_y_x": 6,
+    "buy_x_get_y_collection_message": "Add 6 eligible hygiene instruments to your cart — the lowest-priced item will be free at checkout.",
+    "buy_x_get_y_product_message": "<p><strong>Buy 5 Hygiene instruments, get the 6th FREE<br/></strong><em>Lowest-priced item auto-applied in cart</em></p>",
+    "february_popup_heading": "✨FEBRUARY HYGIENE SPECIAL",
+    "february_popup_subheading": "Buy 5 Hygiene Instruments, Get 1 Free",
+    "february_popup_cta_label": "SHOP HYGIENE COLLECTION",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",

@@ -1,0 +1,564 @@
+<style>
+/* Base Overlay */
+.february-promo-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999999;
+  backdrop-filter: blur(2px);
+}
+
+.february-promo-popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.february-promo-popup-overlay.closing {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Desktop Popup Container */
+.february-promo-popup-container {
+  position: relative;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  background: #fff;
+  padding: 40px 30px;
+  transform: scale(0.9) translateY(-20px);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.3s ease;
+  overflow-y: auto;
+  border: 1px solid #e5dada;
+  border-radius: 60px;
+}
+
+.february-promo-popup-overlay.active .february-promo-popup-container {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.february-promo-popup-overlay.closing .february-promo-popup-container {
+  transform: scale(0.95) translateY(-10px);
+  opacity: 0;
+}
+
+/* Close Button */
+.february-promo-popup-container .february-promo-popup-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 36px;
+  height: 36px;
+  background: #0033a0;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 51, 160, 0.3);
+}
+
+.february-promo-popup-container .february-promo-popup-close:hover {
+  background: #002880;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.february-promo-popup-container .february-promo-popup-close:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* Content Styling */
+.february-promo-content {
+  text-align: left;
+  padding: 20px 0;
+}
+
+.february-promo-content h3 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-left: 20px;
+  color: #2D3748;
+  margin-left: 0;
+  margin-bottom: 30px;
+}
+
+.february-promo-content h2 {
+  margin-left: 50px;
+  text-transform: capitalize;
+  line-height: normal;
+  font-size: 27px;
+  font-weight: 700;
+  color: #2D3748;
+  margin-bottom: 12px;
+  max-width: 70%;
+  width: 100%;
+}
+
+.february-promo-content p {
+  font-size: 22px;
+  color: #4A5568;
+  margin-left: 20px;  
+  line-height: 1.5;
+  font-weight: 300;
+  margin: 30px 30px 30px 50px;
+  letter-spacing: -.16px;
+}
+
+.february-promo-content p strong {
+  color: #0033a0;
+  font-weight: 600;
+}
+
+.february-promo-cta {
+  display: inline-block;
+  padding: 14px 32px;
+  background: linear-gradient(90deg, #42c5ef, #0033a0);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+  font-family: Montserrat, sans-serif;
+  margin-left: 50px;  
+}
+
+.february-promo-cta:hover {
+  opacity: 0.9;
+  color: #fff;
+}
+@media (max-width: 990px) {
+  .february-promo-content p{
+      margin: 20px 30px 20px 40px;
+      font-size: 16px;
+  }
+  .february-promo-content h2{
+      margin-left: 40px;
+      font-size: 18px;
+      max-width:100%;
+      width:100%;
+  }
+  .february-promo-content h3{
+    font-size:25px;
+  }
+}
+/* Mobile Styles */
+@media (max-width: 749px) {
+  .february-promo-popup-container {
+    padding: 30px 20px;
+    width: 95%;
+  }
+
+  .february-promo-content h2 {
+    font-size: 14px;
+    margin-left: 30px;
+  }
+
+  .february-promo-content h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 30px;
+  }
+
+  .february-promo-content p {
+    font-size: 14px;
+    margin-left: 30px;
+  }
+
+  .february-promo-cta {
+    padding: 12px 24px;
+    font-size: 14px;
+    margin-left: 30px;
+  }
+}
+/* ======== FEBRUARY POPUP – BOTTOM TO TOP STYLE (MOBILE) ======== */
+@media (max-width: 749px) {
+
+  .february-promo-popup-overlay {
+    align-items: flex-end;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+  }
+
+  .february-promo-popup-container {
+    width: 100%;
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 20px 20px 0 0;
+    padding: 30px 20px 40px;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(100%);
+    opacity: 1;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .february-promo-popup-overlay.active .february-promo-popup-container {
+    transform: translateY(0);
+  }
+
+  .february-promo-popup-overlay.closing .february-promo-popup-container {
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(0.32, 0, 0.67, 0);
+  }
+
+  /* Drag handle like January popup */
+  .february-promo-popup-container::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+  }
+
+  /* Close button tweak for mobile */
+  .february-promo-popup-container .february-promo-popup-close {
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    background: rgba(0, 51, 160, 0.95);
+    backdrop-filter: blur(10px);
+  }
+
+  .february-promo-popup-container .february-promo-popup-close:active {
+    transform: scale(0.9);
+  }
+}
+@media (max-width: 360px) {
+  .february-promo-content h2 , .february-promo-content p , .february-promo-cta{
+      margin-left: 25px;
+  }
+  .february-promo-content h3{
+      font-size: 16px;
+      margin-bottom: 15px;
+  }
+
+}
+</style>
+
+{%- comment -%} Promo CTA URL – collection from Theme settings (discount only in Shopify Admin) {%- endcomment -%}
+{%- if settings.buy_x_get_y_enabled and settings.buy_x_get_y_collection != blank -%}
+  {%- assign promo_collection_url = settings.buy_x_get_y_collection.url -%}
+{%- else -%}
+  {%- assign promo_collection_url = '/collections/hygiene' -%}
+{%- endif -%}
+
+<!-- February Promo Popup HTML -->
+<div class="february-promo-popup-overlay" id="februaryPromoPopup">
+  <div class="february-promo-popup-container">
+    <button class="february-promo-popup-close" id="closeFebruaryPopup" aria-label="Close popup">&times;</button>
+
+    <div class="february-promo-content">
+      {%- if settings.february_popup_heading != blank -%}<h3>{{ settings.february_popup_heading }}</h3>{%- endif -%}
+      {%- if settings.february_popup_subheading != blank -%}<h2>{{ settings.february_popup_subheading }}</h2>{%- endif -%}
+      {%- if settings.buy_x_get_y_collection_message != blank or settings.buy_x_get_y_collection_submessage != blank -%}
+        <p>
+          {%- if settings.buy_x_get_y_collection_message != blank -%}{{ settings.buy_x_get_y_collection_message }}<br>{%- endif -%}
+          {%- if settings.buy_x_get_y_collection_submessage != blank -%}<strong>{{ settings.buy_x_get_y_collection_submessage }}</strong>{%- endif -%}
+        </p>
+      {%- endif -%}
+      <a href="{{ promo_collection_url }}" class="february-promo-cta">
+        {{ settings.february_popup_cta_label }}
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ========================================
+   FEBRUARY PROMO POPUP MANAGER
+   Close = hidden for 7 days (same as January)
+======================================== */
+(function() {
+  'use strict';
+
+  const CONFIG = {
+    STORAGE_KEY: 'february_promo_popup',
+    TIME_DELAY: 8000,
+    SCROLL_THRESHOLD: 50,
+    DISMISS_DAYS: 7,
+    ANIMATION_DURATION: 450,
+    DEBUG: false
+  };
+
+  const STATES = {
+    DISMISSED: 'dismissed'
+  };
+
+  const Storage = {
+    set(state, days) {
+      try {
+        const expiry = new Date();
+        expiry.setDate(expiry.getDate() + days);
+        const data = {
+          value: state,
+          expiry: expiry.getTime()
+        };
+        localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(data));
+        document.cookie = `${CONFIG.STORAGE_KEY}=${state};expires=${expiry.toUTCString()};path=/;SameSite=Lax`;
+      } catch (e) {
+        console.error('LocalStorage write error:', e);
+      }
+    },
+
+    get() {
+      try {
+        const cookieMatch = document.cookie.split('; ').find(r => r.startsWith(CONFIG.STORAGE_KEY + '='));
+        if (cookieMatch) return cookieMatch.split('=')[1];
+
+        const item = localStorage.getItem(CONFIG.STORAGE_KEY);
+        if (!item) return null;
+
+        const data = JSON.parse(item);
+        const now = new Date().getTime();
+
+        if (now > data.expiry) {
+          localStorage.removeItem(CONFIG.STORAGE_KEY);
+          return null;
+        }
+
+        return data.value;
+      } catch (e) {
+        console.error('LocalStorage read error:', e);
+      }
+
+      return null;
+    },
+
+    markDismissed() {
+      this.set(STATES.DISMISSED, CONFIG.DISMISS_DAYS);
+    },
+
+    shouldShowPopup() {
+      const state = this.get();
+      if (state === STATES.DISMISSED) return false;
+      return true;
+    }
+  };
+
+  const Popup = {
+    element: null,
+    isShowing: false,
+
+    init() {
+      this.element = document.getElementById('februaryPromoPopup');
+      if (!this.element) return false;
+      return true;
+    },
+
+    show() {
+      if (!this.element || this.isShowing) return;
+      this.isShowing = true;
+      document.body.classList.add('popup-open');
+      requestAnimationFrame(() => this.element.classList.add('active'));
+    },
+
+    hide() {
+      if (!this.element) return;
+      this.element.classList.remove('active');
+      this.element.classList.add('closing');
+      setTimeout(() => {
+        this.element.classList.remove('closing');
+        document.body.classList.remove('popup-open');
+        this.isShowing = false;
+      }, CONFIG.ANIMATION_DURATION);
+    }
+  };
+
+  function initEvents() {
+    const closeBtn = document.getElementById('closeFebruaryPopup');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        Storage.markDismissed();
+        Popup.hide();
+      });
+    }
+
+    if (Popup.element) {
+      Popup.element.addEventListener('click', (e) => {
+        if (e.target === Popup.element) {
+          Storage.markDismissed();
+          Popup.hide();
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && Popup.isShowing) {
+        Storage.markDismissed();
+        Popup.hide();
+      }
+    });
+  }
+
+function init() {
+  const currentPath = window.location.pathname;
+  const isAuthPage =
+    currentPath.includes('/account/login') ||
+    currentPath.includes('/account/register') ||
+    currentPath.includes('/account');
+
+  if (isAuthPage) return;
+
+  const isCollectionPage =
+    currentPath.includes('/collections/') &&
+    !currentPath.includes('/collections/all') &&
+    currentPath.split('/').length >= 3;
+
+  if (isCollectionPage) return;
+  if (currentPath.includes('/cart')) return;
+  if (!Storage.shouldShowPopup()) return;
+  if (!Popup.init()) return;
+
+  initEvents();
+
+  document.addEventListener('cart:updated', () => {
+    sessionStorage.setItem('last_cart_action', Date.now().toString());
+    if (Popup.isShowing) Popup.hide();
+  });
+
+  document.addEventListener('cart:add', () => {
+    sessionStorage.setItem('last_cart_action', Date.now().toString());
+    if (Popup.isShowing) Popup.hide();
+  });
+
+  setTimeout(() => {
+    if (!Popup.element || Popup.isShowing) return;
+
+    const path = window.location.pathname;
+    const onCollection =
+      path.includes('/collections/') &&
+      !path.includes('/collections/all') &&
+      path.split('/').length >= 3;
+    const onCart = path.includes('/cart');
+
+    const lastAction = sessionStorage.getItem('last_cart_action');
+    const timeSince = lastAction
+      ? Date.now() - parseInt(lastAction)
+      : 999999;
+
+    if (!onCollection && !onCart && timeSince >= 5000) {
+      Popup.show();
+    }
+  }, CONFIG.TIME_DELAY);
+
+  let scrollTriggered = false;
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (scrollTriggered || Popup.isShowing) return;
+
+      const path = window.location.pathname;
+      const onCollection =
+        path.includes('/collections/') &&
+        !path.includes('/collections/all') &&
+        path.split('/').length >= 3;
+      const onCart = path.includes('/cart');
+
+      const lastAction = sessionStorage.getItem('last_cart_action');
+      const timeSince = lastAction
+        ? Date.now() - parseInt(lastAction)
+        : 999999;
+
+      if (
+        window.scrollY > CONFIG.SCROLL_THRESHOLD &&
+        !onCollection &&
+        !onCart &&
+        timeSince >= 5000
+      ) {
+        scrollTriggered = true;
+        Popup.show();
+      }
+    },
+    { passive: true }
+  );
+
+  // ✅ IMPORTANT — CALL SWIPE HERE
+  initFebruarySwipe();
+}
+/* ======== MOBILE SWIPE TO CLOSE (FEBRUARY POPUP) ======== */
+function initFebruarySwipe() {
+  const container = document.querySelector(
+    '.february-promo-popup-container'
+  );
+  if (!container || window.innerWidth > 749) return;
+
+  let startY = 0;
+  let currentY = 0;
+
+  container.addEventListener(
+    'touchstart',
+    (e) => {
+      startY = e.touches[0].clientY;
+    },
+    { passive: true }
+  );
+
+  container.addEventListener(
+    'touchmove',
+    (e) => {
+      currentY = e.touches[0].clientY;
+      const diff = currentY - startY;
+
+      if (diff > 0) {
+        container.style.transform = `translateY(${diff}px)`;
+      }
+    },
+    { passive: true }
+  );
+
+  container.addEventListener('touchend', () => {
+    const diff = currentY - startY;
+
+    if (diff > 100) {
+      container.style.transition =
+        'transform 0.45s cubic-bezier(0.32, 0, 0.67, 0)';
+      container.style.transform = 'translateY(100%)';
+
+      setTimeout(() => {
+        Storage.markDismissed();
+        Popup.hide();
+      }, 450);
+    } else {
+      container.style.transition =
+        'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      container.style.transform = 'translateY(0)';
+    }
+
+    setTimeout(() => {
+      container.style.transition = '';
+    }, 500);
+  });
+}
+
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
