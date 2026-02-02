@@ -62,6 +62,7 @@
         },
         "event_card_yChCpd": {
           "type": "event_card",
+          "name": "Feb 6-8 / FAFA",
           "settings": {
             "event_image": "shopify://shop_images/SIN360_B_W_05652966-134d-490c-b73b-49b89fac72fa.jpg",
             "event_title": "ARCH ED",
