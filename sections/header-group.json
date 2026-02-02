@@ -18,7 +18,7 @@
           "type": "announcement",
           "settings": {
             "text": "<p>✨ <strong>February Special:</strong> <strong>Buy 5 Hygiene </strong>Instruments, <strong>Get 1 Free</strong> – lowest-priced item free at checkout</p>",
-            "link": "https://powerdentalgroup.com/collections/"
+            "link": "shopify://collections/hygiene"
           }
         },
         "announcement-bar-0": {
