@@ -3698,7 +3698,7 @@ body.gradient.cart cart-items.gradient.color-scheme-1.isolate.is-empty {
 .addon-section {
   margin-top: 32px;
   padding: 20px;
-  background:#f7f9fc;
+  background: #f7f9fc;
   border-radius: 8px;
 }
 
@@ -3708,7 +3708,7 @@ body.gradient.cart cart-items.gradient.color-scheme-1.isolate.is-empty {
 
 .addon-note {
   font-size: 14px;
-  color:#6b7280;
+  color: #6b7280;
   margin-bottom: 16px;
 }
 
