@@ -24,7 +24,7 @@
           "type": "breadcrumb_item",
           "settings": {
             "label": "Resources",
-            "link": "shopify:\/\/pages\/resources"
+            "link": "shopify://pages/resources"
           }
         }
       },
@@ -43,8 +43,8 @@
         "catalog_item_bdLYLG": {
           "type": "catalog_item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Full_Catalog_2025_Cover_Thumbnail_89db32a4-b9df-4ba3-a440-14d842989449.jpg",
-            "link": "https:\/\/www.publications.powerdentalgroup.com\/essential-instrumentation-2025",
+            "image": "shopify://shop_images/Full_Catalog_2025_Cover_Thumbnail_89db32a4-b9df-4ba3-a440-14d842989449.jpg",
+            "link": "https://www.publications.powerdentalgroup.com/essential-instrumentation-2025",
             "title": "Full Catalog",
             "title_color": "#5b5b5b",
             "bg_color": "#ffffff"
@@ -52,9 +52,10 @@
         },
         "catalog_item_fywwwz": {
           "type": "catalog_item",
+          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Mini_Booklet_Cover_Thumbnail_1_8ba29dc3-601d-4c0b-b5e6-1ece9bb8e656.jpg",
-            "link": "https:\/\/www.publications.powerdentalgroup.com\/mini-booklet\/",
+            "image": "shopify://shop_images/Power_Line_Show_Booklet_Cover.jpg",
+            "link": "https://www.publications.powerdentalgroup.com/mini-booklet/",
             "title": "Power Line Booklet",
             "title_color": "#5b5b5b",
             "bg_color": "#ffffff"
@@ -76,25 +77,25 @@
         "service_Ybdqth": {
           "type": "service",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26115.png",
-            "label": "<p>Trade-In<br\/>Program<\/p>",
-            "srvurl": "shopify:\/\/pages\/trade-in-program"
+            "image": "shopify://shop_images/Rectangle_26115.png",
+            "label": "<p>Trade-In<br/>Program</p>",
+            "srvurl": "shopify://pages/trade-in-program"
           }
         },
         "service_jh77jG": {
           "type": "service",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26115_1.png",
-            "label": "<p>Sharpen,<br\/>Retip & Repair<\/p>",
-            "srvurl": "shopify:\/\/pages\/sharpen-retip-repair"
+            "image": "shopify://shop_images/Rectangle_26115_1.png",
+            "label": "<p>Sharpen,<br/>Retip & Repair</p>",
+            "srvurl": "shopify://pages/sharpen-retip-repair"
           }
         },
         "service_JkbdUB": {
           "type": "service",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_26115_2.png",
-            "label": "<p>Custom Kitting<\/p>",
-            "srvurl": "shopify:\/\/pages\/custom-kitting"
+            "image": "shopify://shop_images/Rectangle_26115_2.png",
+            "label": "<p>Custom Kitting</p>",
+            "srvurl": "shopify://pages/custom-kitting"
           }
         }
       },
@@ -108,9 +109,9 @@
       "settings": {
         "background_color": "#f8f6f4",
         "subheading": "It Starts Here",
-        "heading": "<p>Our SERVICES<\/p>",
-        "content": "<p>All needs are not the same; that’s why we provide solutions for every dental professional at any point in their journey.<\/p>",
-        "btnurl": "shopify:\/\/pages\/services",
+        "heading": "<p>Our SERVICES</p>",
+        "content": "<p>All needs are not the same; that’s why we provide solutions for every dental professional at any point in their journey.</p>",
+        "btnurl": "shopify://pages/services",
         "btntext": "view all services"
       }
     }
