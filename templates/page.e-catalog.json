@@ -52,7 +52,6 @@
         },
         "catalog_item_fywwwz": {
           "type": "catalog_item",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Power_Line_Show_Booklet_Cover.jpg",
             "link": "https://www.publications.powerdentalgroup.com/mini-booklet/",
