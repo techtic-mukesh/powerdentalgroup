@@ -384,11 +384,11 @@
           "settings": {
             "panel_color": "#ffffff",
             "panel_padding": 10,
-            "title": "Order and get [potential_points] reward points...",
+            "title": "Order and get [potential_points] reward points..",
             "subtext": "Earn points by signing up for our rewards program",
             "show_icon": false,
             "logged_out_only": false,
-            "custom_css": "p {  \nflex-wrap: wrap;\n}"
+            "custom_css": "#loy-potential-points-text{\n  display: flex !important;\n  flex-direction: column !important;\n  align-items: flex-start !important;\n}\n\n#loy-potential-points-text > h3{\n  margin: 0 !important;\n}\n\n#loy-potential-points-text > p{\n  margin: 4px 0 0 !important;\n}"
           }
         }
       },
