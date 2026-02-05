@@ -382,9 +382,9 @@
         "rivo_loyalty_rewards_referrals_potential_points_VEWkTR": {
           "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/potential-points/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
           "settings": {
-            "panel_color": "#FFFFFF",
+            "panel_color": "#ffffff",
             "panel_padding": 10,
-            "title": "Order and get [potential_points] reward points",
+            "title": "",
             "subtext": "Earn points by signing up for our rewards program",
             "show_icon": false,
             "logged_out_only": false,
