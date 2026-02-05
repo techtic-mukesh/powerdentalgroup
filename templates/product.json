@@ -384,7 +384,7 @@
           "settings": {
             "panel_color": "#ffffff",
             "panel_padding": 10,
-            "title": "",
+            "title": "Order and get [potential_points] reward points",
             "subtext": "Earn points by signing up for our rewards program",
             "show_icon": false,
             "logged_out_only": false,
