@@ -57,7 +57,7 @@
           "settings": {
             "panel_color": "#ffffff",
             "panel_padding": 10,
-            "title": "Order and get [potential_points] reward points..",
+            "title": "[potential_points] Points",
             "subtext": "",
             "show_icon": true,
             "icon": "shopify://shop_images/reward.svg",
