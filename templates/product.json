@@ -170,6 +170,29 @@
         "padding_bottom": 0
       }
     },
+    "177027301414a68cef": {
+      "type": "apps",
+      "blocks": {
+        "rivo_loyalty_rewards_referrals_potential_points_VEWkTR": {
+          "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/potential-points/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
+          "settings": {
+            "panel_color": "#ffffff",
+            "panel_padding": 10,
+            "title": "Order and get [potential_points] reward points..",
+            "subtext": "Earn points by signing up for our rewards program",
+            "show_icon": false,
+            "logged_out_only": false,
+            "custom_css": "#potential-points-text{\n  display: flex !important;\n  flex-wrap: wrap !important;\n  align-items: center !important;\n}\n\n/* keep the H3 on row 1 */\n#potential-points-text > h3{\n  margin: 0 !important;\n}\n\n/* push the paragraph to row 2 */\n#potential-points-text > p{\n  flex: 0 0 100% !important;\n  width: 100% !important;\n  margin: 4px 0 0 !important;\n}"
+          }
+        }
+      },
+      "block_order": [
+        "rivo_loyalty_rewards_referrals_potential_points_VEWkTR"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "17625100847643684a": {
       "type": "apps",
       "blocks": {
@@ -320,29 +343,6 @@
         "padding_bottom": 80
       }
     },
-    "177027301414a68cef": {
-      "type": "apps",
-      "blocks": {
-        "rivo_loyalty_rewards_referrals_potential_points_VEWkTR": {
-          "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/potential-points/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
-          "settings": {
-            "panel_color": "#ffffff",
-            "panel_padding": 10,
-            "title": "Order and get [potential_points] reward points..",
-            "subtext": "Earn points by signing up for our rewards program",
-            "show_icon": false,
-            "logged_out_only": false,
-            "custom_css": "#potential-points-text{\n  display: flex !important;\n  flex-wrap: wrap !important;\n  align-items: center !important;\n}\n\n/* keep the H3 on row 1 */\n#potential-points-text > h3{\n  margin: 0 !important;\n}\n\n/* push the paragraph to row 2 */\n#potential-points-text > p{\n  flex: 0 0 100% !important;\n  width: 100% !important;\n  margin: 4px 0 0 !important;\n}"
-          }
-        }
-      },
-      "block_order": [
-        "rivo_loyalty_rewards_referrals_potential_points_VEWkTR"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "recently_viewed_products_c8pPNh": {
       "type": "recently-viewed-products",
       "name": "Recently viewed products",
@@ -403,6 +403,7 @@
   "order": [
     "product_breadcrum_FQbJFE",
     "main",
+    "177027301414a68cef",
     "17625100847643684a",
     "key_features_PEqqeN",
     "real_result_VTRxba",
@@ -410,7 +411,6 @@
     "pdp_testimonial_RjHiJz",
     "real_result_MEe6RC",
     "related-products",
-    "177027301414a68cef",
     "recently_viewed_products_c8pPNh",
     "175826590273b899fd"
   ]
