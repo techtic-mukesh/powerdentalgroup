@@ -130,7 +130,7 @@
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
     "buy_x_get_y_enabled": true,
-    "buy_x_get_y_collection": "hygiene",
+    "buy_x_get_y_collection": "hygiene-promo-eligible",
     "buy_x_get_y_x": 6,
     "buy_x_get_y_collection_message": "Add 6 eligible hygiene instruments to your cart — the lowest-priced item will be free at checkout.",
     "buy_x_get_y_product_message": "<p><strong>Buy 5 Hygiene instruments, get the 6th FREE<br/></strong><em>Lowest-priced item auto-applied in cart</em></p>",
