@@ -183,7 +183,7 @@
             "subtext": "Earn points by signing up for our rewards program",
             "show_icon": false,
             "logged_out_only": false,
-            "custom_css": ""
+            "custom_css": "#potential-points-text{\n  display: flex !important;\n  flex-wrap: wrap !important;\n  align-items: center !important;\n}\n\n/* keep the H3 on row 1 */\n#potential-points-text > h3{\n  margin: 0 !important;\n}\n\n/* push the paragraph to row 2 */\n#potential-points-text > p{\n  flex: 0 0 100% !important;\n  width: 100% !important;\n  margin: 4px 0 0 !important;\n}"
           }
         }
       },
