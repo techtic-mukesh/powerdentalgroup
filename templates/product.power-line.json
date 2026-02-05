@@ -171,21 +171,6 @@
         "padding_bottom": 0
       }
     },
-    "key_features_PEqqeN": {
-      "type": "key-features",
-      "name": "Key Features",
-      "settings": {
-        "background_color": "#f9f9f9",
-        "heading": "Key Features",
-        "content": "<ul><li>Removes crowns in seconds – Significantly reduces chair time, cutting procedures from minutes down to seconds.</li><li>Predictable outcomes - Push-pull mechanics create opposing forces to preserve the core and remove the crown in a single motion.</li><li>Universal use – Compatible with permanent or temporary crowns (zirconia, e.max, PFM) in any region: anterior or posterior, maxillary or mandibular.</li><li>Ergonomic handle design – Integrated butterfly spring minimizes hand fatigue and enhances grip control.</li></ul>",
-        "video": "shopify://files/videos/key-feature-video.mp4",
-        "video_mp4": "",
-        "video_webm": "",
-        "video_autoplay": true,
-        "video_loop": true,
-        "video_muted": true
-      }
-    },
     "17702760020ac8b850": {
       "type": "apps",
       "blocks": {
@@ -207,6 +192,21 @@
       ],
       "settings": {
         "include_margins": true
+      }
+    },
+    "key_features_PEqqeN": {
+      "type": "key-features",
+      "name": "Key Features",
+      "settings": {
+        "background_color": "#f9f9f9",
+        "heading": "Key Features",
+        "content": "<ul><li>Removes crowns in seconds – Significantly reduces chair time, cutting procedures from minutes down to seconds.</li><li>Predictable outcomes - Push-pull mechanics create opposing forces to preserve the core and remove the crown in a single motion.</li><li>Universal use – Compatible with permanent or temporary crowns (zirconia, e.max, PFM) in any region: anterior or posterior, maxillary or mandibular.</li><li>Ergonomic handle design – Integrated butterfly spring minimizes hand fatigue and enhances grip control.</li></ul>",
+        "video": "shopify://files/videos/key-feature-video.mp4",
+        "video_mp4": "",
+        "video_webm": "",
+        "video_autoplay": true,
+        "video_loop": true,
+        "video_muted": true
       }
     },
     "real_result_VTRxba": {
@@ -382,8 +382,8 @@
   "order": [
     "product_breadcrum_FQbJFE",
     "main",
-    "key_features_PEqqeN",
     "17702760020ac8b850",
+    "key_features_PEqqeN",
     "real_result_VTRxba",
     "video_TtiEDC",
     "real_result_MEe6RC",
