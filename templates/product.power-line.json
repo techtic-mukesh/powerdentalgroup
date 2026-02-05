@@ -176,6 +176,7 @@
       "blocks": {
         "rivo_loyalty_rewards_referrals_potential_points_fnhcC7": {
           "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/potential-points/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
+          "disabled": true,
           "settings": {
             "panel_color": "#FFFFFF",
             "panel_padding": 10,
