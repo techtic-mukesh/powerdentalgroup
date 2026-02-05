@@ -388,7 +388,7 @@
             "subtext": "Earn points by signing up for our rewards program",
             "show_icon": false,
             "logged_out_only": false,
-            "custom_css": ""
+            "custom_css": "p {\n  width: 100%;\n}"
           }
         }
       },
