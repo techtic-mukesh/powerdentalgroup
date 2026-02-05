@@ -54,15 +54,28 @@
         },
         "rivo_loyalty_rewards_referrals_potential_points_Qcdikz": {
           "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/potential-points/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
+          "disabled": true,
           "settings": {
             "panel_color": "#ffffff",
             "panel_padding": 10,
-            "title": "[potential_points] Points",
+            "title": "Order and get [potential_points] reward points..",
             "subtext": "",
             "show_icon": true,
             "icon": "shopify://shop_images/reward.svg",
             "logged_out_only": false,
             "custom_css": "div#loy-potential-points {\n    border-radius: 20px;\n    border: 1px solid #ebebeb;\n    background: #fff;\n    display: inline-flex !important;\n    gap: 7px !important;\n    align-items: center;\n    height: 29px;\n    padding: 0 10px 0 5px;\n    color: #333;\n    font-size: 16px;\n    font-family: 'Prompt';\n    font-weight: 400;\n    justify-content: flex-start !important;\n    padding: 0 7px !important;\n}\n\ndiv#loy-potential-points div#potential-points-icon {\n    margin: 0 !IMPORTANT;\n    display: flex;\n}\n\ndiv#loy-potential-points div#potential-points-icon img.points-icon {\n    width: 22px;\n    height: 19px;\n}\n\ndiv#potential-points-text h3 {\n    font-size: 16px;\n    font-family: 'Prompt' !important;\n    font-weight: 400 !important;\n    margin: 0 !important;\n    display: flex;\n    gap: 3px;\n    align-items: center;\n    letter-spacing: -.16px;\n}\n\ndiv#potential-points-text h3 span.order-placed-potential-points-amount {\n    display: flex;\n    line-height: 16px;\n}\n\ndiv#potential-points-text {\n    display: flex;\n}"
+          }
+        },
+        "rivo_loyalty_rewards_referrals_potential_points_6J8PER": {
+          "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/potential-points/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
+          "settings": {
+            "panel_color": "#FFFFFF",
+            "panel_padding": 10,
+            "title": "[potential_points] points",
+            "subtext": "",
+            "show_icon": false,
+            "logged_out_only": false,
+            "custom_css": ""
           }
         },
         "text_PbAUGh": {
@@ -144,6 +157,7 @@
         "judge_me_reviews_preview_badge_DaBz33",
         "price",
         "rivo_loyalty_rewards_referrals_potential_points_Qcdikz",
+        "rivo_loyalty_rewards_referrals_potential_points_6J8PER",
         "text_PbAUGh",
         "custom_liquid_H8yKfr",
         "variant_picker",
@@ -176,6 +190,7 @@
       "blocks": {
         "rivo_loyalty_rewards_referrals_potential_points_fnhcC7": {
           "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/potential-points/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
+          "disabled": true,
           "settings": {
             "panel_color": "#FFFFFF",
             "panel_padding": 10,
