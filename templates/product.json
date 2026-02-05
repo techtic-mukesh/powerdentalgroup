@@ -56,7 +56,7 @@
           "settings": {
             "panel_color": "#ffffff",
             "panel_padding": 2,
-            "title": "points",
+            "title": "",
             "subtext": "",
             "show_icon": true,
             "icon": "shopify://shop_images/reward.svg",
