@@ -605,6 +605,9 @@ html[lang="fr"] summary .icon-caret {
     width: 14px;
     height: 14px;
 }
+html[lang="fr"] .header--middle-left .header__inline-menu ul.list-menu.list-menu--inline{
+    gap:10px;
+}
 }
 @media only screen and (max-width: 1280px) {
   .middle-header-scope {
