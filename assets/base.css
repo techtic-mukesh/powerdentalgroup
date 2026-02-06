@@ -2577,6 +2577,8 @@ input[type='checkbox'] {
     gap: 5px;
     justify-content: center;
     align-items: center;
+    max-width: 33.33%;
+    width: 100%;
 }
 
 .header__icon,
