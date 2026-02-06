@@ -9,7 +9,17 @@
 .middle-header-scope {
     padding: 0 71.3px;
 }
-
+html[lang="fr"]  .middle-header-scope {
+    padding: 0 30px;
+}
+html[lang="fr"]  .header__icons .header__icon span{
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    text-transform: capitalize;
+    word-break: break-word;
+}
 .top-inline-bar button.mega-dropdown {
     display: flex;
     height: 42px;
