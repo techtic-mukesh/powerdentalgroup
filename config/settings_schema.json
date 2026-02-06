@@ -1671,6 +1671,16 @@
         "id": "product_list_price_label",
         "label": "List price label (compare-at)",
         "default": "List Price:"
+      },
+      {
+        "type": "header",
+        "content": "Product page (share)"
+      },
+      {
+        "type": "text",
+        "id": "product_ask_question_label",
+        "label": "Ask question link text",
+        "default": "Ask question"
       }
     ]
   }
