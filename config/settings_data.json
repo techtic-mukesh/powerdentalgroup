@@ -146,6 +146,7 @@
     "product_in_stock_label": "In Stock",
     "product_out_of_stock_label": "Out of Stock",
     "product_list_price_label": "List Price:",
+    "product_ask_question_label": "Ask question",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
