@@ -23,6 +23,9 @@ html[lang="fr"]  .header__icons .header__icon span{
 html[lang="es"]  .middle-header-scope {
     padding: 0 30px;
 }
+html[lang="fr"] a.iwishDrawer.header__icon span.iwish-counter{
+    right: 25px;
+}
 html[lang="es"]  .header__icons .header__icon span{
     font-size: 15px;
     font-style: normal;
