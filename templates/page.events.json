@@ -258,15 +258,16 @@
         },
         "faq_block_iATR48": {
           "type": "faq_block",
+          "name": "ICOI",
           "settings": {
-            "faq_question": "Yankee Dental Conference  | Boston, MA | 1/29/26 - 1/31/26",
+            "faq_question": "ICOI Winter Implant Symposium | Washington, DC | 3/19/26 - 3/21/26",
             "faq_logo": "shopify://shop_images/Yankee_DC_Logo.jpg",
-            "faq_title": "Yankee Dental Conference",
-            "faq_subtitle": "Thomas M. Menino Convention & Exhibition Center",
-            "faq_address": "<p>415 Summer St.<br/>Boston, MA 02210<br/></p>",
-            "website_text": "www.yankeedental.com",
+            "faq_title": "ICOI Winter",
+            "faq_subtitle": "The Westin Washington, DC Downtown",
+            "faq_address": "<p>999 9th St NW, Washington, DC 20001</p>",
+            "website_text": "www.icoi.world",
             "faq_website": "https://www.yankeedental.com/",
-            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.881494531568!2d-71.04977322389145!3d42.34504987119433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e37a817c440cf5%3A0x2c611a8552d64981!2sThomas%20M.%20Menino%20Convention%20%26%20Exhibition%20Center!5e0!3m2!1sen!2sus!4v1765904029455!5m2!1sen!2sus\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade"
+            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.9823613430085!2d-77.02638382406296!3d38.901518671723245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7b9b11fff37%3A0x5afcf657c69c5f00!2sThe%20Westin%20DC%20Downtown!5e0!3m2!1sen!2sus!4v1770407200549!5m2!1sen!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\""
           }
         }
       },
