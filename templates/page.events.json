@@ -242,15 +242,16 @@
         },
         "faq_block_hpynXX": {
           "type": "faq_block",
+          "name": "Hinman",
           "settings": {
-            "faq_question": "Rocky Mountain Dental Convention | Denver, CO | 1/22/26 - 1/24/26",
-            "faq_logo": "shopify://shop_images/RMDC.png",
-            "faq_title": "Rocky Mountain Dental Convention",
-            "faq_subtitle": "Colorado Convention Center",
-            "faq_address": "<p>700 14th St.<br/>Denver, CO 80202<br/></p>",
-            "website_text": "www.rmdconline.com",
+            "faq_question": "Hinman Dental Meeting | Atlanta, GA | 3/13/26 - 3/15/26",
+            "faq_logo": "shopify://shop_images/Hinman.jpg",
+            "faq_title": "Hinman Dental Meeting",
+            "faq_subtitle": "Georgia World Congress Center, Building A",
+            "faq_address": "<p>285 Andrew Young International Blvd. N.W.</p><p>Atlanta, GA 30313<br/><br/></p>",
+            "website_text": "www.hinman.org",
             "faq_website": "https://rmdconline.com/",
-            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.844857335561!2d-104.99813192402218!3d39.743135671555834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c78d17bd9d871%3A0x580ecf50af57c3cf!2sColorado%20Convention%20Center!5e0!3m2!1sen!2sus!4v1765903626334!5m2!1sen!2sus\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade"
+            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.9941639777717!2d-84.40375402429596!3d33.76081667326821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f504818f2a1629%3A0x8fde03ad072d9d13!2sGeorgia%20World%20Congress%20Center%20-%20Building%20C%2C%20285%20Andrew%20Young%20International%20Blvd%20NW%2C%20Atlanta%2C%20GA%2030313!5e0!3m2!1sen!2sus!4v1770404461341!5m2!1sen!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\""
           }
         },
         "faq_block_iATR48": {
