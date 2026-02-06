@@ -1,8 +1,7 @@
 {% comment %}
   Save this as: sections/shipping-threshold.liquid
+  Note: shipping-threshold.css was removed - file did not exist (caused MIME/404). Styles are in section schema below.
 {% endcomment %}
-
-{{ 'shipping-threshold.css' | asset_url | stylesheet_tag }}
 
 {% if template.name == 'collection' or template.name == 'product' or template.name == 'cart' %}
 <div class="shipping-threshold-wrapper" data-threshold="{{ section.settings.shipping_threshold }}">
