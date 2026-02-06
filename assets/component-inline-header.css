@@ -603,6 +603,9 @@ body.product.mega-menu-open ul.list-menu.list-menu--inline {
 .header__heading-logo {
     max-width: 200px;
 }
+html[lang="fr"]   .header--middle-left .header__inline-menu ul.list-menu.list-menu--inline>li>.list-menu__item, header-menu>details>.list-menu__item{
+    font-size: 13px;
+}
 }
 
 
