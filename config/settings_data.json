@@ -141,7 +141,7 @@
     "header_wishlist_label": "Wishlist",
     "header_search_placeholder": "Find products by name or SKU",
     "breadcrumb_home_label": "Home",
-    "breadcrumb_products_label": "",
+    "breadcrumb_products_label": "Products",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
