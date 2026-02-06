@@ -1582,6 +1582,32 @@
         "default": "Shop Hygiene Collection"
       }
     ]
+  },
+  {
+    "name": "Header content",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Heading header content"
+      },
+      {
+        "type": "text",
+        "id": "header_products_label",
+        "label": "Products menu label",
+        "default": "Products"
+      },
+      {
+        "type": "text",
+        "id": "header_wishlist_label",
+        "label": "Wishlist label",
+        "default": "Wishlist"
+      },
+      {
+        "type": "text",
+        "id": "header_search_placeholder",
+        "label": "Search placeholder",
+        "default": "Find products by name or SKU"
+      }
+    ]
   }
-
 ]
