@@ -677,7 +677,10 @@ html[lang="es"] .header--middle-left .header__inline-menu ul.list-menu.list-menu
 .mega-menu-layout .mega-menu-right {
     width: 260px;
 }
-
+html[lang="fr"]  .header__icons .header__icon{
+    max-width:100%;
+    width:100%;
+}
 
 }
 
