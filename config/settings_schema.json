@@ -1681,6 +1681,28 @@
         "id": "product_ask_question_label",
         "label": "Ask question link text",
         "default": "Ask question"
+      },
+      {
+        "type": "header",
+        "content": "Product page (accordion)"
+      },
+      {
+        "type": "text",
+        "id": "product_accordion_description_label",
+        "label": "Accordion: Product description title",
+        "default": "Product Description"
+      },
+      {
+        "type": "text",
+        "id": "product_accordion_whats_included_label",
+        "label": "Accordion: What's included title",
+        "default": "WHAT'S INCLUDED"
+      },
+      {
+        "type": "text",
+        "id": "product_accordion_specifications_label",
+        "label": "Accordion: Specifications title",
+        "default": "Specifications"
       }
     ]
   }
