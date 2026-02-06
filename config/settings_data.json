@@ -138,6 +138,8 @@
     "february_popup_subheading": "Buy 5 Hygiene Instruments, Get 1 Free",
     "february_popup_cta_label": "SHOP HYGIENE COLLECTION",
     "header_products_label": "Products",
+    "header_wishlist_label": "Wishlist",
+    "header_search_placeholder": "Find products by name or SKU",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
