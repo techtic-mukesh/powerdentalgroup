@@ -190,7 +190,9 @@
       "block_order": [
         "rivo_loyalty_rewards_referrals_potential_points_fnhcC7"
       ],
-      "disabled": true,
+      "custom_css": [
+        "{display: none;}"
+      ],
       "settings": {
         "include_margins": true
       }
