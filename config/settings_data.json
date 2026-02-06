@@ -142,7 +142,7 @@
     "header_search_placeholder": "Find products by name or SKU",
     "breadcrumb_home_label": "Home",
     "breadcrumb_products_label": "Products",
-    "product_sku_label": "",
+    "product_sku_label": "SKU",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
