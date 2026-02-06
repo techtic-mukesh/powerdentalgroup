@@ -241,7 +241,7 @@
                     role="status"
                     {{ block.shopify_attributes }}
                   >
-                    <span class="">{{ 'products.product.sku' | t }}:</span>
+                    <span class="">{{ settings.product_sku_label | default: 'SKU' }}:</span>
                     {{- product.selected_or_first_available_variant.sku -}}
                   </p>
 
@@ -251,11 +251,11 @@
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                         <circle cx="8" cy="8" r="7" fill="#28A745"/>
                       </svg>
-                    </span> In Stock
+                    </span> {{ settings.product_in_stock_label | default: 'In Stock' }}
                   </span>
                 {% else %}
                   <span class="product-stock out-of-stock">
-                    <span class="stock-dot"></span> Out of Stock
+                    <span class="stock-dot"></span> {{ settings.product_out_of_stock_label | default: 'Out of Stock' }}
                   </span>
                 {% endif %}
                 </div>
