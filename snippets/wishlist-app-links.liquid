@@ -1,11 +1,12 @@
+{% assign header_wishlist_label = settings.header_wishlist_label | default: 'Wishlist' %}
 {% if linkType == 'wishlist-drawer-link' %}
-  <a class="iwishDrawer header__icon" href="#" title="Wishlist">
+  <a class="iwishDrawer header__icon" href="#" title="{{ header_wishlist_label }}">
     <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
   <path d="M13.7498 3.83301C16.3915 3.83301 18.1665 6.31634 18.1665 8.63301C18.1665 13.3247 10.7998 17.1663 10.6665 17.1663C10.5332 17.1663 3.1665 13.3247 3.1665 8.63301C3.1665 6.31634 4.9415 3.83301 7.58317 3.83301C9.09984 3.83301 10.0915 4.59134 10.6665 5.25801C11.2415 4.59134 12.2332 3.83301 13.7498 3.83301Z" stroke="#333333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-    <span>Wishlist</span> <span class="iwish-counter"></span></a>
+    <span>{{ header_wishlist_label }}</span> <span class="iwish-counter"></span></a>
 {% elsif linkType == 'wishlist-page-link' %}
-  <a class="iwishPage header__icon small-hide" href="{% unless routes.root_url == '/' %}{{ routes.root_url }}{% endunless %}/apps/iwish" title="Wishlist">Wishlist <span class="iwish-counter">0</span></a>
+  <a class="iwishPage header__icon small-hide" href="{% unless routes.root_url == '/' %}{{ routes.root_url }}{% endunless %}/apps/iwish" title="{{ header_wishlist_label }}">{{ header_wishlist_label }} <span class="iwish-counter">0</span></a>
 {% elsif linkType == 'list-product' %}
   <a class="iWishAddColl iwishcheck" href="#" data-variant="{{ product.variants.first.id }}" data-product="{{ product.id }}" data-pTitle="{{ product.title | escape }}"></a>
 {% elsif linkType == 'single-product' %}
