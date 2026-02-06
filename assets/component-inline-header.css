@@ -681,6 +681,10 @@ html[lang="fr"]  .header__icons .header__icon{
     max-width:100%;
     width:100%;
 }
+html[lang="es"]  .header__icons .header__icon{
+    max-width:100%;
+    width:100%;
+}
 
 }
 
