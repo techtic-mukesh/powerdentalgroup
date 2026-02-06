@@ -144,6 +144,7 @@
     "breadcrumb_products_label": "Products",
     "product_sku_label": "SKU",
     "product_in_stock_label": "In Stock",
+    "product_out_of_stock_label": "",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
