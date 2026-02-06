@@ -65,10 +65,10 @@
       var didSomething = false;
 
       function hasPlaceholder(str) {
-        return str.indexOf('[potential_points]') !== -1 || str.indexOf('[puntos_potenciales]') !== -1;
+        return str.indexOf('[potential_points]') !== -1 || str.indexOf('[puntos_potenciales]') !== -1 || str.indexOf('[points_potentiels]') !== -1;
       }
       function replacePlaceholders(str) {
-        return str.replace(/\[potential_points\]/g, pointsValue).replace(/\[puntos_potenciales\]/g, pointsValue);
+        return str.replace(/\[potential_points\]/g, pointsValue).replace(/\[puntos_potenciales\]/g, pointsValue).replace(/\[points_potentiels\]/g, pointsValue);
       }
       function walkReplaceText(node) {
         if (node.nodeType === Node.TEXT_NODE) {
@@ -80,7 +80,7 @@
           var isPointsSpan = node.classList && (node.classList.contains('order-placed-potential-points-amount') || node.classList.contains('cantidad-de-puntos-potenciales-pedidos'));
           if (isPointsSpan) {
             var current = (node.textContent || '').trim();
-            if (current !== pointsValue && (current === '' || current === '[potential_points]' || current === '[puntos_potenciales]' || !isNaN(parseInt(current, 10)))) {
+            if (current !== pointsValue && (current === '' || current === '[potential_points]' || current === '[puntos_potenciales]' || current === '[points_potentiels]' || !isNaN(parseInt(current, 10)))) {
               node.textContent = pointsValue;
               didSomething = true;
             }
