@@ -228,15 +228,16 @@
         },
         "faq_block_Y8txGF": {
           "type": "faq_block",
+          "name": "PeyRay",
           "settings": {
-            "faq_question": "ORCAA Full Arch Symposium | Las Vegas, NV | 1/15/26 - 1/17/26",
-            "faq_logo": "shopify://shop_images/ORCAA.png",
-            "faq_title": "ORCAA Full Arch Symposium",
-            "faq_subtitle": "Four Seasons Hotel Las Vegas",
-            "faq_address": "<p>3960 S. Las Vegas Blvd.<br/>Las Vegas, NV 89119</p>",
-            "website_text": "www.orcaaglobal.com",
+            "faq_question": "Dr. PeyRay Allon-X Nashville Crash Course | Nashville, TN | 2/27/26",
+            "faq_logo": "shopify://shop_images/Dr._Peyray.jpg",
+            "faq_title": "Allon-X Nashville Crash Course",
+            "faq_subtitle": "Conrad Hotel Nashville",
+            "faq_address": "<p>Opus Junior Ballroom<br/>1620 West End Ave, Nashville, TN 37203</p>",
+            "website_text": "www.drpeyray.com",
             "faq_website": "https://orcaa.zohobackstage.com/ORCAAsFullArchSymposium2026",
-            "faq_link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.10053750354!2d-115.17688382419388!3d36.091037172457725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c5c5a19b6a6b%3A0xf4237071b587e1c!2sFour%20Seasons%20Hotel%20Las%20Vegas!5e0!3m2!1sen!2sus!4v1763497254802!5m2!1sen!2sus\" width=\"400\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade"
+            "faq_link": "https://www.google.com/maps/place/Conrad+Nashville/@36.1540366,-86.7967581,17z/data=!4m9!3m8!1s0x886467ccdb9b5b4f:0x4ee9fbcf0ec148!5m2!4m1!1i2!8m2!3d36.1540366!4d-86.7941832!16s%2Fg%2F11p5qmyxn6?entry=ttu&g_ep=EgoyMDI2MDIwMy4wIKXMDSoASAFQAw%3D%3D"
           }
         },
         "faq_block_hpynXX": {
