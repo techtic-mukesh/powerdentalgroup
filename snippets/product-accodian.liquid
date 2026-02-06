@@ -3,7 +3,7 @@
     <div class="Accordion_item">
       <div class="title_tab">
         <h3 class="title">
-          Product Description
+          {{ settings.product_accordion_description_label | default: 'Product Description' }}
           <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="15" viewBox="0 0 8 15" fill="none">
               <path d="M1 13.7275L7 7.72754L0.999999 1.72754" stroke="#121212" stroke-width="1.5" stroke-linecap="round"
@@ -21,7 +21,7 @@
     <div class="Accordion_item">
       <div class="title_tab">
         <h3 class="title">
-          WHAT'S INCLUDED
+          {{ settings.product_accordion_whats_included_label | default: "WHAT'S INCLUDED" }}
           <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="15" viewBox="0 0 8 15" fill="none">
               <path d="M1 13.7275L7 7.72754L0.999999 1.72754" stroke="#121212" stroke-width="1.5" stroke-linecap="round"
@@ -42,7 +42,7 @@
     <div class="Accordion_item">
       <div class="title_tab">
         <h3 class="title">
-          Specifications
+          {{ settings.product_accordion_specifications_label | default: 'Specifications' }}
           <span class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="15" viewBox="0 0 8 15" fill="none">
               <path d="M1 13.7275L7 7.72754L0.999999 1.72754" stroke="#121212" stroke-width="1.5" stroke-linecap="round"
