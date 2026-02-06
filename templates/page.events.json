@@ -65,7 +65,7 @@
           "type": "event_card",
           "name": "3D Implant",
           "settings": {
-            "event_image": "shopify://shop_images/AAID_Maxicourse_Photo_BW_4_fc8b10ab-1b36-487a-976b-65e1b843ac54.jpg",
+            "event_image": "shopify://shop_images/3D_Implant_Institute_Photo_BW_6a161039-ac76-4a1d-8ecb-21dc086a5666.jpg",
             "event_title": "3D Implant Institute",
             "event_subtitle": "Live Patient Implant Surgical Course",
             "event_logo": "shopify://shop_images/3D_Implant.png",
@@ -82,7 +82,7 @@
           "settings": {
             "event_image": "shopify://shop_images/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
             "event_title": "Misch Institute",
-            "event_subtitle": "Immediate Implants",
+            "event_subtitle": "Full Arch Rehabilitation",
             "event_logo": "shopify://shop_images/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
             "event_date": "February 13-15",
             "event_location": "Ann Arbor, MI",
@@ -95,7 +95,7 @@
           "type": "event_card",
           "name": "ORCAA",
           "settings": {
-            "event_image": "shopify://shop_images/AAID_Maxicourse_Photo_BW_4_fc8b10ab-1b36-487a-976b-65e1b843ac54.jpg",
+            "event_image": "shopify://shop_images/Oasis_Photo_BW.jpg",
             "event_title": "O.R.C.A.A.",
             "event_subtitle": "Observer Track",
             "event_logo": "shopify://shop_images/O.R.C.A.A..png",
@@ -126,9 +126,9 @@
           "settings": {
             "event_image": "shopify://shop_images/Misch_Photo_BW_9_c315e356-eb5c-4024-9d56-f2805ec5d1b4.jpg",
             "event_title": "Misch Institute",
-            "event_subtitle": "Immediate Implants",
+            "event_subtitle": "Single Implant Fundamentals",
             "event_logo": "shopify://shop_images/Misch_Logo_c4c8e6f7-b3c4-47c1-967a-4647596f781a.png",
-            "event_date": "April 4-5",
+            "event_date": "March 14-15",
             "event_location": "Miami, FL",
             "event_credits": "18 CE Credits",
             "button_label": "Register Now",
