@@ -140,7 +140,8 @@
     "header_products_label": "Products",
     "header_wishlist_label": "Wishlist",
     "header_search_placeholder": "Find products by name or SKU",
-    "breadcrumb_home_label": "",
+    "breadcrumb_home_label": "Home",
+    "breadcrumb_products_label": "",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
