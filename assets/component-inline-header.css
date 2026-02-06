@@ -13,7 +13,7 @@ html[lang="fr"]  .middle-header-scope {
     padding: 0 30px;
 }
 html[lang="fr"]  .header__icons .header__icon span{
-    font-size: 10px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: 14px;
@@ -24,7 +24,7 @@ html[lang="es"]  .middle-header-scope {
     padding: 0 30px;
 }
 html[lang="es"]  .header__icons .header__icon span{
-    font-size: 10px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 400;
     line-height: 14px;
@@ -606,6 +606,13 @@ body.product.mega-menu-open ul.list-menu.list-menu--inline {
     pointer-events: none;
 }
 @media only screen and (max-width: 1240px) {
+html[lang="fr"]  .header__icons .header__icon span{
+    font-size: 13px;
+}
+
+html[lang="es"]  .header__icons .header__icon span{
+    font-size: 13px;
+}
 html[lang="fr"] .header--middle-left .header__inline-menu ul.list-menu.list-menu--inline>li>.list-menu__item, header-menu>details>.list-menu__item{
     font-size: 13px;
 }
