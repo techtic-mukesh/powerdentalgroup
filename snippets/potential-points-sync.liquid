@@ -1,0 +1,103 @@
+{% comment %}
+  Syncs potential loyalty points FROM section app block (order-placed-potential-points-amount)
+  INTO main-product app block. Uses section value as source of truth (e.g. after country change).
+  LOCAL CHECK: Inspect the #loy-potential-points inside the product info (price area) —
+  class "loyalty-points-synced" = script ran; data-potential-points-value = number used.
+{% endcomment %}
+<script>
+  (function() {
+    function getPotentialPointsValue() {
+      var allSpans = document.querySelectorAll('span.order-placed-potential-points-amount');
+      var mainProduct = document.querySelector('[id^="MainProduct-"]');
+      var value = null;
+      var fromSection = null;
+      for (var i = 0; i < allSpans.length; i++) {
+        var text = (allSpans[i].textContent || '').trim();
+        if (text && !isNaN(parseInt(text, 10))) {
+          if (mainProduct && !mainProduct.contains(allSpans[i])) {
+            fromSection = text;
+            break;
+          }
+          if (!value) value = text;
+        }
+      }
+      return fromSection !== null ? fromSection : value;
+    }
+
+    function replacePotentialPointsInProductInfo() {
+      var pointsValue = getPotentialPointsValue();
+      var productInfo = document.querySelector('[id^="ProductInfo-"]');
+      if (!productInfo) return false;
+      var container = productInfo.querySelector('#loy-potential-points') || productInfo.querySelector('#potential-points-text');
+      if (!container) return false;
+
+      if (!pointsValue) {
+        container.classList.remove('loyalty-points-synced');
+        container.removeAttribute('data-potential-points-value');
+        container.classList.add('loyalty-points-not-synced');
+        return false;
+      }
+
+      var didSomething = false;
+
+      function walkReplaceText(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          if (node.textContent.indexOf('[potential_points]') !== -1) {
+            node.textContent = node.textContent.replace(/\[potential_points\]/g, pointsValue);
+            return true;
+          }
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          if (node.classList && node.classList.contains('order-placed-potential-points-amount')) {
+            if (node.textContent.trim() !== pointsValue) {
+              node.textContent = pointsValue;
+              didSomething = true;
+            }
+            return false;
+          }
+          if (node.childNodes) {
+            for (var j = 0; j < node.childNodes.length; j++) {
+              if (walkReplaceText(node.childNodes[j])) didSomething = true;
+            }
+          }
+        }
+        return false;
+      }
+      walkReplaceText(container);
+
+      container.classList.add('loyalty-points-synced');
+      container.classList.remove('loyalty-points-not-synced');
+      container.setAttribute('data-potential-points-value', pointsValue);
+      return true;
+    }
+
+    function syncPotentialPoints() {
+      replacePotentialPointsInProductInfo();
+    }
+
+    function run() {
+      syncPotentialPoints();
+      setTimeout(syncPotentialPoints, 800);
+      setTimeout(syncPotentialPoints, 2000);
+      setTimeout(syncPotentialPoints, 4000);
+      if (typeof MutationObserver !== 'undefined') {
+        var syncTimer = null;
+        var observer = new MutationObserver(function(mutations) {
+          for (var m = 0; m < mutations.length; m++) {
+            if (mutations[m].addedNodes && mutations[m].addedNodes.length) {
+              if (!syncTimer) syncTimer = setTimeout(function() { syncTimer = null; syncPotentialPoints(); }, 400);
+              break;
+            }
+          }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+        setTimeout(function() { observer.disconnect(); }, 10000);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', run);
+    } else {
+      run();
+    }
+  })();
+</script>
