@@ -595,8 +595,15 @@ body.product.mega-menu-open ul.list-menu.list-menu--inline {
     pointer-events: none;
 }
 @media only screen and (max-width: 1240px) {
-html[lang="fr"]   .header--middle-left .header__inline-menu ul.list-menu.list-menu--inline>li>.list-menu__item, header-menu>details>.list-menu__item{
+html[lang="fr"] .header--middle-left .header__inline-menu ul.list-menu.list-menu--inline>li>.list-menu__item, header-menu>details>.list-menu__item{
     font-size: 13px;
+}
+html[lang="fr"] summary.list-menu__item {
+    padding-right: 2.3rem;
+}
+html[lang="fr"] summary .icon-caret {
+    width: 14px;
+    height: 14px;
 }
 }
 @media only screen and (max-width: 1280px) {
