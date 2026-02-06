@@ -4,7 +4,7 @@
     <div class="key-features__wrap">
       
       <div class="left-block">
-        <h2>Key Features</h2>
+        <h2>{{ settings.product_key_features_heading | default: 'Key Features' }}</h2>
         {% if product.metafields.custom.featured_use_description != blank %}
           <div class="content">
              {{ product.metafields.custom.featured_use_description | newline_to_br }}
