@@ -40,19 +40,26 @@
 
       var didSomething = false;
 
+      function hasPlaceholder(str) {
+        return str.indexOf('[potential_points]') !== -1 || str.indexOf('[puntos_potenciales]') !== -1;
+      }
+      function replacePlaceholders(str) {
+        return str.replace(/\[potential_points\]/g, pointsValue).replace(/\[puntos_potenciales\]/g, pointsValue);
+      }
       function walkReplaceText(node) {
         if (node.nodeType === Node.TEXT_NODE) {
-          if (node.textContent.indexOf('[potential_points]') !== -1) {
-            node.textContent = node.textContent.replace(/\[potential_points\]/g, pointsValue);
+          if (hasPlaceholder(node.textContent)) {
+            node.textContent = replacePlaceholders(node.textContent);
             return true;
           }
         } else if (node.nodeType === Node.ELEMENT_NODE) {
           if (node.classList && node.classList.contains('order-placed-potential-points-amount')) {
-            if (node.textContent.trim() !== pointsValue) {
+            var current = (node.textContent || '').trim();
+            if (current !== pointsValue && (current === '' || current === '[potential_points]' || current === '[puntos_potenciales]' || !isNaN(parseInt(current, 10)))) {
               node.textContent = pointsValue;
               didSomething = true;
             }
-            return false;
+            return false; // don't walk into span children
           }
           if (node.childNodes) {
             for (var j = 0; j < node.childNodes.length; j++) {
@@ -79,18 +86,26 @@
       setTimeout(syncPotentialPoints, 800);
       setTimeout(syncPotentialPoints, 2000);
       setTimeout(syncPotentialPoints, 4000);
+      setTimeout(syncPotentialPoints, 6000);
+      setTimeout(syncPotentialPoints, 8000);
+      setTimeout(syncPotentialPoints, 12000);
       if (typeof MutationObserver !== 'undefined') {
         var syncTimer = null;
         var observer = new MutationObserver(function(mutations) {
           for (var m = 0; m < mutations.length; m++) {
-            if (mutations[m].addedNodes && mutations[m].addedNodes.length) {
-              if (!syncTimer) syncTimer = setTimeout(function() { syncTimer = null; syncPotentialPoints(); }, 400);
+            var mut = mutations[m];
+            if (mut.addedNodes && mut.addedNodes.length) {
+              if (!syncTimer) syncTimer = setTimeout(function() { syncTimer = null; syncPotentialPoints(); }, 500);
+              break;
+            }
+            if (mut.type === 'characterData' || (mut.target.classList && mut.target.classList.contains('order-placed-potential-points-amount'))) {
+              if (!syncTimer) syncTimer = setTimeout(function() { syncTimer = null; syncPotentialPoints(); }, 500);
               break;
             }
           }
         });
-        observer.observe(document.body, { childList: true, subtree: true });
-        setTimeout(function() { observer.disconnect(); }, 10000);
+        observer.observe(document.body, { childList: true, subtree: true, characterData: true, characterDataOldValue: true });
+        setTimeout(function() { observer.disconnect(); }, 20000);
       }
     }
 
