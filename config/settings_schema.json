@@ -1703,6 +1703,16 @@
         "id": "product_accordion_specifications_label",
         "label": "Accordion: Specifications title",
         "default": "Specifications"
+      },
+      {
+        "type": "header",
+        "content": "Product page (key features)"
+      },
+      {
+        "type": "text",
+        "id": "product_key_features_heading",
+        "label": "Key features section heading",
+        "default": "Key Features"
       }
     ]
   }
