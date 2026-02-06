@@ -1636,5 +1636,32 @@
         "default": "›"
       }
     ]
+  },
+  {
+    "name": "Product page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Product page (SKU & stock)"
+      },
+      {
+        "type": "text",
+        "id": "product_sku_label",
+        "label": "SKU label",
+        "default": "SKU"
+      },
+      {
+        "type": "text",
+        "id": "product_in_stock_label",
+        "label": "In stock label",
+        "default": "In Stock"
+      },
+      {
+        "type": "text",
+        "id": "product_out_of_stock_label",
+        "label": "Out of stock label",
+        "default": "Out of Stock"
+      }
+    ]
   }
 ]
