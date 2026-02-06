@@ -1,9 +1,10 @@
 <section class="custom-breadcrumb-section">
   <div class="page-width breadcrumb-inner">
+    {% assign breadcrumb_sep = settings.breadcrumb_separator | default: '›' %}
     <nav class="breadcrumb-nav">
-      <a href="{{ routes.root_url }}" class="breadcrumb-home">Home</a>
-      <span class="breadcrumb-separator">›</span>
-      <a href="/collections/all" class="breadcrumb-link">Products</a>
+      <a href="{{ routes.root_url }}" class="breadcrumb-home">{{ settings.breadcrumb_home_label | default: 'Home' }}</a>
+      <span class="breadcrumb-separator">{{ breadcrumb_sep }}</span>
+      <a href="/collections/all" class="breadcrumb-link">{{ settings.breadcrumb_products_label | default: 'Products' }}</a>
 
       {% if product %}
         {%- assign filtered_collections = product.collections | where: "handle", "all" | size -%}
@@ -12,15 +13,15 @@
   | reject: "handle", "all" 
   | reject: "handle", "fabg-eligible-products" %}
           {% for collection in visible_collections limit: 2 %}
-            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-separator">{{ breadcrumb_sep }}</span>
             <a href="{{ collection.url }}" class="breadcrumb-link">{{ collection.title }}</a>
           {% endfor %}
         {% endif %}
-        {% comment %} <span class="breadcrumb-separator">›</span>
+        {% comment %} <span class="breadcrumb-separator">{{ breadcrumb_sep }}</span>
         <span class="breadcrumb-current">{{ product.title }}</span> {% endcomment %}
       {% elsif collection %}
         {% if collection.handle != 'all' %}
-          <span class="breadcrumb-separator">›</span>
+          <span class="breadcrumb-separator">{{ breadcrumb_sep }}</span>
           <span class="breadcrumb-current">{{ collection.title }}</span>
         {% endif %}
       {% elsif page %}
