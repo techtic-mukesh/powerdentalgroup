@@ -148,6 +148,7 @@
     "product_list_price_label": "List Price:",
     "product_ask_question_label": "Ask question",
     "product_accordion_description_label": "Product Description",
+    "product_accordion_whats_included_label": "",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
