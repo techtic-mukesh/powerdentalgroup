@@ -6,14 +6,22 @@
 {% endcomment %}
 <script>
   (function() {
+    function parsePointsNumber(str) {
+      if (!str || typeof str !== 'string') return null;
+      var trimmed = str.trim().replace(/,/g, '');
+      return trimmed && !isNaN(parseInt(trimmed, 10)) ? trimmed : null;
+    }
+
     function getPotentialPointsValue() {
-      var allSpans = document.querySelectorAll('span.order-placed-potential-points-amount');
       var mainProduct = document.querySelector('[id^="MainProduct-"]');
       var value = null;
       var fromSection = null;
+
+      var spanSelectors = 'span.order-placed-potential-points-amount, span.cantidad-de-puntos-potenciales-pedidos';
+      var allSpans = document.querySelectorAll(spanSelectors);
       for (var i = 0; i < allSpans.length; i++) {
-        var text = (allSpans[i].textContent || '').trim();
-        if (text && !isNaN(parseInt(text, 10))) {
+        var text = parsePointsNumber(allSpans[i].textContent);
+        if (text) {
           if (mainProduct && !mainProduct.contains(allSpans[i])) {
             fromSection = text;
             break;
@@ -21,14 +29,30 @@
           if (!value) value = text;
         }
       }
-      return fromSection !== null ? fromSection : value;
+      if (fromSection !== null) return fromSection;
+      if (value) return value;
+
+      var sections = document.querySelectorAll('[id^="shopify-section-"]');
+      for (var s = 0; s < sections.length; s++) {
+        if (sections[s].querySelector('[id^="MainProduct-"]')) continue;
+        var block = sections[s].querySelector('#loy-potential-points, #potential-points-text, #puntos-potenciales-de-lealtad, #puntos-potenciales-texto');
+        if (block) {
+          var sectionText = block.textContent || '';
+          var match = sectionText.match(/\b(\d{1,6}(?:,\d{3})*)\b/);
+          if (match) {
+            var parsed = parsePointsNumber(match[1]);
+            if (parsed) return parsed;
+          }
+        }
+      }
+      return null;
     }
 
     function replacePotentialPointsInProductInfo() {
       var pointsValue = getPotentialPointsValue();
       var productInfo = document.querySelector('[id^="ProductInfo-"]');
       if (!productInfo) return false;
-      var container = productInfo.querySelector('#loy-potential-points') || productInfo.querySelector('#potential-points-text');
+      var container = productInfo.querySelector('#loy-potential-points') || productInfo.querySelector('#puntos-potenciales-de-lealtad') || productInfo.querySelector('#potential-points-text') || productInfo.querySelector('#puntos-potenciales-texto');
       if (!container) return false;
 
       if (!pointsValue) {
@@ -53,13 +77,14 @@
             return true;
           }
         } else if (node.nodeType === Node.ELEMENT_NODE) {
-          if (node.classList && node.classList.contains('order-placed-potential-points-amount')) {
+          var isPointsSpan = node.classList && (node.classList.contains('order-placed-potential-points-amount') || node.classList.contains('cantidad-de-puntos-potenciales-pedidos'));
+          if (isPointsSpan) {
             var current = (node.textContent || '').trim();
             if (current !== pointsValue && (current === '' || current === '[potential_points]' || current === '[puntos_potenciales]' || !isNaN(parseInt(current, 10)))) {
               node.textContent = pointsValue;
               didSomething = true;
             }
-            return false; // don't walk into span children
+            return false;
           }
           if (node.childNodes) {
             for (var j = 0; j < node.childNodes.length; j++) {
@@ -98,7 +123,8 @@
               if (!syncTimer) syncTimer = setTimeout(function() { syncTimer = null; syncPotentialPoints(); }, 500);
               break;
             }
-            if (mut.type === 'characterData' || (mut.target.classList && mut.target.classList.contains('order-placed-potential-points-amount'))) {
+            var isPointsSpan = mut.target.classList && (mut.target.classList.contains('order-placed-potential-points-amount') || mut.target.classList.contains('cantidad-de-puntos-potenciales-pedidos'));
+            if (mut.type === 'characterData' || isPointsSpan) {
               if (!syncTimer) syncTimer = setTimeout(function() { syncTimer = null; syncPotentialPoints(); }, 500);
               break;
             }
