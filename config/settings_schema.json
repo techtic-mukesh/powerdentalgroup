@@ -1661,6 +1661,16 @@
         "id": "product_out_of_stock_label",
         "label": "Out of stock label",
         "default": "Out of Stock"
+      },
+      {
+        "type": "header",
+        "content": "Product page (price)"
+      },
+      {
+        "type": "text",
+        "id": "product_list_price_label",
+        "label": "List price label (compare-at)",
+        "default": "List Price:"
       }
     ]
   }
