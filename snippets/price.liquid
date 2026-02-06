@@ -67,7 +67,7 @@
 
       {%- if compare_at_price > price -%}
         <div class="compare-price">
-          List Price:
+          {{ settings.product_list_price_label | default: 'List Price:' }}
           <s>{{ compare_money_price }}</s>
         </div>
       {%- endif -%}
