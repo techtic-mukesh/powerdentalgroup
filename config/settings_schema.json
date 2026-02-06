@@ -1609,5 +1609,32 @@
         "default": "Find products by name or SKU"
       }
     ]
+  },
+  {
+    "name": "Product breadcrumb",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Product breadcrumb"
+      },
+      {
+        "type": "text",
+        "id": "breadcrumb_home_label",
+        "label": "Home label",
+        "default": "Home"
+      },
+      {
+        "type": "text",
+        "id": "breadcrumb_products_label",
+        "label": "Products label",
+        "default": "Products"
+      },
+      {
+        "type": "text",
+        "id": "breadcrumb_separator",
+        "label": "Separator (e.g. › or /)",
+        "default": "›"
+      }
+    ]
   }
 ]
