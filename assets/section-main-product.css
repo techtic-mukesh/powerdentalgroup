@@ -25,7 +25,7 @@ product-info {
     align-items: center;
     gap: 32px;
     position: relative;
-    margin: 40px 0;
+    margin: 20px 0;
 }
 
 .product__info-wrapper .sku-wrap p {
