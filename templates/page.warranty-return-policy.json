@@ -64,6 +64,7 @@
       "blocks": {
         "policy_item_wUppX9": {
           "type": "policy_item",
+          "name": "Shipping Policy",
           "settings": {
             "policy_title": "Shipping Policy",
             "policy_content": "<p>In accordance with OSHA and applicable state health regulations, all used instruments must be sterilized prior to return in order to maintain eligibility for return or warranty consideration. Failure to comply with this requirement will result in rejection of the return or service order and nullification of any associated refund, credit, or warranty claim. </p><p>Customers are responsible for all shipping costs associated with returns. If a Power Dental return label is used, a shipping charge of $15.99 for a USPS return label or $18.50 for a FedEx return label will be applied to the order or deducted from the refund or credit. Power Dental return labels are not insured; customers wishing to insure their shipment must use their own carrier and shipping label. Lost packages must be reported within two weeks of shipment, and customers are responsible for retaining tracking information. </p><p>To prevent transit damage and ensure the safety of handling personnel, all contents must be securely packaged and properly cushioned. Signature-required delivery is recommended when appropriate.<br/><br/></p>"
